@@ -1,0 +1,189 @@
+<!DOCTYPE html!>
+<head>
+    <title>sabre/dav</title>
+
+    <link rel="stylesheet" type="text/css" href="http://fruux.github.io/sabredav.org//css/sabredav.css" /> 
+    <link rel="stylesheet" href=""http://fonts.googleapis.com/css?family=Roboto:100,700,300,400"" type="text/css">
+    <link rel="stylesheet" href="http://fruux.github.io/sabredav.org//components/highlightjs/styles/github.css" type="text/css" />
+
+</head>
+<body>
+    <header>
+
+    <div class="logo">
+        <a href="http://fruux.github.io/sabredav.org//">
+            <img src="http://fruux.github.io/sabredav.org//img/logo.png" alt="SabreDAV. A WebDAV framework for PHP.">
+            SabreDAV wiki
+        </a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/dav</a></li>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/event</a></li>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/http</a></li>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/vobject</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+    <main>
+        <aside>
+    <ul>
+        <li><a href="http://fruux.github.io/sabredav.org//">Home</a></li>
+        <li><a href="http://fruux.github.io/sabredav.org//dav/install">Installation</a></li>
+        <li><a href="http://fruux.github.io/sabredav.org//dav/gettingstarted">Getting Started</a></li>
+        <li>
+            Troubleshooting
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/faq">FAQ</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/clients">Clients</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/webservers">Webservers</a></li>
+            </ul>
+        </li>
+        <li>
+            CalDAV
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/caldav">Getting started</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/caldav-proxy">Delegation</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/caldav-sharing">Calendar sharing</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/ics-export-plugin">iCalendar export</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/imiphandler">iMip Handler</a></li>
+            </ul>
+        </li>
+        <li>
+            CardDAV
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/carddav">Getting started</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/carddav-directory">CardDAV Directory</a></li>
+            </ul>
+        </li>
+        <li>
+            Other topics
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/acl">Acl</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/authentication">Authentication</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/character-encoding">Character encoding</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/browser-plugin">Directory indexes</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/davmount">DavMount</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/guesscontenttype">Content Types</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/plugins">Plugins</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/scalability">Scalability</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/versioning">Versioning</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/virtual-filesystems">Virtual filesystems</a></li>
+            </ul>
+        </li>
+    </ul>
+</aside>
+        <article>
+            <h1>Installation</h1>
+
+<p>SabreDAV can either by installed using <a href="http://getcomposer.org/">composer</a>, or manually, using a zip file.
+it is highly recommended to use the former.</p>
+
+<h2>Requirements</h2>
+
+<p>You will need a recent version of PHP. SabreDAV currently requires PHP 5.3, but
+the next major release will require PHP 5.4</p>
+
+<p>SabreDAV runs on any PHP-capable webserver. For maximum compatibility,
+apache 2 with mod_php is recommended. This is especially true if you plan to
+a file server. Card- and CalDAV servers run fine through FastCGI as well.</p>
+
+<p>It's recommended to avoid Lighttpd altogether. See <a href="/dav/webservers">Webservers</a>
+for more information.</p>
+
+<p>PHP Version requirements:</p>
+
+<table>
+<thead>
+<tr>
+  <th>SabreDAV version</th>
+  <th>PHP Version</th>
+  <th>First stable release</th>
+  <th>End of support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1.5</td>
+  <td>5.2</td>
+  <td>August 2011</td>
+  <td>February 2013 (EOL)</td>
+</tr>
+<tr>
+  <td>1.6</td>
+  <td>5.3</td>
+  <td>February 2012</td>
+  <td>November 2013 (EOL)</td>
+</tr>
+<tr>
+  <td>1.7</td>
+  <td>5.3</td>
+  <td>October 2012</td>
+  <td>May 2014</td>
+</tr>
+<tr>
+  <td>1.8</td>
+  <td>5.3</td>
+  <td>November 2012</td>
+  <td></td>
+</tr>
+<tr>
+  <td>1.9 (in alpha)</td>
+  <td>5.4</td>
+  <td></td>
+  <td></td>
+</tr>
+</tbody>
+</table>
+
+<h2>Installing with composer</h2>
+
+<p>If composer is not yet on your system, <a href="https://getcomposer.org/doc/00-intro.md#installation-nix">follow the instructions on getcomposer.org</a>
+to do so.</p>
+
+<p>To start a new sabredav-based project, create a new empty directory. In this
+directory, create a file named <code>composer.json</code>.</p>
+
+<p>This file should look like this:</p>
+
+<pre><code>{
+    "require" : {
+        "sabre/dav" : "1.8.*"
+    }
+}
+</code></pre>
+
+<p>This rule ensures that you install the latest SabreDAV package in the 1.8
+range of packages, but does not install 1.9 or higher, which would likely
+result in breaking stuff.</p>
+
+<p>After you have created this file, you can install sabredav with the following
+command:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>The autoloader is in <code>vendor/autoload.php</code>.</p>
+
+<h2>Manual installation</h2>
+
+<p>You can also <a href="https://github.com/fruux/sabre-dav/releases">download</a> the latest package manually. This package is
+distributed as a zip file.</p>
+
+<p>To use it, just unzip it and include the <code>autoload.php</code> file in the <code>vendor/</code>
+directory.</p>
+
+<h2>Next Steps</h2>
+
+<p>Head over to <a href="/dav/gettingstarted">Getting Started</a> to see what's next.</p>
+        </article>
+    </main>
+
+    <script src="http://fruux.github.io/sabredav.org//components/highlightjs/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</body>

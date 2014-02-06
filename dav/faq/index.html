@@ -1,0 +1,232 @@
+<!DOCTYPE html!>
+<head>
+    <title>sabre/dav</title>
+
+    <link rel="stylesheet" type="text/css" href="http://fruux.github.io/sabredav.org//css/sabredav.css" /> 
+    <link rel="stylesheet" href=""http://fonts.googleapis.com/css?family=Roboto:100,700,300,400"" type="text/css">
+    <link rel="stylesheet" href="http://fruux.github.io/sabredav.org//components/highlightjs/styles/github.css" type="text/css" />
+
+</head>
+<body>
+    <header>
+
+    <div class="logo">
+        <a href="http://fruux.github.io/sabredav.org//">
+            <img src="http://fruux.github.io/sabredav.org//img/logo.png" alt="SabreDAV. A WebDAV framework for PHP.">
+            SabreDAV wiki
+        </a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/dav</a></li>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/event</a></li>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/http</a></li>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/vobject</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+    <main>
+        <aside>
+    <ul>
+        <li><a href="http://fruux.github.io/sabredav.org//">Home</a></li>
+        <li><a href="http://fruux.github.io/sabredav.org//dav/install">Installation</a></li>
+        <li><a href="http://fruux.github.io/sabredav.org//dav/gettingstarted">Getting Started</a></li>
+        <li>
+            Troubleshooting
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/faq">FAQ</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/clients">Clients</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/webservers">Webservers</a></li>
+            </ul>
+        </li>
+        <li>
+            CalDAV
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/caldav">Getting started</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/caldav-proxy">Delegation</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/caldav-sharing">Calendar sharing</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/ics-export-plugin">iCalendar export</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/imiphandler">iMip Handler</a></li>
+            </ul>
+        </li>
+        <li>
+            CardDAV
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/carddav">Getting started</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/carddav-directory">CardDAV Directory</a></li>
+            </ul>
+        </li>
+        <li>
+            Other topics
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/acl">Acl</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/authentication">Authentication</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/character-encoding">Character encoding</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/browser-plugin">Directory indexes</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/davmount">DavMount</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/guesscontenttype">Content Types</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/plugins">Plugins</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/scalability">Scalability</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/versioning">Versioning</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/virtual-filesystems">Virtual filesystems</a></li>
+            </ul>
+        </li>
+    </ul>
+</aside>
+        <article>
+            <h1>Frequently Asked Questions</h1>
+
+<h2>What is WebDAV?</h2>
+
+<p>WebDAV is a network filesystem protocol. You can compare it to for windows
+networking, FTP, SFTP. The WebDAV protocol is supported natively by Microsoft
+Windows, OS/X and pretty much any Linux distribution.</p>
+
+<p>WebDAV is a protocol that sits on top of the HTTP protocol, because of this it
+also works often through corporate firewalls.</p>
+
+<p>See <a href="http://en.wikipedia.org/wiki/Webdav">wikipedia</a> or <a href="http://webdav.org/">webdav.org</a> for more information.</p>
+
+<h2>What is SabreDAV?</h2>
+
+<p>SabreDAV is a WebDAV server completely built in PHP. This means all you need
+to enable WebDAV access to your Web server is PHP.</p>
+
+<h2>What is CalDAV?</h2>
+
+<p>CalDAV is a standard that is built on top of WebDAV. CalDAV is used for
+calendar-syncing, and all kinds of other calendar-related storage. It is
+supported by a lot of popular calendaring applications.</p>
+
+<p><a href="http://en.wikipedia.org/wiki/CalDAV">Wikipedia</a> has a lot more information about this.</p>
+
+<h2>What is CardDAV?</h2>
+
+<p>What CalDAV does for calendars, CardDAV does for address books. CardDAV is the
+standard protocol to manage and sync addressbooks, and is also supported by a
+lot of clients and services.</p>
+
+<p>Check <a href="http://en.wikipedia.org/wiki/CardDAV">wikipedia</a> for more info.</p>
+
+<h2>Is SabreDAV stable?</h2>
+
+<p>SabreDAV has been deployed by live applications since 2007, and more than 98%
+of the code is covered by unittests. It is currently in use by multiple
+corporations. The largest installations manage addressbooks and calendars for
+millions of users.</p>
+
+<p>No software is bugfree though, but SabreDAV is actively maintained, so if
+anything pops up we're usually quick to respond.</p>
+
+<h2>Why would I use SabreDAV instead of Apache's mod_dav?</h2>
+
+<p>If <a href="http://httpd.apache.org/docs/2.2/mod/mod_dav.html">mod_dav</a> does what you need, you probably don't need SabreDAV. SabreDAV
+is intended as an easily programmable webdav server. SabreDAV supports more
+clients and also does Cal- and CardDAV, whereas mod_dav does not</p>
+
+<p>If you don't have a need for those features, mod_dav is likely a better choice
+as it's not written in PHP, and likely faster.</p>
+
+<h2>It doesn't work!</h2>
+
+<p>DAV is tricky to debug, because unlike with building web applications, there
+is no browser that simply shows you useful error messages.</p>
+
+<p>The first step you should make, is to use the
+<a href="/dav/brower-plugin">browser plugin</a>. This plugin creates directory indexes,
+and will allow you to browse around using your standard webbrowser. If you're
+already seeing errors there, it may give away quickly where your
+problem is.</p>
+
+<p>It's also recommended to keep an eye on the error log.</p>
+
+<p>Failing that, we highly recommend setting up <a href="http://www.charlesproxy.com/download/">Charles HTTP Proxy</a>. This
+tool is pretty much running for us 24/7. Whenever we run into <em>any</em> issue this
+is where we start debugging.</p>
+
+<p>If you're still running into issues, contact us on the <a href="http://groups.google.com/group/sabredav-discuss">mailing list</a>, or
+<a href="https://github.com/fruux/sabre-dav/issues/new">open an issue on github</a>.</p>
+
+<h2>Authentication doesn't work</h2>
+
+<p>There are several server configurations that can affect wether authentication
+will work. The <a href="/dav/authentication">Authentication</a> and
+<a href="/dav/webservers">Webservers</a> wiki pages have more info.</p>
+
+<h2>Which clients are supported?</h2>
+
+<p>Almost every client we've gotten our hands on fully work, but for some there
+may be some caveats, of you may be required to upgrade to a later version.</p>
+
+<p>Check out the <a href="/dav/clients">Client list</a> to get more infromation about a
+specific client. If you're running into issues with a specific client, we
+would <a href="http://groups.google.com/group/sabredav-discuss">love to hear it</a> so we can see if we can devise a workaround, or
+at least document the behavior.</p>
+
+<h2>Does SabreDAV pass the litmus test?</h2>
+
+<p><a href="/dav/litmus">Litmus</a> is a handy tool that helps you test your WebDAV server
+for all standard features. The current status of the litmus test can be found
+on the <a href="/dav/litmus">Litmus</a> page.</p>
+
+<h2>Can SabreDAV work with large files?</h2>
+
+<p>Yes, read <a href="/dav/working-with-large-files">Working with large files</a>.</p>
+
+<h2>Does SabreDAV work with Microsoft Outlook?</h2>
+
+<p>Outlook does not support CalDAV, and therefore it is also not possible to sync
+with SabreDAV (or any other CalDAV implementation).</p>
+
+<p>There's a few plugins though that add this functionality to outlook:</p>
+
+<p><a href="http://www.bynari.net/products-page/product-category/bynari-webdav-collaborator/">Bynari WebDAV collaborator</a> is a very active, non-free plugin for outlook.
+It works well with SabreDAV and syncs contacts, calendars and tasks.</p>
+
+<p><a href="http://ical.gutentag.ch/">iCal4OL</a> is another (non-free, but it has a trial). I have personally not
+tested it so if it worked with SabreDAV, but we have had good reports.</p>
+
+<p><a href="http://openconnector.org/">Open Connector</a> is a free plugin for Outlook that is supposed to provide
+support for this, but the project appears unmaintained since 2008, and I
+personally haven't gotten it to work. If you did, let me know how.</p>
+
+<h2>I'm getting 0-byte files on the server</h2>
+
+<p>Read <a href="/dav/0bytes">0 bytes</a>.</p>
+
+<h2>How can I help?</h2>
+
+<p>We're definitely short on people. If you'd like to contribute, here are some
+areas we could use some help with:</p>
+
+<ul>
+<li>Writing documentation. The documentation is coming along, but still a little
+sparse.</li>
+<li>Blog about the project! Tell us how you're using it.</li>
+<li>Core development.</li>
+<li>Sponsor a feature.</li>
+<li>Hire maintainers of this project to integrate WebDAV in your application.</li>
+</ul>
+
+<p>SabreDAV is now developed at <a href="https://fruux.com/">fruux</a>, for the last two items in this list
+it would be best to contact us through support@fruux.com to help you further.</p>
+
+<h2>I have a different question</h2>
+
+<p>Hit us up on the <a href="http://groups.google.com/group/sabredav-discuss">mailing list</a>.</p>
+
+<h2>I'd like to get commercial support</h2>
+
+<p>SabreDAV is developed by <a href="https://fruux.com/">fruux</a>. If you're looking for enterprise-level
+support, we'd love to hear from you!</p>
+        </article>
+    </main>
+
+    <script src="http://fruux.github.io/sabredav.org//components/highlightjs/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</body>

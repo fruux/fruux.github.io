@@ -1,0 +1,316 @@
+<!DOCTYPE html!>
+<head>
+    <title>sabre/dav</title>
+
+    <link rel="stylesheet" type="text/css" href="http://fruux.github.io/sabredav.org//css/sabredav.css" /> 
+    <link rel="stylesheet" href=""http://fonts.googleapis.com/css?family=Roboto:100,700,300,400"" type="text/css">
+    <link rel="stylesheet" href="http://fruux.github.io/sabredav.org//components/highlightjs/styles/github.css" type="text/css" />
+
+</head>
+<body>
+    <header>
+
+    <div class="logo">
+        <a href="http://fruux.github.io/sabredav.org//">
+            <img src="http://fruux.github.io/sabredav.org//img/logo.png" alt="SabreDAV. A WebDAV framework for PHP.">
+            SabreDAV wiki
+        </a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/dav</a></li>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/event</a></li>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/http</a></li>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/vobject</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+    <main>
+        <aside>
+    <ul>
+        <li><a href="http://fruux.github.io/sabredav.org//">Home</a></li>
+        <li><a href="http://fruux.github.io/sabredav.org//dav/install">Installation</a></li>
+        <li><a href="http://fruux.github.io/sabredav.org//dav/gettingstarted">Getting Started</a></li>
+        <li>
+            Troubleshooting
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/faq">FAQ</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/clients">Clients</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/webservers">Webservers</a></li>
+            </ul>
+        </li>
+        <li>
+            CalDAV
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/caldav">Getting started</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/caldav-proxy">Delegation</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/caldav-sharing">Calendar sharing</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/ics-export-plugin">iCalendar export</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/imiphandler">iMip Handler</a></li>
+            </ul>
+        </li>
+        <li>
+            CardDAV
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/carddav">Getting started</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/carddav-directory">CardDAV Directory</a></li>
+            </ul>
+        </li>
+        <li>
+            Other topics
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/acl">Acl</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/authentication">Authentication</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/character-encoding">Character encoding</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/browser-plugin">Directory indexes</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/davmount">DavMount</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/guesscontenttype">Content Types</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/plugins">Plugins</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/scalability">Scalability</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/versioning">Versioning</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/virtual-filesystems">Virtual filesystems</a></li>
+            </ul>
+        </li>
+    </ul>
+</aside>
+        <article>
+            <h1>Virtual Filesystems</h1>
+
+<p>SabreDAV is built to easily adapt existing business logic onto a virtual network filesystem. This document explores how this can be setup.</p>
+
+<ul>
+<li>It is assummed in this tutorial that the reader has already went through the <a href="dav/gettingstarted">GettingStarted</a> and <a href="dav/faq">FAQ</a> manuals.</li>
+<li>In the code examples it is assumed all mentioned classes are currently loaded in through an include.</li>
+</ul>
+
+<h2>High-level API</h2>
+
+<p>SabreDAV is shipped with an API that should ease creating directory-tree structures.</p>
+
+<h2>Files and Directories</h2>
+
+<p>Files and Directories both implement the <code>Sabre\DAV\INode</code> interface, this interface dictates the following methods should be implemented:</p>
+
+<ul>
+<li><code>delete()</code> - deletes the file/directory.</li>
+<li><code>getName()</code> - returns the file/directory name.</li>
+<li><code>setName($newName)</code> - renames the directory.</li>
+<li><code>getLastModified()</code> - returns the last modification time as a unix timestamp.</li>
+</ul>
+
+<p>Additionally File objects need to implement the following methods:</p>
+
+<ul>
+<li><code>put($data)</code> updates the data in the file.</li>
+<li><code>get()</code> returns the contents of the file.</li>
+<li><code>getETag()</code> - returns a unique identifier of the current state of the file. If the file changes, so should the etag. Etags are surrounded by quotes.</li>
+<li><code>getContentType()</code> - returns the mime-type of the file.</li>
+<li><code>getSize()</code> - returns the size in bytes.</li>
+</ul>
+
+<p>Directories/Collections objects add the following:</p>
+
+<ul>
+<li><code>getChild($name)</code> - Returns a File or Directory object for the child-node of the given name.</li>
+<li><code>getChildren()</code> - Returns an array of File and/or Directory objects.</li>
+<li><code>createFile($name,$data)</code> - Creates a new file with the given name.</li>
+<li><code>createDirectory($name)</code> - Creates a subdirectory with the given name.</li>
+<li><code>childExists($name)</code> - Returns true if a child node exists.</li>
+</ul>
+
+<h2>Inheritance tree</h2>
+
+<pre><code>Sabre\DAV\INode (base interface for all nodes in a tree)
+ +-Sabre\DAV\IFile (base interface for all files)
+ |  +-Sabre\DAV\File (base helper class)
+ |
+ +-Sabre\DAV\ICollection (base interface for all directories)
+    +-Sabre\DAV\Collection (base helper class)
+</code></pre>
+
+<p>Next to the interfaces, there are two helper classes in this diagram (<code>Sabre\DAV\File</code> and <code>Sabre\DAV\Collection</code>). These classes are an easy starting point, as they will lock down most operations by default (by reporting 'permission denied'), so we can start with a read-only filesystem.</p>
+
+<h2>Implementation</h2>
+
+<p>Our read-only filesystem is going to be based off the standard server filesystem.</p>
+
+<h3>Getting the classes ready</h3>
+
+<p>For this demonstration we need to create 2 classes, one for a directory and one for a file. We'll start out with the Directory class:</p>
+
+<pre><code>use Sabre\DAV;
+
+class MyDirectory extends DAV\Collection {
+
+  private $myPath;
+
+  function __construct($myPath) {
+
+    $this-&gt;myPath = $myPath;
+
+  }
+
+  function getChildren() {
+
+    $children = array();
+    // Loop through the directory, and create objects for each node
+    foreach(scandir($this-&gt;myPath) as $node) {
+
+      // Ignoring files staring with .
+      if ($node[0]==='.') continue;
+      $children[] = $this-&gt;getChild($node);
+
+    }
+
+    return $children;
+
+  }
+
+  function getChild($name) {
+
+      $path = $this-&gt;myPath . '/' . $name;
+
+      // We have to throw a NotFound exception if the file didn't exist
+      if (!file_exists($path)) {
+        throw new DAV\Exception\NotFound('The file with name: ' . $name . ' could not be found');
+      }
+
+      // Some added security
+      if ($name[0]=='.')  throw new DAV\Exception\NotFound('Access denied');
+
+      if (is_dir($path)) {
+
+          return new MyDirectory($path);
+
+      } else {
+
+          return new MyFile($path);
+
+      }
+
+  }
+
+  function childExists($name) {
+
+        return file_exists($this-&gt;myPath . '/' . $name);
+
+  }
+
+  function getName() {
+
+      return basename($this-&gt;myPath);
+
+  }
+
+}
+</code></pre>
+
+<p>In the example is shown the absolute minimum of methods that need to be implemented in order to create a read-only directory. I'm hoping the code will speak for itself.</p>
+
+<p>Same goes for the MyFile class:</p>
+
+<pre><code>use Sabre\DAV;
+
+class MyFile extends DAV\File {
+
+  private $myPath;
+
+  function __construct($myPath) {
+
+    $this-&gt;myPath = $myPath;
+
+  }
+
+  function getName() {
+
+    return basename($this-&gt;myPath);
+
+  }
+
+  function get() {
+
+    return fopen($this-&gt;myPath,'r');
+
+  }
+
+  function getSize() {
+
+    return filesize($this-&gt;myPath);
+
+  }
+
+  function getETag() {
+
+    return '"' . md5_file($this-&gt;myPath) . '"';
+
+  }
+
+}
+</code></pre>
+
+<p>It's important thing to note is, that you should usually not pass strings around. Although the <code>get()</code> method can just return a string, especially with larger files it's recommended to use streams (as shown with fopen). The <code>put()</code> and <code>createFile()</code> methods will always get a readable stream resource as arguments.</p>
+
+<h3>Setting up</h3>
+
+<p>I'm explaining the usage of your newly created server through code comments</p>
+
+<pre><code>use Sabre\DAV;
+
+// Make sure there is a directory in your current directory named 'public'. We will be exposing that directory to WebDAV
+$publicDir = new MyDirectory('public');
+
+// The object tree needs in turn to be passed to the server class
+$server = new DAV\Server($publicDir);
+
+// We're required to set the base uri, it is recommended to put your webdav server on a root of a domain
+$server-&gt;setBaseUri('/');
+
+// And off we go!
+$server-&gt;exec();
+</code></pre>
+
+<h3>This is not virtual</h3>
+
+<p>Thats right! This is where you come in. You can make your MyFile and MyDirectory classes completely independent from the actual underlying filesystem. The list of items returned from <code>getChildren</code> could be a list of blogposts, and the 'get' method could return html data.</p>
+
+<h2>Write support</h2>
+
+<p>In order to get writing/modification support you should implement all the remaining methods. A good example of a completely built-out system like this can be found in the <code>Sabre\DAV\FS</code> directory. This system should closely mimic apache's mod_dav. Implementation of these is up to you (and optional) and is not written out in this manual, because at this point this should be fairly simple.</p>
+
+<p>However, this is not enough. <a href="dav/clients/finder">OS/X Finder</a> and <a href="dav/clients/davfs">DavFS</a> will demand you add locking support to your filesystem.</p>
+
+<h2>Locking support</h2>
+
+<p>Locking helps ensuring no 2 people can overwrite each others changes. WebDAV has a system to accommodate locking. The simplest way to implement locking, is to use the Locks Plugin. Simply attach the Lock Manager to your Object Tree class, and you're off. The last example is extended to add a lock manager.</p>
+
+<pre><code>use
+    Sabre\DAV;
+
+// Make sure there is a directory in your current directory named 'public'. We will be exposing that directory to WebDAV
+$publicDir = new MyDirectory('public');
+
+// The root directory is passed to Sabre\DAV\Server.
+$server = new DAV\Server($publicDir);
+
+// We're required to set the base uri, it is recommended to put your webdav server on a root of a domain
+$server-&gt;setBaseUri('/');
+
+// Also make sure there is a 'data' directory, writable by the server. This directory is used to store information about locks
+$lockBackend = new DAV\Locks\Backend\File('data/locks.dat');
+$lockPlugin = new DAV\Locks\Plugin($lockBackend);
+$server-&gt;addPlugin($lockPlugin);
+
+// And off we go!
+$server-&gt;exec();
+</code></pre>
+        </article>
+    </main>
+
+    <script src="http://fruux.github.io/sabredav.org//components/highlightjs/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</body>

@@ -1,0 +1,125 @@
+<!DOCTYPE html!>
+<head>
+    <title>sabre/dav</title>
+
+    <link rel="stylesheet" type="text/css" href="http://fruux.github.io/sabredav.org//css/sabredav.css" /> 
+    <link rel="stylesheet" href=""http://fonts.googleapis.com/css?family=Roboto:100,700,300,400"" type="text/css">
+    <link rel="stylesheet" href="http://fruux.github.io/sabredav.org//components/highlightjs/styles/github.css" type="text/css" />
+
+</head>
+<body>
+    <header>
+
+    <div class="logo">
+        <a href="http://fruux.github.io/sabredav.org//">
+            <img src="http://fruux.github.io/sabredav.org//img/logo.png" alt="SabreDAV. A WebDAV framework for PHP.">
+            SabreDAV wiki
+        </a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/dav</a></li>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/event</a></li>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/http</a></li>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/vobject</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+    <main>
+        <aside>
+    <ul>
+        <li><a href="http://fruux.github.io/sabredav.org//">Home</a></li>
+        <li><a href="http://fruux.github.io/sabredav.org//dav/install">Installation</a></li>
+        <li><a href="http://fruux.github.io/sabredav.org//dav/gettingstarted">Getting Started</a></li>
+        <li>
+            Troubleshooting
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/faq">FAQ</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/clients">Clients</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/webservers">Webservers</a></li>
+            </ul>
+        </li>
+        <li>
+            CalDAV
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/caldav">Getting started</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/caldav-proxy">Delegation</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/caldav-sharing">Calendar sharing</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/ics-export-plugin">iCalendar export</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/imiphandler">iMip Handler</a></li>
+            </ul>
+        </li>
+        <li>
+            CardDAV
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/carddav">Getting started</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/carddav-directory">CardDAV Directory</a></li>
+            </ul>
+        </li>
+        <li>
+            Other topics
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/acl">Acl</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/authentication">Authentication</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/character-encoding">Character encoding</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/browser-plugin">Directory indexes</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/davmount">DavMount</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/guesscontenttype">Content Types</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/plugins">Plugins</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/scalability">Scalability</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/versioning">Versioning</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/virtual-filesystems">Virtual filesystems</a></li>
+            </ul>
+        </li>
+    </ul>
+</aside>
+        <article>
+            <h1>CalDAV Sharing</h1>
+
+<p>Since version 1.7 SabreDAV comes with experimental support for CalDAV-sharing.</p>
+
+<p><strong>Early warning:</strong> Currently SabreDAV provides no implementation for this. This
+is, because in it's current state there is no elegant way to do this.
+The problem lies in the fact that a real CalDAV server with sharing support
+would first need email support (with invite notifications), and really also
+a browser-frontend that allows people to accept or reject these shares.</p>
+
+<p>In addition, the CalDAV backends are currently kept as independent as
+possible, and should not be aware of principals, email addresses or
+accounts.</p>
+
+<p>Adding an implementation for Sharing to standard-sabredav would contradict
+these goals, so for this reason this is currently not implemented, although
+it may very well in the future; but probably not before SabreDAV 2.0.</p>
+
+<p>The interface works however, so if you implement all this, and do it
+correctly sharing <em>will</em> work. It's not particularly easy, and I <em>urge you</em>
+to make yourself acquainted with the following documents first:</p>
+
+<ul>
+<li><a href="https://trac.calendarserver.org/browser/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt">https://trac.calendarserver.org/browser/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt</a></li>
+<li><a href="https://trac.calendarserver.org/browser/CalendarServer/trunk/doc/Extensions/caldav-notifications.txt">https://trac.calendarserver.org/browser/CalendarServer/trunk/doc/Extensions/caldav-notifications.txt</a></li>
+</ul>
+
+<h2>An overview</h2>
+
+<p>Implementing this interface will allow a user to share his or her calendars
+to other users. Effectively, when a calendar is shared the calendar will
+show up in both the Sharer's and Sharee's calendar-home root.</p>
+
+<p>Inviting people is not instant. There should be a notification system
+that clients use to either accept or reject this.</p>
+
+<p>A lot of the documentation can be found in the actual interfaces:
+<code>Sabre\CalDAV\Backend\SharingSupport</code> and <code>Sabre\CalDAV\Backend\NotificationSupport</code>.</p>
+        </article>
+    </main>
+
+    <script src="http://fruux.github.io/sabredav.org//components/highlightjs/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</body>

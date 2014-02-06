@@ -1,0 +1,151 @@
+<!DOCTYPE html!>
+<head>
+    <title>sabre/dav</title>
+
+    <link rel="stylesheet" type="text/css" href="http://fruux.github.io/sabredav.org//css/sabredav.css" /> 
+    <link rel="stylesheet" href=""http://fonts.googleapis.com/css?family=Roboto:100,700,300,400"" type="text/css">
+    <link rel="stylesheet" href="http://fruux.github.io/sabredav.org//components/highlightjs/styles/github.css" type="text/css" />
+
+</head>
+<body>
+    <header>
+
+    <div class="logo">
+        <a href="http://fruux.github.io/sabredav.org//">
+            <img src="http://fruux.github.io/sabredav.org//img/logo.png" alt="SabreDAV. A WebDAV framework for PHP.">
+            SabreDAV wiki
+        </a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/dav</a></li>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/event</a></li>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/http</a></li>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/vobject</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+    <main>
+        <aside>
+    <ul>
+        <li><a href="http://fruux.github.io/sabredav.org//">Home</a></li>
+        <li><a href="http://fruux.github.io/sabredav.org//dav/install">Installation</a></li>
+        <li><a href="http://fruux.github.io/sabredav.org//dav/gettingstarted">Getting Started</a></li>
+        <li>
+            Troubleshooting
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/faq">FAQ</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/clients">Clients</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/webservers">Webservers</a></li>
+            </ul>
+        </li>
+        <li>
+            CalDAV
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/caldav">Getting started</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/caldav-proxy">Delegation</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/caldav-sharing">Calendar sharing</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/ics-export-plugin">iCalendar export</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/imiphandler">iMip Handler</a></li>
+            </ul>
+        </li>
+        <li>
+            CardDAV
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/carddav">Getting started</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/carddav-directory">CardDAV Directory</a></li>
+            </ul>
+        </li>
+        <li>
+            Other topics
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/acl">Acl</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/authentication">Authentication</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/character-encoding">Character encoding</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/browser-plugin">Directory indexes</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/davmount">DavMount</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/guesscontenttype">Content Types</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/plugins">Plugins</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/scalability">Scalability</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/versioning">Versioning</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/virtual-filesystems">Virtual filesystems</a></li>
+            </ul>
+        </li>
+    </ul>
+</aside>
+        <article>
+            <h1>Scalability</h1>
+
+<p>While the default library suffices for small-scall WebDAV installations, there are areas that can be optimized for maximum perfmance, and operations in a load-balanced environment.</p>
+
+<p>This manual aims to cover the most important bits.</p>
+
+<h2>ObjectTree</h2>
+
+<p>All operations are done on Nodes managed by the ObjectTree. In order for the ObjectTree to find the nodes, it must traverse the entire tree.</p>
+
+<p>You should optimize <code>getChildren()</code> and <code>getChild()</code> in your nodes as much as possible to accomodate for it.</p>
+
+<p>You can avoid traversing the tree by subclassing <code>Sabre\DAV\ObjectTree</code> and overriding <code>getChild</code>, <code>getChildren</code> and <code>childExists</code> with your own methods.</p>
+
+<p>If this really helps you highly depends on your situation. Profile first, optimize after.</p>
+
+<h3>Move and Copy</h3>
+
+<p>Move and Copy operations can be slow, especially when moving/copying bigger objects.</p>
+
+<p>Each of these methods traverses the entire tree, and operates on them one-by-one, as an example, a move of a directory follows the following pattern:</p>
+
+<ul>
+<li>The ObjectTree tranverses the entire source tree, for each item it will
+
+<ul>
+<li>do a get() on the source file, and a createFile on the destination (heavy)</li>
+<li>make subdirectories if directories are encountered</li>
+<li>copy all the properties over in a similar fashion (if IProperties is used)</li>
+</ul></li>
+<li>Next, (if it was a move operation) it will traverse the entire source tree again, deleting all files and directories one-by-one</li>
+</ul>
+
+<p>You can override the copy and move functionality by subclassing the ObjectTree, if this makes sense for you. In addition, if you purely use SabreDAV to expose a filesystem, you can choose to use <code>Sabre\DAV\Tree\Filesystem</code> instead of <code>Sabre\DAV\ObjectTree</code>. This class is specifically optimized for plain filesystems.</p>
+
+<h3>Delete</h3>
+
+<p>Deleting files has similar problems, as it will also generally traverse the objecttree. If you have created your own File and Directory objects, you might be able to optimize access by overriding <code>delete()</code>, if your backends allow it.</p>
+
+<h2>CalDAV</h2>
+
+<p>If you created your own CalDAV backend, it may make sense to try to optimize <code>calendarQuery</code>. The <code>Sabre\CalDAV\Backend\AbstractBackend</code> class provides a standard implementation, that fetches every object for a calendar and tries to see if the query filters out the object, or not.</p>
+
+<p>The <code>Sabre\CalDAV\Backend\PDO</code> class tries to optimize this, by filtering a bunch of common queries and directly applying them to the SQL queries.</p>
+
+<p>In some cases it's confident enough to know that no further iCalendar parsing is needed to figure out the final results.</p>
+
+<p>It is also recommended to make sure that your <code>getCalendarObjects</code> method does not return the iCalendar object, but it does return the 'size' and 'etag' property.</p>
+
+<p>This allows the server to not have to fetch the objects at all for certain large operations, which can save a lot of memory.</p>
+
+<h2>Load Balanced SabreDAV</h2>
+
+<p>SabreDAV has a few standard utilities for locking and catching 'temporary files'. These classes (<code>Sabre\DAV\TemporaryFileFilterPlugin</code> and <code>Sabre\DAV\Locks\Backend\FS</code>) store information on the filesystem.</p>
+
+<p>It would be possible to store these files on a network location instead, as long as the network filesystem has proper support for flock() (which NFS as an example doesn't).</p>
+
+<p>Storing locks could be implemented in a database server or caching layer such as memcached, the temporary files are a bit bigger, so that might pose some issues. We chose to not supply any plugins for these alternative backends, as there are a lot of options out there and impossible to cover them all. Instead it was made really easy to extend these subsystems.</p>
+
+<p>Currently 'temporary files' don't get cleaned up, and a cron job should be made to delete older files (>1 hour).</p>
+
+<h2>Large Files</h2>
+
+<p>Read: <a href="dav/working-with-large-files">Working with large files</a>.</p>
+        </article>
+    </main>
+
+    <script src="http://fruux.github.io/sabredav.org//components/highlightjs/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</body>

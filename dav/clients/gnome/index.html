@@ -1,0 +1,161 @@
+<!DOCTYPE html!>
+<head>
+    <title>sabre/dav</title>
+
+    <link rel="stylesheet" type="text/css" href="http://fruux.github.io/sabredav.org//css/sabredav.css" /> 
+    <link rel="stylesheet" href=""http://fonts.googleapis.com/css?family=Roboto:100,700,300,400"" type="text/css">
+    <link rel="stylesheet" href="http://fruux.github.io/sabredav.org//components/highlightjs/styles/github.css" type="text/css" />
+
+</head>
+<body>
+    <header>
+
+    <div class="logo">
+        <a href="http://fruux.github.io/sabredav.org//">
+            <img src="http://fruux.github.io/sabredav.org//img/logo.png" alt="SabreDAV. A WebDAV framework for PHP.">
+            SabreDAV wiki
+        </a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/dav</a></li>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/event</a></li>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/http</a></li>
+            <li><a href="http://fruux.github.io/sabredav.org//">sabre/vobject</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+    <main>
+        <aside>
+    <ul>
+        <li><a href="http://fruux.github.io/sabredav.org//">Home</a></li>
+        <li><a href="http://fruux.github.io/sabredav.org//dav/install">Installation</a></li>
+        <li><a href="http://fruux.github.io/sabredav.org//dav/gettingstarted">Getting Started</a></li>
+        <li>
+            Troubleshooting
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/faq">FAQ</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/clients">Clients</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/webservers">Webservers</a></li>
+            </ul>
+        </li>
+        <li>
+            CalDAV
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/caldav">Getting started</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/caldav-proxy">Delegation</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/caldav-sharing">Calendar sharing</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/ics-export-plugin">iCalendar export</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/imiphandler">iMip Handler</a></li>
+            </ul>
+        </li>
+        <li>
+            CardDAV
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/carddav">Getting started</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/carddav-directory">CardDAV Directory</a></li>
+            </ul>
+        </li>
+        <li>
+            Other topics
+            <ul>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/acl">Acl</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/authentication">Authentication</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/character-encoding">Character encoding</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/browser-plugin">Directory indexes</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/davmount">DavMount</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/guesscontenttype">Content Types</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/plugins">Plugins</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/scalability">Scalability</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/versioning">Versioning</a></li>
+                <li><a href="http://fruux.github.io/sabredav.org//dav/virtual-filesystems">Virtual filesystems</a></li>
+            </ul>
+        </li>
+    </ul>
+</aside>
+        <article>
+            
+<h1>Gnome</h1>
+
+<p>The Gnome client is a solid and efficient WebDAV client.</p>
+
+<h2>Technical details</h2>
+
+<h3>Spotted user agent(s):</h3>
+
+<pre><code>gvfs/1.4.1
+</code></pre>
+
+<h3>Properties</h3>
+
+<p>Gnome will request the following properties:</p>
+
+<ul>
+<li><code>{DAV:}creationdate</code></li>
+<li><code>{DAV:}displayname</code></li>
+<li><code>{DAV:}getcontentlength</code></li>
+<li><code>{DAV:}getcontenttype</code></li>
+<li><code>{DAV:}getetag</code></li>
+<li><code>{DAV:}getlastmodified</code></li>
+<li><code>{DAV:}resourcetype</code></li>
+</ul>
+
+<h3>Redirect references</h3>
+
+<p>Gnome seems to specify the header:</p>
+
+<pre><code>Apply-To-Redirect-Ref: T
+</code></pre>
+
+<p>This is defined in <a href="http://tools.ietf.org/html/rfc4437">rfc4437</a>, and seems to indicate it has support
+for this. This is very interesting, because it might mean it perhaps supports
+hopping from server to server, or softlinks. (needs some investigation).</p>
+
+<h3>Copying directories</h3>
+
+<p>If you are running a Gnome version older than 3.0.2, you may be affected by
+this (pretty serious) issue. Later versions should have this fixed though.</p>
+
+<p>Copying directories completely fails. GVFS does a GET on the source url, and a
+PUT on the destination url. While this works fine for files, for directories
+it's broken.</p>
+
+<p>Often times this results in a file being created at the destination, with the
+contents of whatever a GET on the source was, often a html index.</p>
+
+<p>Reference: <a href="https://bugzilla.gnome.org/show_bug.cgi?id=551339">Gnome bug 551339</a>.</p>
+
+<h3>URL Encoding</h3>
+
+<p>Gnome did not seem to like url-encoding of ( and ). While these have no
+special meaning in http urls, these are considered 'reserved' and encoded by
+for example php's urlencode.</p>
+
+<p>SabreDAV 1.0.12 and 1.2.0alpha1 will ship with a custom urlencoder for this
+purpose.</p>
+
+<p>A more severe issue is that recent versions don't deal well with encoded
+characters at all. SabreDAV defaults to encoding characters to lower-case
+(<code>%c3%a1</code>), while Nautilus only seems to accept them as upper-case (<code>%C1%A1</code>).</p>
+
+<h3>Creating empty files</h3>
+
+<p>Reference: <a href="https://bugzilla.gnome.org/show_bug.cgi?id=603422">Gnome bug 603422</a>.</p>
+
+<p>Gnome has a feature to create a new empty document using the Nautilus
+interface. Gnome will do this with a PUT request with no body. It also doesn't
+send a Content-Length header, which might cause a problem for some webservers,
+which could respond with '411 Length Required'</p>
+ 
+
+        </article>
+    </main>
+
+    <script src="http://fruux.github.io/sabredav.org//components/highlightjs/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</body>

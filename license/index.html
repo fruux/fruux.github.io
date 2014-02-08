@@ -83,51 +83,40 @@
     </ul>
 </aside>
         <article>
-            
-<h1>Cadaver</h1>
+            <h1>License</h1>
 
-<p>Cadaver is a simple command-line client, similar to for example the 'ftp'
-program. It has some advanced features such as lock-management, property
-management, DASL and version control support.</p>
+<p>All the sabre-projects use the three-clause BSD-license.</p>
 
-<h2>Connecting with Cadaver</h2>
+<p>See <a href="http://opensource.org/licenses/BSD-3-Clause">opensource.org</a> for more info.</p>
 
-<pre><code>$ cadaver [url]
+<pre><code>Copyright (C) 2007-2014 fruux GmbH (https://fruux.com/).
+
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+    * Neither the name of SabreDAV nor the names of its contributors
+      may be used to endorse or promote products derived from this software
+      without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+    IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+    ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+    LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+    CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+    SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+    INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+    CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+    POSSIBILITY OF SUCH DAMAGE.
 </code></pre>
-
-<h2>Technical details</h2>
-
-<p>By default it will look for the following properties when using <code>ls</code>.</p>
-
-<pre><code>&lt;propfind xmlns="DAV:"&gt;
-    &lt;prop&gt; 
-        &lt;getcontentlength xmlns="DAV:" /&gt; 
-        &lt;getlastmodified xmlns="DAV:" /&gt; 
-        &lt;executable xmlns="http://apache.org/dav/props/" /&gt; 
-        &lt;resourcetype xmlns="DAV:" /&gt; 
-        &lt;checked-in xmlns="DAV:" /&gt; 
-        &lt;checked-out xmlns="DAV:" /&gt; 
-    &lt;/prop&gt;
-&lt;/propfind&gt;
-</code></pre>
-
-<p>It will also store custom properties, by default under the <code>http://webdav.org/cadaver/custom-properties/</code> namespace.</p>
-
-<p>It makes use of the propname request as well:</p>
-
-<pre><code>&lt;propfind xmlns="DAV:"&gt;
-    &lt;propname /&gt;
-&lt;/propfind&gt;
-</code></pre>
-
-<p>This is at the time of writing not supported by SabreDAV, but is planned for a
-future release.</p>
-
-<h2>Authentication</h2>
-
-<p>Cadaver understands both Digest and Basic HTTP authentication.</p>
- 
-
         </article>
     </main>
 

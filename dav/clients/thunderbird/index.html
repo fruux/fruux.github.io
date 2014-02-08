@@ -84,48 +84,8 @@
 </aside>
         <article>
             
-<h1>Cadaver</h1>
+<h1>Thunderbird</h1>
 
-<p>Cadaver is a simple command-line client, similar to for example the 'ftp'
-program. It has some advanced features such as lock-management, property
-management, DASL and version control support.</p>
-
-<h2>Connecting with Cadaver</h2>
-
-<pre><code>$ cadaver [url]
-</code></pre>
-
-<h2>Technical details</h2>
-
-<p>By default it will look for the following properties when using <code>ls</code>.</p>
-
-<pre><code>&lt;propfind xmlns="DAV:"&gt;
-    &lt;prop&gt; 
-        &lt;getcontentlength xmlns="DAV:" /&gt; 
-        &lt;getlastmodified xmlns="DAV:" /&gt; 
-        &lt;executable xmlns="http://apache.org/dav/props/" /&gt; 
-        &lt;resourcetype xmlns="DAV:" /&gt; 
-        &lt;checked-in xmlns="DAV:" /&gt; 
-        &lt;checked-out xmlns="DAV:" /&gt; 
-    &lt;/prop&gt;
-&lt;/propfind&gt;
-</code></pre>
-
-<p>It will also store custom properties, by default under the <code>http://webdav.org/cadaver/custom-properties/</code> namespace.</p>
-
-<p>It makes use of the propname request as well:</p>
-
-<pre><code>&lt;propfind xmlns="DAV:"&gt;
-    &lt;propname /&gt;
-&lt;/propfind&gt;
-</code></pre>
-
-<p>This is at the time of writing not supported by SabreDAV, but is planned for a
-future release.</p>
-
-<h2>Authentication</h2>
-
-<p>Cadaver understands both Digest and Basic HTTP authentication.</p>
  
 
         </article>

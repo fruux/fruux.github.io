@@ -85,13 +85,98 @@
     </ul>
 </aside>
         <article>
-            <h1>Welcome to the new SabreDAV wiki</h1>
+            <h1>Upgrading from SabreDAV 1.7 to 1.8</h1>
 
-<p>This website is a work in progress! We will be porting wiki pages over
-one-by-one from the <a href="http://code.google.com/p/sabredav/">Google code</a> page.</p>
+<p>Only a month after the 1.7 release, 1.8 now follows.</p>
 
-<p>We're not quite done yet though, so until then please refer to our
-<a href="http://code.google.com/p/sabredav/wiki/Introduction?tm=6">Google code wiki</a>.</p>
+<p>The #1 biggest difference is that we completely moved from the old
+'prefix-style' namespacing, to true PHP 5.3 namespaces.</p>
+
+<p>We wanted to get this release quickly out, so we can easily maintain 1.7 and
+1.8 side-by-side. They should not diverge much feature-wise.</p>
+
+<p>This document helps explaining the differences, and how to upgrade.</p>
+
+<h2>API breaks</h2>
+
+<h3>We're now using PHP 5.3 namespaces</h3>
+
+<p>What does this mean? Simple: wherever you wrote <code>Sabre_DAV_Server</code> before, you
+now write <code>Sabre\DAV\Server</code>. This applies to every class in the SabreDAV
+codebase.</p>
+
+<p>Check out the <a href="http://php.net/manual/en/language.namespaces.php">PHP documentation</a> to figure out what benefits this brings.</p>
+
+<p>So for most classnames this is simply a change from <code>_</code> to <code>\</code>, but there are
+a few exceptions.</p>
+
+<p>A class named <code>MyPackage_Abstract</code> is a legal class in PHP, but
+<code>MyPackage\Abstract</code> is not, because the <code>abstract</code> here is a keyword. So a few
+classes have gotten new names.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Before</th>
+  <th>After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>Sabre_DAV_Locks_Backend_Abstract</code></td>
+  <td><code>Sabre\DAV\Locks\Backend\Abstractbackend</code> and <code>Sabre\DAV\Locks\Backend\BackendInterface</code></td>
+</tr>
+<tr>
+  <td><code>Sabre_DAV_Auth_IBackend</code></td>
+  <td><code>Sabre\DAV\Auth\Backend\BackendInterface</code></td>
+</tr>
+<tr>
+  <td><code>Sabre_CalDAV_Backend_Abstract</code></td>
+  <td><code>Sabre\CalDAV\Backend\AbstractBackend</code></td>
+</tr>
+<tr>
+  <td><code>Sabre_CardDAV_Backend_Abstract</code></td>
+  <td><code>Sabre\CardDAV\Backend\AbstractBackend</code> and <code>Sabre\CardDAV\Backend\BackendInterface</code></td>
+</tr>
+<tr>
+  <td><code>Sabre_DAVACL_IPrincipalBackend</code></td>
+  <td><code>Sabre\DAVACL\PrincipalBackend\BackendInterface</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>As you can see we also improved consistency. Every 'backend package' now has a
+<code>BackendInterface</code> as well as an <code>AbstractBackend</code>.</p>
+
+<h3>Changed a few constructor signatures</h3>
+
+<p>This is only relevant to you if you instantiated one of the following classes
+directly:</p>
+
+<ul>
+<li><code>Sabre\CalDAV\Calendar</code></li>
+<li><code>Sabre\CalDAV\SharedCalendar</code></li>
+<li><code>Sabre\CalDAV\ShareableCalendar</code></li>
+</ul>
+
+<p>All three of these now have a slightly different constructor signature. They no
+longer need the PrincipalBackend, and receive more principal information through
+the constructor.</p>
+
+<p>Make sure you read the updated API documentation and fix this.</p>
+
+<h3>Sabre\CalDAV\ISharedCalendar now has a getShares() method</h3>
+
+<p>Just like <code>Sabre\CalDAV\IShareableCalendar</code>, the <code>ISharedCalendar</code> now also
+has a getShares() method.</p>
+
+<p>With this method, it is possible for clients to find out to whom a calendar
+is shared with (aside from themselves). Returning something is optional, but
+this method <em>must</em> be implemented.</p>
+
+<p>The other implication is that if you implement
+<code>Sabre\CalDAV\Backend\SharingSupport</code>, the getShares() method will now also be
+called by non-owners.</p>
         </article>
     </main>
 

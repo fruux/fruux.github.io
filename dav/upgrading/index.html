@@ -85,13 +85,128 @@
     </ul>
 </aside>
         <article>
-            <h1>Welcome to the new SabreDAV wiki</h1>
+            <h1>Upgrading</h1>
 
-<p>This website is a work in progress! We will be porting wiki pages over
-one-by-one from the <a href="http://code.google.com/p/sabredav/">Google code</a> page.</p>
+<p>Upgrading a major version? Read the upgrade instructions here:</p>
 
-<p>We're not quite done yet though, so until then please refer to our
-<a href="http://code.google.com/p/sabredav/wiki/Introduction?tm=6">Google code wiki</a>.</p>
+<ul>
+<li><a href="/dav/upgrade/0.8-to-0.9">0.8.x to 0.9.x</a></li>
+<li><a href="/dav/upgrade/1.0-to-1.2">1.0.x to 1.2.x</a></li>
+<li><a href="/dav/upgrade/1.2-to-1.3">1.2.x to 1.3.x</a></li>
+<li><a href="/dav/upgrade/1.3-to-1.4">1.3.x to 1.4.x</a></li>
+<li><a href="/dav/upgrade/1.4-to-1.5">1.4.x to 1.5.x</a></li>
+<li><a href="/dav/upgrade/1.5-to-1.6">1.5.x to 1.6.x</a></li>
+<li><a href="/dav/upgrade/1.6-to-1.7">1.6.x to 1.7.x</a></li>
+<li><a href="/dav/upgrade/1.7-to-1.8">1.7.x to 1.8.x</a></li>
+<li><a href="/dav/upgrade/1.8-to-1.9">1.8.x to 1.9 alpha</a></li>
+</ul>
+
+<h2>Support length</h2>
+
+<p>After the release of a new major SabreDAV (for example, <code>1.8.0</code>), we will
+promise to support the previous version <code>1.7.*</code> for at least 12 months.</p>
+
+<p>Currently and previously supported versions:</p>
+
+<table>
+<thead>
+<tr>
+  <th>SabreDAV version</th>
+  <th>PHP Version</th>
+  <th>First stable release</th>
+  <th>End of support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1.2</td>
+  <td>5.2</td>
+  <td>May 2010</td>
+  <td>October 2011 (EOL)</td>
+</tr>
+<tr>
+  <td>1.3</td>
+  <td>5.2</td>
+  <td>October 2010</td>
+  <td>June 2012 (EOL)</td>
+</tr>
+<tr>
+  <td>1.4</td>
+  <td>5.2</td>
+  <td>February 2011</td>
+  <td>November 2012 (EOL)</td>
+</tr>
+<tr>
+  <td>1.5</td>
+  <td>5.2</td>
+  <td>August 2011</td>
+  <td>February 2013 (EOL)</td>
+</tr>
+<tr>
+  <td>1.6</td>
+  <td>5.3</td>
+  <td>February 2012</td>
+  <td>November 2013 (EOL)</td>
+</tr>
+<tr>
+  <td>1.7</td>
+  <td>5.3</td>
+  <td>October 2012</td>
+  <td>May 2014</td>
+</tr>
+<tr>
+  <td>1.8</td>
+  <td>5.3</td>
+  <td>November 2012</td>
+  <td></td>
+</tr>
+<tr>
+  <td>1.9 (in alpha)</td>
+  <td>5.4</td>
+  <td></td>
+  <td></td>
+</tr>
+</tbody>
+</table>
+
+<h2>Versioning scheme</h2>
+
+<p>SabreDAV uses three digits for versions. <code>x.y.z</code>.</p>
+
+<p>The first part, <code>x</code>, is reserved for major overhauls of SabreDAV. At the time of
+writing, there's only <code>1.y.z</code>, so this has not happened yet.</p>
+
+<p>The <code>y</code> part is also for fairly large releases. We try to have one or two of
+these per year, but this fluctuates.</p>
+
+<p>The <code>z</code> is reserved for minor upgrades.</p>
+
+<p>If you are upgrading from a version, to a version that only changes the last
+digit, it should always be safe to do so.</p>
+
+<p>To do this with composer, just run:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>This should automatically do all the work. This should be 100% risk free,
+except in cases where we are fixing a major security issue, and we are not
+able to do so, without breaking backwards compatibility.</p>
+
+<p>This means an upgrade from <code>1.7.2</code> to <code>1.7.10</code> is always safe. Upgrading from
+<code>1.6.5</code> to <code>1.7.0</code> is not.</p>
+
+<p>For versions where we are changing <code>x</code> or <code>y</code>, we almost always want to break
+backwards compatibility in some areas. Depending on what features you are
+using in SabreDAV you may or may not be affected by this.</p>
+
+<h2>Alpha and beta versions</h2>
+
+<p>Alpha and beta versions always have the word 'alpha' or 'beta' in them. In
+alpha versions it is highly likely that we are not done yet, and will still
+want to make changes.</p>
+
+<p>Beta versions <em>should</em> not get any BC-breaking changes, but they still may.</p>
         </article>
     </main>
 

@@ -74,6 +74,7 @@
                 <li><a href="/dav/davmount">DavMount</a></li>
                 <li><a href="/dav/guesscontenttype">Content Types</a></li>
                 <li><a href="/license">License</a></li>
+                <li><a href="/dav/litmus">Litmus</a></li>
                 <li><a href="/dav/plugins">Plugins</a></li>
                 <li><a href="/dav/scalability">Scalability</a></li>
                 <li><a href="/dav/versioning">Versioning</a></li>
@@ -91,7 +92,7 @@ support.</p>
 
 <p>sabre/dav comes with a plugin that handles authentication for you. It is
 recommended to use this plugin, and it is required to use for both
-<a href="dav/caldav">cal-</a> and <a href="dav/carddav">carddav</a>.</p>
+<a href="/dav/caldav">cal-</a> and <a href="/dav/carddav">carddav</a>.</p>
 
 <p>The plugin can work with different backends. SabreDAV ships with a number of
 backends, but it's also easy to create your own.</p>
@@ -204,7 +205,7 @@ just like with the PDO plugin the following hash:</p>
 <p>So, given a username of 'foo', a password of 'bar', and a realm of 'SabreDAV',
 the resulting hash should be:</p>
 
-<pre><code>php -r "echo md5('foo:SabreDAV:bar');" 
+<pre><code>php -r "echo md5('foo:SabreDAV:bar');"
 5790c3784a79a018d1186528df520e11
 </code></pre>
 
@@ -238,7 +239,7 @@ validateUserPass method.</p>
 <h2>Webserver configuration</h2>
 
 <p>Some webservers may require special configuration for authentication to work.
-Take a look at <a href="dav/webservers">Webservers</a> for more information.</p>
+Take a look at <a href="/dav/webservers">Webservers</a> for more information.</p>
 
 <h3>Problems with safe mode</h3>
 

@@ -74,6 +74,7 @@
                 <li><a href="/dav/davmount">DavMount</a></li>
                 <li><a href="/dav/guesscontenttype">Content Types</a></li>
                 <li><a href="/license">License</a></li>
+                <li><a href="/dav/litmus">Litmus</a></li>
                 <li><a href="/dav/plugins">Plugins</a></li>
                 <li><a href="/dav/scalability">Scalability</a></li>
                 <li><a href="/dav/versioning">Versioning</a></li>
@@ -85,11 +86,14 @@
         <article>
             <h1>Virtual Filesystems</h1>
 
-<p>SabreDAV is built to easily adapt existing business logic onto a virtual network filesystem. This document explores how this can be setup.</p>
+<p>SabreDAV is built to easily adapt existing business logic onto a virtual
+network filesystem. This document explores how this can be setup.</p>
 
 <ul>
-<li>It is assummed in this tutorial that the reader has already went through the <a href="dav/gettingstarted">GettingStarted</a> and <a href="dav/faq">FAQ</a> manuals.</li>
-<li>In the code examples it is assumed all mentioned classes are currently loaded in through an include.</li>
+<li>It is assummed in this tutorial that the reader has already went through the
+<a href="/dav/gettingstarted">GettingStarted</a> and <a href="/dav/faq">FAQ</a> manuals.</li>
+<li>In the code examples it is assumed all mentioned classes are currently
+loaded in through an include.</li>
 </ul>
 
 <h2>High-level API</h2>
@@ -286,7 +290,9 @@ $server-&gt;exec();
 
 <p>In order to get writing/modification support you should implement all the remaining methods. A good example of a completely built-out system like this can be found in the <code>Sabre\DAV\FS</code> directory. This system should closely mimic apache's mod_dav. Implementation of these is up to you (and optional) and is not written out in this manual, because at this point this should be fairly simple.</p>
 
-<p>However, this is not enough. <a href="dav/clients/finder">OS/X Finder</a> and <a href="dav/clients/davfs">DavFS</a> will demand you add locking support to your filesystem.</p>
+<p>However, this is not enough. <a href="/dav/clients/finder">OS/X Finder</a> and
+<a href="/dav/clients/davfs">DavFS</a> will demand you add locking support to your
+filesystem.</p>
 
 <h2>Locking support</h2>
 

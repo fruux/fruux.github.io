@@ -74,6 +74,7 @@
                 <li><a href="/dav/davmount">DavMount</a></li>
                 <li><a href="/dav/guesscontenttype">Content Types</a></li>
                 <li><a href="/license">License</a></li>
+                <li><a href="/dav/litmus">Litmus</a></li>
                 <li><a href="/dav/plugins">Plugins</a></li>
                 <li><a href="/dav/scalability">Scalability</a></li>
                 <li><a href="/dav/versioning">Versioning</a></li>
@@ -86,6 +87,64 @@
             
 <h1>Thunderbird</h1>
 
+<p><a href="http://www.mozilla.org/en-US/thunderbird/">Thunderbird</a> itself is not a DAV client. But, this functionality can be
+achieved using add-ons.</p>
+
+<p><a href="https://addons.mozilla.org/en-US/thunderbird/addon/lightning/">Lightning</a> is a very popular calendar add-on for Thunderbird, and adds
+support for <a href="/dav/caldav">CalDAV</a>.</p>
+
+<p>The <a href="http://www.sogo.nu/downloads/frontends.html">Sogo Connector</a> is a add-on developed for the SOGo groupware platform,
+and also allows people to use this to integrate with any standard
+<a href="/dav/carddav">CardDAV</a> server.</p>
+
+<h2>Lightning</h2>
+
+<p>Lightning adds CalDAV support to thunderbird.
+To set this up, simply go through the "File > new calendar" dialog.</p>
+
+<p>It's important to note that Lightning, unlike many other CalDAV clients
+does not automatically find all the calendars that are associated with a user.</p>
+
+<p>Instead, it requires the user to to add every individual CalDAV calendar
+manually.</p>
+
+<p>The url used to setup CalDAV for lightning must be the full url to a calendar.
+In default sabredav installations this tends to have the following format:</p>
+
+<pre><code>http://[domain]/calendars/[username]/[calendarname]/
+</code></pre>
+
+<p>So <em>not</em> the principal url.</p>
+
+<h2>SOGo connector</h2>
+
+<p>SOGo connector integrates the Thunderbird addressbook with CardDAV.</p>
+
+<p>To install this plugin, head to the <a href="http://www.sogo.nu/downloads/frontends.html">SOGo downloads page</a>, and download
+the connector.</p>
+
+<p>After downloading, head to the Add-ons manager in Thunderbird, click the
+cog icon and use 'Install from file'.</p>
+
+<p>After intallation it's possible to add CardDAV addressbooks to the Thunderbird
+Address Book. Note that just like Lightning, it is required to enter the
+entire path to the addressbook, as such:</p>
+
+<pre><code>http://[domain]/addressbooks/[username]/[addressbookname]/
+</code></pre>
+
+<h3>Known bugs</h3>
+
+<p>The current latest version (24.0.3) has a bug that prevents creation of new
+contacts and updating.</p>
+
+<p>More information:</p>
+
+<ul>
+<li><a href="http://www.sogo.nu/bugs/view.php?id=1624">http://www.sogo.nu/bugs/view.php?id=1624</a></li>
+<li><a href="http://www.sogo.nu/bugs/view.php?id=2575">http://www.sogo.nu/bugs/view.php?id=2575</a></li>
+<li><a href="https://github.com/inverse-inc/sogo-connector.tb24/issues/9">https://github.com/inverse-inc/sogo-connector.tb24/issues/9</a></li>
+</ul>
  
 
         </article>

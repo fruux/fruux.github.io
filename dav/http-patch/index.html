@@ -87,39 +87,61 @@
     </ul>
 </aside>
         <article>
-            <h1>IMipHandler</h1>
+            <h1>HTTP PATCH support</h1>
 
-<p>The IMipHandler is responsible for sending emails. This is used since version
-1.6.</p>
+<p>The <code>Sabre\DAV\PartialUpdate\Plugin</code> provides support for the HTTP PATCH method
+(<a href="http://tools.iets.org/html/rfc5789">RFC5789</a>). This allows you to update just a portion of a file, or append
+to a file.</p>
 
-<p>The reason this was added, was because iCal wrongfully assumes that a CalDAV
-server supports some parts of the CalDAV scheduling extension.</p>
+<p>SabreDAV defines its own content-type to do this.</p>
 
-<p>So by using the IMipHandler, SabreDAV will be able to send the following
-emails on your behalf:</p>
+<p><em>Note:</em> This feature was added in SabreDAV 1.7.0.</p>
 
-<ul>
-<li>Invitation to an event</li>
-<li>Accepting an event</li>
-<li>Declining an event</li>
-<li>Deleting an event</li>
-</ul>
+<h2>A sample request</h2>
 
-<p>In the future this system will also be used for other caldav-scheduling
-features.</p>
+<pre><code>PATCH /file.txt
+Content-Length: 4
+Content-Type: application/x-sabredav-partialupdate
+X-Update-Range: bytes=3-6
 
-<h2>Usage</h2>
-
-<p>To use the IMipHandler, simply attach it to <code>Sabre\CalDAV\Plugin</code>.</p>
-
-<pre><code>$caldavPlugin = new \Sabre\CalDAV\Plugin();
-$caldavPlugin-&gt;setIMipHandler(
-    new \Sabre\CalDAV\Schedule\IMip('no-reply@example.org')
-);
+0000
 </code></pre>
 
-<p>You must specify a proper From: address. This class uses PHP's mail() function
-under the hood. To use some other system, it's possible to subclass it.</p>
+<p>This request updates 'file.txt', specifically the bytes 3-6 (inclusive) to
+<code>0000</code>.</p>
+
+<ul>
+<li>The Content-Length header is required</li>
+<li>The X-Update-Range is also required. The value is the exact same as the HTTP
+Range header. The two numbers are inclusive (so 3-6 means that bytes 3,4,5
+and 6 will be updated).</li>
+<li>Just like the HTTP Range header, the specified bytes is a 1-based index.
+This means that 'bytes=0-3' is invalid, as there is no '0th byte'.</li>
+<li>The 'application/x-sabredav-partialupdate' must also be specified.</li>
+<li>The two numbers in the Update-Range header may be omitted. If the start byte
+is omitted, 0 is assumed. If the end-byte is omitted the Content-Length is
+used.</li>
+<li>Note that this makes the end-range unneeded, but we wanted to stay close to
+the HTTP specification.</li>
+<li>You can start writing past the end of the file. The in-between space will be
+filled with <code>0x00</code>.</li>
+</ul>
+
+<p>If you want to be compliant with SabreDAV's implementation of PATCH, you must
+also return 'sabredav-partialupdate' in the 'DAV:' header:</p>
+
+<pre><code>HTTP/1.1 204 No Content
+DAV: 1, 2, 3, sabredav-partialupdate, extended-mkcol
+</code></pre>
+
+<h2>Using this feature on the server-side</h2>
+
+<p>To use partial updates, your file-nodes must implement the
+<code>Sabre\DAV\PartialUpdate\IFile</code> interface. This adds a new <code>putRange()</code> method
+to the interface. Note that the offset argument is a normal 0-based index,
+contrary to the 1-based offset as specified in the request.</p>
+
+<p>A sample implementation can be found in <code>Sabre\DAV\FSExt\File</code>.</p>
         </article>
     </main>
 

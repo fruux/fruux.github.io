@@ -87,40 +87,68 @@
 </aside>
         <article>
             
-<h1>Cyberduck</h1>
+<h1>NetDrive</h1>
 
-<p><a href="http://cyberduck.io/">Cyberduck</a> is a free GUI WebDAV client for OS X. It's a clean and simple
-WebDAV client.</p>
+<p><strong>Editors note: This page was written for NetDrive 1, NetDrive seems to have
+undergone a rewrite some time ago, so a lot of the criticism in this document
+may no longer be true.</strong></p>
 
-<p>It only supports basic file up and download operations, and doesn't deal with
-locking or properties.</p>
+<p><a href="http://www.netdrive.net/">Netdrive</a> is a WebDAV client that mounts WebDAV shares as drives in windows.
+It's a bit more straightforward to use than the Windows client, because it
+doesn't require all sorts of registry settings to be changed, and it doesn't
+share some of the bugs the windows client carries.</p>
 
-<h2>Connecting with Cyberduck</h2>
+<h2>Implementor notes</h2>
 
-<ol>
-<li>Connect with cyberduck user either 'quick connect' and fill in a dav://hostname url</li>
-<li>Or create a new 'WebDAV' bookmark and enter the full http:// address </li>
-</ol>
+<p>Netdrive does not support locking (or require it).</p>
 
-<h2>Technical details</h2>
+<p>Under no circumstances Netdrive should be used in multi-user situations.
+Netdrive will almost never check for updates from the server and will
+completely assume WebDAV shares only ever get modified by the Netdrive user
+itself.</p>
 
-<p>Sample user agent:</p>
+<p>Unless you know absolutely sure it's only you who is modifying data, don't use
+Netdrive.</p>
 
-<pre><code>Cyberduck/3.0.3 (4205)
-</code></pre>
+<h2>Protocol details</h2>
 
-<p>Cyberduck requests the following properties:</p>
+<p>Netdrive is not really a 'proper' WebDAV client, but thankfully it will only
+do a small amount of simple requests, so it's easy for SabreDAV to handle.</p>
+
+<p>Netdrive does not supply a user-agent http header, so it's not easy to
+identify.</p>
+
+<p>Netdrive does not do an <code>OPTIONS</code> request, to find out of the server supports
+WebDAV. It will just start off with a PROPFIND request asking for 'allprops'.</p>
+
+<p>After that it will ask for:</p>
 
 <ul>
-<li>displayname</li>
-<li>getcontentlength</li>
-<li>getcontenttype</li>
-<li>resourcetype</li>
-<li>getlastmodified</li>
-<li>lockdiscovery</li>
+<li><code>{DAV:}getcontentlength</code></li>
+<li><code>{DAV:}resourcetype</code></li>
+<li><code>{DAV:}creationdate</code></li>
+<li><code>{DAV:}lastaccessed (non-standard, should have been in another namespace)</code></li>
+<li><code>{DAV:}getlastmodified</code></li>
 </ul>
 
-<p>Cyberduck at least understands HTTP Basic. Digest is currently untested.</p>
+<p>For any given directory, it will also do these requests for any subdirectories
+(with depth 1), so it will always go 2 levels deep.</p>
+
+<p>Netdrive appears to make heavy use of the 'Range' header, but in the cases
+I've seen (smaller files) it actually uses the Range header to request the
+entire file (pretty redundant).</p>
+
+<p>When netdrive wants to save a file, it will first do a PROPFIND request, with
+no elements in the 'prop' element. This was odd, and actually broke SabreDAV
+(fixed in 0.8).</p>
+
+<p>After finding out (presumably that the file existed) it will delete the
+original file, and then create a new one. This was all a bit odd to me because
+it could have been performed in one step.</p>
+
+<p>It was reported from the mailing list Netdrive actually never checks for
+updates, it was mentioned that it's best to only use netdrive in single-user
+situations.</p>
  
 
         </article>

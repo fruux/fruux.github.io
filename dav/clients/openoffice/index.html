@@ -87,40 +87,50 @@
 </aside>
         <article>
             
-<h1>Cyberduck</h1>
+<h1>OpenOffice</h1>
 
-<p><a href="http://cyberduck.io/">Cyberduck</a> is a free GUI WebDAV client for OS X. It's a clean and simple
-WebDAV client.</p>
-
-<p>It only supports basic file up and download operations, and doesn't deal with
-locking or properties.</p>
-
-<h2>Connecting with Cyberduck</h2>
-
-<ol>
-<li>Connect with cyberduck user either 'quick connect' and fill in a dav://hostname url</li>
-<li>Or create a new 'WebDAV' bookmark and enter the full http:// address </li>
-</ol>
+<p>You can easily use urls in the Open Office file dialog. You should make sure
+you are using open office dialogs, and not the standard operating system ones.
+You can change this in: Tools, Options menu. (or the Preferences menu in OS/X).</p>
 
 <h2>Technical details</h2>
 
-<p>Sample user agent:</p>
+<p>OpenOffice is a very simple client, and doesn't seem to use any locking. In
+general it's pretty lightweight, but I did notice if I'm entering a new
+filename (when saving) it will try to make sure the file exists for every
+character I entered. So if you have a 10-character filename, at least 10
+requests will be done while you're typing.</p>
 
-<pre><code>Cyberduck/3.0.3 (4205)
-</code></pre>
+<h3>Authentication</h3>
 
-<p>Cyberduck requests the following properties:</p>
+<p>OpenOffice does both Digest and Basic authentication.</p>
+
+<h3>Properties</h3>
+
+<p>The following properties are requested for each client:</p>
+
+<p>In the DAV: namespace</p>
 
 <ul>
-<li>displayname</li>
 <li>getcontentlength</li>
-<li>getcontenttype</li>
-<li>resourcetype</li>
 <li>getlastmodified</li>
-<li>lockdiscovery</li>
+<li>creationdate</li>
+<li>resourcetype</li>
 </ul>
 
-<p>Cyberduck at least understands HTTP Basic. Digest is currently untested.</p>
+<p>From the <code>http://ucb.openoffice.org/dav/props/</code> namespace:</p>
+
+<ul>
+<li>TargetUrl</li>
+<li>IsHidden</li>
+<li>IsVolume</li>
+<li>IsRemote</li>
+<li>IsRemovable</li>
+<li>IsFloppy</li>
+<li>IsCompactDisc</li>
+</ul>
+
+<p>The properties are a bit odd, I'm unsure what most of these do.</p>
  
 
         </article>

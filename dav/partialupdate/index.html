@@ -86,43 +86,61 @@
     </ul>
 </aside>
         <article>
-            
-<h1>Cyberduck</h1>
+            <h1>HTTP PATCH support</h1>
 
-<p><a href="http://cyberduck.io/">Cyberduck</a> is a free GUI WebDAV client for OS X. It's a clean and simple
-WebDAV client.</p>
+<p>The <code>Sabre\DAV\PartialUpdate\Plugin</code> provides support for the HTTP PATCH method
+(<a href="http://tools.iets.org/html/rfc5789">RFC5789</a>). This allows you to update just a portion of a file, or append
+to a file.</p>
 
-<p>It only supports basic file up and download operations, and doesn't deal with
-locking or properties.</p>
+<p>SabreDAV defines its own content-type to do this.</p>
 
-<h2>Connecting with Cyberduck</h2>
+<p><em>Note:</em> This feature was added in SabreDAV 1.7.0.</p>
 
-<ol>
-<li>Connect with cyberduck user either 'quick connect' and fill in a dav://hostname url</li>
-<li>Or create a new 'WebDAV' bookmark and enter the full http:// address </li>
-</ol>
+<h2>A sample request</h2>
 
-<h2>Technical details</h2>
+<pre><code>PATCH /file.txt
+Content-Length: 4
+Content-Type: application/x-sabredav-partialupdate
+X-Update-Range: bytes=3-6
 
-<p>Sample user agent:</p>
-
-<pre><code>Cyberduck/3.0.3 (4205)
+0000
 </code></pre>
 
-<p>Cyberduck requests the following properties:</p>
+<p>This request updates 'file.txt', specifically the bytes 3-6 (inclusive) to
+<code>0000</code>.</p>
 
 <ul>
-<li>displayname</li>
-<li>getcontentlength</li>
-<li>getcontenttype</li>
-<li>resourcetype</li>
-<li>getlastmodified</li>
-<li>lockdiscovery</li>
+<li>The Content-Length header is required</li>
+<li>The X-Update-Range is also required. The value is the exact same as the HTTP
+Range header. The two numbers are inclusive (so 3-6 means that bytes 3,4,5
+and 6 will be updated).</li>
+<li>Just like the HTTP Range header, the specified bytes is a 1-based index.
+This means that 'bytes=0-3' is invalid, as there is no '0th byte'.</li>
+<li>The 'application/x-sabredav-partialupdate' must also be specified.</li>
+<li>The two numbers in the Update-Range header may be omitted. If the start byte
+is omitted, 0 is assumed. If the end-byte is omitted the Content-Length is
+used.</li>
+<li>Note that this makes the end-range unneeded, but we wanted to stay close to
+the HTTP specification.</li>
+<li>You can start writing past the end of the file. The in-between space will be
+filled with <code>0x00</code>.</li>
 </ul>
 
-<p>Cyberduck at least understands HTTP Basic. Digest is currently untested.</p>
- 
+<p>If you want to be compliant with SabreDAV's implementation of PATCH, you must
+also return 'sabredav-partialupdate' in the 'DAV:' header:</p>
 
+<pre><code>HTTP/1.1 204 No Content
+DAV: 1, 2, 3, sabredav-partialupdate, extended-mkcol
+</code></pre>
+
+<h2>Using this feature on the server-side</h2>
+
+<p>To use partial updates, your file-nodes must implement the
+<code>Sabre\DAV\PartialUpdate\IFile</code> interface. This adds a new <code>putRange()</code> method
+to the interface. Note that the offset argument is a normal 0-based index,
+contrary to the 1-based offset as specified in the request.</p>
+
+<p>A sample implementation can be found in <code>Sabre\DAV\FSExt\File</code>.</p>
         </article>
     </main>
 

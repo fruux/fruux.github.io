@@ -1,7 +1,7 @@
 <!DOCTYPE html!>
 <head>
 
-            <title>DavFS - sabre/dav</title>
+            <title>Transmit - sabre/dav</title>
     
     <link rel="stylesheet" type="text/css" href="/css/sabredav.css" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
@@ -95,52 +95,74 @@
     </ul>
 </aside>
         <article>
-                        <h1>DavFS</h1>            <p>DavFS is the most popular client for linux. You use the <code>mount</code> command to set
-up new webdav mounts that directly integrate into your filesystem.</p>
+                        <h1>Transmit</h1>            <p><a href="http://www.panic.com/transmit/">Transmit</a> is a commercial WebDAV (as well as sftp and ftp) client for
+OS/X. It can either browse WebDAV sites in a simple browser, but it's also
+capable of mounting WebDAV drives using <a href="http://code.google.com/p/macfuse/">MacFuse</a>.</p>
 
-<p>It's also one of the most solid clients out there.</p>
+<p>If you are ok with shelving out a few dollars, this is a <em>much</em> better client
+than <a href="/dav/client/finder">Finder</a>, and is well worth it.</p>
 
-<h2>Connecting</h2>
+<h2>Implementor notes</h2>
 
-<p>Simply type in:</p>
+<p>Transmit 4 had issues with multiple namespace declarations (DAV: appeared
+twice). This bug was promised to be fixed in a next version of Transmit,
+but it's also fixed in SabreDAV since 1.2.0beta1.</p>
 
-<pre><code>Enter : mount -t davfs http://urltoyourwebdavserver mymountpoint 
+<p>Transmit's client is much better than the built-in OS/X one. It makes far less
+request, as it seems to buffer all modifications for a while. Because of this
+it's much more responsive uses far less HTTP requests / bandwidth.</p>
+
+<h2>Chunked Request Body problem</h2>
+
+<p>Transmit suffers from the same issue as the OS/X client, where it sends all
+HTTP PUT requests as 'Chunked' transfer encoding. This is not supported by
+many servers, such as lighttpd and nginx, as well as using apache + fastcgi.</p>
+
+<p>If you plan to support Transmit you are strongly advised to just use
+apache + mod_php.</p>
+
+<p><strong>Note</strong> The previous issue may well have been fixed since the last time we
+looked.</p>
+
+<h2>Protocol details</h2>
+
+<p>Transmit uses the following user agent:</p>
+
+<pre><code>WebDAVFS/1.2.7 (01278000) Transmit/4.0 neon/0.29.3
 </code></pre>
 
-<h2>Technical notes</h2>
+<p>Transmit first does an <code>OPTIONS</code> request on the url, and then a propfind only
+requesting the <code>{DAV:}resourcetype</code> property.</p>
 
-<p>DavFS requires A Class 2 server, otherwise it will go into read-only mode. It
-is possible to go into a read-write mode without a Class 2 server, by
-specifying the <code>nolocks</code> option.</p>
+<p>Once it's sure it's dealing with a collection, it requests the following
+properties (depth: 1):</p>
 
-<p>By default DavFSv2 will do lots of buffering and caching. This means that even
-though a user has written to a file locally, it can take a while before the
-changes actually show up on the server. This can be quite confusing when
-working in teams.</p>
+<ul>
+<li><code>{DAV:}creationdate</code></li>
+<li><code>{DAV:}getcontentlength</code></li>
+<li><code>{DAV:}getlastmodified</code></li>
+<li><code>{DAV:}resourcetype</code></li>
+</ul>
 
-<h3>Sample user agent</h3>
+<p>When transmit is used to mount the webdav share, the following useragent is
+used:</p>
 
-<pre><code>davfs2/1.1.2 neon/0.26.2
+<pre><code>WebDAVFS/1.2.7 (01278000) TransmitFSHelper/1.0 neon/0.29.3
 </code></pre>
 
-<h3>Properties</h3>
-
-<p>DavFSv2 asks for the following properties from the <code>DAV:</code> namespace</p>
+<p>It requests for the same properties as before, as well as the following:</p>
 
 <ul>
-<li>displayname</li>
-<li>getetag</li>
-<li>getcontentlength</li>
-<li>creationdate</li>
-<li>getlastmodified</li>
-<li>resourcetype</li>
+<li><code>{DAV:}quota-available-bytes</code></li>
+<li><code>{DAV:}quota-used-bytes</code></li>
+<li><code>{DAV:}quota</code></li>
+<li><code>{DAV:}quota-used</code></li>
 </ul>
 
-<p>And from the <code>http://apache.org/dav/props/</code> xml namespace</p>
+<p>The last 2 are non-standard.</p>
 
-<ul>
-<li>executable</li>
-</ul>
+<p>Transmit (or OS/X) also seems to create a <code>.Trashes</code> folder as soon as the
+connection is made.</p>
                     </article>
     </main>
 

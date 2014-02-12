@@ -1,7 +1,7 @@
 <!DOCTYPE html!>
 <head>
 
-            <title>DavFS - sabre/dav</title>
+            <title>vCard export plugin - sabre/dav</title>
     
     <link rel="stylesheet" type="text/css" href="/css/sabredav.css" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
@@ -95,52 +95,27 @@
     </ul>
 </aside>
         <article>
-                        <h1>DavFS</h1>            <p>DavFS is the most popular client for linux. You use the <code>mount</code> command to set
-up new webdav mounts that directly integrate into your filesystem.</p>
+                        <h1>vCard export plugin</h1>            <p>The vCard export plugin allows you to export an entire addressbook, to a
+single .vcf file.</p>
 
-<p>It's also one of the most solid clients out there.</p>
+<p>This plugin was added in SabreDAV 1.7.</p>
 
-<h2>Connecting</h2>
+<h2>Setup</h2>
 
-<p>Simply type in:</p>
+<p>To use this plugin, simply add it to your server:</p>
 
-<pre><code>Enter : mount -t davfs http://urltoyourwebdavserver mymountpoint 
+<pre><code>$vcfPlugin = new \Sabre\CardDAV\VCFExportPlugin();
+$server-&gt;addPlugin($vcfPlugin);
 </code></pre>
 
-<h2>Technical notes</h2>
+<p>After this is added, you can generate these exports by finding a url to your
+addressbook, and adding ?export at the end of the url. This will automatically
+trigger a download.</p>
 
-<p>DavFS requires A Class 2 server, otherwise it will go into read-only mode. It
-is possible to go into a read-write mode without a Class 2 server, by
-specifying the <code>nolocks</code> option.</p>
+<p>Sample url</p>
 
-<p>By default DavFSv2 will do lots of buffering and caching. This means that even
-though a user has written to a file locally, it can take a while before the
-changes actually show up on the server. This can be quite confusing when
-working in teams.</p>
-
-<h3>Sample user agent</h3>
-
-<pre><code>davfs2/1.1.2 neon/0.26.2
+<pre><code>http://dav.example.org/addressbooks/user1/mycontacts?export
 </code></pre>
-
-<h3>Properties</h3>
-
-<p>DavFSv2 asks for the following properties from the <code>DAV:</code> namespace</p>
-
-<ul>
-<li>displayname</li>
-<li>getetag</li>
-<li>getcontentlength</li>
-<li>creationdate</li>
-<li>getlastmodified</li>
-<li>resourcetype</li>
-</ul>
-
-<p>And from the <code>http://apache.org/dav/props/</code> xml namespace</p>
-
-<ul>
-<li>executable</li>
-</ul>
                     </article>
     </main>
 

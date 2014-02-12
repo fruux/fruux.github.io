@@ -1,7 +1,7 @@
 <!DOCTYPE html!>
 <head>
 
-            <title>DavFS - sabre/dav</title>
+            <title>WebDAV client - sabre/dav</title>
     
     <link rel="stylesheet" type="text/css" href="/css/sabredav.css" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
@@ -95,52 +95,118 @@
     </ul>
 </aside>
         <article>
-                        <h1>DavFS</h1>            <p>DavFS is the most popular client for linux. You use the <code>mount</code> command to set
-up new webdav mounts that directly integrate into your filesystem.</p>
+                        <h1>WebDAV client</h1>            <p>Since version 1.5, SabreDAV ships with an experimental WebDAV client. 
+The reason it's currently marked as experimental, is not because of stability
+issues, but because it's API is very likely to change in newer versions.</p>
 
-<p>It's also one of the most solid clients out there.</p>
+<p>It's really only a simple wrapper around Curl, along with some methods
+specifically for parsing and creating certain XML-based requests.</p>
 
-<h2>Connecting</h2>
+<h2>Usage</h2>
 
-<p>Simply type in:</p>
+<h3>Creating the object</h3>
 
-<pre><code>Enter : mount -t davfs http://urltoyourwebdavserver mymountpoint 
+<p>This is simply done with the following code:</p>
+
+<pre><code>include 'vendor/autoload.php';
+
+$settings = array(
+    'baseUri' =&gt; http://example.org/dav/',
+    'userName' =&gt; 'user',
+    'password' =&gt; 'password',
+    'proxy' =&gt; 'locahost:8888',
+);
+
+$client = new DAV\Client($settings);
 </code></pre>
 
-<h2>Technical notes</h2>
+<p>Only the baseUri is required. This will be used to calculate any relative
+paths. Proxy may be handy for debugging, but most people will likely not use
+it.</p>
 
-<p>DavFS requires A Class 2 server, otherwise it will go into read-only mode. It
-is possible to go into a read-write mode without a Class 2 server, by
-specifying the <code>nolocks</code> option.</p>
+<h3>Simple requests</h3>
 
-<p>By default DavFSv2 will do lots of buffering and caching. This means that even
-though a user has written to a file locally, it can take a while before the
-changes actually show up on the server. This can be quite confusing when
-working in teams.</p>
+<p>Any request can be done with the 'request' method. This method takes 4
+arguments, but only the first is required.</p>
 
-<h3>Sample user agent</h3>
+<p>Examples:</p>
 
-<pre><code>davfs2/1.1.2 neon/0.26.2
+<pre><code>// Will do a GET request on the base uri
+$response = $client-&gt;request('GET'); 
+
+// Will do a HEAD request relative to the base uri
+$response = $client-&gt;request('HEAD', 'stuff');
+
+// Will do a PUT request with a request body
+$response = $client-&gt;request('PUT', 'file.txt', "New contents");
+
+// Will do a DELETE request with a condition
+$response = $client-&gt;request('DELETE', 'file.txt', null, array('If-Match' =&gt; '"12345765"'));
 </code></pre>
 
-<h3>Properties</h3>
-
-<p>DavFSv2 asks for the following properties from the <code>DAV:</code> namespace</p>
+<p>The response will always contain an array with the following keys:</p>
 
 <ul>
-<li>displayname</li>
-<li>getetag</li>
-<li>getcontentlength</li>
-<li>creationdate</li>
-<li>getlastmodified</li>
-<li>resourcetype</li>
+<li><em>body</em> - response body</li>
+<li><em>statusCode</em> - HTTP response status code</li>
+<li><em>headers</em> - HTTP response headers</li>
 </ul>
 
-<p>And from the <code>http://apache.org/dav/props/</code> xml namespace</p>
+<p>If the HTTP status was higher than 400 (any error) an exception will be thrown.</p>
 
-<ul>
-<li>executable</li>
-</ul>
+<p>Any request will also automatically follow redirects.</p>
+
+<h3>Doing a PROPFIND request</h3>
+
+<p>To make it easier to do 'PROPFIND' requests, a seperate method is available.</p>
+
+<p>Example:</p>
+
+<pre><code>$client-&gt;propfind('collection', array(
+    '{DAV:}displayname',
+    '{DAV:}getcontentlength',
+));
+</code></pre>
+
+<p>The response will be an array with keys for properties that have been found.
+Any property the server responded with an error to will simply be excluded.</p>
+
+<p>To do a Depth: 1 request, simply add a '1' to the last argument. For Depth: 1
+requests, the response will be a multi-level array. The first level will have
+keys for urls, and lists of properties for values.</p>
+
+<h3>Doing a PROPPATCH request</h3>
+
+<p>Doing a proppatch request is very similar.</p>
+
+<p>Example:</p>
+
+<pre><code>$client-&gt;proppatch('collection', array(
+    '{DAV:}displayname' =&gt; 'New displayname!',
+));
+</code></pre>
+
+<p>The proppatch function will not return anything and it throws an exception
+if there was an error.</p>
+
+<p>If you want to delete any property, simply specify 'null' for the property-
+value.</p>
+
+<h3>Discovering WebDAV features</h3>
+
+<p>There's a simple convenience method to receive all the items from the 'Dav:'
+response header.</p>
+
+<p>Simply call the following:</p>
+
+<pre><code>$features = $client-&gt;options();
+</code></pre>
+
+<p>If you did indeed connect with a valid WebDAV server, the response will
+at least contain '1' and '3', and things like 'calendar-access' for a CalDAV
+server. The return value is an array.</p>
+
+<p>If the server was not a WebDAV server, the response will be empty.</p>
                     </article>
     </main>
 

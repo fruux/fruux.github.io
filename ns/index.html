@@ -90,27 +90,15 @@
     </ul>
 </aside>
         <article>
-            <h1>DavMount</h1>
+            <h1>What are you doing here?</h1>
 
-<p>The DavMount plugin adds support for <a href="http://tools.ietf.org/html/rfc4709">rfc4709</a>. This spec defines a
-small document that can tell a client how to mount a WebDAV server.</p>
+<p>Just because it looks like a real http url, it doesn't mean that an xml
+namespace should actually link anywhere. It's a uri really!</p>
 
-<p>This was proposed as a better alternative to urls such as <code>webdav://</code> or 
-<code>dav://</code>.</p>
+<p>If you came here hoping to learn more about the xml elements in the
+<code>http://sabredav.org/ns</code> namespace, read more here:</p>
 
-<p>However, the specification has not proven to be very popular. I'm not aware
-of any implementations other than the sabredav implementation.</p>
-
-<p>This plugin was added in SabreDAV 1.0.2.</p>
-
-<h2>Using DavMount</h2>
-
-<p>Add the plugin to your server.</p>
-
-<pre><code>$server-&gt;addPlugin(new \Sabre\DAV\Mount\Plugin());
-</code></pre>
-
-<p>After this, simply open a DAV url in your browser and add ?mount. This will return the davmount document.</p>
+<p><a href="http://sabredav.org/dav/xmlelements">http://sabredav.org/dav/xmlelements</a></p>
         </article>
     </main>
 

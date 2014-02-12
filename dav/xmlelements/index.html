@@ -90,27 +90,79 @@
     </ul>
 </aside>
         <article>
-            <h1>DavMount</h1>
+            <h1>SabreDAV xml elements</h1>
 
-<p>The DavMount plugin adds support for <a href="http://tools.ietf.org/html/rfc4709">rfc4709</a>. This spec defines a
-small document that can tell a client how to mount a WebDAV server.</p>
+<p>SabreDAV defines a few new elements, added as an extension to the WebDAV
+protocol. They are categorized as WebDAV properties (that can be queried
+using PROPFIND) and some others, which can appear in various responses.</p>
 
-<p>This was proposed as a better alternative to urls such as <code>webdav://</code> or 
-<code>dav://</code>.</p>
+<p>All SabreDAV properties appear in the <code>http://sabredav.org/ns</code> namespace.</p>
 
-<p>However, the specification has not proven to be very popular. I'm not aware
-of any implementations other than the sabredav implementation.</p>
+<h2>Properties</h2>
 
-<p>This plugin was added in SabreDAV 1.0.2.</p>
+<h3>s:email-address</h3>
 
-<h2>Using DavMount</h2>
+<p>This property is defined on Principals. If you are making use of
+<code>Sabre\DAVACL\AbstractPrincipalCollection</code> / <code>Sabre\DAVACL\Principal</code> this
+property may be defined. It contains the email address of a principal.</p>
 
-<p>Add the plugin to your server.</p>
+<h3>s:tempFile</h3>
 
-<pre><code>$server-&gt;addPlugin(new \Sabre\DAV\Mount\Plugin());
-</code></pre>
+<p>This property is added by the <a href="/dav/temporary-files">TemporaryFileFilterPlugin</a>.
+If a PROPFIND is done on a file that's matched by the TemporaryFileFilter, this
+property will contain 'true'.</p>
 
-<p>After this, simply open a DAV url in your browser and add ?mount. This will return the davmount document.</p>
+<p>This property also appears in 'allprops' responses.</p>
+
+<h3>s:vcard-url</h3>
+
+<p>THis property is defined on principals. It contains a relative url, pointing
+to the users' own vcard. This property maps to Addressbook's
+<code>{http://calendarserver.org/ns/}me-card</code> property. The reason for making this
+into a separate property, is because this me-card property is defined on the
+addressbook-home, which doesn't make a ton of sense.</p>
+
+<h2>Non-property xml elements</h2>
+
+<h3>s:code</h3>
+
+<p>The code element appears in error responses. It will contain an errorcode. In
+most cases the errorcode will be 0, only if an external exception defined an
+errorcode it will show up here.</p>
+
+<h3>s:exception</h3>
+
+<p>The exception element appears in error responses. It will contain the classname
+of the exception that was thrown.</p>
+
+<h3>s:file</h3>
+
+<p>The file element appears in error responses. It contains the php filename where
+the error originated.</p>
+
+<h3>s:line</h3>
+
+<p>The line element appears in error responses. It contains the line number where
+the error occured.</p>
+
+<h3>s:message</h3>
+
+<p>The message element appears in error responses. It will contain a
+human-readable error description.</p>
+
+<h3>s:sabredav-version</h3>
+
+<p>The sabredav-version element appears in error responses. It contains the
+sabredav version number.</p>
+
+<h3>s:header</h3>
+
+<p>The header can show up in error responses. It will contain the name of the HTTP header that triggered the error. Currently only implemented for the PreconditionFailed error,</p>
+
+<h3>s:stacktrace</h3>
+
+<p>The stacktrace element appears in error responses. It will contain the full
+stacktrace for the the error.</p>
         </article>
     </main>
 

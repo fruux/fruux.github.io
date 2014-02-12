@@ -1,7 +1,8 @@
 <!DOCTYPE html!>
 <head>
-    <title>sabre/dav</title>
 
+            <title>Upgrading from SabreDAV 1.7 to 1.8 - sabre/dav</title>
+    
     <link rel="stylesheet" type="text/css" href="/css/sabredav.css" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
     <link rel="stylesheet" href="/components/highlightjs/styles/github.css" type="text/css" />
@@ -83,6 +84,7 @@
                 <li><a href="/dav/scalability">Scalability</a></li>
                 <li><a href="/dav/simplecollection">SimpleCollection</a></li>
                 <li><a href="/dav/standards-support">Standards Support</a></li>
+                <li><a href="/dav/temporary-files">Temporary Files</a></li>
                 <li><a href="/dav/versioning">Versioning</a></li>
                 <li><a href="/dav/virtual-filesystems">Virtual filesystems</a></li>
                 <li><a href="/dav/xmlelements">XML Elements</a></li>
@@ -91,9 +93,7 @@
     </ul>
 </aside>
         <article>
-            <h1>Upgrading from SabreDAV 1.7 to 1.8</h1>
-
-<p>Only a month after the 1.7 release, 1.8 now follows.</p>
+                        <h1>Upgrading from SabreDAV 1.7 to 1.8</h1>            <p>Only a month after the 1.7 release, 1.8 now follows.</p>
 
 <p>The #1 biggest difference is that we completely moved from the old
 'prefix-style' namespacing, to true PHP 5.3 namespaces.</p>
@@ -183,7 +183,7 @@ this method <em>must</em> be implemented.</p>
 <p>The other implication is that if you implement
 <code>Sabre\CalDAV\Backend\SharingSupport</code>, the getShares() method will now also be
 called by non-owners.</p>
-        </article>
+                    </article>
     </main>
 
     <script src="/components/highlightjs/highlight.pack.js"></script>

@@ -1,7 +1,8 @@
 <!DOCTYPE html!>
 <head>
-    <title>sabre/dav</title>
 
+            <title>Upgrading from SabreDAV 1.2 to 1.3 - sabre/dav</title>
+    
     <link rel="stylesheet" type="text/css" href="/css/sabredav.css" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
     <link rel="stylesheet" href="/components/highlightjs/styles/github.css" type="text/css" />
@@ -83,6 +84,7 @@
                 <li><a href="/dav/scalability">Scalability</a></li>
                 <li><a href="/dav/simplecollection">SimpleCollection</a></li>
                 <li><a href="/dav/standards-support">Standards Support</a></li>
+                <li><a href="/dav/temporary-files">Temporary Files</a></li>
                 <li><a href="/dav/versioning">Versioning</a></li>
                 <li><a href="/dav/virtual-filesystems">Virtual filesystems</a></li>
                 <li><a href="/dav/xmlelements">XML Elements</a></li>
@@ -91,9 +93,7 @@
     </ul>
 </aside>
         <article>
-            <h1>Upgrading from SabreDAV 1.2 to 1.3</h1>
-
-<p>A few changes were needed in SabreDAV to improve future compatibility,
+                        <h1>Upgrading from SabreDAV 1.2 to 1.3</h1>            <p>A few changes were needed in SabreDAV to improve future compatibility,
 unfortunately this breaks backwards compatibility. The changes are minimal
 though.</p>
 
@@ -181,7 +181,7 @@ to evict from the cache.</p>
 <p>If you developed your custom tree, using <code>Sabre_DAV_ObjectTree</code> as the 
 parent-class, and overriding either <code>copy()</code>, <code>move()</code> or <code>copyNode()</code>, also
 make sure you call markDirty($path) after any tree-mutation.</p>
-        </article>
+                    </article>
     </main>
 
     <script src="/components/highlightjs/highlight.pack.js"></script>

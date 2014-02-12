@@ -1,7 +1,8 @@
 <!DOCTYPE html!>
 <head>
-    <title>sabre/dav</title>
 
+            <title>Upgrading from SabreDAV 1.3 to 1.4 - sabre/dav</title>
+    
     <link rel="stylesheet" type="text/css" href="/css/sabredav.css" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
     <link rel="stylesheet" href="/components/highlightjs/styles/github.css" type="text/css" />
@@ -83,6 +84,7 @@
                 <li><a href="/dav/scalability">Scalability</a></li>
                 <li><a href="/dav/simplecollection">SimpleCollection</a></li>
                 <li><a href="/dav/standards-support">Standards Support</a></li>
+                <li><a href="/dav/temporary-files">Temporary Files</a></li>
                 <li><a href="/dav/versioning">Versioning</a></li>
                 <li><a href="/dav/virtual-filesystems">Virtual filesystems</a></li>
                 <li><a href="/dav/xmlelements">XML Elements</a></li>
@@ -91,9 +93,7 @@
     </ul>
 </aside>
         <article>
-            <h1>Upgrading from SabreDAV 1.3 to 1.4</h1>
-
-<p>In order to add the new SabreDAV features in 1.4, it was needed to break API
+                        <h1>Upgrading from SabreDAV 1.3 to 1.4</h1>            <p>In order to add the new SabreDAV features in 1.4, it was needed to break API
 compatibility in a number of places.</p>
 
 <p>This document describes each. Items in this list are ordered by how likely you
@@ -345,7 +345,7 @@ signature slightly changed.</p>
 
 <p>Before it needed an instance of <code>Sabre_DAV_Auth_Backend_Abstract</code>, but now it
 needs an instance of <code>Sabre_DAVACL_IPrincipalBackend</code>.</p>
-        </article>
+                    </article>
     </main>
 
     <script src="/components/highlightjs/highlight.pack.js"></script>

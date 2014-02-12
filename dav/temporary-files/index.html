@@ -1,7 +1,7 @@
 <!DOCTYPE html!>
 <head>
 
-            <title>NetDrive - sabre/dav</title>
+            <title>Temporary files - sabre/dav</title>
     
     <link rel="stylesheet" type="text/css" href="/css/sabredav.css" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
@@ -93,66 +93,71 @@
     </ul>
 </aside>
         <article>
-                        <h1>NetDrive</h1>            <p><strong>Editors note: This page was written for NetDrive 1, NetDrive seems to have
-undergone a rewrite some time ago, so a lot of the criticism in this document
-may no longer be true.</strong></p>
+                        <h1>Temporary files</h1>            <p>If you run a WebDAV server that exposes something like datbase-record as
+files, you may have run into the fact that operating systems tend to leave
+around garbage files.</p>
 
-<p><a href="http://www.netdrive.net/">Netdrive</a> is a WebDAV client that mounts WebDAV shares as drives in windows.
-It's a bit more straightforward to use than the Windows client, because it
-doesn't require all sorts of registry settings to be changed, and it doesn't
-share some of the bugs the windows client carries.</p>
+<p>This sucks, because if your webdav server is for instance a list of blog-posts,
+you may quickly accumilate a few blogposts with titles such as <code>desktop.ini</code>
+or <code>.DS_Store</code>.</p>
 
-<h2>Implementor notes</h2>
+<p>The temporary file filter plugin works by intercepting all HTTP requests that
+attempt to create these types of files, and basically set these files aside.</p>
 
-<p>Netdrive does not support locking (or require it).</p>
+<p>If, after that, a client attempts to read, delete or modify those files it
+created earlier, the temporary file filter will respond by returning the
+actual uploaded file, without poluting your 'real' data.</p>
 
-<p>Under no circumstances Netdrive should be used in multi-user situations.
-Netdrive will almost never check for updates from the server and will
-completely assume WebDAV shares only ever get modified by the Netdrive user
-itself.</p>
-
-<p>Unless you know absolutely sure it's only you who is modifying data, don't use
-Netdrive.</p>
-
-<h2>Protocol details</h2>
-
-<p>Netdrive is not really a 'proper' WebDAV client, but thankfully it will only
-do a small amount of simple requests, so it's easy for SabreDAV to handle.</p>
-
-<p>Netdrive does not supply a user-agent http header, so it's not easy to
-identify.</p>
-
-<p>Netdrive does not do an <code>OPTIONS</code> request, to find out of the server supports
-WebDAV. It will just start off with a PROPFIND request asking for 'allprops'.</p>
-
-<p>After that it will ask for:</p>
+<h2>Supported temporary files</h2>
 
 <ul>
-<li><code>{DAV:}getcontentlength</code></li>
-<li><code>{DAV:}resourcetype</code></li>
-<li><code>{DAV:}creationdate</code></li>
-<li><code>{DAV:}lastaccessed (non-standard, should have been in another namespace)</code></li>
-<li><code>{DAV:}getlastmodified</code></li>
+<li>OS/X Resource forks (<code>._files</code>)</li>
+<li>OS/X <code>.DS_Store</code> files</li>
+<li>Windows' <code>desktop.ini</code> files</li>
+<li>Windows' <code>Thumbs.db</code> files</li>
+<li>ViM and Smultron temporary files</li>
 </ul>
 
-<p>For any given directory, it will also do these requests for any subdirectories
-(with depth 1), so it will always go 2 levels deep.</p>
+<p>Requests for more types of files is appreciated. We want to make this thing as
+effective as possible.</p>
 
-<p>Netdrive appears to make heavy use of the 'Range' header, but in the cases
-I've seen (smaller files) it actually uses the Range header to request the
-entire file (pretty redundant).</p>
+<h2>Usage</h2>
 
-<p>When netdrive wants to save a file, it will first do a PROPFIND request, with
-no elements in the 'prop' element. This was odd, and actually broke SabreDAV
-(fixed in 0.8).</p>
+<p>To use this plugin, just add it to the server.</p>
 
-<p>After finding out (presumably that the file existed) it will delete the
-original file, and then create a new one. This was all a bit odd to me because
-it could have been performed in one step.</p>
+<pre><code>use
+    Sabre\DAV;
 
-<p>It was reported from the mailing list Netdrive actually never checks for
-updates, it was mentioned that it's best to only use netdrive in single-user
-situations.</p>
+$server = new DAV\Server($myTree);
+
+$tffp = new DAV\TemporaryFileFilterPlugin('/path/to/temporary/directory');
+$server-&gt;addPlugin($tffp);
+</code></pre>
+
+<h2>A warning</h2>
+
+<p>It is <em>not</em> recommended to use this for standard file shares, where data
+integrity is the most imporant. Other files may match these patterns, or
+applications may store important data in these files.</p>
+
+<p>The single intended use-case is situations such as the earlier example.
+Places where the data you're receiving is strictly controlled.</p>
+
+<h2>Cleaning up</h2>
+
+<p>Currently the TemporaryFileFilter doesn't clean up temporary files. It is
+recommended currently to create a cron-job to clean up files older than say, 24
+hours.</p>
+
+<p>SabreDAV ships with a tiny python script called 'naturalselection' in the bin/
+directory that can automatically:</p>
+
+<ul>
+<li>Clean up files older than a certain age</li>
+<li>Automatically keep an eye on the total size of the temporary directory, and
+clean up files as soon as the size goes over a certain treshold, starting
+with the oldest.</li>
+</ul>
                     </article>
     </main>
 

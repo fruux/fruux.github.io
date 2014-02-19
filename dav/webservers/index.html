@@ -80,6 +80,7 @@
                 <li><a href="/dav/davmount">DavMount</a></li>
                 <li><a href="/dav/guesscontenttype">Content Types</a></li>
                 <li><a href="/dav/http-patch">PATCH support</a></li>
+                <li><a href="/dav/large-files">Large files</a></li>
                 <li><a href="/license">License</a></li>
                 <li><a href="/dav/litmus">Litmus</a></li>
                 <li><a href="/dav/plugins">Plugins</a></li>
@@ -91,6 +92,7 @@
                 <li><a href="/dav/virtual-filesystems">Virtual filesystems</a></li>
                 <li><a href="/dav/davclient">WebDAV Client</a></li>
                 <li><a href="/dav/xmlelements">XML Elements</a></li>
+                <li><a href="/dav/large-files">Large files</a></li>
                 <li><a href="/dav/writing-plugins">Writing Plugins</a></li>
             </ul>
         </li>
@@ -135,7 +137,9 @@ users:</p>
 
 <h3>Authentication over fastcgi</h3>
 
-<p>If you use PHP through CGI or FastCGI and Apache authentication headers are not passed through by default. You can enable this with the following mod_rewrite rule:</p>
+<p>If you use PHP through CGI or FastCGI and Apache authentication headers are
+not passed through by default. You can enable this with the following
+mod_rewrite rule:</p>
 
 <pre><code>&lt;IfModule mod_rewrite.c&gt;
   RewriteEngine on
@@ -143,7 +147,8 @@ users:</p>
 &lt;/IfModule&gt;
 </code></pre>
 
-<p>If you already had a mod_rewrite rule to map all urls to a server file, you might need to change this to something like:</p>
+<p>If you already had a mod_rewrite rule to map all urls to a server file, you
+might need to change this to something like:</p>
 
 <pre><code>&lt;IfModule mod_rewrite.c&gt;
   RewriteEngine on
@@ -151,7 +156,16 @@ users:</p>
 &lt;/IfModule&gt;
 </code></pre>
 
-<p>Note the /server.php. Make sure this reflects the correct location of your server file.</p>
+<p>Note the /server.php. Make sure this reflects the correct location of your
+server file.</p>
+
+<h3>mod_reqtimeout</h3>
+
+<p>It was reported that Apache's <a href="http://httpd.apache.org/docs/2.2/mod/mod_reqtimeout.html">mod_reqtimeout</a> can stop large uploads from
+completing. This module is currently enabled by default on Ubuntu, and perhaps
+others as well.</p>
+
+<p>To fix this, turn off this module.</p>
 
 <h2>Nginx</h2>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html!>
 <head>
 
-            <title>Cadaver - sabre/dav</title>
+            <title>Working with large files - sabre/dav</title>
     
     <link rel="stylesheet" type="text/css" href="/css/sabredav.css" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
@@ -99,46 +99,45 @@
     </ul>
 </aside>
         <article>
-                        <h1>Cadaver</h1>            <p>Cadaver is a simple command-line client, similar to for example the 'ftp'
-program. It has some advanced features such as lock-management, property
-management, DASL and version control support.</p>
+                        <h1>Working with large files</h1>            <h2>Using streams</h2>
 
-<h2>Connecting with Cadaver</h2>
+<p>In order to allow transfers of big files, SabreDAV makes use of streams
+everywhere internally.</p>
 
-<pre><code>$ cadaver [url]
+<p>This allows you to deal with very large files (tried up to 15GB), without
+requiring a high number for memory_limit.</p>
+
+<h2>PHP Configuration</h2>
+
+<p>For this to work, output buffering <em>must</em> be turned off. It appears to be
+on for some php installations. Not turning this off will make PHP return
+memory-related errors.</p>
+
+<p>In php ini, this should be:</p>
+
+<pre><code>output_buffering=off
 </code></pre>
 
-<h2>Technical details</h2>
+<p>Or if you're setting php settings through apache:</p>
 
-<p>By default it will look for the following properties when using <code>ls</code>.</p>
-
-<pre><code>&lt;propfind xmlns="DAV:"&gt;
-    &lt;prop&gt;
-        &lt;getcontentlength xmlns="DAV:" /&gt;
-        &lt;getlastmodified xmlns="DAV:" /&gt;
-        &lt;executable xmlns="http://apache.org/dav/props/" /&gt;
-        &lt;resourcetype xmlns="DAV:" /&gt;
-        &lt;checked-in xmlns="DAV:" /&gt;
-        &lt;checked-out xmlns="DAV:" /&gt;
-    &lt;/prop&gt;
-&lt;/propfind&gt;
+<pre><code>php_flag output_buffering off
 </code></pre>
 
-<p>It will also store custom properties, by default under the <code>http://webdav.org/cadaver/custom-properties/</code> namespace.</p>
+<p>More information can be found on <a href="/dav/webservers">webservers</a>.</p>
 
-<p>It makes use of the propname request as well:</p>
+<h2>32bit vs 64bit</h2>
 
-<pre><code>&lt;propfind xmlns="DAV:"&gt;
-    &lt;propname /&gt;
-&lt;/propfind&gt;
-</code></pre>
+<p>The maximum filesize we can currently represent on 32bit systems is 2 GB.
+To support files larger than 2GB, make sure that your PHP is compiled for
+64 bit.</p>
 
-<p>This is at the time of writing not supported by SabreDAV, but is planned for a
-future release.</p>
+<h2>PHP bugs</h2>
 
-<h2>Authentication</h2>
+<p>We recently <a href="http://evertpot.com/fpassthru-broken/">found out</a> that PHP's <a href="http://www.php.net/manual/en/function.fpassthru.php"><code>fpassthru()</code></a> method is <a href="https://bugs.php.net/bug.php?id=66736">broken</a>
+for large files, and does not allow files to be served over 2GB.</p>
 
-<p>Cadaver understands both Digest and Basic HTTP authentication.</p>
+<p>A fix has been made for SabreDAV 1.7.11 and 1.8.9. So make sure you are
+running at least one of those two versions.</p>
                     </article>
     </main>
 

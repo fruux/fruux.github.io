@@ -1,4 +1,105 @@
-<p>There are a number problems that can cause empty files to appear on the server.
+<!DOCTYPE html!>
+<head>
+
+            <title>0 byte files - sabre/dav</title>
+    
+    <link rel="stylesheet" type="text/css" href="/css/sabredav.css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <link rel="stylesheet" href="/components/highlightjs/styles/github.css" type="text/css" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+</head>
+<body>
+    <header>
+
+    <div class="logo">
+        <a href="/">
+            <img src="/img/logo.png" alt="SabreDAV. A WebDAV framework for PHP.">
+            SabreDAV wiki
+        </a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="/">sabre/dav</a></li>
+            <li><a href="/">sabre/event</a></li>
+            <li><a href="/">sabre/http</a></li>
+            <li><a href="/">sabre/vobject</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+    <main>
+        <aside>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/dav/install">Installation</a></li>
+        <li><a href="/dav/upgrading">Upgrading</a></li>
+        <li><a href="/dav/gettingstarted">Getting Started</a></li>
+        <li>
+            Troubleshooting
+            <ul>
+                <li><a href="/dav/faq">FAQ</a></li>
+                <li><a href="/dav/clients">Clients</a></li>
+                <li><a href="/dav/webservers">Webservers</a></li>
+            </ul>
+        </li>
+        <li>
+            CalDAV
+            <ul>
+                <li><a href="/dav/caldav">Getting started</a></li>
+                <li><a href="/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                <li><a href="/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                <li><a href="/dav/caldav-proxy">Delegation</a></li>
+                <li><a href="/dav/caldav-sharing">Calendar sharing</a></li>
+                <li><a href="/dav/ics-export-plugin">iCalendar export</a></li>
+                <li><a href="/dav/imiphandler">iMip Handler</a></li>
+                <li><a href="/dav/service-discovery">Service Discovery</a></li>
+            </ul>
+        </li>
+        <li>
+            CardDAV
+            <ul>
+                <li><a href="/dav/carddav">Getting started</a></li>
+                <li><a href="/dav/building-a-carddav-client">Building a CardDAV client</a></li>
+                <li><a href="/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                <li><a href="/dav/carddav-directory">CardDAV Directory</a></li>
+                <li><a href="/dav/vcf-export-plugin">vCard export</a></li>
+                <li><a href="/dav/service-discovery">Service Discovery</a></li>
+            </ul>
+        </li>
+        <li>
+            Other topics
+            <ul>
+                <li><a href="/dav/acl">Acl</a></li>
+                <li><a href="/dav/authentication">Authentication</a></li>
+                <li><a href="/dav/character-encoding">Character encoding</a></li>
+                <li><a href="/dav/browser-plugin">Directory indexes</a></li>
+                <li><a href="/dav/davmount">DavMount</a></li>
+                <li><a href="/dav/guesscontenttype">Content Types</a></li>
+                <li><a href="/dav/http-patch">PATCH support</a></li>
+                <li><a href="/dav/large-files">Large files</a></li>
+                <li><a href="/license">License</a></li>
+                <li><a href="/dav/litmus">Litmus</a></li>
+                <li><a href="/dav/plugins">Plugins</a></li>
+                <li><a href="/dav/scalability">Scalability</a></li>
+                <li><a href="/dav/simplecollection">SimpleCollection</a></li>
+                <li><a href="/dav/standards-support">Standards Support</a></li>
+                <li><a href="/dav/temporary-files">Temporary Files</a></li>
+                <li><a href="/dav/versioning">Versioning</a></li>
+                <li><a href="/dav/virtual-filesystems">Virtual filesystems</a></li>
+                <li><a href="/dav/davclient">WebDAV Client</a></li>
+                <li><a href="/dav/xmlelements">XML Elements</a></li>
+                <li><a href="/dav/large-files">Large files</a></li>
+                <li><a href="/dav/writing-plugins">Writing Plugins</a></li>
+            </ul>
+        </li>
+    </ul>
+</aside>
+        <article>
+                        <h1>0 byte files</h1>            <p>There are a number problems that can cause empty files to appear on the server.
 Because there are a number of different scenarios that can result in 0 byte
 files, it's good to try to figure out which specific issue is the one you're
 dealing with.</p>
@@ -75,3 +176,20 @@ bug somewhere in custom written code.</p>
 
 <p>We will <em>almost always</em> need a charles capture or a publically accessible
 server though. Have this prepared to get to a solution quicker.</p>
+                    </article>
+    </main>
+
+    <script src="/components/highlightjs/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabredav.org');
+ga('send', 'pageview');
+</script>
+
+    
+</body>

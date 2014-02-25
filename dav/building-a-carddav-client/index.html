@@ -234,22 +234,33 @@ vCards, you should either:</p>
 
 <h2>Retain full vCards!</h2>
 
-<p>Normally when integrating with new api's, you will figure out the data
-available, and write code to map that data to a local data model. This is true
-if the webservice is xml-based, restful or, dare I say it, SOAP.</p>
+<p>In most cases, when integrating with foreign API's, you will figure out the
+remote data model, and write code to map that to the data model in your
+application. This tends to be some mapping code that is bi-directional and
+simply converts one datamodel (such as json or xml) to something local (such
+as an mvc model, database record or object property).</p>
 
-<p>The problem with simply 'mapping' remote information, in this case, things
-like addresses, telephone numbers, first names, photos, etc, is that there
-are a <em>lot</em> of things to map.</p>
+<p>When integrating with CardDAV, it is not quite as simple.</p>
 
-<p>What if your data model does not support a fax number? vCards can have a <em>lot</em>
-of different information, and information about information.</p>
+<p>The problem with simply mapping the vcard to your local data model, is that
+there is an potentially a lot of information to map. vCards can contain all
+sorts of information, and even allow application to define new properties.</p>
 
-<p>If we look at the protocol from a very high level, we will do a <code>GET</code> to
-receive a vCard, and a <code>PUT</code> to update it again.</p>
+<blockquote>
+  <p>vCards can contain <em>lot</em> of different information, and information about
+  information.</p>
+</blockquote>
 
-<p>You <em>must</em> make sure that none of the information you received in a <code>GET</code>
-is lost when you perform the <code>PUT</code>.</p>
+<p>If your data model is simpler than the vCard data model, this inheritly means
+that data can get lost during conversion. E.g.: mapping back and forward, and
+reversing this again tends to be a 'lossy' process.</p>
+
+<p>To illustrate, lets at the protocol from a very high level. Simplisticly we
+will be doing a <code>GET</code> request (or equivalent) and later on a <code>PUT</code> request to
+update a vcard.</p>
+
+<p>You <em>must absolutely</em> make sure that none of the information you received in a
+<code>GET</code> is lost when you perform the <code>PUT</code>.</p>
 
 <p>Almost every client on the planet will even embed custom non-standard data
 in vCards. If you discard this data when performing <code>PUT</code>, you are destroying
@@ -260,7 +271,8 @@ your users data.</p>
 <ol>
 <li>Go through all the properties of a vCard</li>
 <li>Map the properties you support to a local data model</li>
-<li>Keep the properties you don't support separately.</li>
+<li>Store all the properties that are not supported by the local data model in
+a separate place.</li>
 </ol>
 
 <p>Then when the vCard is uploaded again with <code>PUT</code>, the 'unknown' properties
@@ -275,7 +287,7 @@ are stitched back in.</p>
 relevant to the user.</li>
 </ul>
 
-<h3>What we recommend</h3>
+<h3>Our recommendation</h3>
 
 <ol>
 <li>Download the vCard</li>
@@ -287,7 +299,8 @@ relevant to you.</li>
 model.</li>
 </ol>
 
-<p>Now when something changes in a model (e.g.: a user changes an email address)</p>
+<p>Now when something changes in a model (e.g.: a user changes an email address
+in your UI.)</p>
 
 <ol>
 <li>Model receives change (email address updated)</li>
@@ -303,8 +316,6 @@ the model.</li>
 would love to hear it), <em>not</em> ensuring that original vCard is kept as close
 to the original as possible is guaranteed to trigger bugs and edge-cases for
 all sorts of CardDAV clients.</p>
-
-<p><strong>End of rant.. sorry about that</strong></p>
 
 <h2>Typical urls</h2>
 

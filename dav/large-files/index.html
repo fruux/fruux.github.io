@@ -138,6 +138,17 @@ for large files, and does not allow files to be served over 2GB.</p>
 
 <p>A fix has been made for SabreDAV 1.7.11 and 1.8.9. So make sure you are
 running at least one of those two versions.</p>
+
+<h2>mod_security woes</h2>
+
+<p>If you're running Apache, and particularly on a shared host, there's a
+reasonable chance <a href="http://www.modsecurity.org/">mod_security</a> is deployed, which can limit the total
+size of request bodies and thus restricts large uploads with <code>PUT</code>.</p>
+
+<p>The main symptomn for this is a server responding with the HTTP status code
+<code>413 Request Entity Too Large.</code></p>
+
+<p>The setting to look for is called <code>SecRequestBodyLimit</code>.</p>
                     </article>
     </main>
 
@@ -149,7 +160,7 @@ running at least one of those two versions.</p>
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-2848664-5', 'sabredav.org');
+ga('create', 'UA-2848664-5', 'sabre.io');
 ga('send', 'pageview');
 </script>
 

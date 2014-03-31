@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<head>
+
+  
+            <title>The HTTP client - sabre/http</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="http://sabre.io/atom.xml" title="sabre.io blog" />
+    <link rel="shortcut icon" href="http://sabre.io/favicon.ico" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+
+            <link rel="stylesheet" type="text/css" href="http://sabre.io/css/sabre.css" />
+    
+</head>
+<body>
+    <header>
+
+    <div class="logo">
+        <a href="http://sabre.io/">
+            <img src="http://sabre.io/img/logo.png" alt="sabre/http">
+            sabre/http
+        </a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="http://sabre.io/">Home</a></li>
+            <li><a href="http://sabre.io/dav">Docs</a></li>
+            <li><a href="http://sabre.io/blog">Blog</a></li>
+            <li><a href="http://sabre.io/support">Support</a></li>
+            <!-- <li><i class="fa fa-github"></i> <a href="https://github.com/fruux">GitHub</a></li> -->
+            <li><a href="http://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+    </nav>
+
+</header>
+
+        <main>
+                    <aside>
+    <ul>
+        <li><a href="http://sabre.io/dav">sabre/dav</a>
+            </li>
+    <li><a href="http://sabre.io/event">sabre/event</a>
+            </li>
+    <li><a href="http://sabre.io/http">sabre/http</a>
+                <ul>
+            <li><a href="http://sabre.io/http/install">Installation</a></li>
+            <li><a href="http://sabre.io/http/sapi">The PHP Sapi wrapper</a></li>
+            <li><a href="http://sabre.io/http/decorators">Decorators</a></li>
+            <li><a href="http://sabre.io/http/client">The HTTP client</a></li>
+            <li><a href="http://sabre.io/http/reverseproxy">Writing a reverse proxy</a></li>
+            <li><a href="http://sabre.io/http/api">Request and Response APIs</a></li>
+        </ul>
+            </li>
+    <li><a href="http://sabre.io/vobject">sabre/vobject</a>
+            </li>
+    <li><a href="http://sabre.io/license">License</a></li>
+  </ul>
+</aside>
+                <article>
+                        <h1>The HTTP client</h1>            <p>The sabre/http package also contains a simple wrapper around <a href="http://uk3.php.net/curl">cURL</a>, which will allow
+you to write simple clients, using the <code>Request</code> and <code>Response</code> objects you're
+already familiar with.</p>
+
+<p>It's by no means a replacement for something like <a href="http://guzzlephp.org/">guzzle</a>, but it provides
+a simple and lightweight api for making the occasional API call.</p>
+
+<pre><code>use Sabre\HTTP;
+
+$request = new HTTP\Request('GET', 'http://example.org/');
+$request-&gt;setHeader('X-Foo', 'Bar');
+
+$client = new HTTP\Client();
+$response = $client-&gt;send($request);
+
+echo $response-&gt;getBodyAsString();
+</code></pre>
+
+<p>The client emits 3 events using <a href="https://github.com/fruux/sabre-event">sabre/event</a>. <code>beforeRequest</code>,
+<code>afterRequest</code> and <code>error</code>.</p>
+
+<pre><code>$client = new HTTP\Client();
+$client-&gt;on('beforeRequest', function($request) {
+
+    // You could use beforeRequest to for example inject a few extra headers.
+    // into the Request object.
+
+});
+
+$client-&gt;on('afterRequest', function($request, $response) {
+
+    // The afterRequest event could be a good time to do some logging, or
+    // do some rewriting in the response.
+
+});
+
+$client-&gt;on('error', function($request, $response, &amp;$retry, $retryCount) {
+
+    // The error event is triggered for every response with a HTTP code higher
+    // than 399.
+
+});
+
+$client-&gt;on('error:401', function($request, $response, &amp;$retry, $retryCount) {
+
+    // You can also listen for specific error codes. This example shows how
+    // to inject HTTP authentication headers if a 401 was returned.
+
+    if ($retryCount &gt; 1) {
+        // We're only going to retry exactly once.
+    }
+
+    $request-&gt;setHeader('Authorization', 'Basic xxxxxxxxxx');
+    $retry = true;
+
+});
+</code></pre>
+
+<h2>Asynchronous requests</h2>
+
+<p>The client also supports doing asynchronous requests. This is especially handy
+if you need to perform a number of requests, that are allowed to be executed
+in parallel.</p>
+
+<p>The underlying system for this is simply <a href="http://www.php.net/manual/en/function.curl-multi-init.php">curl's multi request handler</a>,
+but sabre/http provides a much nicer API to handle this.</p>
+
+<p>Sample usage:</p>
+
+<pre><code>use Sabre\HTTP;
+
+$request = new Request('GET', 'http://localhost/');
+$client = new Client();
+
+// Executing 1000 requests
+for ($i = 0; $i &lt; 1000; $i++) {
+    $client-&gt;sendAsync(
+        $request,
+        function(ResponseInterface $response) {
+            // Success handler
+        },
+        function($error) {
+            // Error handler
+        }
+    );
+}
+
+// Wait for all requests to get a result.
+$client-&gt;wait();
+</code></pre>
+
+<p>Check out examples/asyncclient.php for more information.</p>
+            
+                        <hr />
+            <h2>Comments</h2>
+            <div id="disqus_thread"></div>
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="http://sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
+    var disqus_identifier = '/http/client';
+    var disqus_title = 'The HTTP client';
+    var disqus_url = 'http://sabre.io/http/client';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+ </script>
+
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2014 fruux GmbH | </li>
+            <li><a href="http://sabre.io/support">Contact</a> | </li>
+            <li><a href="http://sabre.io/legal">Legal Info</a> | </li>
+            <li><i class="fa fa-twitter"></i> <a href="http://twitter.com/sabredav">@sabredav</a>, </li>
+            <li><a href="http://twitter.com/fruux">@fruux</a> | </li>
+            <li><i class="fa fa-github"></i> <a href="https://github.com/fruux">GitHub</a></li>
+        </ul>
+    </nav>
+
+</footer>
+
+</body>

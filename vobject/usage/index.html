@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<head>
+
+  
+            <title>Usage instructions - sabre/vobject</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="http://sabre.io/atom.xml" title="sabre.io blog" />
+    <link rel="shortcut icon" href="http://sabre.io/favicon.ico" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+
+            <link rel="stylesheet" type="text/css" href="http://sabre.io/css/sabre.css" />
+    
+</head>
+<body>
+    <header>
+
+    <div class="logo">
+        <a href="http://sabre.io/">
+            <img src="http://sabre.io/img/logo.png" alt="sabre/vobject">
+            sabre/vobject
+        </a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="http://sabre.io/">Home</a></li>
+            <li><a href="http://sabre.io/dav">Docs</a></li>
+            <li><a href="http://sabre.io/blog">Blog</a></li>
+            <li><a href="http://sabre.io/support">Support</a></li>
+            <!-- <li><i class="fa fa-github"></i> <a href="https://github.com/fruux">GitHub</a></li> -->
+            <li><a href="http://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+    </nav>
+
+</header>
+
+        <main>
+                    <aside>
+    <ul>
+        <li><a href="http://sabre.io/dav">sabre/dav</a>
+            </li>
+    <li><a href="http://sabre.io/event">sabre/event</a>
+            </li>
+    <li><a href="http://sabre.io/http">sabre/http</a>
+            </li>
+    <li><a href="http://sabre.io/vobject">sabre/vobject</a>
+                <ul>
+            <li><a href="http://sabre.io/vobject/install">Installation</a></li>
+            <li>Upgrading</li>
+            <li><a href="http://sabre.io/vobject/usage">Usage</a></li>
+        </ul>
+            </li>
+    <li><a href="http://sabre.io/license">License</a></li>
+  </ul>
+</aside>
+                <article>
+                        <h1>Usage instructions</h1>            <h2>Getting started</h2>
+
+<p>Make sure you followed all the steps in the <a href="/vobject/install">installation instructions</a>,
+and you've included the autoloader in your code.</p>
+
+<h2>A basic parsing example</h2>
+
+<p>Assuming there is a vcard in your local directory, named <code>cowboyhenk.vcf</code>,
+the following complete example will parse it and display the <code>FN</code> property:</p>
+
+<pre><code>use Sabre\VObject;
+
+include 'vendor/autoload.php';
+
+$vcard = VObject\Reader::read('cowboyhenk.vcf');
+echo $vcard-&gt;FN;
+</code></pre>
+
+<p>That is all.</p>
+
+<p>For all the following examples, we are assuming that you have already included
+the autoloader, and also that you've called</p>
+
+<pre><code>use Sabre\VObject;
+</code></pre>
+
+<p>At the top of your script. This is just to avoid repetition.</p>
+
+<p>Also, keep in mind that while sabre/vobject does support PHP 5.3, most of the
+examples in this documentation use syntax that was introduced in PHP 5.4.</p>
+
+<p>Specifically, we specify arrays as such:</p>
+
+<pre><code>[
+    "ORG" =&gt; "Henk Inc.",
+    "FN" =&gt; "Cowboy Henk",
+]
+</code></pre>
+
+<p>In PHP 5.3, this is specified as:</p>
+
+<pre><code>array(
+    "ORG" =&gt; "Henk Inc.",
+    "FN" =&gt; "Cowboy Henk",
+)
+</code></pre>
+
+<h2>The actual manual</h2>
+
+<h3>Creating vCards.</h3>
+
+<p>To create a vCard, you can simply instantiate the vCard component, and pass
+the properties you need:</p>
+
+<pre><code>$vcard = new VObject\Component\VCard([
+    'FN'  =&gt; 'Cowboy Henk',
+    'TEL' =&gt; '+1 555 34567 455',
+    'N'   =&gt; ['Henk', 'Cowboy', '', 'Dr.', 'MD'],
+]);
+
+echo $vcard-&gt;serialize();
+</code></pre>
+
+<p>This will output:</p>
+
+<pre><code>BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Sabre//Sabre VObject 3.0.0-alpha5//EN
+FN:Cowboy Henk
+TEL:+1 555 34567 455
+N:Henk;Cowboy;;Dr.;MD
+END:VCARD
+</code></pre>
+
+<h3>Adding properties</h3>
+
+<p>Certain properties, such as <code>TEL</code>, <code>ADR</code> or <code>EMAIL</code> may appear more than once.
+To add any additional properties, use the <code>add()</code> method on the vCard.</p>
+
+<pre><code>$vcard-&gt;add('TEL', '+1 555 34567 456', ['type' =&gt; 'fax']);
+</code></pre>
+
+<p>The third argument of the add() method allows you to specify a list of
+parameters.</p>
+
+<h3>Manipulating properties</h3>
+
+<p>The vCard also allows object-access to manipulate properties:</p>
+
+<pre><code>// Overwrites or sets a property:
+$vcard-&gt;FN = 'Doctor McNinja';
+
+// Removes a property
+unset($vcard-&gt;FN);
+
+// Checks for existence of a property:
+
+isset($vcard-&gt;FN);
+</code></pre>
+
+<h3>Working with parameters</h3>
+
+<p>To get access to a parameter, you can simply use array-access:</p>
+
+<pre><code>$type = $vcard-&gt;TEL['TYPE']:
+echo (string)$type;
+</code></pre>
+
+<p>Parameters can also appear multiple times. To get to their values, just loop
+through them:</p>
+
+<pre><code>if ($param = $vcard-&gt;TEL['TYPE']) {
+    foreach($param as $value) {
+      echo $value, "\n";
+    }
+}
+</code></pre>
+
+<p>To change parameters for properties, you can use array-access syntax:</p>
+
+<pre><code>$vcard-&gt;TEL['TYPE'] = ['WORK','FAX']:
+</code></pre>
+
+<p>Or when you're working with singular parameters:</p>
+
+<pre><code>$vcard-&gt;TEL['PREF'] = 1;
+</code></pre>
+
+<p>It is also possible add a list of parameters while creating the property.</p>
+
+<pre><code>$vcard-&gt;add(
+    'EMAIL',
+    'foo@example.org',
+    [
+        'type' =&gt; ['home', 'work'],
+        'pref' =&gt; 1,
+    ]
+);
+</code></pre>
+
+<h3>Parsing vCard or iCalendar</h3>
+
+<p>To parse a vCard or iCalendar object, simply call:</p>
+
+<pre><code>// $data must be either a string, or a stream.
+$vcard = VObject\Reader::read($data);
+</code></pre>
+
+<p>When you're working with vCards generated by broken software (such as the
+latest Microsoft Outlook), you can pass a 'forgiving' option that will do an
+attempt to mend the broken data.</p>
+
+<pre><code>$vcard = VObject\Reader::read($data, VObject\Reader::OPTION_FORGIVING);
+</code></pre>
+
+<h3>Reading property values</h3>
+
+<p>For properties that are stored as a string, you can simply call:</p>
+
+<pre><code>echo (string)$vcard-&gt;FN;
+</code></pre>
+
+<p>For properties that contain more than 1 part, such as <code>ADR</code>, <code>N</code> or <code>ORG</code> you
+can call <code>getParts()</code>.</p>
+
+<pre><code>print_r(
+    $vcard-&gt;ORG-&gt;getParts();
+);
+</code></pre>
+
+<h3>Looping through properties.</h3>
+
+<p>Properties such as <code>ADR</code>, <code>EMAIL</code> and <code>TEL</code> may appear more than once in a
+vCard. To loop through them, you can simply throw them in a <code>foreach()</code>
+statement:</p>
+
+<pre><code>foreach($vcard-&gt;TEL as $tel) {
+    echo "Phone number: ", (string)$tel, "\n";
+}
+
+foreach($vcard-&gt;ADR as $adr) {
+    print_r($adr-&gt;getParts());
+}
+</code></pre>
+
+<h3>vCard property grouping</h3>
+
+<p>It's allowed in vCards to group multiple properties together with an arbitrary
+string.</p>
+
+<p>Apple clients use this feature to assign custom labels to things like phone
+numbers and email addresses. Below is an example:</p>
+
+<pre><code>BEGIN:VCARD
+VERSION:3.0
+groupname.TEL:+1 555 12342567
+groupname.X-ABLABEL:UK number
+END:VCARD
+</code></pre>
+
+<p>In our example, you can see that the TEL properties are prefixed. These are 'groups' and
+allow you to group multiple related properties together.</p>
+
+<p>In most situations these group names are ignored, so when you execute the following
+example, the <code>TEL</code> properties are still traversed.</p>
+
+<pre><code>foreach($vcard-&gt;TEL as $tel) {
+    echo (string)$tel, "\n";
+}
+</code></pre>
+
+<p>But if you would like to target a specific group + property, this is possible too:</p>
+
+<pre><code>echo (string)$vcard-&gt;{'groupname.TEL'};
+</code></pre>
+
+<p>To expand that example a little bit; if you'd like to traverse through all phone
+numbers and display their custom labels, you'd do something like this:</p>
+
+<pre><code>foreach($vcard-&gt;TEL as $tel) {
+
+    echo (string)$vcard-&gt;{$tel-&gt;group . '.X-ABLABEL'}, ": ";
+    echo (string)$tel, "\n";
+
+}
+</code></pre>
+
+<h3>iCalendar</h3>
+
+<p>iCalendar works much the same way as vCards, but has a couple of features
+that vCard does not.</p>
+
+<p>First, in vCard there's only 1 component (everything between <code>BEGIN:VCARD</code>
+and <code>END:VCARD</code>), but in iCalendar, there are nested components.</p>
+
+<p>A simple illustration, lets create an iCalendar that contains an event.</p>
+
+<pre><code>$vcalendar = new VObject\Component\VCalendar();
+
+$vcalendar-&gt;add('VEVENT', [
+    'SUMMARY' =&gt; 'Birthday party',
+    'DTSTART' =&gt; new \DateTime('2013-04-07'),
+    'RRULE' =&gt; 'FREQ=YEARLY',
+]);
+
+echo $vcalendar-&gt;serialize();
+</code></pre>
+
+<p>This will output the following:</p>
+
+<pre><code>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sabre//Sabre VObject 3.0.0-alpha5//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+SUMMARY:Birthday party
+DTSTART;TZID=Europe/London;VALUE=DATE-TIME:20130407T000000
+RRULE:FREQ=YEARLY
+END:VEVENT
+END:VCALENDAR
+</code></pre>
+
+<p>The add() method will always return the instance of the property or
+sub-component it's creating. This makes for easy further manipulation.</p>
+
+<p>Here's another example that adds an attendee and an organizer:</p>
+
+<pre><code>$vcalendar = new VObject\Component\VCalendar();
+
+$vevent = $vcalendar-&gt;add('VEVENT', [
+    'SUMMARY' =&gt; 'Meeting',
+    'DTSTART' =&gt; new \DateTime('2013-04-07'),
+]);
+
+$vevent-&gt;add('ORGANIZER','mailto:organizer@example.org');
+$vevent-&gt;add('ATTENDEE','mailto:attendee1@example.org');
+$vevent-&gt;add('ATTENDEE','mailto:attendee2@example.org');
+</code></pre>
+
+<h3>Date and time handling</h3>
+
+<p>Parsing Dates and Times from iCalendar and vCard can be difficult.
+Most of this is abstracted by the VObject library.</p>
+
+<p>Given an event, in a calendar, you can get a real PHP <code>DateTime</code> object using
+the following syntax:</p>
+
+<pre><code>$start = $vcalendar-&gt;VEVENT-&gt;DTSTART-&gt;getDateTime();
+echo $start-&gt;format(\DateTime::W3C);
+</code></pre>
+
+<p>To update the property with a new <code>DateTime</code> object, just use the following syntax:</p>
+
+<pre><code>$dateTime = new \DateTime('2012-08-07 23:53:00', new \DateTimeZone('Europe/Amsterdam'));
+$event-&gt;DTSTART = $dateTime;
+</code></pre>
+
+<h3>Expanding recurrence rules</h3>
+
+<p>Recurrence rules allow events to recur, for example for a weekly meeting, or an anniversary.
+This is done with the <code>RRULE</code> property. The <code>RRULE</code> property allows for a LOT of different
+rules. VObject only implements the ones that actually appear in calendar software.</p>
+
+<p>To read more about <code>RRULE</code> and all the options, check out <a href="https://tools.ietf.org/html/rfc5545#section-3.8.5">RFC5545</a>.
+VObject supports the following options:</p>
+
+<ol>
+<li><code>UNTIL</code> for an end date.</li>
+<li><code>INTERVAL</code> for for example "every 2 days".</li>
+<li><code>COUNT</code> to stop recurring after x items.</li>
+<li><code>FREQ=DAILY</code> to recur every day, and <code>BYDAY</code> to limit it to certain days.</li>
+<li><code>FREQ=WEEKLY</code> to recur every week, <code>BYDAY</code> to expand this to multiple weekdays in every week and <code>WKST</code> to specify on which day the week starts.</li>
+<li><code>FREQ=MONTHLY</code> to recur every month, <code>BYMONTHDAY</code> to expand this to certain days in a month, <code>BYDAY</code> to expand it to certain weekdays occuring in a month, and <code>BYSETPOS</code> to limit the last two expansions.</li>
+<li><code>FREQ=YEARLY</code> to recur every year, <code>BYMONTH</code> to expand that to certain months in a year, and <code>BYDAY</code> and <code>BYWEEKDAY</code> to expand the <code>BYMONTH</code> rule even further.</li>
+</ol>
+
+<p>VObject supports the <code>EXDATE</code> property for exclusions, but not yet the <code>RDATE</code> and <code>EXRULE</code>
+properties. If you're interested in this, please file a github issue, as this will put it
+on my radar.</p>
+
+<p>This is a bit of a complex subject to go in excruciating detail. The
+<a href="https://tools.ietf.org/html/rfc5545#section-3.8.5">RFC</a> has a lot of examples though.</p>
+
+<p>The hard part is not to write the RRULE, it is to expand them. The most complex and
+hard-to-read code is hidden in this component. Dragons be here.</p>
+
+<p>So, if we have a meeting every 2nd monday of the month, this would be specified as such:</p>
+
+<pre><code>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sabre//Sabre VObject 2.0//EN
+BEGIN:VEVENT
+UID:1102c450-e0d7-11e1-9b23-0800200c9a66
+DTSTART:20120109T140000Z
+RRULE:FREQ=MONTHLY;BYDAY=MO;BYSETPOS=2
+END:VEVENT
+END:VCALENDAR
+</code></pre>
+
+<p>Note that I added in <code>UID</code> property. For simplicity I've kept it out of
+previous examples, but do note that a <code>UID</code> property is required for all
+<code>VEVENT</code>, <code>VTODO</code> and <code>VJOURNAL</code> objects!</p>
+
+<p>To figure out all the meetings for this year, we can use the following syntax:</p>
+
+<pre><code>$vcalendar = VObject\Reader::read($data);
+$vcalendar-&gt;expand(new DateTime('2012-01-01'), new DateTime('2012-12-31'));
+</code></pre>
+
+<p>What the expand method does, is look at its inner events, and expand the recurring
+rule. Our calendar now contains 12 events. The first will have its RRULE stripped,
+and every subsequent VEVENT has the correct meeting date and a <code>RECURRENCE-ID</code> set.</p>
+
+<p>This results in something like this:</p>
+
+<pre><code>BEGIN:VCALENDAR
+  VERSION:2.0
+  PRODID:-//Sabre//Sabre VObject 2.0//EN
+  BEGIN:VEVENT
+    UID:1102c450-e0d7-11e1-9b23-0800200c9a66
+    DTSTART:20120109T140000Z
+  END:VEVENT
+  BEGIN:VEVENT
+    UID:1102c450-e0d7-11e1-9b23-0800200c9a66
+    RECURRENCE-ID:20120213T140000Z
+    DTSTART:20120213T140000Z
+  END:VEVENT
+  BEGIN:VEVENT
+    UID:1102c450-e0d7-11e1-9b23-0800200c9a66
+    RECURRENCE-ID:20120312T140000Z
+    DTSTART:20120312T140000Z
+  END:VEVENT
+  ..etc..
+END:VCALENDAR
+</code></pre>
+
+<p>Note that I added some extra spaces to improve legibility.</p>
+
+<p>To show the list of dates, we would do this as such:</p>
+
+<pre><code>foreach($vcalendar-&gt;VEVENT as $vevent) {
+    echo $vevent-&gt;DTSTART-&gt;getDateTime()-&gt;format(\DateTime::ATOM);
+}
+</code></pre>
+
+<p>In a recurring event, single instances can also be overriden. VObject also takes these
+into consideration. The reason we needed to specify a start and end-date, is because
+some recurrence rules can be 'never ending'.</p>
+
+<p>You should make sure you pick a sane date-range. Because if you pick a 50 year
+time-range, for a daily recurring event; this would result in over 18K objects.</p>
+
+<h3>Free-busy report generation</h3>
+
+<p>Some calendaring software can make use of FREEBUSY reports to show when people are
+available.</p>
+
+<p>You can automatically generate these reports from calendars using the <code>FreeBusyGenerator</code>.</p>
+
+<p>Example based on our last event:</p>
+
+<pre><code>// We're giving it the calendar object. It's also possible to specify multiple objects,
+// by setting them as an array.
+//
+// We must also specify a start and end date, because recurring events are expanded.
+$fbGenerator = new VObject\FreeBusyGenerator(
+    new DateTime('2012-01-01'),
+    new DateTime('2012-12-31'),
+    $vcalendar
+);
+
+// Grabbing the report
+$freebusy = $fbGenerator-&gt;getResult();
+
+// The freebusy report is another VCALENDAR object, so we can serialize it as usual:
+echo $freebusy-&gt;serialize();
+</code></pre>
+
+<p>The output of this script will look like this:</p>
+
+<pre><code>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sabre//Sabre VObject 2.0//EN
+CALSCALE:GREGORIAN
+BEGIN:VFREEBUSY
+DTSTART;VALUE=DATE-TIME:20111231T230000Z
+DTEND;VALUE=DATE-TIME:20111231T230000Z
+DTSTAMP;VALUE=DATE-TIME:20120808T131628Z
+FREEBUSY;FBTYPE=BUSY:20120109T140000Z/20120109T140000Z
+FREEBUSY;FBTYPE=BUSY:20120213T140000Z/20120213T140000Z
+FREEBUSY;FBTYPE=BUSY:20120312T140000Z/20120312T140000Z
+FREEBUSY;FBTYPE=BUSY:20120409T140000Z/20120409T140000Z
+FREEBUSY;FBTYPE=BUSY:20120514T140000Z/20120514T140000Z
+FREEBUSY;FBTYPE=BUSY:20120611T140000Z/20120611T140000Z
+FREEBUSY;FBTYPE=BUSY:20120709T140000Z/20120709T140000Z
+FREEBUSY;FBTYPE=BUSY:20120813T140000Z/20120813T140000Z
+FREEBUSY;FBTYPE=BUSY:20120910T140000Z/20120910T140000Z
+FREEBUSY;FBTYPE=BUSY:20121008T140000Z/20121008T140000Z
+FREEBUSY;FBTYPE=BUSY:20121112T140000Z/20121112T140000Z
+FREEBUSY;FBTYPE=BUSY:20121210T140000Z/20121210T140000Z
+END:VFREEBUSY
+END:VCALENDAR
+</code></pre>
+
+<h3>Converting to jCard</h3>
+
+<p>To create a json-version of your iCalendar or vCard, simply call
+<code>jsonSerialize</code> on your component:</p>
+
+<pre><code>echo json_encode($vcard-&gt;jsonSerialize());
+</code></pre>
+
+<p>The json formats are based on these RFCs:</p>
+
+<ul>
+<li><a href="http://tools.ietf.org/html/rfc7095">http://tools.ietf.org/html/rfc7095</a></li>
+<li><a href="http://tools.ietf.org/html/draft-ietf-jcardcal-jcal-08">http://tools.ietf.org/html/draft-ietf-jcardcal-jcal-08</a></li>
+</ul>
+
+<p>Because these are still in draft, so is the jsonSerialize implementation. The
+output format may therefore break between versions to comply with the latest
+version of the spec.</p>
+
+<h3>Parsing jCard and jCal.</h3>
+
+<p>To parse a jCard or jCal object, use the following snippet:</p>
+
+<pre><code>$input = 'jcard.json';
+$jCard = VObject\Reader::readJson(fopen('jcard.json', 'r'));
+</code></pre>
+
+<p>You can pass either a json string, a readable stream, or an array if you
+already called json_decode on the input.</p>
+
+<p>This feature was added in sabre/vobject 3.1.</p>
+
+<h3>Splitting export files</h3>
+
+<p>Generally when software makes backups of calendars or contacts, they will
+put all the objects in a single file. In the case of vCards, this is often
+a stream of VCARD objects, in the case of iCalendar, this tends to be a
+single VCALENDAR objects, with many components.</p>
+
+<p>Protocols such as Card- and CalDAV expect only 1 object per resource. The
+vobject library provides 2 classes to split these backup files up into many.</p>
+
+<p>To do this, use the splitter objects:</p>
+
+<pre><code>// You can either pass a readable stream, or a string.
+$h = fopen('backupfile.vcf', 'r');
+$splitter = new VObject\Splitter\VCard($h);
+
+while($vcard = $splitter-&gt;next()) {
+
+    // $vCard is a single vCard object. You can just call serialize() on it
+    // if you were looking for the string version.
+
+}
+</code></pre>
+
+<p>Next to the VCard splitter, there's also an ICalendar splitter. The latter
+creates a <code>VCALENDAR</code> object per <code>VEVENT</code>, <code>VTODO</code> or <code>VJOURNAL</code>, and ensures
+that the <code>VTIMEZONE</code> information is kept intact, and any <code>VEVENT</code> objects that
+belong together (because they are expections for an <code>RRULE</code> and thus have the
+same <code>UID</code>) will be kept together, exactly like CalDAV expects.</p>
+
+<h3>Converting between different vCard versions.</h3>
+
+<p>Since sabre/vobject 3.1, there's also a feature to convert between various
+vCard versions. Currently it's possible to convert from vCard 2.1, 3.0 and
+4.0 and to 3.0 and 4.0. It's not yet possible to convert to vCard 2.1.</p>
+
+<p>To do this, simply call the convert() method on the vCard object.</p>
+
+<pre><code>$input = &lt;&lt;&lt;VCARD
+BEGIN:VCARD
+VERSION:2.1
+FN;CHARSET=UTF-8:Foo
+TEL;PREF;HOME:+1 555 555 555
+END:VCARD
+VCARD;
+
+$vCard = VObject\Reader::read($input);
+$vCard-&gt;convert(VObject\Document::VCARD40);
+
+echo $vcard-&gt;serialize();
+
+// This will output:
+/*
+BEGIN:VCARD
+VERSION:4.0
+FN:Foo
+TEL;PREF=1;TYPE=HOME:+1 555 555 555
+END:VCARD
+*/
+</code></pre>
+
+<p>Note that not everything can cleanly convert between versions, and it's
+probable that there's a few properties that could be converted between
+versions, but isn't yet. If you find something, open a feature request ticket
+on Github.</p>
+
+<h2>CLI tool</h2>
+
+<p>Since vObject 3.1, a new cli tool is shipped in the bin/ directory.</p>
+
+<p>This tool has the following features:</p>
+
+<ul>
+<li>A <code>validate</code> command.</li>
+<li>A <code>repair</code> command to repair objects that are slightly broken.</li>
+<li>A <code>color</code> command, to show an iCalendar object or vCard on the console with
+ansi-colors, which may help debugging.</li>
+<li>A <code>convert</code> command, allowing you to convert between iCalendar 2.0, vCard 2.1,
+vCard 3.0, vCard 4.0, jCard and jCal.</li>
+</ul>
+
+<p>Just run it using <code>bin/vobject</code>. Composer will automatically also put a
+symlink in <code>vendor/bin</code> as well, or a directory of your choosing if you set
+the <code>bin-dir</code> setting in your composer.json.</p>
+
+<h2>Support</h2>
+
+<p>Head over to the <a href="http://groups.google.com/group/sabredav-discuss">SabreDAV mailing list</a> for any questions.</p>
+            
+                        <hr />
+            <h2>Comments</h2>
+            <div id="disqus_thread"></div>
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="http://sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
+    var disqus_identifier = '/vobject/usage';
+    var disqus_title = 'Usage instructions';
+    var disqus_url = 'http://sabre.io/vobject/usage';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+ </script>
+
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2014 fruux GmbH | </li>
+            <li><a href="http://sabre.io/support">Contact</a> | </li>
+            <li><a href="http://sabre.io/legal">Legal Info</a> | </li>
+            <li><i class="fa fa-twitter"></i> <a href="http://twitter.com/sabredav">@sabredav</a>, </li>
+            <li><a href="http://twitter.com/fruux">@fruux</a> | </li>
+            <li><i class="fa fa-github"></i> <a href="https://github.com/fruux">GitHub</a></li>
+        </ul>
+    </nav>
+
+</footer>
+
+</body>

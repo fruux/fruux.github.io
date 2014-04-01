@@ -27,9 +27,6 @@ body, td, th {
 a {
     color: #31a1cd;
 }
-a:visited {
-    color: darken(#31a1cd, 20%);
-}
 
 h1 {
     font-size: 42px;
@@ -128,12 +125,6 @@ article {
     -webkit-flex: 4 1 auto;
     flex: 4 1 800px;
 
-    >time {
-        display: block;
-        font-style: italic;
-        font-size: 90%;
-    }
-
     ul {
         margin-left: 25px;
     }
@@ -157,11 +148,11 @@ aside {
 /* code blocks */
 code {
     line-height: 18px;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 footer {
-    padding: 50px 0;
+    padding-top: 50px;
     font-size: 80%;
     nav {
         text-align: center;

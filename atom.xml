@@ -3,13 +3,13 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-04-01T12:21:54+00:00</updated>
+    <updated>2014-04-01T15:51:40+02:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
             <title type="html"><![CDATA[New website launched!]]></title>
             <link href="http://sabre.io/blog/2014/new-website"/>
-            <updated>2014-03-31T20:15:05+00:00</updated>
+            <updated>2014-03-31T00:00:00+02:00</updated>
             <id>http://sabre.io/blog/2014/new-website</id>
             <content type="html"><![CDATA[<p>You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
 never had a proper website, and we've always just hosted from Google Code.</p>

@@ -1,8 +1,7 @@
-<!DOCTYPE html>
+  <!DOCTYPE html!>
 <head>
 
-  
-            <title>Transmit - sabre/dav</title>
+            <title>New website launched! - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -26,9 +25,9 @@
     <nav>
         <ul>
             <li><a href="http://sabre.io/">Home</a></li>
-            <li><a href="http://sabre.io/dav">Docs</a></li>
+            <li><a href="http://sabre.io/documentation">Docs</a></li>
             <li><a href="http://sabre.io/support">Support</a></li>
-            <li><i class="fa fa-github"></i> <a href="https://github.com/fruux">GitHub</a></li>
+            <li><a href="https://github.com/fruux">GitHub</a></li>
         </ul>
     </nav>
 
@@ -37,6 +36,7 @@
         <main>
                     <aside>
     <ul>
+        <li><a href="http://sabre.io/">Home</a></li>
         <li><a href="http://sabre.io/dav">sabre/dav</a>
                 <ul>
 
@@ -110,74 +110,19 @@
   </ul>
 </aside>
                 <article>
-                        <h1>Transmit</h1>            <p><a href="http://www.panic.com/transmit/">Transmit</a> is a commercial WebDAV (as well as sftp and ftp) client for
-OS/X. It can either browse WebDAV sites in a simple browser, but it's also
-capable of mounting WebDAV drives using <a href="http://code.google.com/p/macfuse/">MacFuse</a>.</p>
+                        <h1>New website launched!</h1>            <p>You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
+never had a proper website, and we've always just hosted from Google Code.</p>
 
-<p>If you are ok with shelving out a few dollars, this is a <em>much</em> better client
-than <a href="/dav/client/finder">Finder</a>, and is well worth it.</p>
+<p>As Google slowly started to lose interested in code hosting, we migrated more
+and more features to Github. The biggest thing left: the wiki. So what once
+started as a place to host the new wiki, turned into a brand-new design, by
+<a href="https://fruux.com/">our</a> very own Martin Kaniut, who's also responsible for the <a href="https://fruux.com/">fruux</a>
+design.</p>
 
-<h2>Implementor notes</h2>
-
-<p>Transmit 4 had issues with multiple namespace declarations (DAV: appeared
-twice). This bug was promised to be fixed in a next version of Transmit,
-but it's also fixed in SabreDAV since 1.2.0beta1.</p>
-
-<p>Transmit's client is much better than the built-in OS/X one. It makes far less
-request, as it seems to buffer all modifications for a while. Because of this
-it's much more responsive uses far less HTTP requests / bandwidth.</p>
-
-<h2>Chunked Request Body problem</h2>
-
-<p>Transmit suffers from the same issue as the OS/X client, where it sends all
-HTTP PUT requests as 'Chunked' transfer encoding. This is not supported by
-many servers, such as lighttpd and nginx, as well as using apache + fastcgi.</p>
-
-<p>If you plan to support Transmit you are strongly advised to just use
-apache + mod_php.</p>
-
-<p><strong>Note</strong> The previous issue may well have been fixed since the last time we
-looked.</p>
-
-<h2>Protocol details</h2>
-
-<p>Transmit uses the following user agent:</p>
-
-<pre><code>WebDAVFS/1.2.7 (01278000) Transmit/4.0 neon/0.29.3
-</code></pre>
-
-<p>Transmit first does an <code>OPTIONS</code> request on the url, and then a propfind only
-requesting the <code>{DAV:}resourcetype</code> property.</p>
-
-<p>Once it's sure it's dealing with a collection, it requests the following
-properties (depth: 1):</p>
-
-<ul>
-<li><code>{DAV:}creationdate</code></li>
-<li><code>{DAV:}getcontentlength</code></li>
-<li><code>{DAV:}getlastmodified</code></li>
-<li><code>{DAV:}resourcetype</code></li>
-</ul>
-
-<p>When transmit is used to mount the webdav share, the following useragent is
-used:</p>
-
-<pre><code>WebDAVFS/1.2.7 (01278000) TransmitFSHelper/1.0 neon/0.29.3
-</code></pre>
-
-<p>It requests for the same properties as before, as well as the following:</p>
-
-<ul>
-<li><code>{DAV:}quota-available-bytes</code></li>
-<li><code>{DAV:}quota-used-bytes</code></li>
-<li><code>{DAV:}quota</code></li>
-<li><code>{DAV:}quota-used</code></li>
-</ul>
-
-<p>The last 2 are non-standard.</p>
-
-<p>Transmit (or OS/X) also seems to create a <code>.Trashes</code> folder as soon as the
-connection is made.</p>
+<p>We hope you like it, but since it's such a step up from Google Code, we're
+confident you probably will ;). If you're running into any bugs, definitely
+<a href="https://github.com/fruux/sabre.io/issues">let us know</a>. Want to contribute to the wiki? The entire site is open source, so
+<a href="https://github.com/fruux/sabre.io/tree/master/source">take a look</a> at some of the existing pages and get cracking!</p>
             
                         <hr />
             <h2>Comments</h2>
@@ -202,9 +147,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/dav/clients/transmit';
-    var disqus_title = 'Transmit';
-    var disqus_url = 'http://sabre.io/dav/clients/transmit';
+    var disqus_identifier = '/2014/03/27/new-website';
+    var disqus_title = 'New website launched!';
+    var disqus_url = 'http://sabredav.org/2014/03/27/new-website';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
@@ -218,12 +163,12 @@ ga('send', 'pageview');
 
     <nav>
         <ul>
-            <li>© 2014 fruux GmbH | </li>
-            <li><a href="http://sabre.io/support">Contact</a> | </li>
-            <li><a href="http://sabre.io/legal">Legal Info</a> | </li>
-            <li><i class="fa fa-twitter"></i> <a href="http://twitter.com/sabredav">@sabredav</a>, </li>
-            <li><a href="http://twitter.com/fruux">@fruux</a> | </li>
-            <li><i class="fa fa-github"></i> <a href="https://github.com/fruux">GitHub</a></li>
+            <li>© 2014 fruux GmbH</li>
+            <li><a href="http://sabre.io/support">Contact</a></li>
+            <li><a href="http://sabre.io/support">Support</a></li>
+            <li><a href="http://sabre.io/legal">Legal Info</a></li>
+            <li><a href="http://twitter.com/sabredav">Twitter</a></li>
+            <li><a href="https://github.com/fruux">Github</a></li>
         </ul>
     </nav>
 

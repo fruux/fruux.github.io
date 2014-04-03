@@ -3,9 +3,46 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-04-01T21:22:02+00:00</updated>
+    <updated>2014-04-03T00:04:22+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 3.2 released]]></title>
+            <link href="http://sabre.io/blog/2014/vobject-3"/>
+            <updated>2014-04-02T00:03:37+00:00</updated>
+            <id>http://sabre.io/blog/2014/vobject-3</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.2.0. This release is backwards compatible
+with the 3.1.* series.</p>
+
+<p>New features:</p>
+
+<ul>
+<li>We are now fully <a href="http://hhvm.com/">hhvm</a> compatible. If you're running a recent hhvm
+version, everything should work as expected. From this point forward, we
+will also actively support hhvm.</li>
+<li>The validator now understands a lot more validation rules. So using it now,
+either with the API, or on the command-line, should yield a lot more
+information.</li>
+<li>Support for a range of new timezone identifiers.</li>
+<li>Support for additional vcard properties from <a href="http://tools.ietf.org/html/rfc6715">rfc6715</a> and <a href="http://tools.ietf.org/html/rfc6474.">rfc6474</a>.</li>
+<li>Added a <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a> utility, for easily generating unique strings for use in
+<code>UID</code> properties.</li>
+<li>Support for <code>BYMONTH</code> on <code>DAILY</code> recurrences.</li>
+<li>Automatically fix broken vcards from Google's CardDAV server.</li>
+</ul>
+
+<p>We hope you like it! To upgrade with composer, make sure that your
+<code>composer.json</code> has a line that says:</p>
+
+<pre><code>"sabre/vobject" : "~3.2"
+</code></pre>
+
+<p>And then run:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[New website launched!]]></title>
             <link href="http://sabre.io/blog/2014/new-website"/>

@@ -50,6 +50,7 @@
             <li><a href="http://sabre.io/vobject/install">Installation</a></li>
             <li>Upgrading</li>
             <li><a href="http://sabre.io/vobject/usage">Usage</a></li>
+            <li><a href="http://sabre.io/vobject/json">jCal and jCard</a></li>
         </ul>
             </li>
     <li><a href="http://sabre.io/license">License</a></li>
@@ -499,38 +500,6 @@ FREEBUSY;FBTYPE=BUSY:20121210T140000Z/20121210T140000Z
 END:VFREEBUSY
 END:VCALENDAR
 </code></pre>
-
-<h3>Converting to jCard</h3>
-
-<p>To create a json-version of your iCalendar or vCard, simply call
-<code>jsonSerialize</code> on your component:</p>
-
-<pre><code>echo json_encode($vcard-&gt;jsonSerialize());
-</code></pre>
-
-<p>The json formats are based on these RFCs:</p>
-
-<ul>
-<li><a href="http://tools.ietf.org/html/rfc7095">http://tools.ietf.org/html/rfc7095</a></li>
-<li><a href="http://tools.ietf.org/html/draft-ietf-jcardcal-jcal-08">http://tools.ietf.org/html/draft-ietf-jcardcal-jcal-08</a></li>
-</ul>
-
-<p>Because these are still in draft, so is the jsonSerialize implementation. The
-output format may therefore break between versions to comply with the latest
-version of the spec.</p>
-
-<h3>Parsing jCard and jCal.</h3>
-
-<p>To parse a jCard or jCal object, use the following snippet:</p>
-
-<pre><code>$input = 'jcard.json';
-$jCard = VObject\Reader::readJson(fopen('jcard.json', 'r'));
-</code></pre>
-
-<p>You can pass either a json string, a readable stream, or an array if you
-already called json_decode on the input.</p>
-
-<p>This feature was added in sabre/vobject 3.1.</p>
 
 <h3>Splitting export files</h3>
 

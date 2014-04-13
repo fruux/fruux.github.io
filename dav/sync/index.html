@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>Cyberduck - sabre/dav</title>
+            <title>WebDAV Sync - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -115,38 +115,60 @@
   </ul>
 </aside>
                 <article>
-                        <h1>Cyberduck</h1>            <p><a href="http://cyberduck.io/">Cyberduck</a> is a free GUI WebDAV client for OS X. It's a clean and simple
-WebDAV client.</p>
+                        <h1>WebDAV Sync</h1>            <p>Since version 1.9.0alpha1, sabre/dav comes with support for <a href="https://tools.ietf.org/html/rfc6578">WebDAV Sync</a>.
+WebDAV Sync provides a way for webdav servers to track what has been changed,
+and send the list of changes back to client.</p>
 
-<p>It only supports basic file up and download operations, and doesn't deal with
-locking or properties.</p>
+<p>WebDAV-Sync has been implemented by almost every Cal- and CardDAV client, and
+it has the ability to greatly reduce the number of HTTP requests needed, and
+reduces memory usage, cpu and bandwidth on the sabredav server. It's very much
+worth it to implement for these reasons alone.</p>
 
-<h2>Connecting with Cyberduck</h2>
+<p>The standard <a href="https://github.com/fruux/sabre-dav/blob/master/lib/Sabre/CalDAV/Backend/SyncSupport.php">CalDAV</a> and <a href="https://github.com/fruux/sabre-dav/blob/master/lib/Sabre/CardDAV/Backend/SyncSupport.php">CardDAV</a> PDO backends already provide support
+for this, and therefore, all you need to do to enable this, is to add the
+plugin to your server:</p>
 
-<ol>
-<li>Connect with cyberduck user either 'quick connect' and fill in a dav://hostname url</li>
-<li>Or create a new 'WebDAV' bookmark and enter the full http:// address </li>
-</ol>
-
-<h2>Technical details</h2>
-
-<p>Sample user agent:</p>
-
-<pre><code>Cyberduck/3.0.3 (4205)
+<pre><code>$server-&gt;addPlugin(
+    new Sabre\DAV\Sync\Plugin()
+);
 </code></pre>
 
-<p>Cyberduck requests the following properties:</p>
+<h2>CalDAV and CardDAV custom backends</h2>
+
+<p>If you created your own custom backend, you will need to add a few more
+methods to allow webdav-sync support to work.</p>
+
+<p>To enable sync, your own backend class <em>must</em> implement the
+<code>Sabre\CalDAV\Backend\SyncSupport</code> interface, or for CardDAV
+<code>Sabre\CardDAV\Backend\SyncSupport</code>.</p>
+
+<p>A <em>lot</em> of documentation on how to do this can be found in the actual
+interfaces. It's best to simply read the documentation there:</p>
 
 <ul>
-<li>displayname</li>
-<li>getcontentlength</li>
-<li>getcontenttype</li>
-<li>resourcetype</li>
-<li>getlastmodified</li>
-<li>lockdiscovery</li>
+<li><a href="https://github.com/fruux/sabre-dav/blob/master/lib/Sabre/CalDAV/Backend/SyncSupport.php">CalDAV Backend SyncSupport documentation</a></li>
+<li><a href="https://github.com/fruux/sabre-dav/blob/master/lib/Sabre/CardDAV/Backend/SyncSupport.php">CardDAV Backend SyncSupport documentation</a></li>
 </ul>
 
-<p>Cyberduck at least understands HTTP Basic. Digest is currently untested.</p>
+<p>What it comes down to is this:</p>
+
+<blockquote>
+  <p>For every change, that is, an addition, deletion or modification of a
+  calendar object, a vcard, a calendar or an addressbook, you must track
+  this change and store it somewhere.</p>
+  
+  <p>When clients use webdav sync, they will start by receiving a token.
+  The next time a client syncs, it will provide this token and ask the
+  server to request all changes since that token was issued.</p>
+</blockquote>
+
+<h2>Adding Sync support to your other collections</h2>
+
+<p>It is possible to add sync support to any custom collection. To do so, make
+sure your collection implements the <code>Sabre\DAV\Sync\ISyncCollection</code> interface.</p>
+
+<p>This interface only requires two new methods. It's also here best to just read
+the <a href="https://github.com/fruux/sabre-dav/blob/master/lib/Sabre/DAV/Sync/ISyncCollection.php">in-line documentation</a> as it's quite complete.</p>
             
                         <hr />
             <h2>Comments</h2>
@@ -171,9 +193,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/dav/clients/cyberduck';
-    var disqus_title = 'Cyberduck';
-    var disqus_url = 'http://sabre.io/dav/clients/cyberduck';
+    var disqus_identifier = '/dav/sync';
+    var disqus_title = 'WebDAV Sync';
+    var disqus_url = 'http://sabre.io/dav/sync';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

@@ -9,7 +9,7 @@
     <link rel="alternate" type="application/atom+xml" href="http://sabre.io/atom.xml" title="sabre.io blog" />
     <link rel="shortcut icon" href="http://sabre.io/favicon.ico" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
             <link rel="stylesheet" type="text/css" href="http://sabre.io/css/sabre.css" />
     
 </head>
@@ -36,86 +36,80 @@
 
 </header>
 
-        <main>
+        <main class="incl-sidebar">
                     <aside>
-    <ul>
+    <ul class="sidebar-nav">
         <li><a href="http://sabre.io/dav">sabre/dav</a>
-                <ul>
-
-            <li><a href="http://sabre.io/dav/install">Installation</a></li>
-            <li><a href="http://sabre.io/dav/upgrading">Upgrading</a></li>
-            <li><a href="http://sabre.io/dav/gettingstarted">Getting Started</a></li>
-            <li>
-                Troubleshooting
-                <ul>
-                    <li><a href="http://sabre.io/dav/faq">FAQ</a></li>
-                    <li><a href="http://sabre.io/dav/clients">Clients</a></li>
-                    <li><a href="http://sabre.io/dav/webservers">Webservers</a></li>
-                </ul>
-            </li>
-            <li>
-                CalDAV
-                <ul>
-                    <li><a href="http://sabre.io/dav/caldav">Getting started</a></li>
-                    <li><a href="http://sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
-                    <li><a href="http://sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
-                    <li><a href="http://sabre.io/dav/caldav-proxy">Delegation</a></li>
-                    <li><a href="http://sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
-                    <li><a href="http://sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
-                    <li><a href="http://sabre.io/dav/imiphandler">iMip Handler</a></li>
-                    <li><a href="http://sabre.io/dav/service-discovery">Service Discovery</a></li>
-                </ul>
-            </li>
-            <li>
-                CardDAV
-                <ul>
-                    <li><a href="http://sabre.io/dav/carddav">Getting started</a></li>
-                    <li><a href="http://sabre.io/dav/building-a-carddav-client">Building a CardDAV client</a></li>
-                    <li><a href="http://sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
-                    <li><a href="http://sabre.io/dav/carddav-directory">CardDAV Directory</a></li>
-                    <li><a href="http://sabre.io/dav/vcf-export-plugin">vCard export</a></li>
-                    <li><a href="http://sabre.io/dav/service-discovery">Service Discovery</a></li>
-                </ul>
-            </li>
-            <li>
-                Other topics
-                <ul>
-                    <li><a href="http://sabre.io/dav/acl">Acl</a></li>
-                    <li><a href="http://sabre.io/dav/authentication">Authentication</a></li>
-                    <li><a href="http://sabre.io/dav/character-encoding">Character encoding</a></li>
-                    <li><a href="http://sabre.io/dav/browser-plugin">Directory indexes</a></li>
-                    <li><a href="http://sabre.io/dav/davmount">DavMount</a></li>
-                    <li><a href="http://sabre.io/dav/guesscontenttype">Content Types</a></li>
-                    <li><a href="http://sabre.io/dav/http-patch">PATCH support</a></li>
-                    <li><a href="http://sabre.io/dav/large-files">Large files</a></li>
-                    <li><a href="http://sabre.io/dav/litmus">Litmus</a></li>
-                    <li><a href="http://sabre.io/dav/plugins">Plugins</a></li>
-                    <li><a href="http://sabre.io/dav/scalability">Scalability</a></li>
-                    <li><a href="http://sabre.io/dav/simplecollection">SimpleCollection</a></li>
-                    <li><a href="http://sabre.io/dav/standards-support">Standards Support</a></li>
-                    <li><a href="http://sabre.io/dav/temporary-files">Temporary Files</a></li>
-                    <li><a href="http://sabre.io/dav/versioning">Versioning</a></li>
-                    <li><a href="http://sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
-                    <li><a href="http://sabre.io/dav/davclient">WebDAV client</a></li>
-                    <li><a href="http://sabre.io/dav/sync">WebDAV sync</a></li>
-                    <li><a href="http://sabre.io/dav/writing-plugins">Writing Plugins</a></li>
-                    <li><a href="http://sabre.io/dav/xmlelements">XML Elements</a></li>
-
-                </ul>
-            </li>
-        </ul>
-            </li>
-    <li><a href="http://sabre.io/event">sabre/event</a>
-            </li>
-    <li><a href="http://sabre.io/http">sabre/http</a>
-            </li>
-    <li><a href="http://sabre.io/vobject">sabre/vobject</a>
-            </li>
-    <li><a href="http://sabre.io/license">License</a></li>
-  </ul>
+                        <ul>
+                <li><a href="http://sabre.io/dav/install">Installation</a></li>
+                <li><a href="http://sabre.io/dav/upgrading">Upgrading</a></li>
+                <li><a href="http://sabre.io/dav/gettingstarted">Getting Started</a></li>
+                <li>Troubleshooting
+                    <ul>
+                        <li><a href="http://sabre.io/dav/faq">FAQ</a></li>
+                        <li><a href="http://sabre.io/dav/clients">Clients</a></li>
+                        <li><a href="http://sabre.io/dav/webservers">Webservers</a></li>
+                    </ul>
+                </li>
+                <li>CalDAV
+                    <ul>
+                        <li><a href="http://sabre.io/dav/caldav">Getting started</a></li>
+                        <li><a href="http://sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                        <li><a href="http://sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                        <li><a href="http://sabre.io/dav/caldav-proxy">Delegation</a></li>
+                        <li><a href="http://sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                        <li><a href="http://sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                        <li><a href="http://sabre.io/dav/imiphandler">iMip Handler</a></li>
+                        <li><a href="http://sabre.io/dav/service-discovery">Service Discovery</a></li>
+                    </ul>
+                </li>
+                <li>CardDAV
+                    <ul>
+                        <li><a href="http://sabre.io/dav/carddav">Getting started</a></li>
+                        <li><a href="http://sabre.io/dav/building-a-carddav-client">Building a CardDAV client</a></li>
+                        <li><a href="http://sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                        <li><a href="http://sabre.io/dav/carddav-directory">CardDAV Directory</a></li>
+                        <li><a href="http://sabre.io/dav/vcf-export-plugin">vCard export</a></li>
+                        <li><a href="http://sabre.io/dav/service-discovery">Service Discovery</a></li>
+                    </ul>
+                </li>
+                <li>Other topics
+                    <ul>
+                        <li><a href="http://sabre.io/dav/acl">Acl</a></li>
+                        <li><a href="http://sabre.io/dav/authentication">Authentication</a></li>
+                        <li><a href="http://sabre.io/dav/character-encoding">Character encoding</a></li>
+                        <li><a href="http://sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                        <li><a href="http://sabre.io/dav/davmount">DavMount</a></li>
+                        <li><a href="http://sabre.io/dav/guesscontenttype">Content Types</a></li>
+                        <li><a href="http://sabre.io/dav/http-patch">PATCH support</a></li>
+                        <li><a href="http://sabre.io/dav/large-files">Large files</a></li>
+                        <li><a href="http://sabre.io/dav/litmus">Litmus</a></li>
+                        <li><a href="http://sabre.io/dav/plugins">Plugins</a></li>
+                        <li><a href="http://sabre.io/dav/scalability">Scalability</a></li>
+                        <li><a href="http://sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                        <li><a href="http://sabre.io/dav/standards-support">Standards Support</a></li>
+                        <li><a href="http://sabre.io/dav/temporary-files">Temporary Files</a></li>
+                        <li><a href="http://sabre.io/dav/versioning">Versioning</a></li>
+                        <li><a href="http://sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                        <li><a href="http://sabre.io/dav/davclient">WebDAV client</a></li>
+                        <li><a href="http://sabre.io/dav/sync">WebDAV sync</a></li>
+                        <li><a href="http://sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                        <li><a href="http://sabre.io/dav/xmlelements">XML Elements</a></li>
+                    </ul>
+                </li>
+            </ul>
+                    </li>
+        <li><a href="http://sabre.io/event">sabre/event</a>
+                    </li>
+        <li><a href="http://sabre.io/http">sabre/http</a>
+                    </li>
+        <li><a href="http://sabre.io/vobject">sabre/vobject</a>
+                    </li>
+        <li><a href="http://sabre.io/license">License</a></li>
+    </ul>
 </aside>
                 <article>
-                        <h1>WebDAV client</h1>            <p>Since version 1.5, SabreDAV ships with an experimental WebDAV client. 
+                            <h1>WebDAV client</h1>                <p>Since version 1.5, SabreDAV ships with an experimental WebDAV client. 
 The reason it's currently marked as experimental, is not because of stability
 issues, but because it's API is very likely to change in newer versions.</p>
 
@@ -228,9 +222,9 @@ server. The return value is an array.</p>
 
 <p>If the server was not a WebDAV server, the response will be empty.</p>
             
-                        <hr />
-            <h2>Comments</h2>
-            <div id="disqus_thread"></div>
+                            <hr />
+                <h2>Comments</h2>
+                <div id="disqus_thread"></div>
                     </article>
     </main>
     

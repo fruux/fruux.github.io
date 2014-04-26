@@ -115,7 +115,8 @@ to a file.</p>
 
 <p>SabreDAV defines its own content-type to do this.</p>
 
-<p><em>Note:</em> This feature was added in SabreDAV 1.7.0.</p>
+<p><em>Note:</em> This feature was added in SabreDAV 1.7.0 and 1.8.0, but has been
+broken until 1.7.12 and 1.8.10.</p>
 
 <h2>A sample request</h2>
 
@@ -130,23 +131,81 @@ X-Update-Range: bytes=3-6
 <p>This request updates 'file.txt', specifically the bytes 3-6 (inclusive) to
 <code>0000</code>.</p>
 
+<h2>The rules</h2>
+
 <ul>
 <li>The Content-Length header is required</li>
 <li>The X-Update-Range is also required. The value is the exact same as the HTTP
-Range header. The two numbers are inclusive (so 3-6 means that bytes 3,4,5
+Range header. The two numbers are inclusive (so <code>3-6</code> means that bytes 3,4,5
 and 6 will be updated).</li>
-<li>Just like the HTTP Range header, the specified bytes is a 1-based index.
-This means that 'bytes=0-3' is invalid, as there is no '0th byte'.</li>
-<li>The 'application/x-sabredav-partialupdate' must also be specified.</li>
-<li>The two numbers in the Update-Range header may be omitted. If the start byte
-is omitted, 1 is assumed. If the end-byte is omitted it will be calculated
-based on the start-byte and the content-length of the PATCH request.</li>
-<li>Note that this makes the end-range unneeded, but we wanted to stay close to
-the HTTP specification. Specifying the end-byte is still a good idea as it
-provides a sanity check for numbers that are easily mixed up.</li>
-<li>You can start writing past the end of the file. The in-between space will be
-filled with <code>0x00</code>.</li>
+<li>Just like the HTTP Range header, the specified bytes is a 0-based index.</li>
+<li>The <code>application/x-sabredav-partialupdate</code> must also be specified.</li>
+<li>The end-byte is optional.</li>
+<li>The start-byte cannot be omitted.</li>
+<li>If the start byte is negative, it's calculated from the end of the file. So
+<code>-1</code> will update the last byte in the file.</li>
+<li><code>-0</code> may be used to just append to the end of the file.</li>
+<li>Neither the start, nor the end-byte have to be within the file's current
+size.</li>
+<li>If the start-byte is beyond the file's current length, the space in between
+will be filled with NULL bytes (<code>0x00</code>).</li>
 </ul>
+
+<h2>More examples</h2>
+
+<p>The following table illustrates most types of requests and what the end-result
+of them will be.</p>
+
+<p>It is assumed that the input file contains <code>1234567890</code>, and the request body
+always contains 4 dashes (<code>----</code>).</p>
+
+<table>
+<thead>
+<tr>
+  <th>X-Update-Range header</th>
+  <th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>bytes=0-3</code></td>
+  <td><code>----567890</code></td>
+</tr>
+<tr>
+  <td><code>bytes=1-4</code></td>
+  <td><code>1----67890</code></td>
+</tr>
+<tr>
+  <td><code>bytes=0</code></td>
+  <td><code>----567890</code></td>
+</tr>
+<tr>
+  <td><code>bytes=-4</code></td>
+  <td><code>123456----</code></td>
+</tr>
+<tr>
+  <td><code>bytes=-2</code></td>
+  <td><code>12345678----</code></td>
+</tr>
+<tr>
+  <td><code>bytes=2-</code></td>
+  <td><code>12----7890</code></td>
+</tr>
+<tr>
+  <td><code>bytes=-0</code></td>
+  <td><code>1234567890----</code></td>
+</tr>
+<tr>
+  <td><code>bytes=12-</code></td>
+  <td><code>1234567890..----</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>Please note that in the very last example, we used dots (<code>.</code>) to represent what
+are actually <code>NULL</code> bytes (so <code>0x00</code>). The null byte is not printable.</p>
+
+<h2>OPTIONS</h2>
 
 <p>If you want to be compliant with SabreDAV's implementation of PATCH, you must
 also return 'sabredav-partialupdate' in the 'DAV:' header:</p>
@@ -159,8 +218,7 @@ DAV: 1, 2, 3, sabredav-partialupdate, extended-mkcol
 
 <p>To use partial updates, your file-nodes must implement the
 <code>Sabre\DAV\PartialUpdate\IFile</code> interface. This adds a new <code>putRange()</code> method
-to the interface. Note that the offset argument is a normal 0-based index,
-contrary to the 1-based offset as specified in the request.</p>
+to the interface.</p>
 
 <p>A sample implementation can be found in <code>Sabre\DAV\FSExt\File</code>.</p>
             

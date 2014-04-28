@@ -113,7 +113,9 @@
 (<a href="http://tools.ietf.org/html/rfc5789">RFC5789</a>). This allows you to update just a portion of a file, or append
 to a file.</p>
 
-<p>SabreDAV defines its own content-type to do this.</p>
+<p>This document can be used as a spec for other implementors. There is some
+DAV-specific stuff in this document, but only in relation to the OPTIONS
+request.</p>
 
 <p><em>Note:</em> This feature was added in SabreDAV 1.7.0 and 1.8.0, but has been
 broken until 1.7.12 and 1.8.10.</p>
@@ -125,30 +127,45 @@ Content-Length: 4
 Content-Type: application/x-sabredav-partialupdate
 X-Update-Range: bytes=3-6
 
-0000
+ABCD
 </code></pre>
 
 <p>This request updates 'file.txt', specifically the bytes 3-6 (inclusive) to
-<code>0000</code>.</p>
+<code>ABCD</code>.</p>
+
+<p>If you just want to append to an existing file, use the following syntax:</p>
+
+<pre><code>PATCH /file.txt
+Content-Length: 4
+Content-Type: application/x-sabredav-partialupdate
+X-Update-Range: append
+
+1234
+</code></pre>
+
+<p>The last request adds 4 bytes to the bottom of the file.</p>
 
 <h2>The rules</h2>
 
 <ul>
-<li>The Content-Length header is required</li>
-<li>The X-Update-Range is also required. The value is the exact same as the HTTP
-Range header. The two numbers are inclusive (so <code>3-6</code> means that bytes 3,4,5
-and 6 will be updated).</li>
+<li>The <code>Content-Length</code> header is required.</li>
+<li><code>X-Update-Range</code> is also required.</li>
+<li>The <code>bytes</code> value is the exact same as the HTTP Range header. The two numbers
+are inclusive (so <code>3-6</code> means that bytes 3,4,5 and 6 will be updated).</li>
 <li>Just like the HTTP Range header, the specified bytes is a 0-based index.</li>
 <li>The <code>application/x-sabredav-partialupdate</code> must also be specified.</li>
 <li>The end-byte is optional.</li>
 <li>The start-byte cannot be omitted.</li>
 <li>If the start byte is negative, it's calculated from the end of the file. So
 <code>-1</code> will update the last byte in the file.</li>
-<li><code>-0</code> may be used to just append to the end of the file.</li>
+<li>Use <code>X-Update-Range: append</code> to add to the end of the file.</li>
 <li>Neither the start, nor the end-byte have to be within the file's current
 size.</li>
 <li>If the start-byte is beyond the file's current length, the space in between
 will be filled with NULL bytes (<code>0x00</code>).</li>
+<li>The specification currently does not support multiple ranges.</li>
+<li>If both start and end offsets are given, than both must be non-negative, and
+the end offset must be greater or equal to the start offset.</li>
 </ul>
 
 <h2>More examples</h2>
@@ -176,7 +193,7 @@ always contains 4 dashes (<code>----</code>).</p>
   <td><code>1----67890</code></td>
 </tr>
 <tr>
-  <td><code>bytes=0</code></td>
+  <td><code>bytes=0-</code></td>
   <td><code>----567890</code></td>
 </tr>
 <tr>
@@ -192,18 +209,19 @@ always contains 4 dashes (<code>----</code>).</p>
   <td><code>12----7890</code></td>
 </tr>
 <tr>
-  <td><code>bytes=-0</code></td>
-  <td><code>1234567890----</code></td>
-</tr>
-<tr>
   <td><code>bytes=12-</code></td>
   <td><code>1234567890..----</code></td>
+</tr>
+<tr>
+  <td><code>append</code></td>
+  <td><code>1234567890----</code></td>
 </tr>
 </tbody>
 </table>
 
-<p>Please note that in the very last example, we used dots (<code>.</code>) to represent what
-are actually <code>NULL</code> bytes (so <code>0x00</code>). The null byte is not printable.</p>
+<p>Please note that in the <code>bytes=12-</code> very last example, we used dots (<code>.</code>) to
+represent what are actually <code>NULL</code> bytes (so <code>0x00</code>). The null byte is not
+printable.</p>
 
 <h2>OPTIONS</h2>
 
@@ -214,7 +232,10 @@ also return 'sabredav-partialupdate' in the 'DAV:' header:</p>
 DAV: 1, 2, 3, sabredav-partialupdate, extended-mkcol
 </code></pre>
 
-<h2>Using this feature on the server-side</h2>
+<p>This is only required if you are adding this feature to a DAV server. For
+non-webdav implementations such as REST services this is optional.</p>
+
+<h2>Using this feature in sabre/dav</h2>
 
 <p>To use partial updates, your file-nodes must implement the
 <code>Sabre\DAV\PartialUpdate\IFile</code> interface. This adds a new <code>putRange()</code> method

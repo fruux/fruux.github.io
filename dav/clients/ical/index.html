@@ -121,6 +121,7 @@ to be the most correct implementation.</p>
 <li><a href="http://tools.ietf.org/html/rfc6638">Scheduling</a></li>
 <li><a href="/dav/caldav-proxy">Calendar delegation</a></li>
 <li><a href="/dav/caldav-sharing">Calendar sharing</a></li>
+<li><a href="/dav/subscriptions">Subscriptions</a></li>
 </ul>
 
 <h2>Technical information</h2>
@@ -132,7 +133,7 @@ to be the most correct implementation.</p>
 <pre><code>defaults write com.apple.iCal IncludeDebugMenu 1
 </code></pre>
 
-<p>Since OS X 10.9 (mavericks, this has changed to)</p>
+<p>Since OS X 10.9 (mavericks), this has changed to</p>
 
 <pre><code>defaults write com.apple.iCal CDB 1
 </code></pre>
@@ -144,12 +145,26 @@ to be the most correct implementation.</p>
 
 <p>Logging goes to 'Console.app'</p>
 
+<h3>Subscriptions</h3>
+
+<p>iCal allows server-side management of calendar subscriptions. This allows a
+user to store their iCal feeds on a server, and have them stay in sync accross
+different clients.</p>
+
+<p>In OS X 10.7 and 10.8 new subscriptions are created using a <code>MKCOL</code> method. The
+body contains a <code>{DAV:}resourcetype</code> with values <code>{DAV:}collection</code> and
+<code>{http://calendarserver.org/ns/}subscribed</code>.</p>
+
+<p>In OS X 10.9.2 they changed to using <code>MKCALENDAR</code> instead. We suspect that this
+is a bug, but we're adding support for it in sabre/dav nonetheless.</p>
+
 <h3>User agent</h3>
 
 <p>Some user agents we've seen:</p>
 
 <pre><code>DAVKit/3.0.6 (661); CalendarStore/3.0.8 (860); iCal/3.0.8 (1287); Mac OS X/10.5.8 (9L31a)
 DAVKit/4.0.1 (730); CalendarStore/4.0.1 (973); iCal/4.0.1 (1374); Mac OS X/10.6.2 (10C540)
+Mac_OS_X/10.9.2 (13C64) CalendarAgent/176
 </code></pre>
 
 <h3>10.5 iCal</h3>
@@ -281,6 +296,106 @@ PROPFIND response.</p>
 
 <p>Since SabreDAV 1.5 we always send along the DAV: header for every PROPFIND
 responses.</p>
+
+<h3>Random samples of HTTP requests iCal generates.</h3>
+
+<h4>Creating a subscription in 10.7</h4>
+
+<pre><code>&lt;A:mkcol xmlns:A="DAV:"&gt;
+    &lt;A:set&gt;
+        &lt;A:prop&gt;
+            &lt;B:subscribed-strip-attachments xmlns:B="http://calendarserver.org/ns/" /&gt;
+            &lt;B:subscribed-strip-todos xmlns:B="http://calendarserver.org/ns/" /&gt;
+            &lt;A:resourcetype&gt;
+                &lt;A:collection /&gt;
+                &lt;B:subscribed xmlns:B="http://calendarserver.org/ns/" /&gt;
+            &lt;/A:resourcetype&gt;
+            &lt;E:calendar-color xmlns:E="http://apple.com/ns/ical/"&gt;#1C4587FF&lt;/E:calendar-color&gt;
+            &lt;A:displayname&gt;Jewish holidays&lt;/A:displayname&gt;
+            &lt;C:calendar-description xmlns:C="urn:ietf:params:xml:ns:caldav"&gt;Sixteen annual Jewish holidays. Update every 2 weeks.&lt;/C:calendar-description&gt;
+            &lt;E:calendar-order xmlns:E="http://apple.com/ns/ical/"&gt;19&lt;/E:calendar-order&gt;
+            &lt;B:source xmlns:B="http://calendarserver.org/ns/"&gt;
+                &lt;A:href&gt;webcal://www.webcal.fi/cal.php?id=49&amp;amp;rid=ics&amp;amp;wrn=0&amp;amp;wp=12&amp;amp;wf=55&lt;/A:href&gt;
+            &lt;/B:source&gt;
+            &lt;E:refreshrate xmlns:E="http://apple.com/ns/ical/"&gt;P1W&lt;/E:refreshrate&gt;
+            &lt;B:subscribed-strip-alarms xmlns:B="http://calendarserver.org/ns/" /&gt;
+        &lt;/A:prop&gt;
+    &lt;/A:set&gt;
+&lt;/A:mkcol&gt;
+</code></pre>
+
+<h4>Creating a new subscription in 10.9.2</h4>
+
+<pre><code>&lt;B:mkcalendar xmlns:B="urn:ietf:params:xml:ns:caldav"&gt;
+    &lt;A:set xmlns:A="DAV:"&gt;
+        &lt;A:prop&gt;
+            &lt;B:supported-calendar-component-set&gt;
+                &lt;B:comp name="VEVENT" /&gt;
+            &lt;/B:supported-calendar-component-set&gt;
+            &lt;C:subscribed-strip-alarms xmlns:C="http://calendarserver.org/ns/" /&gt;
+            &lt;C:subscribed-strip-attachments xmlns:C="http://calendarserver.org/ns/" /&gt;
+            &lt;A:resourcetype&gt;
+                &lt;A:collection /&gt;
+                &lt;C:subscribed xmlns:C="http://calendarserver.org/ns/" /&gt;
+            &lt;/A:resourcetype&gt;
+            &lt;D:refreshrate xmlns:D="http://apple.com/ns/ical/"&gt;P1W&lt;/D:refreshrate&gt;
+            &lt;C:source xmlns:C="http://calendarserver.org/ns/"&gt;
+                &lt;A:href&gt;webcal://www.webcal.fi/cal.php?id=49&amp;amp;amp;rid=ics&amp;amp;amp;wrn=0&amp;amp;amp;wp=12&amp;amp;amp;wf=55&lt;/A:href&gt;
+            &lt;/C:source&gt;
+            &lt;D:calendar-color xmlns:D="http://apple.com/ns/ical/"&gt;#1C4587FF&lt;/D:calendar-color&gt;
+            &lt;D:calendar-order xmlns:D="http://apple.com/ns/ical/"&gt;19&lt;/D:calendar-order&gt;
+            &lt;B:calendar-description&gt;Sixteen annual Jewish holidays. Update every 2 weeks.&lt;/B:calendar-description&gt;
+            &lt;C:subscribed-strip-todos xmlns:C="http://calendarserver.org/ns/" /&gt;
+            &lt;A:displayname&gt;Jewish holidays&lt;/A:displayname&gt;
+        &lt;/A:prop&gt;
+    &lt;/A:set&gt;
+&lt;/B:mkcalendar&gt;
+</code></pre>
+
+<h4>Requesting a list of calendars in 10.9.2</h4>
+
+<pre><code>&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;A:propfind xmlns:A="DAV:"&gt;
+  &lt;A:prop&gt;
+    &lt;A:add-member/&gt;
+    &lt;C:allowed-sharing-modes xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;D:autoprovisioned xmlns:D="http://apple.com/ns/ical/"/&gt;
+    &lt;E:bulk-requests xmlns:E="http://me.com/_namespace/"/&gt;
+    &lt;D:calendar-color xmlns:D="http://apple.com/ns/ical/"/&gt;
+    &lt;B:calendar-description xmlns:B="urn:ietf:params:xml:ns:caldav"/&gt;
+    &lt;B:calendar-free-busy-set xmlns:B="urn:ietf:params:xml:ns:caldav"/&gt;
+    &lt;D:calendar-order xmlns:D="http://apple.com/ns/ical/"/&gt;
+    &lt;B:calendar-timezone xmlns:B="urn:ietf:params:xml:ns:caldav"/&gt;
+    &lt;A:current-user-privilege-set/&gt;
+    &lt;B:default-alarm-vevent-date xmlns:B="urn:ietf:params:xml:ns:caldav"/&gt;
+    &lt;B:default-alarm-vevent-datetime xmlns:B="urn:ietf:params:xml:ns:caldav"/&gt;
+    &lt;A:displayname/&gt;
+    &lt;C:getctag xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;D:language-code xmlns:D="http://apple.com/ns/ical/"/&gt;
+    &lt;D:location-code xmlns:D="http://apple.com/ns/ical/"/&gt;
+    &lt;A:owner/&gt;
+    &lt;C:pre-publish-url xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;C:publish-url xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;C:push-transports xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;C:pushkey xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;A:quota-available-bytes/&gt;
+    &lt;A:quota-used-bytes/&gt;
+    &lt;D:refreshrate xmlns:D="http://apple.com/ns/ical/"/&gt;
+    &lt;A:resource-id/&gt;
+    &lt;A:resourcetype/&gt;
+    &lt;B:schedule-calendar-transp xmlns:B="urn:ietf:params:xml:ns:caldav"/&gt;
+    &lt;B:schedule-default-calendar-URL xmlns:B="urn:ietf:params:xml:ns:caldav"/&gt;
+    &lt;C:source xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;C:subscribed-strip-alarms xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;C:subscribed-strip-attachments xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;C:subscribed-strip-todos xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;B:supported-calendar-component-set xmlns:B="urn:ietf:params:xml:ns:caldav"/&gt;
+    &lt;B:supported-calendar-component-sets xmlns:B="urn:ietf:params:xml:ns:caldav"/&gt;
+    &lt;A:supported-report-set/&gt;
+    &lt;A:sync-token/&gt;
+  &lt;/A:prop&gt;
+&lt;/A:propfind&gt;
+</code></pre>
             
                             <hr />
                 <h2>Comments</h2>

@@ -219,9 +219,18 @@ always contains 4 dashes (<code>----</code>).</p>
 </tbody>
 </table>
 
-<p>Please note that in the <code>bytes=12-</code> very last example, we used dots (<code>.</code>) to
-represent what are actually <code>NULL</code> bytes (so <code>0x00</code>). The null byte is not
-printable.</p>
+<p>Please note that in the <code>bytes=12-</code> example, we used dots (<code>.</code>) to represent
+what are actually <code>NULL</code> bytes (so <code>0x00</code>). The null byte is not printable.</p>
+
+<h2>Status codes</h2>
+
+<p>The following status codes should be used:</p>
+
+<p>| 200 or 204 | When the operation was successful |
+| 400        | Invalid <code>X-Update-Range</code> header |
+| 411        | <code>Content-Length</code> header was not provided |
+| 415        | Unrecognized content-type, should be <code>application/x-sabredav-partialupdate</code> |
+| 416        | If there was something wrong with the bytes, such as a <code>Content-Length</code> not matching with what was sent as the start and end bytes, or an end byte being lower than the start byte. |</p>
 
 <h2>OPTIONS</h2>
 

@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>HTTP PATCH support - sabre/dav</title>
+            <title>WebDAV Sync - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -109,173 +109,60 @@
     </ul>
 </aside>
                 <article>
-                            <h1>HTTP PATCH support</h1>                <p>The <code>Sabre\DAV\PartialUpdate\Plugin</code> provides support for the HTTP PATCH method
-(<a href="http://tools.ietf.org/html/rfc5789">RFC5789</a>). This allows you to update just a portion of a file, or append
-to a file.</p>
+                            <h1>WebDAV Sync</h1>                <p>Since version 1.9.0alpha1, sabre/dav comes with support for <a href="https://tools.ietf.org/html/rfc6578">WebDAV Sync</a>.
+WebDAV Sync provides a way for webdav servers to track what has been changed,
+and send the list of changes back to client.</p>
 
-<p>This document can be used as a spec for other implementors. There is some
-DAV-specific stuff in this document, but only in relation to the OPTIONS
-request.</p>
+<p>WebDAV-Sync has been implemented by almost every Cal- and CardDAV client, and
+it has the ability to greatly reduce the number of HTTP requests needed, and
+reduces memory usage, cpu and bandwidth on the sabredav server. It's very much
+worth it to implement for these reasons alone.</p>
 
-<p><em>Note:</em> This feature was added in SabreDAV 1.7.0 and 1.8.0, but has been
-broken until 1.7.12 and 1.8.10.</p>
+<p>The standard <a href="https://github.com/fruux/sabre-dav/blob/master/lib/Sabre/CalDAV/Backend/SyncSupport.php">CalDAV</a> and <a href="https://github.com/fruux/sabre-dav/blob/master/lib/Sabre/CardDAV/Backend/SyncSupport.php">CardDAV</a> PDO backends already provide support
+for this, and therefore, all you need to do to enable this, is to add the
+plugin to your server:</p>
 
-<h2>A sample request</h2>
-
-<pre><code>PATCH /file.txt
-Content-Length: 4
-Content-Type: application/x-sabredav-partialupdate
-X-Update-Range: bytes=3-6
-
-ABCD
+<pre><code>$server-&gt;addPlugin(
+    new Sabre\DAV\Sync\Plugin()
+);
 </code></pre>
 
-<p>This request updates 'file.txt', specifically the bytes 3-6 (inclusive) to
-<code>ABCD</code>.</p>
+<h2>CalDAV and CardDAV custom backends</h2>
 
-<p>If you just want to append to an existing file, use the following syntax:</p>
+<p>If you created your own custom backend, you will need to add a few more
+methods to allow webdav-sync support to work.</p>
 
-<pre><code>PATCH /file.txt
-Content-Length: 4
-Content-Type: application/x-sabredav-partialupdate
-X-Update-Range: append
+<p>To enable sync, your own backend class <em>must</em> implement the
+<code>Sabre\CalDAV\Backend\SyncSupport</code> interface, or for CardDAV
+<code>Sabre\CardDAV\Backend\SyncSupport</code>.</p>
 
-1234
-</code></pre>
-
-<p>The last request adds 4 bytes to the bottom of the file.</p>
-
-<h2>The rules</h2>
+<p>A <em>lot</em> of documentation on how to do this can be found in the actual
+interfaces. It's best to simply read the documentation there:</p>
 
 <ul>
-<li>The <code>Content-Length</code> header is required.</li>
-<li><code>X-Update-Range</code> is also required.</li>
-<li>The <code>bytes</code> value is the exact same as the HTTP Range header. The two numbers
-are inclusive (so <code>3-6</code> means that bytes 3,4,5 and 6 will be updated).</li>
-<li>Just like the HTTP Range header, the specified bytes is a 0-based index.</li>
-<li>The <code>application/x-sabredav-partialupdate</code> must also be specified.</li>
-<li>The end-byte is optional.</li>
-<li>The start-byte cannot be omitted.</li>
-<li>If the start byte is negative, it's calculated from the end of the file. So
-<code>-1</code> will update the last byte in the file.</li>
-<li>Use <code>X-Update-Range: append</code> to add to the end of the file.</li>
-<li>Neither the start, nor the end-byte have to be within the file's current
-size.</li>
-<li>If the start-byte is beyond the file's current length, the space in between
-will be filled with NULL bytes (<code>0x00</code>).</li>
-<li>The specification currently does not support multiple ranges.</li>
-<li>If both start and end offsets are given, than both must be non-negative, and
-the end offset must be greater or equal to the start offset.</li>
+<li><a href="https://github.com/fruux/sabre-dav/blob/master/lib/Sabre/CalDAV/Backend/SyncSupport.php">CalDAV Backend SyncSupport documentation</a></li>
+<li><a href="https://github.com/fruux/sabre-dav/blob/master/lib/Sabre/CardDAV/Backend/SyncSupport.php">CardDAV Backend SyncSupport documentation</a></li>
 </ul>
 
-<h2>More examples</h2>
+<p>What it comes down to is this:</p>
 
-<p>The following table illustrates most types of requests and what the end-result
-of them will be.</p>
+<blockquote>
+  <p>For every change, that is, an addition, deletion or modification of a
+  calendar object, a vcard, a calendar or an addressbook, you must track
+  this change and store it somewhere.</p>
+  
+  <p>When clients use webdav sync, they will start by receiving a token.
+  The next time a client syncs, it will provide this token and ask the
+  server to request all changes since that token was issued.</p>
+</blockquote>
 
-<p>It is assumed that the input file contains <code>1234567890</code>, and the request body
-always contains 4 dashes (<code>----</code>).</p>
+<h2>Adding Sync support to your other collections</h2>
 
-<table>
-<thead>
-<tr>
-  <th>X-Update-Range header</th>
-  <th>Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td><code>bytes=0-3</code></td>
-  <td><code>----567890</code></td>
-</tr>
-<tr>
-  <td><code>bytes=1-4</code></td>
-  <td><code>1----67890</code></td>
-</tr>
-<tr>
-  <td><code>bytes=0-</code></td>
-  <td><code>----567890</code></td>
-</tr>
-<tr>
-  <td><code>bytes=-4</code></td>
-  <td><code>123456----</code></td>
-</tr>
-<tr>
-  <td><code>bytes=-2</code></td>
-  <td><code>12345678----</code></td>
-</tr>
-<tr>
-  <td><code>bytes=2-</code></td>
-  <td><code>12----7890</code></td>
-</tr>
-<tr>
-  <td><code>bytes=12-</code></td>
-  <td><code>1234567890..----</code></td>
-</tr>
-<tr>
-  <td><code>append</code></td>
-  <td><code>1234567890----</code></td>
-</tr>
-</tbody>
-</table>
+<p>It is possible to add sync support to any custom collection. To do so, make
+sure your collection implements the <code>Sabre\DAV\Sync\ISyncCollection</code> interface.</p>
 
-<p>Please note that in the <code>bytes=12-</code> example, we used dots (<code>.</code>) to represent
-what are actually <code>NULL</code> bytes (so <code>0x00</code>). The null byte is not printable.</p>
-
-<h2>Status codes</h2>
-
-<p>The following status codes should be used:</p>
-
-<table>
-<thead>
-<tr>
-  <th>Status code</th>
-  <th>Reason</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>200 or 204</td>
-  <td>When the operation was successful</td>
-</tr>
-<tr>
-  <td>400</td>
-  <td>Invalid <code>X-Update-Range</code> header</td>
-</tr>
-<tr>
-  <td>411</td>
-  <td><code>Content-Length</code> header was not provided</td>
-</tr>
-<tr>
-  <td>415</td>
-  <td>Unrecognized content-type, should be <code>application/x-sabredav-partialupdate</code></td>
-</tr>
-<tr>
-  <td>416</td>
-  <td>If there was something wrong with the bytes, such as a <code>Content-Length</code> not matching with what was sent as the start and end bytes, or an end byte being lower than the start byte.</td>
-</tr>
-</tbody>
-</table>
-
-<h2>OPTIONS</h2>
-
-<p>If you want to be compliant with SabreDAV's implementation of PATCH, you must
-also return 'sabredav-partialupdate' in the 'DAV:' header:</p>
-
-<pre><code>HTTP/1.1 204 No Content
-DAV: 1, 2, 3, sabredav-partialupdate, extended-mkcol
-</code></pre>
-
-<p>This is only required if you are adding this feature to a DAV server. For
-non-webdav implementations such as REST services this is optional.</p>
-
-<h2>Using this feature in sabre/dav</h2>
-
-<p>To use partial updates, your file-nodes must implement the
-<code>Sabre\DAV\PartialUpdate\IFile</code> interface. This adds a new <code>putRange()</code> method
-to the interface.</p>
-
-<p>A sample implementation can be found in <code>Sabre\DAV\FSExt\File</code>.</p>
+<p>This interface only requires two new methods. It's also here best to just read
+the <a href="https://github.com/fruux/sabre-dav/blob/master/lib/Sabre/DAV/Sync/ISyncCollection.php">in-line documentation</a> as it's quite complete.</p>
             
                             <hr />
                 <h2>Comments</h2>
@@ -300,9 +187,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/dav/http-patch';
-    var disqus_title = 'HTTP PATCH support';
-    var disqus_url = 'http://sabre.io/dav/http-patch';
+    var disqus_identifier = '/dav/sync';
+    var disqus_title = 'WebDAV Sync';
+    var disqus_url = 'http://sabre.io/dav/sync';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

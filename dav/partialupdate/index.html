@@ -1,0 +1,160 @@
+<!DOCTYPE html!>
+<head>
+    <title>sabre/dav</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/sabredav.css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <link rel="stylesheet" href="/components/highlightjs/styles/github.css" type="text/css" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+</head>
+<body>
+    <header>
+
+    <div class="logo">
+        <a href="/">
+            <img src="/img/logo.png" alt="SabreDAV. A WebDAV framework for PHP.">
+            SabreDAV wiki
+        </a>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="/">sabre/dav</a></li>
+            <li><a href="/">sabre/event</a></li>
+            <li><a href="/">sabre/http</a></li>
+            <li><a href="/">sabre/vobject</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+    <main>
+        <aside>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/dav/install">Installation</a></li>
+        <li><a href="/dav/upgrading">Upgrading</a></li>
+        <li><a href="/dav/gettingstarted">Getting Started</a></li>
+        <li>
+            Troubleshooting
+            <ul>
+                <li><a href="/dav/faq">FAQ</a></li>
+                <li><a href="/dav/clients">Clients</a></li>
+                <li><a href="/dav/webservers">Webservers</a></li>
+            </ul>
+        </li>
+        <li>
+            CalDAV
+            <ul>
+                <li><a href="/dav/caldav">Getting started</a></li>
+                <li><a href="/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                <li><a href="/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                <li><a href="/dav/caldav-proxy">Delegation</a></li>
+                <li><a href="/dav/caldav-sharing">Calendar sharing</a></li>
+                <li><a href="/dav/ics-export-plugin">iCalendar export</a></li>
+                <li><a href="/dav/imiphandler">iMip Handler</a></li>
+            </ul>
+        </li>
+        <li>
+            CardDAV
+            <ul>
+                <li><a href="/dav/carddav">Getting started</a></li>
+                <li><a href="/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                <li><a href="/dav/carddav-directory">CardDAV Directory</a></li>
+            </ul>
+        </li>
+        <li>
+            Other topics
+            <ul>
+                <li><a href="/dav/acl">Acl</a></li>
+                <li><a href="/dav/authentication">Authentication</a></li>
+                <li><a href="/dav/character-encoding">Character encoding</a></li>
+                <li><a href="/dav/browser-plugin">Directory indexes</a></li>
+                <li><a href="/dav/davmount">DavMount</a></li>
+                <li><a href="/dav/guesscontenttype">Content Types</a></li>
+                <li><a href="/license">License</a></li>
+                <li><a href="/dav/litmus">Litmus</a></li>
+                <li><a href="/dav/plugins">Plugins</a></li>
+                <li><a href="/dav/partialupdate">PATCH support</a></li>
+                <li><a href="/dav/scalability">Scalability</a></li>
+                <li><a href="/dav/versioning">Versioning</a></li>
+                <li><a href="/dav/virtual-filesystems">Virtual filesystems</a></li>
+            </ul>
+        </li>
+    </ul>
+</aside>
+        <article>
+            <h1>HTTP PATCH support</h1>
+
+<p>The <code>Sabre\DAV\PartialUpdate\Plugin</code> provides support for the HTTP PATCH method
+(<a href="http://tools.iets.org/html/rfc5789">RFC5789</a>). This allows you to update just a portion of a file, or append
+to a file.</p>
+
+<p>SabreDAV defines its own content-type to do this.</p>
+
+<p><em>Note:</em> This feature was added in SabreDAV 1.7.0.</p>
+
+<h2>A sample request</h2>
+
+<pre><code>PATCH /file.txt
+Content-Length: 4
+Content-Type: application/x-sabredav-partialupdate
+X-Update-Range: bytes=3-6
+
+0000
+</code></pre>
+
+<p>This request updates 'file.txt', specifically the bytes 3-6 (inclusive) to
+<code>0000</code>.</p>
+
+<ul>
+<li>The Content-Length header is required</li>
+<li>The X-Update-Range is also required. The value is the exact same as the HTTP
+Range header. The two numbers are inclusive (so 3-6 means that bytes 3,4,5
+and 6 will be updated).</li>
+<li>Just like the HTTP Range header, the specified bytes is a 1-based index.
+This means that 'bytes=0-3' is invalid, as there is no '0th byte'.</li>
+<li>The 'application/x-sabredav-partialupdate' must also be specified.</li>
+<li>The two numbers in the Update-Range header may be omitted. If the start byte
+is omitted, 0 is assumed. If the end-byte is omitted the Content-Length is
+used.</li>
+<li>Note that this makes the end-range unneeded, but we wanted to stay close to
+the HTTP specification.</li>
+<li>You can start writing past the end of the file. The in-between space will be
+filled with <code>0x00</code>.</li>
+</ul>
+
+<p>If you want to be compliant with SabreDAV's implementation of PATCH, you must
+also return 'sabredav-partialupdate' in the 'DAV:' header:</p>
+
+<pre><code>HTTP/1.1 204 No Content
+DAV: 1, 2, 3, sabredav-partialupdate, extended-mkcol
+</code></pre>
+
+<h2>Using this feature on the server-side</h2>
+
+<p>To use partial updates, your file-nodes must implement the
+<code>Sabre\DAV\PartialUpdate\IFile</code> interface. This adds a new <code>putRange()</code> method
+to the interface. Note that the offset argument is a normal 0-based index,
+contrary to the 1-based offset as specified in the request.</p>
+
+<p>A sample implementation can be found in <code>Sabre\DAV\FSExt\File</code>.</p>
+        </article>
+    </main>
+
+    <script src="/components/highlightjs/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabredav.org');
+ga('send', 'pageview');
+</script>
+
+    
+</body>

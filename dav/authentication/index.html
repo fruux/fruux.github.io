@@ -109,7 +109,8 @@
     </ul>
 </aside>
                 <article>
-                            <h1>Authentication</h1>                <p>After setting up your DAV server, you will probably want to add some security.
+                            <h1>Authentication</h1>
+                <p>After setting up your DAV server, you will probably want to add some security.
 The standard way to do this, is to add HTTP Basic or HTTP Digest authentication
 support.</p>
 
@@ -136,7 +137,7 @@ backends, but it's also easy to create your own.</p>
 <tr>
   <td><code>Sabre\DAV\Auth\Backend\Apache</code></td>
   <td>N/A</td>
-  <td>Lets the webserver handle auhtentication</td>
+  <td>Lets the webserver handle authentication</td>
 </tr>
 <tr>
   <td><code>Sabre\DAV\Auth\Backend\BasicCallback</code></td>
@@ -305,6 +306,7 @@ $authPlugin = new Auth\Plugin($authBackend,'SabreDAV');
 // Adding the plugin to the server
 $server-&gt;addPlugin($authPlugin);
 </code></pre>
+            
             
                             <hr />
                 <h2>Comments</h2>

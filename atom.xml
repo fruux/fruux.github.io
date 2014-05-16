@@ -3,9 +3,52 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-05-15T22:39:56+00:00</updated>
+    <updated>2014-05-16T00:33:53+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 1.7.12 and 1.8.10 released]]></title>
+            <link href="http://sabre.io/blog/2014/sabredav-1.8.10"/>
+            <updated>2014-05-16T00:22:44+00:00</updated>
+            <id>http://sabre.io/blog/2014/sabredav-1.8.10</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 1.7.12 and 1.8.10. These two releases are mainly
+bugfix releases centering around two things:</p>
+
+<ul>
+<li>Better support for If-Match and If-None-Match</li>
+<li>Lots of updates in the <a href="/dav/patch">PATCH method</a>.</li>
+</ul>
+
+<h2>Patch problems</h2>
+
+<p>We've gotten reports that there were problems with the PATCH plugin, and
+the <a href="/dav/patch">associated documentation</a>. Things were inconsistent and plain
+incorrect at times.</p>
+
+<p>We've extended the documentation a great deal, now allowing you to correctly
+use negative offsets for patching and also appending.</p>
+
+<p>We've also added a new interface to enable this functionality, namely
+<code>Sabre\DAV\PartialUpdate\IPatchSupport</code>.</p>
+
+<p>The existing interface <code>Sabre\DAV\PartialUpdate\IFile</code> is now deprecated and
+will be removed in a future major version of sabre/dav. This was unfortunately
+needed to fix what was considered a bit of a mess.</p>
+
+<h2>VObject</h2>
+
+<p>sabre/vobject in the zip package is now upgraded to 2.1.4, which works around
+a backwards compatibile break that was introduced in PHP 5.5.10 in relation to
+timezones.</p>
+
+<h2>Upgrading</h2>
+
+<p>To upgrade with composer, just run <code>composer update sabre/dav</code> on the command-
+line.</p>
+
+<p>The zip files can be found on <a href="https://github.com/fruux/sabre-dav/releases">github</a>.</p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/vobject 3.2 released]]></title>
             <link href="http://sabre.io/blog/2014/vobject-3.2"/>

@@ -168,7 +168,7 @@ class CoffeePlugin extends ServerPlugin {
     function initialize(Server $server){
 
         $this-&gt;server = $server;
-        $server-&gt;subscribeEvent('method:BREW', [$this, 'brewHandler']);
+        $server-&gt;on('method:BREW', [$this, 'brewHandler']);
 
     }
 
@@ -411,7 +411,7 @@ resource was being overwritten.</p>
 
 }
 
-$server-&gt;subscribeEvent('afterUnbind','afterUnbind');
+$server-&gt;on('afterUnbind','afterUnbind');
 </code></pre>
 
 <h3><code>beforeLock</code></h3>
@@ -428,7 +428,7 @@ regarding the lock, such as the lock owner or lock timeout.</p>
 
 }
 
-$server-&gt;subscribeEvent('beforeLock','beforeLock');
+$server-&gt;on('beforeLock','beforeLock');
 </code></pre>
 
 <h3><code>beforeUnlock</code></h3>
@@ -444,7 +444,7 @@ Intercepting this event allows you to block the unlock.</p>
 
 }
 
-$server-&gt;subscribeEvent('beforeUnlock','beforeUnlock');
+$server-&gt;on('beforeUnlock','beforeUnlock');
 </code></pre>
 
 <h3><code>propFind</code></h3>
@@ -582,7 +582,7 @@ opportunity to handle a <code>REPORT</code> request.</p>
 
 }
 
-$server-&gt;subscribeEvent('report','myReport');
+$server-&gt;on('report','myReport');
 </code></pre>
 
 <h3><code>unknownMethod</code></h3>
@@ -612,15 +612,21 @@ $server-&gt;subscribeEvent('report','myReport');
 
 <h2>Priorities</h2>
 
-<p>Sometimes it's needed to ensure your event handler is the first or last in the
-list to be fired off. This can be achieved by adding a priority number to the
-argument of <code>subscribeEvent</code>.</p>
+<p>It may be needed to ensure that your event gets triggered early or late in the
+process. This can be achieved by specifying the priority argument to the <code>on</code>
+method.</p>
 
 <p>This should be used with care. The Authentication plugin uses this for example
 to make sure authentication happens before any other process. The default
 priority number is 100. Lower numbers for priorities will be fired off earlier.</p>
 
-<p>This is the list of priorities that are currently used by all plugins:</p>
+<p>This is a comprehensive list of event handlers within sabredav that override
+the default priority of 100. This can be useful to figure out the desired
+timing of an event.</p>
+
+<p>You may for instance want to make sure that your <code>beforeMethod</code> handler
+happens after authentication, but before the acl system kicks in. In that case
+<code>15</code> would be an appropriate priority.</p>
 
 <table>
 <thead>

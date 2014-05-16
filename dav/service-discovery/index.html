@@ -187,15 +187,52 @@ _caldavs._tcp 86400 IN SRV 10 20 443 dav.example.org.
 
 <p>Index:</p>
 
-<p>| <code>_carddavs</code>       | type of service |
-| <code>_tcp</code>            | protocol type, always tpc |
-| <code>86400</code>           | record timeout |
-| <code>IN</code>              | always has to be IN |
-| <code>SRV</code>             | always has to be SRV |
-| <code>10</code>              | priority, for DNS-based failover |
-| <code>20</code>              | weight, for DNS-based loadbalancing |
-| <code>443</code>             | tcp port, in this case 443 for HTTPS |
-| <code>dav.example.org</code> | The actual domainname |</p>
+<table>
+<thead>
+<tr>
+  <th>key</th>
+  <th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>_carddavs</code></td>
+  <td>type of service</td>
+</tr>
+<tr>
+  <td><code>_tcp</code></td>
+  <td>protocol type, always tpc</td>
+</tr>
+<tr>
+  <td><code>86400</code></td>
+  <td>record timeout</td>
+</tr>
+<tr>
+  <td><code>IN</code></td>
+  <td>always has to be IN</td>
+</tr>
+<tr>
+  <td><code>SRV</code></td>
+  <td>always has to be SRV</td>
+</tr>
+<tr>
+  <td><code>10</code></td>
+  <td>priority, for DNS-based failover</td>
+</tr>
+<tr>
+  <td><code>20</code></td>
+  <td>weight, for DNS-based loadbalancing</td>
+</tr>
+<tr>
+  <td><code>443</code></td>
+  <td>tcp port, in this case 443 for HTTPS</td>
+</tr>
+<tr>
+  <td><code>dav.example.org</code></td>
+  <td>The actual domainname</td>
+</tr>
+</tbody>
+</table>
 
 <p>The spec dictates that the domain always has to point to an A record, and it
 may not point to a CNAME record. Normally I would not recommend going against

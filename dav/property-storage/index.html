@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>NetDrive - sabre/dav</title>
+            <title>Property Storage Plugin - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -111,67 +111,61 @@
     </ul>
 </aside>
                 <article>
-                            <h1>NetDrive</h1>
-                <p><strong>Editors note: This page was written for NetDrive 1, NetDrive seems to have
-undergone a rewrite some time ago, so a lot of the criticism in this document
-may no longer be true.</strong></p>
+                            <h1>Property Storage Plugin</h1>
+                <p>Since version 2.0.0 sabre/dav comes with a Property Storage plugin. This
+plugin allows you to store any arbitrary property on any resource.</p>
 
-<p><a href="http://www.netdrive.net/">Netdrive</a> is a WebDAV client that mounts WebDAV shares as drives in windows.
-It's a bit more straightforward to use than the Windows client, because it
-doesn't require all sorts of registry settings to be changed, and it doesn't
-share some of the bugs the windows client carries.</p>
+<p>It is possible to create different backends for this plugin, but sabre/dav
+ships with a PDO plugin.</p>
 
-<h2>Implementor notes</h2>
+<p>The database schema can be found in <code>examples/sqlite.propertystorage.sql</code> and
+<code>examples/mysql.propertystorage.sql</code>.</p>
 
-<p>Netdrive does not support locking (or require it).</p>
+<p>To set this up, just run:</p>
 
-<p>Under no circumstances Netdrive should be used in multi-user situations.
-Netdrive will almost never check for updates from the server and will
-completely assume WebDAV shares only ever get modified by the Netdrive user
-itself.</p>
+<pre><code>$storageBackend = new Sabre\DAV\PropertyStorage\Backend\PDO($pdo):
+$propertyStorage = new \Sabre\DAV\PropertyStorage\Plugin($storageBackend);
+$server-&gt;addPlugin($propertyStorage);
+</code></pre>
 
-<p>Unless you know absolutely sure it's only you who is modifying data, don't use
-Netdrive.</p>
+<h2>Note on ACL</h2>
 
-<h2>Protocol details</h2>
+<p>ACL will be enforced everywhere. Keep in mind though that for nodes where
+ACL is not defined, the server default is to give full permissions.</p>
 
-<p>Netdrive is not really a 'proper' WebDAV client, but thankfully it will only
-do a small amount of simple requests, so it's easy for SabreDAV to handle.</p>
+<h2>Note on server design</h2>
 
-<p>Netdrive does not supply a user-agent http header, so it's not easy to
-identify.</p>
+<p>Some people design their servers that any user who logs in, gets a different
+'view'. Some fileservers may for instance always only show the files in a
+server that the user owns.</p>
 
-<p>Netdrive does not do an <code>OPTIONS</code> request, to find out of the server supports
-WebDAV. It will just start off with a PROPFIND request asking for 'allprops'.</p>
+<p>A problem exists for these users, that everybody shares the same namespace.
+Since properties are stored per path, users may end up overwriting each
+others.</p>
 
-<p>After that it will ask for:</p>
+<h2>Restricting paths</h2>
 
-<ul>
-<li><code>{DAV:}getcontentlength</code></li>
-<li><code>{DAV:}resourcetype</code></li>
-<li><code>{DAV:}creationdate</code></li>
-<li><code>{DAV:}lastaccessed (non-standard, should have been in another namespace)</code></li>
-<li><code>{DAV:}getlastmodified</code></li>
-</ul>
+<p>It's possible to restrict in which paths properties may be stored. The
+<code>Sabre\DAV\PropertyStorage\Plugin</code> class has a <code>$pathFilter</code> property that
+accepts a callback.</p>
 
-<p>For any given directory, it will also do these requests for any subdirectories
-(with depth 1), so it will always go 2 levels deep.</p>
+<p>This callback will be called for each path and should return true or false,
+depending on if storing properties is allowed, or not.</p>
 
-<p>Netdrive appears to make heavy use of the 'Range' header, but in the cases
-I've seen (smaller files) it actually uses the Range header to request the
-entire file (pretty redundant).</p>
+<p>Example:</p>
 
-<p>When netdrive wants to save a file, it will first do a PROPFIND request, with
-no elements in the 'prop' element. This was odd, and actually broke SabreDAV
-(fixed in 0.8).</p>
+<pre><code>$propertyStorage = new \Sabre\DAV\PropertyStorage\Plugin($storageBackend);
+$propertyStorage-&gt;pathFilter = function($path) {
+    if (strpos('foo', $path)===0) {
+        return false;
+    } else {
+        return true;
+    }
+};
+</code></pre>
 
-<p>After finding out (presumably that the file existed) it will delete the
-original file, and then create a new one. This was all a bit odd to me because
-it could have been performed in one step.</p>
-
-<p>It was reported from the mailing list Netdrive actually never checks for
-updates, it was mentioned that it's best to only use netdrive in single-user
-situations.</p>
+<p>The preceding example does not allow storing properties in paths that start
+with 'foo'.</p>
             
             
                             <hr />
@@ -197,9 +191,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/dav/clients/netdrive';
-    var disqus_title = 'NetDrive';
-    var disqus_url = 'http://sabre.io/dav/clients/netdrive';
+    var disqus_identifier = '/dav/property-storage';
+    var disqus_title = 'Property Storage Plugin';
+    var disqus_url = 'http://sabre.io/dav/property-storage';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

@@ -195,23 +195,15 @@ for more information.</p>
 <p>If composer is not yet on your system, <a href="https://getcomposer.org/doc/00-intro.md#installation-nix">follow the instructions on getcomposer.org</a>
 to do so.</p>
 
-<p>To start a new sabredav-based project, create a new empty directory. In this
-directory, create a file named <code>composer.json</code>.</p>
+<p>To add the sabre/dav dependency to your project, simply run the following
+command from the root of your project:</p>
 
-<p>This file should look like this:</p>
-
-<pre><code>{
-    "require" : {
-        "sabre/dav" : "1.8.*"
-    }
-}
+<pre><code>composer require sabre/dav ~2.0.0
 </code></pre>
 
-<p>This rule ensures that you install the latest SabreDAV package in the 1.8
-range of packages, but does not install 1.9 or higher, which would likely
-result in breaking stuff.</p>
+<p>This rule ensures that you install the latest stable sabre/dav.</p>
 
-<p>After you have created this file, you can install sabredav with the following
+<p>After you've done this, you later on upgrade sabredav with the following
 command:</p>
 
 <pre><code>composer update sabre/dav

@@ -58,6 +58,116 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
+            <time>May 22nd, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/sabredav-2-release">sabre/dav 2.0 released</a></h1>
+            <p>We just released sabre/dav 2.0. The last major release (1.8) was in <a href="http://evertpot.com/sabredav-18-released-with-namespaces/">2012</a>,
+so it's been a long time coming.</p>
+
+<h2>New features</h2>
+
+<h3>New browser</h3>
+
+<p><a href="/img/posts/new-browser.png" style="float: right; padding-left: 10px;">
+    <img src="/img/posts/new-browser.png" alt="new browser!" class="zoomAbleImage" width="300px" style="box-shadow: 5px 5px 10px #000"/>
+</a></p>
+
+<p>The browser got a big overhaul. It hadn't changed much since when it was
+introduced in 2009, so a visual refresh was long due.</p>
+
+<p>The new browser plugin shows you a lot more information about webdav
+properties as well, making it a more useful debugging tool.</p>
+
+<h3>WebDAV-Sync</h3>
+
+<p>Support for WebDAV-Sync (<a href="http://tools.ietf.org/html/rfc6578">rfc6578</a>) has been added. WebDAV-Sync is used by
+an increasing number of popular Cal- and CardDAV clients. It allows clients to
+request a list of changes that happened in calendar and/or addressbooks. This
+can greatly reduce memory, bandwidth and cpu usage on both client and server,
+and is well worth it.</p>
+
+<p>It's available as a plugin and the appropriate interfaces have been added to
+add support for WebDAV-Sync to the collections where you want to support it.</p>
+
+<p>Furthermore, both the default Cal- and CardDAV PDO backends have out of the
+box support.</p>
+
+<h3>New packages</h3>
+
+<p>This is the first sabredav release that ships with <a href="/vobject">sabre/vobject</a> 3.0, and
+is also the first release that has part of it's functionality split out into
+two new packages: <a href="/event">sabre/event</a> and <a href="/http">sabre/http</a>.</p>
+
+<h3>Calendar subscription syncing</h3>
+
+<p>There's a proprietary protocol that allows calendar clients to sync
+subscriptions with a server. Support for this has been added to the CalDAV
+plugin, and is also available in the default PDO backend.</p>
+
+<p>This protocol is at least supported by <a href="http://www.busymac.com/busycal/">BusyCal</a> and Apple's iOS and OS X
+clients.</p>
+
+<h3>jCal support</h3>
+
+<p><a href="http://tools.ietf.org/html/draft-ietf-jcardcal-jcal-10">jCal</a> is an upcoming standard for representing iCalendar objects in json.
+sabre/dav now live converts back and forward between iCalendar and jCal, and
+can return jCal everywhere it returns iCalendar.</p>
+
+<p>We highly recommend using jCal over iCalendar. It's a much better format,
+easier to parse, and likely to use less memory and cpu while parsing.</p>
+
+<h3>New property system</h3>
+
+<p>A big part of DAV protocols is related to storing and retrieving properties
+on resources such as files and calendars.</p>
+
+<p>The property system got a complete overhaul for this release. This allowed
+for a great reduction in property-related code and allows for a new feature:
+<a href="/dav/properties">storage of arbitrary properties</a>.</p>
+
+<h3>PHP 5.4</h3>
+
+<p>The minimum php version of sabre/dav has been increased to PHP 5.4. This was
+needed for a number of reasons, such as better closure support and traits.</p>
+
+<h3>And...</h3>
+
+<p>The list of changes is rather massive. Read up on them in the <a href="https://github.com/fruux/sabre-dav/blob/master/ChangeLog.md">ChangeLog</a>
+from <code>1.9.0alpha1</code> onwards.</p>
+
+<p>Also, this includes all the <a href="https://github.com/fruux/sabre-vobject/blob/master/ChangeLog.md">changes from sabre/vobject</a> from 3.0.0 onwards,
+<a href="https://github.com/fruux/sabre-http/blob/master/ChangeLog">changes from sabre/http</a> from 2.0.0 onwards and everything from
+sabre/event.</p>
+
+<h2>Upgrading</h2>
+
+<p>A lot of things have changed in this release. If you are running a standard
+server, it's likely that you only have to run the database upgrade script,
+but if you did any sort of customizations, chances are that you need to make
+changes in your code to keep stuff running.</p>
+
+<p><strong>Make a backup.</strong> and then head to the <a href="/dav/upgrade/1.8-to-2.0/">migration instructions</a> for 2.0.</p>
+
+<p>Drop a line on the <a href="http://groups.google.com/group/sabredav-discuss">mailing list</a> if you run into any issues at all.</p>
+
+<h2>Support status</h2>
+
+<p>As of right now version <strong>1.7</strong> is no longer supported. <strong>1.8</strong> will be
+supported for an entire year, until May 2015.</p>
+
+<h2>Thank you</h2>
+
+<p>This was literally the largest release we've ever done, seeing the biggest
+diff, most new features, most contributors and longest development time.</p>
+
+<p>Thanks everyone for hanging in there and all your contributions.</p>
+
+<p>I want to specifically thank <a href="https://github.com/staabm">Markus Staab</a> for tirelessly reviewing every
+incoming commit, and <a href="http://groups.google.com/group/sabredav-discuss">Dominik Tobschall</a> for all the moral support.</p>
+
+<p>Evert.</p>
+
+        </article>
+        <hr />            <article class="blog-entry">
             <time>May 16th, 2014</time>
             <h1><a href="http://sabre.io/blog/2014/sabredav-1.8.10">sabre/dav 1.7.12 and 1.8.10 released</a></h1>
             <p>We just released sabre/dav 1.7.12 and 1.8.10. These two releases are mainly
@@ -131,24 +241,6 @@ information.</li>
 
 <pre><code>composer update sabre/vobject
 </code></pre>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>March 31st, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/new-website">New website launched!</a></h1>
-            <p>You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
-never had a proper website, and we've always just hosted from Google Code.</p>
-
-<p>As Google slowly started to lose interested in code hosting, we migrated more
-and more features to GitHub. The biggest thing left: the wiki. So what once
-started as a place to host the new wiki, turned into a brand-new design, by
-<a href="https://fruux.com/">our</a> very own Martin Kaniut, who's also responsible for the <a href="https://fruux.com/">fruux</a>
-design.</p>
-
-<p>We hope you like it, but since it's such a step up from Google Code, we're
-confident you probably will ;). If you're running into any bugs, definitely
-<a href="https://github.com/fruux/sabre.io/issues">let us know</a>. Want to contribute to the wiki? The entire site is open source, so
-<a href="https://github.com/fruux/sabre.io/tree/master/source">take a look</a> at some of the existing pages and get cracking!</p>
 
         </article>
             </section>

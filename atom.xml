@@ -3,7 +3,7 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-05-22T17:16:06+00:00</updated>
+    <updated>2014-05-22T17:17:32+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -102,7 +102,7 @@ sabre/event.</p>
 
 <h2>Installation</h2>
 
-<p>As always, the zip can be found on the [github releases page][15], but the
+<p>As always, the zip can be found on the <a href="https://github.com/fruux/sabre-dav/releases/">github releases page</a>, but the
 recommended installation method is using composer:</p>
 
 <pre><code>composer install sabre/dav ~2.0.0

@@ -3,7 +3,7 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-05-22T17:17:32+00:00</updated>
+    <updated>2014-05-22T18:04:31+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -132,7 +132,7 @@ diff, most new features, most contributors and longest development time.</p>
 <p>Thanks everyone for hanging in there and all your contributions.</p>
 
 <p>I want to specifically thank <a href="https://github.com/staabm">Markus Staab</a> for tirelessly reviewing every
-incoming commit, and <a href="http://groups.google.com/group/sabredav-discuss">Dominik Tobschall</a> for all the moral support.</p>
+incoming commit, and <a href="https://twitter.com/DominikTo">Dominik Tobschall</a> for all the moral support.</p>
 
 <p>Evert.</p>
 ]]></content>

@@ -3,7 +3,7 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-05-22T17:12:53+00:00</updated>
+    <updated>2014-05-22T17:16:06+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -99,6 +99,14 @@ from <code>1.9.0alpha1</code> onwards.</p>
 <p>Also, this includes all the <a href="https://github.com/fruux/sabre-vobject/blob/master/ChangeLog.md">changes from sabre/vobject</a> from 3.0.0 onwards,
 <a href="https://github.com/fruux/sabre-http/blob/master/ChangeLog">changes from sabre/http</a> from 2.0.0 onwards and everything from
 sabre/event.</p>
+
+<h2>Installation</h2>
+
+<p>As always, the zip can be found on the [github releases page][15], but the
+recommended installation method is using composer:</p>
+
+<pre><code>composer install sabre/dav ~2.0.0
+</code></pre>
 
 <h2>Upgrading</h2>
 

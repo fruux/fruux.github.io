@@ -3,9 +3,23 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-05-22T23:12:53+00:00</updated>
+    <updated>2014-05-28T19:19:09+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 2.0.1 released]]></title>
+            <link href="http://sabre.io/blog/2014/sabredav-2.0"/>
+            <updated>2014-05-28T19:18:01+00:00</updated>
+            <id>http://sabre.io/blog/2014/sabredav-2.0</id>
+            <content type="html"><![CDATA[<p>We just released version sabre/dav 2.0.1. Two regressions have been found
+related to PROPFIND requests.</p>
+
+<p>Upgrade if you're having compatiblity problems. The Windows 7 client in
+particular had issues.</p>
+
+<p>Run <code>composer update sabre/dav</code>, or <a href="https://github.com/fruux/sabre-dav/releases/tag/2.0.1">Download</a> the new zip from GitHub.</p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.0 released]]></title>
             <link href="http://sabre.io/blog/2014/sabredav-2-release"/>

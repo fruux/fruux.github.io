@@ -112,74 +112,42 @@
 </aside>
                 <article>
                             <h1>CalDAV</h1>
-                <p>The CalDAV plugins provides all the the logica and extensions to turn
-sabre/dav into a modern CalDAV server.</p>
+                <p>The CalDAV plugin provides all the logic and extensions to WebDAV to get
+calendar-access working.</p>
 
-<p>This document is a quick guide to help you set-up a simple caldav server.</p>
+<p>CalDAV depends on the <a href="/dav/acl">ACL</a> plugin to be available too. This document
+provides a simple explanation to get your server setup.</p>
 
 <h2>Database setup</h2>
 
-<p>By default, the sabre/dav system requires either MySQL or SQLite.</p>
+<p>Example sql files are supplied for postgres, sqlite and mysql. The latter two
+are officially supported and unittested.</p>
 
-<h3>Sqlite</h3>
+<p>This example assumes you're using sqlite.</p>
 
-<p>Assuming you are in your main project directory, we're going to create a <code>data</code>
-directory that holds the sqlite data.</p>
+<p>Create a 'data' directory where you're going to store the sqlite database.</p>
 
 <pre><code>mkdir data/
 cat examples/sql/sqlite.* | sqlite3 data/db.sqlite
 </code></pre>
 
-<p>After that, we have to make sure that the webserver has read privilege to the
-server. A quick and dirty way to do this, is to simply run:</p>
+<p>We'll add a calendar for the admin user.</p>
+
+<pre><code>INSERT INTO calendars (principaluri, displayname, uri, description, components, ctag, transparent) VALUES
+('principals/admin','default calendar','default','','VEVENT,VTODO','1', '0');
+</code></pre>
+
+<p>Now, make sure the data/db.sqlite as well as it's containing directory are
+writable by the server. If you are lazy you could just do:</p>
 
 <pre><code>chmod -Rv a+rw data/
 </code></pre>
 
-<h3>MySQL</h3>
+<h2>Create the server endpoint</h2>
 
-<p>MySQL is pretty simple as well. Make sure you have a mysql database called
-<code>sabredav</code>.</p>
-
-<p>After that, you can just create the tables by running:</p>
-
-<pre><code>cat examples/sql/mysql.* | mysql -u root -p sabredav -h 127.0.0.1
-</code></pre>
-
-<p>Adjust the hostname and username to your setup. If you are used to using a
-GUI tool to manage mysql, you can just use all the files from the
-<code>examples/sql/</code> directory to get up and running.</p>
-
-<h2>Creating the server endpoint</h2>
-
-<p>After the database has been set-up, create the CalDAV server by simply copying
-the example file to your main project directory:</p>
+<p>Simply run the following:</p>
 
 <pre><code>cp examples/calendarserver.php calendarserver.php
-</code></pre>
-
-<blockquote>
-  <p>Also want CardDAV support?</p>
-  
-  <p>Instead of using the <code>calendarserver.php</code>, just use <code>groupwareserver.php</code>.
-  This server has a lot more default features, CardDAV being one of them.</p>
-</blockquote>
-
-<h3>Change the database settings</h3>
-
-<p>If you used SQLite and you used the <em>exact path</em> as desrcribed in the earlier
-example, there's nothing else you need to do. If you used mysql or changed the
-path to your database, read on.</p>
-
-<p>Open up your new <code>calendarserver.php</code> and find the line that says:</p>
-
-<pre><code>$pdo = new PDO('sqlite:data/db.sqlite');
-</code></pre>
-
-<p>This tells the server to use sqlite, and where to find the database file. If
-you used MySQL, change this to something like this:</p>
-
-<pre><code>$pdo = new PDO('mysql:dbname=sabredav;hostname=127.0.0.1', 'root', 'password');
 </code></pre>
 
 <h2>Test in browser</h2>
@@ -191,55 +159,37 @@ the end of the url, without this the request will fail. Example:</p>
 </code></pre>
 
 <p>This url should prompt you with an authentication dialog. The default username
-and password are <code>admin</code> and <code>admin</code>.</p>
+and password are admin and admin.</p>
 
-<p><strong>Note again:</strong> The slash at the end of the url is <strong>required</strong> and you will
-get an error without it.</p>
+<p>Now you can use the url:</p>
 
-<h2>Create a calendar</h2>
+<pre><code>http://www.example.org/~evert/sabredav/calendarserver.php/
+</code></pre>
 
-<p>Browse to <code>calendars/admin</code>. On this url you will get an option to create a
-new calendar. You should create one calendar to make things work out of the
-box for every client. Use <code>default</code> for the name, so the following examples
-are all correct. The 'display name' can be anything you'd like.</p>
+<p>for <a href="/dav/clients/ical">iCal</a> and <a href="/dav/clients/ios">iOS</a> (with iOS version
+less than 6), or</p>
 
-<p>If you also set-up carddav earlier, now is a good time to also create a first
-address book.</p>
+<pre><code>http://www.example.org/~evert/sabredav/calendarserver.php/principals/admin
+</code></pre>
 
-<h2>Setting up clients</h2>
+<p>for <a href="/dav/clients/ios">iOS</a> (with iOS version 6 and up), or</p>
 
-<p>Clients typically need three pieces of information to setup CalDAV accounts:</p>
+<pre><code>http://www.example.org/~evert/sabredav/calendarserver.php/calendars/admin/default
+</code></pre>
 
-<ol>
-<li>A username</li>
-<li>A password</li>
-<li>A url</li>
-</ol>
+<p>for <a href="/dav/clients/thunderbird">Lightning</a> or <a href="/dav/clients/evolution">Evolution</a>.</p>
 
-<p>Which url that is, unfortunately depends on the client. If you followed the
-instructions to the letter, there are potentially three relevant urls:</p>
+<p>Note that the iCal and iPhone clients can auto-detect the principal url, if
+SabreDAV runs at the root of the domain.</p>
 
-<ol>
-<li>The base url, which is something like <code>http://example.org/caldav/calendarserver.php/</code>.</li>
-<li>The principal url, which is something like <code>http://example.org/caldav/calendarserver.php/principals/admin/</code>.</li>
-<li>The calendar url, which is something like <code>http://example.org/caldav/calendarserver.php/calendars/admin/default/</code>.</li>
-</ol>
-
-<p>iOS, iCal, BusyCal, and many others typically require #2, and sometimes #1.
-Thunderbird (with Lightning) requires a single calendar url, the <code>default</code>
-calendar we just created, and #3.</p>
-
-<p>Note that this is quite a long-winded and ugly url for people to set-up. If you
-are fully in control over the domain, you can set-up your server so that most
-clients only need the 'host' part to fully configure themselves. Read
-<a href="/dav/service-discovery">Service discovery documentation</a> for more information
-about this. It is recommended to only do this after you are fully set-up though.</p>
+<p>For more information about the auto-detection system, read the
+<a href="/dav/service-discovery">Service discovery documentation</a>.</p>
 
 <h2>Adding users</h2>
 
-<p>SabreDAV does not provide an administrative interface to add users. While this
-may happen in the future, for now SabreDAV is mostly intended for developers.
-Adding new users is done directly on the database.</p>
+<p>SabreDAV does not provide an administrative interface. While this may happen
+in the future, for now SabreDAV is mostly intended for developers. Adding new
+users is done directly on the database.</p>
 
 <p>In order to allow a user to log in, add them to the users table. You must also
 add them to the principals table to enable calendar access.</p>
@@ -247,9 +197,6 @@ add them to the principals table to enable calendar access.</p>
 <p>Lastly, in order to enable support for calendar-delegation, the
 calendar-proxy-read and calendar-proxy-write principals must be added. Look at
 the sample .sql files for examples for these records.</p>
-
-<p>Generally you should also always create the first calendar for a user to make
-things work as expected.</p>
 
 <h2>Related topics</h2>
 
@@ -260,7 +207,7 @@ things work as expected.</p>
                         <div class="version-note">
                 <p>
                 <i class="fa fa-warning"></i>
-                Please note: you are reading the <strong>2.x version</strong>
+                Please note: you are reading the <strong>1.8 version</strong>
                 of this page. The following versions are also available:
                 </p>
 
@@ -294,9 +241,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/dav/caldav';
+    var disqus_identifier = '/dav/1.8/caldav';
     var disqus_title = 'CalDAV';
-    var disqus_url = 'http://sabre.io/dav/caldav';
+    var disqus_url = 'http://sabre.io/dav/1.8/caldav';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

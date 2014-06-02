@@ -40,6 +40,27 @@
                 <article>
                             <h1>Blog</h1>
                 <article class="blog-entry">
+    <time>June 2nd, 2014</time>
+    <h1><a href="http://sabre.io/blog/2014/jcal-rfc">jCal released as rfc7265</a></h1>
+    <p>The IETF just made <a href="http://tools.ietf.org/html/rfc7265">jCal</a> available as <a href="http://tools.ietf.org/html/rfc7265">rfc7265</a></p>
+
+<p>jCal is a format to encode <a href="http://tools.ietf.org/html/rfc5545">iCalendar</a>, but instead of using the clumsy, and
+old 'mimedir' format, it uses <a href="http://www.json.org/">JSON</a> to encode the data.</p>
+
+<p>This is very similar to <a href="http://tools.ietf.org/html/rfc7095">jCard</a>, which is the json-encoded version of
+vCards.</p>
+
+<p>We're big fans of this new format. It can already be parsed by <a href="/vobject/json/">vobject</a>
+and if you're running sabre/dav 2.0, the server can already emit it from REPORT
+and GET requests and accept it from PUT requests.</p>
+
+<p>We recommend everyone in the industry to consider generating jCal where they
+are generating iCalendar today. It's a lot easier to parse and generate, and
+we hope that over time, jCal and jCard replace iCalendar and vCard as the
+format of choice.</p>
+
+</article>
+<hr /><article class="blog-entry">
     <time>May 28th, 2014</time>
     <h1><a href="http://sabre.io/blog/2014/sabredav-2.0.1-release">sabre/dav 2.0.1 released</a></h1>
     <p>We just released sabre/dav 2.0.1. Two regressions have been found related

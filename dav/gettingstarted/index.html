@@ -117,19 +117,16 @@
 <p>Before starting this tutorial, make sure you have completed the
 <a href="/dav/install">Installation</a> steps.</p>
 
-<p>We're assuming that your current working directory looks like this:</p>
+<p>Make sure you know what the exact path is to <code>vendor/autoload.php</code>. If you
+did the composer install, it should be in your current directory. If you used
+the zip, it will be where ever you unpacked the zip.</p>
 
-<pre><code>./
-../
-vendor/
-composer.json
-composer.lock
+<p>All examples assume that this file can be included as such:</p>
+
+<pre><code>require 'vendor/autoload.php';
 </code></pre>
 
-<p>If you use the (manual) zip installation, these files do not exist.
-In that case we <em>just</em> assume that there is a sabredav directory somewhere,
-and that sabredav directory has a <code>vendor/</code> directory, containing a file
-called <code>autoload.php</code>. It doesn't really matter where this directory is.</p>
+<p>So if that's not the exact path to that file, make sure you change it.</p>
 
 <h2>A simple server</h2>
 

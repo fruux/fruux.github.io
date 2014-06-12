@@ -3,9 +3,31 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-06-12T17:14:08+00:00</updated>
+    <updated>2014-06-12T17:21:47+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 2.0.2 release]]></title>
+            <link href="http://sabre.io/blog/2014/sabre-dav-2.0.2-release"/>
+            <updated>2014-06-12T17:21:12+00:00</updated>
+            <id>http://sabre.io/blog/2014/sabre-dav-2.0.2-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 2.0.2.</p>
+
+<p>Several bugs have been fixed in files from the <code>examples/</code> directory, and
+more notably: the dependencies in the zip distribution have been updated,
+which, among other things, fixes compatibility with PHP versions older than
+5.4.14.</p>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0/ChangeLog.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/vobject 3.2.3 release]]></title>
             <link href="http://sabre.io/blog/2014/sabre-vobject-3.2.3-release"/>

@@ -58,6 +58,27 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
+            <time>June 2nd, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/jcal-rfc">jCal released as rfc7265</a></h1>
+            <p>The IETF just made <a href="http://tools.ietf.org/html/rfc7265">jCal</a> available as <a href="http://tools.ietf.org/html/rfc7265">rfc7265</a></p>
+
+<p>jCal is a format to encode <a href="http://tools.ietf.org/html/rfc5545">iCalendar</a>, but instead of using the clumsy, and
+old 'mimedir' format, it uses <a href="http://www.json.org/">JSON</a> to encode the data.</p>
+
+<p>This is very similar to <a href="http://tools.ietf.org/html/rfc7095">jCard</a>, which is the json-encoded version of
+vCards.</p>
+
+<p>We're big fans of this new format. It can already be parsed by <a href="/vobject/json/">vobject</a>
+and if you're running sabre/dav 2.0, the server can already emit it from REPORT
+and GET requests and accept it from PUT requests.</p>
+
+<p>We recommend everyone in the industry to consider generating jCal where they
+are generating iCalendar today. It's a lot easier to parse and generate, and
+we hope that over time, jCal and jCard replace iCalendar and vCard as the
+format of choice.</p>
+
+        </article>
+        <hr />            <article class="blog-entry">
             <time>May 28th, 2014</time>
             <h1><a href="http://sabre.io/blog/2014/sabredav-2.0.1-release">sabre/dav 2.0.1 released</a></h1>
             <p>We just released sabre/dav 2.0.1. Two regressions have been found related
@@ -196,47 +217,6 @@ diff, most new features, most contributors and longest development time.</p>
 incoming commit, and <a href="https://twitter.com/DominikTo">Dominik Tobschall</a> for all the moral support.</p>
 
 <p>Evert.</p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>May 16th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabredav-1.8.10">sabre/dav 1.7.12 and 1.8.10 released</a></h1>
-            <p>We just released sabre/dav 1.7.12 and 1.8.10. These two releases are mainly
-bugfix releases centering around two things:</p>
-
-<ul>
-<li>Better support for If-Match and If-None-Match</li>
-<li>Lots of updates in the <a href="/dav/patch">PATCH method</a>.</li>
-</ul>
-
-<h2>Patch problems</h2>
-
-<p>We've gotten reports that there were problems with the PATCH plugin, and
-the <a href="/dav/patch">associated documentation</a>. Things were inconsistent and plain
-incorrect at times.</p>
-
-<p>We've extended the documentation a great deal, now allowing you to correctly
-use negative offsets for patching and also appending.</p>
-
-<p>We've also added a new interface to enable this functionality, namely
-<code>Sabre\DAV\PartialUpdate\IPatchSupport</code>.</p>
-
-<p>The existing interface <code>Sabre\DAV\PartialUpdate\IFile</code> is now deprecated and
-will be removed in a future major version of sabre/dav. This was unfortunately
-needed to fix what was considered a bit of a mess.</p>
-
-<h2>VObject</h2>
-
-<p>sabre/vobject in the zip package is now upgraded to 2.1.4, which works around
-a backwards compatibile break that was introduced in PHP 5.5.10 in relation to
-timezones.</p>
-
-<h2>Upgrading</h2>
-
-<p>To upgrade with composer, just run <code>composer update sabre/dav</code> on the command-
-line.</p>
-
-<p>The zip files can be found on <a href="https://github.com/fruux/sabre-dav/releases">github</a>.</p>
 
         </article>
             </section>

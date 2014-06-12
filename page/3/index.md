@@ -58,50 +58,21 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
-            <time>June 12th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-event-1.0.1-release">sabre/event 1.0.1 release</a></h1>
-            <p>We just released sabre/event 1.0.1. A bug prevented the <code>EventEmitter</code> trait
-to work on PHP versions older than 5.4.14.</p>
+            <time>March 31st, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/new-website">New website launched!</a></h1>
+            <p>You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
+never had a proper website, and we've always just hosted from Google Code.</p>
 
-<p>Upgrade sabre/event by running:</p>
+<p>As Google slowly started to lose interested in code hosting, we migrated more
+and more features to GitHub. The biggest thing left: the wiki. So what once
+started as a place to host the new wiki, turned into a brand-new design, by
+<a href="https://fruux.com/">our</a> very own Martin Kaniut, who's also responsible for the <a href="https://fruux.com/">fruux</a>
+design.</p>
 
-<pre><code>composer update sabre/event
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-event/blob/master/ChangeLog">Github</a></p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>June 2nd, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/jcal-rfc">jCal released as rfc7265</a></h1>
-            <p>The IETF just made <a href="http://tools.ietf.org/html/rfc7265">jCal</a> available as <a href="http://tools.ietf.org/html/rfc7265">rfc7265</a></p>
-
-<p>jCal is a format to encode <a href="http://tools.ietf.org/html/rfc5545">iCalendar</a>, but instead of using the clumsy, and
-old 'mimedir' format, it uses <a href="http://www.json.org/">JSON</a> to encode the data.</p>
-
-<p>This is very similar to <a href="http://tools.ietf.org/html/rfc7095">jCard</a>, which is the json-encoded version of
-vCards.</p>
-
-<p>We're big fans of this new format. It can already be parsed by <a href="/vobject/json/">vobject</a>
-and if you're running sabre/dav 2.0, the server can already emit it from REPORT
-and GET requests and accept it from PUT requests.</p>
-
-<p>We recommend everyone in the industry to consider generating jCal where they
-are generating iCalendar today. It's a lot easier to parse and generate, and
-we hope that over time, jCal and jCard replace iCalendar and vCard as the
-format of choice.</p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>May 28th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabredav-2.0.1-release">sabre/dav 2.0.1 released</a></h1>
-            <p>We just released sabre/dav 2.0.1. Two regressions have been found related
-to PROPFIND requests.</p>
-
-<p>Upgrade if you're having compatiblity problems. The Windows 7 client in
-particular had issues.</p>
-
-<p>Run <code>composer update sabre/dav</code>, or <a href="https://github.com/fruux/sabre-dav/releases/tag/2.0.1">Download</a> the new zip from GitHub.</p>
+<p>We hope you like it, but since it's such a step up from Google Code, we're
+confident you probably will ;). If you're running into any bugs, definitely
+<a href="https://github.com/fruux/sabre.io/issues">let us know</a>. Want to contribute to the wiki? The entire site is open source, so
+<a href="https://github.com/fruux/sabre.io/tree/master/source">take a look</a> at some of the existing pages and get cracking!</p>
 
         </article>
             </section>
@@ -209,9 +180,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/';
+    var disqus_identifier = '/page/3';
     var disqus_title = '';
-    var disqus_url = 'http://sabre.io/';
+    var disqus_url = 'http://sabre.io/page/3';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

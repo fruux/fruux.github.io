@@ -3,9 +3,27 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-06-12T17:08:22+00:00</updated>
+    <updated>2014-06-12T17:14:08+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 3.2.3 release]]></title>
+            <link href="http://sabre.io/blog/2014/sabre-vobject-3.2.3-release"/>
+            <updated>2014-06-12T17:13:35+00:00</updated>
+            <id>http://sabre.io/blog/2014/sabre-vobject-3.2.3-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.2.3.</p>
+
+<p>Several improvements were made in the validator, and the "repair" option now
+works correctly again in the CLI tool.</p>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/master/ChangeLog.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/event 1.0.1 release]]></title>
             <link href="http://sabre.io/blog/2014/sabre-event-1.0.1-release"/>

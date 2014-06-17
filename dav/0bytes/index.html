@@ -124,16 +124,14 @@ and <a href="/dav/clients/transmit">Transmit</a> that use the so-called 'chunked
 encoding to create new files.</p>
 
 <p>There are many webservers that do not support this. We recommend to use Apache
-with mod_php (not fastcgi) or <strong>a recent version</strong> of nginx. Avoid Lighttpd.</p>
+with mod_php (not fastcgi) and <strong>a recent version</strong> of nginx. Avoid Lighttpd.</p>
 
 <p>When servers don't properly support chunked transfer encoding, the end result
 seems to consistently be that either:</p>
 
-<ol>
-<li>A <code>411 Length Required</code> error is returned.</li>
-<li>Or: r the server completely discards the request body (from <code>PUT</code>) and
-effectively tells PHP and SabreDAV that an empty file was submitted.</li>
-</ol>
+<p>A <code>411 Length Required</code> error is returned, or the server completely discards
+the request body (from <code>PUT</code>) and effectively tells PHP and SabreDAV that an
+empty file was submitted.</p>
 
 <p>See <a href="/dav/webservers">Webservers</a> for more information.</p>
 
@@ -171,7 +169,7 @@ exist, SabreDAV itself will create an empty file at that location.</p>
 <p>So this is another situation where an empty file may be created before the
 <em>actual</em> file comes in.</p>
 
-<h2>What if there is no follow-up PUT?</h2>
+<h2>What if the is no follow-up PUT?</h2>
 
 <p>If files stay empty, and there is no <code>PUT</code> request after the initial <code>LOCK</code>
 or preflight <code>PUT</code>, the only explanation that can be given is, "there's a bug

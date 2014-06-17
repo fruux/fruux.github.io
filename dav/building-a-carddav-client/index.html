@@ -711,7 +711,7 @@ If-Match: "2134-314"
 Because this extension was defined later, some servers may not support this
 yet.</p>
 
-<p>SabreDAV supports this since 2.0.</p>
+<p>SabreDAV supports this since 1.9alpha1, but not yet in a stable release.</p>
 
 <p>WebDAV-Sync allows a client to ask <em>just</em> for address books that have changed.
 The process on a high-level is as follows:</p>
@@ -786,7 +786,7 @@ token was issued.</p>
 
 <p>This is done with a <code>REPORT</code> request that may look like this:</p>
 
-<pre><code>REPORT /addressbooks/johndoe/contacts/ HTTP/1.1
+<pre><code>REPORT /addressboks/johndoe/contacts/ HTTP/1.1
 Host: dav.example.org
 Content-Type: application/xml; charset="utf-8"
 

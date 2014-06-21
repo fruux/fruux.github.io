@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>Installation - sabre/event</title>
+            <title>EventEmitter - sabre/event</title>
     
     <meta charset="utf-8">
 
@@ -56,37 +56,137 @@
     </ul>
 </aside>
                 <article>
-                            <h1>Installation</h1>
-                <p>sabre/event must be intalled using <a href="http://getcomposer.org/">composer</a>.</p>
+                            <h1>EventEmitter</h1>
+                <p>In a eventemitter there are emitters, and listeners. Emitters trigger an
+event. When a event is emitted, a listener is notified of this fact.</p>
 
-<h2>Requirements</h2>
+<p>Example:</p>
 
-<p>You will need a recent version of PHP. sabre/event currently requires PHP
-5.4.</p>
+<pre><code>use Sabre\Event\EventEmitter;
 
-<h2>Installing with composer</h2>
+include 'vendor/autoload.php';
 
-<p>If composer is not yet on your system, <a href="https://getcomposer.org/doc/00-intro.md#installation-nix">follow the instructions on getcomposer.org</a>
-to install it.</p>
+$eventEmitter = new EventEmitter();
 
-<p>From your project directory, the easiest is then to simply call:</p>
+// Subscribing
+$eventEmitter-&gt;on('create', function() {
 
-<pre><code>composer require sabre/event ~2.0.0
+    echo "Something got created, apparently\n"
+
+});
+
+// Publishing
+$eventEmitter-&gt;emit('create');
 </code></pre>
 
-<p>This rule ensures that you install the latest event package in the 1.0 range
-of packages, but it does not install 1.1 or higher, which could result in a
-backwards compatibility break.</p>
+<p>The name of the event (<code>create</code>) can be any free-form string.</p>
 
-<p>After running this, sabre/event should be installed, and you can load it in
-by including the autoloader:</p>
+<h2>Priorities</h2>
 
-<pre><code>include 'vendor/autoload.php';
+<p>By supplying a priority, you can make sure that subscribers are handled in a
+specific order. The default priority is 100. Anything below that will be
+triggered earlier, anything higher later.</p>
+
+<p>If there's two subscribers with the same priority, they will execute in an
+undefined, but deterministic order.</p>
+
+<pre><code>$eventEmitter-&gt;on('create', function() {
+
+// This event will be handled first.
+
+}, 50);
 </code></pre>
 
-<h2>Source</h2>
+<h2>Callbacks</h2>
 
-<p>The sabre/event source can be found on <a href="https://github.com/fruux/sabre-event">GitHub</a>.</p>
+<p>All default PHP callbacks are supported, so closures are not required.</p>
+
+<pre><code>$eventEmitter-&gt;on('create', 'myFunction');
+$eventEmitter-&gt;on('create', ['myClass', 'myMethod']);
+$eventEmitter-&gt;on('create', [$myInstance, 'myMethod']);
+</code></pre>
+
+<h3>Canceling the event handler.</h3>
+
+<p>If a callback returns <code>false</code> the event chain is stopped immediately.</p>
+
+<p>A use case is to use a listener to check if a user has permission to perform
+a certain action, and stop execution if they don't.</p>
+
+<pre><code>$eventEmitter-&gt;on('create', function() {
+
+    if (!checkPermission()) {
+        return false;
+    }
+
+}, 10);
+</code></pre>
+
+<p><code>EventEmitter::emit()</code> will return <code>false</code> if the event was cancelled, and
+<code>true</code> if it wasn't.</p>
+
+<p>SabreDAV uses this feature heavily as well. When a HTTP request is received
+various plugins see if they are capable of handling the request. If they
+do, they can return <code>false</code> so other plugins will not also attempt to handle
+the request.</p>
+
+<p>Throwing an exception will also stop the chain.</p>
+
+<h2>Passing arguments</h2>
+
+<p>Arguments can be passed as an array.</p>
+
+<pre><code>$eventEmitter-&gt;on('create', function($entityId) {
+
+    echo "An entity with id ", $entityId, " just got created.\n";
+
+});
+
+$entityId = 5;
+$eventEmitter-&gt;emit('create', [$entityId]);
+</code></pre>
+
+<p>Because you cannot really do anything with the return value of a listener,
+you can pass arguments by reference to communicate between listeners and
+back to the emitter.</p>
+
+<pre><code>$eventEmitter-&gt;on('create', function($entityId, &amp;$warnings) {
+
+    echo "An entity with id ", $entityId, " just got created.\n";
+
+    $warnings[] = "Something bad may or may not have happened.\n";
+
+});
+
+
+$warnings = [];
+$eventEmitter-&gt;emit('create', [$entityId, &amp;$warnings]);
+
+print_r($warnings);
+</code></pre>
+
+<h2>Integration into other objects</h2>
+
+<p>To add <code>EventEmitter</code> capabilities to any class, you can simply extend it.</p>
+
+<p>If you cannot extend, because the class is already part of an existing class
+hierarchy you can use the supplied trait.</p>
+
+<pre><code>use Sabre\Event;
+
+
+class MyNotUneventfulApplication
+    extends AppController
+    implements Event\EventEmitterInterface
+{
+
+    use Event\EventEmitterTrait;
+
+}
+</code></pre>
+
+<p>In the preceeding example, <code>MyNotUneventfulApplication</code> has all the
+capabilities of <code>EventEmitter</code>.</p>
             
             
                             <hr />
@@ -112,9 +212,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/event/install';
-    var disqus_title = 'Installation';
-    var disqus_url = 'http://sabre.io/event/install';
+    var disqus_identifier = '/event/eventemitter';
+    var disqus_title = 'EventEmitter';
+    var disqus_url = 'http://sabre.io/event/eventemitter';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

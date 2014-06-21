@@ -44,7 +44,8 @@
         <li><a href="http://sabre.io/event">sabre/event</a>
                         <ul>
                 <li><a href="http://sabre.io/event/install">Installation</a></li>
-                <li><a href="http://sabre.io/event/usage">Usage</a></li>
+                <li><a href="http://sabre.io/event/eventemitter">EventEmitter</a></li>
+                <li><a href="http://sabre.io/event/promise">Promise</a></li>
             </ul>
                     </li>
         <li><a href="http://sabre.io/http">sabre/http</a>
@@ -56,15 +57,17 @@
 </aside>
                 <article>
                             <h1>sabre/event</h1>
-                <p>A lightweight library for event management in PHP.</p>
+                <p>A lightweight library for event-based development in PHP.</p>
 
-<p>sabre/event's design is inspired by Node.js's <a href="http://nodejs.org/api/events.html">EventEmitter</a> and
-<a href="https://github.com/igorw/evenement">Événement</a>. sabre/event requires PHP 5.4.</p>
+<p>This library brings two patterns that are common for event-based development
+in javascript to PHP.</p>
 
-<ul>
-<li><a href="/event/install">Installation</a></li>
-<li><a href="/event/usage">Usage instructions</a></li>
-</ul>
+<p>The two patterns are:</p>
+
+<ol>
+<li><a href="/event/eventemitter/">EventEmitter</a>, which is a very lightweight "Publish and Subscribe" pattern.</li>
+<li><a href="/event/promise/">Promises</a>, which is a design pattern to improve chained asynchronous callbacks.</li>
+</ol>
             
             
                             <hr />

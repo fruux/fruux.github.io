@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>sabre/vobject 3.2 released - sabre/vobject</title>
+            <title>sabre/dav 2.0.1 released - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -18,8 +18,8 @@
 
     <div class="logo">
         <a href="http://sabre.io/">
-            <img src="http://sabre.io/img/logo.png" alt="sabre/vobject">
-            sabre/vobject
+            <img src="http://sabre.io/img/logo.png" alt="sabre/dav">
+            sabre/dav
         </a>
     </div>
 
@@ -39,49 +39,25 @@
         <main>
                 <article>
                 <article class="blog-entry">
-        <time>June 21st, 2014</time>
-        <h1>sabre/vobject 3.2 released</h1>
+        <time>May 28th, 2014</time>
+        <h1>sabre/dav 2.0.1 released</h1>
         <div>
-            <p>We just released sabre/vobject 3.2.0. This release is backwards compatible
-with the 3.1.* series.</p>
+            <p>We just released version sabre/dav 2.0.1. Two regressions have been found
+related to PROPFIND requests.</p>
 
-<p>New features:</p>
+<p>Upgrade if you're having compatiblity problems. The Windows 7 client in
+particular had issues.</p>
 
-<ul>
-<li>We are now fully <a href="http://hhvm.com/">hhvm</a> compatible. If you're running a recent hhvm
-version, everything should work as expected. From this point forward, we
-will also actively support hhvm.</li>
-<li>The validator now understands a lot more validation rules. So using it now,
-either with the API, or on the command-line, should yield a lot more
-information.</li>
-<li>Support for a range of new timezone identifiers.</li>
-<li>Support for additional vcard properties from <a href="http://tools.ietf.org/html/rfc6715">rfc6715</a> and <a href="http://tools.ietf.org/html/rfc6474.">rfc6474</a>.</li>
-<li>Added a <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a> utility, for easily generating unique strings for use in
-<code>UID</code> properties.</li>
-<li>Support for <code>BYMONTH</code> on <code>DAILY</code> recurrences.</li>
-<li>Automatically fix broken vcards from Google's CardDAV server.</li>
-</ul>
-
-<p>We hope you like it! To upgrade with composer, make sure that your
-<code>composer.json</code> has a line that says:</p>
-
-<pre><code>"sabre/vobject" : "~3.2"
-</code></pre>
-
-<p>And then run:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
+<p>Run <code>composer update sabre/dav</code>, or <a href="https://github.com/fruux/sabre-dav/releases/tag/2.0.1">Download</a> the new zip from GitHub.</p>
 
         </div>
                     <p class="tags">
             Tags:
-                        <a href="http://sabre.io/blog/tags/vobject">vobject</a>,                         <a href="http://sabre.io/blog/tags/release">release</a>                        </p>
+                        <a href="http://sabre.io/blog/tags/dav">dav</a>,                         <a href="http://sabre.io/blog/tags/release">release</a>                        </p>
         
                     <nav class="article">
                 <ul>
-                                            <li>Next: <a class="next" href="http://sabre.io/blog/2014/sabredav-1.8.10" title="sabre/dav 1.7.12 and 1.8.10 released"><span class="title">sabre/dav 1.7.12 and 1.8.10 released</span></a></li>
-                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2014/new-website" title="New website launched!"><span class="title">New website launched!</span></a></li>
+                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2014/sabredav-2-release" title="sabre/dav 2.0 released"><span class="title">sabre/dav 2.0 released</span></a></li>
                                     </ul>
             </nav>
             </article>
@@ -110,9 +86,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/blog/2014/vobject-3.2';
-    var disqus_title = 'sabre/vobject 3.2 released';
-    var disqus_url = 'http://sabre.io/blog/2014/vobject-3.2';
+    var disqus_identifier = '/blog/2014/sabredav-2.0';
+    var disqus_title = 'sabre/dav 2.0.1 released';
+    var disqus_url = 'http://sabre.io/blog/2014/sabredav-2.0';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

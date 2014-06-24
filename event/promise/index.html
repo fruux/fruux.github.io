@@ -67,7 +67,7 @@ query that's taking a long time to complete.</p>
 part of the Javascript language in ecmascript 6. A Promise in javascript is
 useful in avoiding what's often referred to as 'callback hell'.</p>
 
-<p>PHP, just like Javascript, is also single-threaded. Unlike Javascript, PHP does
+<p>PHP, just like Javascript, is single-threaded. Unlike Javascript, PHP does
 not have an eventloop, or is as event-heavy as Javascript is. So 'callback hell'
 is a lot less prevalent problem. However, there are certain situations where
 Promises can be useful in PHP as well.</p>
@@ -77,7 +77,7 @@ Promises can be useful in PHP as well.</p>
 <p>We are integrated with a RESTful webservice. We have to make 1 <code>PUT</code> and 1
 <code>DELETE</code>, but we don't have to perform these in order.</p>
 
-<p>Curl allows us to make multiple paralel, non-blocking requests using
+<p>Curl allows us to make multiple parallel, non-blocking requests using
 <a href="http://ca2.php.net/manual/en/function.curl-multi-init.php"><code>curl_multi</code></a>. It's syntax is rather verbose, so we are using the
 following fictional http client:</p>
 
@@ -219,7 +219,7 @@ a Promise. It's pretty easy, just call the constructor:</p>
 </code></pre>
 
 <p>Alernatively, it's possible to handle this entire process during construction,
-by passing a callback to the constuctor:</p>
+by passing a callback to the constructor:</p>
 
 <pre><code>$promise = new Sabre\Event\Promise(function($fullFill, $reject) {
 
@@ -277,7 +277,7 @@ that <code>then</code> returns:</p>
 </code></pre>
 
 <p>It's not required to return a Promise. If another value is returned from either
-your result or error handler, then <code>then</code> will return a Promise that
+your result or error handler, <code>then</code> will return a Promise that
 immediately resolves to that value.</p>
 
 <p>This makes the previous example 100% functionally identical to this:</p>
@@ -317,7 +317,7 @@ caught, and the returned Promise will fail with the exception as the reason:</p>
 });
 </code></pre>
 
-<p>For this reason its very important to always end with a rejected handler, as
+<p>For this reason it's very important to always end with a rejected handler, as
 otherwise any exceptions may be silently supressed.</p>
 
 <h3><code>error($onRejected)</code></h3>

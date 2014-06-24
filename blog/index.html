@@ -40,6 +40,44 @@
                 <article>
                             <h1>Blog</h1>
                 <article class="blog-entry">
+    <time>June 24th, 2014</time>
+    <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0">sabre/event 2.0 release</a></h1>
+    <p>We just released sabre/event 2.0.0. This releases adds a few features, and
+also slightly alters the API.</p>
+
+<h3>New stuff</h3>
+
+<ol>
+<li>Support for <a href="/event/promise/">promises</a>.</li>
+<li>The event handler is now faster. This is especially noticable when making a
+lot of subscriptions to a single event, and is likely unnoticable for most.</li>
+<li>Added support for something called the 'continue callback' to to the
+EventEmitter. This makes it possible to implement something similar to
+javascript's <code>preventDefault</code>.</li>
+<li>When calling removeAllListeners without an argument, all listeners for all
+events are removed.</li>
+</ol>
+
+<h3>Api breaks</h3>
+
+<ol>
+<li>We switched to PSR-4 for autoloading.</li>
+<li>EventEmitter::listeners() no longer returns a manipulatable array of event
+listeners by reference. It's not a simple list of callbacks, sorted by
+their priority. The original concept was good on paper.</li>
+<li>The argument on <code>removeAllListeners</code> is now optional.</li>
+</ol>
+
+<p>Upgrade sabre/event by making sure your composer.json references <code>~2.0.0</code>, and
+then run:</p>
+
+<pre><code>composer update sabre/event
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-event/blob/master/ChangeLog">Github</a></p>
+
+</article>
+<hr /><article class="blog-entry">
     <time>June 12th, 2014</time>
     <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.2-release">sabre/dav 2.0.2 release</a></h1>
     <p>We just released sabre/dav 2.0.2.</p>

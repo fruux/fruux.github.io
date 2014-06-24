@@ -3,9 +3,49 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-06-21T21:33:25+00:00</updated>
+    <updated>2014-06-24T06:27:08+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/event 2.0 release]]></title>
+            <link href="http://sabre.io/blog/2014/sabre-event-2.0"/>
+            <updated>2014-06-24T06:22:08+00:00</updated>
+            <id>http://sabre.io/blog/2014/sabre-event-2.0</id>
+            <content type="html"><![CDATA[<p>We just released sabre/event 2.0.0. This releases adds a few features, and
+also slightly alters the API.</p>
+
+<h3>New stuff</h3>
+
+<ol>
+<li>Support for <a href="/event/promise/">promises</a>.</li>
+<li>The event handler is now faster. This is especially noticable when making a
+lot of subscriptions to a single event, and is likely unnoticable for most.</li>
+<li>Added support for something called the 'continue callback' to to the
+EventEmitter. This makes it possible to implement something similar to
+javascript's <code>preventDefault</code>.</li>
+<li>When calling removeAllListeners without an argument, all listeners for all
+events are removed.</li>
+</ol>
+
+<h3>Api breaks</h3>
+
+<ol>
+<li>We switched to PSR-4 for autoloading.</li>
+<li>EventEmitter::listeners() no longer returns a manipulatable array of event
+listeners by reference. It's not a simple list of callbacks, sorted by
+their priority. The original concept was good on paper.</li>
+<li>The argument on <code>removeAllListeners</code> is now optional.</li>
+</ol>
+
+<p>Upgrade sabre/event by making sure your composer.json references <code>~2.0.0</code>, and
+then run:</p>
+
+<pre><code>composer update sabre/event
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-event/blob/master/ChangeLog">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.0.2 release]]></title>
             <link href="http://sabre.io/blog/2014/sabre-dav-2.0.2-release"/>

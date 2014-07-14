@@ -3,7 +3,7 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-07-14T18:43:46+00:00</updated>
+    <updated>2014-07-14T22:19:17+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -13,7 +13,7 @@
             <id>http://sabre.io/blog/2014/sabre-dav-2.0.3-release</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 2.0.3.</p>
 
-<p>A number of problems were found in the revamped broser plugin, related to
+<p>A number of problems were found in the revamped browser plugin, related to
 generating links, and for a number of people none of the css and images
 would load due to incorrect CSP rules.</p>
 
@@ -26,7 +26,9 @@ change the name of the exception to <code>TooManyMatches</code>. Don't laugh.</p
 <pre><code>composer update sabre/dav
 </code></pre>
 
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/master/ChangeLog.md">Github</a></p>
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0/ChangeLog.md">Github</a></p>
 ]]></content>
         </entry>
             <entry>

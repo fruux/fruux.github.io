@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>sabre/dav 2.0.3 release - sabre/dav</title>
+            <title>sabre/dav 1.7 end of support - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -39,18 +39,16 @@
         <main>
                 <article>
                 <article class="blog-entry">
-        <time>July 14th, 2014</time>
-        <h1>sabre/dav 2.0.3 release</h1>
+        <time>July 28th, 2014</time>
+        <h1>sabre/dav 1.7 end of support</h1>
         <div>
-            <p>We just released sabre/dav 2.0.3.</p>
+            <p>As of right now, sabre/dav 1.7 has reached end of life status.</p>
 
-<p>A number of problems were found in the revamped browser plugin, related to
-generating links, and for a number of people none of the css and images
-would load due to incorrect CSP rules.</p>
+<p>Version 1.8 has been released in November 2012, so people had 20 months to
+upgrade their systems.</p>
 
-<p>In addition we found out that the <code>TooMuchMatches</code> exception never worked
-due to a fatal error, so while fixing that, we also took the opportunity to
-change the name of the exception to <code>TooManyMatches</code>. Don't laugh.</p>
+<p>We've done one final release (1.7.13), containing a few minor fixes and a newer
+version of the sabre/vobject library (if you're using the zip installation).</p>
 
 <p>Upgrade sabre/dav by running:</p>
 
@@ -59,17 +57,37 @@ change the name of the exception to <code>TooManyMatches</code>. Don't laugh.</p
 
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0/ChangeLog.md">Github</a></p>
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/1.7.13/ChangeLog.md">Github</a></p>
+
+<h3>What does this mean?</h3>
+
+<p>From this point forward, we will no longer accept bug reports for version 1.7.</p>
+
+<p>Also, no future releases will be made.</p>
+
+<p>We <em>may</em> consider certain security bugs, but there are no guarantees.</p>
+
+<h3>Upgrading to 1.8</h3>
+
+<p>Upgrading to version 1.8 is not difficult. The main change that has been made
+between these versions, is that 1.8 makes use of PHP namespaces, where 1.7
+uses the classic 'pear-style' prefix notation.</p>
+
+<p>Make sure to check out the <a href="http://sabre.io/dav/upgrade/1.7-to-1.8/">migration instructions</a> for a detailed overview
+of the changes.</p>
+
+<p>Keep in mind though that version 2.0 of sabre/dav is also already released. If
+you are upgrading, you're highly encouraged to take that additional upgrade
+step. Version 2.0 has its own <a href="http://sabre.io/dav/upgrade/1.8-to-2.0/">migration instructions</a>.</p>
 
         </div>
                     <p class="tags">
             Tags:
-                        <a href="http://sabre.io/blog/tags/dav">dav</a>,                         <a href="http://sabre.io/blog/tags/release">release</a>                        </p>
+                        <a href="http://sabre.io/blog/tags/dav">dav</a>,                         <a href="http://sabre.io/blog/tags/release">release</a>,                         <a href="http://sabre.io/blog/tags/eol">eol</a>                        </p>
         
                     <nav class="article">
                 <ul>
-                                            <li>Next: <a class="next" href="http://sabre.io/blog/2014/sabre-dav-1.7-eol" title="sabre/dav 1.7 end of support"><span class="title">sabre/dav 1.7 end of support</span></a></li>
-                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2014/sabre-http-2.0.4-release" title="sabre/http 2.0.4 release"><span class="title">sabre/http 2.0.4 release</span></a></li>
+                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2014/sabre-dav-2.0.3-release" title="sabre/dav 2.0.3 release"><span class="title">sabre/dav 2.0.3 release</span></a></li>
                                     </ul>
             </nav>
             </article>
@@ -98,9 +116,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/blog/2014/sabre-dav-2.0.3-release';
-    var disqus_title = 'sabre/dav 2.0.3 release';
-    var disqus_url = 'http://sabre.io/blog/2014/sabre-dav-2.0.3-release';
+    var disqus_identifier = '/blog/2014/sabre-dav-1.7-eol';
+    var disqus_title = 'sabre/dav 1.7 end of support';
+    var disqus_url = 'http://sabre.io/blog/2014/sabre-dav-1.7-eol';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

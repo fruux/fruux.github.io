@@ -58,6 +58,48 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
+            <time>July 28th, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/sabre-dav-1.7-eol">sabre/dav 1.7 end of support</a></h1>
+            <p>As of right now, sabre/dav 1.7 has reached end of life status.</p>
+
+<p>Version 1.8 has been released in November 2012, so people had 20 months to
+upgrade their systems.</p>
+
+<p>We've done one final release (1.7.13), containing a few minor fixes and a newer
+version of the sabre/vobject library (if you're using the zip installation).</p>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/1.7.13/ChangeLog.md">Github</a></p>
+
+<h3>What does this mean?</h3>
+
+<p>From this point forward, we will no longer accept bug reports for version 1.7.</p>
+
+<p>Also, no future releases will be made.</p>
+
+<p>We <em>may</em> consider certain security bugs, but there are no guarantees.</p>
+
+<h3>Upgrading to 1.8</h3>
+
+<p>Upgrading to version 1.8 is not difficult. The main change that has been made
+between these versions, is that 1.8 makes use of PHP namespaces, where 1.7
+uses the classic 'pear-style' prefix notation.</p>
+
+<p>Make sure to check out the <a href="http://sabre.io/dav/upgrade/1.7-to-1.8/">migration instructions</a> for a detailed overview
+of the changes.</p>
+
+<p>Keep in mind though that version 2.0 of sabre/dav is also already released. If
+you are upgrading, you're highly encouraged to take that additional upgrade
+step. Version 2.0 has its own <a href="http://sabre.io/dav/upgrade/1.8-to-2.0/">migration instructions</a>.</p>
+
+        </article>
+        <hr />            <article class="blog-entry">
             <time>July 14th, 2014</time>
             <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.3-release">sabre/dav 2.0.3 release</a></h1>
             <p>We just released sabre/dav 2.0.3.</p>
@@ -94,23 +136,6 @@ optionally work with sabre/event 2.0 as well as sabre/event 1.0.</p>
 </code></pre>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/master/ChangeLog">Github</a></p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>July 14th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.4-release">sabre/vobject 3.2.4 release</a></h1>
-            <p>We just released sabre/vobject 3.2.4.</p>
-
-<p>Conversion between vcard 3 and 4 has been improved, a workaround has been
-added to deal with Yahoo's broken vcard generation and the CLI tool works
-again on PHP 5.3.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/master/ChangeLog.md">Github</a></p>
 
         </article>
             </section>

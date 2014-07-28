@@ -3,7 +3,7 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-07-28T18:59:46+00:00</updated>
+    <updated>2014-07-28T20:03:51+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -26,7 +26,7 @@ version of the sabre/vobject library (if you're using the zip installation).</p>
 
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/1.7.13/ChangeLog.md">Github</a></p>
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/1.7.13/ChangeLog">Github</a></p>
 
 <h3>What does this mean?</h3>
 

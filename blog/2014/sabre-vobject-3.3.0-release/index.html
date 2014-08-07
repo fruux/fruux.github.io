@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>jCard and jCal - sabre/vobject</title>
+            <title>sabre/vobject 3.3.0 release - sabre/vobject</title>
     
     <meta charset="utf-8">
 
@@ -36,80 +36,76 @@
 
 </header>
 
-        <main class="incl-sidebar">
-                    <aside>
-    <ul class="sidebar-nav">
-        <li><a href="http://sabre.io/dav">sabre/dav</a>
-                    </li>
-        <li><a href="http://sabre.io/event">sabre/event</a>
-                    </li>
-        <li><a href="http://sabre.io/http">sabre/http</a>
-                    </li>
-        <li><a href="http://sabre.io/vobject">sabre/vobject</a>
-                        <ul>
-                <li><a href="http://sabre.io/vobject/install/">Installation</a></li>
-                <li><a href="http://sabre.io/vobject/upgrade/">Upgrading</a></li>
-                <li><a href="http://sabre.io/vobject/usage/">Usage</a></li>
-                <li><a href="http://sabre.io/vobject/json">jCal and jCard</a></li>
-                <li><a href="http://sabre.io/vobject/recurrence">Recurrencing events</a></li>
-                <li><a href="http://sabre.io/vobject/itip">iIip</a></li>
-                <li><a href="http://sabre.io/vobject/usage_2/">Usage (vobject 2.x)</a></li>
-            </ul>
-                    </li>
-        <li><a href="http://sabre.io/license">License</a></li>
-    </ul>
-</aside>
+        <main>
                 <article>
-                            <h1>jCard and jCal</h1>
-                <p>Since version 3.1, there's now native support for parsing and generating the
-<a href="http://tools.ietf.org/html/rfc7265">jCal</a> and <a href="http://tools.ietf.org/html/rfc7095">jCard</a> formats.</p>
+                <article class="blog-entry">
+        <time>August 7th, 2014</time>
+        <h1>sabre/vobject 3.3.0 release</h1>
+        <div>
+            <p>We just released sabre/vobject 3.3.0!</p>
 
-<p>These new formats use <a href="http://www.json.org/">json</a> to serialize vCard and iCalendar. It is
-possible to exactly map iCalendar and vCard to jCal and jCard, and therefore
-you can convert back and forward, without any data-loss.</p>
+<p>This release has a few new features, but also changes a few things. For most
+people the upgrade should be seamless though.</p>
 
-<h2>Benefits</h2>
+<h2>Changes</h2>
 
-<p>The exact grammar of both vCard and iCalendar is very vague, not really shared
-with other common formats, changes over time, complex and a lot of incorrect
-implementations exist.</p>
+<h3>Better RRULE parser</h3>
 
-<p>jCard and jCal do not have this problem. It's our opinion that these two
-formats represent the future of this data, and we'd highly recommend people
-using this, and only using vCard / iCalendar for backwards compatibility
-purposes.</p>
+<p>We now have much better support for <code>RRULE</code>, and especially exceptions to
+recurrences. This solved several bugs that have been outstanding for quite
+some time.</p>
 
-<p>It's also often faster to parse and generate, and in PHP this is especially
-true.</p>
+<p>We now also support <code>RDATE</code>.</p>
 
-<h2>Generating a jCal or jCard object</h2>
+<p>One change is that the old <code>Sabre\VObject\RecurrenceIterator</code> is now renamed
+to <code>Sabre\VObject\Recur\EventIterator</code>. The old class still exists, but will
+be removed in a future version.</p>
 
-<p>Any time you have a reference to a <code>VCARD</code> or <code>VCALENDAR</code> object in vobject,
-you can simply call <code>-&gt;jsonSerialize()</code> to get a representation suitable for
-json.</p>
+<p>Some more info about this feature <a href="/vobject/recurrence">here</a>.</p>
 
-<p>Here's an example of parsing an iCalendar object, and then outputting it as
-a jCal object:</p>
+<h3>iTip support</h3>
 
-<pre><code>$vcal = \Sabre\VObject\Reader::read('my_calendar.ics');
-echo json_encode($vcal-&gt;jsonSerialize());
+<p>VObject now supports generating and parsing <a href="/vobject/itip">iTip</a> messages. iTip messages
+are a type of iCalendar object that are used for things like invites, replies
+and cancellations.</p>
+
+<p>More info about this feature on the <a href="/vobject/itip">iTip page</a>.</p>
+
+<h3>Switched to PSR-4</h3>
+
+<p>The directory structure of the VObject library changed. Everything that was
+previously in <code>lib/Sabre/VObject</code> is now moved to <code>lib/</code>.</p>
+
+<p>If you are using composer you don't have to change a thing, but if you
+manually wrote an autoloader, you may have to make a change to accomodate for
+this.</p>
+
+<p>We also removed <code>lib/Sabre/VObject/includes.php</code>.</p>
+
+<h3>Changelog</h3>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.3.0/ChangeLog.md">Github</a></p>
+
+<h2>Upgrading</h2>
+
+<p>To update your sabre/vobject, edit composer.json to make sure that it includes
+a line like this:</p>
+
+<pre><code>"sabre/vobject" : "~3.3.0"
 </code></pre>
 
-<p>This feature was added in sabre/vobject 3.0.</p>
+        </div>
+                    <p class="tags">
+            Tags:
+                        <a href="http://sabre.io/blog/tags/vobject">vobject</a>,                         <a href="http://sabre.io/blog/tags/release">release</a>                        </p>
+        
+                    <nav class="article">
+                <ul>
+                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2014/sabre-dav-1.7-eol" title="sabre/dav 1.7 end of support"><span class="title">sabre/dav 1.7 end of support</span></a></li>
+                                    </ul>
+            </nav>
+            </article>
 
-<h2>Parsing jCal and jCard</h2>
-
-<p>To parse a jCard or jCal object, use the following snippet:</p>
-
-<pre><code>$input = 'jcard.json';
-$jCard = VObject\Reader::readJson(fopen('jcard.json', 'r'));
-</code></pre>
-
-<p>You can pass either a json string, a readable stream, or an array if you
-already called json_decode on the input.</p>
-
-<p>This feature was added in sabre/vobject 3.1.</p>
-            
             
                             <hr />
                 <h2>Comments</h2>
@@ -134,9 +130,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/vobject/json';
-    var disqus_title = 'jCard and jCal';
-    var disqus_url = 'http://sabre.io/vobject/json';
+    var disqus_identifier = '/blog/2014/sabre-vobject-3.3.0-release';
+    var disqus_title = 'sabre/vobject 3.3.0 release';
+    var disqus_url = 'http://sabre.io/blog/2014/sabre-vobject-3.3.0-release';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

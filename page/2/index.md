@@ -59,6 +59,22 @@ An open source CardDAV, CalDAV and WebDAV server.
     <h1>News</h1>
             <article class="blog-entry">
             <time>July 14th, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/sabre-http-2.0.4-release">sabre/http 2.0.4 release</a></h1>
+            <p>We just released sabre/http 2.0.4.</p>
+
+<p>This release has a few small bugfixes related to the client, and can now
+optionally work with sabre/event 2.0 as well as sabre/event 1.0.</p>
+
+<p>Upgrade sabre/http by running:</p>
+
+<pre><code>composer update sabre/http
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/master/ChangeLog">Github</a></p>
+
+        </article>
+        <hr />            <article class="blog-entry">
+            <time>July 14th, 2014</time>
             <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.4-release">sabre/vobject 3.2.4 release</a></h1>
             <p>We just released sabre/vobject 3.2.4.</p>
 
@@ -110,26 +126,6 @@ then run:</p>
 </code></pre>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-event/blob/master/ChangeLog.md">Github</a></p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>June 12th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.2-release">sabre/dav 2.0.2 release</a></h1>
-            <p>We just released sabre/dav 2.0.2.</p>
-
-<p>Several bugs have been fixed in files from the <code>examples/</code> directory, and
-more notably: the dependencies in the zip distribution have been updated,
-which, among other things, fixes compatibility with PHP versions older than
-5.4.14.</p>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0/ChangeLog.md">Github</a></p>
 
         </article>
             </section>

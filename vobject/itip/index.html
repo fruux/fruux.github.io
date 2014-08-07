@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>jCard and jCal - sabre/vobject</title>
+            <title>iTip - sabre/vobject</title>
     
     <meta charset="utf-8">
 
@@ -60,55 +60,125 @@
     </ul>
 </aside>
                 <article>
-                            <h1>jCard and jCal</h1>
-                <p>Since version 3.1, there's now native support for parsing and generating the
-<a href="http://tools.ietf.org/html/rfc7265">jCal</a> and <a href="http://tools.ietf.org/html/rfc7095">jCard</a> formats.</p>
+                            <h1>iTip</h1>
+                <p>Since version 3.3, vobject has support for parsing and generating <a href="http://tools.ietf.org/html/rfc5546">iTip</a>
+messages. Currently only <code>VEVENT</code> is supported.</p>
 
-<p>These new formats use <a href="http://www.json.org/">json</a> to serialize vCard and iCalendar. It is
-possible to exactly map iCalendar and vCard to jCal and jCard, and therefore
-you can convert back and forward, without any data-loss.</p>
+<h2>What is an iTip message?</h2>
 
-<h2>Benefits</h2>
+<p>iTip is defined in <a href="http://tools.ietf.org/html/rfc5546">rfc5546</a>. iTip messages are a type of iCalendar
+messages, that are typically used for scheduling (invites and replies and
+such).</p>
 
-<p>The exact grammar of both vCard and iCalendar is very vague, not really shared
-with other common formats, changes over time, complex and a lot of incorrect
-implementations exist.</p>
+<p>You can recognize an iTip message from a standard iCalendar message by the
+fact that it will have a <code>METHOD</code> property. Here's a minimal example of an
+invite:</p>
 
-<p>jCard and jCal do not have this problem. It's our opinion that these two
-formats represent the future of this data, and we'd highly recommend people
-using this, and only using vCard / iCalendar for backwards compatibility
-purposes.</p>
-
-<p>It's also often faster to parse and generate, and in PHP this is especially
-true.</p>
-
-<h2>Generating a jCal or jCard object</h2>
-
-<p>Any time you have a reference to a <code>VCARD</code> or <code>VCALENDAR</code> object in vobject,
-you can simply call <code>-&gt;jsonSerialize()</code> to get a representation suitable for
-json.</p>
-
-<p>Here's an example of parsing an iCalendar object, and then outputting it as
-a jCal object:</p>
-
-<pre><code>$vcal = \Sabre\VObject\Reader::read('my_calendar.ics');
-echo json_encode($vcal-&gt;jsonSerialize());
+<pre><code>BEGIN:VCALENDAR
+VERSION:2.0
+METHOD:REQUEST
+BEGIN:VEVENT
+UID:foobar
+ORGANIZER:organizer@example.org
+ATTENDEE:attendee@example.org
+SEQUENCE:1
+END:VEVENT
+END:VCALENDAR
 </code></pre>
 
-<p>This feature was added in sabre/vobject 3.0.</p>
+<p>Here's an example of a response to that invite:</p>
 
-<h2>Parsing jCal and jCard</h2>
-
-<p>To parse a jCard or jCal object, use the following snippet:</p>
-
-<pre><code>$input = 'jcard.json';
-$jCard = VObject\Reader::readJson(fopen('jcard.json', 'r'));
+<pre><code>BEGIN:VCALENDAR
+VERSION:2.0
+METHOD:REPLY
+BEGIN:VEVENT
+UID:foobar
+ORGANIZER:organizer@example.org
+ATTENDEE;PARTSTAT=ACCEPTED:attendee@example.org
+SEQUENCE:1
+END:VEVENT
+END:VCALENDAR
 </code></pre>
 
-<p>You can pass either a json string, a readable stream, or an array if you
-already called json_decode on the input.</p>
+<p>These types of messages are often sent over email. This is called <a href="http://tools.ietf.org/html/rfc6047">iMip</a>.
+CalDAV servers also deal with iTip, this is defined in <a href="http://tools.ietf.org/html/rfc6638">rfc6638</a>.</p>
 
-<p>This feature was added in sabre/vobject 3.1.</p>
+<p>There are very strictly defined semantics on how Calendar agents are supposed
+to generate and process these. VObject provides some help with this.</p>
+
+<h2>Generating iTip messages</h2>
+
+<p>Generating iTip messages works based on the following three scenarios:</p>
+
+<ol>
+<li>A user creates an event.</li>
+<li>A user updates an event.</li>
+<li>A user deletes an event.</li>
+</ol>
+
+<p>For each of those scenarios, we need to figure out:</p>
+
+<ol>
+<li>Is the user an attendee or organizer for that event?</li>
+<li>If the user is an attendee, did the attendee update their participation
+status?</li>
+<li>If the user is an organizer, do the attendees need to know about any
+updates?</li>
+<li>And so on..</li>
+</ol>
+
+<p>There's quite a few possible scenarios, including organizers adding or
+removing attendees, resulting into various requests, cancellations and replies.</p>
+
+<p>Here's an example to generate these messages:</p>
+
+<pre><code>$broker = new Sabre\VObject\ITip\Broker();
+$messages = $broker-&gt;parseEvent(
+    $newCalendar,
+    'organizer@example.org',
+    $oldCalendar
+);
+</code></pre>
+
+<p>Both <code>$newCalendar</code> and <code>$oldCalendar</code> should either be a VCALENDAR object,
+or a <code>null</code>.</p>
+
+<p>If <code>$oldCalendar</code> is <code>null</code>, it will be treated as a new object, if
+<code>$newCalendar</code> is <code>null</code>, it will be treated as if the user deleted the object.</p>
+
+<p>The returned value (<code>$messages</code>) is an array of <code>Sabre\VObject\ITip\Message</code>
+objects. Each object carries <em>all</em> the relevant information to deliver the
+object using email or otherwise.</p>
+
+<h2>Parsing iTip messages</h2>
+
+<p>The broker can also parse incoming iTip messages. This happens for example
+when:</p>
+
+<ol>
+<li>You receive an invite.</li>
+<li>You get an update for an invite.</li>
+<li>You send a reply to an invite.</li>
+<li>You receive a cancellation for an invite.</li>
+</ol>
+
+<p>The broker can parse these incoming messages, and update an existing calendar
+object (or create a new one).</p>
+
+<p>To do this, you will need a fully populated <code>Sabre\VObject\ITip\Message</code>
+object, and some existing calendar object (or not at all if it's an invite
+to a new event).</p>
+
+<p>Example:</p>
+
+<pre><code>$broker = new Sabre\VObject\ITip\Broker();
+$broker-&gt;processMessage(
+    $message,
+    $oldCalendar
+);
+</code></pre>
+
+<p>This will update <code>$oldCalendar</code> in-place.</p>
             
             
                             <hr />
@@ -134,9 +204,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/vobject/json';
-    var disqus_title = 'jCard and jCal';
-    var disqus_url = 'http://sabre.io/vobject/json';
+    var disqus_identifier = '/vobject/itip';
+    var disqus_title = 'iTip';
+    var disqus_url = 'http://sabre.io/vobject/itip';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

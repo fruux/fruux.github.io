@@ -49,9 +49,11 @@
                         <ul>
                 <li><a href="http://sabre.io/vobject/install/">Installation</a></li>
                 <li><a href="http://sabre.io/vobject/upgrade/">Upgrading</a></li>
-                <li><a href="http://sabre.io/vobject/usage">Usage</a></li>
-                <li><a href="http://sabre.io/vobject/usage_2">Usage (vobject 2.x)</a></li>
+                <li><a href="http://sabre.io/vobject/usage/">Usage</a></li>
                 <li><a href="http://sabre.io/vobject/json">jCal and jCard</a></li>
+                <li><a href="http://sabre.io/vobject/recurrence">Recurrencing events</a></li>
+                <li><a href="http://sabre.io/vobject/itip">iIip</a></li>
+                <li><a href="http://sabre.io/vobject/usage_2/">Usage (vobject 2.x)</a></li>
             </ul>
                     </li>
         <li><a href="http://sabre.io/license">License</a></li>
@@ -355,101 +357,6 @@ echo $start-&gt;format(\DateTime::W3C);
 <pre><code>$dateTime = new \DateTime('2012-08-07 23:53:00', new \DateTimeZone('Europe/Amsterdam'));
 $event-&gt;DTSTART = $dateTime;
 </code></pre>
-
-<h3>Expanding recurrence rules</h3>
-
-<p>Recurrence rules allow events to recur, for example for a weekly meeting, or an anniversary.
-This is done with the <code>RRULE</code> property. The <code>RRULE</code> property allows for a LOT of different
-rules. VObject only implements the ones that actually appear in calendar software.</p>
-
-<p>To read more about <code>RRULE</code> and all the options, check out <a href="https://tools.ietf.org/html/rfc5545#section-3.8.5">RFC5545</a>.
-VObject supports the following options:</p>
-
-<ol>
-<li><code>UNTIL</code> for an end date.</li>
-<li><code>INTERVAL</code> for for example "every 2 days".</li>
-<li><code>COUNT</code> to stop recurring after x items.</li>
-<li><code>FREQ=DAILY</code> to recur every day, and <code>BYDAY</code> to limit it to certain days.</li>
-<li><code>FREQ=WEEKLY</code> to recur every week, <code>BYDAY</code> to expand this to multiple weekdays in every week and <code>WKST</code> to specify on which day the week starts.</li>
-<li><code>FREQ=MONTHLY</code> to recur every month, <code>BYMONTHDAY</code> to expand this to certain days in a month, <code>BYDAY</code> to expand it to certain weekdays occuring in a month, and <code>BYSETPOS</code> to limit the last two expansions.</li>
-<li><code>FREQ=YEARLY</code> to recur every year, <code>BYMONTH</code> to expand that to certain months in a year, and <code>BYDAY</code> and <code>BYWEEKDAY</code> to expand the <code>BYMONTH</code> rule even further.</li>
-</ol>
-
-<p>VObject supports the <code>EXDATE</code> property for exclusions, but not yet the <code>RDATE</code> and <code>EXRULE</code>
-properties. If you're interested in this, please file a github issue, as this will put it
-on my radar.</p>
-
-<p>This is a bit of a complex subject to go in excruciating detail. The
-<a href="https://tools.ietf.org/html/rfc5545#section-3.8.5">RFC</a> has a lot of examples though.</p>
-
-<p>The hard part is not to write the RRULE, it is to expand them. The most complex and
-hard-to-read code is hidden in this component. Dragons be here.</p>
-
-<p>So, if we have a meeting every 2nd monday of the month, this would be specified as such:</p>
-
-<pre><code>BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Sabre//Sabre VObject 2.0//EN
-BEGIN:VEVENT
-UID:1102c450-e0d7-11e1-9b23-0800200c9a66
-DTSTART:20120109T140000Z
-RRULE:FREQ=MONTHLY;BYDAY=MO;BYSETPOS=2
-END:VEVENT
-END:VCALENDAR
-</code></pre>
-
-<p>Note that I added in <code>UID</code> property. For simplicity I've kept it out of
-previous examples, but do note that a <code>UID</code> property is required for all
-<code>VEVENT</code>, <code>VTODO</code> and <code>VJOURNAL</code> objects!</p>
-
-<p>To figure out all the meetings for this year, we can use the following syntax:</p>
-
-<pre><code>$vcalendar = VObject\Reader::read($data);
-$vcalendar-&gt;expand(new DateTime('2012-01-01'), new DateTime('2012-12-31'));
-</code></pre>
-
-<p>What the expand method does, is look at its inner events, and expand the recurring
-rule. Our calendar now contains 12 events. The first will have its RRULE stripped,
-and every subsequent VEVENT has the correct meeting date and a <code>RECURRENCE-ID</code> set.</p>
-
-<p>This results in something like this:</p>
-
-<pre><code>BEGIN:VCALENDAR
-  VERSION:2.0
-  PRODID:-//Sabre//Sabre VObject 2.0//EN
-  BEGIN:VEVENT
-    UID:1102c450-e0d7-11e1-9b23-0800200c9a66
-    DTSTART:20120109T140000Z
-  END:VEVENT
-  BEGIN:VEVENT
-    UID:1102c450-e0d7-11e1-9b23-0800200c9a66
-    RECURRENCE-ID:20120213T140000Z
-    DTSTART:20120213T140000Z
-  END:VEVENT
-  BEGIN:VEVENT
-    UID:1102c450-e0d7-11e1-9b23-0800200c9a66
-    RECURRENCE-ID:20120312T140000Z
-    DTSTART:20120312T140000Z
-  END:VEVENT
-  ..etc..
-END:VCALENDAR
-</code></pre>
-
-<p>Note that I added some extra spaces to improve legibility.</p>
-
-<p>To show the list of dates, we would do this as such:</p>
-
-<pre><code>foreach($vcalendar-&gt;VEVENT as $vevent) {
-    echo $vevent-&gt;DTSTART-&gt;getDateTime()-&gt;format(\DateTime::ATOM);
-}
-</code></pre>
-
-<p>In a recurring event, single instances can also be overriden. VObject also takes these
-into consideration. The reason we needed to specify a start and end-date, is because
-some recurrence rules can be 'never ending'.</p>
-
-<p>You should make sure you pick a sane date-range. Because if you pick a 50 year
-time-range, for a daily recurring event; this would result in over 18K objects.</p>
 
 <h3>Free-busy report generation</h3>
 

@@ -3,11 +3,11 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-08-18T19:40:23+00:00</updated>
+    <updated>2014-08-18T19:41:25+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
-            <title type="html"><![CDATA[sabre/vobject 3.3.2 release]]></title>
+            <title type="html"><![CDATA[sabre/vobject 3.3.1 release]]></title>
             <link href="http://sabre.io/blog/2014/sabre-vobject-3.3.1-release"/>
             <updated>2014-08-18T19:39:02+00:00</updated>
             <id>http://sabre.io/blog/2014/sabre-vobject-3.3.1-release</id>

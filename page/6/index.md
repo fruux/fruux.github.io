@@ -58,77 +58,21 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
-            <time>June 24th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0">sabre/event 2.0 release</a></h1>
-            <p>We just released sabre/event 2.0.0. This releases adds a few features, and
-also slightly alters the API.</p>
+            <time>March 31st, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/new-website">New website launched!</a></h1>
+            <p>You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
+never had a proper website, and we've always just hosted from Google Code.</p>
 
-<h3>New stuff</h3>
+<p>As Google slowly started to lose interested in code hosting, we migrated more
+and more features to GitHub. The biggest thing left: the wiki. So what once
+started as a place to host the new wiki, turned into a brand-new design, by
+<a href="https://fruux.com/">our</a> very own Martin Kaniut, who's also responsible for the <a href="https://fruux.com/">fruux</a>
+design.</p>
 
-<ol>
-<li>Support for <a href="/event/promise/">promises</a>.</li>
-<li>The event handler is now faster. This is especially noticable when making a
-lot of subscriptions to a single event, and is likely unnoticable for most.</li>
-<li>Added support for something called the 'continue callback' to to the
-EventEmitter. This makes it possible to implement something similar to
-javascript's <code>preventDefault</code>.</li>
-<li>When calling removeAllListeners without an argument, all listeners for all
-events are removed.</li>
-</ol>
-
-<h3>Api breaks</h3>
-
-<ol>
-<li>We switched to PSR-4 for autoloading.</li>
-<li>EventEmitter::listeners() no longer returns a manipulatable array of event
-listeners by reference. It's not a simple list of callbacks, sorted by
-their priority. The original concept was good on paper.</li>
-<li>The argument on <code>removeAllListeners</code> is now optional.</li>
-</ol>
-
-<p>Upgrade sabre/event by making sure your composer.json references <code>~2.0.0</code>, and
-then run:</p>
-
-<pre><code>composer update sabre/event
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-event/blob/master/ChangeLog.md">Github</a></p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>June 12th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.2-release">sabre/dav 2.0.2 release</a></h1>
-            <p>We just released sabre/dav 2.0.2.</p>
-
-<p>Several bugs have been fixed in files from the <code>examples/</code> directory, and
-more notably: the dependencies in the zip distribution have been updated,
-which, among other things, fixes compatibility with PHP versions older than
-5.4.14.</p>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0/ChangeLog.md">Github</a></p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>June 12th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.3-release">sabre/vobject 3.2.3 release</a></h1>
-            <p>We just released sabre/vobject 3.2.3.</p>
-
-<p>Several improvements were made in the validator, and the "repair" option now
-works correctly again in the CLI tool.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/master/ChangeLog.md">Github</a></p>
+<p>We hope you like it, but since it's such a step up from Google Code, we're
+confident you probably will ;). If you're running into any bugs, definitely
+<a href="https://github.com/fruux/sabre.io/issues">let us know</a>. Want to contribute to the wiki? The entire site is open source, so
+<a href="https://github.com/fruux/sabre.io/tree/master/source">take a look</a> at some of the existing pages and get cracking!</p>
 
         </article>
             </section>
@@ -236,9 +180,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/page/3';
+    var disqus_identifier = '/page/6';
     var disqus_title = '';
-    var disqus_url = 'http://sabre.io/page/3';
+    var disqus_url = 'http://sabre.io/page/6';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

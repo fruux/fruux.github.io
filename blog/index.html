@@ -40,6 +40,33 @@
                 <article>
                             <h1>Blog</h1>
                 <article class="blog-entry">
+    <time>August 27th, 2014</time>
+    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.4-release">sabre/dav 2.0.4 release</a></h1>
+    <p>We just released sabre/dav 2.0.4.</p>
+
+<p>This releases has a number of improvements, namely:</p>
+
+<ol>
+<li>PostgresSQL files have been corrected. Note that while we ship postgres
+files, it is not an officially supported database.</li>
+<li>After nodes are deletes, locks were not automatically removed. This was
+problematic, because re-creating a node could cause it to be locked
+instantly. This is now fixed.</li>
+<li>There were some problems with both the default Cal- and CardDAV PDO
+backends, when the 'Sync' plugin is not enabled. This is now resolved.</li>
+</ol>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.4/ChangeLog.md">Github</a></p>
+
+</article>
+<hr /><article class="blog-entry">
     <time>August 18th, 2014</time>
     <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.1-release">sabre/vobject 3.3.1 release</a></h1>
     <p>We just released sabre/vobject 3.3.1.</p>

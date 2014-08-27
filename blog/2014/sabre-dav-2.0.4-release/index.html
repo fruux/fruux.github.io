@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>sabre/vobject 3.3.1 release - sabre/vobject</title>
+            <title>sabre/dav 2.0.4 release - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -18,8 +18,8 @@
 
     <div class="logo">
         <a href="http://sabre.io/">
-            <img src="http://sabre.io/img/logo.png" alt="sabre/vobject">
-            sabre/vobject
+            <img src="http://sabre.io/img/logo.png" alt="sabre/dav">
+            sabre/dav
         </a>
     </div>
 
@@ -39,43 +39,40 @@
         <main>
                 <article>
                 <article class="blog-entry">
-        <time>August 18th, 2014</time>
-        <h1>sabre/vobject 3.3.1 release</h1>
+        <time>August 27th, 2014</time>
+        <h1>sabre/dav 2.0.4 release</h1>
         <div>
-            <p>We just released sabre/vobject 3.3.1.</p>
+            <p>We just released sabre/dav 2.0.4.</p>
 
-<p>Several bugs have been found in 3.3.0, all mostly related to the newly
-introduced <a href="/vobject/itip/">iTip</a> functionality.</p>
+<p>This releases has a number of improvements, namely:</p>
 
-<p>This release also adds a new feature that allows people to specify new
-DATE-TIME values by passing PHP <a href="http://ca2.php.net/manual/en/class.datetime.php">DateTime</a> objects as such:</p>
+<ol>
+<li>PostgresSQL files have been corrected. Note that while we ship postgres
+files, it is not an officially supported database.</li>
+<li>After nodes are deletes, locks were not automatically removed. This was
+problematic, because re-creating a node could cause it to be locked
+instantly. This is now fixed.</li>
+<li>There were some problems with both the default Cal- and CardDAV PDO
+backends, when the 'Sync' plugin is not enabled. This is now resolved.</li>
+</ol>
 
-<pre><code>$vevent-&gt;DTSTART = new DateTime('...');
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
 </code></pre>
 
-<p>This was already possible in a lot of other places, but somehow this was
-missed for the 'magic property setter'.</p>
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.3.1, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.3.1"
-</code></pre>
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.4/ChangeLog.md">Github</a></p>
 
         </div>
                     <p class="tags">
             Tags:
-                        <a href="http://sabre.io/blog/tags/vobject">vobject</a>,                         <a href="http://sabre.io/blog/tags/release">release</a>                        </p>
+                        <a href="http://sabre.io/blog/tags/dav">dav</a>,                         <a href="http://sabre.io/blog/tags/release">release</a>                        </p>
         
                     <nav class="article">
                 <ul>
-                                            <li>Next: <a class="next" href="http://sabre.io/blog/2014/sabre-dav-2.0.4-release" title="sabre/dav 2.0.4 release"><span class="title">sabre/dav 2.0.4 release</span></a></li>
-                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2014/sabre-vobject-3.3.0-release" title="sabre/vobject 3.3.0 release"><span class="title">sabre/vobject 3.3.0 release</span></a></li>
+                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2014/sabre-vobject-3.3.1-release" title="sabre/vobject 3.3.1 release"><span class="title">sabre/vobject 3.3.1 release</span></a></li>
                                     </ul>
             </nav>
             </article>
@@ -104,9 +101,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/blog/2014/sabre-vobject-3.3.1-release';
-    var disqus_title = 'sabre/vobject 3.3.1 release';
-    var disqus_url = 'http://sabre.io/blog/2014/sabre-vobject-3.3.1-release';
+    var disqus_identifier = '/blog/2014/sabre-dav-2.0.4-release';
+    var disqus_title = 'sabre/dav 2.0.4 release';
+    var disqus_url = 'http://sabre.io/blog/2014/sabre-dav-2.0.4-release';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

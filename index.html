@@ -67,7 +67,7 @@ An open source CardDAV, CalDAV and WebDAV server.
 <ol>
 <li>PostgresSQL files have been corrected. Note that while we ship postgres
 files, it is not an officially supported database.</li>
-<li>After nodes are deletes, locks were not automatically removed. This was
+<li>After nodes had been deleted, locks were not automatically removed. This was
 problematic, because re-creating a node could cause it to be locked
 instantly. This is now fixed.</li>
 <li>There were some problems with both the default Cal- and CardDAV PDO

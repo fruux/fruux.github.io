@@ -3,7 +3,7 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-08-28T10:13:02+00:00</updated>
+    <updated>2014-08-28T10:13:36+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -18,7 +18,7 @@
 <ol>
 <li>PostgresSQL files have been corrected. Note that while we ship postgres
 files, it is not an officially supported database.</li>
-<li>After nodes are deletes, locks were not automatically removed. This was
+<li>After nodes had been deleted, locks were not automatically removed. This was
 problematic, because re-creating a node could cause it to be locked
 instantly. This is now fixed.</li>
 <li>There were some problems with both the default Cal- and CardDAV PDO

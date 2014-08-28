@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>Frequently Asked Questions - sabre/dav</title>
+            <title>The base uri - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -111,142 +111,118 @@
     </ul>
 </aside>
                 <article>
-                            <h1>Frequently Asked Questions</h1>
-                <h2>What is WebDAV?</h2>
+                            <h1>The base uri</h1>
+                <p>This document exists to explain the number one problem people have with
+sabre/dav: setting a correct base uri.</p>
 
-<p>WebDAV is a network filesystem protocol. You can compare it to for windows
-networking, FTP, SFTP. The WebDAV protocol is supported natively by Microsoft
-Windows, OS/X and pretty much any Linux distribution.</p>
+<p>Often after you set up any Cal-, Card- or WebDAV server, you may get an error
+like this:</p>
 
-<p>WebDAV is a protocol that sits on top of the HTTP protocol, because of this it
-also works often through corporate firewalls.</p>
+<pre><code>&lt;d:error&gt;
+  &lt;s:sabredav-version&gt;2.0.4&lt;/s:sabredav-version&gt;
+  &lt;s:exception&gt;Sabre\DAV\Exception\NotFound&lt;/s:exception&gt;
+  &lt;s:message&gt;File not found: sabredav in 'root'&lt;/s:message&gt;
+&lt;/d:error&gt;
+</code></pre>
 
-<p>See <a href="http://en.wikipedia.org/wiki/Webdav">Wikipedia</a> or <a href="http://webdav.org/">webdav.org</a> for more information.</p>
+<p>The actual filenames vary, but usually it will be something like that.</p>
 
-<h2>What is SabreDAV?</h2>
+<p>This is a short guide to help you figure out how to solve this.</p>
 
-<p>SabreDAV is a WebDAV server completely built in PHP. This means all you need
-to enable WebDAV access to your Web server is PHP.</p>
+<h2>What is the base URI</h2>
 
-<p>SabreDAV supports CalDAV, CardDAV and WebDAV as well as many other related
-specifications. See <a href="/dav/standards-support">Standards Support</a> for the full
-list.</p>
+<p>After you install sabredav, you may access your server through a url like
+these:</p>
 
-<h2>Is SabreDAV stable?</h2>
+<pre><code>http://server.example.org/sabredav/server.php
+http://server.example.org/sabredav/calendarserver.php
+http://server.example.org/sabredav/addressbookserver.php
+http://server.example.org/sabredav/groupwareserver.php
+</code></pre>
 
-<p>SabreDAV has been deployed by live applications since 2007, and more than 98%
-of the code is covered by unittests. It is currently in use by multiple
-corporations. The largest installations manage addressbooks and calendars for
-millions of users.</p>
+<p>Any of those urls are valid, and it's completely up to you in which directory
+you run sabredav, or how you name your 'server file'. We strongly recommend
+against calling your server file <code>index.php</code> because this causes additional
+confusion. <code>server.php</code> is the best name.</p>
 
-<p>No software is bugfree though, but SabreDAV is actively maintained, so if
-anything pops up we're usually quick to respond.</p>
+<p>After you set up this file, you need to tell sabredav what this url is.</p>
 
-<h2>Why would I use SabreDAV instead of Apache's mod_dav?</h2>
+<p>Every example server file with contain a line such as this:</p>
 
-<p>If <a href="http://httpd.apache.org/docs/2.2/mod/mod_dav.html">mod_dav</a> does what you need, you probably don't need SabreDAV. SabreDAV
-is intended as an easily programmable webdav server. SabreDAV supports more
-clients and also does Cal- and CardDAV, whereas mod_dav does not</p>
+<pre><code>$server-&gt;setBaseUri(...);
+</code></pre>
 
-<p>If you don't have a need for those features, mod_dav is likely a better choice
-as it's not written in PHP, and likely faster.</p>
+<p>You need to make sure that whats specified as <code>...</code> here, matches the base
+path to your server. For the first 4 examples we showed, the value would
+be this:</p>
 
-<h2>I'm getting a 'File not Found error' after getting started</h2>
+<pre><code>/sabredav/server.php
+/sabredav/calendarserver.php
+/sabredav/addressbookserver.php
+/sabredav/groupwareserver.php
+</code></pre>
 
-<p>You may have a <a href="/dav/baseuri/">base uri</a> problem.</p>
+<h2>Why is this important?</h2>
 
-<h2>It doesn't work!</h2>
+<p>In sabredav, a full url may look something like this:</p>
 
-<p>DAV is tricky to debug, because unlike with building web applications, there
-is no browser that simply shows you useful error messages.</p>
+<pre><code>http://server.example.org/sabredav/server.php/files/photo.jpg
+</code></pre>
 
-<p>The first step you should make, is to use the
-<a href="/dav/browser-plugin">browser plugin</a>. This plugin creates directory indexes,
-and will allow you to browse around using your standard webbrowser. If you're
-already seeing errors there, it may give away quickly where your
-problem is.</p>
+<p>SabreDAV needs to split this up in two components, which are these two:</p>
 
-<p>It's also recommended to keep an eye on the error log.</p>
+<pre><code>http://server.example.org/sabredav/server.php
+/files/photo.jpg
+</code></pre>
 
-<p>Failing that, we highly recommend setting up <a href="http://www.charlesproxy.com/download/">Charles HTTP Proxy</a>. This
-tool is pretty much running for us 24/7. Whenever we run into <em>any</em> issue this
-is where we start debugging.</p>
+<p>SabreDAV only cares about the last part, but it can not easily figure out
+where the 'script' ends and where the the other path starts.</p>
 
-<p>If you're still running into issues, contact us on the <a href="http://groups.google.com/group/sabredav-discuss">mailing list</a>, or
-<a href="https://github.com/fruux/sabre-dav/issues/new">open an issue on github</a>.</p>
+<h2>I would like to use clean urls</h2>
 
-<h2>Authentication doesn't work</h2>
+<p>It's entirely possible to change this url:</p>
 
-<p>There are several server configurations that can affect whether authentication
-will work. The <a href="/dav/authentication">Authentication</a> and
-<a href="/dav/webservers">Webservers</a> wiki pages have more info.</p>
+<pre><code>http://server.example.org/server.php/files/photo.jpg
+</code></pre>
 
-<h2>Which clients are supported?</h2>
+<p>And use urls like this instead:</p>
 
-<p>Almost every client we've gotten our hands on fully work, but for some there
-may be some caveats, of you may be required to upgrade to a later version.</p>
+<pre><code>http://server.example.org/files/photo.jpg
+</code></pre>
 
-<p>Check out the <a href="/dav/clients">Client list</a> to get more infromation about a
-specific client. If you're running into issues with a specific client, we
-would <a href="http://groups.google.com/group/sabredav-discuss">love to hear it</a> so we can see if we can devise a workaround, or
-at least document the behavior.</p>
+<p>But please note that the answer to this, is <em>NOT</em> changing the filename
+to index.php.</p>
 
-<h2>Does SabreDAV pass the litmus test?</h2>
+<p>Instead, you <em>must</em> use 'url rewriting'.</p>
 
-<p><a href="/dav/litmus">Litmus</a> is a handy tool that helps you test your WebDAV server
-for all standard features. The current status of the litmus test can be found
-on the <a href="/dav/litmus">Litmus</a> page.</p>
+<p>You should only attempt this <em>after</em> you already have sabredav up and running
+with an ugly url, as this will reduce the number of potential issues.</p>
 
-<h2>Can SabreDAV work with large files?</h2>
+<p>Using rewriting for this is different depending on which webserver you use.
+For apache, you may have to create a virtual host, and add ruls such as this:</p>
 
-<p>Yes, read <a href="/dav/large-files">Working with large files</a>.</p>
+<pre><code>    RewriteEngine On
+    # This makes every request go to server.php
+    RewriteRule .* /server.php [L]
+</code></pre>
 
-<h2>Does SabreDAV work with Microsoft Outlook?</h2>
+<p>If you use .htaccess, it may instead look like this:</p>
 
-<p>Outlook does not support CalDAV, and therefore it is also not possible to sync
-with SabreDAV (or any other CalDAV implementation).</p>
+<pre><code>    RewriteEngine On
+    # This makes every request go to server.php
+    RewriteRule .* server.php [L]
+</code></pre>
 
-<p>There's a few plugins though that add this functionality to outlook:</p>
+<p>However, configuration is completely different if you use nginx, IIS, or
+anything else. Consult your server's manual to figure out how.</p>
 
-<p><a href="http://www.bynari.net/products-page/product-category/bynari-webdav-collaborator/">Bynari WebDAV collaborator</a> is a very active, non-free plugin for outlook.
-It works well with SabreDAV and syncs contacts, calendars and tasks.</p>
+<p>After you've made this change, you can change <code>server.php</code> to make the
+baseUri look like this:</p>
 
-<p><a href="http://ical.gutentag.ch/">iCal4OL</a> is another (non-free, but it has a trial). I have personally not
-tested it so if it worked with SabreDAV, but we have had good reports.</p>
+<pre><code>$server-&gt;setBaseUri('/');
+</code></pre>
 
-<p><a href="http://openconnector.org/">Open Connector</a> is a free plugin for Outlook that is supposed to provide
-support for this, but the project appears unmaintained since 2008, and I
-personally haven't gotten it to work. If you did, let me know how.</p>
-
-<h2>I'm getting 0-byte files on the server</h2>
-
-<p>Read <a href="/dav/0bytes">0 bytes</a>.</p>
-
-<h2>How can I help?</h2>
-
-<p>We're definitely short on people. If you'd like to contribute, here are some
-areas we could use some help with:</p>
-
-<ul>
-<li>Writing documentation. The documentation is coming along, but still a little
-sparse.</li>
-<li>Blog about the project! Tell us how you're using it.</li>
-<li>Core development.</li>
-<li>Sponsor a feature.</li>
-<li>Hire maintainers of this project to integrate WebDAV in your application.</li>
-</ul>
-
-<p>SabreDAV is now developed at <a href="https://fruux.com/">fruux</a>, for the last two items in this list
-it would be best to <a href="/support">contact us</a> to help you further.</p>
-
-<h2>I have a different question</h2>
-
-<p>Hit us up on the <a href="http://groups.google.com/group/sabredav-discuss">mailing list</a>.</p>
-
-<h2>I'd like to get commercial support</h2>
-
-<p>SabreDAV is developed by <a href="https://fruux.com/">fruux</a>. If you're looking for enterprise-level
-support, we'd love to <a href="/support">hear from you</a>!</p>
+<p>More information can also be found on the <a href="/dav/webservers/">Web Servers</a> page.</p>
             
             
                             <hr />
@@ -272,9 +248,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/dav/faq';
-    var disqus_title = 'Frequently Asked Questions';
-    var disqus_url = 'http://sabre.io/dav/faq';
+    var disqus_identifier = '/dav/baseuri';
+    var disqus_title = 'The base uri';
+    var disqus_url = 'http://sabre.io/dav/baseuri';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

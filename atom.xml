@@ -3,9 +3,34 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-08-29T06:50:58+00:00</updated>
+    <updated>2014-09-19T18:59:45+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 3.3.2 release]]></title>
+            <link href="http://sabre.io/blog/2014/sabre-vobject-3.3.2-release"/>
+            <updated>2014-09-19T18:58:12+00:00</updated>
+            <id>http://sabre.io/blog/2014/sabre-vobject-3.3.2-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.3.2.</p>
+
+<p>Further in-depth testing of the <a href="/vobject/itip/">iTip</a> subsystem has revealed a <em>lot</em> of
+small edge-cases that weren't properly covered.</p>
+
+<p>In addition, we now correctly decode <code>ATTACH</code> properties in iCalendar objects
+that are specified as a URI, and fixed a few validator rules.</p>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>If this didn't upgrade you to 3.3.2, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/vobject" : "~3.3.2"
+</code></pre>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.0.4 release]]></title>
             <link href="http://sabre.io/blog/2014/sabre-dav-2.0.4-release"/>
@@ -290,24 +315,6 @@ which, among other things, fixes compatibility with PHP versions older than
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0/ChangeLog.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 3.2.3 release]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-vobject-3.2.3-release"/>
-            <updated>2014-06-12T17:13:35+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-vobject-3.2.3-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.2.3.</p>
-
-<p>Several improvements were made in the validator, and the "repair" option now
-works correctly again in the CLI tool.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/master/ChangeLog.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

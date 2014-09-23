@@ -121,14 +121,14 @@ as usual, a number of backwards compatibility breaks.</p>
 
 <ul>
 <li>We finally have support for CalDAV scheduling, as defined in
-[rfc6638][rfc6638]. Among other things, this means that you can invite
-people on your sabredav server for CalDAV servers, and see attendence
-status automatically update. Many CalDAV clients support this, and will
-also now automatically provide "Accept" and "Decline" interfaces when new
-invites are sent. Read more about this in the
+<a href="http://tools.ietf.org/html/rfc6638">rfc6638</a>. Among other things, this means that you can invite
+people on your sabredav server, and see attendence status automatically
+update. Many CalDAV clients support this, and will also now automatically
+provide "Accept" and "Decline" interfaces when new invites are sent. This
+also enables attendees on iOS for the first time. Read more about this in the
 <a href="/dav/scheduling/">scheduling documentation</a>.</li>
 <li>Support for sending event invitations for every CalDAV client. See
-[imip][imip] for more info.</li>
+<a href="/dav/imip/">imip</a> for more info.</li>
 <li>The ZIP now has a cleaner structure. Putting all the code in <code>vendor/</code> and
 removing <code>lib</code>, for consistency.</li>
 <li>We now support the <a href="/vobject/json/">jCard</a> format everywhere, using HTTP content
@@ -136,7 +136,7 @@ negotation, and also in CardDAV <code>REPORT</code> requests.</li>
 <li>We also support vCard 4.0 everywhere! If you don't request a specific
 version, we will still return vCard 3.0 objects, but if you ask for vCard 4.0,
 we'll serve you that. Backends can store either vCard 3 or 4, and we will
-convert in between these formats on request.</li>
+convert in between these formats as needed.</li>
 <li>Support for high-speed <code>MOVE</code> request. Originally <code>MOVE</code> request could be
 very sluggish, because sabredav by default will traverse an entire directory
 tree, copy every node 1-by-1 and delete the source tree afterwards. When
@@ -148,18 +148,18 @@ hook into this system and gain tremendous speed.</li>
 <p>To read the full list of changes (there's quite a few!) read the changelogs:</p>
 
 <ul>
-<li>[sabre/dav][5]</li>
-<li>[sabre/vobject][6]</li>
-<li>[sabre/event][7]</li>
-<li>[sabre/http][8]</li>
+<li><a href="https://github.com/fruux/sabre-dav/blob/master/ChangeLog.md">sabre/dav</a></li>
+<li><a href="https://github.com/fruux/sabre-vobject/blob/3.3.3/ChangeLog.md">sabre/vobject</a></li>
+<li><a href="https://github.com/fruux/sabre-http/blob/2.0.0/ChangeLog.md">sabre/event</a></li>
+<li><a href="https://github.com/fruux/sabre-http/blob/3.0.0/ChangeLog.md">sabre/http</a></li>
 </ul>
 
 <h2>API Changes and BC breaks</h2>
 
 <h3>Database structure changes</h3>
 
-<p>If you use the default <code>PDO</code> backend for CalDAV in specific, you need to
-migrate to the lastest database structure.</p>
+<p>If you use the default <code>PDO</code> backend for CalDAV, you need to migrate to the
+lastest database structure.</p>
 
 <p>Before you start the migration process, please make a backup first! No
 warranty is given for lost data.</p>
@@ -171,14 +171,17 @@ project. This script will give you more information about it's arguments.</p>
 
 <p>Every CalDAV backend must now implement a new method:
 <code>getCalendarObjectByUID</code>. If you are not using the default PDO backend, but
-created a custom backend, you must add support for this.</p>
+created a custom backend, you must add support for this new method.</p>
 
-<p>If you extended <code>Sabre\CalDAV\Backend\AbstractBackend</code>, a fallback has been
-provided though, although this fallback is rather slow.</p>
+<p>If you extended <code>Sabre\CalDAV\Backend\AbstractBackend</code>, a fallback method has
+been provided. This method works, but it's very slow. For most backends its
+possible to optimize this quite a bit.</p>
+
+<p>Note that this is mainly used for <a href="/dav/scheduling/">Scheduling</a> support.</p>
 
 <h3>Renamed classes</h3>
 
-<p>We have renamed a few classes to be more consistent:</p>
+<p>We have renamed a few classes:</p>
 
 <ol>
 <li><code>Sabre\CalDAV\CalendarRootNode</code> is renamed to <code>Sabre\CalDAV\CalendarRoot</code>.</li>
@@ -198,10 +201,10 @@ in the past to work around an iCal bug.</p>
 <a href="/dav/scheduling/">scheduling</a>, so we've also removed the workaround.</p>
 
 <p>A part of its functionality was to send out email invites. This functionality
-has been replaced by a new [iMip plugin][imip]. A benefit of this plugin, is
+has been replaced by a new <a href="/dav/imip/">iMip plugin</a>. The benefit of this plugin, is
 that it works for every caldav client, and not just broken iCal versions.</p>
 
-<h3>Support for free-busy reports has moved</h3>
+<h3>Support for free-busy reports has moved to a new plugin</h3>
 
 <p>sabre/dav supported a 'freebusy' report for a long time. This report was
 used by several clients, but was actually part of the <a href="/dav/scheduling/">scheduling</a>
@@ -232,8 +235,8 @@ server:</p>
 
 <h3>PropertyStorage classes now have a <code>move</code> method.</h3>
 
-<p>If you implemented your own <code>PropertyStorage</code> class, you must now implement
-the new <code>move</code> method.</p>
+<p>If you implemented your own <code>Sabre\DAV\PropertyStorage\Backend</code> class, you must
+now implement the new <code>move</code> method.</p>
 
 <p>The <a href="/dav/property-storage/">propertystorage</a> system allows client to store any
 arbitrary propery on any resource.</p>

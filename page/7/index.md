@@ -58,124 +58,21 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
-            <time>September 23rd, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-http-3.0.0-release">sabre/http 3.0.0 release</a></h1>
-            <p>We just released sabre/http 3.0.0.</p>
+            <time>March 31st, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/new-website">New website launched!</a></h1>
+            <p>You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
+never had a proper website, and we've always just hosted from Google Code.</p>
 
-<p>We introduced several API breaking changes, so a major version change was
-warranted.</p>
+<p>As Google slowly started to lose interested in code hosting, we migrated more
+and more features to GitHub. The biggest thing left: the wiki. So what once
+started as a place to host the new wiki, turned into a brand-new design, by
+<a href="https://fruux.com/">our</a> very own Martin Kaniut, who's also responsible for the <a href="https://fruux.com/">fruux</a>
+design.</p>
 
-<p>In particular, we modified the API to be closer to the draft version of
-<a href="https://github.com/php-fig/fig-standards/blob/master/proposed/http-message.md">psr/http</a>.</p>
-
-<p>psr/http is an upcoming standard for PHP development that should unify how we
-represent HTTP requests and responses in PHP.</p>
-
-<p>There were several good ideas in this spec, in particular how HTTP headers
-are treated, especially when there are multiple headers with the same name,
-which is something sabre/http dealt poorly with (not at all).</p>
-
-<h2>Changes</h2>
-
-<ul>
-<li>Switched to a PSR-4 directory structure in <code>lib/</code>. This means all classes
-are now in <code>lib/</code> instead of <code>lib/Sabre/HTTP</code>. This should not change a
-thing if you use the composer autoloader.</li>
-<li><code>::setHeaders()</code> used to delete all previous http headers. This is no longer
-the case, new headers will simply be added to the existing ones.</li>
-<li>Added <code>::getHeaderAsArray()</code>. This method returns a single http header. If
-multiple headers with the same name were specified, each value will be an
-item in this array.</li>
-<li>If you use <code>::getHeader()</code>, and there were more than 1 http header with that
-name, we now concatenate all these headers with a comma (<code>,</code>).</li>
-<li><code>::addHeader()</code> is new, and will preserve any existing header with that
-name. Instead, a second header will be added with the same name and a new
-value.</li>
-<li>The <code>Client</code> class now only follows redirects to HTTP and HTTPS urls.</li>
-<li><code>Util::negotiate</code> is deprecated, use <code>Util::negotiateContentType</code> instead.</li>
-<li>The <code>Client</code> class can now follow redirects, even if the <code>open_basedir</code>
-setting is turned on.</li>
-</ul>
-
-<h2>Upgrading</h2>
-
-<p>If you are using sabre/http solely through sabredav, don't upgrade yet unless
-you are using the latest development version. If you use sabre/http
-independently, ensure that the relevant line in your composer.json looks like
-this:</p>
-
-<pre><code>"require" : {
-    "sabre/http" : "~3.0.0"
-}
-</code></pre>
-
-<p>And run <code>composer update sabre/http</code> afterwards.</p>
-
-<h2>No full psr/http compliance</h2>
-
-<p>I've matched the Request and Response to behave closer to the draft psr-http
-draft, <em>but</em> I didn't go all the way!</p>
-
-<p>I strongly disapprove of how message bodies are represented. The PSR
-introduces an object to wrap PHP streams, that has severely less features,
-and due to its design it's incompatible with regular PHP streams and doesn't
-cover all our use cases. All under the pretense that PHP streams are hard to
-use.</p>
-
-<p>Unless that's fixed, we'll not be fully supporting the specification, but it's
-still a draft, and there's still time.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/3.0.0/ChangeLog">Github</a></p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>September 19th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.2-release">sabre/vobject 3.3.2 release</a></h1>
-            <p>We just released sabre/vobject 3.3.2.</p>
-
-<p>Further in-depth testing of the <a href="/vobject/itip/">iTip</a> subsystem has revealed a <em>lot</em> of
-small edge-cases that weren't properly covered.</p>
-
-<p>In addition, we now correctly decode <code>ATTACH</code> properties in iCalendar objects
-that are specified as a URI, and fixed a few validator rules.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.3.2, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.3.2"
-</code></pre>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>August 27th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.4-release">sabre/dav 2.0.4 release</a></h1>
-            <p>We just released sabre/dav 2.0.4.</p>
-
-<p>This releases has a number of improvements, namely:</p>
-
-<ol>
-<li>PostgresSQL files have been corrected. Note that while we ship postgres
-files, it is not an officially supported database.</li>
-<li>After nodes had been deleted, locks were not automatically removed. This was
-problematic, because re-creating a node could cause it to be locked
-instantly. This is now fixed.</li>
-<li>There were some problems with both the default Cal- and CardDAV PDO
-backends, when the 'Sync' plugin is not enabled. This is now resolved.</li>
-</ol>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.4/ChangeLog.md">Github</a></p>
+<p>We hope you like it, but since it's such a step up from Google Code, we're
+confident you probably will ;). If you're running into any bugs, definitely
+<a href="https://github.com/fruux/sabre.io/issues">let us know</a>. Want to contribute to the wiki? The entire site is open source, so
+<a href="https://github.com/fruux/sabre.io/tree/master/source">take a look</a> at some of the existing pages and get cracking!</p>
 
         </article>
             </section>
@@ -283,9 +180,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/';
+    var disqus_identifier = '/page/7';
     var disqus_title = '';
-    var disqus_url = 'http://sabre.io/';
+    var disqus_url = 'http://sabre.io/page/7';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

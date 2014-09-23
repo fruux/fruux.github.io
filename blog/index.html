@@ -73,6 +73,7 @@ name, we now concatenate all these headers with a comma (<code>,</code>).</li>
 <li><code>::addHeader()</code> is new, and will preserve any existing header with that
 name. Instead, a second header will be added with the same name and a new
 value.</li>
+<li><code>::getHeaders()</code> will now return each header value as an array.</li>
 <li>The <code>Client</code> class now only follows redirects to HTTP and HTTPS urls.</li>
 <li><code>Util::negotiate</code> is deprecated, use <code>Util::negotiateContentType</code> instead.</li>
 <li>The <code>Client</code> class can now follow redirects, even if the <code>open_basedir</code>

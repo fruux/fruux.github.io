@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>Upgrading SabreDAV - sabre/dav</title>
+            <title>CalDAV Scheduling - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -111,140 +111,85 @@
     </ul>
 </aside>
                 <article>
-                            <h1>Upgrading SabreDAV</h1>
-                <p>Upgrading a major version? Read the upgrade instructions here:</p>
+                            <h1>CalDAV Scheduling</h1>
+                <p>Since version 2.1.0, sabredav ships with support for CalDAV scheduling, as
+defined by <a href="http://tools.ietf.org/html/rfc6638">rfc6638</a>.</p>
 
-<ul>
-<li><a href="/dav/upgrade/0.8-to-0.9">0.8.x to 0.9.x</a></li>
-<li><a href="/dav/upgrade/1.0-to-1.2">1.0.x to 1.2.x</a></li>
-<li><a href="/dav/upgrade/1.2-to-1.3">1.2.x to 1.3.x</a></li>
-<li><a href="/dav/upgrade/1.3-to-1.4">1.3.x to 1.4.x</a></li>
-<li><a href="/dav/upgrade/1.4-to-1.5">1.4.x to 1.5.x</a></li>
-<li><a href="/dav/upgrade/1.5-to-1.6">1.5.x to 1.6.x</a></li>
-<li><a href="/dav/upgrade/1.6-to-1.7">1.6.x to 1.7.x</a></li>
-<li><a href="/dav/upgrade/1.7-to-1.8">1.7.x to 1.8.x</a></li>
-<li><a href="/dav/upgrade/1.8-to-2.0">1.8.x to 2.0.x</a></li>
-<li><a href="/dav/upgrade/2.0-to-2.1">2.0.x to 2.1.x</a></li>
-</ul>
+<p>This plugin enables several features:</p>
 
-<h2>Support length</h2>
+<ol>
+<li>Inviting people on a CalDAV server.</li>
+<li>Automatically delivering invites to a CAlDAV inbox.</li>
+<li>Functionality to Accept or Decline invites.</li>
+<li>Reading free-busy information from users on the server.</li>
+</ol>
 
-<p>After the release of a new major SabreDAV (for example, <code>1.8.0</code>), we will
-promise to support the previous version <code>1.7.*</code> for at least 12 months.</p>
+<p>This specification is very widely supported by clients, but even clients that
+do not support this specification will trigger scheduling-related behavior.</p>
 
-<p>Currently and previously supported versions:</p>
+<p>For example, if a user creates a new event with an <code>ORGANIZER</code> that matches
+the current user, and at least one <code>ATTENDEE</code>, the server will automatically
+detect this and send invites to the relevant people.</p>
 
-<table>
-<thead>
-<tr>
-  <th>SabreDAV version</th>
-  <th>PHP Version</th>
-  <th>First stable release</th>
-  <th>End of support</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>1.2</td>
-  <td>5.2</td>
-  <td>May 2010</td>
-  <td>October 2011 (EOL)</td>
-</tr>
-<tr>
-  <td>1.3</td>
-  <td>5.2</td>
-  <td>October 2010</td>
-  <td>June 2012 (EOL)</td>
-</tr>
-<tr>
-  <td>1.4</td>
-  <td>5.2</td>
-  <td>February 2011</td>
-  <td>November 2012 (EOL)</td>
-</tr>
-<tr>
-  <td>1.5</td>
-  <td>5.2</td>
-  <td>August 2011</td>
-  <td>February 2013 (EOL)</td>
-</tr>
-<tr>
-  <td>1.6</td>
-  <td>5.3</td>
-  <td>February 2012</td>
-  <td>November 2013 (EOL)</td>
-</tr>
-<tr>
-  <td>1.7</td>
-  <td>5.3</td>
-  <td>October 2012</td>
-  <td>July 2014 (EOL)</td>
-</tr>
-<tr>
-  <td>1.8</td>
-  <td>5.3</td>
-  <td>November 2012</td>
-  <td>May 2015</td>
-</tr>
-<tr>
-  <td>2.0</td>
-  <td>5.4</td>
-  <td>May 2014</td>
-  <td></td>
-</tr>
-<tr>
-  <td>2.1</td>
-  <td>5.4</td>
-  <td>????</td>
-  <td></td>
-</tr>
-<tr>
-  <td>2.2</td>
-  <td>5.5</td>
-  <td>????</td>
-  <td></td>
-</tr>
-</tbody>
-</table>
+<p>When a user deletes the same invite, we will automatically send <code>CANCEL</code>
+notifications to anyone affected.</p>
 
-<h2>Versioning scheme</h2>
+<p>When an attendee sets their <code>PARTSTAT</code> to <code>ACCEPTED</code> or <code>DECLINED</code>, the server
+will also automatically update the organizer's event with this information and
+notify him that this has happened.</p>
 
-<p>SabreDAV uses three digits for versions. <code>x.y.z</code>.</p>
+<h2>Enabling scheduling</h2>
 
-<p>The first part, <code>x</code>, is reserved for major overhauls of SabreDAV. At the time of
-writing, there's only <code>1.y.z</code>, so this has not happened yet.</p>
+<p>To enable the base system, just add the plugin to your server:</p>
 
-<p>The <code>y</code> part is also for fairly large releases. We try to have one or two of
-these per year, but this fluctuates.</p>
-
-<p>The <code>z</code> is reserved for minor upgrades.</p>
-
-<p>If you are upgrading from a version, to a version that only changes the last
-digit, it should always be safe to do so.</p>
-
-<p>To do this with composer, just run:</p>
-
-<pre><code>composer update sabre/dav
+<pre><code>$server-&gt;addPlugin(
+    new Sabre\CalDAV\Schedule\Plugin()
+);
 </code></pre>
 
-<p>This should automatically do all the work. This should be 100% risk free,
-except in cases where we are fixing a major security issue, and we are not
-able to do so, without breaking backwards compatibility.</p>
+<h2>Backend support</h2>
 
-<p>This means an upgrade from <code>1.7.2</code> to <code>1.7.10</code> is always safe. Upgrading from
-<code>1.6.5</code> to <code>1.7.0</code> is not.</p>
+<p>The <code>PDO</code> CalDAV backend has built-in support for local delivery. If you
+created your own CalDAV backend, you must implement the methods from the
+<code>Sabre\CalDAV\Backend\SchedulingSupport</code> interface to add support.</p>
 
-<p>For versions where we are changing <code>x</code> or <code>y</code>, we almost always want to break
-backwards compatibility in some areas. Depending on what features you are
-using in SabreDAV you may or may not be affected by this.</p>
+<p>This inteface adds 4 new methods for managing objects in a user's inbox.</p>
 
-<h2>Alpha and beta versions</h2>
+<h2>Email delivery</h2>
 
-<p>Alpha and beta versions always have the word 'alpha' or 'beta' in them. In
-alpha versions it is highly likely that we are not done yet, and will still
-want to make changes.</p>
+<p>If it's not possible to do a local delivery, or your backend does not support
+local delivery yet, it's possible to deliver messages via email. This is
+called iMip and defined in <a href="http://tools.ietf.org/html/rfc6047">rfc6047</a>.</p>
 
-<p>Beta versions <em>should</em> not get any BC-breaking changes, but they still may.</p>
+<p>To add support for iMip, add the following additional plugin:</p>
+
+<pre><code>$server-&gt;addPlugin(
+    new Sabre\CalDAV\Schedule\IMipPlugin('server@example.org')
+);
+</code></pre>
+
+<p>The iMip plugin generates very plain and arguably ugly emails. It also uses
+PHP's <code>mail()</code> function, which may not work for everyone due to the use of
+an STMP server.</p>
+
+<p>We recommend people who need more advanced email functionality, or want to
+customize their email templates to subclass the IMipPlugin. It's a solid
+example and hopefully provides enough information to customize your emails
+further.</p>
+
+<h2>Limitations</h2>
+
+<p>We don't support the full specification yet. Non-exhaustive list of known
+issues:</p>
+
+<ol>
+<li>We don't do VTODO scheduling yet, and only support VEVENT.</li>
+<li>We don't have support for <code>Schedule-Tag</code> yet.</li>
+</ol>
+
+<p>If you really need either of those features, let us know through
+<a href="http://groups.google.com/group/sabredav-discuss">the mailinglist</a> or <a href="https://github.com/fruux/sabre-dav/issues">github issues</a>. If we don't know,
+we don't know if we need to prioritize it.</p>
             
             
                             <hr />
@@ -270,9 +215,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/dav/upgrading';
-    var disqus_title = 'Upgrading SabreDAV';
-    var disqus_url = 'http://sabre.io/dav/upgrading';
+    var disqus_identifier = '/dav/scheduling';
+    var disqus_title = 'CalDAV Scheduling';
+    var disqus_url = 'http://sabre.io/dav/scheduling';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

@@ -59,7 +59,7 @@
                         <li><a href="http://sabre.io/dav/caldav-proxy">Delegation</a></li>
                         <li><a href="http://sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
                         <li><a href="http://sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
-                        <li><a href="http://sabre.io/dav/imiphandler">iMip Handler</a></li>
+                        <li><a href="http://sabre.io/dav/scheduling">Scheduling</a></li>
                         <li><a href="http://sabre.io/dav/service-discovery">Service Discovery</a></li>
                     </ul>
                 </li>
@@ -128,7 +128,7 @@ provide "Accept" and "Decline" interfaces when new invites are sent. This
 also enables attendees on iOS for the first time. Read more about this in the
 <a href="/dav/scheduling/">scheduling documentation</a>.</li>
 <li>Support for sending event invitations for every CalDAV client. See
-<a href="/dav/imip/">imip</a> for more info.</li>
+<a href="/dav/scheduling/">scheduling</a> for more info.</li>
 <li>The ZIP now has a cleaner structure. Putting all the code in <code>vendor/</code> and
 removing <code>lib</code>, for consistency.</li>
 <li>We now support the <a href="/vobject/json/">jCard</a> format everywhere, using HTTP content
@@ -201,7 +201,7 @@ in the past to work around an iCal bug.</p>
 <a href="/dav/scheduling/">scheduling</a>, so we've also removed the workaround.</p>
 
 <p>A part of its functionality was to send out email invites. This functionality
-has been replaced by a new <a href="/dav/imip/">iMip plugin</a>. The benefit of this plugin, is
+has been replaced by a new <a href="/dav/scheduling/">iMip plugin</a>. The benefit of this plugin, is
 that it works for every caldav client, and not just broken iCal versions.</p>
 
 <h3>Support for free-busy reports has moved to a new plugin</h3>

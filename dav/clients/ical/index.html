@@ -59,7 +59,7 @@
                         <li><a href="http://sabre.io/dav/caldav-proxy">Delegation</a></li>
                         <li><a href="http://sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
                         <li><a href="http://sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
-                        <li><a href="http://sabre.io/dav/imiphandler">iMip Handler</a></li>
+                        <li><a href="http://sabre.io/dav/scheduling">Scheduling</a></li>
                         <li><a href="http://sabre.io/dav/service-discovery">Service Discovery</a></li>
                     </ul>
                 </li>
@@ -260,15 +260,18 @@ more detail.</p>
 
 <h4>Assuming scheduling support</h4>
 
-<p>iCal appears to assume that any CalDAV server also supports from
-CalDAV-scheduling features out of the box. iCal will use this to let the server
-send emails, for things like an event invitation.</p>
+<p>iCal versions before Mavericks (10.9) appear to assume that any CalDAV server
+also supports some CalDAV-scheduling features out of the box. iCal will use
+this to let the server send emails, for things like an event invitation.</p>
 
 <p>If this is not supported, no emails for these types of actions will be sent.
 This can be rather unexpected for users, as these expected emails just won't
 arrive.</p>
 
-<p>Since version 1.6 SabreDAV has a workaround for this. Read
+<p>Since version 2.1 SabreDAV has support for <a href="/dav/scheduling/">scheduling</a>,
+which can be enabled to fix this issue.</p>
+
+<p>Before version 2.1 SabreDAV had a workaround for this. Read
 <a href="/dav/imiphandler">IMipHandler</a> for more details.</p>
 
 <p>This issue has been discovered on at least 10.7 and 10.8 iCal, not yet sure about older versions.</p>

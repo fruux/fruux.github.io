@@ -165,7 +165,7 @@ isset($vcard-&gt;FN);
 
 <p>To get access to a parameter, you can simply use array-access:</p>
 
-<pre><code>$type = $vcard-&gt;TEL['TYPE']:
+<pre><code>$type = $vcard-&gt;TEL['TYPE'];
 echo (string)$type;
 </code></pre>
 
@@ -181,7 +181,7 @@ through them:</p>
 
 <p>To change parameters for properties, you can use array-access syntax:</p>
 
-<pre><code>$vcard-&gt;TEL['TYPE'] = ['WORK','FAX']:
+<pre><code>$vcard-&gt;TEL['TYPE'] = ['WORK','FAX'];
 </code></pre>
 
 <p>Or when you're working with singular parameters:</p>

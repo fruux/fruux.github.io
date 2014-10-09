@@ -3,9 +3,35 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-10-06T03:14:35+00:00</updated>
+    <updated>2014-10-09T16:17:36+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 3.3.3 release]]></title>
+            <link href="http://sabre.io/blog/2014/sabre-vobject-3.3.3-release"/>
+            <updated>2014-10-09T16:15:37+00:00</updated>
+            <id>http://sabre.io/blog/2014/sabre-vobject-3.3.3-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.3.3.</p>
+
+<p>This release has additional fixes and improvements for the <a href="/vobject/itip/">iTip</a>
+subsystem.</p>
+
+<p>This release also works around a PHP bug that would otherwise spam your php
+error log file with 'invalid timezone' exceptions and has support for the
+"Line Islands Standard Time" timezone coming from Microsoft products.</p>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>If this didn't upgrade you to 3.3.3, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/vobject" : "~3.3.3"
+</code></pre>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/http 3.0.0 release]]></title>
             <link href="http://sabre.io/blog/2014/sabre-http-3.0.0-release"/>
@@ -327,46 +353,6 @@ again on PHP 5.3.</p>
 </code></pre>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/master/ChangeLog.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/event 2.0 release]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-event-2.0"/>
-            <updated>2014-06-24T06:22:08+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-event-2.0</id>
-            <content type="html"><![CDATA[<p>We just released sabre/event 2.0.0. This releases adds a few features, and
-also slightly alters the API.</p>
-
-<h3>New stuff</h3>
-
-<ol>
-<li>Support for <a href="/event/promise/">promises</a>.</li>
-<li>The event handler is now faster. This is especially noticable when making a
-lot of subscriptions to a single event, and is likely unnoticable for most.</li>
-<li>Added support for something called the 'continue callback' to to the
-EventEmitter. This makes it possible to implement something similar to
-javascript's <code>preventDefault</code>.</li>
-<li>When calling removeAllListeners without an argument, all listeners for all
-events are removed.</li>
-</ol>
-
-<h3>Api breaks</h3>
-
-<ol>
-<li>We switched to PSR-4 for autoloading.</li>
-<li>EventEmitter::listeners() no longer returns a manipulatable array of event
-listeners by reference. It's not a simple list of callbacks, sorted by
-their priority. The original concept was good on paper.</li>
-<li>The argument on <code>removeAllListeners</code> is now optional.</li>
-</ol>
-
-<p>Upgrade sabre/event by making sure your composer.json references <code>~2.0.0</code>, and
-then run:</p>
-
-<pre><code>composer update sabre/event
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-event/blob/master/ChangeLog.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

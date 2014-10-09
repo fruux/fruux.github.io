@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>Tag Archive - sabre/dav</title>
+            <title>sabre/event 2.0.1 release - sabre/event</title>
     
     <meta charset="utf-8">
 
@@ -18,8 +18,8 @@
 
     <div class="logo">
         <a href="http://sabre.io/">
-            <img src="http://sabre.io/img/logo.png" alt="sabre/dav">
-            sabre/dav
+            <img src="http://sabre.io/img/logo.png" alt="sabre/event">
+            sabre/event
         </a>
     </div>
 
@@ -38,50 +38,42 @@
 
         <main>
                 <article>
-                            <h1>Tag Archive</h1>
-                <h2>"release"</h2>
-        <h3>October 2014</h3>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabre-event-2.0.1-release">sabre/event 2.0.1 release</a></div>
-</article>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.3-release">sabre/vobject 3.3.3 release</a></div>
-</article>
-    <h3>September 2014</h3>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabre-http-3.0.0-release">sabre/http 3.0.0 release</a></div>
-</article>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.2-release">sabre/vobject 3.3.2 release</a></div>
-</article>
-    <h3>August 2014</h3>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabre-dav-2.0.4-release">sabre/dav 2.0.4 release</a></div>
-</article>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.1-release">sabre/vobject 3.3.1 release</a></div>
-</article>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.0-release">sabre/vobject 3.3.0 release</a></div>
-</article>
-    <h3>July 2014</h3>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabre-dav-1.7-eol">sabre/dav 1.7 end of support</a></div>
-</article>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabre-dav-2.0.3-release">sabre/dav 2.0.3 release</a></div>
-</article>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabre-http-2.0.4-release">sabre/http 2.0.4 release</a></div>
-</article>
+                <article class="blog-entry">
+        <time>October 9th, 2014</time>
+        <h1>sabre/event 2.0.1 release</h1>
+        <div>
+            <p>We just released sabre/event 2.0.1.</p>
 
-<div>
-    <nav class="article">
-            <a class="next" href="http://sabre.io/blog/tags/release/page/2" title="Next Page"><span class="title">Next Page</span></a>
-        </nav>
-</div>
+<p>This release fixes two issues related to the <code>EventEmitter::once()</code> method,
+and brings its functionality up to par with <code>EventEmitter::on()</code>.</p>
+
+<p>Upgrade sabre/event by running:</p>
+
+<pre><code>composer update sabre/event
+</code></pre>
+
+<p>If this didn't upgrade you to 2.0.1, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/event" : "~2.0.1"
+</code></pre>
+
+        </div>
+                    <p class="tags">
+            Tags:
+                        <a href="http://sabre.io/blog/tags/event">event</a>,                         <a href="http://sabre.io/blog/tags/release">release</a>                        </p>
+        
+                    <nav class="article">
+                <ul>
+                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2014/sabre-vobject-3.3.3-release" title="sabre/vobject 3.3.3 release"><span class="title">sabre/vobject 3.3.3 release</span></a></li>
+                                    </ul>
+            </nav>
+            </article>
+
             
-            
+                            <hr />
+                <h2>Comments</h2>
+                <div id="disqus_thread"></div>
                     </article>
     </main>
     
@@ -99,7 +91,21 @@ ga('create', 'UA-2848664-5', 'sabre.io');
 ga('send', 'pageview');
 </script>
 
-    
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
+    var disqus_identifier = '/blog/2014/sabre-event-2.0.1-release';
+    var disqus_title = 'sabre/event 2.0.1 release';
+    var disqus_url = 'http://sabre.io/blog/2014/sabre-event-2.0.1-release';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+ </script>
+
     <footer>
 
     <nav>

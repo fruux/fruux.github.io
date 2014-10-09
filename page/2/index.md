@@ -58,6 +58,29 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
+            <time>September 19th, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.2-release">sabre/vobject 3.3.2 release</a></h1>
+            <p>We just released sabre/vobject 3.3.2.</p>
+
+<p>Further in-depth testing of the <a href="/vobject/itip/">iTip</a> subsystem has revealed a <em>lot</em> of
+small edge-cases that weren't properly covered.</p>
+
+<p>In addition, we now correctly decode <code>ATTACH</code> properties in iCalendar objects
+that are specified as a URI, and fixed a few validator rules.</p>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>If this didn't upgrade you to 3.3.2, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/vobject" : "~3.3.2"
+</code></pre>
+
+        </article>
+        <hr />            <article class="blog-entry">
             <time>August 27th, 2014</time>
             <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.4-release">sabre/dav 2.0.4 release</a></h1>
             <p>We just released sabre/dav 2.0.4.</p>
@@ -110,62 +133,6 @@ missed for the 'magic property setter'.</p>
 has a line that looks like this:</p>
 
 <pre><code>"sabre/vobject" : "~3.3.1"
-</code></pre>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>August 7th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.0-release">sabre/vobject 3.3.0 release</a></h1>
-            <p>We just released sabre/vobject 3.3.0!</p>
-
-<p>This release has a few new features, but also changes a few things. For most
-people the upgrade should be seamless though.</p>
-
-<h2>Changes</h2>
-
-<h3>Better RRULE parser</h3>
-
-<p>We now have much better support for <code>RRULE</code>, and especially exceptions to
-recurrences. This solved several bugs that have been outstanding for quite
-some time.</p>
-
-<p>We now also support <code>RDATE</code>.</p>
-
-<p>One change is that the old <code>Sabre\VObject\RecurrenceIterator</code> is now renamed
-to <code>Sabre\VObject\Recur\EventIterator</code>. The old class still exists, but will
-be removed in a future version.</p>
-
-<p>Some more info about this feature <a href="/vobject/recurrence/">here</a>.</p>
-
-<h3>iTip support</h3>
-
-<p>VObject now supports generating and parsing <a href="/vobject/itip/">iTip</a> messages. iTip messages
-are a type of iCalendar object that are used for things like invites, replies
-and cancellations.</p>
-
-<p>More info about this feature on the <a href="/vobject/itip/">iTip page</a>.</p>
-
-<h3>Switched to PSR-4</h3>
-
-<p>The directory structure of the VObject library changed. Everything that was
-previously in <code>lib/Sabre/VObject</code> is now moved to <code>lib/</code>.</p>
-
-<p>If you are using composer you don't have to change a thing, but if you
-manually wrote an autoloader, you may have to make a change to accomodate for
-this.</p>
-
-<p>We also removed <code>lib/Sabre/VObject/includes.php</code>.</p>
-
-<h3>Changelog</h3>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.3.0/ChangeLog.md">Github</a></p>
-
-<h2>Upgrading</h2>
-
-<p>To update your sabre/vobject, edit composer.json to make sure that it includes
-a line like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.3.0"
 </code></pre>
 
         </article>

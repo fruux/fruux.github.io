@@ -3,9 +3,31 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-10-09T16:17:36+00:00</updated>
+    <updated>2014-10-09T22:12:10+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/event 2.0.1 release]]></title>
+            <link href="http://sabre.io/blog/2014/sabre-event-2.0.1-release"/>
+            <updated>2014-10-09T22:11:36+00:00</updated>
+            <id>http://sabre.io/blog/2014/sabre-event-2.0.1-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/event 2.0.1.</p>
+
+<p>This release fixes two issues related to the <code>EventEmitter::once()</code> method,
+and brings its functionality up to par with <code>EventEmitter::on()</code>.</p>
+
+<p>Upgrade sabre/event by running:</p>
+
+<pre><code>composer update sabre/event
+</code></pre>
+
+<p>If this didn't upgrade you to 2.0.1, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/event" : "~2.0.1"
+</code></pre>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/vobject 3.3.3 release]]></title>
             <link href="http://sabre.io/blog/2014/sabre-vobject-3.3.3-release"/>
@@ -334,25 +356,6 @@ optionally work with sabre/event 2.0 as well as sabre/event 1.0.</p>
 </code></pre>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/master/ChangeLog">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 3.2.4 release]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-vobject-3.2.4-release"/>
-            <updated>2014-07-14T18:08:26+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-vobject-3.2.4-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.2.4.</p>
-
-<p>Conversion between vcard 3 and 4 has been improved, a workaround has been
-added to deal with Yahoo's broken vcard generation and the CLI tool works
-again on PHP 5.3.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/master/ChangeLog.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

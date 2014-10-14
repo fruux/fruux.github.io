@@ -58,59 +58,21 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
-            <time>July 14th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.3-release">sabre/dav 2.0.3 release</a></h1>
-            <p>We just released sabre/dav 2.0.3.</p>
+            <time>March 31st, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/new-website">New website launched!</a></h1>
+            <p>You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
+never had a proper website, and we've always just hosted from Google Code.</p>
 
-<p>A number of problems were found in the revamped browser plugin, related to
-generating links, and for a number of people none of the css and images
-would load due to incorrect CSP rules.</p>
+<p>As Google slowly started to lose interested in code hosting, we migrated more
+and more features to GitHub. The biggest thing left: the wiki. So what once
+started as a place to host the new wiki, turned into a brand-new design, by
+<a href="https://fruux.com/">our</a> very own Martin Kaniut, who's also responsible for the <a href="https://fruux.com/">fruux</a>
+design.</p>
 
-<p>In addition we found out that the <code>TooMuchMatches</code> exception never worked
-due to a fatal error, so while fixing that, we also took the opportunity to
-change the name of the exception to <code>TooManyMatches</code>. Don't laugh.</p>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0/ChangeLog.md">Github</a></p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>July 14th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-http-2.0.4-release">sabre/http 2.0.4 release</a></h1>
-            <p>We just released sabre/http 2.0.4.</p>
-
-<p>This release has a few small bugfixes related to the client, and can now
-optionally work with sabre/event 2.0 as well as sabre/event 1.0.</p>
-
-<p>Upgrade sabre/http by running:</p>
-
-<pre><code>composer update sabre/http
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/master/ChangeLog">Github</a></p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>July 14th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.4-release">sabre/vobject 3.2.4 release</a></h1>
-            <p>We just released sabre/vobject 3.2.4.</p>
-
-<p>Conversion between vcard 3 and 4 has been improved, a workaround has been
-added to deal with Yahoo's broken vcard generation and the CLI tool works
-again on PHP 5.3.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/master/ChangeLog.md">Github</a></p>
+<p>We hope you like it, but since it's such a step up from Google Code, we're
+confident you probably will ;). If you're running into any bugs, definitely
+<a href="https://github.com/fruux/sabre.io/issues">let us know</a>. Want to contribute to the wiki? The entire site is open source, so
+<a href="https://github.com/fruux/sabre.io/tree/master/source">take a look</a> at some of the existing pages and get cracking!</p>
 
         </article>
             </section>
@@ -218,9 +180,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/page/4';
+    var disqus_identifier = '/page/8';
     var disqus_title = '';
-    var disqus_url = 'http://sabre.io/page/4';
+    var disqus_url = 'http://sabre.io/page/8';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

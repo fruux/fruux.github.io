@@ -40,6 +40,32 @@
                 <article>
                             <h1>Blog</h1>
                 <article class="blog-entry">
+    <time>October 14th, 2014</time>
+    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.5-release">sabre/dav 2.0.5 release</a></h1>
+    <p>We just released sabre/dav 2.0.5. Upgrading is highly recommended.</p>
+
+<p>This release has an important bugfix. <code>If-Modified-Since</code> was not handled
+correctly, as we were not sending back 304 statuses, but 200 instead.</p>
+
+<p>This could lead clients to believe that their local cache was expired and the
+new resource being empty, which in turn makes data-loss a possibility.</p>
+
+<p>In addition to that, the zip also ships with <a href="/vobject/">vobject</a> 3.3.3, which solves
+a problem a lot of people have been having with timezone-related errors being
+spammed to the PHP error log. Note that this is a PHP bug, but we've provided
+a workaround.</p>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.5/ChangeLog.md">Github</a></p>
+
+</article>
+<hr /><article class="blog-entry">
     <time>October 9th, 2014</time>
     <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0.1-release">sabre/event 2.0.1 release</a></h1>
     <p>We just released sabre/event 2.0.1.</p>

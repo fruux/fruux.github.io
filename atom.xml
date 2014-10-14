@@ -3,9 +3,37 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-10-09T22:12:10+00:00</updated>
+    <updated>2014-10-14T16:50:17+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 2.0.5 release]]></title>
+            <link href="http://sabre.io/blog/2014/sabre-dav-2.0.5-release"/>
+            <updated>2014-10-14T16:49:01+00:00</updated>
+            <id>http://sabre.io/blog/2014/sabre-dav-2.0.5-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 2.0.5. Upgrading is highly recommended.</p>
+
+<p>This release has an important bugfix. <code>If-Modified-Since</code> was not handled
+correctly, as we were not sending back 304 statuses, but 200 instead.</p>
+
+<p>This could lead clients to believe that their local cache was expired and the
+new resource being empty, which in turn makes data-loss a possibility.</p>
+
+<p>In addition to that, the zip also ships with <a href="/vobject/">vobject</a> 3.3.3, which solves
+a problem a lot of people have been having with timezone-related errors being
+spammed to the PHP error log. Note that this is a PHP bug, but we've provided
+a workaround.</p>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.5/ChangeLog.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/event 2.0.1 release]]></title>
             <link href="http://sabre.io/blog/2014/sabre-event-2.0.1-release"/>
@@ -338,24 +366,6 @@ change the name of the exception to <code>TooManyMatches</code>. Don't laugh.</p
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0/ChangeLog.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/http 2.0.4 release]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-http-2.0.4-release"/>
-            <updated>2014-07-14T18:17:09+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-http-2.0.4-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/http 2.0.4.</p>
-
-<p>This release has a few small bugfixes related to the client, and can now
-optionally work with sabre/event 2.0 as well as sabre/event 1.0.</p>
-
-<p>Upgrade sabre/http by running:</p>
-
-<pre><code>composer update sabre/http
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/master/ChangeLog">Github</a></p>
 ]]></content>
         </entry>
     </feed>

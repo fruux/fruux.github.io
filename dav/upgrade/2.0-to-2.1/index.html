@@ -233,6 +233,31 @@ server:</p>
 
 <p>If you relied on the old behavior, make sure you update this.</p>
 
+<h3>Updating table names in PDO backends now work differently</h3>
+
+<p>A few people always found it important to use their own table names for the
+various PDO backends, one major reason is that this would allow people to
+prefix all their table names with for example <code>sabre_</code>.</p>
+
+<p>This was always done by allowing people to set the various database table
+names in the constructors of the various PDO backends.</p>
+
+<p>This is now deprecated!</p>
+
+<p>Instead you must now set the table names as public properties. The old way
+using arguments still works, but will be removed in version 2.2.</p>
+
+<p>Affected PDO backends:</p>
+
+<ul>
+<li><code>Sabre\DAV\Locks\Backend\PDO</code></li>
+<li><code>Sabre\DAV\Auth\Backend\PDO</code></li>
+<li><code>Sabre\DAV\PropertyStorage\Backend\PDO</code></li>
+<li><code>Sabre\DAVACL\PrincipalBackend\PDO</code></li>
+<li><code>Sabre\CalDAV\Backend\PDO</code></li>
+<li><code>Sabre\CardDAV\Backend\PDO</code></li>
+</ul>
+
 <h3>PropertyStorage classes now have a <code>move</code> method.</h3>
 
 <p>If you implemented your own <code>Sabre\DAV\PropertyStorage\Backend</code> class, you must

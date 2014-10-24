@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>List of plugins - sabre/dav</title>
+            <title>WebDAV Locks - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -111,77 +111,58 @@
     </ul>
 </aside>
                 <article>
-                            <h1>List of plugins</h1>
-                <table>
-        <tr>
-        <td></td>
-        <td></td>
-    </tr>
-        <tr>
-        <td>acl</td>
-        <td>1.4.0</td>
-    </tr>
-        <tr>
-        <td>auth</td>
-        <td>0.9.0</td>
-    </tr>
-        <tr>
-        <td>browser</td>
-        <td>0.7.0</td>
-    </tr>
-        <tr>
-        <td>caldav-proxy</td>
-        <td>1.4.0</td>
-    </tr>
-        <tr>
-        <td>caldav-sharing</td>
-        <td>1.7.0</td>
-    </tr>
-        <tr>
-        <td>caldav</td>
-        <td>1.1.0</td>
-    </tr>
-        <tr>
-        <td>carddav</td>
-        <td>1.5.0</td>
-    </tr>
-        <tr>
-        <td>davmount</td>
-        <td>1.0.2</td>
-    </tr>
-        <tr>
-        <td>guesscontenttype</td>
-        <td>1.1.0</td>
-    </tr>
-        <tr>
-        <td>partialupdate</td>
-        <td>1.7.0</td>
-    </tr>
-        <tr>
-        <td>icsexportplugin</td>
-        <td>1.4.0</td>
-    </tr>
-        <tr>
-        <td>locks</td>
-        <td>0.1</td>
-    </tr>
-        <tr>
-        <td>propertystorage</td>
-        <td>2.0.0</td>
-    </tr>
-        <tr>
-        <td>calendar-auto-schedule</td>
-        <td>2.1.0</td>
-    </tr>
-        <tr>
-        <td>temporaryfilefilter</td>
-        <td>0.9.0</td>
-    </tr>
-        <tr>
-        <td>vcfexportplugin</td>
-        <td>1.7.0</td>
-    </tr>
-    </table>            
+                            <h1>WebDAV Locks</h1>
+                <p>WebDAV has a 'locking' feature that allows a client to use the <code>LOCK</code> and
+<code>UNLOCK</code> methods on resources.</p>
+
+<p>When a resource is locked, other users are prevented from changing the
+resource.</p>
+
+<p>This feature is often used for WebDAV servers, and several clients such as
+<a href="/dav/clients/davfs/">davfs</a> and <a href="/dav/clients/finder/">Finder</a> require locks to work in order to enable
+read-write support. Without it, they fall back to a read-only state.</p>
+
+<h2>Enabling locking</h2>
+
+<p>To enable locks, the easiest thing to do, is to use use the PDO backend.
+To do this, you must first create a sqlite or mysql database, and create
+the table as specified in one of these files:</p>
+
+<ul>
+<li>examples/sql/sqlite.locks.sql</li>
+<li>examples/sql/mysql.locks.sql</li>
+</ul>
+
+<p>After the database has been created, connect to it using PDO and add the
+locking plugin to your server.</p>
+
+<pre><code>// Connnect to the database
+$pdo = new PDO('sqlite:data/locks.sqlite');
+
+// Create the backend
+$locksBackend = new Sabre\DAV\Locks\Backend\PDO();
+
+// Add the plugin to the server.
+$locksPlugin = new Sabre\DAV\Locks\Plugin(
+    $locksBackend
+);
+$server-&gt;addPlugin($locksPlugin);
+</code></pre>
+
+<h2>Other backends</h2>
+
+<p>SabreDAV also ships with a plugin that stores the data in a file, to use it,
+just instantiate it with a filename that the server has write-access to:</p>
+
+<pre><code>$locksBackend = new Sabre\DAV\Locks\Backend\File('/tmp/davlocks');
+</code></pre>
+
+<p>We don't recommend this. SQlite is effectively a 'single file' storage format,
+and will work much better for these purposes.</p>
+
+<p>It's also possible to create your own, by extending
+<code>Sabre\DAV\Locks\Backend\AbstractBackend</code>.</p>
+            
             
                             <hr />
                 <h2>Comments</h2>
@@ -206,9 +187,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/dav/plugins';
-    var disqus_title = 'List of plugins';
-    var disqus_url = 'http://sabre.io/dav/plugins';
+    var disqus_identifier = '/dav/locks';
+    var disqus_title = 'WebDAV Locks';
+    var disqus_url = 'http://sabre.io/dav/locks';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

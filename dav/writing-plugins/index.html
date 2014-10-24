@@ -587,25 +587,109 @@ opportunity to handle a <code>REPORT</code> request.</p>
 $server-&gt;on('report','myReport');
 </code></pre>
 
-<h3><code>unknownMethod</code></h3>
+<h3><code>calendarObjectChange</code></h3>
 
-<p><em>Removed as of sabre/dav 2.0</em></p>
+<p><strong>Since version 2.1.0</strong></p>
 
-<h3><code>beforeGetProperties</code></h3>
+<p>This event is triggered by the CalDAV plugin, whenever a calendar object got
+changed or created.</p>
 
-<p><em>Removed as of sabre/dav 2.0</em></p>
+<p>Example:</p>
 
-<h3><code>beforeGetPropertiesForPath</code></h3>
+<pre><code>use Sabre\HTTP\RequestInterface;
+use Sabre\HTTP\ResponseInterface;
+use Sabre\VObject\Document;
 
-<p><em>Removed as of sabre/dav 2.0</em></p>
+function calendarObjectChange(RequestInterface $request, ResponseInterface $response, Document $calendar, $parentPath, &amp;$modified, $isNew) {
 
-<h3><code>afterGetProperties</code></h3>
+}
 
-<p><em>Removed as of sabre/dav 2.0</em></p>
+$server-&gt;on('calendarObjectChange', 'calendarObjectChange');
+</code></pre>
 
-<h3><code>updateProperties</code></h3>
+<p>It has quite a bit of arguments:</p>
 
-<p><em>Removed as of sabre/dav 2.0</em></p>
+<ul>
+<li><code>$request</code> - The HTTP request object.</li>
+<li><code>$response</code> - The HTTP response object.</li>
+<li><code>$calendar</code> - The fully parsed VCALENDAR object.</li>
+<li><code>$parentPath</code> - The path to the object's parent calendar.</li>
+<li><code>&amp;$isModified</code> - Passed by reference. Set this to <code>true</code> to tell the system
+that you've modified <code>$calendar</code> so the modified version will end up
+getting stored, instead of the original. This also ensures that an <code>ETag</code>
+will not be sent back.</li>
+<li><code>$isNew</code> - Whether the object was a newly created calendar object, or an
+update.</li>
+</ul>
+
+<h3><code>schedule</code></h3>
+
+<p><strong>Since version 2.1.0</strong></p>
+
+<p>This event is triggered for scheduling operations. A scheduling operation is
+for example a invite to an event, a cancellation of an event or an
+accept/decline response to an event.</p>
+
+<p>This event is used by the <a href="/dav/scheduling/">CalDAV scheduling plugin</a> to deliver these
+messages to local calendar users, and it is used by the <a href="/dav/imip/">iMip plugin</a>,
+to send invites via email.</p>
+
+<p>Example:</p>
+
+<pre><code>use Sabre\VObject\ITip\Message;
+
+function schedule(Message $iTipMessage) {
+
+    // Send message via email
+    $iTipMessage-&gt;scheduleStatus = '1.0;Delivered!';
+
+}
+
+$server-&gt;on('schedule', 'schedule');
+</code></pre>
+
+<p>Consult the source for <code>Sabre\VObject\ITip\Message</code> for more information.</p>
+
+<h3><code>afterMove</code></h3>
+
+<p><strong>Since version 2.1.0</strong></p>
+
+<p>This event is triggered after a successful <code>MOVE</code> request. This is used by
+the system to copy WebDAV properties from the old to the new path, but could
+be used for other purposes as well.</p>
+
+<p>Example:</p>
+
+<pre><code>function afterMove($sourcePath, $destinationPath) {
+
+}
+
+$server-&gt;on('afterMove', 'afterMove');
+</code></pre>
+
+<h3><code>afterResponse</code></h3>
+
+<p><strong>Since version 2.1.0</strong></p>
+
+<p>This event is triggered after a HTTP response is sent back to the DAV client.
+At this point it's no longer possible to influence the HTTP response, but it
+could be used for logging or clean-up operations.</p>
+
+<p>This would also be a good moment to call
+<a href="http://php.net/manual/en/function.fastcgi-finish-request.php"><code>fastcgi_finish_request</code></a>, if
+you are on a fastcgi PHP sapi.</p>
+
+<pre><code>use Sabre\HTTP\RequestInterface;
+use Sabre\HTTP\ResponseInterface;
+
+function afterResponse(RequestInterface $request, ResponseInterface $response) {
+
+    fastcgi_finish_request();
+
+}
+
+$server-&gt;on('afterResponse', 'afterResponse');
+</code></pre>
 
 <h2>Other examples</h2>
 
@@ -690,9 +774,9 @@ happens after authentication, but before the acl system kicks in. In that case
 </tr>
 <tr>
   <td><code>method:GET</code></td>
-  <td><a href="/dav/caldav/">CalDAV Plugin</a></td>
+  <td><a href="/dav/notifications/">Notifications plugin</a></td>
   <td>90</td>
-  <td>To transform to jCal and get before the standard <code>GET</code> handler.</td>
+  <td>To correctly emit the notifications xml responses</td>
 </tr>
 <tr>
   <td><code>method:GET</code></td>
@@ -711,6 +795,12 @@ happens after authentication, but before the acl system kicks in. In that case
   <td>Core server</td>
   <td>120</td>
   <td>Ask properties implementing <code>IProperties</code> to return properties.</td>
+</tr>
+<tr>
+  <td><code>propFind</code></td>
+  <td>Core server</td>
+  <td>200</td>
+  <td>Map the <code>getctag</code> property to <code>{DAV:}sync-token</code>.</td>
 </tr>
 <tr>
   <td><code>propFind</code></td>
@@ -765,6 +855,12 @@ happens after authentication, but before the acl system kicks in. In that case
   <td><a href="/dav/property-storage/">PropertyStorage plugin</a></td>
   <td>300</td>
   <td>Only handle storing properties that no other subsystem understood.</td>
+</tr>
+<tr>
+  <td><code>schedule</code></td>
+  <td><a href="/dav/imip/">iMip plugin</a></td>
+  <td>120</td>
+  <td>Attempt to send an email invite <em>after</em> the internal delivery system.</td>
 </tr>
 </tbody>
 </table>

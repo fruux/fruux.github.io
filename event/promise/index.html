@@ -162,7 +162,7 @@ on the <code>DELETE</code> to complete.</p>
 
 $multiHttp-&gt;addRequest('DELETE', '/blogpost2.txt', '...')
     -&gt;then(
-        function($value) {
+        function($value) use ($multiHttp) {
             // The DELETE request was successful!
             return $multiHttp-&gt;addRequest('PUT', '/blogpost2.txt', '...');
         }

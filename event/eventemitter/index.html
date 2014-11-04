@@ -57,8 +57,8 @@
 </aside>
                 <article>
                             <h1>EventEmitter</h1>
-                <p>In a eventemitter there are emitters, and listeners. Emitters trigger an
-event. When a event is emitted, a listener is notified of this fact.</p>
+                <p>In an eventemitter there are emitters, and listeners. Emitters trigger an
+event. When an event is emitted, a listener is notified of this fact.</p>
 
 <p>Example:</p>
 
@@ -83,7 +83,7 @@ $eventEmitter-&gt;emit('create');
 
 <h2>Priorities</h2>
 
-<p>By supplying a priority, you can make sure that subscribers are handled in a
+<p>By supplying a priority, you are ensured that subscribers are handled in a
 specific order. The default priority is 100. Anything below that will be
 triggered earlier, anything higher later.</p>
 
@@ -92,7 +92,7 @@ undefined, but deterministic order.</p>
 
 <pre><code>$eventEmitter-&gt;on('create', function() {
 
-// This event will be handled first.
+    // This event will be handled first.
 
 }, 50);
 </code></pre>
@@ -106,7 +106,7 @@ $eventEmitter-&gt;on('create', ['myClass', 'myMethod']);
 $eventEmitter-&gt;on('create', [$myInstance, 'myMethod']);
 </code></pre>
 
-<h3>Canceling the event handler.</h3>
+<h3>Canceling the event handler</h3>
 
 <p>If a callback returns <code>false</code> the event chain is stopped immediately.</p>
 

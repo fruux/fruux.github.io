@@ -64,23 +64,22 @@
 application, if you for example would like them to carry a bit more
 information about the current request.</p>
 
-<p>For instance, you may want to add an <code>isLoggedIn()</code> method to the Request
-object.</p>
+<p>For instance, you may want to add an <code>isLoggedIn</code> method to the Request object.</p>
 
 <p>Simply extending Request and Response may pose some problems:</p>
 
 <ol>
-<li>You may want to extend the objects with new behavior differently, in
-different subsystems of your application.</li>
-<li>The <code>Sapi::getRequest</code> factory always returns a instance of
-<code>Request</code> so you would have to override the factory method as well.</li>
+<li>You may want to extend the objects with new behaviors differently, in
+different subsystems of your application,</li>
+<li>The <code>Sapi::getRequest</code> factory always returns an instance of
+<code>Request</code> so you would have to override the factory method as well,</li>
 <li>By controlling the instantiation and depend on specific <code>Request</code> and
 <code>Response</code> instances in your library or application, you make it harder to
 work with other applications which also use <code>sabre/http</code>.</li>
 </ol>
 
 <p>In short: it would be bad design. Instead, it's recommended to use the
-<a href="http://en.wikipedia.org/wiki/Decorator_pattern">decorator pattern</a> to add new behavior where you need it. sabre/http
+<a href="http://en.wikipedia.org/wiki/Decorator_pattern">decorator pattern</a> to add new behavior where you need it. <code>sabre/http</code>
 provides helper classes to quickly do this.</p>
 
 <p>Example:</p>
@@ -101,9 +100,9 @@ class MyRequest extends HTTP\RequestDecorator {
 <p>Our application assumes that the true <code>Request</code> object was instantiated
 somewhere else, by some other subsystem. This could simply be a call like
 <code>$request = Sapi::getRequest()</code> at the top of your application,
-but could also be somewhere in a unittest.</p>
+but could also be somewhere in a unit test.</p>
 
-<p>All we know in the current subsystem, is that we received a <code>$request</code> and
+<p>All we know in the current subsystem is that we received a <code>$request</code> and
 that it implements <code>Sabre\HTTP\RequestInterface</code>. To decorate this object,
 all we need to do is:</p>
 

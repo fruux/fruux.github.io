@@ -64,7 +64,7 @@
                 <p>Since version 3.1, there's now native support for parsing and generating the
 <a href="http://tools.ietf.org/html/rfc7265">jCal</a> and <a href="http://tools.ietf.org/html/rfc7095">jCard</a> formats.</p>
 
-<p>These new formats use <a href="http://www.json.org/">json</a> to serialize vCard and iCalendar. It is
+<p>These new formats use <a href="http://www.json.org/">JSON</a> to serialize vCard and iCalendar. It is
 possible to exactly map iCalendar and vCard to jCal and jCard, and therefore
 you can convert back and forward, without any data-loss.</p>
 
@@ -95,7 +95,7 @@ a jCal object:</p>
 echo json_encode($vcal-&gt;jsonSerialize());
 </code></pre>
 
-<p>This feature was added in sabre/vobject 3.0.</p>
+<p>This feature was added in sabre/vobject 3.0.</p>
 
 <h2>Parsing jCal and jCard</h2>
 
@@ -105,10 +105,10 @@ echo json_encode($vcal-&gt;jsonSerialize());
 $jCard = VObject\Reader::readJson(fopen('jcard.json', 'r'));
 </code></pre>
 
-<p>You can pass either a json string, a readable stream, or an array if you
-already called json_decode on the input.</p>
+<p>You can pass either a JSON string, a readable stream, or an array if you
+already called <code>json_decode</code> on the input.</p>
 
-<p>This feature was added in sabre/vobject 3.1.</p>
+<p>This feature was added in sabre/vobject 3.1.</p>
             
             
                             <hr />

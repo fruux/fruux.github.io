@@ -68,14 +68,16 @@ and you've included the autoloader in your code.</p>
 
 <h2>A basic parsing example</h2>
 
-<p>Assuming there is a vcard in your local directory, named <code>cowboyhenk.vcf</code>,
+<p>Assuming there is a vCard in your local directory, named <code>cowboyhenk.vcf</code>,
 the following complete example will parse it and display the <code>FN</code> property:</p>
 
 <pre><code>use Sabre\VObject;
 
 include 'vendor/autoload.php';
 
-$vcard = VObject\Reader::read('cowboyhenk.vcf');
+$vcard = VObject\Reader::read(
+    fopen('cowboyhenk.vcf','r')
+);
 echo $vcard-&gt;FN;
 </code></pre>
 
@@ -87,32 +89,32 @@ the autoloader, and also that you've called</p>
 <pre><code>use Sabre\VObject;
 </code></pre>
 
-<p>At the top of your script. This is just to avoid repetition.</p>
+<p>at the top of your script. This is just to avoid repetition.</p>
 
-<p>Also, keep in mind that while sabre/vobject does support PHP 5.3, most of the
-examples in this documentation use syntax that was introduced in PHP 5.4.</p>
+<p>Also, keep in mind that while sabre/vobject does support PHP 5.3, most of the
+examples in this documentation use syntax that was introduced in PHP 5.4.</p>
 
 <p>Specifically, we specify arrays as such:</p>
 
 <pre><code>[
-    "ORG" =&gt; "Henk Inc.",
-    "FN" =&gt; "Cowboy Henk",
+    'ORG' =&gt; 'Henk Inc.',
+    'FN' =&gt; 'Cowboy Henk',
 ]
 </code></pre>
 
 <p>In PHP 5.3, this is specified as:</p>
 
 <pre><code>array(
-    "ORG" =&gt; "Henk Inc.",
-    "FN" =&gt; "Cowboy Henk",
+    'ORG' =&gt; 'Henk Inc.',
+    'FN' =&gt; 'Cowboy Henk',
 )
 </code></pre>
 
 <h2>The actual manual</h2>
 
-<h3>Creating vCards.</h3>
+<h3>Creating vCards</h3>
 
-<p>To create a vCard, you can simply instantiate the vCard component, and pass
+<p>To create a vCard, you can simply instantiate the <code>VCard</code> component, and pass
 the properties you need:</p>
 
 <pre><code>$vcard = new VObject\Component\VCard([
@@ -143,7 +145,7 @@ To add any additional properties, use the <code>add()</code> method on the vCard
 <pre><code>$vcard-&gt;add('TEL', '+1 555 34567 456', ['type' =&gt; 'fax']);
 </code></pre>
 
-<p>The third argument of the add() method allows you to specify a list of
+<p>The third argument of the <code>add()</code> method allows you to specify a list of
 parameters.</p>
 
 <h3>Manipulating properties</h3>
@@ -227,7 +229,7 @@ attempt to mend the broken data.</p>
 can call <code>getParts()</code>.</p>
 
 <pre><code>print_r(
-    $vcard-&gt;ORG-&gt;getParts();
+    $vcard-&gt;ORG-&gt;getParts()
 );
 </code></pre>
 
@@ -238,7 +240,7 @@ vCard. To loop through them, you can simply throw them in a <code>foreach()</cod
 statement:</p>
 
 <pre><code>foreach($vcard-&gt;TEL as $tel) {
-    echo "Phone number: ", (string)$tel, "\n";
+    echo 'Phone number: ', $tel, "\n";
 }
 
 foreach($vcard-&gt;ADR as $adr) {
@@ -268,7 +270,7 @@ allow you to group multiple related properties together.</p>
 example, the <code>TEL</code> properties are still traversed.</p>
 
 <pre><code>foreach($vcard-&gt;TEL as $tel) {
-    echo (string)$tel, "\n";
+    echo $tel, "\n";
 }
 </code></pre>
 
@@ -282,8 +284,8 @@ numbers and display their custom labels, you'd do something like this:</p>
 
 <pre><code>foreach($vcard-&gt;TEL as $tel) {
 
-    echo (string)$vcard-&gt;{$tel-&gt;group . '.X-ABLABEL'}, ": ";
-    echo (string)$tel, "\n";
+    echo $vcard-&gt;{$tel-&gt;group . '.X-ABLABEL'}, ': ';
+    echo $tel, "\n";
 
 }
 </code></pre>
@@ -414,11 +416,11 @@ END:VCALENDAR
 
 <p>Generally when software makes backups of calendars or contacts, they will
 put all the objects in a single file. In the case of vCards, this is often
-a stream of VCARD objects, in the case of iCalendar, this tends to be a
-single VCALENDAR objects, with many components.</p>
+a stream of vCard objects, in the case of iCalendar, this tends to be a
+single <code>VCALENDAR</code> object, with many components.</p>
 
-<p>Protocols such as Card- and CalDAV expect only 1 object per resource. The
-vobject library provides 2 classes to split these backup files up into many.</p>
+<p>Protocols such as Card- and CalDAV expect only 1 object per resource. The
+vObject library provides 2 classes to split these backup files up into many.</p>
 
 <p>To do this, use the splitter objects:</p>
 
@@ -434,19 +436,19 @@ while($vcard = $splitter-&gt;next()) {
 }
 </code></pre>
 
-<p>Next to the VCard splitter, there's also an ICalendar splitter. The latter
+<p>Next to the vCard splitter, there's also an ICalendar splitter. The latter
 creates a <code>VCALENDAR</code> object per <code>VEVENT</code>, <code>VTODO</code> or <code>VJOURNAL</code>, and ensures
 that the <code>VTIMEZONE</code> information is kept intact, and any <code>VEVENT</code> objects that
 belong together (because they are expections for an <code>RRULE</code> and thus have the
 same <code>UID</code>) will be kept together, exactly like CalDAV expects.</p>
 
-<h3>Converting between different vCard versions.</h3>
+<h3>Converting between different vCard versions</h3>
 
-<p>Since sabre/vobject 3.1, there's also a feature to convert between various
-vCard versions. Currently it's possible to convert from vCard 2.1, 3.0 and
-4.0 and to 3.0 and 4.0. It's not yet possible to convert to vCard 2.1.</p>
+<p>Since sabre/vobject 3.1, there's also a feature to convert between various
+vCard versions. Currently it's possible to convert from vCard 2.1, 3.0 and
+4.0 and to 3.0 and 4.0. It's not yet possible to convert to vCard 2.1.</p>
 
-<p>To do this, simply call the convert() method on the vCard object.</p>
+<p>To do this, simply call the <code>convert()</code> method on the vCard object.</p>
 
 <pre><code>$input = &lt;&lt;&lt;VCARD
 BEGIN:VCARD
@@ -478,15 +480,15 @@ on Github.</p>
 
 <h2>CLI tool</h2>
 
-<p>Since vObject 3.1, a new cli tool is shipped in the bin/ directory.</p>
+<p>Since vObject 3.1, a new CLI tool is shipped in the <code>bin/</code> directory.</p>
 
 <p>This tool has the following features:</p>
 
 <ul>
-<li>A <code>validate</code> command.</li>
-<li>A <code>repair</code> command to repair objects that are slightly broken.</li>
+<li>A <code>validate</code> command,</li>
+<li>A <code>repair</code> command to repair objects that are slightly broken,</li>
 <li>A <code>color</code> command, to show an iCalendar object or vCard on the console with
-ansi-colors, which may help debugging.</li>
+ansi-colors, which may help debugging,</li>
 <li>A <code>convert</code> command, allowing you to convert between iCalendar 2.0, vCard 2.1,
 vCard 3.0, vCard 4.0, jCard and jCal.</li>
 </ul>

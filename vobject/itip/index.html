@@ -61,7 +61,7 @@
 </aside>
                 <article>
                             <h1>iTip</h1>
-                <p>Since version 3.3, vobject has support for parsing and generating <a href="http://tools.ietf.org/html/rfc5546">iTip</a>
+                <p>Since version 3.3, vObject has support for parsing and generating <a href="http://tools.ietf.org/html/rfc5546">iTip</a>
 messages. Currently only <code>VEVENT</code> is supported.</p>
 
 <h2>What is an iTip message?</h2>
@@ -111,8 +111,8 @@ to generate and process these. VObject provides some help with this.</p>
 <p>Generating iTip messages works based on the following three scenarios:</p>
 
 <ol>
-<li>A user creates an event.</li>
-<li>A user updates an event.</li>
+<li>A user creates an event,</li>
+<li>A user updates an event,</li>
 <li>A user deletes an event.</li>
 </ol>
 
@@ -124,7 +124,7 @@ to generate and process these. VObject provides some help with this.</p>
 status?</li>
 <li>If the user is an organizer, do the attendees need to know about any
 updates?</li>
-<li>And so on..</li>
+<li>And so on.</li>
 </ol>
 
 <p>There's quite a few possible scenarios, including organizers adding or
@@ -140,7 +140,7 @@ $messages = $broker-&gt;parseEvent(
 );
 </code></pre>
 
-<p>Both <code>$newCalendar</code> and <code>$oldCalendar</code> should either be a VCALENDAR object,
+<p>Both <code>$newCalendar</code> and <code>$oldCalendar</code> should either be a <code>VCALENDAR</code> object,
 or a <code>null</code>.</p>
 
 <p>If <code>$oldCalendar</code> is <code>null</code>, it will be treated as a new object, if
@@ -156,9 +156,9 @@ object using email or otherwise.</p>
 when:</p>
 
 <ol>
-<li>You receive an invite.</li>
-<li>You get an update for an invite.</li>
-<li>You send a reply to an invite.</li>
+<li>You receive an invite,</li>
+<li>You get an update for an invite,</li>
+<li>You send a reply to an invite,</li>
 <li>You receive a cancellation for an invite.</li>
 </ol>
 

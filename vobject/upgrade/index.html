@@ -61,10 +61,10 @@
 </aside>
                 <article>
                             <h1>Upgrading from vobject 2.x to 3.x</h1>
-                <p>vObject 3.0 got a major overhaul, and much better built-in support for all
+                <p>VObject 3.0 got a major overhaul, and much better built-in support for all
 kinds of properties and escaping.</p>
 
-<p>This version fixes the most important bugs, specifically <a href="https://github.com/fruux/sabre-vobject/issues/19">Issue #19</a>.</p>
+<p>This version fixes the most important bugs, specifically the <a href="https://github.com/fruux/sabre-vobject/issues/19">issue #19</a>.</p>
 
 <p>To do this, a few backwards compatibility breaks had to be made. This document
 describes each of them, as well as all the new features.</p>
@@ -94,7 +94,7 @@ vCards Microsoft generates if the <code>FORGIVING</code> option is on.</li>
 <ul>
 <li>Added a jCard and jCal parser.</li>
 <li>Using the <code>convert()</code> method you can convert between vCard 2.1, 3.0 and 4.0.</li>
-<li>A new cli tool with <code>validate</code>, <code>repair</code>, <code>color</code> and <code>convert</code> commands.</li>
+<li>A new CLI tool with <code>validate</code>, <code>repair</code>, <code>color</code> and <code>convert</code> commands.</li>
 </ul>
 
 <h2>Backwards compatibility breaks</h2>
@@ -186,7 +186,7 @@ highly complex objects with sub-components, this <em>will</em> make a big differ
 
 <h3>Component::children() and Property::parameters() return arrays.</h3>
 
-<p>Before vObject 3 they returned an <code>ElementList</code>.</p>
+<p>Before VObject 3 they returned an <code>ElementList</code>.</p>
 
 <h3>The signature for DateTime::setDateTime has changed.</h3>
 

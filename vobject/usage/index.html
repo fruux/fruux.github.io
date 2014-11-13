@@ -428,7 +428,7 @@ vObject library provides 2 classes to split these backup files up into many.</p
 $h = fopen('backupfile.vcf', 'r');
 $splitter = new VObject\Splitter\VCard($h);
 
-while($vcard = $splitter-&gt;next()) {
+while($vcard = $splitter-&gt;getNext()) {
 
     // $vCard is a single vCard object. You can just call serialize() on it
     // if you were looking for the string version.

@@ -3,9 +3,38 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-11-13T16:58:17+00:00</updated>
+    <updated>2014-11-19T22:57:05+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 3.3.4 release]]></title>
+            <link href="http://sabre.io/blog/2014/sabre-vobject-3.3.4-release"/>
+            <updated>2014-11-19T22:56:30+00:00</updated>
+            <id>http://sabre.io/blog/2014/sabre-vobject-3.3.4-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.3.4.</p>
+
+<p>This release adds:</p>
+
+<ol>
+<li>Converting <code>ANNIVERSARY</code> to <code>X-ABDATE</code> and <code>X-ANNIVERSARY</code> when converting
+between vCard 3.0 and 4.0.</li>
+<li>Reference-timezone support to the recurrence iterator, free-busy generator
+and <code>DATE-TIME</code> and <code>DATE</code> properties for dealing with all-day events and
+floating times.</li>
+</ol>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>If this didn't upgrade you to 3.3.4, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/vobject" : "~3.3.4"
+</code></pre>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.0.5 release]]></title>
             <link href="http://sabre.io/blog/2014/sabre-dav-2.0.5-release"/>
@@ -341,31 +370,6 @@ of the changes.</p>
 <p>Keep in mind though that version 2.0 of sabre/dav is also already released. If
 you are upgrading, you're highly encouraged to take that additional upgrade
 step. Version 2.0 has its own <a href="http://sabre.io/dav/upgrade/1.8-to-2.0/">migration instructions</a>.</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 2.0.3 release]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-dav-2.0.3-release"/>
-            <updated>2014-07-14T18:42:21+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-dav-2.0.3-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 2.0.3.</p>
-
-<p>A number of problems were found in the revamped browser plugin, related to
-generating links, and for a number of people none of the css and images
-would load due to incorrect CSP rules.</p>
-
-<p>In addition we found out that the <code>TooMuchMatches</code> exception never worked
-due to a fatal error, so while fixing that, we also took the opportunity to
-change the name of the exception to <code>TooManyMatches</code>. Don't laugh.</p>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0/ChangeLog.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

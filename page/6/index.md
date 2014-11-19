@@ -59,6 +59,22 @@ An open source CardDAV, CalDAV and WebDAV server.
     <h1>News</h1>
             <article class="blog-entry">
             <time>June 12th, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.3-release">sabre/vobject 3.2.3 release</a></h1>
+            <p>We just released sabre/vobject 3.2.3.</p>
+
+<p>Several improvements were made in the validator, and the "repair" option now
+works correctly again in the CLI tool.</p>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/master/ChangeLog.md">Github</a></p>
+
+        </article>
+        <hr />            <article class="blog-entry">
+            <time>June 12th, 2014</time>
             <h1><a href="http://sabre.io/blog/2014/sabre-event-1.0.1-release">sabre/event 1.0.1 release</a></h1>
             <p>We just released sabre/event 1.0.1. A bug prevented the <code>EventEmitter</code> trait
 to work on PHP versions older than 5.4.14.</p>
@@ -90,18 +106,6 @@ and GET requests and accept it from PUT requests.</p>
 are generating iCalendar today. It's a lot easier to parse and generate, and
 we hope that over time, jCal and jCard replace iCalendar and vCard as the
 format of choice.</p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>May 28th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabredav-2.0.1-release">sabre/dav 2.0.1 released</a></h1>
-            <p>We just released sabre/dav 2.0.1. Two regressions have been found related
-to PROPFIND requests.</p>
-
-<p>Upgrade if you're having compatiblity problems. The Windows 7 client in
-particular had issues.</p>
-
-<p>Run <code>composer update sabre/dav</code>, or <a href="https://github.com/fruux/sabre-dav/releases/tag/2.0.1">Download</a> the new zip from GitHub.</p>
 
         </article>
             </section>

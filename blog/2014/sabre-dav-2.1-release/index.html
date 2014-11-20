@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>sabre/dav</title>
+            <title>sabre/dav 2.1 released - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -36,30 +36,12 @@
 
 </header>
 
-    
-<section class="hero">
-<h1>sabre/dav</h1>
-
-<p>
-An open source CardDAV, CalDAV and WebDAV server.
-</p>
-
-</section>
-<div class="install">
-    <a href="http://sabre.io/dav/install">
-        <i class="fa fa-download"></i>
-        <h1>Install</h1>
-    </a>
-    <small>
-        <a href="http://sabre.io/dav/gettingstarted">Or learn more here..</a>
-    </small>
-</div>
-
-<section class="box">
-    <h1>News</h1>
-            <article class="blog-entry">
-            <time>November 20th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1-release">sabre/dav 2.1 released</a></h1>
+        <main>
+                <article>
+                <article class="blog-entry">
+        <time>November 20th, 2014</time>
+        <h1>sabre/dav 2.1 released</h1>
+        <div>
             <p>We just released sabre/dav 2.1. This release comes about 6 months after the
 last major release, so that's nicely on track!</p>
 
@@ -139,150 +121,25 @@ on the <a href="http://sabre.io/dav/upgrading/">upgrade</a> page.</p>
 
 <p><strong>Thank you!</strong></p>
 
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>November 19th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.4-release">sabre/vobject 3.3.4 release</a></h1>
-            <p>We just released sabre/vobject 3.3.4.</p>
+        </div>
+                    <p class="tags">
+            Tags:
+                        <a href="http://sabre.io/blog/tags/dav">dav</a>,                         <a href="http://sabre.io/blog/tags/release">release</a>                        </p>
+        
+                    <nav class="article">
+                <ul>
+                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2014/sabre-vobject-3.3.4-release" title="sabre/vobject 3.3.4 release"><span class="title">sabre/vobject 3.3.4 release</span></a></li>
+                                    </ul>
+            </nav>
+            </article>
 
-<p>This release adds:</p>
-
-<ol>
-<li>Converting <code>ANNIVERSARY</code> to <code>X-ABDATE</code> and <code>X-ANNIVERSARY</code> when converting
-between vCard 3.0 and 4.0.</li>
-<li>Reference-timezone support to the recurrence iterator, free-busy generator,
-and <code>DATE-TIME</code> and <code>DATE</code> properties for dealing with all-day events and
-floating times.</li>
-</ol>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.3.4, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.3.4"
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.3.4/ChangeLog.md">Github</a>.</p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>October 14th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.5-release">sabre/dav 2.0.5 release</a></h1>
-            <p>We just released sabre/dav 2.0.5. Upgrading is highly recommended.</p>
-
-<p>This release has an important bugfix. <code>If-Modified-Since</code> was not handled
-correctly, as we were not sending back 304 statuses, but 200 instead.</p>
-
-<p>This could lead clients to believe that their local cache was expired and the
-new resource being empty, which in turn makes data-loss a possibility.</p>
-
-<p>In addition to that, the zip also ships with <a href="/vobject/">vobject</a> 3.3.3, which solves
-a problem a lot of people have been having with timezone-related errors being
-spammed to the PHP error log. Note that this is a PHP bug, but we've provided
-a workaround.</p>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.5/ChangeLog.md">Github</a></p>
-
-        </article>
-            </section>
-
-<section class="box box-features">
-    <h1>Features</h1>
-    <ul class="list-features">
-        <li>
-            <i class="fa fa-rocket"></i>
-            Fully WebDAV compliant
-        </li>
-        <li>
-            <i class="fa fa-coffee"></i>
-            Supported on all major platforms.
-        </li>
-        <li class="hr"></li>
-        <li>
-            <i class="fa fa-lock"></i>
-            Locking support.
-        </li>
-        <li>
-            <i class="fa fa-home"></i>
-            Custom property support.
-        </li>
-        <li class="hr"></li>
-        <li>
-            <i class="fa fa-calendar"></i>
-            CalDAV support.
-        </li>
-        <li>
-            <i class="fa fa-book"></i>
-            CardDAV support.
-        </li>
-        <li class="hr"></li>
-        <li>
-            <i class="fa fa-share"></i>
-            Supports calendar sharing and delegating.
-        </li>
-        <li>
-            <i class="fa fa-check"></i>
-            &gt;95% unittest coverage.
-        </li>
-    </ul>
-</section>
-
-<section class="box box-enterprise">
-    <h1>Enterprise support</h1>
-    <h2>sabre/dav and the other sabre.io projects are developed by <a href="https://fruux.com/">fruux</a>.</h2>
-    <div>
-        <a href="https://fruux.com"><img src="http://sabre.io/img/fruux_logo.png"></a>
-        <h3>We provide:</h3>
-        <ul class="">
-            <li>Enterprise support.</li>
-            <li>Customization.</li>
-            <li>Integrating into your existing infrastructure.</lI>
-            <li>Both on-premise and SaaS deployments.</li>
-        </ul>
-    </div>
-    <a href="/support" class="bubble">
-        <i class="fa fa-2x fa-envelope-o"></i>
-        <strong>Contact us</strong> <br>
-        to discuss your requirements.
-    </a>
-</section>
-
-<section class="box box-lineup">
-    <h1>The full sabre.io project lineup</h1>
-    <a href="http://sabre.io/dav">
-        <span>d</span><br>
-        <strong>sabre/dav</strong><br>
-        The leading open-source CalDAV, CardDAV and WebDAV server
-    </a>
-    <a href="http://sabre.io/http">
-        <span>h</span><br>
-        <strong>sabre/http</strong><br>
-        An OOP abstraction layer for the PHP server api.
-    </a>
-    <a href="http://sabre.io/vobject">
-        <span>v</span><br>
-        <strong>sabre/vobject</strong><br>
-        A library for parsing and manipulating vCard, iCalendar, jCard and jCal.
-    </a>
-    <a href="http://sabre.io/event">
-        <span>e</span><br>
-        <strong>sabre/event</strong><br>
-        Utilities for lightweight event-based programming in PHP.
-    </a>
-
-</section>
-
+            
+                            <hr />
+                <h2>Comments</h2>
+                <div id="disqus_thread"></div>
+                    </article>
+    </main>
+    
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 
     <script src="http://sabre.io/components/highlightjs/highlight.pack.js"></script>
@@ -300,9 +157,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/';
-    var disqus_title = '';
-    var disqus_url = 'http://sabre.io/';
+    var disqus_identifier = '/blog/2014/sabre-dav-2.1-release';
+    var disqus_title = 'sabre/dav 2.1 released';
+    var disqus_url = 'http://sabre.io/blog/2014/sabre-dav-2.1-release';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

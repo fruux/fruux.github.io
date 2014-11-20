@@ -113,10 +113,10 @@
 </aside>
                 <article>
                             <h1>Upgrading from SabreDAV 2.0 to 2.1</h1>
-                <p>sabre/dav 2.1 is currently in alpha. There are a number of new features, and
-as usual, a number of backwards compatibility breaks.</p>
+                <p>sabre/dav 2.1 has a number of new features, and as usual, a number of backwards
+compatibility breaks.</p>
 
-<p>This document goes through all the things you need to change to upgrade.</p>
+<p>This page lists them all.</p>
 
 <h2>New features</h2>
 
@@ -218,6 +218,20 @@ the freebusy functionality.</p>
 server:</p>
 
 <pre><code>$server-&gt;addPlugin(new Sabre\CalDAV\Schedule\Plugin());
+</code></pre>
+
+<h3>Support for notifications has moved to a new plugin</h3>
+
+<p>If you wrote a CalDAV backend that supports notifications (for share invites
+and replies), you need to now explictly turn on a plugin for this to work.</p>
+
+<p>Before this was just part of the CalDAV plugin, but this meant that this extra
+functionality was enabled, and not used for most users.</p>
+
+<p>If you need it back, make sure you enable the notifications plugin in your
+server:</p>
+
+<pre><code>$server-&gt;addPlugin(new Sabre\CalDAV\Notifications\Plugin());
 </code></pre>
 
 <h3>vCards now return a different content-type.</h3>

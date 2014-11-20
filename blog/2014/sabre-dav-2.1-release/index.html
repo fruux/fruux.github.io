@@ -42,8 +42,8 @@
         <time>November 20th, 2014</time>
         <h1>sabre/dav 2.1 released</h1>
         <div>
-            <p>We just released sabre/dav 2.1. This release comes about 6 months after the
-last major release, so that's nicely on track!</p>
+            <p>We just released sabre/dav version 2.1. This release comes about 6 months
+after the last major release, so that's nicely on track!</p>
 
 <h2>New features</h2>
 
@@ -51,7 +51,8 @@ last major release, so that's nicely on track!</p>
 
 <p>We finally have support for CalDAV Scheduling (<a href="http://tools.ietf.org/html/rfc6638">rfc6638</a>). Adding
 scheduling to your server means that you can invite attendees to your events,
-and have those automatically delivered to other calendars on the system.</p>
+and have those invites automatically delivered to other calendars on the
+system.</p>
 
 <p>CalDAV clients that support this will be able to show an invitation interface
 and allow attendees to accept or decline invitations, and have all of this
@@ -73,8 +74,9 @@ vCard 4.0 is a much more modern format, adds a lot of great features, and
 doesn't suffer from many of the problems vCard 3.0 had.</p>
 
 <p>Now if a client stores either a vCard 3 or 4, these vCards will be stored
-as-is, but if a client requests either a vCard 3 or 4, we will automatically
-convert the vcard on the server.</p>
+as-is, but if a client requests either a vCard 3 or 4 (using
+content-negotation), we will automatically convert the vcard before sending
+it back to the client.</p>
 
 <h3>jCard support</h3>
 
@@ -109,7 +111,8 @@ chances are that you need to make changes in your code to keep stuff running.</p
 
 <p><strong>Make a backup.</strong> and then head to the <a href="http://sabre.io/dav/upgrade/2.0-to-2.1/">migration instructions</a> for 2.1.</p>
 
-<p>Drop a line on the <a href="http://groups.google.com/group/sabredav-discuss">mailing list</a> if you run into any issues at all.</p>
+<p>Drop a line on the <a href="http://groups.google.com/group/sabredav-discuss">mailing list</a> if you run into any issues, or
+<a href="http://sabre.io/support/">get in touch with us</a> for our commercial support option</p>
 
 <h2>Support status</h2>
 

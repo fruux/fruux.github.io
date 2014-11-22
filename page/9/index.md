@@ -58,73 +58,21 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
-            <time>October 14th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.5-release">sabre/dav 2.0.5 release</a></h1>
-            <p>We just released sabre/dav 2.0.5. Upgrading is highly recommended.</p>
+            <time>March 31st, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/new-website">New website launched!</a></h1>
+            <p>You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
+never had a proper website, and we've always just hosted from Google Code.</p>
 
-<p>This release has an important bugfix. <code>If-Modified-Since</code> was not handled
-correctly, as we were not sending back 304 statuses, but 200 instead.</p>
+<p>As Google slowly started to lose interested in code hosting, we migrated more
+and more features to GitHub. The biggest thing left: the wiki. So what once
+started as a place to host the new wiki, turned into a brand-new design, by
+<a href="https://fruux.com/">our</a> very own Martin Kaniut, who's also responsible for the <a href="https://fruux.com/">fruux</a>
+design.</p>
 
-<p>This could lead clients to believe that their local cache was expired and the
-new resource being empty, which in turn makes data-loss a possibility.</p>
-
-<p>In addition to that, the zip also ships with <a href="/vobject/">vobject</a> 3.3.3, which solves
-a problem a lot of people have been having with timezone-related errors being
-spammed to the PHP error log. Note that this is a PHP bug, but we've provided
-a workaround.</p>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.5/ChangeLog.md">Github</a></p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>October 9th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0.1-release">sabre/event 2.0.1 release</a></h1>
-            <p>We just released sabre/event 2.0.1.</p>
-
-<p>This release fixes two issues related to the <code>EventEmitter::once()</code> method,
-and brings its functionality up to par with <code>EventEmitter::on()</code>.</p>
-
-<p>Upgrade sabre/event by running:</p>
-
-<pre><code>composer update sabre/event
-</code></pre>
-
-<p>If this didn't upgrade you to 2.0.1, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/event" : "~2.0.1"
-</code></pre>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>October 9th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.3-release">sabre/vobject 3.3.3 release</a></h1>
-            <p>We just released sabre/vobject 3.3.3.</p>
-
-<p>This release has additional fixes and improvements for the <a href="/vobject/itip/">iTip</a>
-subsystem.</p>
-
-<p>This release also works around a PHP bug that would otherwise spam your php
-error log file with 'invalid timezone' exceptions and has support for the
-"Line Islands Standard Time" timezone coming from Microsoft products.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.3.3, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.3.3"
-</code></pre>
+<p>We hope you like it, but since it's such a step up from Google Code, we're
+confident you probably will ;). If you're running into any bugs, definitely
+<a href="https://github.com/fruux/sabre.io/issues">let us know</a>. Want to contribute to the wiki? The entire site is open source, so
+<a href="https://github.com/fruux/sabre.io/tree/master/source">take a look</a> at some of the existing pages and get cracking!</p>
 
         </article>
             </section>
@@ -232,9 +180,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/page/2';
+    var disqus_identifier = '/page/9';
     var disqus_title = '';
-    var disqus_url = 'http://sabre.io/page/2';
+    var disqus_url = 'http://sabre.io/page/9';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

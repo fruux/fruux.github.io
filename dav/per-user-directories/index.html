@@ -122,11 +122,13 @@ the <a href="/dav/gettingstarted/">Getting Started</a> and <a href="/dav/virtual
 
 <h2>The Problem</h2>
 
-<p>It's not very hard to create a colletion that has a directory for each user.</p>
+<p>It's not very hard to create a collection that has a directory for each user.</p>
 
 <p>For instance, you may have a <code>home</code> collection as such:</p>
 
-<pre><code>namespace MyServer;
+<pre><code>&lt;?php
+
+namespace MyServer;
 
 use Sabre\DAV\Collection;
 use Sabre\DAV\FS;
@@ -168,14 +170,16 @@ from a database, and you really should also implement a <code>getChild()</code> 
 directories for users that don't have a home directory yet.</p>
 
 <p>We assume that this is easy, and you figured all of this out. The problem
-people immediately come across, is they don't want to allow users to get
+people immediately come across is that they don't want to allow users to get
 access to other users' home directories.</p>
 
 <p>This all comes down to the question, who is currently logged in?</p>
 
 <p>Given this <code>server.php</code> file:</p>
 
-<pre><code>$tree = [
+<pre><code>&lt;?php
+
+$tree = [
     new MyServer\HomeCollection();
 ];
 
@@ -192,7 +196,9 @@ $server-&gt;exec();
 <p>It's not easy to figure out who is currently logged in. This code can be
 re-organized as such:</p>
 
-<pre><code>$authBackend = new Sabre\DAV\Auth\Backend\PDO($pdo);
+<pre><code>&lt;?php
+
+$authBackend = new Sabre\DAV\Auth\Backend\PDO($pdo);
 $authPlugin = new Sabre\DAV\Auth\Plugin($authBackend);
 
 $userName = $authPlugin-&gt;getUserName();
@@ -217,7 +223,9 @@ at that point in time.</p>
 started with <code>$server-&gt;exec()</code>. The easiest way to work around this, is by 
 injecting the <code>$authPlugin</code> into our earlier <code>HomeCollection</code> class.</p>
 
-<pre><code>namespace MyServer;
+<pre><code>&lt;?php
+
+namespace MyServer;
 
 use Sabre\DAV\Collection;
 use Sabre\DAV\FS;
@@ -227,6 +235,7 @@ class HomeCollection extends Collection {
 
     protected $users = ['alice','bob','charly'];
     protected $path = '/opt/sabredav/userdir/';
+    protected $authPlugin;
 
     function __construct(AuthPlugin $authPlugin) {
 
@@ -242,16 +251,28 @@ class HomeCollection extends Collection {
 <p>Now you can determine right within <code>getChildren()</code> and <code>getChild()</code> wether or
 a user is allowed to have access to a specific collection.</p>
 
-<p>Just call <code>$this-&gt;authPlugin-&gt;getCurrentUser()</code>.</p>
+<p>Just call <code>$this-&gt;authPlugin-&gt;getCurrentUser()</code> and return the nodes that are
+appropriate for each user.</p>
 
 <h2>The better solution</h2>
+
+<p>While the previous solution may be good enough for many, it's not our
+preferred solution.</p>
 
 <p>sabre/dav ships with a very advanced access-control system using the <a href="/dav/acl/">ACL</a>
 plugin and <a href="/dav/principals/">principals</a> system.</p>
 
-<p>This system allows you to determine per-node what any user may do.</p>
+<p>This system allows you to determine per-node what any user may do. You could
+for example:</p>
 
-<p>If you are interested in this solution, you need a few things:</p>
+<ol>
+<li>Create admin users that have access to everything.</li>
+<li>Put users in groups, and also create per-group collections.</li>
+<li>Give users read-only access on a per-node basis.</li>
+</ol>
+
+<p>This all sounds great, but it's also definitely a bit harder to implement. If
+you are interested in this solution, you need a few things:</p>
 
 <ol>
 <li>A working <code>principals/</code> directory structure.</li>
@@ -260,22 +281,21 @@ plugin and <a href="/dav/principals/">principals</a> system.</p>
 <code>Sabre\DAVACL\IACL</code>.</li>
 </ol>
 
-<p>If you're interested in this solution, there's not much you have to change to
-the <code>HomeCollection</code> class all the way in the top of this tutorial. Instead,
-you will need to override:</p>
+<p>We'll start with item number 3, and show you how to add the <code>IACL</code> interface
+to these two classes:</p>
 
 <ul>
 <li>Sabre\DAV\FS\Directory</li>
 <li>Sabre\DAV\FS\File</li>
 </ul>
 
-<p>To add this new functionality. This is an example of how that could work.</p>
-
 <p>Since we want to simply base our nodes on <code>Sabre\DAV\FS\Directory</code> and 
 <code>Sabre\DAV\FS\File</code>, but we need to add 5 identical methods from
 <code>Sabre\DAVACL\IACL</code> to both of them, the fastest way to do this, is a trait:</p>
 
-<pre><code>namespace MyServer;
+<pre><code>&lt;?php
+
+namespace MyServer;
 
 trait ACLTrait {
 
@@ -371,7 +391,9 @@ trait ACLTrait {
 
 <p>Now to implement this trait in our new classes:</p>
 
-<pre><code>namespace MyServer;
+<pre><code>&lt;?php
+
+namespace MyServer;
 
 class ACLDirectory extends Sabre\DAV\FS\Directory implements Sabre\DAVACL\IACL {
 
@@ -443,7 +465,9 @@ node per user.</p>
 
 <p>This is how you could refactor your <code>HomeCollection</code> to use it:</p>
 
-<pre><code>namespace MyServer;
+<pre><code>&lt;?php
+
+namespace MyServer;
 
 use Sabre\DAVACL\AbstractPrincipalCollection;
 
@@ -486,7 +510,9 @@ class HomeCollection extends AbstractPrincipalsCollection {
 
 <p>And then lastly, to instantiate everything <code>server.php</code>:</p>
 
-<pre><code>$authBackend = new Sabre\DAV\Auth\Backend\PDO($pdo);
+<pre><code>&lt;?php
+
+$authBackend = new Sabre\DAV\Auth\Backend\PDO($pdo);
 $principalBackend = new Sabre\DAVACL\PrincipalBackend\PDO($pdo);
 
 $tree = [

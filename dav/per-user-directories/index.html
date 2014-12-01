@@ -431,8 +431,9 @@ class ACLDirectory extends Sabre\DAV\FS\Directory implements Sabre\DAVACL\IACL {
         foreach(scandir($this-&gt;path) as $file) {
 
             if ($file==='.' || $file==='..') {
-                $result[] = $this-&gt;getChild($file);
+                continue;
             }
+            $result[] = $this-&gt;getChild($file);
 
         }
 

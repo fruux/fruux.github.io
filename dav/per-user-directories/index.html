@@ -220,7 +220,7 @@ at that point in time.</p>
 <h2>The simple solution</h2>
 
 <p>The authentication plugin only starts doing work <em>after</em> the server has been
-started with <code>$server-&gt;exec()</code>. The easiest way to work around this, is by 
+started with <code>$server-&gt;exec()</code>. The easiest way to work around this, is by
 injecting the <code>$authPlugin</code> into our earlier <code>HomeCollection</code> class.</p>
 
 <pre><code>&lt;?php
@@ -289,7 +289,7 @@ to these two classes:</p>
 <li>Sabre\DAV\FS\File</li>
 </ul>
 
-<p>Since we want to simply base our nodes on <code>Sabre\DAV\FS\Directory</code> and 
+<p>Since we want to simply base our nodes on <code>Sabre\DAV\FS\Directory</code> and
 <code>Sabre\DAV\FS\File</code>, but we need to add 5 identical methods from
 <code>Sabre\DAVACL\IACL</code> to both of them, the fastest way to do this, is a trait:</p>
 
@@ -350,7 +350,7 @@ trait ACLTrait {
                 'principal' =&gt; '{DAV:}owner',
                 'protected' =&gt; true,
             ]
-        ]; 
+        ];
 
     }
 
@@ -395,6 +395,8 @@ trait ACLTrait {
 
 namespace MyServer;
 
+use Sabre\DAV\Exception\NotFound;
+
 class ACLDirectory extends Sabre\DAV\FS\Directory implements Sabre\DAVACL\IACL {
 
     use AclTrait;
@@ -403,6 +405,38 @@ class ACLDirectory extends Sabre\DAV\FS\Directory implements Sabre\DAVACL\IACL {
 
         parent::__construct($path);
         $this-&gt;owner = $owner;
+
+    }
+
+    function getChild($name) {
+
+        $path = $this-&gt;path . '/' . $name;
+
+        if (!file_exists($path)) throw new NotFound('File with name ' . $path . ' could not be located');
+
+        if (is_dir($path)) {
+
+            return new ACLDirectory($path);
+
+        } else {
+
+            return new ACLFile($path);
+
+        }
+    }
+
+    function getChildren() {
+
+        $result = [];
+        foreach(scandir($this-&gt;path) as $file) {
+
+            if ($file==='.' || $file==='..') {
+                $result[] = $this-&gt;getChild($file);
+            }
+
+        }
+
+        return $result;
 
     }
 

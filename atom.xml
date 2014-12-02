@@ -3,7 +3,7 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-12-02T23:18:55+00:00</updated>
+    <updated>2014-12-02T23:22:09+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -17,7 +17,7 @@
   <p>How do I create private directories on a WebDAV server.</p>
 </blockquote>
 
-<p>Doing this is not extremely obvious, and there's a few issues that people
+<p>Doing this is not extremely obvious, and there are a few issues that people
 quickly run into when attempting this.</p>
 
 <p>We've added a new <a href="/dav/per-user-directories/">tutorial</a> to our website specifically to explain this,

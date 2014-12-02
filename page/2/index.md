@@ -58,6 +58,35 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
+            <time>November 19th, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.4-release">sabre/vobject 3.3.4 release</a></h1>
+            <p>We just released sabre/vobject 3.3.4.</p>
+
+<p>This release adds:</p>
+
+<ol>
+<li>Converting <code>ANNIVERSARY</code> to <code>X-ABDATE</code> and <code>X-ANNIVERSARY</code> when converting
+between vCard 3.0 and 4.0.</li>
+<li>Reference-timezone support to the recurrence iterator, free-busy generator,
+and <code>DATE-TIME</code> and <code>DATE</code> properties for dealing with all-day events and
+floating times.</li>
+</ol>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>If this didn't upgrade you to 3.3.4, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/vobject" : "~3.3.4"
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.3.4/ChangeLog.md">Github</a>.</p>
+
+        </article>
+        <hr />            <article class="blog-entry">
             <time>October 14th, 2014</time>
             <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.5-release">sabre/dav 2.0.5 release</a></h1>
             <p>We just released sabre/dav 2.0.5. Upgrading is highly recommended.</p>
@@ -100,30 +129,6 @@ and brings its functionality up to par with <code>EventEmitter::on()</code>.</p>
 has a line that looks like this:</p>
 
 <pre><code>"sabre/event" : "~2.0.1"
-</code></pre>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>October 9th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.3-release">sabre/vobject 3.3.3 release</a></h1>
-            <p>We just released sabre/vobject 3.3.3.</p>
-
-<p>This release has additional fixes and improvements for the <a href="/vobject/itip/">iTip</a>
-subsystem.</p>
-
-<p>This release also works around a PHP bug that would otherwise spam your php
-error log file with 'invalid timezone' exceptions and has support for the
-"Line Islands Standard Time" timezone coming from Microsoft products.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.3.3, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.3.3"
 </code></pre>
 
         </article>

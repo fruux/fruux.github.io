@@ -58,6 +58,30 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
+            <time>October 9th, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.3-release">sabre/vobject 3.3.3 release</a></h1>
+            <p>We just released sabre/vobject 3.3.3.</p>
+
+<p>This release has additional fixes and improvements for the <a href="/vobject/itip/">iTip</a>
+subsystem.</p>
+
+<p>This release also works around a PHP bug that would otherwise spam your php
+error log file with 'invalid timezone' exceptions and has support for the
+"Line Islands Standard Time" timezone coming from Microsoft products.</p>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>If this didn't upgrade you to 3.3.3, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/vobject" : "~3.3.3"
+</code></pre>
+
+        </article>
+        <hr />            <article class="blog-entry">
             <time>September 23rd, 2014</time>
             <h1><a href="http://sabre.io/blog/2014/sabre-http-3.0.0-release">sabre/http 3.0.0 release</a></h1>
             <p>We just released sabre/http 3.0.0.</p>
@@ -150,33 +174,6 @@ has a line that looks like this:</p>
 
 <pre><code>"sabre/vobject" : "~3.3.2"
 </code></pre>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>August 27th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.4-release">sabre/dav 2.0.4 release</a></h1>
-            <p>We just released sabre/dav 2.0.4.</p>
-
-<p>This releases has a number of improvements, namely:</p>
-
-<ol>
-<li>PostgresSQL files have been corrected. Note that while we ship postgres
-files, it is not an officially supported database.</li>
-<li>After nodes had been deleted, locks were not automatically removed. This was
-problematic, because re-creating a node could cause it to be locked
-instantly. This is now fixed.</li>
-<li>There were some problems with both the default Cal- and CardDAV PDO
-backends, when the 'Sync' plugin is not enabled. This is now resolved.</li>
-</ol>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.4/ChangeLog.md">Github</a></p>
 
         </article>
             </section>

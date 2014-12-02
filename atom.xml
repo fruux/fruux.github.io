@@ -3,9 +3,30 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-12-01T20:51:12+00:00</updated>
+    <updated>2014-12-02T22:59:32+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[New tutorial: Per-user directories]]></title>
+            <link href="http://sabre.io/blog/2014/per-user-directories-tutorial"/>
+            <updated>2014-12-02T22:58:11+00:00</updated>
+            <id>http://sabre.io/blog/2014/per-user-directories-tutorial</id>
+            <content type="html"><![CDATA[<p>A commonly asked question on the mailing list, is:</p>
+
+<blockquote>
+  <p>How do I create private directories on a WebDAV server.</p>
+</blockquote>
+
+<p>Doing this is not extremely obvious, and there's a few issues that people
+quickly run into when attempting this.</p>
+
+<p>We've added a new <a href="/dav/per-user-directories/">tutorial</a> to our website specifically to explain this,
+with both a 'simple way' of doing this, and a more advanced way, using
+WebDAV-ACL.</p>
+
+<p>Hopefully it's useful!</p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.1.1 release]]></title>
             <link href="http://sabre.io/blog/2014/sabre-dav-2.1.1-release"/>
@@ -347,37 +368,6 @@ backends, when the 'Sync' plugin is not enabled. This is now resolved.</li>
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.4/ChangeLog.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 3.3.1 release]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-vobject-3.3.1-release"/>
-            <updated>2014-08-18T19:39:02+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-vobject-3.3.1-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.3.1.</p>
-
-<p>Several bugs have been found in 3.3.0, all mostly related to the newly
-introduced <a href="/vobject/itip/">iTip</a> functionality.</p>
-
-<p>This release also adds a new feature that allows people to specify new
-DATE-TIME values by passing PHP <a href="http://ca2.php.net/manual/en/class.datetime.php">DateTime</a> objects as such:</p>
-
-<pre><code>$vevent-&gt;DTSTART = new DateTime('...');
-</code></pre>
-
-<p>This was already possible in a lot of other places, but somehow this was
-missed for the 'magic property setter'.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.3.1, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.3.1"
-</code></pre>
 ]]></content>
         </entry>
     </feed>

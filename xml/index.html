@@ -58,7 +58,7 @@
 </aside>
                 <article>
                             <h1>sabre/xml</h1>
-                <p>An XML library for PHP you may not hate, sabre/xml is the simplexml for 2014.</p>
+                <p><em>An XML library for PHP you may not hate.</em></p>
 
 <p>If you are writing or consuming API's in PHP, chances are that you need to
 work with xml. In some cases you may even prefer it.</p>
@@ -71,18 +71,18 @@ strictly use xml namespaces everywhere.</p>
 code, or you may simply generate your xml by <code>echo</code>ing strings, knowing that
 it may not be the best idea.</p>
 
-<p>sabre/xml hopes to solve your issues, by wrapping <code>[XMLReader][3]</code> and
-<code>[XMLWriter][4]</code>, and providing standard design patterns around:</p>
+<p>sabre/xml hopes to solve your issues, by wrapping <a href="http://php.net/manual/en/book.xmlreader.php"><code>XMLReader</code></a> and
+<a href="http://php.net/manual/en/book.xmlwriter.php"><code>XMLWriter</code></a>, and providing standard design patterns around:</p>
 
 <ol>
 <li>Quickly generating XML based on simple array structures.</li>
-<li>Providing a simple xml-to-object mapping structure.</li>
+<li>Providing a super simple xml-to-object mapping.</li>
 <li>Re-usability of parsers.</li>
 </ol>
 
 <h2>Generating XML</h2>
 
-<p>Genering XML largely follows the <a href="http://php.net/manual/en/book.xmlwriter.php">XMLWriter</a> api, but a lot of useful
+<p>Genering XML largely follows the <a href="http://php.net/manual/en/book.xmlwriter.php"><code>XMLWriter</code></a> api, but a lot of useful
 features have been tacked on.</p>
 
 <pre><code>$xmlWriter = new Sabre\Xml\Writer();
@@ -107,9 +107,9 @@ $xmlWriter-&gt;write(['{http://example.org}book' =&gt; [
 </code></pre>
 
 <p>You can serialize objects by implementing <code>Sabre\Xml\XmlSerializable</code>. This
-interface is designed to work identical to PHP 5.5's <a href="http://php.net/manual/en/class.jsonserializable.php">JsonSerializable</a>.</p>
+interface is designed to work identical to PHP 5.5's <a href="http://php.net/manual/en/class.jsonserializable.php"><code>JsonSerializable</code></a>.</p>
 
-<h2>A simple parser example</h2>
+<h2>Parsing XML.</h2>
 
 <pre><code>&lt;?php
 
@@ -154,8 +154,8 @@ of the <code>article</code> xml node as a key-value structure.</p>
 simpler.</p>
 
 <p>The parser comes with a few parsing strategies for common needs, and you can
-easily create your own by creating your own deserializer classes, or just by
-proving a callback:</p>
+easily create your own by writing deserializer classes, or just by proving a
+callback:</p>
 
 <pre><code>$reader-&gt;elementMap = [
     '{http://example.org/}article' =&gt; function(Sabre\Xml\Reader $reader) {

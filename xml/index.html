@@ -50,7 +50,9 @@
         <li><a href="http://sabre.io/xml">sabre/xml</a>
                         <ul>
                 <li><a href="http://sabre.io/xml/">Introduction</a></li>
-                <li><a href="http://sabre.io/xml/install">Installation</a></li>
+                <li><a href="http://sabre.io/xml/install/">Installation</a></li>
+                <li><a href="http://sabre.io/xml/reading/">Reading XML</a></li>
+                <li><a href="http://sabre.io/xml/writing/">Writing XML</a></li>
             </ul>
                     </li>
         <li><a href="http://sabre.io/license">License</a></li>
@@ -80,7 +82,7 @@ it may not be the best idea.</p>
 <li>Re-usability of parsers.</li>
 </ol>
 
-<h2>Generating XML</h2>
+<h2>Writing XML</h2>
 
 <p>Genering XML largely follows the <a href="http://php.net/manual/en/book.xmlwriter.php"><code>XMLWriter</code></a> api, but a lot of useful
 features have been tacked on.</p>
@@ -91,9 +93,9 @@ $xmlWriter-&gt;startDocument();
 $xmlWriter-&gt;setIndent(true);
 $xmlWriter-&gt;namespaceMap = ['http://example.org' =&gt; 'b'];
 
-$xmlWriter-&gt;write(['{http://example.org}book' =&gt; [ 
+$xmlWriter-&gt;write(['{http://example.org}book' =&gt; [
     '{http://example.org}title' =&gt; 'Cryptonomicon',
-    '{http://example.org}author' =&gt; 'Neil Stephenson', 
+    '{http://example.org}author' =&gt; 'Neil Stephenson',
 ]]);
 </code></pre>
 
@@ -109,7 +111,9 @@ $xmlWriter-&gt;write(['{http://example.org}book' =&gt; [
 <p>You can serialize objects by implementing <code>Sabre\Xml\XmlSerializable</code>. This
 interface is designed to work identical to PHP 5.5's <a href="http://php.net/manual/en/class.jsonserializable.php"><code>JsonSerializable</code></a>.</p>
 
-<h2>Parsing XML.</h2>
+<p><a href="/xml/reading/">Read all the details here</a>.</p>
+
+<h2>Reading XML</h2>
 
 <pre><code>&lt;?php
 
@@ -163,6 +167,8 @@ callback:</p>
     }
 ];
 </code></pre>
+
+<p><a href="/xml/writing/">Read all the details here</a>.</p>
             
             
                             <hr />

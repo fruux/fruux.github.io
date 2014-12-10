@@ -58,24 +58,6 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
-            <time>November 22nd, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1.1-release">sabre/dav 2.1.1 release</a></h1>
-            <p>We just released sabre/dav 2.1.1. Upgrading is highly recommended.</p>
-
-<p>Two new bugs were found and fixed quickly after the 2.1 release two days ago,
-one related to the database migration process and one related to <a href="/dav/scheduling/">iMip</a>.</p>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.1/ChangeLog.md">Github</a></p>
-
-        </article>
-        <hr />            <article class="blog-entry">
             <time>November 20th, 2014</time>
             <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1-release">sabre/dav 2.1 released</a></h1>
             <p>We just released sabre/dav version 2.1. This release comes about 6 months
@@ -188,6 +170,32 @@ has a line that looks like this:</p>
 </code></pre>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.3.4/ChangeLog.md">Github</a>.</p>
+
+        </article>
+        <hr />            <article class="blog-entry">
+            <time>October 14th, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.5-release">sabre/dav 2.0.5 release</a></h1>
+            <p>We just released sabre/dav 2.0.5. Upgrading is highly recommended.</p>
+
+<p>This release has an important bugfix. <code>If-Modified-Since</code> was not handled
+correctly, as we were not sending back 304 statuses, but 200 instead.</p>
+
+<p>This could lead clients to believe that their local cache was expired and the
+new resource being empty, which in turn makes data-loss a possibility.</p>
+
+<p>In addition to that, the zip also ships with <a href="/vobject/">vobject</a> 3.3.3, which solves
+a problem a lot of people have been having with timezone-related errors being
+spammed to the PHP error log. Note that this is a PHP bug, but we've provided
+a workaround.</p>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.5/ChangeLog.md">Github</a></p>
 
         </article>
             </section>

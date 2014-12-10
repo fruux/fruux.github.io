@@ -59,6 +59,26 @@ An open source CardDAV, CalDAV and WebDAV server.
     <h1>News</h1>
             <article class="blog-entry">
             <time>June 12th, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.2-release">sabre/dav 2.0.2 release</a></h1>
+            <p>We just released sabre/dav 2.0.2.</p>
+
+<p>Several bugs have been fixed in files from the <code>examples/</code> directory, and
+more notably: the dependencies in the zip distribution have been updated,
+which, among other things, fixes compatibility with PHP versions older than
+5.4.14.</p>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0/ChangeLog.md">Github</a></p>
+
+        </article>
+        <hr />            <article class="blog-entry">
+            <time>June 12th, 2014</time>
             <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.3-release">sabre/vobject 3.2.3 release</a></h1>
             <p>We just released sabre/vobject 3.2.3.</p>
 
@@ -85,27 +105,6 @@ to work on PHP versions older than 5.4.14.</p>
 </code></pre>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-event/blob/master/ChangeLog">Github</a></p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>June 2nd, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/jcal-rfc">jCal released as rfc7265</a></h1>
-            <p>The IETF just made <a href="http://tools.ietf.org/html/rfc7265">jCal</a> available as <a href="http://tools.ietf.org/html/rfc7265">rfc7265</a></p>
-
-<p>jCal is a format to encode <a href="http://tools.ietf.org/html/rfc5545">iCalendar</a>, but instead of using the clumsy, and
-old 'mimedir' format, it uses <a href="http://www.json.org/">JSON</a> to encode the data.</p>
-
-<p>This is very similar to <a href="http://tools.ietf.org/html/rfc7095">jCard</a>, which is the json-encoded version of
-vCards.</p>
-
-<p>We're big fans of this new format. It can already be parsed by <a href="/vobject/json/">vobject</a>
-and if you're running sabre/dav 2.0, the server can already emit it from REPORT
-and GET requests and accept it from PUT requests.</p>
-
-<p>We recommend everyone in the industry to consider generating jCal where they
-are generating iCalendar today. It's a lot easier to parse and generate, and
-we hope that over time, jCal and jCard replace iCalendar and vCard as the
-format of choice.</p>
 
         </article>
             </section>

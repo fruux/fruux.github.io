@@ -3,9 +3,33 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-12-10T21:48:20+00:00</updated>
+    <updated>2014-12-10T21:58:46+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 2.1.2 released]]></title>
+            <link href="http://sabre.io/blog/2014/sabre-dav-2.1.2-released"/>
+            <updated>2014-12-10T21:58:08+00:00</updated>
+            <id>http://sabre.io/blog/2014/sabre-dav-2.1.2-released</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.2.</p>
+
+<p>This release fixes a problem with the migration script, which could cause
+scheduling not to work for events that were created before upgrading to
+2.1.</p>
+
+<p>It also fixes a bug that caused freebusy requests to fail for people with
+no calendars, and a small problem in the browser plugin.</p>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.2/ChangeLog.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.0.6 released]]></title>
             <link href="http://sabre.io/blog/2014/sabre-dav-2.0.6-released"/>
@@ -281,32 +305,6 @@ and brings its functionality up to par with <code>EventEmitter::on()</code>.</p>
 has a line that looks like this:</p>
 
 <pre><code>"sabre/event" : "~2.0.1"
-</code></pre>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 3.3.3 release]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-vobject-3.3.3-release"/>
-            <updated>2014-10-09T16:15:37+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-vobject-3.3.3-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.3.3.</p>
-
-<p>This release has additional fixes and improvements for the <a href="/vobject/itip/">iTip</a>
-subsystem.</p>
-
-<p>This release also works around a PHP bug that would otherwise spam your php
-error log file with 'invalid timezone' exceptions and has support for the
-"Line Islands Standard Time" timezone coming from Microsoft products.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.3.3, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.3.3"
 </code></pre>
 ]]></content>
         </entry>

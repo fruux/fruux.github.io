@@ -3,9 +3,29 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-12-10T21:36:54+00:00</updated>
+    <updated>2014-12-10T21:44:23+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 1.8.11 release]]></title>
+            <link href="http://sabre.io/blog/2014/sabre-dav-1.8.11-release"/>
+            <updated>2014-12-10T21:07:58+00:00</updated>
+            <id>http://sabre.io/blog/2014/sabre-dav-1.8.11-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 1.8.11.</p>
+
+<p>This release ships with the sabre/vobject 2.1.6, which fixes some issues with
+parameter escaping. It also fixes a small issue in the DAV client.</p>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/1.8.11/ChangeLog">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/http 3.0.4 release]]></title>
             <link href="http://sabre.io/blog/2014/sabre-http-3.0.4-release"/>
@@ -340,31 +360,6 @@ use.</p>
 still a draft, and there's still time.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/3.0.0/ChangeLog.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 3.3.2 release]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-vobject-3.3.2-release"/>
-            <updated>2014-09-19T18:58:12+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-vobject-3.3.2-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.3.2.</p>
-
-<p>Further in-depth testing of the <a href="/vobject/itip/">iTip</a> subsystem has revealed a <em>lot</em> of
-small edge-cases that weren't properly covered.</p>
-
-<p>In addition, we now correctly decode <code>ATTACH</code> properties in iCalendar objects
-that are specified as a URI, and fixed a few validator rules.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.3.2, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.3.2"
-</code></pre>
 ]]></content>
         </entry>
     </feed>

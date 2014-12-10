@@ -58,6 +58,24 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
+            <time>December 2nd, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/per-user-directories-tutorial">New tutorial: Per-user directories</a></h1>
+            <p>A commonly asked question on the mailing list, is:</p>
+
+<blockquote>
+  <p>How do I create private directories on a WebDAV server.</p>
+</blockquote>
+
+<p>Doing this is not extremely obvious, and there are a few issues that people
+quickly run into.</p>
+
+<p>We've added a new <a href="/dav/per-user-directories/">tutorial</a> to our website explaining a 'simple way' of doing this,
+and also a more advanced way, using WebDAV-ACL.</p>
+
+<p>Hopefully it's useful!</p>
+
+        </article>
+        <hr />            <article class="blog-entry">
             <time>November 22nd, 2014</time>
             <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1.1-release">sabre/dav 2.1.1 release</a></h1>
             <p>We just released sabre/dav 2.1.1. Upgrading is highly recommended.</p>
@@ -159,35 +177,6 @@ version 2.0 of sabre/dav will be actively maintained for the next 12 months.</p>
 on the <a href="http://sabre.io/dav/upgrading/">upgrade</a> page.</p>
 
 <p><strong>Thank you!</strong></p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>November 19th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.4-release">sabre/vobject 3.3.4 release</a></h1>
-            <p>We just released sabre/vobject 3.3.4.</p>
-
-<p>This release adds:</p>
-
-<ol>
-<li>Converting <code>ANNIVERSARY</code> to <code>X-ABDATE</code> and <code>X-ANNIVERSARY</code> when converting
-between vCard 3.0 and 4.0.</li>
-<li>Reference-timezone support to the recurrence iterator, free-busy generator,
-and <code>DATE-TIME</code> and <code>DATE</code> properties for dealing with all-day events and
-floating times.</li>
-</ol>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.3.4, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.3.4"
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.3.4/ChangeLog.md">Github</a>.</p>
 
         </article>
             </section>

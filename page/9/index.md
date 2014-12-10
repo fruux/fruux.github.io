@@ -58,6 +58,18 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
+            <time>May 28th, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/sabredav-2.0.1-release">sabre/dav 2.0.1 released</a></h1>
+            <p>We just released sabre/dav 2.0.1. Two regressions have been found related
+to PROPFIND requests.</p>
+
+<p>Upgrade if you're having compatiblity problems. The Windows 7 client in
+particular had issues.</p>
+
+<p>Run <code>composer update sabre/dav</code>, or <a href="https://github.com/fruux/sabre-dav/releases/tag/2.0.1">Download</a> the new zip from GitHub.</p>
+
+        </article>
+        <hr />            <article class="blog-entry">
             <time>May 22nd, 2014</time>
             <h1><a href="http://sabre.io/blog/2014/sabredav-2-release">sabre/dav 2.0 released</a></h1>
             <p>We just released sabre/dav 2.0. The last major release (1.8) was in <a href="http://evertpot.com/sabredav-18-released-with-namespaces/">2012</a>,
@@ -225,41 +237,6 @@ timezones.</p>
 line.</p>
 
 <p>The zip files can be found on <a href="https://github.com/fruux/sabre-dav/releases">github</a>.</p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>April 2nd, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/vobject-3.2">sabre/vobject 3.2 released</a></h1>
-            <p>We just released sabre/vobject 3.2.0. This release is backwards compatible
-with the 3.1.* series.</p>
-
-<p>New features:</p>
-
-<ul>
-<li>We are now fully <a href="http://hhvm.com/">hhvm</a> compatible. If you're running a recent hhvm
-version, everything should work as expected. From this point forward, we
-will also actively support hhvm.</li>
-<li>The validator now understands a lot more validation rules. So using it now,
-either with the API, or on the command-line, should yield a lot more
-information.</li>
-<li>Support for a range of new timezone identifiers.</li>
-<li>Support for additional vcard properties from <a href="http://tools.ietf.org/html/rfc6715">rfc6715</a> and <a href="http://tools.ietf.org/html/rfc6474.">rfc6474</a>.</li>
-<li>Added a <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a> utility, for easily generating unique strings for use in
-<code>UID</code> properties.</li>
-<li>Support for <code>BYMONTH</code> on <code>DAILY</code> recurrences.</li>
-<li>Automatically fix broken vcards from Google's CardDAV server.</li>
-</ul>
-
-<p>We hope you like it! To upgrade with composer, make sure that your
-<code>composer.json</code> has a line that says:</p>
-
-<pre><code>"sabre/vobject" : "~3.2"
-</code></pre>
-
-<p>And then run:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
 
         </article>
             </section>

@@ -63,28 +63,28 @@
                 <p><em>An XML library for PHP you may not hate.</em></p>
 
 <p>If you are writing or consuming API's in PHP, chances are that you need to
-work with xml. In some cases you may even prefer it.</p>
+work with XML. In some cases you may even prefer it.</p>
 
 <p>You may have started with <a href="http://php.net/manual/en/book.simplexml.php">SimpleXML</a> and after a while switched to using
 <a href="http://ca2.php.net/manual/en/book.dom.php">the DOM</a> after realizing SimpleXML is really not that simple if you
 strictly use xml namespaces everywhere.</p>
 
 <p>For writing XML, you may have found that using the DOM requires far too much
-code, or you may simply generate your xml by <code>echo</code>ing strings, knowing that
+code, or you may simply generate your XML by <code>echo</code>ing strings, knowing that
 it may not be the best idea.</p>
 
 <p>sabre/xml hopes to solve your issues, by wrapping <a href="http://php.net/manual/en/book.xmlreader.php"><code>XMLReader</code></a> and
 <a href="http://php.net/manual/en/book.xmlwriter.php"><code>XMLWriter</code></a>, and providing standard design patterns around:</p>
 
 <ol>
-<li>Quickly generating XML based on simple array structures.</li>
-<li>Providing a super simple xml-to-object mapping.</li>
+<li>Quickly generating XML based on simple array structures,</li>
+<li>Providing a super simple XML-to-object mapping,</li>
 <li>Re-usability of parsers.</li>
 </ol>
 
 <h2>Writing XML</h2>
 
-<p>Genering XML largely follows the <a href="http://php.net/manual/en/book.xmlwriter.php"><code>XMLWriter</code></a> api, but a lot of useful
+<p>Generating XML largely follows the <a href="http://php.net/manual/en/book.xmlwriter.php"><code>XMLWriter</code></a> API, but a lot of useful
 features have been tacked on.</p>
 
 <pre><code>$xmlWriter = new Sabre\Xml\Writer();
@@ -152,13 +152,13 @@ print_r($reader-&gt;parse());
 </code></pre>
 
 <p>The key in the last example, is that we tell the parser to treat the contents
-of the <code>article</code> xml node as a key-value structure.</p>
+of the <code>article</code> XML node as a key-value structure.</p>
 
 <p>This is optional, but by adding this hint the resulting output becomes a lot
 simpler.</p>
 
 <p>The parser comes with a few parsing strategies for common needs, and you can
-easily create your own by writing deserializer classes, or just by proving a
+easily create your own by writing deserializer classes, or just by providing a
 callback:</p>
 
 <pre><code>$reader-&gt;elementMap = [

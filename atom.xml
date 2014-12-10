@@ -3,9 +3,36 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2014-12-09T22:15:54+00:00</updated>
+    <updated>2014-12-10T20:21:36+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/http 3.0.4 release]]></title>
+            <link href="http://sabre.io/blog/2014/sabre-http-3.0.4-release"/>
+            <updated>2014-12-10T20:21:04+00:00</updated>
+            <id>http://sabre.io/blog/2014/sabre-http-3.0.4-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/http 3.0.4.</p>
+
+<p>This release fixes a small bug that made it impossible to support multiple
+authentication schemes at the same time (for instance supporting both Basic
+and Digest at the same end-point).</p>
+
+<p>Updating is only required for people that want to use this feature.</p>
+
+<p>Upgrade sabre/http by running:</p>
+
+<pre><code>composer update sabre/http
+</code></pre>
+
+<p>If this didn't upgrade you to 3.0.4, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/http" : "~3.0.4"
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/3.0.4/ChangeLog.md">Github</a>.</p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[New tutorial: Per-user directories]]></title>
             <link href="http://sabre.io/blog/2014/per-user-directories-tutorial"/>
@@ -338,35 +365,6 @@ has a line that looks like this:</p>
 
 <pre><code>"sabre/vobject" : "~3.3.2"
 </code></pre>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 2.0.4 release]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-dav-2.0.4-release"/>
-            <updated>2014-08-27T17:25:22+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-dav-2.0.4-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 2.0.4.</p>
-
-<p>This releases has a number of improvements, namely:</p>
-
-<ol>
-<li>PostgresSQL files have been corrected. Note that while we ship postgres
-files, it is not an officially supported database.</li>
-<li>After nodes had been deleted, locks were not automatically removed. This was
-problematic, because re-creating a node could cause it to be locked
-instantly. This is now fixed.</li>
-<li>There were some problems with both the default Cal- and CardDAV PDO
-backends, when the 'Sync' plugin is not enabled. This is now resolved.</li>
-</ol>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.4/ChangeLog.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

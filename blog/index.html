@@ -40,6 +40,31 @@
                 <article>
                             <h1>Blog</h1>
                 <article class="blog-entry">
+    <time>December 10th, 2014</time>
+    <h1><a href="http://sabre.io/blog/2014/sabre-http-3.0.4-release">sabre/http 3.0.4 release</a></h1>
+    <p>We just released sabre/http 3.0.4.</p>
+
+<p>This release fixes a small bug that made it impossible to support multiple
+authentication schemes at the same time (for instance supporting both Basic
+and Digest at the same end-point).</p>
+
+<p>Updating is only required for people that want to use this feature.</p>
+
+<p>Upgrade sabre/http by running:</p>
+
+<pre><code>composer update sabre/http
+</code></pre>
+
+<p>If this didn't upgrade you to 3.0.4, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/http" : "~3.0.4"
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/3.0.4/ChangeLog.md">Github</a>.</p>
+
+</article>
+<hr /><article class="blog-entry">
     <time>December 2nd, 2014</time>
     <h1><a href="http://sabre.io/blog/2014/per-user-directories-tutorial">New tutorial: Per-user directories</a></h1>
     <p>A commonly asked question on the mailing list, is:</p>

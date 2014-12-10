@@ -59,6 +59,26 @@ An open source CardDAV, CalDAV and WebDAV server.
     <h1>News</h1>
             <article class="blog-entry">
             <time>October 9th, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0.1-release">sabre/event 2.0.1 release</a></h1>
+            <p>We just released sabre/event 2.0.1.</p>
+
+<p>This release fixes two issues related to the <code>EventEmitter::once()</code> method,
+and brings its functionality up to par with <code>EventEmitter::on()</code>.</p>
+
+<p>Upgrade sabre/event by running:</p>
+
+<pre><code>composer update sabre/event
+</code></pre>
+
+<p>If this didn't upgrade you to 2.0.1, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/event" : "~2.0.1"
+</code></pre>
+
+        </article>
+        <hr />            <article class="blog-entry">
+            <time>October 9th, 2014</time>
             <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.3-release">sabre/vobject 3.3.3 release</a></h1>
             <p>We just released sabre/vobject 3.3.3.</p>
 
@@ -151,29 +171,6 @@ use.</p>
 still a draft, and there's still time.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/3.0.0/ChangeLog.md">Github</a></p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>September 19th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.2-release">sabre/vobject 3.3.2 release</a></h1>
-            <p>We just released sabre/vobject 3.3.2.</p>
-
-<p>Further in-depth testing of the <a href="/vobject/itip/">iTip</a> subsystem has revealed a <em>lot</em> of
-small edge-cases that weren't properly covered.</p>
-
-<p>In addition, we now correctly decode <code>ATTACH</code> properties in iCalendar objects
-that are specified as a URI, and fixed a few validator rules.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.3.2, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.3.2"
-</code></pre>
 
         </article>
             </section>

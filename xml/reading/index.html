@@ -64,12 +64,12 @@
 PHP's built-in <a href="http://php.net/manual/en/book.xmlreader.php"><code>XMLReader</code></a> class.</p>
 
 <p>The reader is extended quite a bit. So while you can find the exact same API
-methods as in PHP's class, the way you interact with the Reader will likely
-look very different.</p>
+methods as in PHP's class, the way you interact with the reader will likely
+look different.</p>
 
 <h2>Converting XML to a PHP array</h2>
 
-<p>Lets take the following XML as our primary example.</p>
+<p>Let's take the following XML as our primary example.</p>
 
 <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;books xmlns="http://example.org/books"&gt;
@@ -84,7 +84,7 @@ look very different.</p>
 &lt;/books&gt;
 </code></pre>
 
-<p>To convert this xml to a PHP array, we can just run this:</p>
+<p>To convert this XML to a PHP array, we can just run this:</p>
 
 <pre><code>$reader = new Sabre\Xml\Reader();
 $reader-&gt;xml($xml);
@@ -176,8 +176,8 @@ print_r($reader-&gt;parse());
 
 <h2>Key-Value XML structures</h2>
 
-<p>However, we can simplify this quite a bit. Our 'book' element pretty much
-looks like a key->value structure, so we can tell the parser this:</p>
+<p>However, we can simplify this quite a bit. Our <code>book</code> element pretty much
+looks like a key-value structure, so we can tell the parser this:</p>
 
 <pre><code>$reader = new Sabre\Xml\Reader();
 $reader-&gt;elementMap = [
@@ -236,7 +236,7 @@ print_r($reader-&gt;parse());
 
 <h2>Custom element parsers</h2>
 
-<p>Lets take this one step further... We have a simple class that represents the
+<p>Lets take this one step further… We have a simple class that represents the
 books document:</p>
 
 <pre><code>class Books {
@@ -258,7 +258,7 @@ books document:</p>
 </code></pre>
 
 <p>By refactoring our parser a bit, we can automatically map these classes to
-their respective xml elements:</p>
+their respective XML elements:</p>
 
 <pre><code>$reader = new Sabre\Xml\Reader();
 $reader-&gt;elementMap = [
@@ -327,11 +327,11 @@ print_r($reader-&gt;parse());
 
 <h2>Using element classes</h2>
 
-<p>The last example had 2 custom deserializers. We can also integrate straight
+<p>The last example had 2 custom deserializers. We can also integrate straight
 into the classes they are supposed to deserialize.</p>
 
-<p>The following two classes rebuild the Book and Books classes so they can
-parse themself from an xml document, and also write them in a new document:</p>
+<p>The following two classes rebuild the <code>Book</code> and <code>Books</code> classes so they can
+parse themself from an XML document, and also write them in a new document:</p>
 
 <pre><code>class Books implements Sabre\Xml\Element {
 

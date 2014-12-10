@@ -69,9 +69,9 @@ to use.</p>
 <h2>Automatically apply namespaces</h2>
 
 <p>The <code>startElement</code>, <code>writeElement</code> and <code>writeAttribute</code> methods have been
-changed a bit, so they can accept <a href="/xml/clark-notation/">clark notation</a> for their node names.</p>
+changed a bit, so they can accept <a href="/xml/clark-notation/">Clark notation</a> for their node names.</p>
 
-<p>What this means, is that you can call</p>
+<p>What this means, is that you can call:</p>
 
 <pre><code>$writer-&gt;namespaceMap = [
     '{http://example.org/}foo' =&gt; 'foo',
@@ -93,11 +93,11 @@ been broken in several PHP versions.</p>
 disconnect the 'real xml element name' with the 'human readable prefix'.</p>
 
 <p>Your code should ideally never be aware of the prefix. It's strictly for
-beautifaction of xml.</p>
+beautifaction of XML.</p>
 
 <h2>The <code>write</code> method</h2>
 
-<p>The <code>write</code> method allows you to quickly write complex xml structures.</p>
+<p>The <code>write</code> method allows you to quickly write complex XML structures.</p>
 
 <p>We're explaining this method by example.</p>
 
@@ -279,7 +279,7 @@ $entry-&gt;summary = 'Some text.';
 
 <p>One thing to note from the last example, is that the <code>AtomEntry</code> class does not actually encode it's own 'parent element'. This is a design choice. We feel that it's a best practice for every serializable object to only ever represent a <em>value</em> but not its <em>identity</em>.</p>
 
-<p>This allows serializers to be re-used for different element names, but this starts to make even more sense when you re-use the exact same classes for serialization and deserialization. Deserialization is covered on the <a href="/xml/reading/">reading xml</a> page in the documentation.</p>
+<p>This allows serializers to be re-used for different element names, but this starts to make even more sense when you re-use the exact same classes for serialization and deserialization. Deserialization is covered on the <a href="/xml/reading/">reading XML</a> page in the documentation.</p>
             
             
                             <hr />

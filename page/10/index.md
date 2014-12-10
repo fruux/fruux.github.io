@@ -58,136 +58,21 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
-            <time>November 22nd, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1.1-release">sabre/dav 2.1.1 release</a></h1>
-            <p>We just released sabre/dav 2.1.1. Upgrading is highly recommended.</p>
+            <time>March 31st, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/new-website">New website launched!</a></h1>
+            <p>You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
+never had a proper website, and we've always just hosted from Google Code.</p>
 
-<p>Two new bugs were found and fixed quickly after the 2.1 release two days ago,
-one related to the database migration process and one related to <a href="/dav/scheduling/">iMip</a>.</p>
+<p>As Google slowly started to lose interested in code hosting, we migrated more
+and more features to GitHub. The biggest thing left: the wiki. So what once
+started as a place to host the new wiki, turned into a brand-new design, by
+<a href="https://fruux.com/">our</a> very own Martin Kaniut, who's also responsible for the <a href="https://fruux.com/">fruux</a>
+design.</p>
 
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.1/ChangeLog.md">Github</a></p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>November 20th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1-release">sabre/dav 2.1 released</a></h1>
-            <p>We just released sabre/dav version 2.1. This release comes about 6 months
-after the last major release, so that's nicely on track!</p>
-
-<h2>New features</h2>
-
-<h3>Scheduling</h3>
-
-<p>We finally have support for CalDAV Scheduling (<a href="http://tools.ietf.org/html/rfc6638">rfc6638</a>). Adding
-scheduling to your server means that you can invite attendees to your events,
-and have those invites automatically delivered to other calendars on the
-system.</p>
-
-<p>CalDAV clients that support this will be able to show an invitation interface
-and allow attendees to accept or decline invitations, and have all of this
-processed on the server.</p>
-
-<p>If you're inviting attendees that are not on the server, you can also
-optionally set-up an iMip (<a href="http://tools.ietf.org/html/rfc6047">rfc6047</a>) plugin. This will allow the
-server to send invitation emails on behalf of the user.</p>
-
-<p>For more information, read the <a href="/dav/scheduling/">scheduling</a> documentation.</p>
-
-<h3>vCard 4 support</h3>
-
-<p>In the past, the CardDAV plugin only supported vCard 3.0, which is the vCard
-version that's required for CardDAV and also what most clients use.</p>
-
-<p>Since sabre/dav 2.1, the server also support vCard 4.0 (<a href="http://tools.ietf.org/html/rfc6350">rfc6350</a>).
-vCard 4.0 is a much more modern format, adds a lot of great features, and
-doesn't suffer from many of the problems vCard 3.0 had.</p>
-
-<p>Now if a client stores either a vCard 3 or 4, these vCards will be stored
-as-is, but if a client requests either a vCard 3 or 4 (using
-content-negotation), we will automatically convert the vcard before sending
-it back to the client.</p>
-
-<h3>jCard support</h3>
-
-<p>It's now also possible for clients to request jCard (<a href="http://tools.ietf.org/html/rfc7095">rfc7095</a>).
-jCard is a JSON representation of vCard 4.0.</p>
-
-<p>jCard is much easier to parse than vCard 4.0, so we also highly recommend
-client developers to start supporting this.</p>
-
-<h3>ChangeLog</h3>
-
-<p>A lot of smaller changes have been made since version 2.0. You can find more
-details in the <a href="https://github.com/fruux/sabre-dav/blob/2.1.0/ChangeLog.md">ChangeLog</a>. Read from 2.1.0-alpha1 onwards, as most changes
-have been made in the alpha versions.</p>
-
-<h2>Installation</h2>
-
-<p>As always, the zip can be found on the <a href="https://github.com/fruux/sabre-dav/releases">github releases page</a>, but the
-recommended installation method is using composer:</p>
-
-<pre><code>composer require sabre/dav ~2.1.0
-</code></pre>
-
-<h2>Upgrading</h2>
-
-<p>A few backwards compatibility breaks have been made in this release. Overall
-they should be pretty minor and easy to deal with.</p>
-
-<p>If you are running a standard server, it's likely that you only have to run
-the database upgrade script, but if you did any sort of customizations,
-chances are that you need to make changes in your code to keep stuff running.</p>
-
-<p><strong>Make a backup.</strong> and then head to the <a href="http://sabre.io/dav/upgrade/2.0-to-2.1/">migration instructions</a> for 2.1.</p>
-
-<p>Drop a line on the <a href="http://groups.google.com/group/sabredav-discuss">mailing list</a> if you run into any issues, or
-<a href="http://sabre.io/support/">get in touch with us</a> for our commercial support options.</p>
-
-<h2>Support status</h2>
-
-<p>Due to the 2.1 release, 2.0 now enters maintenance mode. This means that
-version 2.0 of sabre/dav will be actively maintained for the next 12 months.</p>
-
-<p>More information about previous versions and their support status can be found
-on the <a href="http://sabre.io/dav/upgrading/">upgrade</a> page.</p>
-
-<p><strong>Thank you!</strong></p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>November 19th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.4-release">sabre/vobject 3.3.4 release</a></h1>
-            <p>We just released sabre/vobject 3.3.4.</p>
-
-<p>This release adds:</p>
-
-<ol>
-<li>Converting <code>ANNIVERSARY</code> to <code>X-ABDATE</code> and <code>X-ANNIVERSARY</code> when converting
-between vCard 3.0 and 4.0.</li>
-<li>Reference-timezone support to the recurrence iterator, free-busy generator,
-and <code>DATE-TIME</code> and <code>DATE</code> properties for dealing with all-day events and
-floating times.</li>
-</ol>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.3.4, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.3.4"
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.3.4/ChangeLog.md">Github</a>.</p>
+<p>We hope you like it, but since it's such a step up from Google Code, we're
+confident you probably will ;). If you're running into any bugs, definitely
+<a href="https://github.com/fruux/sabre.io/issues">let us know</a>. Want to contribute to the wiki? The entire site is open source, so
+<a href="https://github.com/fruux/sabre.io/tree/master/source">take a look</a> at some of the existing pages and get cracking!</p>
 
         </article>
             </section>
@@ -295,9 +180,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/page/2';
+    var disqus_identifier = '/page/10';
     var disqus_title = '';
-    var disqus_url = 'http://sabre.io/page/2';
+    var disqus_url = 'http://sabre.io/page/10';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

@@ -58,6 +58,35 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
+            <time>August 18th, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.1-release">sabre/vobject 3.3.1 release</a></h1>
+            <p>We just released sabre/vobject 3.3.1.</p>
+
+<p>Several bugs have been found in 3.3.0, all mostly related to the newly
+introduced <a href="/vobject/itip/">iTip</a> functionality.</p>
+
+<p>This release also adds a new feature that allows people to specify new
+DATE-TIME values by passing PHP <a href="http://ca2.php.net/manual/en/class.datetime.php">DateTime</a> objects as such:</p>
+
+<pre><code>$vevent-&gt;DTSTART = new DateTime('...');
+</code></pre>
+
+<p>This was already possible in a lot of other places, but somehow this was
+missed for the 'magic property setter'.</p>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>If this didn't upgrade you to 3.3.1, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/vobject" : "~3.3.1"
+</code></pre>
+
+        </article>
+        <hr />            <article class="blog-entry">
             <time>August 7th, 2014</time>
             <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.0-release">sabre/vobject 3.3.0 release</a></h1>
             <p>We just released sabre/vobject 3.3.0!</p>
@@ -153,29 +182,6 @@ of the changes.</p>
 <p>Keep in mind though that version 2.0 of sabre/dav is also already released. If
 you are upgrading, you're highly encouraged to take that additional upgrade
 step. Version 2.0 has its own <a href="http://sabre.io/dav/upgrade/1.8-to-2.0/">migration instructions</a>.</p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>July 14th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.3-release">sabre/dav 2.0.3 release</a></h1>
-            <p>We just released sabre/dav 2.0.3.</p>
-
-<p>A number of problems were found in the revamped browser plugin, related to
-generating links, and for a number of people none of the css and images
-would load due to incorrect CSP rules.</p>
-
-<p>In addition we found out that the <code>TooMuchMatches</code> exception never worked
-due to a fatal error, so while fixing that, we also took the opportunity to
-change the name of the exception to <code>TooManyMatches</code>. Don't laugh.</p>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0/ChangeLog.md">Github</a></p>
 
         </article>
             </section>

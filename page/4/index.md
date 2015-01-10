@@ -58,6 +58,32 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
+            <time>October 14th, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.5-release">sabre/dav 2.0.5 release</a></h1>
+            <p>We just released sabre/dav 2.0.5. Upgrading is highly recommended.</p>
+
+<p>This release has an important bugfix. <code>If-Modified-Since</code> was not handled
+correctly, as we were not sending back 304 statuses, but 200 instead.</p>
+
+<p>This could lead clients to believe that their local cache was expired and the
+new resource being empty, which in turn makes data-loss a possibility.</p>
+
+<p>In addition to that, the zip also ships with <a href="/vobject/">vobject</a> 3.3.3, which solves
+a problem a lot of people have been having with timezone-related errors being
+spammed to the PHP error log. Note that this is a PHP bug, but we've provided
+a workaround.</p>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.5/ChangeLog.md">Github</a></p>
+
+        </article>
+        <hr />            <article class="blog-entry">
             <time>October 9th, 2014</time>
             <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0.1-release">sabre/event 2.0.1 release</a></h1>
             <p>We just released sabre/event 2.0.1.</p>
@@ -99,78 +125,6 @@ has a line that looks like this:</p>
 
 <pre><code>"sabre/vobject" : "~3.3.3"
 </code></pre>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>September 23rd, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-http-3.0.0-release">sabre/http 3.0.0 release</a></h1>
-            <p>We just released sabre/http 3.0.0.</p>
-
-<p>We introduced several API breaking changes, so a major version change was
-warranted.</p>
-
-<p>In particular, we modified the API to be closer to the draft version of
-<a href="https://github.com/php-fig/fig-standards/blob/master/proposed/http-message.md">psr/http</a>.</p>
-
-<p>psr/http is an upcoming standard for PHP development that should unify how we
-represent HTTP requests and responses in PHP.</p>
-
-<p>There were several good ideas in this spec, in particular how HTTP headers
-are treated, especially when there are multiple headers with the same name,
-which is something sabre/http dealt poorly with (not at all).</p>
-
-<h2>Changes</h2>
-
-<ul>
-<li>Switched to a PSR-4 directory structure in <code>lib/</code>. This means all classes
-are now in <code>lib/</code> instead of <code>lib/Sabre/HTTP</code>. This should not change a
-thing if you use the composer autoloader.</li>
-<li><code>::setHeaders()</code> used to delete all previous http headers. This is no longer
-the case, new headers will simply be added to the existing ones.</li>
-<li>Added <code>::getHeaderAsArray()</code>. This method returns a single http header. If
-multiple headers with the same name were specified, each value will be an
-item in this array.</li>
-<li>If you use <code>::getHeader()</code>, and there were more than 1 http header with that
-name, we now concatenate all these headers with a comma (<code>,</code>).</li>
-<li><code>::addHeader()</code> is new, and will preserve any existing header with that
-name. Instead, a second header will be added with the same name and a new
-value.</li>
-<li><code>::getHeaders()</code> will now return each header value as an array.</li>
-<li>The <code>Client</code> class now only follows redirects to HTTP and HTTPS urls.</li>
-<li><code>Util::negotiate</code> is deprecated, use <code>Util::negotiateContentType</code> instead.</li>
-<li>The <code>Client</code> class can now follow redirects, even if the <code>open_basedir</code>
-setting is turned on.</li>
-</ul>
-
-<h2>Upgrading</h2>
-
-<p>If you are using sabre/http solely through sabredav, don't upgrade yet unless
-you are using the latest development version. If you use sabre/http
-independently, ensure that the relevant line in your composer.json looks like
-this:</p>
-
-<pre><code>"require" : {
-    "sabre/http" : "~3.0.0"
-}
-</code></pre>
-
-<p>And run <code>composer update sabre/http</code> afterwards.</p>
-
-<h2>No full psr/http compliance</h2>
-
-<p>I've matched the Request and Response to behave closer to the draft psr-http
-draft, <em>but</em> I didn't go all the way!</p>
-
-<p>I strongly disapprove of how message bodies are represented. The PSR
-introduces an object to wrap PHP streams, that has severely less features,
-and due to its design it's incompatible with regular PHP streams and doesn't
-cover all our use cases. All under the pretense that PHP streams are hard to
-use.</p>
-
-<p>Unless that's fixed, we'll not be fully supporting the specification, but it's
-still a draft, and there's still time.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/3.0.0/ChangeLog.md">Github</a></p>
 
         </article>
             </section>

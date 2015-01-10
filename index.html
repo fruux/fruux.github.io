@@ -58,6 +58,37 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
+            <time>January 9th, 2015</time>
+            <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.3.5-release">sabre/vobject 3.3.5 release</a></h1>
+            <p>We just released sabre/vobject 3.3.5.</p>
+
+<p>This release fixed a number of bugs, including:</p>
+
+<ol>
+<li>Bugs related to iTip and the <code>SCHEDULE-STATUS</code> property.</li>
+<li>The parser can now read files that contain a UTF-8 BOM.</li>
+<li>jCal serialization of floating <code>DATE-TIME</code> properties.</li>
+<li>A bug related to converting <code>X-ABDATE</code> to <code>ANNIVERSARY</code> in the
+vCardConverter.</li>
+<li>Two new modes for the validator, allowing you to validate vCards and
+iCalendar objects specifically in the context of CalDAV and CardDAV servers.</li>
+</ol>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>If this didn't upgrade you to 3.3.5, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/vobject" : "~3.3.5"
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.3.5/ChangeLog.md">Github</a>.</p>
+
+        </article>
+        <hr />            <article class="blog-entry">
             <time>December 10th, 2014</time>
             <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1.2-released">sabre/dav 2.1.2 released</a></h1>
             <p>We just released sabre/dav 2.1.2.</p>
@@ -97,24 +128,6 @@ with both sabre/dav 2.0 and 2.1.</p>
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.6/ChangeLog.md">Github</a></p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>December 10th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-1.8.11-release">sabre/dav 1.8.11 release</a></h1>
-            <p>We just released sabre/dav 1.8.11.</p>
-
-<p>This release ships with the sabre/vobject 2.1.6, which fixes some issues with
-parameter escaping. It also fixes a small issue in the DAV client.</p>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/1.8.11/ChangeLog">Github</a></p>
 
         </article>
             </section>

@@ -58,130 +58,21 @@ An open source CardDAV, CalDAV and WebDAV server.
 <section class="box">
     <h1>News</h1>
             <article class="blog-entry">
-            <time>August 18th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.1-release">sabre/vobject 3.3.1 release</a></h1>
-            <p>We just released sabre/vobject 3.3.1.</p>
+            <time>March 31st, 2014</time>
+            <h1><a href="http://sabre.io/blog/2014/new-website">New website launched!</a></h1>
+            <p>You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
+never had a proper website, and we've always just hosted from Google Code.</p>
 
-<p>Several bugs have been found in 3.3.0, all mostly related to the newly
-introduced <a href="/vobject/itip/">iTip</a> functionality.</p>
+<p>As Google slowly started to lose interested in code hosting, we migrated more
+and more features to GitHub. The biggest thing left: the wiki. So what once
+started as a place to host the new wiki, turned into a brand-new design, by
+<a href="https://fruux.com/">our</a> very own Martin Kaniut, who's also responsible for the <a href="https://fruux.com/">fruux</a>
+design.</p>
 
-<p>This release also adds a new feature that allows people to specify new
-DATE-TIME values by passing PHP <a href="http://ca2.php.net/manual/en/class.datetime.php">DateTime</a> objects as such:</p>
-
-<pre><code>$vevent-&gt;DTSTART = new DateTime('...');
-</code></pre>
-
-<p>This was already possible in a lot of other places, but somehow this was
-missed for the 'magic property setter'.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.3.1, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.3.1"
-</code></pre>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>August 7th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.0-release">sabre/vobject 3.3.0 release</a></h1>
-            <p>We just released sabre/vobject 3.3.0!</p>
-
-<p>This release has a few new features, but also changes a few things. For most
-people the upgrade should be seamless though.</p>
-
-<h2>Changes</h2>
-
-<h3>Better RRULE parser</h3>
-
-<p>We now have much better support for <code>RRULE</code>, and especially exceptions to
-recurrences. This solved several bugs that have been outstanding for quite
-some time.</p>
-
-<p>We now also support <code>RDATE</code>.</p>
-
-<p>One change is that the old <code>Sabre\VObject\RecurrenceIterator</code> is now renamed
-to <code>Sabre\VObject\Recur\EventIterator</code>. The old class still exists, but will
-be removed in a future version.</p>
-
-<p>Some more info about this feature <a href="/vobject/recurrence/">here</a>.</p>
-
-<h3>iTip support</h3>
-
-<p>VObject now supports generating and parsing <a href="/vobject/itip/">iTip</a> messages. iTip messages
-are a type of iCalendar object that are used for things like invites, replies
-and cancellations.</p>
-
-<p>More info about this feature on the <a href="/vobject/itip/">iTip page</a>.</p>
-
-<h3>Switched to PSR-4</h3>
-
-<p>The directory structure of the VObject library changed. Everything that was
-previously in <code>lib/Sabre/VObject</code> is now moved to <code>lib/</code>.</p>
-
-<p>If you are using composer you don't have to change a thing, but if you
-manually wrote an autoloader, you may have to make a change to accomodate for
-this.</p>
-
-<p>We also removed <code>lib/Sabre/VObject/includes.php</code>.</p>
-
-<h3>Changelog</h3>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.3.0/ChangeLog.md">Github</a></p>
-
-<h2>Upgrading</h2>
-
-<p>To update your sabre/vobject, edit composer.json to make sure that it includes
-a line like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.3.0"
-</code></pre>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>July 28th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-1.7-eol">sabre/dav 1.7 end of support</a></h1>
-            <p>As of right now, sabre/dav 1.7 has reached end of life status.</p>
-
-<p>Version 1.8 has been released in November 2012, so people had 20 months to
-upgrade their systems.</p>
-
-<p>We've done one final release (1.7.13), containing a few minor fixes and a newer
-version of the sabre/vobject library (if you're using the zip installation).</p>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/1.7.13/ChangeLog">Github</a></p>
-
-<h3>What does this mean?</h3>
-
-<p>From this point forward, we will no longer accept bug reports for version 1.7.</p>
-
-<p>Also, no future releases will be made.</p>
-
-<p>We <em>may</em> consider certain security bugs, but there are no guarantees.</p>
-
-<h3>Upgrading to 1.8</h3>
-
-<p>Upgrading to version 1.8 is not difficult. The main change that has been made
-between these versions, is that 1.8 makes use of PHP namespaces, where 1.7
-uses the classic 'pear-style' prefix notation.</p>
-
-<p>Make sure to check out the <a href="http://sabre.io/dav/upgrade/1.7-to-1.8/">migration instructions</a> for a detailed overview
-of the changes.</p>
-
-<p>Keep in mind though that version 2.0 of sabre/dav is also already released. If
-you are upgrading, you're highly encouraged to take that additional upgrade
-step. Version 2.0 has its own <a href="http://sabre.io/dav/upgrade/1.8-to-2.0/">migration instructions</a>.</p>
+<p>We hope you like it, but since it's such a step up from Google Code, we're
+confident you probably will ;). If you're running into any bugs, definitely
+<a href="https://github.com/fruux/sabre.io/issues">let us know</a>. Want to contribute to the wiki? The entire site is open source, so
+<a href="https://github.com/fruux/sabre.io/tree/master/source">take a look</a> at some of the existing pages and get cracking!</p>
 
         </article>
             </section>
@@ -289,9 +180,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/page/6';
+    var disqus_identifier = '/page/11';
     var disqus_title = '';
-    var disqus_url = 'http://sabre.io/page/6';
+    var disqus_url = 'http://sabre.io/page/11';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

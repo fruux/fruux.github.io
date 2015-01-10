@@ -59,7 +59,7 @@ An open source CardDAV, CalDAV and WebDAV server.
     <h1>News</h1>
             <article class="blog-entry">
             <time>July 14th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/07-14-sabre-http-2.0.4-release">sabre/http 2.0.4 release</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/sabre-http-2.0.4-release">sabre/http 2.0.4 release</a></h1>
             <p>We just released sabre/http 2.0.4.</p>
 
 <p>This release has a few small bugfixes related to the client, and can now
@@ -75,7 +75,7 @@ optionally work with sabre/event 2.0 as well as sabre/event 1.0.</p>
         </article>
         <hr />            <article class="blog-entry">
             <time>July 14th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/07-14-sabre-vobject-3.2.4-release">sabre/vobject 3.2.4 release</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.4-release">sabre/vobject 3.2.4 release</a></h1>
             <p>We just released sabre/vobject 3.2.4.</p>
 
 <p>Conversion between vcard 3 and 4 has been improved, a workaround has been
@@ -92,7 +92,7 @@ again on PHP 5.3.</p>
         </article>
         <hr />            <article class="blog-entry">
             <time>June 24th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/06-24-sabre-event-2.0">sabre/event 2.0 release</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0">sabre/event 2.0 release</a></h1>
             <p>We just released sabre/event 2.0.0. This releases adds a few features, and
 also slightly alters the API.</p>
 

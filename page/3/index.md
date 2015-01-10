@@ -59,7 +59,7 @@ An open source CardDAV, CalDAV and WebDAV server.
     <h1>News</h1>
             <article class="blog-entry">
             <time>November 20th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/11-20-sabre-dav-2.1-release">sabre/dav 2.1 released</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1-release">sabre/dav 2.1 released</a></h1>
             <p>We just released sabre/dav version 2.1. This release comes about 6 months
 after the last major release, so that's nicely on track!</p>
 
@@ -145,7 +145,7 @@ on the <a href="http://sabre.io/dav/upgrading/">upgrade</a> page.</p>
         </article>
         <hr />            <article class="blog-entry">
             <time>November 19th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/11-19-sabre-vobject-3.3.4-release">sabre/vobject 3.3.4 release</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.4-release">sabre/vobject 3.3.4 release</a></h1>
             <p>We just released sabre/vobject 3.3.4.</p>
 
 <p>This release adds:</p>
@@ -174,7 +174,7 @@ has a line that looks like this:</p>
         </article>
         <hr />            <article class="blog-entry">
             <time>October 14th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/10-14-sabre-dav-2.0.5-release">sabre/dav 2.0.5 release</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.5-release">sabre/dav 2.0.5 release</a></h1>
             <p>We just released sabre/dav 2.0.5. Upgrading is highly recommended.</p>
 
 <p>This release has an important bugfix. <code>If-Modified-Since</code> was not handled

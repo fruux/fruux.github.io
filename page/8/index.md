@@ -59,7 +59,7 @@ An open source CardDAV, CalDAV and WebDAV server.
     <h1>News</h1>
             <article class="blog-entry">
             <time>June 12th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.2-release">sabre/dav 2.0.2 release</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/06-12-sabre-dav-2.0.2-release">sabre/dav 2.0.2 release</a></h1>
             <p>We just released sabre/dav 2.0.2.</p>
 
 <p>Several bugs have been fixed in files from the <code>examples/</code> directory, and
@@ -79,7 +79,7 @@ which, among other things, fixes compatibility with PHP versions older than
         </article>
         <hr />            <article class="blog-entry">
             <time>June 12th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.3-release">sabre/vobject 3.2.3 release</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/06-12-sabre-vobject-3.2.3-release">sabre/vobject 3.2.3 release</a></h1>
             <p>We just released sabre/vobject 3.2.3.</p>
 
 <p>Several improvements were made in the validator, and the "repair" option now
@@ -95,7 +95,7 @@ works correctly again in the CLI tool.</p>
         </article>
         <hr />            <article class="blog-entry">
             <time>June 12th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-event-1.0.1-release">sabre/event 1.0.1 release</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/06-12-sabre-event-1.0.1-release">sabre/event 1.0.1 release</a></h1>
             <p>We just released sabre/event 1.0.1. A bug prevented the <code>EventEmitter</code> trait
 to work on PHP versions older than 5.4.14.</p>
 

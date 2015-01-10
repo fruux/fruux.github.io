@@ -59,7 +59,7 @@ An open source CardDAV, CalDAV and WebDAV server.
     <h1>News</h1>
             <article class="blog-entry">
             <time>September 19th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.2-release">sabre/vobject 3.3.2 release</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/09-19-sabre-vobject-3.3.2-release">sabre/vobject 3.3.2 release</a></h1>
             <p>We just released sabre/vobject 3.3.2.</p>
 
 <p>Further in-depth testing of the <a href="/vobject/itip/">iTip</a> subsystem has revealed a <em>lot</em> of
@@ -82,7 +82,7 @@ has a line that looks like this:</p>
         </article>
         <hr />            <article class="blog-entry">
             <time>August 27th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.4-release">sabre/dav 2.0.4 release</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/08-27-sabre-dav-2.0.4-release">sabre/dav 2.0.4 release</a></h1>
             <p>We just released sabre/dav 2.0.4.</p>
 
 <p>This releases has a number of improvements, namely:</p>
@@ -109,7 +109,7 @@ backends, when the 'Sync' plugin is not enabled. This is now resolved.</li>
         </article>
         <hr />            <article class="blog-entry">
             <time>August 18th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.1-release">sabre/vobject 3.3.1 release</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/08-18-sabre-vobject-3.3.1-release">sabre/vobject 3.3.1 release</a></h1>
             <p>We just released sabre/vobject 3.3.1.</p>
 
 <p>Several bugs have been found in 3.3.0, all mostly related to the newly

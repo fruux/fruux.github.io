@@ -59,7 +59,7 @@ An open source CardDAV, CalDAV and WebDAV server.
     <h1>News</h1>
             <article class="blog-entry">
             <time>June 2nd, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/jcal-rfc">jCal released as rfc7265</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/06-02-jcal-rfc">jCal released as rfc7265</a></h1>
             <p>The IETF just made <a href="http://tools.ietf.org/html/rfc7265">jCal</a> available as <a href="http://tools.ietf.org/html/rfc7265">rfc7265</a></p>
 
 <p>jCal is a format to encode <a href="http://tools.ietf.org/html/rfc5545">iCalendar</a>, but instead of using the clumsy, and
@@ -80,7 +80,7 @@ format of choice.</p>
         </article>
         <hr />            <article class="blog-entry">
             <time>May 28th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabredav-2.0.1-release">sabre/dav 2.0.1 released</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/05-28-sabredav-2.0.1-release">sabre/dav 2.0.1 released</a></h1>
             <p>We just released sabre/dav 2.0.1. Two regressions have been found related
 to PROPFIND requests.</p>
 
@@ -92,7 +92,7 @@ particular had issues.</p>
         </article>
         <hr />            <article class="blog-entry">
             <time>May 22nd, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabredav-2-release">sabre/dav 2.0 released</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/05-22-sabredav-2-release">sabre/dav 2.0 released</a></h1>
             <p>We just released sabre/dav 2.0. The last major release (1.8) was in <a href="http://evertpot.com/sabredav-18-released-with-namespaces/">2012</a>,
 so it's been a long time coming.</p>
 

@@ -59,7 +59,7 @@ An open source CardDAV, CalDAV and WebDAV server.
     <h1>News</h1>
             <article class="blog-entry">
             <time>October 9th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0.1-release">sabre/event 2.0.1 release</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/10-09-sabre-event-2.0.1-release">sabre/event 2.0.1 release</a></h1>
             <p>We just released sabre/event 2.0.1.</p>
 
 <p>This release fixes two issues related to the <code>EventEmitter::once()</code> method,
@@ -79,7 +79,7 @@ has a line that looks like this:</p>
         </article>
         <hr />            <article class="blog-entry">
             <time>October 9th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.3-release">sabre/vobject 3.3.3 release</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/10-09-sabre-vobject-3.3.3-release">sabre/vobject 3.3.3 release</a></h1>
             <p>We just released sabre/vobject 3.3.3.</p>
 
 <p>This release has additional fixes and improvements for the <a href="/vobject/itip/">iTip</a>
@@ -103,7 +103,7 @@ has a line that looks like this:</p>
         </article>
         <hr />            <article class="blog-entry">
             <time>September 23rd, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-http-3.0.0-release">sabre/http 3.0.0 release</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/09-23-sabre-http-3.0.0-release">sabre/http 3.0.0 release</a></h1>
             <p>We just released sabre/http 3.0.0.</p>
 
 <p>We introduced several API breaking changes, so a major version change was

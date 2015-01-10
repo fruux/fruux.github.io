@@ -59,7 +59,7 @@ An open source CardDAV, CalDAV and WebDAV server.
     <h1>News</h1>
             <article class="blog-entry">
             <time>August 7th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.0-release">sabre/vobject 3.3.0 release</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/08-07-sabre-vobject-3.3.0-release">sabre/vobject 3.3.0 release</a></h1>
             <p>We just released sabre/vobject 3.3.0!</p>
 
 <p>This release has a few new features, but also changes a few things. For most
@@ -115,7 +115,7 @@ a line like this:</p>
         </article>
         <hr />            <article class="blog-entry">
             <time>July 28th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-1.7-eol">sabre/dav 1.7 end of support</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/07-28-sabre-dav-1.7-eol">sabre/dav 1.7 end of support</a></h1>
             <p>As of right now, sabre/dav 1.7 has reached end of life status.</p>
 
 <p>Version 1.8 has been released in November 2012, so people had 20 months to
@@ -157,7 +157,7 @@ step. Version 2.0 has its own <a href="http://sabre.io/dav/upgrade/1.8-to-2.0/">
         </article>
         <hr />            <article class="blog-entry">
             <time>July 14th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.3-release">sabre/dav 2.0.3 release</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/07-14-sabre-dav-2.0.3-release">sabre/dav 2.0.3 release</a></h1>
             <p>We just released sabre/dav 2.0.3.</p>
 
 <p>A number of problems were found in the revamped browser plugin, related to

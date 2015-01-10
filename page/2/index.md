@@ -59,7 +59,7 @@ An open source CardDAV, CalDAV and WebDAV server.
     <h1>News</h1>
             <article class="blog-entry">
             <time>December 10th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-http-3.0.4-release">sabre/http 3.0.4 release</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/12-10-sabre-http-3.0.4-release">sabre/http 3.0.4 release</a></h1>
             <p>We just released sabre/http 3.0.4.</p>
 
 <p>This release fixes a small bug that made it impossible to support multiple
@@ -84,7 +84,7 @@ has a line that looks like this:</p>
         </article>
         <hr />            <article class="blog-entry">
             <time>December 2nd, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/per-user-directories-tutorial">New tutorial: Per-user directories</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/12-02-per-user-directories-tutorial">New tutorial: Per-user directories</a></h1>
             <p>A commonly asked question on the mailing list, is:</p>
 
 <blockquote>
@@ -102,7 +102,7 @@ and also a more advanced way, using WebDAV-ACL.</p>
         </article>
         <hr />            <article class="blog-entry">
             <time>November 22nd, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1.1-release">sabre/dav 2.1.1 release</a></h1>
+            <h1><a href="http://sabre.io/blog/2014/11-22-sabre-dav-2.1.1-release">sabre/dav 2.1.1 release</a></h1>
             <p>We just released sabre/dav 2.1.1. Upgrading is highly recommended.</p>
 
 <p>Two new bugs were found and fixed quickly after the 2.1 release two days ago,

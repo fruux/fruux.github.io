@@ -99,6 +99,10 @@
             <h3>sabre/xml</h3>
             The only XML library that you may not hate.
         </a>
+        <a href="http://sabre.io/uri">
+            <h3>sabre/uri</h3>
+            Utility functions for working with URIs.
+        </a>
     </div>
 </section>
 <div class="box box--turquoise">

@@ -135,7 +135,9 @@ specifically for parsing and creating certain XML-based requests.</p>
 
 <p>This is simply done with the following code:</p>
 
-<pre><code>include 'vendor/autoload.php';
+<pre><code>use Sabre\DAV\Client;
+
+include 'vendor/autoload.php';
 
 $settings = array(
     'baseUri' =&gt; 'http://example.org/dav/',
@@ -144,7 +146,7 @@ $settings = array(
     'proxy' =&gt; 'locahost:8888',
 );
 
-$client = new DAV\Client($settings);
+$client = new Client($settings);
 </code></pre>
 
 <p>Only the baseUri is required. This will be used to calculate any relative

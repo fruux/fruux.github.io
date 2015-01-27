@@ -44,7 +44,7 @@
         <h1>sabre/dav</h1>
         <div class="box-text">
             <p>
-                An open source CardDAV, CalDAV and WebDAV server.
+                The open source CardDAV, CalDAV and WebDAV server.
             </p>
             <a class="install" href="http://sabre.io/dav/install">
                 <i class="fa fa-download"></i>
@@ -101,7 +101,7 @@
         </a>
         <a href="http://sabre.io/uri">
             <h3>sabre/uri</h3>
-            Utility functions for working with URIs.
+            Functions for making sense out of URIs.
         </a>
     </div>
 </section>

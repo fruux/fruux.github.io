@@ -68,17 +68,19 @@
 </aside>
                 <article>
                             <h1>sabre/uri</h1>
-                <p>A lightweight library that makes working with URIs easier.</p>
+                <p>sabre/uri is a lightweight library that provides several functions for working
+with URIs, staying true to the rules of <a href="https://tools.ietf.org/html/rfc3986/">RFC3986</a>.</p>
 
-<p>This library provides a number of functions that augment what PHP already
-provides. Partially inspired by <a href="http://nodejs.org/api/url.html">Node.js URL library</a>, and others.</p>
+<p>Partially inspired by <a href="http://nodejs.org/api/url.html">Node.js URL library</a>, and created to solve real
+problems in PHP applications. 100% unitested and many tests are based on
+examples from RFC3986.</p>
 
 <p>The library provides the following functions:</p>
 
 <ol>
 <li><code>resolve</code> to resolve relative urls.</li>
 <li><code>normalize</code> to aid in comparing urls.</li>
-<li><code>parse</code>, which is just an alias of PHP's <a href="http://php.net/manual/en/function.parse-url.php">parse_url</a>. </li>
+<li><code>parse</code>, which works like PHP's <a href="http://php.net/manual/en/function.parse-url.php">parse_url</a>.</li>
 <li><code>build</code> to do the exact opposite of <code>parse</code>.</li>
 <li><code>split</code> to easily get the 'dirname' and 'basename' of a URL without all the
 problems those two functions have.</li>

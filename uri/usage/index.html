@@ -73,7 +73,7 @@ provides the following functions, all in the <code>Sabre\Uri</code> namespace:</
 
 <h2>Resolve</h2>
 
-<p>The <code>resolve</code> function allows you to expand a relative URL in a full one,
+<p>The <code>resolve</code> function allows you to expand a relative URI in a full one,
 in a similar way a browser would.</p>
 
 <h3>Example</h3>
@@ -128,8 +128,8 @@ echo Uri\resolve($base, $new);
 
 <h2>Normalize</h2>
 
-<p>There are many ways to specify uris that all point to the same thing. The
-normalize function helps you make these uris consistent with each other, which
+<p>There are many ways to specify URIs that all point to the same thing. The
+normalize function helps you make these URIs consistent with each other, which
 in turn allows you to make better comparisons.</p>
 
 <p>For example, these urls all point to the same resource:</p>
@@ -138,8 +138,8 @@ in turn allows you to make better comparisons.</p>
 <li><code>http://example.org/~foo/</code></li>
 <li><code>HTTP://example.ORG/~foo/</code> Some parts are case-insensitive.</li>
 <li><code>http://example.org:80/~foo/</code> Default ports.</li>
-<li><code>http://example.org/%7Efoo/</code> URL-encoding. Wrong in this case, but common.</li>
-<li><code>http://example.org/%7efoo/</code> URL-encoding using lowercase for hex numbers.</li>
+<li><code>http://example.org/%7Efoo/</code> Percent-encoding.</li>
+<li><code>http://example.org/%7efoo/</code> Percent-encoding using lowercase for hex numbers.</li>
 <li><code>http://example.org/bar/./../foo/</code> Badly expanded relative urls.</li>
 </ul>
 

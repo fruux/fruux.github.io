@@ -13,29 +13,31 @@
             <link rel="stylesheet" type="text/css" href="http://sabre.io/css/sabre.css" />
     
 </head>
-<body>
-    <header>
+<body >
+    <header class="pagehead">
 
-    <div class="logo">
-        <a href="http://sabre.io/">
+    <div class="pagehead-inner">
+        <a class="logo" href="http://sabre.io/">
             <img src="http://sabre.io/img/logo.png" alt="sabre/dav">
-            sabre/dav
+            sabre<span>/dav</span>
         </a>
-    </div>
 
-    <nav>
-        <ul>
-            <li><a href="http://sabre.io/">Home</a></li>
-            <li><a href="http://sabre.io/dav">Docs</a></li>
-            <li><a href="http://sabre.io/blog">Blog</a></li>
-            <li><a href="http://sabre.io/support">Support</a></li>
-            <!-- <li><i class="fa fa-github"></i> <a href="https://github.com/fruux">GitHub</a></li> -->
-            <li><a href="http://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li>
-        </ul>
-    </nav>
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="http://sabre.io/dav">Docs</a></li>
+                <li><a href="http://sabre.io/blog">Blog</a></li>
+                <li><a href="http://sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/fruux?query=sabre"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="http://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
 
 </header>
 
+    
         <main>
                 <article>
                             <h1>Tag Archive</h1>
@@ -104,13 +106,14 @@ ga('send', 'pageview');
 
     <nav>
         <ul>
-            <li>© 2014 fruux GmbH | </li>
-            <li><a href="http://sabre.io/support">Contact</a> | </li>
-            <li><a href="http://sabre.io/legal">Legal Info</a> | </li>
-            <li><i class="fa fa-twitter"></i> <a href="http://twitter.com/sabredav">@sabredav</a>, </li>
-            <li><a href="http://twitter.com/fruux">@fruux</a> | </li>
-            <li><i class="fa fa-github"></i> <a href="https://github.com/fruux">GitHub</a></li>
+            <li>© 2015 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="http://sabre.io/support">Contact</a> · </li>
+            <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="http://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="http://twitter.com/fruux">@fruux</a></li>
+                    </ul>
     </nav>
 
 </footer>

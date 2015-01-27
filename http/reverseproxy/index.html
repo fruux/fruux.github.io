@@ -13,54 +13,60 @@
             <link rel="stylesheet" type="text/css" href="http://sabre.io/css/sabre.css" />
     
 </head>
-<body>
-    <header>
+<body >
+    <header class="pagehead">
 
-    <div class="logo">
-        <a href="http://sabre.io/">
+    <div class="pagehead-inner">
+        <a class="logo" href="http://sabre.io/">
             <img src="http://sabre.io/img/logo.png" alt="sabre/http">
-            sabre/http
+            sabre<span>/http</span>
         </a>
-    </div>
 
-    <nav>
-        <ul>
-            <li><a href="http://sabre.io/">Home</a></li>
-            <li><a href="http://sabre.io/dav">Docs</a></li>
-            <li><a href="http://sabre.io/blog">Blog</a></li>
-            <li><a href="http://sabre.io/support">Support</a></li>
-            <!-- <li><i class="fa fa-github"></i> <a href="https://github.com/fruux">GitHub</a></li> -->
-            <li><a href="http://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li>
-        </ul>
-    </nav>
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="http://sabre.io/dav">Docs</a></li>
+                <li><a href="http://sabre.io/blog">Blog</a></li>
+                <li><a href="http://sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/fruux?query=sabre"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="http://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
 
 </header>
 
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+    
         <main class="incl-sidebar">
-                    <aside>
-    <ul class="sidebar-nav">
-        <li><a href="http://sabre.io/dav">sabre/dav</a>
-                    </li>
-        <li><a href="http://sabre.io/event">sabre/event</a>
-                    </li>
-        <li><a href="http://sabre.io/http">sabre/http</a>
-                        <ul>
-                <li><a href="http://sabre.io/http/install">Installation</a></li>
-                <li><a href="http://sabre.io/http/sapi">The PHP Sapi wrapper</a></li>
-                <li><a href="http://sabre.io/http/decorators">Decorators</a></li>
-                <li><a href="http://sabre.io/http/client">The HTTP client</a></li>
-                <li><a href="http://sabre.io/http/reverseproxy">Writing a reverse proxy</a></li>
-                <li><a href="http://sabre.io/http/api">Request and Response APIs</a></li>
-            </ul>
-                    </li>
-        <li><a href="http://sabre.io/vobject">sabre/vobject</a>
-                    </li>
-        <li><a href="http://sabre.io/xml">sabre/xml</a>
-                    </li>
-        <li><a href="http://sabre.io/license">License</a></li>
-    </ul>
-</aside>
-                <article>
+                    <aside class="sidebar">
+    <label class="hamburger-label" for="nav-check"><i class="fa fa-times"></i></label>
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="http://sabre.io/dav">sabre/dav</a>
+                            </li>
+            <li><a href="http://sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="http://sabre.io/http">sabre/http</a>
+                                <ul>
+                    <li><a href="http://sabre.io/http/install">Installation</a></li>
+                    <li><a href="http://sabre.io/http/sapi">The PHP Sapi wrapper</a></li>
+                    <li><a href="http://sabre.io/http/decorators">Decorators</a></li>
+                    <li><a href="http://sabre.io/http/client">The HTTP client</a></li>
+                    <li><a href="http://sabre.io/http/reverseproxy">Writing a reverse proxy</a></li>
+                    <li><a href="http://sabre.io/http/api">Request and Response APIs</a></li>
+                </ul>
+                            </li>
+            <li><a href="http://sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="http://sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="http://sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>                <article>
                             <h1>Writing a reverse proxy</h1>
                 <p>With all these tools combined, it becomes very easy to write a simple reverse
 http proxy.</p>
@@ -140,13 +146,14 @@ ga('send', 'pageview');
 
     <nav>
         <ul>
-            <li>© 2014 fruux GmbH | </li>
-            <li><a href="http://sabre.io/support">Contact</a> | </li>
-            <li><a href="http://sabre.io/legal">Legal Info</a> | </li>
-            <li><i class="fa fa-twitter"></i> <a href="http://twitter.com/sabredav">@sabredav</a>, </li>
-            <li><a href="http://twitter.com/fruux">@fruux</a> | </li>
-            <li><i class="fa fa-github"></i> <a href="https://github.com/fruux">GitHub</a></li>
+            <li>© 2015 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="http://sabre.io/support">Contact</a> · </li>
+            <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="http://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="http://twitter.com/fruux">@fruux</a></li>
+                    </ul>
     </nav>
 
 </footer>

@@ -13,259 +13,145 @@
             <link rel="stylesheet" type="text/css" href="http://sabre.io/css/sabre.css" />
     
 </head>
-<body>
-    <header>
+<body class="body--home">
+    <header class="pagehead">
 
-    <div class="logo">
-        <a href="http://sabre.io/">
+    <div class="pagehead-inner">
+        <a class="logo" href="http://sabre.io/">
             <img src="http://sabre.io/img/logo.png" alt="sabre/dav">
-            sabre/dav
+            sabre<span>/dav</span>
         </a>
-    </div>
 
-    <nav>
-        <ul>
-            <li><a href="http://sabre.io/">Home</a></li>
-            <li><a href="http://sabre.io/dav">Docs</a></li>
-            <li><a href="http://sabre.io/blog">Blog</a></li>
-            <li><a href="http://sabre.io/support">Support</a></li>
-            <!-- <li><i class="fa fa-github"></i> <a href="https://github.com/fruux">GitHub</a></li> -->
-            <li><a href="http://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li>
-        </ul>
-    </nav>
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="http://sabre.io/dav">Docs</a></li>
+                <li><a href="http://sabre.io/blog">Blog</a></li>
+                <li><a href="http://sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/fruux?query=sabre"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="http://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
 
 </header>
 
     
-<section class="hero">
-<h1>sabre/dav</h1>
-
-<p>
-An open source CardDAV, CalDAV and WebDAV server.
-</p>
-
-</section>
-<div class="install">
-    <a href="http://sabre.io/dav/install">
-        <i class="fa fa-download"></i>
-        <h1>Install</h1>
-    </a>
-    <small>
-        <a href="http://sabre.io/dav/gettingstarted">Or learn more here..</a>
-    </small>
-</div>
-
-<section class="box">
-    <h1>News</h1>
-            <article class="blog-entry">
-            <time>September 23rd, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-http-3.0.0-release">sabre/http 3.0.0 release</a></h1>
-            <p>We just released sabre/http 3.0.0.</p>
-
-<p>We introduced several API breaking changes, so a major version change was
-warranted.</p>
-
-<p>In particular, we modified the API to be closer to the draft version of
-<a href="https://github.com/php-fig/fig-standards/blob/master/proposed/http-message.md">psr/http</a>.</p>
-
-<p>psr/http is an upcoming standard for PHP development that should unify how we
-represent HTTP requests and responses in PHP.</p>
-
-<p>There were several good ideas in this spec, in particular how HTTP headers
-are treated, especially when there are multiple headers with the same name,
-which is something sabre/http dealt poorly with (not at all).</p>
-
-<h2>Changes</h2>
-
-<ul>
-<li>Switched to a PSR-4 directory structure in <code>lib/</code>. This means all classes
-are now in <code>lib/</code> instead of <code>lib/Sabre/HTTP</code>. This should not change a
-thing if you use the composer autoloader.</li>
-<li><code>::setHeaders()</code> used to delete all previous http headers. This is no longer
-the case, new headers will simply be added to the existing ones.</li>
-<li>Added <code>::getHeaderAsArray()</code>. This method returns a single http header. If
-multiple headers with the same name were specified, each value will be an
-item in this array.</li>
-<li>If you use <code>::getHeader()</code>, and there were more than 1 http header with that
-name, we now concatenate all these headers with a comma (<code>,</code>).</li>
-<li><code>::addHeader()</code> is new, and will preserve any existing header with that
-name. Instead, a second header will be added with the same name and a new
-value.</li>
-<li><code>::getHeaders()</code> will now return each header value as an array.</li>
-<li>The <code>Client</code> class now only follows redirects to HTTP and HTTPS urls.</li>
-<li><code>Util::negotiate</code> is deprecated, use <code>Util::negotiateContentType</code> instead.</li>
-<li>The <code>Client</code> class can now follow redirects, even if the <code>open_basedir</code>
-setting is turned on.</li>
-</ul>
-
-<h2>Upgrading</h2>
-
-<p>If you are using sabre/http solely through sabredav, don't upgrade yet unless
-you are using the latest development version. If you use sabre/http
-independently, ensure that the relevant line in your composer.json looks like
-this:</p>
-
-<pre><code>"require" : {
-    "sabre/http" : "~3.0.0"
-}
-</code></pre>
-
-<p>And run <code>composer update sabre/http</code> afterwards.</p>
-
-<h2>No full psr/http compliance</h2>
-
-<p>I've matched the Request and Response to behave closer to the draft psr-http
-draft, <em>but</em> I didn't go all the way!</p>
-
-<p>I strongly disapprove of how message bodies are represented. The PSR
-introduces an object to wrap PHP streams, that has severely less features,
-and due to its design it's incompatible with regular PHP streams and doesn't
-cover all our use cases. All under the pretense that PHP streams are hard to
-use.</p>
-
-<p>Unless that's fixed, we'll not be fully supporting the specification, but it's
-still a draft, and there's still time.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/3.0.0/ChangeLog.md">Github</a></p>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>September 19th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.2-release">sabre/vobject 3.3.2 release</a></h1>
-            <p>We just released sabre/vobject 3.3.2.</p>
-
-<p>Further in-depth testing of the <a href="/vobject/itip/">iTip</a> subsystem has revealed a <em>lot</em> of
-small edge-cases that weren't properly covered.</p>
-
-<p>In addition, we now correctly decode <code>ATTACH</code> properties in iCalendar objects
-that are specified as a URI, and fixed a few validator rules.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.3.2, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.3.2"
-</code></pre>
-
-        </article>
-        <hr />            <article class="blog-entry">
-            <time>August 27th, 2014</time>
-            <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.4-release">sabre/dav 2.0.4 release</a></h1>
-            <p>We just released sabre/dav 2.0.4.</p>
-
-<p>This releases has a number of improvements, namely:</p>
-
-<ol>
-<li>PostgresSQL files have been corrected. Note that while we ship postgres
-files, it is not an officially supported database.</li>
-<li>After nodes had been deleted, locks were not automatically removed. This was
-problematic, because re-creating a node could cause it to be locked
-instantly. This is now fixed.</li>
-<li>There were some problems with both the default Cal- and CardDAV PDO
-backends, when the 'Sync' plugin is not enabled. This is now resolved.</li>
-</ol>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.4/ChangeLog.md">Github</a></p>
-
-        </article>
-            </section>
-
-<section class="box box-features">
-    <h1>Features</h1>
-    <ul class="list-features">
-        <li>
-            <i class="fa fa-rocket"></i>
-            Fully WebDAV compliant
-        </li>
-        <li>
-            <i class="fa fa-coffee"></i>
-            Supported on all major platforms.
-        </li>
-        <li class="hr"></li>
-        <li>
-            <i class="fa fa-lock"></i>
-            Locking support.
-        </li>
-        <li>
-            <i class="fa fa-home"></i>
-            Custom property support.
-        </li>
-        <li class="hr"></li>
-        <li>
-            <i class="fa fa-calendar"></i>
-            CalDAV support.
-        </li>
-        <li>
-            <i class="fa fa-book"></i>
-            CardDAV support.
-        </li>
-        <li class="hr"></li>
-        <li>
-            <i class="fa fa-share"></i>
-            Supports calendar sharing and delegating.
-        </li>
-        <li>
-            <i class="fa fa-check"></i>
-            &gt;95% unittest coverage.
-        </li>
-    </ul>
-</section>
-
-<section class="box box-enterprise">
-    <h1>Enterprise support</h1>
-    <h2>sabre/dav and the other sabre.io projects are developed by <a href="https://fruux.com/">fruux</a>.</h2>
-    <div>
-        <a href="https://fruux.com"><img src="http://sabre.io/img/fruux_logo.png"></a>
-        <h3>We provide:</h3>
-        <ul class="">
-            <li>Enterprise support.</li>
-            <li>Customization.</li>
-            <li>Integrating into your existing infrastructure.</lI>
-            <li>Both on-premise and SaaS deployments.</li>
+    
+<section class="box box--hero">
+    <div class="box-wrapper">
+        <h1>sabre/dav</h1>
+        <div class="box-text">
+            <p>
+                An open source CardDAV, CalDAV and WebDAV server.
+            </p>
+            <a class="install" href="http://sabre.io/dav/install">
+                <i class="fa fa-download"></i>
+                Install
+            </a>
+            <br>
+            <a href="http://sabre.io/dav"><small>Or learn more...</small></a>
+        </div>
+        <ul class="list-features">
+            <li><i class="fa fa-fw fa-rocket"></i><a href="http://sabre.io/dav/scalability">Scalable</a> design.</li>
+            <li><i class="fa fa-fw fa-share-alt"></i>Extensive <a href="http://sabre.io/dav/caldav-sharing">sharing</a> and <a href="http://sabre.io/dav/caldav-proxy">delegation</a> features.</li>
+            <li><i class="fa fa-fw fa-clock-o"></i>Powerful <a href="http://sabre.io/dav/scheduling">scheduling and free/busy</a> capabilities.</li>
+            <li><i class="fa fa-fw fa-lock"></i>Flexible <a href="http://sabre.io/dav/acl">ACL</a> and <a href="http://sabre.io/dav/authentication">authentication</a> system.</li>
+            <li><i class="fa fa-fw fa-coffee"></i>Supported on <a href="http://sabre.io/dav/clients">all major platforms</a>.</li>
         </ul>
     </div>
-    <a href="/support" class="bubble">
-        <i class="fa fa-2x fa-envelope-o"></i>
-        <strong>Contact us</strong> <br>
-        to discuss your requirements.
-    </a>
 </section>
-
-<section class="box box-lineup">
-    <h1>The full sabre.io project lineup</h1>
-    <a href="http://sabre.io/dav">
-        <span>d</span><br>
-        <strong>sabre/dav</strong><br>
-        The leading open-source CalDAV, CardDAV and WebDAV server
-    </a>
-    <a href="http://sabre.io/http">
-        <span>h</span><br>
-        <strong>sabre/http</strong><br>
-        An OOP abstraction layer for the PHP server api.
-    </a>
-    <a href="http://sabre.io/vobject">
-        <span>v</span><br>
-        <strong>sabre/vobject</strong><br>
-        A library for parsing and manipulating vCard, iCalendar, jCard and jCal.
-    </a>
-    <a href="http://sabre.io/event">
-        <span>e</span><br>
-        <strong>sabre/event</strong><br>
-        Utilities for lightweight event-based programming in PHP.
-    </a>
-
+<section class="box box--trusted">
+    <div class="box-wrapper">
+        <h1 class="box-headline">Trusted by</h1>
+        <a href="https://www.atmail.com" title="sabre/dav is trusted by atmail.">
+            <img src="http://sabre.io/img/trusted/atmail.png" alt="atmail works with sabre/dav">
+        </a><a href="http://tech.blog.box.com/2014/10/in-search-of-an-open-source-webdav-solution/" title="sabre/dav is trusted by Box.">
+            <img src="http://sabre.io/img/trusted/box.png" alt="Box works with sabre/dav">
+        </a><a href="https://fruux.com" title="sabre/dav is developed by fruux.">
+            <img src="http://sabre.io/img/trusted/fruux.png" alt="Our consumer product fruux is powered by sabre/dav">
+        </a><a href="http://owncloud.org" title="sabre/dav is trusted by ownCloud.">
+            <img src="http://sabre.io/img/trusted/owncloud.png" alt="Owncloud works with sabre/dav">
+        </a>
+    </div>
 </section>
+<section class="box box--lineup">
+    <div class="box-wrapper">
+        <h1 class="box-headline">The full sabre.io lineup</h1>
+        <a href="http://sabre.io/dav">
+            <h3>sabre/dav</h3>
+            The leading open-source CalDAV, CardDAV and WebDAV server
+        </a>
+        <a href="http://sabre.io/http">
+            <h3>sabre/http</h3>
+            An OOP abstraction layer for the PHP server api.
+        </a>
+        <a href="http://sabre.io/vobject">
+            <h3>sabre/vobject</h3>
+            A library for parsing and manipulating vCard, iCalendar, jCard and jCal.
+        </a>
+        <a href="http://sabre.io/event">
+            <h3>sabre/event</h3>
+            Utilities for lightweight event-based programming in PHP.
+        </a>
+        <a href="http://sabre.io/xml">
+            <h3>sabre/xml</h3>
+            The only XML library that you may not hate.
+        </a>
+    </div>
+</section>
+<div class="box box--turquoise">
+    <div class="box-wrapper">
+        <section class="box box--enterprise">
+            <a href="https://fruux.com"><img src="http://sabre.io/img/fruux_logo.png"></a>
+            <h1>Enterprise support</h1>
+            <h2>sabre/dav and the other sabre.io projects are developed by <a href="https://fruux.com/">fruux</a>.</h2>
+            <div class="promo">
+                <h3>We provide:</h3>
+                <ul>
+                    <li>Enterprise support.</li>
+                    <li>Customization.</li>
+                    <li>Integrating into your existing infrastructure.</lI>
+                    <li>Both on-premise and SaaS deployments.</li>
+                </ul>
+            </div>
+            <a href="mailto:sales@fruux.com" class="bubble">
+                <i class="fa fa-2x fa-envelope-o"></i>
+                <strong>Contact us</strong> <br>
+                to discuss your requirements.
+            </a>
+        </section>
+        <section class="box box--news">
+            <h1>News</h1>
+                            <article class="blog-entry">
+                    <time>Jul. 14th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.4-release">sabre/vobject 3.2.4 release</a></h1>
+                    <p>We just released sabre/vobject 3.2.4.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Jun. 24th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0">sabre/event 2.0 release</a></h1>
+                    <p>We just released sabre/event 2.0.0. This releases adds a few features, and
+also slightly alters the API.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Jun. 12th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.2-release">sabre/dav 2.0.2 release</a></h1>
+                    <p>We just released sabre/dav 2.0.2.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Jun. 12th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.3-release">sabre/vobject 3.2.3 release</a></h1>
+                    <p>We just released sabre/vobject 3.2.3.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Jun. 12th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-event-1.0.1-release">sabre/event 1.0.1 release</a></h1>
+                    <p>We just released sabre/event 1.0.1. A bug prevented the <code>EventEmitter</code> trait
+to work on PHP versions older than 5.4.14.</article>
+                                    </section>
+    </div>
+</div>
+<figure class="bg--cloudy">
+    <img src="http://sabre.io/img/home_background.jpg">
+</figure>
 
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 
@@ -300,13 +186,14 @@ ga('send', 'pageview');
 
     <nav>
         <ul>
-            <li>© 2014 fruux GmbH | </li>
-            <li><a href="http://sabre.io/support">Contact</a> | </li>
-            <li><a href="http://sabre.io/legal">Legal Info</a> | </li>
-            <li><i class="fa fa-twitter"></i> <a href="http://twitter.com/sabredav">@sabredav</a>, </li>
-            <li><a href="http://twitter.com/fruux">@fruux</a> | </li>
-            <li><i class="fa fa-github"></i> <a href="https://github.com/fruux">GitHub</a></li>
+            <li>© 2015 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="http://sabre.io/support">Contact</a> · </li>
+            <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="http://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="http://twitter.com/fruux">@fruux</a></li>
+                    </ul>
     </nav>
 
 </footer>

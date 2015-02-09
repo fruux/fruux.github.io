@@ -13,7 +13,7 @@
             <link rel="stylesheet" type="text/css" href="http://sabre.io/css/sabre.css" />
     
 </head>
-<body class="body--home">
+<body >
     <header class="pagehead">
 
     <div class="pagehead-inner">
@@ -44,14 +44,17 @@
         <h1>sabre/dav</h1>
         <div class="box-text">
             <p>
-                The open source CardDAV, CalDAV and WebDAV server.
+                The open source
+                <a href="https://en.wikipedia.org/wiki/CardDAV">CardDAV</a>,
+                <a href="https://en.wikipedia.org/wiki/CalDAV">CalDAV</a> and
+                <a href="https://en.wikipedia.org/wiki/WebDAV">WebDAV</a> server.
             </p>
             <a class="install" href="http://sabre.io/dav/install">
                 <i class="fa fa-download"></i>
                 Install
             </a>
             <br>
-            <a href="http://sabre.io/dav"><small>Or learn more...</small></a>
+            <a href="http://sabre.io/dav">Or learn more...</a>
         </div>
         <ul class="list-features">
             <li><i class="fa fa-fw fa-rocket"></i><a href="http://sabre.io/dav/scalability">Scalable</a> design.</li>

@@ -41,9 +41,55 @@
         <main>
                 <article>
                             <h1>Blog</h1>
-                <article class="blog-entry">
+                <p></p>
+
+<article class="blog-entry">
+    <time>February 23rd, 2015</time>
+    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.4.0-release/">sabre/vobject 3.4.0 release</a></h1>
+    <p>We just released sabre/vobject 3.4.0. This release has a number of
+improvements and bugfixes.</p>
+
+<ul>
+<li>Recurrence expansion and parsing is now a <em>lot</em> faster on big calendars.
+Our test iCalendar file was about 5MB large with an unusual high amount
+of recurrence rules. We got about a 1900% increase in speed. Most
+real-world calendars will not be as large, but should still benefit from
+this quite a bit.</li>
+<li>We're not supporting parsing and validating <code>VAVAILABILITY</code> components,
+which is a new iCalendar component that may become an internet standard,
+but is currently still a <a href="https://tools.ietf.org/html/draft-daboo-calendar-availability">draft</a>. In the future we'll also add support
+for this in the freebusy generator, which will make it useful for sabre/dav
+users.</li>
+<li>Updated to the latest timezone information.</li>
+<li>Several other bugfixes.</li>
+</ul>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>If this didn't upgrade you to 3.4, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/vobject" : "~3.4"
+</code></pre>
+
+<p>Version 3.4.0 is 100% compatbile with vobject 3.3.*</p>
+
+<p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.4.0/ChangeLog.md">Github</a>.</p>
+
+</article>
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>January 27th, 2015</time>
-    <h1><a href="http://sabre.io/blog/2015/a-new-uri-handling-library">A new URI handling library</a></h1>
+    <h1><a href="http://sabre.io/blog/2015/a-new-uri-handling-library/">A new URI handling library</a></h1>
     <p>We just released version 1.0.0 of a new URI library. This library solves a
 few common problems we've been having, or simply did not do well enough in
 the past.</p>
@@ -57,9 +103,16 @@ way possible.</p>
 <p>Check out the <a href="/uri/">documentation</a> if you'd like to learn more.</p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>January 9th, 2015</time>
-    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.3.5-release">sabre/vobject 3.3.5 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.3.5-release/">sabre/vobject 3.3.5 release</a></h1>
     <p>We just released sabre/vobject 3.3.5.</p>
 
 <p>This release fixed a number of bugs, including:</p>
@@ -88,9 +141,16 @@ has a line that looks like this:</p>
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.3.5/ChangeLog.md">Github</a>.</p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>December 10th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1.2-released">sabre/dav 2.1.2 released</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1.2-released/">sabre/dav 2.1.2 released</a></h1>
     <p>We just released sabre/dav 2.1.2.</p>
 
 <p>This release fixes a problem with the migration script, which could cause
@@ -110,9 +170,16 @@ no calendars, and a small problem in the browser plugin.</p>
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.2/ChangeLog.md">Github</a></p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>December 10th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.6-released">sabre/dav 2.0.6 released</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.6-released/">sabre/dav 2.0.6 released</a></h1>
     <p>We just released sabre/dav 2.0.6.</p>
 
 <p>This release ships with a few classes that make it easier to be compatible
@@ -130,9 +197,16 @@ with both sabre/dav 2.0 and 2.1.</p>
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.6/ChangeLog.md">Github</a></p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>December 10th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-dav-1.8.11-release">sabre/dav 1.8.11 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-dav-1.8.11-release/">sabre/dav 1.8.11 release</a></h1>
     <p>We just released sabre/dav 1.8.11.</p>
 
 <p>This release ships with the sabre/vobject 2.1.6, which fixes some issues with
@@ -148,9 +222,16 @@ parameter escaping. It also fixes a small issue in the DAV client.</p>
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/1.8.11/ChangeLog">Github</a></p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>December 10th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-http-3.0.4-release">sabre/http 3.0.4 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-http-3.0.4-release/">sabre/http 3.0.4 release</a></h1>
     <p>We just released sabre/http 3.0.4.</p>
 
 <p>This release fixes a small bug that made it impossible to support multiple
@@ -173,9 +254,16 @@ has a line that looks like this:</p>
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/3.0.4/ChangeLog.md">Github</a>.</p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>December 2nd, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/per-user-directories-tutorial">New tutorial: Per-user directories</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/per-user-directories-tutorial/">New tutorial: Per-user directories</a></h1>
     <p>A commonly asked question on the mailing list, is:</p>
 
 <blockquote>
@@ -191,9 +279,16 @@ and also a more advanced way, using WebDAV-ACL.</p>
 <p>Hopefully it's useful!</p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>November 22nd, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1.1-release">sabre/dav 2.1.1 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1.1-release/">sabre/dav 2.1.1 release</a></h1>
     <p>We just released sabre/dav 2.1.1. Upgrading is highly recommended.</p>
 
 <p>Two new bugs were found and fixed quickly after the 2.1 release two days ago,
@@ -209,9 +304,16 @@ one related to the database migration process and one related to <a href="/dav/s
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.1/ChangeLog.md">Github</a></p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>November 20th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1-release">sabre/dav 2.1 released</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1-release/">sabre/dav 2.1 released</a></h1>
     <p>We just released sabre/dav version 2.1. This release comes about 6 months
 after the last major release, so that's nicely on track!</p>
 
@@ -295,9 +397,16 @@ on the <a href="http://sabre.io/dav/upgrading/">upgrade</a> page.</p>
 <p><strong>Thank you!</strong></p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>November 19th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.4-release">sabre/vobject 3.3.4 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.4-release/">sabre/vobject 3.3.4 release</a></h1>
     <p>We just released sabre/vobject 3.3.4.</p>
 
 <p>This release adds:</p>
@@ -324,9 +433,16 @@ has a line that looks like this:</p>
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.3.4/ChangeLog.md">Github</a>.</p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>October 14th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.5-release">sabre/dav 2.0.5 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.5-release/">sabre/dav 2.0.5 release</a></h1>
     <p>We just released sabre/dav 2.0.5. Upgrading is highly recommended.</p>
 
 <p>This release has an important bugfix. <code>If-Modified-Since</code> was not handled
@@ -350,9 +466,16 @@ a workaround.</p>
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.5/ChangeLog.md">Github</a></p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>October 9th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0.1-release">sabre/event 2.0.1 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0.1-release/">sabre/event 2.0.1 release</a></h1>
     <p>We just released sabre/event 2.0.1.</p>
 
 <p>This release fixes two issues related to the <code>EventEmitter::once()</code> method,
@@ -370,9 +493,16 @@ has a line that looks like this:</p>
 </code></pre>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>October 9th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.3-release">sabre/vobject 3.3.3 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.3-release/">sabre/vobject 3.3.3 release</a></h1>
     <p>We just released sabre/vobject 3.3.3.</p>
 
 <p>This release has additional fixes and improvements for the <a href="/vobject/itip/">iTip</a>
@@ -394,9 +524,16 @@ has a line that looks like this:</p>
 </code></pre>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>September 23rd, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-http-3.0.0-release">sabre/http 3.0.0 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-http-3.0.0-release/">sabre/http 3.0.0 release</a></h1>
     <p>We just released sabre/http 3.0.0.</p>
 
 <p>We introduced several API breaking changes, so a major version change was
@@ -466,9 +603,16 @@ still a draft, and there's still time.</p>
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/3.0.0/ChangeLog.md">Github</a></p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>September 19th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.2-release">sabre/vobject 3.3.2 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.2-release/">sabre/vobject 3.3.2 release</a></h1>
     <p>We just released sabre/vobject 3.3.2.</p>
 
 <p>Further in-depth testing of the <a href="/vobject/itip/">iTip</a> subsystem has revealed a <em>lot</em> of
@@ -489,9 +633,16 @@ has a line that looks like this:</p>
 </code></pre>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>August 27th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.4-release">sabre/dav 2.0.4 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.4-release/">sabre/dav 2.0.4 release</a></h1>
     <p>We just released sabre/dav 2.0.4.</p>
 
 <p>This releases has a number of improvements, namely:</p>
@@ -516,9 +667,16 @@ backends, when the 'Sync' plugin is not enabled. This is now resolved.</li>
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.4/ChangeLog.md">Github</a></p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>August 18th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.1-release">sabre/vobject 3.3.1 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.1-release/">sabre/vobject 3.3.1 release</a></h1>
     <p>We just released sabre/vobject 3.3.1.</p>
 
 <p>Several bugs have been found in 3.3.0, all mostly related to the newly
@@ -545,9 +703,16 @@ has a line that looks like this:</p>
 </code></pre>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>August 7th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.0-release">sabre/vobject 3.3.0 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.0-release/">sabre/vobject 3.3.0 release</a></h1>
     <p>We just released sabre/vobject 3.3.0!</p>
 
 <p>This release has a few new features, but also changes a few things. For most
@@ -601,9 +766,16 @@ a line like this:</p>
 </code></pre>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>July 28th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-dav-1.7-eol">sabre/dav 1.7 end of support</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-dav-1.7-eol/">sabre/dav 1.7 end of support</a></h1>
     <p>As of right now, sabre/dav 1.7 has reached end of life status.</p>
 
 <p>Version 1.8 has been released in November 2012, so people had 20 months to
@@ -643,9 +815,16 @@ you are upgrading, you're highly encouraged to take that additional upgrade
 step. Version 2.0 has its own <a href="http://sabre.io/dav/upgrade/1.8-to-2.0/">migration instructions</a>.</p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>July 14th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.3-release">sabre/dav 2.0.3 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.3-release/">sabre/dav 2.0.3 release</a></h1>
     <p>We just released sabre/dav 2.0.3.</p>
 
 <p>A number of problems were found in the revamped browser plugin, related to
@@ -666,9 +845,16 @@ change the name of the exception to <code>TooManyMatches</code>. Don't laugh.</p
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0/ChangeLog.md">Github</a></p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>July 14th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-http-2.0.4-release">sabre/http 2.0.4 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-http-2.0.4-release/">sabre/http 2.0.4 release</a></h1>
     <p>We just released sabre/http 2.0.4.</p>
 
 <p>This release has a few small bugfixes related to the client, and can now
@@ -682,9 +868,16 @@ optionally work with sabre/event 2.0 as well as sabre/event 1.0.</p>
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/master/ChangeLog">Github</a></p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>July 14th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.4-release">sabre/vobject 3.2.4 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.4-release/">sabre/vobject 3.2.4 release</a></h1>
     <p>We just released sabre/vobject 3.2.4.</p>
 
 <p>Conversion between vcard 3 and 4 has been improved, a workaround has been
@@ -699,9 +892,16 @@ again on PHP 5.3.</p>
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/master/ChangeLog.md">Github</a></p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>June 24th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0">sabre/event 2.0 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0/">sabre/event 2.0 release</a></h1>
     <p>We just released sabre/event 2.0.0. This releases adds a few features, and
 also slightly alters the API.</p>
 
@@ -737,9 +937,16 @@ then run:</p>
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-event/blob/master/ChangeLog.md">Github</a></p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>June 12th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.2-release">sabre/dav 2.0.2 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.2-release/">sabre/dav 2.0.2 release</a></h1>
     <p>We just released sabre/dav 2.0.2.</p>
 
 <p>Several bugs have been fixed in files from the <code>examples/</code> directory, and
@@ -757,9 +964,16 @@ which, among other things, fixes compatibility with PHP versions older than
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0/ChangeLog.md">Github</a></p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>June 12th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.3-release">sabre/vobject 3.2.3 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.3-release/">sabre/vobject 3.2.3 release</a></h1>
     <p>We just released sabre/vobject 3.2.3.</p>
 
 <p>Several improvements were made in the validator, and the "repair" option now
@@ -773,9 +987,16 @@ works correctly again in the CLI tool.</p>
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/master/ChangeLog.md">Github</a></p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>June 12th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabre-event-1.0.1-release">sabre/event 1.0.1 release</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabre-event-1.0.1-release/">sabre/event 1.0.1 release</a></h1>
     <p>We just released sabre/event 1.0.1. A bug prevented the <code>EventEmitter</code> trait
 to work on PHP versions older than 5.4.14.</p>
 
@@ -787,9 +1008,16 @@ to work on PHP versions older than 5.4.14.</p>
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-event/blob/master/ChangeLog">Github</a></p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>June 2nd, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/jcal-rfc">jCal released as rfc7265</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/jcal-rfc/">jCal released as rfc7265</a></h1>
     <p>The IETF just made <a href="http://tools.ietf.org/html/rfc7265">jCal</a> available as <a href="http://tools.ietf.org/html/rfc7265">rfc7265</a></p>
 
 <p>jCal is a format to encode <a href="http://tools.ietf.org/html/rfc5545">iCalendar</a>, but instead of using the clumsy, and
@@ -808,9 +1036,16 @@ we hope that over time, jCal and jCard replace iCalendar and vCard as the
 format of choice.</p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>May 28th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabredav-2.0.1-release">sabre/dav 2.0.1 released</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabredav-2.0.1-release/">sabre/dav 2.0.1 released</a></h1>
     <p>We just released sabre/dav 2.0.1. Two regressions have been found related
 to PROPFIND requests.</p>
 
@@ -820,9 +1055,16 @@ particular had issues.</p>
 <p>Run <code>composer update sabre/dav</code>, or <a href="https://github.com/fruux/sabre-dav/releases/tag/2.0.1">Download</a> the new zip from GitHub.</p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>May 22nd, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabredav-2-release">sabre/dav 2.0 released</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabredav-2-release/">sabre/dav 2.0 released</a></h1>
     <p>We just released sabre/dav 2.0. The last major release (1.8) was in <a href="http://evertpot.com/sabredav-18-released-with-namespaces/">2012</a>,
 so it's been a long time coming.</p>
 
@@ -949,9 +1191,16 @@ incoming commit, and <a href="https://twitter.com/DominikTo">Dominik Tobschall</
 <p>Evert.</p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>May 16th, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/sabredav-1.8.10">sabre/dav 1.7.12 and 1.8.10 released</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/sabredav-1.8.10/">sabre/dav 1.7.12 and 1.8.10 released</a></h1>
     <p>We just released sabre/dav 1.7.12 and 1.8.10. These two releases are mainly
 bugfix releases centering around two things:</p>
 
@@ -990,9 +1239,16 @@ line.</p>
 <p>The zip files can be found on <a href="https://github.com/fruux/sabre-dav/releases">github</a>.</p>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>April 2nd, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/vobject-3.2">sabre/vobject 3.2 released</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/vobject-3.2/">sabre/vobject 3.2 released</a></h1>
     <p>We just released sabre/vobject 3.2.0. This release is backwards compatible
 with the 3.1.* series.</p>
 
@@ -1025,9 +1281,16 @@ information.</li>
 </code></pre>
 
 </article>
-<hr /><article class="blog-entry">
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>March 31st, 2014</time>
-    <h1><a href="http://sabre.io/blog/2014/new-website">New website launched!</a></h1>
+    <h1><a href="http://sabre.io/blog/2014/new-website/">New website launched!</a></h1>
     <p>You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
 never had a proper website, and we've always just hosted from Google Code.</p>
 
@@ -1043,6 +1306,8 @@ confident you probably will ;). If you're running into any bugs, definitely
 <a href="https://github.com/fruux/sabre.io/tree/master/source">take a look</a> at some of the existing pages and get cracking!</p>
 
 </article>
+
+<p></p>
             
             
                     </article>

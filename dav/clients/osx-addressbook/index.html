@@ -129,9 +129,19 @@ clients, and it's shipped with OS X since version 10.6 (Snow Leopard). There
 are many bugs in the 10.6 client though, most of which have been solved in
 10.7.</p>
 
-<h2>Technical details</h2>
+<h2>Technical information</h2>
 
-<h3>Directory support =</h3>
+<h3>Debugging</h3>
+
+<p>To enable CardDAV traffic logging on 10.8 and above, run the following commands on the command line:</p>
+
+<pre><code>defaults write com.apple.addressbook.carddavplugin EnableDebug -bool YES
+defaults write com.apple.addressbook.carddavplugin LogConnectionDetails -bool YES
+</code></pre>
+
+<p>Logs will be written to ~/Library/Logs/CardDAVPlugin and may be viewed with 'Console.app'.</p>
+
+<h3>Directory support</h3>
 
 <p>AddressBook.app has support for a global read-only directory. Addressbook.app
 does not allow simply browsing through the directory, it's used for searching
@@ -256,9 +266,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/dav/clients/osx-addressbook';
+    var disqus_identifier = '/dav/clients/osx-addressbook/';
     var disqus_title = 'OS X addressbook';
-    var disqus_url = 'http://sabre.io/dav/clients/osx-addressbook';
+    var disqus_url = 'http://sabre.io/dav/clients/osx-addressbook/';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

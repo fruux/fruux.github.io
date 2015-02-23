@@ -3,14 +3,53 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-02-09T16:48:10+00:00</updated>
+    <updated>2015-02-23T21:37:08+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
+            <title type="html"><![CDATA[sabre/vobject 3.4.0 release]]></title>
+            <link href="http://sabre.io/blog/2015/sabre-vobject-3.4.0-release/"/>
+            <updated>2015-02-23T21:36:22+00:00</updated>
+            <id>http://sabre.io/blog/2015/sabre-vobject-3.4.0-release/</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.4.0. This release has a number of
+improvements and bugfixes.</p>
+
+<ul>
+<li>Recurrence expansion and parsing is now a <em>lot</em> faster on big calendars.
+Our test iCalendar file was about 5MB large with an unusual high amount
+of recurrence rules. We got about a 1900% increase in speed. Most
+real-world calendars will not be as large, but should still benefit from
+this quite a bit.</li>
+<li>We're not supporting parsing and validating <code>VAVAILABILITY</code> components,
+which is a new iCalendar component that may become an internet standard,
+but is currently still a <a href="https://tools.ietf.org/html/draft-daboo-calendar-availability">draft</a>. In the future we'll also add support
+for this in the freebusy generator, which will make it useful for sabre/dav
+users.</li>
+<li>Updated to the latest timezone information.</li>
+<li>Several other bugfixes.</li>
+</ul>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>If this didn't upgrade you to 3.4, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/vobject" : "~3.4"
+</code></pre>
+
+<p>Version 3.4.0 is 100% compatbile with vobject 3.3.*</p>
+
+<p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.4.0/ChangeLog.md">Github</a>.</p>
+]]></content>
+        </entry>
+            <entry>
             <title type="html"><![CDATA[A new URI handling library]]></title>
-            <link href="http://sabre.io/blog/2015/a-new-uri-handling-library"/>
+            <link href="http://sabre.io/blog/2015/a-new-uri-handling-library/"/>
             <updated>2015-01-27T23:07:42+00:00</updated>
-            <id>http://sabre.io/blog/2015/a-new-uri-handling-library</id>
+            <id>http://sabre.io/blog/2015/a-new-uri-handling-library/</id>
             <content type="html"><![CDATA[<p>We just released version 1.0.0 of a new URI library. This library solves a
 few common problems we've been having, or simply did not do well enough in
 the past.</p>
@@ -26,9 +65,9 @@ way possible.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/vobject 3.3.5 release]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-vobject-3.3.5-release"/>
+            <link href="http://sabre.io/blog/2015/sabre-vobject-3.3.5-release/"/>
             <updated>2015-01-09T01:11:06+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-vobject-3.3.5-release</id>
+            <id>http://sabre.io/blog/2015/sabre-vobject-3.3.5-release/</id>
             <content type="html"><![CDATA[<p>We just released sabre/vobject 3.3.5.</p>
 
 <p>This release fixed a number of bugs, including:</p>
@@ -59,9 +98,9 @@ has a line that looks like this:</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.1.2 released]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-dav-2.1.2-released"/>
+            <link href="http://sabre.io/blog/2014/sabre-dav-2.1.2-released/"/>
             <updated>2014-12-10T21:58:08+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-dav-2.1.2-released</id>
+            <id>http://sabre.io/blog/2014/sabre-dav-2.1.2-released/</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.2.</p>
 
 <p>This release fixes a problem with the migration script, which could cause
@@ -83,9 +122,9 @@ no calendars, and a small problem in the browser plugin.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.0.6 released]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-dav-2.0.6-released"/>
+            <link href="http://sabre.io/blog/2014/sabre-dav-2.0.6-released/"/>
             <updated>2014-12-10T21:47:44+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-dav-2.0.6-released</id>
+            <id>http://sabre.io/blog/2014/sabre-dav-2.0.6-released/</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 2.0.6.</p>
 
 <p>This release ships with a few classes that make it easier to be compatible
@@ -105,9 +144,9 @@ with both sabre/dav 2.0 and 2.1.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 1.8.11 release]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-dav-1.8.11-release"/>
+            <link href="http://sabre.io/blog/2014/sabre-dav-1.8.11-release/"/>
             <updated>2014-12-10T21:07:58+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-dav-1.8.11-release</id>
+            <id>http://sabre.io/blog/2014/sabre-dav-1.8.11-release/</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 1.8.11.</p>
 
 <p>This release ships with the sabre/vobject 2.1.6, which fixes some issues with
@@ -125,9 +164,9 @@ parameter escaping. It also fixes a small issue in the DAV client.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/http 3.0.4 release]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-http-3.0.4-release"/>
+            <link href="http://sabre.io/blog/2014/sabre-http-3.0.4-release/"/>
             <updated>2014-12-10T20:21:04+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-http-3.0.4-release</id>
+            <id>http://sabre.io/blog/2014/sabre-http-3.0.4-release/</id>
             <content type="html"><![CDATA[<p>We just released sabre/http 3.0.4.</p>
 
 <p>This release fixes a small bug that made it impossible to support multiple
@@ -152,9 +191,9 @@ has a line that looks like this:</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[New tutorial: Per-user directories]]></title>
-            <link href="http://sabre.io/blog/2014/per-user-directories-tutorial"/>
+            <link href="http://sabre.io/blog/2014/per-user-directories-tutorial/"/>
             <updated>2014-12-02T22:58:11+00:00</updated>
-            <id>http://sabre.io/blog/2014/per-user-directories-tutorial</id>
+            <id>http://sabre.io/blog/2014/per-user-directories-tutorial/</id>
             <content type="html"><![CDATA[<p>A commonly asked question on the mailing list, is:</p>
 
 <blockquote>
@@ -172,9 +211,9 @@ and also a more advanced way, using WebDAV-ACL.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.1.1 release]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-dav-2.1.1-release"/>
+            <link href="http://sabre.io/blog/2014/sabre-dav-2.1.1-release/"/>
             <updated>2014-11-22T19:25:29+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-dav-2.1.1-release</id>
+            <id>http://sabre.io/blog/2014/sabre-dav-2.1.1-release/</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.1. Upgrading is highly recommended.</p>
 
 <p>Two new bugs were found and fixed quickly after the 2.1 release two days ago,
@@ -192,9 +231,9 @@ one related to the database migration process and one related to <a href="/dav/s
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.1 released]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-dav-2.1-release"/>
+            <link href="http://sabre.io/blog/2014/sabre-dav-2.1-release/"/>
             <updated>2014-11-20T05:44:23+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-dav-2.1-release</id>
+            <id>http://sabre.io/blog/2014/sabre-dav-2.1-release/</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav version 2.1. This release comes about 6 months
 after the last major release, so that's nicely on track!</p>
 
@@ -276,37 +315,6 @@ version 2.0 of sabre/dav will be actively maintained for the next 12 months.</p>
 on the <a href="http://sabre.io/dav/upgrading/">upgrade</a> page.</p>
 
 <p><strong>Thank you!</strong></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 3.3.4 release]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-vobject-3.3.4-release"/>
-            <updated>2014-11-19T22:56:30+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-vobject-3.3.4-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.3.4.</p>
-
-<p>This release adds:</p>
-
-<ol>
-<li>Converting <code>ANNIVERSARY</code> to <code>X-ABDATE</code> and <code>X-ANNIVERSARY</code> when converting
-between vCard 3.0 and 4.0.</li>
-<li>Reference-timezone support to the recurrence iterator, free-busy generator,
-and <code>DATE-TIME</code> and <code>DATE</code> properties for dealing with all-day events and
-floating times.</li>
-</ol>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.3.4, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.3.4"
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.3.4/ChangeLog.md">Github</a>.</p>
 ]]></content>
         </entry>
     </feed>

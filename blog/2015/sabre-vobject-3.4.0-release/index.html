@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>sabre/event 1.0.1 release - sabre/event</title>
+            <title>sabre/vobject 3.4.0 release - sabre/vobject</title>
     
     <meta charset="utf-8">
 
@@ -18,8 +18,8 @@
 
     <div class="pagehead-inner">
         <a class="logo" href="http://sabre.io/">
-            <img src="http://sabre.io/img/logo.png" alt="sabre/event">
-            sabre<span>/event</span>
+            <img src="http://sabre.io/img/logo.png" alt="sabre/vobject">
+            sabre<span>/vobject</span>
         </a>
 
         <nav class="nav nav--page">
@@ -41,28 +41,50 @@
         <main>
                 <article>
                 <article class="blog-entry">
-        <time>June 12th, 2014</time>
-        <h1>sabre/event 1.0.1 release</h1>
+        <time>February 23rd, 2015</time>
+        <h1>sabre/vobject 3.4.0 release</h1>
         <div>
-            <p>We just released sabre/event 1.0.1. A bug prevented the <code>EventEmitter</code> trait
-to work on PHP versions older than 5.4.14.</p>
+            <p>We just released sabre/vobject 3.4.0. This release has a number of
+improvements and bugfixes.</p>
 
-<p>Upgrade sabre/event by running:</p>
+<ul>
+<li>Recurrence expansion and parsing is now a <em>lot</em> faster on big calendars.
+Our test iCalendar file was about 5MB large with an unusual high amount
+of recurrence rules. We got about a 1900% increase in speed. Most
+real-world calendars will not be as large, but should still benefit from
+this quite a bit.</li>
+<li>We're not supporting parsing and validating <code>VAVAILABILITY</code> components,
+which is a new iCalendar component that may become an internet standard,
+but is currently still a <a href="https://tools.ietf.org/html/draft-daboo-calendar-availability">draft</a>. In the future we'll also add support
+for this in the freebusy generator, which will make it useful for sabre/dav
+users.</li>
+<li>Updated to the latest timezone information.</li>
+<li>Several other bugfixes.</li>
+</ul>
 
-<pre><code>composer update sabre/event
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
 </code></pre>
 
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-event/blob/master/ChangeLog">Github</a></p>
+<p>If this didn't upgrade you to 3.4, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/vobject" : "~3.4"
+</code></pre>
+
+<p>Version 3.4.0 is 100% compatbile with vobject 3.3.*</p>
+
+<p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.4.0/ChangeLog.md">Github</a>.</p>
 
         </div>
                     <p class="tags">
             Tags:
-                        <a href="http://sabre.io/blog/tags/event">event</a>,                         <a href="http://sabre.io/blog/tags/release">release</a>                        </p>
+                        <a href="http://sabre.io/blog/tags/vobject">vobject</a>,                         <a href="http://sabre.io/blog/tags/release">release</a>                        </p>
         
                     <nav class="article">
                 <ul>
-                                            <li>Next: <a class="next" href="http://sabre.io/blog/2014/sabre-vobject-3.2.3-release/" title="sabre/vobject 3.2.3 release"><span class="title">sabre/vobject 3.2.3 release</span></a></li>
-                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2014/jcal-rfc/" title="jCal released as rfc7265"><span class="title">jCal released as rfc7265</span></a></li>
+                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2015/a-new-uri-handling-library/" title="A new URI handling library"><span class="title">A new URI handling library</span></a></li>
                                     </ul>
             </nav>
             </article>
@@ -91,9 +113,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/blog/2014/sabre-event-1.0.1-release/';
-    var disqus_title = 'sabre/event 1.0.1 release';
-    var disqus_url = 'http://sabre.io/blog/2014/sabre-event-1.0.1-release/';
+    var disqus_identifier = '/blog/2015/sabre-vobject-3.4.0-release/';
+    var disqus_title = 'sabre/vobject 3.4.0 release';
+    var disqus_url = 'http://sabre.io/blog/2015/sabre-vobject-3.4.0-release/';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

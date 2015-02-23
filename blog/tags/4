@@ -41,47 +41,16 @@
         <main>
                 <article>
                             <h1>Tag Archive</h1>
-                <h2>"dav"</h2>
-        <h3>December 2014</h3>
+                <h2>"release"</h2>
+        <h3>April 2014</h3>
 <article>
-  <div><a href="http://sabre.io/blog/2014/sabre-dav-2.1.2-released/">sabre/dav 2.1.2 released</a></div>
-</article>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabre-dav-2.0.6-released/">sabre/dav 2.0.6 released</a></div>
-</article>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabre-dav-1.8.11-release/">sabre/dav 1.8.11 release</a></div>
-</article>
-<article>
-  <div><a href="http://sabre.io/blog/2014/per-user-directories-tutorial/">New tutorial: Per-user directories</a></div>
-</article>
-    <h3>November 2014</h3>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabre-dav-2.1.1-release/">sabre/dav 2.1.1 release</a></div>
-</article>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabre-dav-2.1-release/">sabre/dav 2.1 released</a></div>
-</article>
-    <h3>October 2014</h3>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabre-dav-2.0.5-release/">sabre/dav 2.0.5 release</a></div>
-</article>
-    <h3>August 2014</h3>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabre-dav-2.0.4-release/">sabre/dav 2.0.4 release</a></div>
-</article>
-    <h3>July 2014</h3>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabre-dav-1.7-eol/">sabre/dav 1.7 end of support</a></div>
-</article>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabre-dav-2.0.3-release/">sabre/dav 2.0.3 release</a></div>
+  <div><a href="http://sabre.io/blog/2014/vobject-3.2/">sabre/vobject 3.2 released</a></div>
 </article>
 
 <div>
     <nav class="article">
-            <a class="next" href="http://sabre.io/blog/tags/2" title="Next Page"><span class="title">Next Page</span></a>
-        </nav>
+        <a class="previous" href="http://sabre.io/blog/tags/3" title="Previous Page"><span class="title">Previous Page</span></a>
+            </nav>
 </div>
             
             

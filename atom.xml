@@ -3,7 +3,7 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-02-23T21:37:08+00:00</updated>
+    <updated>2015-02-24T21:20:40+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -20,7 +20,7 @@ Our test iCalendar file was about 5MB large with an unusual high amount
 of recurrence rules. We got about a 1900% increase in speed. Most
 real-world calendars will not be as large, but should still benefit from
 this quite a bit.</li>
-<li>We're not supporting parsing and validating <code>VAVAILABILITY</code> components,
+<li>We're now supporting parsing and validating <code>VAVAILABILITY</code> components,
 which is a new iCalendar component that may become an internet standard,
 but is currently still a <a href="https://tools.ietf.org/html/draft-daboo-calendar-availability">draft</a>. In the future we'll also add support
 for this in the freebusy generator, which will make it useful for sabre/dav

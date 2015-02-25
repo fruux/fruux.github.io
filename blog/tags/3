@@ -42,7 +42,11 @@
                 <article>
                             <h1>Tag Archive</h1>
                 <h2>"release"</h2>
-        <h3>July 2014</h3>
+        <h3>August 2014</h3>
+<article>
+  <div><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.0-release/">sabre/vobject 3.3.0 release</a></div>
+</article>
+    <h3>July 2014</h3>
 <article>
   <div><a href="http://sabre.io/blog/2014/sabre-dav-1.7-eol/">sabre/dav 1.7 end of support</a></div>
 </article>
@@ -71,9 +75,6 @@
     <h3>May 2014</h3>
 <article>
   <div><a href="http://sabre.io/blog/2014/sabredav-2.0.1-release/">sabre/dav 2.0.1 released</a></div>
-</article>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabredav-2-release/">sabre/dav 2.0 released</a></div>
 </article>
 
 <div>

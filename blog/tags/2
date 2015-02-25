@@ -41,25 +41,15 @@
         <main>
                 <article>
                             <h1>Tag Archive</h1>
-                <h2>"dav"</h2>
-        <h3>June 2014</h3>
+                <h2>"vobject"</h2>
+        <h3>April 2014</h3>
 <article>
-  <div><a href="http://sabre.io/blog/2014/sabre-dav-2.0.2-release/">sabre/dav 2.0.2 release</a></div>
-</article>
-    <h3>May 2014</h3>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabredav-2.0.1-release/">sabre/dav 2.0.1 released</a></div>
-</article>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabredav-2-release/">sabre/dav 2.0 released</a></div>
-</article>
-<article>
-  <div><a href="http://sabre.io/blog/2014/sabredav-1.8.10/">sabre/dav 1.7.12 and 1.8.10 released</a></div>
+  <div><a href="http://sabre.io/blog/2014/vobject-3.2/">sabre/vobject 3.2 released</a></div>
 </article>
 
 <div>
     <nav class="article">
-        <a class="previous" href="http://sabre.io//blog/tags/dav/" title="Previous Page"><span class="title">Previous Page</span></a>
+        <a class="previous" href="http://sabre.io//blog/tags/vobject/" title="Previous Page"><span class="title">Previous Page</span></a>
             </nav>
 </div>
             

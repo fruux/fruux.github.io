@@ -3,9 +3,29 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-02-25T18:02:35+00:00</updated>
+    <updated>2015-02-25T18:37:11+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 2.1.3 released]]></title>
+            <link href="http://sabre.io/blog/2015/sabre-dav-2.1.3-released/"/>
+            <updated>2015-02-25T18:35:11+00:00</updated>
+            <id>http://sabre.io/blog/2015/sabre-dav-2.1.3-released/</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.3.</p>
+
+<p>This release fixes a number of bugs, most of which are related to CalDAV
+scheduling. Upgrading is highly recommended.</p>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.3/ChangeLog.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/vobject 3.4.2 release]]></title>
             <link href="http://sabre.io/blog/2015/sabre-vobject-3.4.2-release/"/>
@@ -231,26 +251,6 @@ quickly run into.</p>
 and also a more advanced way, using WebDAV-ACL.</p>
 
 <p>Hopefully it's useful!</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 2.1.1 release]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-dav-2.1.1-release/"/>
-            <updated>2014-11-22T19:25:29+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-dav-2.1.1-release/</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.1. Upgrading is highly recommended.</p>
-
-<p>Two new bugs were found and fixed quickly after the 2.1 release two days ago,
-one related to the database migration process and one related to <a href="/dav/scheduling/">iMip</a>.</p>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.1/ChangeLog.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

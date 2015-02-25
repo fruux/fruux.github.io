@@ -3,9 +3,33 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-02-24T21:20:40+00:00</updated>
+    <updated>2015-02-25T18:02:35+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 3.4.2 release]]></title>
+            <link href="http://sabre.io/blog/2015/sabre-vobject-3.4.2-release/"/>
+            <updated>2015-02-25T18:01:52+00:00</updated>
+            <id>http://sabre.io/blog/2015/sabre-vobject-3.4.2-release/</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.4.2.</p>
+
+<p>This version contains a bugfix in the iTip/scheduling system that prevented
+attendees from responding to certain invites.</p>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>If this didn't upgrade you to 3.4, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/vobject" : "~3.4"
+</code></pre>
+
+<p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.4.2/ChangeLog.md">Github</a>.</p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/vobject 3.4.0 release]]></title>
             <link href="http://sabre.io/blog/2015/sabre-vobject-3.4.0-release/"/>
@@ -227,94 +251,6 @@ one related to the database migration process and one related to <a href="/dav/s
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.1/ChangeLog.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 2.1 released]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-dav-2.1-release/"/>
-            <updated>2014-11-20T05:44:23+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-dav-2.1-release/</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav version 2.1. This release comes about 6 months
-after the last major release, so that's nicely on track!</p>
-
-<h2>New features</h2>
-
-<h3>Scheduling</h3>
-
-<p>We finally have support for CalDAV Scheduling (<a href="http://tools.ietf.org/html/rfc6638">rfc6638</a>). Adding
-scheduling to your server means that you can invite attendees to your events,
-and have those invites automatically delivered to other calendars on the
-system.</p>
-
-<p>CalDAV clients that support this will be able to show an invitation interface
-and allow attendees to accept or decline invitations, and have all of this
-processed on the server.</p>
-
-<p>If you're inviting attendees that are not on the server, you can also
-optionally set-up an iMip (<a href="http://tools.ietf.org/html/rfc6047">rfc6047</a>) plugin. This will allow the
-server to send invitation emails on behalf of the user.</p>
-
-<p>For more information, read the <a href="/dav/scheduling/">scheduling</a> documentation.</p>
-
-<h3>vCard 4 support</h3>
-
-<p>In the past, the CardDAV plugin only supported vCard 3.0, which is the vCard
-version that's required for CardDAV and also what most clients use.</p>
-
-<p>Since sabre/dav 2.1, the server also support vCard 4.0 (<a href="http://tools.ietf.org/html/rfc6350">rfc6350</a>).
-vCard 4.0 is a much more modern format, adds a lot of great features, and
-doesn't suffer from many of the problems vCard 3.0 had.</p>
-
-<p>Now if a client stores either a vCard 3 or 4, these vCards will be stored
-as-is, but if a client requests either a vCard 3 or 4 (using
-content-negotation), we will automatically convert the vcard before sending
-it back to the client.</p>
-
-<h3>jCard support</h3>
-
-<p>It's now also possible for clients to request jCard (<a href="http://tools.ietf.org/html/rfc7095">rfc7095</a>).
-jCard is a JSON representation of vCard 4.0.</p>
-
-<p>jCard is much easier to parse than vCard 4.0, so we also highly recommend
-client developers to start supporting this.</p>
-
-<h3>ChangeLog</h3>
-
-<p>A lot of smaller changes have been made since version 2.0. You can find more
-details in the <a href="https://github.com/fruux/sabre-dav/blob/2.1.0/ChangeLog.md">ChangeLog</a>. Read from 2.1.0-alpha1 onwards, as most changes
-have been made in the alpha versions.</p>
-
-<h2>Installation</h2>
-
-<p>As always, the zip can be found on the <a href="https://github.com/fruux/sabre-dav/releases">github releases page</a>, but the
-recommended installation method is using composer:</p>
-
-<pre><code>composer require sabre/dav ~2.1.0
-</code></pre>
-
-<h2>Upgrading</h2>
-
-<p>A few backwards compatibility breaks have been made in this release. Overall
-they should be pretty minor and easy to deal with.</p>
-
-<p>If you are running a standard server, it's likely that you only have to run
-the database upgrade script, but if you did any sort of customizations,
-chances are that you need to make changes in your code to keep stuff running.</p>
-
-<p><strong>Make a backup.</strong> and then head to the <a href="http://sabre.io/dav/upgrade/2.0-to-2.1/">migration instructions</a> for 2.1.</p>
-
-<p>Drop a line on the <a href="http://groups.google.com/group/sabredav-discuss">mailing list</a> if you run into any issues, or
-<a href="http://sabre.io/support/">get in touch with us</a> for our commercial support options.</p>
-
-<h2>Support status</h2>
-
-<p>Due to the 2.1 release, 2.0 now enters maintenance mode. This means that
-version 2.0 of sabre/dav will be actively maintained for the next 12 months.</p>
-
-<p>More information about previous versions and their support status can be found
-on the <a href="http://sabre.io/dav/upgrading/">upgrade</a> page.</p>
-
-<p><strong>Thank you!</strong></p>
 ]]></content>
         </entry>
     </feed>

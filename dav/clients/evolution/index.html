@@ -128,14 +128,14 @@
 but it is compatible with the SabreDAV CardDAV implementation), and a CalDAV
 client for Journals, Calendars and Tasks. Both clients are covered here.</p>
 
-<h2>The Evolution WebDAV client</h2>
+<h2 id="the-evolution-webdav-client">The Evolution WebDAV client</h2>
 
 <p>The WebDAV client is used for managing addressbooks. It's a very simple client
 (just does PROPFIND, GET and PUT). It also supports the use of the 'ctag' for
 checking if the addressbook changed at all, and also verifies etags to see
 if individual cards updated.</p>
 
-<h3>Debugging</h3>
+<h3 id="debugging">Debugging</h3>
 
 <p>To enable debugging for this client, make sure evolution is fully stopped,
 then restart e-addressbook-factory with the debug mode enabled as such:</p>
@@ -146,9 +146,9 @@ then restart e-addressbook-factory with the debug mode enabled as such:</p>
 
 <p>If you start evolution after that, you will see the entire dialog.</p>
 
-<h3>Issues</h3>
+<h3 id="issues">Issues</h3>
 
-<h4>No UID</h4>
+<h4 id="no-uid">No UID</h4>
 
 <p>When evolution creates new contacts, it does not submit the UID property.
 While this is valid for VCards themselves, vcards in CardDAV <em>must</em> have
@@ -161,7 +161,7 @@ evolution.</p>
 
 <p>This issue was fixed in evolution 3.6.2.</p>
 
-<h4>Statuscode</h4>
+<h4 id="statuscode">Statuscode</h4>
 
 <p>SabreDAV sent a HTTP 200 Ok statuscode for updating resources with PUT.
 Evolution doesn't like this, as it requires 204 No Content if there is no
@@ -170,9 +170,9 @@ content in the response body.</p>
 <p>This is actually correct per the HTTP standard, but hadn't been the case in
 SabreDAV. This was fixed in SabreDAV 1.5.4.</p>
 
-<h2>The Evolution CalDAV client</h2>
+<h2 id="the-evolution-caldav-client">The Evolution CalDAV client</h2>
 
-<h3>Connecting with evolution</h3>
+<h3 id="connecting-with-evolution">Connecting with evolution</h3>
 
 <p>Connecting to a CalDAV server is done through the "New > Create new calendar"
 dialog. In this dialog it is possible to specify a CalDAV location.</p>
@@ -184,7 +184,7 @@ dialog.</p>
 <p>To setup TODO lists through Evolution works the exact same (select New tasklist
 instead of calendar).</p>
 
-<h3>Technical notes</h3>
+<h3 id="technical-notes">Technical notes</h3>
 
 <p>Some sample user agents:</p>
 

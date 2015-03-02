@@ -75,7 +75,7 @@ PHP's built-in <a href="http://php.net/manual/en/book.xmlreader.php"><code>XMLRe
 methods as in PHP's class, the way you interact with the reader will likely
 look different.</p>
 
-<h2>Converting XML to a PHP array</h2>
+<h2 id="converting-xml-to-a-php-array">Converting XML to a PHP array</h2>
 
 <p>Let's take the following XML as our primary example.</p>
 
@@ -182,7 +182,7 @@ print_r($reader-&gt;parse());
 )
 </code></pre>
 
-<h2>Key-Value XML structures</h2>
+<h2 id="key-value-xml-structures">Key-Value XML structures</h2>
 
 <p>However, we can simplify this quite a bit. Our <code>book</code> element pretty much
 looks like a key-value structure, so we can tell the parser this:</p>
@@ -242,7 +242,7 @@ print_r($reader-&gt;parse());
 )
 </code></pre>
 
-<h2>Custom element parsers</h2>
+<h2 id="custom-element-parsers">Custom element parsers</h2>
 
 <p>Lets take this one step further… We have a simple class that represents the
 books document:</p>
@@ -333,7 +333,7 @@ print_r($reader-&gt;parse());
 )
 </code></pre>
 
-<h2>Using element classes</h2>
+<h2 id="using-element-classes">Using element classes</h2>
 
 <p>The last example had 2 custom deserializers. We can also integrate straight
 into the classes they are supposed to deserialize.</p>

@@ -82,7 +82,7 @@ not have an eventloop, or is as event-heavy as Javascript is. So 'callback hell'
 is a lot less prevalent problem. However, there are certain situations where
 Promises can be useful in PHP as well.</p>
 
-<h2>An example through a use-case</h2>
+<h2 id="an-example-through-a-use-case">An example through a use-case</h2>
 
 <p>We are integrated with a RESTful webservice. We have to make 1 <code>PUT</code> and
 1 <code>DELETE</code>, but we don't have to perform these in order.</p>
@@ -152,7 +152,7 @@ when the operation is completed.</p>
 <p>It is up to the implementor to decide what types <code>$value</code> and <code>$reason</code> are,
 but it's recommended to send <code>Exception</code> objects to the error handler.</p>
 
-<h2>The innovation: chaining</h2>
+<h2 id="the-innovation%3A-chaining">The innovation: chaining</h2>
 
 <p>The innovation lies in the fact that it's possible to chain promises.</p>
 
@@ -197,7 +197,7 @@ the last error handler.</p>
 <p><strong>Note</strong>: If you did not specify an error handler, any errors and exceptions may
 be suppressed. Always make sure you end the chain with at least 1 error handler.</p>
 
-<h2>Promise state</h2>
+<h2 id="promise-state">Promise state</h2>
 
 <p>A Promise can only have one of three states:</p>
 
@@ -210,7 +210,7 @@ be suppressed. Always make sure you end the chain with at least 1 error handler
 <p>After a Promise is in state 2 or 3, its state and the value/reason are
 immutable.</p>
 
-<h2>Creating a Promise</h2>
+<h2 id="creating-a-promise">Creating a Promise</h2>
 
 <p>If you are the implementor of <code>MultiHttp</code>, you will want to know how to create
 a Promise. It's pretty easy, just call the constructor:</p>
@@ -242,16 +242,16 @@ by passing a callback to the constructor:</p>
 });
 </code></pre>
 
-<h2>API</h2>
+<h2 id="api">API</h2>
 
-<h3><code>__construct(callable $executor = null);</code></h3>
+<h3 id="%60__construct%28callable-%24executor-%3D-null%29%3B%60"><code>__construct(callable $executor = null);</code></h3>
 
 <p>Creates the Promise with an optional executor callback. The callback will
 receive a reference to the fulfill and reject functions.</p>
 
 <p>See 'Creating a Promise'.</p>
 
-<h3><code>then(callable $onFulfilled = null, callable $onRejected = null)</code></h3>
+<h3 id="%60then%28callable-%24onfulfilled-%3D-null%2C-callable-%24onrejected-%3D-null%29%60"><code>then(callable $onFulfilled = null, callable $onRejected = null)</code></h3>
 
 <p>Sets up a callback for when the Promise is fulfilled or rejected.</p>
 
@@ -330,7 +330,7 @@ caught, and the returned Promise will fail with the exception as the reason:</p>
 <p>For this reason it's very important to always end with a rejected handler, as
 otherwise any exceptions may be silently suppressed.</p>
 
-<h3><code>error($onRejected)</code></h3>
+<h3 id="%60error%28%24onrejected%29%60"><code>error($onRejected)</code></h3>
 
 <p>This method can be used to just specify an error handler. This allows the
 following syntax:</p>
@@ -347,7 +347,7 @@ following syntax:</p>
 });
 </code></pre>
 
-<h3><code>fulfill(mixed $value = null)</code></h3>
+<h3 id="%60fulfill%28mixed-%24value-%3D-null%29%60"><code>fulfill(mixed $value = null)</code></h3>
 
 <p>Fulfills a Promise that didn't have a result yet.</p>
 
@@ -356,7 +356,7 @@ following syntax:</p>
 
 <p>The value may be any type at all.</p>
 
-<h3><code>reject(mixed $reason = null)</code></h3>
+<h3 id="%60reject%28mixed-%24reason-%3D-null%29%60"><code>reject(mixed $reason = null)</code></h3>
 
 <p>Reject (fails) a Promise that didn't have a result yet.</p>
 
@@ -365,7 +365,7 @@ following syntax:</p>
 
 <p>The reason may also be any PHP type, but it's recommended to use exceptions.</p>
 
-<h3><code>all(Promise[] $promises)</code></h3>
+<h3 id="%60all%28promise%5B%5D-%24promises%29%60"><code>all(Promise[] $promises)</code></h3>
 
 <p>The <code>all</code> method is a static method. You can specify 1 or more Promises to it,
 and it returns a new Promise.</p>

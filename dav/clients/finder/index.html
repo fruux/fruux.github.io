@@ -132,7 +132,7 @@ to make modifications.</p>
 
 <p>If the server does not supports locks, Finder will operate in read-only mode.</p>
 
-<h2>Connecting</h2>
+<h2 id="connecting">Connecting</h2>
 
 <ol>
 <li>Open finder</li>
@@ -140,9 +140,9 @@ to make modifications.</p>
 <li>Fill in the full url to the webdav server, and hit connect</li>
 </ol>
 
-<h2>Technical information</h2>
+<h2 id="technical-information">Technical information</h2>
 
-<h3>Chunked encoding</h3>
+<h3 id="chunked-encoding">Chunked encoding</h3>
 
 <p>Finder uses <code>Transfer-Encoding: Chunked</code> in PUT request bodies. This is a
 little used HTTP feature, and therefore not implemented in a bunch of
@@ -156,11 +156,11 @@ issue.</p>
 so it will seem as if the PUT request was succesful, but the file will end up
 empty.</p>
 
-<h3>Softlinks</h3>
+<h3 id="softlinks">Softlinks</h3>
 
 <p>Finder will throw an error if an attempt is made to create or copy softlinks.</p>
 
-<h3>Excessive requests</h3>
+<h3 id="excessive-requests">Excessive requests</h3>
 
 <p>Two big problems with Finder are that it leaves a lot of files behind (such as
 <code>.DS_Store</code> and all the <code>._.*</code> files. The second problem is that it makes such
@@ -249,19 +249,19 @@ your WebDAV drives.</p>
 <p>Finder luckily has good support for the Content-Range header. This will
 reduce the actual size of the requires bodies quite well.</p>
 
-<h3>User Agents</h3>
+<h3 id="user-agents">User Agents</h3>
 
 <pre><code>WebDAVFS/1.5 (01508000) Darwin/9.2.2 (i386)
 WebDAVFS/1.7 (01708000) Darwin/9.4.0 (i386)
 WebDAVFS/1.7 (01708000) Darwin/9.6.0 (i386)
 </code></pre>
 
-<h3>Content-length required</h3>
+<h3 id="content-length-required">Content-length required</h3>
 
 <p>Finder requires all files to have the Content-Length header, without it,
 you'll get really strange results.</p>
 
-<h3>Properties</h3>
+<h3 id="properties">Properties</h3>
 
 <p>For files and directories, Finder will request the following properties:</p>
 
@@ -297,11 +297,11 @@ defined, and what they should contain.</p>
 getlastmodified as UTC. Therefore it's best to send back all getlastmodified
 properties in the UTC timezone.</p>
 
-<h3>Authentication</h3>
+<h3 id="authentication">Authentication</h3>
 
 <p>Both Basic and Digest authentication are supported by Finder.</p>
 
-<h3>Character sets</h3>
+<h3 id="character-sets">Character sets</h3>
 
 <p>OS/X Finder uses UTF-8 to encode non-latin characters. The encoding it uses
 for characters such as the u-umlaut is <code>u%CC%88</code> (a lowercase u + unicode

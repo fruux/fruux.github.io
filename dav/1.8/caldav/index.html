@@ -130,7 +130,7 @@ calendar-access working.</p>
 <p>CalDAV depends on the <a href="/dav/acl">ACL</a> plugin to be available too. This document
 provides a simple explanation to get your server setup.</p>
 
-<h2>Database setup</h2>
+<h2 id="database-setup">Database setup</h2>
 
 <p>Example sql files are supplied for postgres, sqlite and mysql. The latter two
 are officially supported and unittested.</p>
@@ -155,14 +155,14 @@ writable by the server. If you are lazy you could just do:</p>
 <pre><code>chmod -Rv a+rw data/
 </code></pre>
 
-<h2>Create the server endpoint</h2>
+<h2 id="create-the-server-endpoint">Create the server endpoint</h2>
 
 <p>Simply run the following:</p>
 
 <pre><code>cp examples/calendarserver.php calendarserver.php
 </code></pre>
 
-<h2>Test in browser</h2>
+<h2 id="test-in-browser">Test in browser</h2>
 
 <p>Try opening the full url to your new server. Make sure you append a slash at
 the end of the url, without this the request will fail. Example:</p>
@@ -197,7 +197,7 @@ SabreDAV runs at the root of the domain.</p>
 <p>For more information about the auto-detection system, read the
 <a href="/dav/service-discovery">Service discovery documentation</a>.</p>
 
-<h2>Adding users</h2>
+<h2 id="adding-users">Adding users</h2>
 
 <p>SabreDAV does not provide an administrative interface. While this may happen
 in the future, for now SabreDAV is mostly intended for developers. Adding new
@@ -210,7 +210,7 @@ add them to the principals table to enable calendar access.</p>
 calendar-proxy-read and calendar-proxy-write principals must be added. Look at
 the sample .sql files for examples for these records.</p>
 
-<h2>Related topics</h2>
+<h2 id="related-topics">Related topics</h2>
 
 <ul>
 <li><a href="/dav/caldav-carddav-integration-guide">Guide for integrating CalDAV &amp; CardDAV in existing infrastructures</a>.</li>

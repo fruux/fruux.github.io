@@ -71,12 +71,12 @@
 </aside>
                 <article>
                             <h1>Usage instructions</h1>
-                <h2>Getting started</h2>
+                <h2 id="getting-started">Getting started</h2>
 
 <p>Make sure you followed all the steps in the <a href="/vobject/install">installation instructions</a>,
 and you've included the autoloader in your code.</p>
 
-<h2>A basic parsing example</h2>
+<h2 id="a-basic-parsing-example">A basic parsing example</h2>
 
 <p>Assuming there is a vCard in your local directory, named <code>cowboyhenk.vcf</code>,
 the following complete example will parse it and display the <code>FN</code> property:</p>
@@ -120,9 +120,9 @@ examples in this documentation use syntax that was introduced in PHP 5.4.</p>
 )
 </code></pre>
 
-<h2>The actual manual</h2>
+<h2 id="the-actual-manual">The actual manual</h2>
 
-<h3>Creating vCards</h3>
+<h3 id="creating-vcards">Creating vCards</h3>
 
 <p>To create a vCard, you can simply instantiate the <code>VCard</code> component, and pass
 the properties you need:</p>
@@ -147,7 +147,7 @@ N:Henk;Cowboy;;Dr.;MD
 END:VCARD
 </code></pre>
 
-<h3>Adding properties</h3>
+<h3 id="adding-properties">Adding properties</h3>
 
 <p>Certain properties, such as <code>TEL</code>, <code>ADR</code> or <code>EMAIL</code> may appear more than once.
 To add any additional properties, use the <code>add()</code> method on the vCard.</p>
@@ -158,7 +158,7 @@ To add any additional properties, use the <code>add()</code> method on the vCard
 <p>The third argument of the <code>add()</code> method allows you to specify a list of
 parameters.</p>
 
-<h3>Manipulating properties</h3>
+<h3 id="manipulating-properties">Manipulating properties</h3>
 
 <p>The vCard also allows object-access to manipulate properties:</p>
 
@@ -173,7 +173,7 @@ unset($vcard-&gt;FN);
 isset($vcard-&gt;FN);
 </code></pre>
 
-<h3>Working with parameters</h3>
+<h3 id="working-with-parameters">Working with parameters</h3>
 
 <p>To get access to a parameter, you can simply use array-access:</p>
 
@@ -213,7 +213,7 @@ through them:</p>
 );
 </code></pre>
 
-<h3>Parsing vCard or iCalendar</h3>
+<h3 id="parsing-vcard-or-icalendar">Parsing vCard or iCalendar</h3>
 
 <p>To parse a vCard or iCalendar object, simply call:</p>
 
@@ -228,7 +228,7 @@ attempt to mend the broken data.</p>
 <pre><code>$vcard = VObject\Reader::read($data, VObject\Reader::OPTION_FORGIVING);
 </code></pre>
 
-<h3>Reading property values</h3>
+<h3 id="reading-property-values">Reading property values</h3>
 
 <p>For properties that are stored as a string, you can simply call:</p>
 
@@ -243,7 +243,7 @@ can call <code>getParts()</code>.</p>
 );
 </code></pre>
 
-<h3>Looping through properties.</h3>
+<h3 id="looping-through-properties.">Looping through properties.</h3>
 
 <p>Properties such as <code>ADR</code>, <code>EMAIL</code> and <code>TEL</code> may appear more than once in a
 vCard. To loop through them, you can simply throw them in a <code>foreach()</code>
@@ -258,7 +258,7 @@ foreach($vcard-&gt;ADR as $adr) {
 }
 </code></pre>
 
-<h3>vCard property grouping</h3>
+<h3 id="vcard-property-grouping">vCard property grouping</h3>
 
 <p>It's allowed in vCards to group multiple properties together with an arbitrary
 string.</p>
@@ -300,7 +300,7 @@ numbers and display their custom labels, you'd do something like this:</p>
 }
 </code></pre>
 
-<h3>iCalendar</h3>
+<h3 id="icalendar">iCalendar</h3>
 
 <p>iCalendar works much the same way as vCards, but has a couple of features
 that vCard does not.</p>
@@ -352,7 +352,7 @@ $vevent-&gt;add('ATTENDEE','mailto:attendee1@example.org');
 $vevent-&gt;add('ATTENDEE','mailto:attendee2@example.org');
 </code></pre>
 
-<h3>Date and time handling</h3>
+<h3 id="date-and-time-handling">Date and time handling</h3>
 
 <p>Parsing Dates and Times from iCalendar and vCard can be difficult.
 Most of this is abstracted by the VObject library.</p>
@@ -370,7 +370,7 @@ echo $start-&gt;format(\DateTime::W3C);
 $event-&gt;DTSTART = $dateTime;
 </code></pre>
 
-<h3>Free-busy report generation</h3>
+<h3 id="free-busy-report-generation">Free-busy report generation</h3>
 
 <p>Some calendaring software can make use of FREEBUSY reports to show when people are
 available.</p>
@@ -422,7 +422,7 @@ END:VFREEBUSY
 END:VCALENDAR
 </code></pre>
 
-<h3>Splitting export files</h3>
+<h3 id="splitting-export-files">Splitting export files</h3>
 
 <p>Generally when software makes backups of calendars or contacts, they will
 put all the objects in a single file. In the case of vCards, this is often
@@ -452,7 +452,7 @@ that the <code>VTIMEZONE</code> information is kept intact, and any <code>VEVENT
 belong together (because they are expections for an <code>RRULE</code> and thus have the
 same <code>UID</code>) will be kept together, exactly like CalDAV expects.</p>
 
-<h3>Converting between different vCard versions</h3>
+<h3 id="converting-between-different-vcard-versions">Converting between different vCard versions</h3>
 
 <p>Since sabre/vobject 3.1, there's also a feature to convert between various
 vCard versions. Currently it's possible to convert from vCard 2.1, 3.0 and
@@ -488,7 +488,7 @@ probable that there's a few properties that could be converted between
 versions, but isn't yet. If you find something, open a feature request ticket
 on Github.</p>
 
-<h2>CLI tool</h2>
+<h2 id="cli-tool">CLI tool</h2>
 
 <p>Since vObject 3.1, a new CLI tool is shipped in the <code>bin/</code> directory.</p>
 
@@ -507,7 +507,7 @@ vCard 3.0, vCard 4.0, jCard and jCal.</li>
 symlink in <code>vendor/bin</code> as well, or a directory of your choosing if you set
 the <code>bin-dir</code> setting in your composer.json.</p>
 
-<h2>Support</h2>
+<h2 id="support">Support</h2>
 
 <p>Head over to the <a href="http://groups.google.com/group/sabredav-discuss">SabreDAV mailing list</a> for any questions.</p>
             

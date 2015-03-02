@@ -59,7 +59,7 @@ represent HTTP requests and responses in PHP.</p>
 are treated, especially when there are multiple headers with the same name,
 which is something sabre/http dealt poorly with (not at all).</p>
 
-<h2>Changes</h2>
+<h2 id="changes">Changes</h2>
 
 <ul>
 <li>Switched to a PSR-4 directory structure in <code>lib/</code>. This means all classes
@@ -82,7 +82,7 @@ value.</li>
 setting is turned on.</li>
 </ul>
 
-<h2>Upgrading</h2>
+<h2 id="upgrading">Upgrading</h2>
 
 <p>If you are using sabre/http solely through sabredav, don't upgrade yet unless
 you are using the latest development version. If you use sabre/http
@@ -96,7 +96,7 @@ this:</p>
 
 <p>And run <code>composer update sabre/http</code> afterwards.</p>
 
-<h2>No full psr/http compliance</h2>
+<h2 id="no-full-psr%2Fhttp-compliance">No full psr/http compliance</h2>
 
 <p>I've matched the Request and Response to behave closer to the draft psr-http
 draft, <em>but</em> I didn't go all the way!</p>

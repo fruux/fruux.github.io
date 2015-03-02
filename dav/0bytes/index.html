@@ -129,7 +129,7 @@ Because there are a number of different scenarios that can result in 0 byte
 files, it's good to try to figure out which specific issue is the one you're
 dealing with.</p>
 
-<h2>Webserver and chunked transfer encoding</h2>
+<h2 id="webserver-and-chunked-transfer-encoding">Webserver and chunked transfer encoding</h2>
 
 <p>There are a number of clients, in particular <a href="/dav/clients/finder">OS X's Finder</a>
 and <a href="/dav/clients/transmit">Transmit</a> that use the so-called 'chunked tranfer'
@@ -149,7 +149,7 @@ effectively tells PHP and SabreDAV that an empty file was submitted.</li>
 
 <p>See <a href="/dav/webservers">Webservers</a> for more information.</p>
 
-<h2>Clients submitting files in two phases</h2>
+<h2 id="clients-submitting-files-in-two-phases">Clients submitting files in two phases</h2>
 
 <p>There are a lot of WebDAV clients out there that create new files in two steps:</p>
 
@@ -166,7 +166,7 @@ for SabreDAV (<a href="/dav/virtual-filesystems">Virtual filesystems</a>). So ke
 mind that as you're writing custom nodes, and you want to support standard
 WebDAV clients, receiving an empty 0-byte file first is expected.</p>
 
-<h2>Locking</h2>
+<h2 id="locking">Locking</h2>
 
 <p>Furthermore, there are clients that support <code>LOCK</code>. Clients may <code>LOCK</code> a url
 before creating a new file. The idea is that while the file is locked, some
@@ -183,7 +183,7 @@ exist, SabreDAV itself will create an empty file at that location.</p>
 <p>So this is another situation where an empty file may be created before the
 <em>actual</em> file comes in.</p>
 
-<h2>What if there is no follow-up PUT?</h2>
+<h2 id="what-if-there-is-no-follow-up-put%3F">What if there is no follow-up PUT?</h2>
 
 <p>If files stay empty, and there is no <code>PUT</code> request after the initial <code>LOCK</code>
 or preflight <code>PUT</code>, the only explanation that can be given is, "there's a bug

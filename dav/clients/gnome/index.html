@@ -126,14 +126,14 @@
                             <h1>Gnome</h1>
                 <p>The Gnome client is a solid and efficient WebDAV client.</p>
 
-<h2>Technical details</h2>
+<h2 id="technical-details">Technical details</h2>
 
-<h3>Spotted user agent(s):</h3>
+<h3 id="spotted-user-agent%28s%29%3A">Spotted user agent(s):</h3>
 
 <pre><code>gvfs/1.4.1
 </code></pre>
 
-<h3>Properties</h3>
+<h3 id="properties">Properties</h3>
 
 <p>Gnome will request the following properties:</p>
 
@@ -147,7 +147,7 @@
 <li><code>{DAV:}resourcetype</code></li>
 </ul>
 
-<h3>Redirect references</h3>
+<h3 id="redirect-references">Redirect references</h3>
 
 <p>Gnome seems to specify the header:</p>
 
@@ -158,7 +158,7 @@
 for this. This is very interesting, because it might mean it perhaps supports
 hopping from server to server, or softlinks. (needs some investigation).</p>
 
-<h3>Copying directories</h3>
+<h3 id="copying-directories">Copying directories</h3>
 
 <p>If you are running a Gnome version older than 3.0.2, you may be affected by
 this (pretty serious) issue. Later versions should have this fixed though.</p>
@@ -172,7 +172,7 @@ contents of whatever a GET on the source was, often a html index.</p>
 
 <p>Reference: <a href="https://bugzilla.gnome.org/show_bug.cgi?id=551339">Gnome bug 551339</a>.</p>
 
-<h3>URL Encoding</h3>
+<h3 id="url-encoding">URL Encoding</h3>
 
 <p>Gnome did not seem to like url-encoding of ( and ). While these have no
 special meaning in http urls, these are considered 'reserved' and encoded by
@@ -185,7 +185,7 @@ purpose.</p>
 characters at all. SabreDAV defaults to encoding characters to lower-case
 (<code>%c3%a1</code>), while Nautilus only seems to accept them as upper-case (<code>%C1%A1</code>).</p>
 
-<h3>Creating empty files</h3>
+<h3 id="creating-empty-files">Creating empty files</h3>
 
 <p>Reference: <a href="https://bugzilla.gnome.org/show_bug.cgi?id=603422">Gnome bug 603422</a>.</p>
 

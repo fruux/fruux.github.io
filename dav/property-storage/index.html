@@ -140,12 +140,12 @@ $propertyStorage = new \Sabre\DAV\PropertyStorage\Plugin($storageBackend);
 $server-&gt;addPlugin($propertyStorage);
 </code></pre>
 
-<h2>Note on ACL</h2>
+<h2 id="note-on-acl">Note on ACL</h2>
 
 <p>ACL will be enforced everywhere. Keep in mind though that for nodes where
 ACL is not defined, the server default is to give full permissions.</p>
 
-<h2>Note on server design</h2>
+<h2 id="note-on-server-design">Note on server design</h2>
 
 <p>Some people design their servers that any user who logs in, gets a different
 'view'. Some fileservers may for instance always only show the files in a
@@ -155,7 +155,7 @@ server that the user owns.</p>
 Since properties are stored per path, users may end up overwriting each
 others.</p>
 
-<h2>Restricting paths</h2>
+<h2 id="restricting-paths">Restricting paths</h2>
 
 <p>It's possible to restrict in which paths properties may be stored. The
 <code>Sabre\DAV\PropertyStorage\Plugin</code> class has a <code>$pathFilter</code> property that

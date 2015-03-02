@@ -79,7 +79,7 @@ kinds of properties and escaping.</p>
 <p>To do this, a few backwards compatibility breaks had to be made. This document
 describes each of them, as well as all the new features.</p>
 
-<h2>Overview of new features</h2>
+<h2 id="overview-of-new-features">Overview of new features</h2>
 
 <ul>
 <li>Serializer now properly deals with escaped commas and semi-colons.</li>
@@ -107,9 +107,9 @@ vCards Microsoft generates if the <code>FORGIVING</code> option is on.</li>
 <li>A new CLI tool with <code>validate</code>, <code>repair</code>, <code>color</code> and <code>convert</code> commands.</li>
 </ul>
 
-<h2>Backwards compatibility breaks</h2>
+<h2 id="backwards-compatibility-breaks">Backwards compatibility breaks</h2>
 
-<h3>Creating components</h3>
+<h3 id="creating-components">Creating components</h3>
 
 <p>Before, it was possible to create components such as <code>VEVENT</code>, <code>VTODO</code>, etc
 with this syntax:</p>
@@ -153,7 +153,7 @@ $vcalendar-&gt;add('VEVENT', [
 ?&gt;
 </code></pre>
 
-<h3>Creating properties</h3>
+<h3 id="creating-properties">Creating properties</h3>
 
 <p>Creating properties works the <em>exact</em> same way.</p>
 
@@ -194,11 +194,11 @@ $location = $card-&gt;add('LOCATION','Home');
 <p>In this case it doesn't make much of a difference, but when constructing
 highly complex objects with sub-components, this <em>will</em> make a big difference.</p>
 
-<h3>Component::children() and Property::parameters() return arrays.</h3>
+<h3 id="component%3A%3Achildren%28%29-and-property%3A%3Aparameters%28%29-return-arrays.">Component::children() and Property::parameters() return arrays.</h3>
 
 <p>Before VObject 3 they returned an <code>ElementList</code>.</p>
 
-<h3>The signature for DateTime::setDateTime has changed.</h3>
+<h3 id="the-signature-for-datetime%3A%3Asetdatetime-has-changed.">The signature for DateTime::setDateTime has changed.</h3>
 
 <p>Before, you would use the following 4 syntaxes to set the date and time:</p>
 
@@ -257,7 +257,7 @@ $event-&gt;DTSTART = $now;
 <p>In addition, the <code>MultiDateTime</code> property is no more, and it's methods are
 simply merged into <code>DateTime</code>.</p>
 
-<h3>The $value property is now protected everywhere.</h3>
+<h3 id="the-%24value-property-is-now-protected-everywhere.">The $value property is now protected everywhere.</h3>
 
 <p>Both the <code>Property</code> and the <code>Parameter</code> classes had a public <code>$value</code> property,
 which allowed you to retrieve the string value for either of those.</p>
@@ -284,13 +284,13 @@ print_r($org-&gt;getParts());
 ?&gt;
 </code></pre>
 
-<h3>Binary properties are automatically de- and encoded.</h3>
+<h3 id="binary-properties-are-automatically-de--and-encoded.">Binary properties are automatically de- and encoded.</h3>
 
 <p>The <code>ATTACH</code>, <code>LOGO</code> and <code>PHOTO</code> properties now automatically de- and encode
 their binary values. In vObject 2 they were accessed by their raw base64
 values.</p>
 
-<h3>Components and documents get injected with default properties.</h3>
+<h3 id="components-and-documents-get-injected-with-default-properties.">Components and documents get injected with default properties.</h3>
 
 <p>When creating a new <code>VCalendar</code>, it will automatically get the <code>VERSION</code>,
 <code>CALSCALE</code> and <code>PRODID</code> properties.</p>
@@ -318,7 +318,7 @@ $calendar-&gt;add('version', '2.0');
 
 <p>You will end up with 2 VERSION properties, making the document invalid.</p>
 
-<h3>componentMap and propertyMap properties have moved.</h3>
+<h3 id="componentmap-and-propertymap-properties-have-moved.">componentMap and propertyMap properties have moved.</h3>
 
 <p>When you wanted to automatically map certain components or properties to
 certain PHP classes, you could do so with <code>Component::$componentMap</code> and

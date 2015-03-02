@@ -134,7 +134,7 @@ resource.</p>
 <a href="/dav/clients/davfs/">davfs</a> and <a href="/dav/clients/finder/">Finder</a> require locks to work in order to enable
 read-write support. Without it, they fall back to a read-only state.</p>
 
-<h2>Enabling locking</h2>
+<h2 id="enabling-locking">Enabling locking</h2>
 
 <p>To enable locks, the easiest thing to do, is to use use the PDO backend.
 To do this, you must first create a sqlite or mysql database, and create
@@ -161,7 +161,7 @@ $locksPlugin = new Sabre\DAV\Locks\Plugin(
 $server-&gt;addPlugin($locksPlugin);
 </code></pre>
 
-<h2>Other backends</h2>
+<h2 id="other-backends">Other backends</h2>
 
 <p>SabreDAV also ships with a plugin that stores the data in a file, to use it,
 just instantiate it with a filename that the server has write-access to:</p>

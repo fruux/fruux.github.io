@@ -133,7 +133,7 @@ calendars. This can be done either read-only or read-write.</p>
 <p>Only entire accounts can be delegated. It's not possible to do per-calendar
 sharing. This functionality is possible as well using <a href="/dav/caldav-sharing">CalDAV sharing</a>.</p>
 
-<h2>Client support</h2>
+<h2 id="client-support">Client support</h2>
 
 <p><a href="/dav/clients/ical">iCal</a>, <a href="/dav/clients/busycal">BusyCal</a> and several other
 clients now support this feature.</p>
@@ -144,7 +144,7 @@ or by directly interfacing with the WebDAV API for this.</p>
 <p>Once permissions are granted though, delegated calendars show up in the iCal
 preferences interface.</p>
 
-<h2>Setting up</h2>
+<h2 id="setting-up">Setting up</h2>
 
 <p>To make sure delegation works, every single principal that needs this, will
 need to have two sub-principals.</p>
@@ -166,7 +166,7 @@ either the read, or the write group.</p>
 
 <p>You can do this through the <code>groupmembers</code> database table.</p>
 
-<h2>Using the correct Principal Collections</h2>
+<h2 id="using-the-correct-principal-collections">Using the correct Principal Collections</h2>
 
 <p>You must make sure that for the '/principals' collection at the root of your
 server, you do not use the following class:</p>
@@ -184,7 +184,7 @@ server, you do not use the following class:</p>
 <p>The CalDAV-specific collection ensures that the new proxy principals are
 correctly created.</p>
 
-<h2>Manually giving users access to other accounts</h2>
+<h2 id="manually-giving-users-access-to-other-accounts">Manually giving users access to other accounts</h2>
 
 <p>If you want to give user A access to user B's calendars, this means that
 <code>principal/userA</code> needs to be part of the

@@ -269,9 +269,9 @@ $entry-&gt;summary = 'Some text.';
 
 <p>Now to serialize it:</p>
 
-<pre><code>$writer-&gt;write(
+<pre><code>$writer-&gt;write([
     '{http://www.w3.org/2005/Atom}entry' =&gt; $entry,
-);
+]);
 </code></pre>
 
 <p>Output:</p>

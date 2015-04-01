@@ -58,6 +58,7 @@
                     <li><a href="http://sabre.io/xml/install/">Installation</a></li>
                     <li><a href="http://sabre.io/xml/reading/">Reading XML</a></li>
                     <li><a href="http://sabre.io/xml/writing/">Writing XML</a></li>
+                    <li><a href="http://sabre.io/xml/service/">XML service</a></li>
                 </ul>
                             </li>
             <li><a href="http://sabre.io/uri">sabre/uri</a>
@@ -232,6 +233,173 @@ print_r($reader-&gt;parse());
                         )
 
                 )
+
+        )
+
+    [attributes] =&gt; Array
+        (
+        )
+
+)
+</code></pre>
+
+<h2 id="other-standard-xml-parsers">Other standard XML parsers</h2>
+
+<p>There's a number of standard XML parsers included, we show an example of each.</p>
+
+<p>Assume that every example below here uses an xml document that looks like this:</p>
+
+<pre><code>&lt;?xml version="1.0"?&gt;
+&lt;root xmlns="http://example.org/"&gt;
+    &lt;elem1&gt;value1&lt;/elem1&gt;
+    &lt;elem2 att="attvalue"&gt;value2&lt;/elem2&gt;
+&lt;/root&gt;
+</code></pre>
+
+<h3 id="base">Base</h3>
+
+<p>The 'Base' parser is the default, it causes every element to be deserialized
+as an array with three keys:</p>
+
+<ol>
+<li>name</li>
+<li>value</li>
+<li>attributes</li>
+</ol>
+
+<p>You don't ever need to specify it, as it's the default. This is how it would
+look like:</p>
+
+<pre><code>$reader = new Sabre\Xml\Reader();
+$reader-&gt;elementMap = [
+    '{http://example.org/}root' =&gt; 'Sabre\Xml\Element\Base',
+];
+$reader-&gt;xml($xml);
+
+print_r($reader-&gt;parse());
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code>Array
+(
+    [name] =&gt; {http://example.org/}root
+    [value] =&gt; Array
+        (
+            [0] =&gt; Array
+                (
+                    [name] =&gt; {http://example.org/}elem1
+                    [value] =&gt; value1
+                    [attributes] = Array ( )
+                )
+            [1] =&gt; Array
+                (
+                    [name] =&gt; {http://example.org/}elem2
+                    [value] =&gt; value2
+                    [attributes] = Array
+                        (
+                            [att] =&gt; attvalue
+                        )
+                )
+        )
+    [attributes] =&gt; Array ( )
+)
+</code></pre>
+
+<h3 id="keyvalue">KeyValue</h3>
+
+<p><code>KeyValue</code> flattens the array a bit. The assumption is that an element has a set
+of child elements, and every child element only appears once.</p>
+
+<pre><code>$reader = new Sabre\Xml\Reader();
+$reader-&gt;elementMap = [
+    '{http://example.org/}root' =&gt; 'Sabre\Xml\Element\KeyValue',
+];
+$reader-&gt;xml($xml);
+
+print_r($reader-&gt;parse());
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code>Array
+(
+    [name] =&gt; {http://example.org/}root
+    [value] =&gt; Array
+        (
+            [{http://example.org/}elem1] =&gt; value1
+            [{http://example.org/}elem2] =&gt; value2
+        )
+
+    [attributes] =&gt; Array
+        (
+        )
+
+)
+</code></pre>
+
+<h3 id="elements">Elements</h3>
+
+<p>Using <code>Elements</code> implies you only care about element names, not about their
+contents. This could be useful in case you use elements as a sort of 'enum'
+structure:</p>
+
+<pre><code>$reader = new Sabre\Xml\Reader();
+$reader-&gt;elementMap = [
+    '{http://example.org/}root' =&gt; 'Sabre\Xml\Element\Elements',
+];
+$reader-&gt;xml($xml);
+
+print_r($reader-&gt;parse());
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code>Array
+(
+    [name] =&gt; {http://example.org/}root
+    [value] =&gt; Array
+        (
+            [0] =&gt; {http://example.org/}elem1
+            [1] =&gt; {http://example.org/}elem2
+        )
+
+    [attributes] =&gt; Array
+        (
+        )
+
+)
+</code></pre>
+
+<h3 id="xmlfragment">XmlFragment</h3>
+
+<p>In some cases you might want to allow 'free form XML' to be specified in for
+example an API. Atom for instance allows XHTML to be embedded, and WebDAV
+allows users to store custom properties consisting of complex xml structures
+with their own namespaces.</p>
+
+<p>XmlFragment extracts an entire XML subtree and creates a object that can be
+stored in a database, and later on embedded in an xml document again:</p>
+
+<pre><code>$reader = new Sabre\Xml\Reader();
+$reader-&gt;elementMap = [
+    '{http://example.org/}root' =&gt; 'Sabre\Xml\Element\XmlFragment',
+];
+$reader-&gt;xml($xml);
+
+print_r($reader-&gt;parse());
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code>Array
+(
+    [name] =&gt; {http://example.org/}root
+    [value] =&gt; Sabre\Xml\Element\XmlFragment Object
+        (
+            [xml:protected] =&gt;
+&lt;elem1 xmlns="http://example.org/"&gt;value1&lt;/elem1&gt;
+&lt;elem2 xmlns="http://example.org/" att="attvalue"&gt;value2&lt;/elem2&gt;
 
         )
 

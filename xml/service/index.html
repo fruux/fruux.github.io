@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>sabre/xml - sabre/xml</title>
+            <title>The XML service - sabre/xml</title>
     
     <meta charset="utf-8">
 
@@ -68,116 +68,122 @@
     </nav>
 </aside>
                 <article>
-                            <h1>sabre/xml</h1>
-                <p><em>An XML library for PHP you may not hate.</em></p>
+                            <h1>The XML service</h1>
+                <p>While sabre/xml has a separate reader and writer class, it also offers a
+central service class. This class may be used as a design pattern to globally
+configure your xml readers and writers.</p>
 
-<p>If you are writing or consuming API's in PHP, chances are that you need to
-work with XML. In some cases you may even prefer it.</p>
+<p>This service can be injected in your dependency injection container or service
+locator.</p>
 
-<p>You may have started with <a href="http://php.net/manual/en/book.simplexml.php">SimpleXML</a> and after a while switched to using
-<a href="http://ca2.php.net/manual/en/book.dom.php">the DOM</a> after realizing SimpleXML is really not that simple if you
-strictly use xml namespaces everywhere.</p>
+<h2 id="the-service-class">The service class</h2>
 
-<p>For writing XML, you may have found that using the DOM requires far too much
-code, or you may simply generate your XML by <code>echo</code>ing strings, knowing that
-it may not be the best idea.</p>
+<p>This is the service class in birds eye view:</p>
 
-<p>sabre/xml hopes to solve your issues, by wrapping <a href="http://php.net/manual/en/book.xmlreader.php"><code>XMLReader</code></a> and
-<a href="http://php.net/manual/en/book.xmlwriter.php"><code>XMLWriter</code></a>, and providing standard design patterns around:</p>
+<p>```php</p>
 
-<ol>
-<li>Quickly generating XML based on simple array structures,</li>
-<li>Providing a super simple XML-to-object mapping,</li>
-<li>Re-usability of parsers.</li>
-</ol>
+<p>namespace Sabre\Xml;</p>
 
-<h2 id="writing-xml">Writing XML</h2>
+<p>class Service {</p>
 
-<p>Generating XML largely follows the <a href="http://php.net/manual/en/book.xmlwriter.php"><code>XMLWriter</code></a> API, but a lot of useful
-features have been tacked on.</p>
+<pre><code>/**
+ * This is the element map. It contains a list of XML elements (in clark
+ * notation) as keys and PHP class names as values.
+ *
+ * The PHP class names must implement Sabre\Xml\Element.
+ *
+ * Values may also be a callable. In that case the function will be called
+ * directly.
+ *
+ * @var array
+ */
+public $elementMap = [];
 
-<pre><code>$xmlWriter = new Sabre\Xml\Writer();
-$xmlWriter-&gt;openMemory();
-$xmlWriter-&gt;startDocument();
-$xmlWriter-&gt;setIndent(true);
-$xmlWriter-&gt;namespaceMap = ['http://example.org' =&gt; 'b'];
+/**
+ * This is a list of namespaces that you want to give default prefixes.
+ *
+ * You must make sure you create this entire list before starting to write.
+ * They should be registered on the root element.
+ *
+ * @var array
+ */
+public $namespaceMap = [];
 
-$xmlWriter-&gt;write(['{http://example.org}book' =&gt; [
-    '{http://example.org}title' =&gt; 'Cryptonomicon',
-    '{http://example.org}author' =&gt; 'Neil Stephenson',
-]]);
+/**
+ * Returns a fresh XML Reader
+ *
+ * @return Reader
+ */
+function getReader(); 
+
+/**
+ * Returns a fresh xml writer
+ *
+ * @return Writer
+ */
+function getWriter(); 
+
+/**
+ * Parses a document in full.
+ *
+ * Input may be specified as a string or readable stream resource.
+ * The returned value is the value of the root document.
+ *
+ * Specifying the $contextUri allows the parser to figure out what the URI
+ * of the document was. This allows relative URIs within the document to be
+ * expanded easily.
+ *
+ * The $rootElementName is specified by reference and will be populated
+ * with the root element name of the document.
+ *
+ * @param string|resource $input
+ * @param string|null $contextUri
+ * @param string|null $rootElementName
+ * @throws ParseException
+ * @return array|object|string
+ */
+function parse($input, $contextUri = null, &amp;$rootElementName = null); 
+
+/**
+ * Parses a document in full, and specify what the expected root element
+ * name is.
+ *
+ * This function works similar to parse, but the difference is that the
+ * user can specify what the expected name of the root element should be,
+ * in clark notation.
+ *
+ * This is useful in cases where you expected a specific document to be
+ * passed, and reduces the amount of if statements.
+ *
+ * @param string $rootElementName
+ * @param string|resource $input
+ * @param string|null $contextUri
+ * @return void
+ */
+function expect($rootElementName, $input, $contextUri = null);
+
+/**
+ * Generates an XML document in one go.
+ *
+ * The $rootElement must be specified in clark notation.
+ * The value must be a string, an array or an object implementing
+ * XmlSerializable. Basically, anything that's supported by the Writer
+ * object.
+ *
+ * $contextUri can be used to specify a sort of 'root' of the PHP application,
+ * in case the xml document is used as a http response.
+ *
+ * This allows an implementor to easily create URI's relative to the root
+ * of the domain.
+ *
+ * @param string $rootElementName
+ * @param string|array|XmlSerializable $value
+ * @param string|null $contextUri
+ */
+function write($rootElementName, $value, $contextUri = null); 
 </code></pre>
 
-<p>This will create the following document:</p>
-
-<pre><code>&lt;?xml version="1.0"?&gt;
-&lt;b:book xmlns:b="http://example.org"&gt;
- &lt;b:title&gt;Cryptonomicon&lt;/b:title&gt;
- &lt;b:author&gt;Neil Stephenson&lt;/b:author&gt;
-&lt;/b:book&gt;
-</code></pre>
-
-<p>You can serialize objects by implementing <code>Sabre\Xml\XmlSerializable</code>. This
-interface is designed to work identical to PHP 5.5's <a href="http://php.net/manual/en/class.jsonserializable.php"><code>JsonSerializable</code></a>.</p>
-
-<p><a href="/xml/writing/">Read all the details here</a>.</p>
-
-<h2 id="reading-xml">Reading XML</h2>
-
-<pre><code>&lt;?php
-
-$input = &lt;&lt;&lt;XML
-&lt;article xmlns="http://example.org/"&gt;
-    &lt;title&gt;Hello world&lt;/title&gt;
-    &lt;content&gt;Fuzzy Pickles&lt;/content&gt;
-&lt;/article&gt;
-XML;
-
-$reader = new Sabre\Xml\Reader();
-$reader-&gt;elementMap = [
-    '{http://example.org/}article' =&gt; 'Sabre\Xml\Element\KeyValue',
-];
-$reader-&gt;xml($input);
-
-print_r($reader-&gt;parse());
-</code></pre>
-
-<p>This will output something like:</p>
-
-<pre><code>Array
-(
-    [name] =&gt; {http://example.org/}article
-    [value] =&gt; Array
-        (
-            [{http://example.org/}title] =&gt; Hello world
-            [{http://example.org/}content] =&gt; Fuzzy Pickles
-        )
-
-    [attributes] =&gt; Array
-        (
-        )
-
-)
-</code></pre>
-
-<p>The key in the last example, is that we tell the parser to treat the contents
-of the <code>article</code> XML node as a key-value structure.</p>
-
-<p>This is optional, but by adding this hint the resulting output becomes a lot
-simpler.</p>
-
-<p>The parser comes with a few parsing strategies for common needs, and you can
-easily create your own by writing deserializer classes, or just by providing a
-callback:</p>
-
-<pre><code>$reader-&gt;elementMap = [
-    '{http://example.org/}article' =&gt; function(Sabre\Xml\Reader $reader) {
-        // Read the element's contents, and return the result here.
-    }
-];
-</code></pre>
-
-<p><a href="/xml/reading/">Read all the details here</a>.</p>
+<p>}</p>
             
             
                             <hr />
@@ -203,9 +209,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/xml/';
-    var disqus_title = 'sabre/xml';
-    var disqus_url = 'http://sabre.io/xml/';
+    var disqus_identifier = '/xml/service/';
+    var disqus_title = 'The XML service';
+    var disqus_url = 'http://sabre.io/xml/service/';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

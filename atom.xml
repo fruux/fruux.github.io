@@ -3,9 +3,29 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-04-01T20:52:17+00:00</updated>
+    <updated>2015-04-01T22:10:58+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[A new XML library for PHP]]></title>
+            <link href="http://sabre.io/blog/2015/launching-an-xml-library-for-php/"/>
+            <updated>2015-04-01T22:10:15+00:00</updated>
+            <id>http://sabre.io/blog/2015/launching-an-xml-library-for-php/</id>
+            <content type="html"><![CDATA[<p>Dealing with XML is annoying to many, and certainly us. We've tried many
+different approaches to make working with XML less frustrating, and we've
+finally landed on an approach that we're happy with.</p>
+
+<p>We're launching sabre/xml to the public today. You can find a bit of an
+overview on <a href="http://evertpot.com/an-xml-library-you-may-not-hate/">this blog</a>, or you can jump straight in the <a href="/xml/">documentation</a>.</p>
+
+<p>This library is already integrated into the master branch of sabre/dav, which
+will be released as 2.2 soon. We rewrote almost all our XML handling code,
+and there was quite a bit! The next release has over 10.000 changed lines.</p>
+
+<p>The next major version of sabre/vobject will also depend on it to support
+reading and writing xCal and xCard.</p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.1.3 released]]></title>
             <link href="http://sabre.io/blog/2015/sabre-dav-2.1.3-released/"/>
@@ -231,26 +251,6 @@ has a line that looks like this:</p>
 </code></pre>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/3.0.4/ChangeLog.md">Github</a>.</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[New tutorial: Per-user directories]]></title>
-            <link href="http://sabre.io/blog/2014/per-user-directories-tutorial/"/>
-            <updated>2014-12-02T22:58:11+00:00</updated>
-            <id>http://sabre.io/blog/2014/per-user-directories-tutorial/</id>
-            <content type="html"><![CDATA[<p>A commonly asked question on the mailing list, is:</p>
-
-<blockquote>
-  <p>How do I create private directories on a WebDAV server.</p>
-</blockquote>
-
-<p>Doing this is not extremely obvious, and there are a few issues that people
-quickly run into.</p>
-
-<p>We've added a new <a href="/dav/per-user-directories/">tutorial</a> to our website explaining a 'simple way' of doing this,
-and also a more advanced way, using WebDAV-ACL.</p>
-
-<p>Hopefully it's useful!</p>
 ]]></content>
         </entry>
     </feed>

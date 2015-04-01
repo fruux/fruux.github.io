@@ -124,17 +124,14 @@
 </aside>
                 <article>
                             <h1>Cyberduck</h1>
-                <p><a href="http://cyberduck.io/">Cyberduck</a> is a free GUI WebDAV client for OS X. It's a clean and simple
-WebDAV client.</p>
-
-<p>It only supports basic file up and download operations, and doesn't deal with
-locking or properties.</p>
+                <p><a href="http://cyberduck.io/">Cyberduck</a> is a free GUI WebDAV client for OS X and Windows. It's a clean
+and simple WebDAV client. It's also very fast.</p>
 
 <h2 id="connecting-with-cyberduck">Connecting with Cyberduck</h2>
 
 <ol>
 <li>Connect with cyberduck user either 'quick connect' and fill in a dav://hostname url</li>
-<li>Or create a new 'WebDAV' bookmark and enter the full http:// address </li>
+<li>Or create a new 'WebDAV' bookmark and enter the full http:// address</li>
 </ol>
 
 <h2 id="technical-details">Technical details</h2>
@@ -142,20 +139,35 @@ locking or properties.</p>
 <p>Sample user agent:</p>
 
 <pre><code>Cyberduck/3.0.3 (4205)
+Cyberduck/4.6.5 (Mac OS X/10.10.2) (x86_64)
 </code></pre>
 
-<p>Cyberduck requests the following properties:</p>
-
-<ul>
-<li>displayname</li>
-<li>getcontentlength</li>
-<li>getcontenttype</li>
-<li>resourcetype</li>
-<li>getlastmodified</li>
-<li>lockdiscovery</li>
-</ul>
-
 <p>Cyberduck at least understands HTTP Basic. Digest is currently untested.</p>
+
+<p>Cyberduck uses <code>{DAV:}allprop</code> to request properties. Cyberduck supports custom
+WebDAV properties, but puts them all in the <code>SAR:</code> namespace.</p>
+
+<p>Sample PROPPATCH:</p>
+
+<pre><code>PROPPATCH /public/hello/cyberduck/1912186_10202225988704112_1640507935_n.jpg HTTP/1.1
+Content-Type: text/xml; charset=utf-8
+Content-Length: 188
+Host: sabredav.evert
+User-Agent: Cyberduck/4.6.5 (Mac OS X/10.10.2) (x86_64)
+Accept-Encoding: gzip,deflate
+
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;propertyupdate xmlns="DAV:"&gt;&lt;set&gt;&lt;prop&gt;&lt;s:X-FOO xmlns:s="SAR:"&gt;X-Bar&lt;/s:X-FOO&gt;&lt;/prop&gt;&lt;/set&gt;&lt;remove&gt;&lt;prop/&gt;&lt;/remove&gt;&lt;/propertyupdate&gt;
+Content-Type: text/xml; charset=utf-8
+Content-Length: 188
+Host: sabredav.evert
+User-Agent: Cyberduck/4.6.5 (Mac OS X/10.10.2) (x86_64)
+Accept-Encoding: gzip,deflate
+Authorization: Basic YWRtaW46YWRtaW4=
+
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;propertyupdate xmlns="DAV:"&gt;&lt;set&gt;&lt;prop&gt;&lt;s:X-FOO xmlns:s="SAR:"&gt;X-Bar&lt;/s:X-FOO&gt;&lt;/prop&gt;&lt;/set&gt;&lt;remove&gt;&lt;prop/&gt;&lt;/remove&gt;&lt;/propertyupdate&gt;
+</code></pre>
+
+<p>To easily take advantage of cyberduck's custom properties, simply enable the <a href="/dav/propertystorage/">propertystorage plugin</a>.</p>
             
             
                             <hr />

@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>OS X addressbook - sabre/dav</title>
+            <title>CardDAV me-card - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -123,126 +123,67 @@
     </nav>
 </aside>
                 <article>
-                            <h1>OS X addressbook</h1>
-                <p>Addressbook.app (renamed to Contacts in OS X 10.9) is among the first CardDAV
-clients, and it's shipped with OS X since version 10.6 (Snow Leopard). There
-are many bugs in the 10.6 client though, most of which have been solved in
-10.7.</p>
+                            <h1>CardDAV me-card</h1>
+                <p>Both the <a href="/dav/clients/ios/">iOS</a> as well as the <a href="/dav/clients/osx-addressbook/">OS X</a> CardDAV client support a concept
+called the 'me-card'.</p>
 
-<h2 id="technical-information">Technical information</h2>
+<p>The 'me-card' is a WebDAV property, stored on the 'addressbook home' that
+contains a relative reference to a vcard associated with the current user.</p>
 
-<h3 id="debugging">Debugging</h3>
+<p>It basically allows clients to discern which vCard is belongs to the user,
+which results in a UI update, and can have influence on other parts of the
+operating system (such as scheduling).</p>
 
-<p>To enable CardDAV traffic logging on 10.8 and above, run the following commands on the command line:</p>
+<p>Setting the property results in a <code>PROPPATCH</code> request that looks like this:</p>
 
-<pre><code>defaults write com.apple.addressbook.carddavplugin EnableDebug -bool YES
-defaults write com.apple.addressbook.carddavplugin LogConnectionDetails -bool YES
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;A:propertyupdate xmlns:A="DAV:"&gt;
+  &lt;A:set&gt;
+    &lt;A:prop&gt;
+      &lt;C:me-card xmlns:C="http://calendarserver.org/ns/"&gt;
+        &lt;A:href&gt;/addressbooks/evert/book1/E7213AAA-7206-4B97-926A-CDFECBD91C26-ABSPlugin.vcf&lt;/A:href&gt;
+      &lt;/C:me-card&gt;
+    &lt;/A:prop&gt;
+  &lt;/A:set&gt;
+&lt;/A:propertyupdate&gt;
 </code></pre>
 
-<p>Logs will be written to ~/Library/Logs/CardDAVPlugin and may be viewed with 'Console.app'.</p>
+<p>As you can see it sets a complex WebDAV property <code>me-card</code> in the namespace
+<code>http://calendarserver.org/ns/</code>.</p>
 
-<h3 id="directory-support">Directory support</h3>
+<p>Not supporting this property can result in crashes by the OS X address book
+when the user selects a me-card.</p>
 
-<p>AddressBook.app has support for a global read-only directory. Addressbook.app
-does not allow simply browsing through the directory, it's used for searching
-only (using the addressbook-query REPORT).</p>
+<h2 id="behavior-in-sabre%2Fdav-1.6-until-2.1">Behavior in sabre/dav 1.6 until 2.1</h2>
 
-<p>SabreDAV does have (very minimal) support for
-<a href="/dav/carddav-directory">CardDAVDirectory</a>, by providing a simple interface:
-<code>Sabre\CardDAV\IDirectory</code>.</p>
+<p>Because sabre/dav can not yet support storing arbitrary complex properties
+on any url, the carddav plugin takes any updates to this property and
+automatically maps it to a different property:</p>
 
-<h3 id="%27me%27-card">'Me' card</h3>
-
-<p>AddressBook.app has the ability to mark a specific vcard as the users' own
-vcard. Support for this is built-in since SabreDAV 1.6.</p>
-
-<p>The 'Me card' is simply a property on the users' addressbook-collection-set.
-In SabreDAV this would mean (in a default tree layout) that the property is
-set on <code>/addressbooks/[username]</code>.</p>
-
-<p>The request to set a "Me" card looks as follows:</p>
-
-<pre><code>PROPPATCH /addressbooks/evert/ HTTP/1.1
-Host: ...
-User-Agent: AddressBook/6.1 (1083) CardDAVPlugin/200 CFNetwork/520.3.2 Mac_OS_X/10.7.3 (11D50)
-Content-Length: 280
-Accept: */*
-Accept-Language: en-us
-Accept-Encoding: gzip, deflate
-Content-Type: text/xml
-Pragma: no-cache
-Authorization: Digest ...
-Connection: keep-alive
-
-&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;A:propertyupdate xmlns:A="DAV:"&gt;&lt;A:set&gt;&lt;A:prop&gt;&lt;C:me-card xmlns:C="http://calendarserver.org/ns/"&gt;&lt;A:href&gt;/addressbooks/evert/book1/E7213AAA-7206-4B97-926A-CDFECBD91C26-ABSPlugin.vcf&lt;/A:href&gt;&lt;/C:me-card&gt;&lt;/A:prop&gt;&lt;/A:set&gt;&lt;/A:propertyupdate&gt;
+<pre><code>{http://sabredav.org/ns}vcard-url
 </code></pre>
 
-<p>I've noticed that if the Me card is not supported, Addressbook.app may crash.</p>
+<p>There's three differences between these two properties:</p>
 
-<p>More information can be found on the <a href="/dav/carddav-me-card/">me-card page</a>.</p>
+<ol>
+<li>It's stored in the <code>http://sabredav.org/ns</code> namespace and not
+<code>http://calendarserver.org/ns/</code>.</li>
+<li>the vcard-url property is stored on a principal, not on the addressbook home.</li>
+<li>the vcard-url property just holds a string value, whereas me-card is a 
+complex property with a <code>href</code> sub-element.</li>
+</ol>
 
-<h2 id="bugs">Bugs</h2>
+<p>The standard principals PDO backend has support for this property since 1.6
+and will store it in the <code>principals</code> table.</p>
 
-<h3 id="domain-root-%2810.6-issue%29">Domain root (10.6 issue)</h3>
+<h2 id="behavior-as-of-sabre%2Fdav-2.2">Behavior as of sabre/dav 2.2</h2>
 
-<p><strong>Affects: OS X 10.6</strong></p>
+<p>From sabre/dav 2.2 onwards, it's now possible to store any arbitrary complex
+webdav property in any part of the webdav tree.</p>
 
-<p>The CardDAV server must absolutely run on the root of the domain. Addressbook
-makes a lot of assumptions based around this, and running the CardDAV server
-anywhere else will simply break.</p>
-
-<p>In some cases it was enough (for me) to simply specify the domainname of the
-CalDAV server, but I've also had cases where:</p>
-
-<ul>
-<li>I needed to specify a full principal url (e.g.: http://example.org/principals/username/)</li>
-<li>I needed to also include a HTTP port (e.g.: http://example.org:80/principals/username/)</li>
-</ul>
-
-<p>Even after trying this, it seems to randomly forget the correct TCP port and
-default back to 8008 (which is the standard port for Darwin Calendar Server).</p>
-
-<h3 id="single-addressbook">Single addressbook</h3>
-
-<p><strong>Affects: OS X 10.6 until OS X 10.9</strong></p>
-
-<p>OS X addressbook can only ever work with 1 address book. Even though the
-CardDAV standard makes it easy for users to own more than one addressbook,
-this is not supported.</p>
-
-<p>Unfortunately this means that if a user has more than one addressbook in their
-account, only the 'first' will show up, and contacts from other addressbooks
-are completely hidden to the user.</p>
-
-<p>This can cause for a lot of confusion, and there is no obvious solution other
-than simply <em>enforce</em> a 1 address book limit for users.</p>
-
-<h3 id="%40-in-username">@ in username</h3>
-
-<p><strong>Affects: OS X 10.6</strong></p>
-
-<p>This client does not support the usage of the @-character in usernames. This
-means that it's not possible with this client to use email addresses as
-usernames. The actual underlying problem is actually that @ does not get
-urlencoded, and it will treat the part before the @ as the username, and prefix
-the hostname for HTTP requests with the domainname of the email address.</p>
-
-<p>A workaround is to replace @ with an underscore <code>_</code> instead, but this is really
-only a good solution if you use HTTP Basic authentication, as with Digest using
-a different username will also alter the hash. It's best to simply not use
-email addresses for usernames if you plan to support (10.6) Addressbook.app.</p>
-
-<p>This client can only use 1 addressbook. It will most likely use the first
-addressbook in a users' collection of addressbooks.</p>
-
-<h3 id="ctag-is-required">ctag is required</h3>
-
-<p><strong>Affects: at least OSX 10.6 and OSX 10.7</strong></p>
-
-<p>This client requires impementation of the proprietary
-'{http://calendarserver.org/ns/}getctag' property. Without it, it will simply
-not request any vcards.</p>
+<p>So starting from this version, the workaround to map it to the 
+<code>{http://sabredav.org/ns}vcard-url</code> has been removed. If you want support
+for the me-card, you can simply enable the <a href="/dav/property-storage/">property storage plugin</a>.</p>
             
             
                             <hr />
@@ -268,9 +209,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/dav/clients/osx-addressbook/';
-    var disqus_title = 'OS X addressbook';
-    var disqus_url = 'http://sabre.io/dav/clients/osx-addressbook/';
+    var disqus_identifier = '/dav/carddav-me-card/';
+    var disqus_title = 'CardDAV me-card';
+    var disqus_url = 'http://sabre.io/dav/carddav-me-card/';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

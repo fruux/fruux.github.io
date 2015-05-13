@@ -139,10 +139,6 @@
             <h1>News</h1>
                             <article class="blog-entry">
                     <time>Jul. 14th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-http-2.0.4-release/">sabre/http 2.0.4 release</a></h1>
-                    <p>We just released sabre/http 2.0.4.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jul. 14th, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.4-release/">sabre/vobject 3.2.4 release</a></h1>
                     <p>We just released sabre/vobject 3.2.4.</article>
                 <hr />                            <article class="blog-entry">
@@ -158,6 +154,11 @@ also slightly alters the API.</article>
                     <time>Jun. 12th, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.3-release/">sabre/vobject 3.2.3 release</a></h1>
                     <p>We just released sabre/vobject 3.2.3.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Jun. 12th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-event-1.0.1-release/">sabre/event 1.0.1 release</a></h1>
+                    <p>We just released sabre/event 1.0.1. A bug prevented the <code>EventEmitter</code> trait
+to work on PHP versions older than 5.4.14.</article>
                                     </section>
     </div>
 </div>

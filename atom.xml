@@ -3,29 +3,9 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-05-13T12:43:16+00:00</updated>
+    <updated>2015-05-13T12:52:44+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
-            <entry>
-            <title type="html"><![CDATA[Katana: the next generation dav server.]]></title>
-            <link href="http://sabre.io/blog/2015/katana-the-next-gen-dav-server/"/>
-            <updated>2015-05-11T22:10:15+00:00</updated>
-            <id>http://sabre.io/blog/2015/katana-the-next-gen-dav-server/</id>
-            <content type="html"><![CDATA[<p>Dealing with XML is annoying to many, and certainly us. We've tried many
-different approaches to make working with XML less frustrating, and we've
-finally landed on an approach that we're happy with.</p>
-
-<p>We're launching sabre/xml to the public today. You can find a bit of an
-overview on <a href="http://evertpot.com/an-xml-library-you-may-not-hate/">this blog</a>, or you can jump straight in the <a href="/xml/">documentation</a>.</p>
-
-<p>This library is already integrated into the master branch of sabre/dav, which
-will be released as 2.2 soon. We rewrote almost all our XML handling code,
-and there was quite a bit! The next release has over 10.000 changed lines.</p>
-
-<p>The next major version of sabre/vobject will also depend on it to support
-reading and writing xCal and xCard.</p>
-]]></content>
-        </entry>
             <entry>
             <title type="html"><![CDATA[A new XML library for PHP]]></title>
             <link href="http://sabre.io/blog/2015/launching-an-xml-library-for-php/"/>
@@ -244,6 +224,33 @@ parameter escaping. It also fixes a small issue in the DAV client.</p>
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/1.8.11/ChangeLog">Github</a></p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[sabre/http 3.0.4 release]]></title>
+            <link href="http://sabre.io/blog/2014/sabre-http-3.0.4-release/"/>
+            <updated>2014-12-10T20:21:04+00:00</updated>
+            <id>http://sabre.io/blog/2014/sabre-http-3.0.4-release/</id>
+            <content type="html"><![CDATA[<p>We just released sabre/http 3.0.4.</p>
+
+<p>This release fixes a small bug that made it impossible to support multiple
+authentication schemes at the same time (for instance supporting both Basic
+and Digest at the same end-point).</p>
+
+<p>Updating is only required for people that want to use this feature.</p>
+
+<p>Upgrade sabre/http by running:</p>
+
+<pre><code>composer update sabre/http
+</code></pre>
+
+<p>If this didn't upgrade you to 3.0.4, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/http" : "~3.0.4"
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/3.0.4/ChangeLog.md">Github</a>.</p>
 ]]></content>
         </entry>
     </feed>

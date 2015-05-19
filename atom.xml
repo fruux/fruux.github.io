@@ -3,9 +3,33 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-05-13T12:54:25+00:00</updated>
+    <updated>2015-05-19T08:18:48+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 3.4.3 release]]></title>
+            <link href="http://sabre.io/blog/2015/sabre-vobject-3.4.3-release/"/>
+            <updated>2015-05-19T08:15:33+00:00</updated>
+            <id>http://sabre.io/blog/2015/sabre-vobject-3.4.3-release/</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.4.3.</p>
+
+<p>This version contains a total of 5 bugfixes, related to recurrence rules,
+validation and dates.</p>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>If this didn't upgrade you to 3.4, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/vobject" : "~3.4"
+</code></pre>
+
+<p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.4.3/ChangeLog.md">Github</a>.</p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[A new XML library for PHP]]></title>
             <link href="http://sabre.io/blog/2015/launching-an-xml-library-for-php/"/>
@@ -224,33 +248,6 @@ parameter escaping. It also fixes a small issue in the DAV client.</p>
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/1.8.11/ChangeLog">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/http 3.0.4 release]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-http-3.0.4-release/"/>
-            <updated>2014-12-10T20:21:04+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-http-3.0.4-release/</id>
-            <content type="html"><![CDATA[<p>We just released sabre/http 3.0.4.</p>
-
-<p>This release fixes a small bug that made it impossible to support multiple
-authentication schemes at the same time (for instance supporting both Basic
-and Digest at the same end-point).</p>
-
-<p>Updating is only required for people that want to use this feature.</p>
-
-<p>Upgrade sabre/http by running:</p>
-
-<pre><code>composer update sabre/http
-</code></pre>
-
-<p>If this didn't upgrade you to 3.0.4, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/http" : "~3.0.4"
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/3.0.4/ChangeLog.md">Github</a>.</p>
 ]]></content>
         </entry>
     </feed>

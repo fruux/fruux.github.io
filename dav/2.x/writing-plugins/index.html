@@ -588,7 +588,7 @@ opportunity to handle a <code>REPORT</code> request.</p>
 
 <p>Example:</p>
 
-<pre><code>function myReport($reportName, $report, $uri) {
+<pre><code>function myReport($reportName,DOMDocument $dom, $uri) {
 
   // $reportName contains the report name in clark-notation.
   // For example:
@@ -602,18 +602,9 @@ opportunity to handle a <code>REPORT</code> request.</p>
 $server-&gt;on('report','myReport');
 </code></pre>
 
-<p>The <code>$report</code> parameter contains a fully parsed XML report. Processed by
-<code>sabre/xml</code>. Generally you will want to create a custom parser for these.
-You can do so by adding it to the elementMap:</p>
-
-<pre><code>$server-&gt;xml-&gt;elementMap['{http://example.org/ns}my-report'] = 'MyReportParserClass';
-</code></pre>
-
-<p>If you are reading this and are actually interested in this, drop us a line.
-The documentation is extremely sparse here and we'd be happy to expand on
-this.</p>
-
 <h3 id="%60calendarobjectchange%60"><code>calendarObjectChange</code></h3>
+
+<p><strong>Since version 2.1.0</strong></p>
 
 <p>This event is triggered by the CalDAV plugin, whenever a calendar object got
 changed or created.</p>
@@ -648,6 +639,8 @@ update.</li>
 
 <h3 id="%60schedule%60"><code>schedule</code></h3>
 
+<p><strong>Since version 2.1.0</strong></p>
+
 <p>This event is triggered for scheduling operations. A scheduling operation is
 for example a invite to an event, a cancellation of an event or an
 accept/decline response to an event.</p>
@@ -674,6 +667,8 @@ $server-&gt;on('schedule', 'schedule');
 
 <h3 id="%60aftermove%60"><code>afterMove</code></h3>
 
+<p><strong>Since version 2.1.0</strong></p>
+
 <p>This event is triggered after a successful <code>MOVE</code> request. This is used by
 the system to copy WebDAV properties from the old to the new path, but could
 be used for other purposes as well.</p>
@@ -688,6 +683,8 @@ $server-&gt;on('afterMove', 'afterMove');
 </code></pre>
 
 <h3 id="%60afterresponse%60"><code>afterResponse</code></h3>
+
+<p><strong>Since version 2.1.0</strong></p>
 
 <p>This event is triggered after a HTTP response is sent back to the DAV client.
 At this point it's no longer possible to influence the HTTP response, but it
@@ -892,7 +889,7 @@ emit custom events and remove subscribers as well as a few other things.</p>
                         <div class="version-note">
                 <p>
                 <i class="fa fa-warning"></i>
-                Please note: you are reading the <strong>3.x version</strong>
+                Please note: you are reading the <strong>2.x version</strong>
                 of this page. The following versions are also available:
                 </p>
 
@@ -927,9 +924,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/dav/writing-plugins/';
+    var disqus_identifier = '/dav/2.x/writing-plugins/';
     var disqus_title = 'Writing Plugins';
-    var disqus_url = 'http://sabre.io/dav/writing-plugins/';
+    var disqus_url = 'http://sabre.io/dav/2.x/writing-plugins/';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

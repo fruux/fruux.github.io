@@ -172,19 +172,19 @@ automatically maps it to a different property:</p>
 <li>It's stored in the <code>http://sabredav.org/ns</code> namespace and not
 <code>http://calendarserver.org/ns/</code>.</li>
 <li>the vcard-url property is stored on a principal, not on the addressbook home.</li>
-<li>the vcard-url property just holds a string value, whereas me-card is a 
+<li>the vcard-url property just holds a string value, whereas me-card is a
 complex property with a <code>href</code> sub-element.</li>
 </ol>
 
 <p>The standard principals PDO backend has support for this property since 1.6
 and will store it in the <code>principals</code> table.</p>
 
-<h2 id="behavior-as-of-sabre%2Fdav-2.2">Behavior as of sabre/dav 2.2</h2>
+<h2 id="behavior-as-of-sabre%2Fdav-3.0">Behavior as of sabre/dav 3.0</h2>
 
-<p>From sabre/dav 2.2 onwards, it's now possible to store any arbitrary complex
+<p>From sabre/dav 3.0 onwards, it's now possible to store any arbitrary complex
 webdav property in any part of the webdav tree.</p>
 
-<p>So starting from this version, the workaround to map it to the 
+<p>So starting from this version, the workaround to map it to the
 <code>{http://sabredav.org/ns}vcard-url</code> has been removed. If you want support
 for the me-card, you can simply enable the <a href="/dav/property-storage/">property storage plugin</a>.</p>
             

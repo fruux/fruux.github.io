@@ -183,14 +183,20 @@ trigger a download.</p>
   <td>Convert the iCalendar data to <a href="/vobject/json">jCal</a></td>
   <td><code>accept=jcal</code></td>
 </tr>
+<tr>
+  <td>componentType</td>
+  <td>Filter by componentType, such as only <code>VTODO</code>.</td>
+  <td><code>componentType=VTODO</code></td>
+</tr>
 </tbody>
 </table>
 
 <ul>
 <li>If you want to use <code>expand</code>, you <em>must</em> specify <code>start</code> and <code>end</code>.</li>
 <li>Using <code>start</code>, <code>end</code> or <code>expand</code> automatically filters out <code>VTODO</code> and
-<code>VJOURNAL</code>, because only <code>VEVENT</code> is currently supported. If you need support 
+<code>VJOURNAL</code>, because only <code>VEVENT</code> is currently supported. If you need support
 for <code>VJOURNAL</code> and <code>VTODO</code>, open a <a href="https://github.com/fruux/sabre-dav/issues/new">feature request</a>.</li>
+<li><code>componentType</code> was added in sabre/dav 3.0.</li>
 </ul>
 
 <p>Sample url:</p>

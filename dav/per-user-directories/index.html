@@ -581,6 +581,13 @@ $server-&gt;addPlugin($aclPlugin);
 
 $server-&gt;exec();
 </code></pre>
+
+<h2 id="the-sabre%2Fdav-3.0-solution">The sabre/dav 3.0 solution</h2>
+
+<p>Since sabre/dav 3.0 the last few classes are now actually built in. Simply add
+<code>Sabre\DAVACL\FS\HomeCollection</code> to your tree.</p>
+
+<p>You still need a working principals backend though.</p>
             
             
                             <hr />

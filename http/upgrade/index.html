@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>Requests, responses and the PHP SAPI - sabre/http</title>
+            <title>Upgrading from sabre/http 3.x to 4.x - sabre/http</title>
     
     <meta charset="utf-8">
 
@@ -72,65 +72,63 @@
     </nav>
 </aside>
                 <article>
-                            <h1>Requests, responses and the PHP SAPI</h1>
-                <p>On the PHP SAPI side, <code>sabre/http</code> basically wraps a number of concepts in PHP:</p>
+                            <h1>Upgrading from sabre/http 3.x to 4.x</h1>
+                <p>sabre/http 4.0 got several cleanups and changes. This guide explains exactly
+what has changed and what you need to do to update.</p>
 
-<ul>
-<li><code>$_SERVER</code>,</li>
-<li><code>$_POST</code>,</li>
-<li><code>$_GET</code>,</li>
-<li><code>$_FILES</code>,</li>
-<li><code>php://input</code>,</li>
-<li><code>echo()</code>,</li>
-<li><code>header()</code>,</li>
-<li><code>php://output</code>.</li>
-</ul>
+<h2 id="sabre%2Furi">sabre/uri</h2>
 
-<p>Effectively, it provides an OOP wrapper around these things. Half of these
-items relate the HTTP request, and the other half to the HTTP response.</p>
+<p>The http package now has a dependency on the new <a href="/uri/">sabre/uri</a> package. It
+delegates all uri-handling functionality to that package.</p>
 
-<p>The easiest way to instantiate a request object is as follows:</p>
+<p>This also deprecates the following functions:</p>
 
-<pre><code>use Sabre\HTTP;
+<table>
+<thead>
+<tr>
+  <th>Old function</th>
+  <th>New function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>Sabre\HTTP\URLUtil::splitPath()</code></td>
+  <td><code>Sabre\Uri\split()</code></td>
+</tr>
+<tr>
+  <td><code>Sabre\HTTP\URLUtil::resolve()</code></td>
+  <td><code>Sabre\Uri\resolve()</code></td>
+</tr>
+</tbody>
+</table>
 
-include 'vendor/autoload.php';
+<p>The old functions will continue to work, but will be removed in version 5.0.</p>
 
-$request = HTTP\Sapi::getRequest();
-</code></pre>
+<h2 id="header-utilities">Header utilities</h2>
 
-<p>This line should only happen once in your entire application. Everywhere else
-you should pass this request object around.</p>
+<p>Two more functions got moved to <code>functions.php</code> and have been cleaned up a
+bit:</p>
 
-<p>You should always typehint on its interface:</p>
+<table>
+<thead>
+<tr>
+  <th>Old function</th>
+  <th>New function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>Sabre\HTTP\Util::parseHTTPDate()</code></td>
+  <td><code>Sabre\HTTP\parseDate()</code></td>
+</tr>
+<tr>
+  <td><code>Sabre\HTTP\Util::toHTTPDate()</code></td>
+  <td><code>Sabre\HTTP\toDate()</code></td>
+</tr>
+</tbody>
+</table>
 
-<pre><code>function handleRequest(HTTP\RequestInterface $request) {
-
-    // Do something with this request :)
-
-}
-</code></pre>
-
-<p>You can create a response object as such:</p>
-
-<pre><code>use Sabre\HTTP;
-
-include 'vendor/autoload.php';
-
-$response = new HTTP\Response();
-$response-&gt;setStatus(201); // created!
-$response-&gt;setHeader('X-Foo', 'bar');
-$response-&gt;setBody(
-    'success!'
-);
-</code></pre>
-
-<p>After you have fully constructed your response, you must call:</p>
-
-<pre><code>HTTP\Sapi::sendResponse($response);
-</code></pre>
-
-<p>This line should generally also appear once in your application (at the very
-end).</p>
+<p>The old functions will continue to work, but will be removed in version 5.0.</p>
             
             
                             <hr />
@@ -156,9 +154,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/http/sapi/';
-    var disqus_title = 'Requests, responses and the PHP SAPI';
-    var disqus_url = 'http://sabre.io/http/sapi/';
+    var disqus_identifier = '/http/upgrade/';
+    var disqus_title = 'Upgrading from sabre/http 3.x to 4.x';
+    var disqus_url = 'http://sabre.io/http/upgrade/';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

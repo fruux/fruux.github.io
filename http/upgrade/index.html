@@ -79,7 +79,7 @@ what has changed and what you need to do to update.</p>
 <h2 id="sabre%2Furi">sabre/uri</h2>
 
 <p>The http package now has a dependency on the new <a href="/uri/">sabre/uri</a> package. It
-delegates all uri-handling functionality to that package.</p>
+delegates many uri-handling functionality to that package.</p>
 
 <p>This also deprecates the following functions:</p>
 
@@ -98,6 +98,22 @@ delegates all uri-handling functionality to that package.</p>
 <tr>
   <td><code>Sabre\HTTP\URLUtil::resolve()</code></td>
   <td><code>Sabre\Uri\resolve()</code></td>
+</tr>
+<tr>
+  <td><code>Sabre\HTTP\URLUtil::encodePath()</code></td>
+  <td><code>Sabre\HTTP\encodePath()</code></td>
+</tr>
+<tr>
+  <td><code>Sabre\HTTP\URLUtil::encodePathSegment()</code></td>
+  <td><code>Sabre\HTTP\encodePathSegment()</code></td>
+</tr>
+<tr>
+  <td><code>Sabre\HTTP\URLUtil::decodePath()</code></td>
+  <td><code>Sabre\HTTP\decodePath()</code></td>
+</tr>
+<tr>
+  <td><code>Sabre\HTTP\URLUtil::decodePathSegment()</code></td>
+  <td><code>Sabre\HTTP\decodePathSegment()</code></td>
 </tr>
 </tbody>
 </table>

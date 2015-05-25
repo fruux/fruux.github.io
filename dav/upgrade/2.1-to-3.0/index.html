@@ -220,6 +220,14 @@ own branding, it will probably break.</p>
 finally gone. To achieve the same results, it's possible to call the
 <code>addCurlSetting</code> method.</p>
 
+<h3 id="deprecated-%60sabre%5Cdav%5Cclient%3A%3A%24propertymap%60">Deprecated <code>Sabre\DAV\Client::$propertyMap</code></h3>
+
+<p>The <code>Sabre\DAV\Client::$propertyMap</code> property has been deprecated. It still
+works and exists, but will be removed in a future version.</p>
+
+<p>The property is now simply a reference to <code>$client-&gt;xml-&gt;elementMap</code>, which is
+the correct way to use this feature now.</p>
+
 <h3 id="changed-all-constructors-for-all-pdo-backends">Changed all constructors for all PDO backends</h3>
 
 <p>In versions before this one, it was possible to specify database table names

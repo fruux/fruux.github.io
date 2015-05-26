@@ -3,9 +3,26 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-05-25T22:13:33+00:00</updated>
+    <updated>2015-05-26T00:29:33+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/xml 1.0.0 release]]></title>
+            <link href="http://sabre.io/blog/2015/sabre-xml-1.0.0.release/"/>
+            <updated>2015-05-21T00:27:02+00:00</updated>
+            <id>http://sabre.io/blog/2015/sabre-xml-1.0.0.release/</id>
+            <content type="html"><![CDATA[<p>We just released sabre/xml 1.0.0</p>
+
+<p>This version is identical to the earlier released 0.4.3. We figured it was
+good enough to be released as a true stable release, and the
+soon-to-be-released sabre/dav requires stable depdencies.</p>
+
+<p>Upgrade sabre/xml by making sure your <code>composer.json</code> has <code>~1.0</code> as a version
+requirement, and then just run <code>composer update</code>.</p>
+
+<p>Full changelog of this release can be found on [Github][3].</p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/http 4.0.0 release]]></title>
             <link href="http://sabre.io/blog/2015/sabre-http-4.0.0-release/"/>
@@ -234,28 +251,6 @@ no calendars, and a small problem in the browser plugin.</p>
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.2/ChangeLog.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 2.0.6 released]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-dav-2.0.6-released/"/>
-            <updated>2014-12-10T21:47:44+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-dav-2.0.6-released/</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 2.0.6.</p>
-
-<p>This release ships with a few classes that make it easier to be compatible
-with both sabre/dav 2.0 and 2.1.</p>
-
-<p>It also addresses an issue some people had with migration from 1.8.</p>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.6/ChangeLog.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

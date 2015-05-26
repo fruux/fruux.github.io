@@ -473,6 +473,49 @@ property on the server class. This has now changed.</p>
 <pre><code>$server-&gt;xml-&gt;elementMap['{http://example.org/ns}element'] = 'MyElement';
 </code></pre>
 
+<h3 id="support-for-the-%60prefer%60-header-changed.">Support for the <code>Prefer</code> header changed.</h3>
+
+<p>sabre/dav supported <a href="http://tools.ietf.org/html/rfc7240">rfc7240</a> before it was an official rfc. Unfortunately
+when it became an rfc, the syntax slightly changed.</p>
+
+<p>In version 3.0 we now support the new syntax (with backwards compatbility for
+the old syntax, as it's still broadly used). The internal API now uses the
+keywords that matches the new syntax, and no longer the old one.</p>
+
+<p>This means that if you manually called <code>$server-&gt;getHTTPPrefer()</code> anywhere,
+you now get a different array back.</p>
+
+<p>Old array:</p>
+
+<pre><code>[
+    "return-asynch" =&gt; true,
+    "return-minimal" =&gt; true,
+    "return-representation" =&gt; true,
+    "strict" =&gt; true,
+    "lenient" =&gt; true,
+    "wait" =&gt; 10
+]
+</code></pre>
+
+<p>New array:</p>
+
+<pre><code>[
+    "respond-async" =&gt; true,
+    "return" =&gt; "minimal",
+    "handling" =&gt; "strict",
+    "wait" =&gt; 10,
+]
+</code></pre>
+
+<p>The changes are:</p>
+
+<ul>
+<li><code>return-asynch</code> is now <code>respond-async</code>.</li>
+<li><code>return-minimal</code> and <code>return-representation</code> folded into a single <code>return</code>
+key.</li>
+<li><code>strict</code> and <code>lenient</code> folded into a single <code>handling</code> key.</li>
+</ul>
+
 <h3 id="%60fsext%60-no-longer-stores-custom-properties."><code>FSExt</code> no longer stores custom properties.</h3>
 
 <p>Because a few versions ago, the <a href="/dav/property-storage/">property storage</a> plugin was introduced,

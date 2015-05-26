@@ -3,9 +3,30 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-05-26T00:34:35+00:00</updated>
+    <updated>2015-05-26T00:49:42+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 2.0.7 released]]></title>
+            <link href="http://sabre.io/blog/2015/sabre-dav-2.0.7-released/"/>
+            <updated>2015-05-26T00:45:36+00:00</updated>
+            <id>http://sabre.io/blog/2015/sabre-dav-2.0.7-released/</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 2.0.7.</p>
+
+<p>This releases fixes a small bug related to cleaning up data after deleting
+calendar events. This bug could cause some changes to now show up in people's
+calendars.</p>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.7/ChangeLog.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/xml 1.0.0 release]]></title>
             <link href="http://sabre.io/blog/2015/sabre-xml-1.0.0.release/"/>
@@ -227,30 +248,6 @@ has a line that looks like this:</p>
 </code></pre>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.3.5/ChangeLog.md">Github</a>.</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 2.1.2 released]]></title>
-            <link href="http://sabre.io/blog/2014/sabre-dav-2.1.2-released/"/>
-            <updated>2014-12-10T21:58:08+00:00</updated>
-            <id>http://sabre.io/blog/2014/sabre-dav-2.1.2-released/</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.2.</p>
-
-<p>This release fixes a problem with the migration script, which could cause
-scheduling not to work for events that were created before upgrading to
-2.1.</p>
-
-<p>It also fixes a bug that caused freebusy requests to fail for people with
-no calendars, and a small problem in the browser plugin.</p>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.2/ChangeLog.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

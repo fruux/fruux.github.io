@@ -3,9 +3,29 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-05-26T00:49:42+00:00</updated>
+    <updated>2015-05-26T00:57:44+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 2.1.4 released]]></title>
+            <link href="http://sabre.io/blog/2015/sabre-dav-2.1.4-released/"/>
+            <updated>2015-05-26T00:56:41+00:00</updated>
+            <id>http://sabre.io/blog/2015/sabre-dav-2.1.4-released/</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.4.</p>
+
+<p>This release fixes 3 small bugs, and also updates all dependencies to their
+latest versions.</p>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.4/ChangeLog.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.0.7 released]]></title>
             <link href="http://sabre.io/blog/2015/sabre-dav-2.0.7-released/"/>
@@ -215,39 +235,6 @@ as they all do 'stuff' with URIs, and were not doing everything in the best
 way possible.</p>
 
 <p>Check out the <a href="/uri/">documentation</a> if you'd like to learn more.</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 3.3.5 release]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-vobject-3.3.5-release/"/>
-            <updated>2015-01-09T01:11:06+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-vobject-3.3.5-release/</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.3.5.</p>
-
-<p>This release fixed a number of bugs, including:</p>
-
-<ol>
-<li>Bugs related to iTip and the <code>SCHEDULE-STATUS</code> property.</li>
-<li>The parser can now read files that contain a UTF-8 BOM.</li>
-<li>jCal serialization of floating <code>DATE-TIME</code> properties.</li>
-<li>A bug related to converting <code>X-ABDATE</code> to <code>ANNIVERSARY</code> in the
-vCardConverter.</li>
-<li>Two new modes for the validator, allowing you to validate vCards and
-iCalendar objects specifically in the context of CalDAV and CardDAV servers.</li>
-</ol>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.3.5, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.3.5"
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.3.5/ChangeLog.md">Github</a>.</p>
 ]]></content>
         </entry>
     </feed>

@@ -145,7 +145,7 @@ cat examples/sql/sqlite.* | sqlite3 data/db.sqlite
 
 <p>We'll add 1 addressbook for the admin user.</p>
 
-<pre><code>INSERT INTO addressbooks (principaluri, displayname, uri, description, synctoken) VALUES
+<pre><code>INSERT INTO addressbooks (principaluri, displayname, uri, description, ctag) VALUES
 ('principals/admin','default calendar','default','','1');
 </code></pre>
 
@@ -188,7 +188,7 @@ add them to the principals table to enable addressbook access.</p>
                         <div class="version-note">
                 <p>
                 <i class="fa fa-warning"></i>
-                Please note: you are reading the <strong>2.x version</strong>
+                Please note: you are reading the <strong>1.8 version</strong>
                 of this page. The following versions are also available:
                 </p>
 
@@ -222,9 +222,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/dav/carddav/';
+    var disqus_identifier = '/dav/1.8/carddav/';
     var disqus_title = 'CardDAV';
-    var disqus_url = 'http://sabre.io/dav/carddav/';
+    var disqus_url = 'http://sabre.io/dav/1.8/carddav/';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

@@ -452,10 +452,14 @@ from a WebDAV volume:</p>
 Vista or XP SP1 with security update 896426 installed)</li>
 <li>"Error 0x800700DF: The file size exceeds the limit allowed and cannot be
 saved." (Windows 7)</li>
+<li>"An unexpected error is keeping you from copying the folder. If you continue
+to receive this error, you can use the error code to search for help with
+this problem." (Windows 7)</li>
 </ul>
 
 <p>The limitation can only be disabled on client side, by changing registry keys.
-See <a href="http://support.microsoft.com/kb/900900/en-us">this article</a> for detailed instructions.</p>
+See <a href="http://support.microsoft.com/kb/900900/en-us">this article</a> for detailed instructions. Additional information is
+also available in <a href="https://support.microsoft.com/en-us/kb/2668751">this kb article</a>.</p>
 
 <h3 id="displayname">displayname</h3>
 
@@ -538,6 +542,17 @@ config to only provide TLSv1.1 and above the connection to your server will fail
 if you expect an immediate update.</p>
 
 <p>This can be disabled using a registry key. See <a href="http://technet.microsoft.com/en-us/library/ee683963%28v=ws.10%29.aspx">http://technet.microsoft.com/en-us/library/ee683963%28v=ws.10%29.aspx</a> for more info.</p>
+
+<h3 id="upload-timeouts">upload timeouts</h3>
+
+<p>An upload of large files taking longer than 30 minutes using Web Client in
+Windows 7 can cause the following error:</p>
+
+<ul>
+<li>"Error: 0x80070079 The semaphore timeout period has expired"</li>
+</ul>
+
+<p>See <a href="https://support.microsoft.com/en-us/kb/2668751">this kb article</a> for detailed instructions how to raise the timeout.</p>
 
 <h2 id="technical-details">Technical details</h2>
 

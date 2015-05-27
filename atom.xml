@@ -3,9 +3,32 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-05-26T00:57:44+00:00</updated>
+    <updated>2015-05-27T15:34:50+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 3.4.4 release]]></title>
+            <link href="http://sabre.io/blog/2015/sabre-vobject-3.4.4-release/"/>
+            <updated>2015-05-27T15:33:43+00:00</updated>
+            <id>http://sabre.io/blog/2015/sabre-vobject-3.4.4-release/</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.4.4.</p>
+
+<p>This version contains a small bugfix related to the iTip broker.</p>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>If this didn't upgrade you to 3.4.4, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/vobject" : "~3.4"
+</code></pre>
+
+<p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.4.4/ChangeLog.md">Github</a>.</p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.1.4 released]]></title>
             <link href="http://sabre.io/blog/2015/sabre-dav-2.1.4-released/"/>
@@ -217,24 +240,6 @@ has a line that looks like this:</p>
 <p>Version 3.4.0 is 100% compatbile with vobject 3.3.*</p>
 
 <p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.4.0/ChangeLog.md">Github</a>.</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[A new URI handling library]]></title>
-            <link href="http://sabre.io/blog/2015/a-new-uri-handling-library/"/>
-            <updated>2015-01-27T23:07:42+00:00</updated>
-            <id>http://sabre.io/blog/2015/a-new-uri-handling-library/</id>
-            <content type="html"><![CDATA[<p>We just released version 1.0.0 of a new URI library. This library solves a
-few common problems we've been having, or simply did not do well enough in
-the past.</p>
-
-<p>The library is super light-weight and just provides 5 functions. We hope
-it's useful for other people aside from us, but we'll be adding this as a new
-dependency to sabre/xml, sabre/http, sabre/dav and in the future sabre/vobject,
-as they all do 'stuff' with URIs, and were not doing everything in the best
-way possible.</p>
-
-<p>Check out the <a href="/uri/">documentation</a> if you'd like to learn more.</p>
 ]]></content>
         </entry>
     </feed>

@@ -3,7 +3,7 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-06-01T17:53:17+00:00</updated>
+    <updated>2015-06-01T18:00:40+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -22,7 +22,7 @@ upgrade.</p>
 <h2 id="what-this-means">What this means</h2>
 
 <ul>
-<li>We will no longer do new releases for this versions.</li>
+<li>We will no longer do new releases for these versions.</li>
 <li>We will no longer accept bug reports for these versions. We might make an
 exception for serious security issues.</li>
 <li>We will no longer provide support information for people running on these

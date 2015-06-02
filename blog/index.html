@@ -44,6 +44,117 @@
                 <p></p>
 
 <article class="blog-entry">
+    <time>June 2nd, 2015</time>
+    <h1><a href="http://sabre.io/blog/2015/sabredav-3-release/">sabre/dav 3.0 released</a></h1>
+    <p>We just tagged and zipped the sabre/dav 3.0 release. This is only a year after
+the 2.0 release, but 6 years after the 1.0 release.</p>
+
+<p>This means we needed 440% less time to release. If we continue to increase
+speed at this rate, it means we should get a 4.0 release in august, and
+somewhere in september we will average 1 major release per hour.</p>
+
+<p>Lets hope that's not the case though, because writing these blogposts would get
+old rather quickly.</p>
+
+<p>Anyway, back to the subject at hand:</p>
+
+<h2 id="new-features">New Features</h2>
+
+<h3 id="browser-upgrades">Browser upgrades</h3>
+
+<p>The <a href="/dav/browser-plugin/">browser plugin</a> has received a lot of subtle upgrades that should make
+it easier to use. We've removed some of the information that was not useful 99%
+of the time, and added the ability to create new principals in the browser.</p>
+
+<h3 id="authentication-system-overhaul">Authentication system overhaul</h3>
+
+<p>The authentication system and backends got a new API, which allows for cleaner
+implementation in many cases, and also adds the ability to run multiple
+authentication backends cooperatively.</p>
+
+<p>This allows the implementor to support HTTP Auth, as well as for example
+OAuth2, or any custom schemes.</p>
+
+<h3 id="nearly-all-xml-code-got-rewritten">Nearly all XML code got rewritten</h3>
+
+<p>Back in 2009 I first started experimenting with the idea of replacing all
+<a href="http://ca2.php.net/manual/en/book.dom.php">DOM</a> code with code with PHP's <a href="http://ca2.php.net/manual/en/book.xmlreader.php">XMLReader</a>/<a href="http://ca2.php.net/manual/en/book.xmlreader.php">XMLWriter</a>.</p>
+
+<p>Back then these api's were rather unstable and had a big number of problems.
+In 2012 I started again, and since then have been working on a separate
+sabre/dav branch to implement this.</p>
+
+<p>After many hundreds of commits, it's finally done. The new xml system is based
+on a new <a href="/xml/">sabre/xml</a> library and has made the xml code a lot more legible
+and in some cases faster.</p>
+
+<p>Furthermore, it will in the future allow us to make further optimizations that
+were not possible before, due to the fact that this new system can read and
+write XML from and to streams, whereas the DOM had no other option but to keep
+objects in memory (which would become in some instances absolutely massive).</p>
+
+<h3 id="%60mkcol%60-can-now-create-new-principals"><code>MKCOL</code> can now create new principals</h3>
+
+<p>If your backend has support for it, new principals can now be programmatically
+created.</p>
+
+<h3 id="support-for-a-%22home%22-like-collection">Support for a "home"-like collection</h3>
+
+<p>We added a new collection type that can automatically create a "home"
+directory for every principal, protected by ACL rules.</p>
+
+<h3 id="property-storage-can-now-store-any-complex-xml-property">Property storage can now store any complex XML property</h3>
+
+<p>Before, the <a href="/dav/property-storage/">property storage</a> plugin was only able to store simple string
+values for custom XML properties. This has now been changed to allow <em>any</em>
+complex XML value to be stored, thanks to <a href="/xml/">sabre/xml</a>.</p>
+
+<h3 id="changelog">ChangeLog</h3>
+
+<p>A lot of smaller changes have been made since version 2.1. You can find more
+details in the <a href="https://github.com/fruux/sabre-dav/blob/3.0.0/CHANGELOG.md">ChangeLog</a>. Read from 2.2.0-alpha1 onwards, as most changes
+have been made in the alpha versions.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>As always, the zip can be found on the <a href="https://github.com/fruux/sabre-dav/releases">github releases page</a>, but the
+recommended installation method is using composer:</p>
+
+<pre><code>composer require sabre/dav ~3.0.0
+</code></pre>
+
+<h2 id="upgrading">Upgrading</h2>
+
+<p>A few backwards compatibility breaks have been made in this release.</p>
+
+<p>If you are running a standard server, it's likely that you only have to run
+the database upgrade script, but if you did any sort of customizations,
+chances are that you need to make changes in your code to keep stuff running.</p>
+
+<p><strong>Make a backup.</strong> and then head to the <a href="http://sabre.io/dav/upgrade/2.0-to-2.1/">migration instructions</a> for 3.0.</p>
+
+<p>Drop a line on the <a href="http://groups.google.com/group/sabredav-discuss">mailing list</a> if you run into any issues, or
+<a href="/dav/browser-plugin/">get in touch with us</a> for our commercial support options.</p>
+
+<h2 id="support-status">Support status</h2>
+
+<p>Due to the 3.0 release, 2.1 now enters maintenance mode. This means that
+version 2.1 of sabre/dav will be actively maintained for the next 12 months.</p>
+
+<p>More information about previous versions and their support status can be found
+on the <a href="/support/">upgrade</a> page.</p>
+
+<p><strong>Thanks as always!!!</strong></p>
+
+</article>
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>June 1st, 2015</time>
     <h1><a href="http://sabre.io/blog/2015/deprecating-packages/">Deprecating sabre/dav 1.8</a></h1>
     <p>Our versioning scheme from sabre/dav dictates that we stop support for a
@@ -1596,6 +1707,18 @@ confident you probably will ;). If you're running into any bugs, definitely
 <a href="https://github.com/fruux/sabre.io/issues">let us know</a>. Want to contribute to the wiki? The entire site is open source, so
 <a href="https://github.com/fruux/sabre.io/tree/master/source">take a look</a> at some of the existing pages and get cracking!</p>
 
+</article>
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
+    <time>June 2nd, 2015</time>
+    <h1><a href="http://sabre.io/_posts/foo.php"></a></h1>
+    
 </article>
 
 <p></p>

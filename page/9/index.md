@@ -157,10 +157,6 @@ with the 3.1.* series.</article>
                     <h1><a href="http://sabre.io/blog/2014/new-website/">New website launched!</a></h1>
                     <p>You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
 never had a proper website, and we've always just hosted from Google Code.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jun. 2nd, 2015</time>
-                    <h1><a href="http://sabre.io/_posts/foo.php"></a></h1>
-                    </article>
                                     </section>
     </div>
 </div>

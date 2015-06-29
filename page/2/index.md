@@ -138,6 +138,10 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>May. 26th, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.0.7-released/">sabre/dav 2.0.7 released</a></h1>
+                    <p>We just released sabre/dav 2.0.7.</article>
+                <hr />                            <article class="blog-entry">
                     <time>May. 21st, 2015</time>
                     <h1><a href="http://sabre.io/blog/2015/sabre-xml-1.0.0.release/">sabre/xml 1.0.0 release</a></h1>
                     <p>We just released sabre/xml 1.0.0</article>
@@ -155,10 +159,6 @@
                     <p>Dealing with XML is annoying to many, and certainly us. We've tried many
 different approaches to make working with XML less frustrating, and we've
 finally landed on an approach that we're happy with.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Feb. 25th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.1.3-released/">sabre/dav 2.1.3 released</a></h1>
-                    <p>We just released sabre/dav 2.1.3.</article>
                                     </section>
     </div>
 </div>

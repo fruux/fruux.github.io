@@ -3,7 +3,7 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-07-02T21:35:40+00:00</updated>
+    <updated>2015-07-02T21:44:14+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -14,7 +14,7 @@
             <content type="html"><![CDATA[<p>We just released sabre/dav 3.0.1.</p>
 
 <p>This release fixes several small bugs. These bugs could allow for a minor
-corruption in some stored properties, and fixes an infinite loops, which could
+corruption in some stored properties, and fixes an infinite loop, which could
 be exploited as a denial of service attack.</p>
 
 <p>Updating is highly recommended.</p>

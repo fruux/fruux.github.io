@@ -3,9 +3,30 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-07-02T21:44:14+00:00</updated>
+    <updated>2015-07-11T21:39:07+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 2.0.8 released]]></title>
+            <link href="http://sabre.io/blog/2015/sabre-dav-2.0.8-released/"/>
+            <updated>2015-07-11T21:37:10+00:00</updated>
+            <id>http://sabre.io/blog/2015/sabre-dav-2.0.8-released/</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 2.0.8.</p>
+
+<p>This releases fixes a bug related to PROPFIND requests with <code>Depth: infinity</code>.
+This feature is turned off by default, so updating is only needed if you
+manually enabled it.</p>
+
+<p>Update sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.8/ChangeLog.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 3.0.1 released]]></title>
             <link href="http://sabre.io/blog/2015/sabre-dav-3.0.1-released/"/>
@@ -311,30 +332,6 @@ requirement, and then just run <code>composer update</code>.</p>
 
 <p>While the API is compatible with 3.x, some functions have moved and the old
 ones are deprecated. Read more in the <a href="/http/upgrade/">upgrade instructions</a>.</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 3.4.3 release]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-vobject-3.4.3-release/"/>
-            <updated>2015-05-19T08:15:33+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-vobject-3.4.3-release/</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.4.3.</p>
-
-<p>This version contains a total of 5 bugfixes, related to recurrence rules,
-validation and dates.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.4, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.4"
-</code></pre>
-
-<p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.4.3/ChangeLog.md">Github</a>.</p>
 ]]></content>
         </entry>
     </feed>

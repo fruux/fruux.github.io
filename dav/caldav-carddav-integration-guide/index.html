@@ -163,7 +163,7 @@ $calendarBackend = new CalDAV\Backend\PDO($pdo);
 // Directory tree
 $tree = array(
     new DAVACL\PrincipalCollection($principalBackend),
-    new CalDAV\CalendarRootNode($principalBackend, $calendarBackend)
+    new CalDAV\CalendarRoot($principalBackend, $calendarBackend)
 );  
 
 

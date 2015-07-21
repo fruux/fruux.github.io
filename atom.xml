@@ -3,9 +3,29 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-07-17T22:22:18+00:00</updated>
+    <updated>2015-07-21T20:18:30+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 2.1.6 released]]></title>
+            <link href="http://sabre.io/blog/2015/sabre-dav-2.1.6-released/"/>
+            <updated>2015-07-21T20:17:45+00:00</updated>
+            <id>http://sabre.io/blog/2015/sabre-dav-2.1.6-released/</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.6.</p>
+
+<p>This release fixes Windows Phone 8 compatibility with CalDAV, as well as a
+problem in the database migration script for pre-2.1 databases.</p>
+
+<p>Update sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.6/ChangeLog.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.1.5 released]]></title>
             <link href="http://sabre.io/blog/2015/sabre-dav-2.1.5-released/"/>
@@ -308,23 +328,6 @@ calendars.</p>
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.7/ChangeLog.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/xml 1.0.0 release]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-xml-1.0.0.release/"/>
-            <updated>2015-05-21T00:27:02+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-xml-1.0.0.release/</id>
-            <content type="html"><![CDATA[<p>We just released sabre/xml 1.0.0</p>
-
-<p>This version is identical to the earlier released 0.4.3. We figured it was
-good enough to be released as a true stable release, and the
-soon-to-be-released sabre/dav requires stable depdencies.</p>
-
-<p>Upgrade sabre/xml by making sure your <code>composer.json</code> has <code>~1.0</code> as a version
-requirement, and then just run <code>composer update</code>.</p>
-
-<p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-xml/blob/1.0.0/CHANGELOG.md">Github</a>.</p>
 ]]></content>
         </entry>
     </feed>

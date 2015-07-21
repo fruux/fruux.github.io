@@ -177,7 +177,7 @@ backends, but it's also easy to create your own.</p>
 <h2 id="using-the-pdo-backend">Using the PDO backend</h2>
 
 <p>The PDO backend can either use MySQL or SQLite databases. An example for the
-table creation can be found in the <a href="https://github.com/fruux/sabre-dav/tree/master/examples/sql">source</a> in the examples/sql directory.</p>
+table creation can be found in the <a href="https://github.com/fruux/sabre-dav/tree/master/examples/sql">source</a> in the <code>examples/sql</code> directory.</p>
 
 <p>Assuming you already have a server up and running, add the plugin using the
 following code:</p>
@@ -191,14 +191,16 @@ $pdo = new \PDO('sqlite:data/db.sqlite');
 // Throwing exceptions when PDO comes across an error:
 $pdo-&gt;setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-// Creating the backend
+// Creating the backend.
 $authBackend = new Auth\Backend\PDO($pdo);
 
-// Creating the plugin. We're assuming that the realm
-// name is called 'SabreDAV'.
-$authPlugin = new Auth\Plugin($authBackend,'SabreDAV');
+// We're assuming that the realm name is called 'SabreDAV'.
+$authBackend-&gt;setRealm('SabreDAV');
 
-// Adding the plugin to the server
+// Creating the plugin.
+$authPlugin = new Auth\Plugin($authBackend);
+
+// Adding the plugin to the server.
 $server-&gt;addPlugin($authPlugin);
 </code></pre>
 
@@ -223,34 +225,34 @@ invalidated, because the hash changed for all of them.</p>
 <h2 id="using-the-file-backend">Using the File backend</h2>
 
 <p>The <code>Sabre\DAV\Auth\Backend\File</code> backend uses a simple file to store
-usernames and passwords. The format of the file is identical to apache's
-htdigest file.</p>
+usernames and passwords. The format of the file is identical to Apache's
+<code>htdigest</code> file.</p>
 
-<p>If you have apache installed, there's a good chance you have a utility
+<p>If you have Apache installed, there's a good chance you have a utility
 to create and modify these files. You can verify this by typing <code>htdigest</code>
 on the command line.</p>
 
-<p>If you don't have htdigest installed, the format is rather simple.
-Every user is on a single line (split by \n). Every line looks like:</p>
+<p>If you don't have <code>htdigest</code> installed, the format is rather simple.
+Every user is on a single line (split by <code>\n</code>). Every line looks like:</p>
 
 <pre><code>username:realm:digesta1
 </code></pre>
 
 <p>The username speaks for itself, the realm must be the exact same as the second
-argument of the <code>Sabre\DAV\Auth\Plugin</code> constructor, and the digest a1 is,
+argument of the <code>Sabre\DAV\Auth\Plugin</code> constructor, and the <code>digesta1</code> is,
 just like with the PDO plugin the following hash:</p>
 
 <pre><code>md5('username:realm:password');
 </code></pre>
 
-<p>So, given a username of 'foo', a password of 'bar', and a realm of 'SabreDAV',
-the resulting hash should be:</p>
+<p>So, given a username of <code>'foo'</code>, a password of <code>'bar'</code>, and a realm of
+<code>'SabreDAV'</code>, the resulting hash should be:</p>
 
-<pre><code>php -r "echo md5('foo:SabreDAV:bar');"
+<pre><code>$ php -r "echo md5('foo:SabreDAV:bar');"
 5790c3784a79a018d1186528df520e11
 </code></pre>
 
-<p>Then our htdigest file looks like:</p>
+<p>Then our <code>htdigest</code> file looks like:</p>
 
 <pre><code>foo:SabreDAV:5790c3784a79a018d1186528df520e11
 </code></pre>
@@ -260,9 +262,10 @@ the resulting hash should be:</p>
 <pre><code>use Sabre\DAV\Auth;
 
 $authBackend = new Auth\Backend\File('/path/to/htdigest');
-$authPlugin = new Auth\Plugin($authBackend, 'SabreDAV');
+$authBackend-&gt;setRealm('SabreDAV');
+$authPlugin = new Auth\Plugin($authBackend);
 
-// Adding the plugin to the server
+// Adding the plugin to the server.
 $server-&gt;addPlugin($authPlugin);
 </code></pre>
 
@@ -275,7 +278,7 @@ classes as examples.</p>
 
 <p>If you're going to implement HTTP Basic, you must use
 <code>Sabre\DAV\Auth\Backend\AbstractBasic</code> as your parent class and implement the
-validateUserPass method.</p>
+<code>validateUserPass</code> method.</p>
 
 <h2 id="webserver-configuration">Webserver configuration</h2>
 
@@ -284,15 +287,18 @@ Take a look at <a href="/dav/webservers">Webservers</a> for more information.</p
 
 <h3 id="problems-with-safe-mode">Problems with safe mode</h3>
 
-<p>If 'safe mode' is enabled, PHP will automatically append a process id to authentication realms. This is problematic for Digest authentication, as it used the realm to determine the hash.</p>
+<p>If 'safe mode' is enabled, PHP will automatically append a process ID to
+authentication realms. This is problematic for Digest authentication, as it used
+the realm to determine the hash.</p>
 
-<p>The solution to this is to either turn off Safe Mode, or using Basic authentication instead of Digest.</p>
+<p>The solution to this is to either turn off Safe Mode, or using Basic
+authentication instead of Digest.</p>
 
 <p>See <a href="http://php.net/manual/en/features.http-auth.php">the PHP manual</a> for more information.</p>
 
 <h3 id="encoding-issues">Encoding issues</h3>
 
-<p>Avoid non-ascii characters for passwords. We've noticed that different clients
+<p>Avoid non-ASCII characters for passwords. We've noticed that different clients
 may use different encodings for passwords (windows may use CP-1252 and others
 UTF-8), so each results in a different password string.</p>
 
@@ -314,13 +320,13 @@ it add the plugin as follows:</p>
 
 <pre><code>use Sabre\DAV\Auth;
 
-// Creating the backend
+// Creating the backend.
 $authBackend = new Auth\Backend\Apache();
 
-// Creating the plugin. The realm parameter is ignored by the backend
-$authPlugin = new Auth\Plugin($authBackend,'SabreDAV');
+// Creating the plugin.
+$authPlugin = new Auth\Plugin($authBackend);
 
-// Adding the plugin to the server
+// Adding the plugin to the server.
 $server-&gt;addPlugin($authPlugin);
 </code></pre>
             

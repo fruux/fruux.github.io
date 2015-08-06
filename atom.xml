@@ -3,9 +3,32 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-07-21T20:29:02+00:00</updated>
+    <updated>2015-08-06T20:32:06+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 3.4.6 release]]></title>
+            <link href="http://sabre.io/blog/2015/sabre-vobject-3.4.6-release/"/>
+            <updated>2015-08-06T20:30:38+00:00</updated>
+            <id>http://sabre.io/blog/2015/sabre-vobject-3.4.6-release/</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.4.6.</p>
+
+<p>This version contains a small bugfix related to recurrence rules and querying.</p>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>If this didn't upgrade you to 3.4.6, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/vobject" : "~3.4"
+</code></pre>
+
+<p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.4.6/ChangeLog.md">Github</a>.</p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 3.0.2 released]]></title>
             <link href="http://sabre.io/blog/2015/sabre-dav-3.0.2-released/"/>
@@ -307,26 +330,6 @@ has a line that looks like this:</p>
 </code></pre>
 
 <p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.4.4/ChangeLog.md">Github</a>.</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 2.1.4 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-dav-2.1.4-released/"/>
-            <updated>2015-05-26T00:56:41+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-dav-2.1.4-released/</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.4.</p>
-
-<p>This release fixes 3 small bugs, and also updates all dependencies to their
-latest versions.</p>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.4/ChangeLog.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

@@ -3,9 +3,30 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-08-06T20:32:06+00:00</updated>
+    <updated>2015-08-06T20:44:00+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 3.0.3 released]]></title>
+            <link href="http://sabre.io/blog/2015/sabre-dav-3.0.3-released/"/>
+            <updated>2015-08-06T20:41:38+00:00</updated>
+            <id>http://sabre.io/blog/2015/sabre-dav-3.0.3-released/</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 3.0.3</p>
+
+<p>This release fixes an issue that prevented HTTP Digest authentication to work
+with HEAD requests. If you use HTTP Digest authentication, updating is
+strongly recommended.</p>
+
+<p>Update sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.0.3/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/vobject 3.4.6 release]]></title>
             <link href="http://sabre.io/blog/2015/sabre-vobject-3.4.6-release/"/>
@@ -307,29 +328,6 @@ are truly stuck in the past.</li>
 <li>The biggest change was the switch to PHP namespaces from the old prefix-format.</li>
 <li>There were a total of 12 releases, averaging 0.63 releases per month.</li>
 </ul>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 3.4.4 release]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-vobject-3.4.4-release/"/>
-            <updated>2015-05-27T15:33:43+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-vobject-3.4.4-release/</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.4.4.</p>
-
-<p>This version contains a small bugfix related to the iTip broker.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.4.4, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.4"
-</code></pre>
-
-<p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.4.4/ChangeLog.md">Github</a>.</p>
 ]]></content>
         </entry>
     </feed>

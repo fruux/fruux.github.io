@@ -3,14 +3,33 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-08-06T20:44:00+00:00</updated>
+    <updated>2015-08-30T09:50:15+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
+            <title type="html"><![CDATA[sabre/xml 1.2.0 released]]></title>
+            <link href="http://sabre.io/blog/2015/sabre-xml-1.2.0-release"/>
+            <updated>2015-08-30T09:49:45+00:00</updated>
+            <id>http://sabre.io/blog/2015/sabre-xml-1.2.0-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/xml 1.2.0</p>
+
+<p>This release adds a new function to the Reader class: <code>parseGetElements</code>,
+which makes it slightly easier to parse xml documents with custom
+deserializers.</p>
+
+<p>Update sabre/xml by running:</p>
+
+<pre><code>composer update sabre/xml
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-xml/blob/1.2.0/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
+            <entry>
             <title type="html"><![CDATA[sabre/dav 3.0.3 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-dav-3.0.3-released/"/>
+            <link href="http://sabre.io/blog/2015/sabre-dav-3.0.3-released"/>
             <updated>2015-08-06T20:41:38+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-dav-3.0.3-released/</id>
+            <id>http://sabre.io/blog/2015/sabre-dav-3.0.3-released</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 3.0.3</p>
 
 <p>This release fixes an issue that prevented HTTP Digest authentication to work
@@ -29,9 +48,9 @@ strongly recommended.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/vobject 3.4.6 release]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-vobject-3.4.6-release/"/>
+            <link href="http://sabre.io/blog/2015/sabre-vobject-3.4.6-release"/>
             <updated>2015-08-06T20:30:38+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-vobject-3.4.6-release/</id>
+            <id>http://sabre.io/blog/2015/sabre-vobject-3.4.6-release</id>
             <content type="html"><![CDATA[<p>We just released sabre/vobject 3.4.6.</p>
 
 <p>This version contains a small bugfix related to recurrence rules and querying.</p>
@@ -52,9 +71,9 @@ has a line that looks like this:</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 3.0.2 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-dav-3.0.2-released/"/>
+            <link href="http://sabre.io/blog/2015/sabre-dav-3.0.2-released"/>
             <updated>2015-07-21T20:28:10+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-dav-3.0.2-released/</id>
+            <id>http://sabre.io/blog/2015/sabre-dav-3.0.2-released</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 3.0.2</p>
 
 <p>This release fixes Windows Phone 8 compatibility with CalDAV, as well as a
@@ -72,9 +91,9 @@ problem in the database migration script for pre-2.1 databases.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.1.6 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-dav-2.1.6-released/"/>
+            <link href="http://sabre.io/blog/2015/sabre-dav-2.1.6-released"/>
             <updated>2015-07-21T20:17:45+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-dav-2.1.6-released/</id>
+            <id>http://sabre.io/blog/2015/sabre-dav-2.1.6-released</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.6.</p>
 
 <p>This release fixes Windows Phone 8 compatibility with CalDAV, as well as a
@@ -92,9 +111,9 @@ problem in the database migration script for pre-2.1 databases.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.1.5 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-dav-2.1.5-released/"/>
+            <link href="http://sabre.io/blog/2015/sabre-dav-2.1.5-released"/>
             <updated>2015-07-11T21:40:41+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-dav-2.1.5-released/</id>
+            <id>http://sabre.io/blog/2015/sabre-dav-2.1.5-released</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.5.</p>
 
 <p>This releases fixes a bug related to PROPFIND requests with <code>Depth: infinity</code>.
@@ -113,9 +132,9 @@ manually enabled it.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.0.8 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-dav-2.0.8-released/"/>
+            <link href="http://sabre.io/blog/2015/sabre-dav-2.0.8-released"/>
             <updated>2015-07-11T21:37:10+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-dav-2.0.8-released/</id>
+            <id>http://sabre.io/blog/2015/sabre-dav-2.0.8-released</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 2.0.8.</p>
 
 <p>This releases fixes a bug related to PROPFIND requests with <code>Depth: infinity</code>.
@@ -134,9 +153,9 @@ manually enabled it.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 3.0.1 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-dav-3.0.1-released/"/>
+            <link href="http://sabre.io/blog/2015/sabre-dav-3.0.1-released"/>
             <updated>2015-07-02T21:31:26+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-dav-3.0.1-released/</id>
+            <id>http://sabre.io/blog/2015/sabre-dav-3.0.1-released</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 3.0.1.</p>
 
 <p>This release fixes several small bugs. These bugs could allow for a minor
@@ -157,9 +176,9 @@ be exploited as a denial of service attack.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/xml 1.1.0 release]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-xml-1.1.0-release/"/>
+            <link href="http://sabre.io/blog/2015/sabre-xml-1.1.0-release"/>
             <updated>2015-06-29T22:23:43+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-xml-1.1.0-release/</id>
+            <id>http://sabre.io/blog/2015/sabre-xml-1.1.0-release</id>
             <content type="html"><![CDATA[<p>We just released sabre/xml 1.1.0.</p>
 
 <p>This version contains a bugfix that makes it better at detecting broken xml
@@ -182,9 +201,9 @@ has a line that looks like this:</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 3.0 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabredav-3-release/"/>
+            <link href="http://sabre.io/blog/2015/sabredav-3-release"/>
             <updated>2015-06-02T17:06:13+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabredav-3-release/</id>
+            <id>http://sabre.io/blog/2015/sabredav-3-release</id>
             <content type="html"><![CDATA[<p>We just tagged and zipped the sabre/dav 3.0 release. This is only a year after
 the 2.0 release, but 6 years after the 1.0 release.</p>
 
@@ -284,50 +303,6 @@ version 2.1 of sabre/dav will be actively maintained for the next 12 months.</p>
 on the <a href="/dav/upgrading/">upgrade</a> page.</p>
 
 <p><strong>Thanks as always!!!</strong></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[Deprecating sabre/dav 1.8]]></title>
-            <link href="http://sabre.io/blog/2015/deprecating-packages/"/>
-            <updated>2015-06-01T17:48:25+00:00</updated>
-            <id>http://sabre.io/blog/2015/deprecating-packages/</id>
-            <content type="html"><![CDATA[<p>Our versioning scheme from sabre/dav dictates that we stop support for a
-version of a package, 12 months after the next major version was released.</p>
-
-<p>In ideal circumstances this means you have the full 12 months to do the
-upgrade.</p>
-
-<p>Today marks that date for sabre/dav 1.8, as well as sabre/vobject 2.</p>
-
-<h2 id="what-this-means">What this means</h2>
-
-<ul>
-<li>We will no longer do new releases for these versions.</li>
-<li>We will no longer accept bug reports for these versions. We might make an
-exception for serious security issues.</li>
-<li>We will no longer provide support information for people running on these
-versions.</li>
-<li>It also marks the end of the last sabre/dav to support PHP 5.3.</li>
-<li>However, we will still offer <a href="http://sabre.io/support/">paid support</a> for these versions, if you
-are truly stuck in the past.</li>
-</ul>
-
-<h2 id="links">Links</h2>
-
-<ul>
-<li><a href="http://sabre.io/dav/upgrading/">Full list of supported sabre/dav versions and their obsoletion schedule</a>.</li>
-<li><a href="http://sabre.io/dav/upgrade/1.8-to-2.0/">Upgrading from sabre/dav 1.8 to 2.0</a>.</li>
-<li><a href="http://sabre.io/dav/upgrade/2.0-to-2.1/">Upgrading from sabre/dav 2.0 to 2.1</a>.</li>
-<li><a href="http://sabre.io/vobject/upgrade/">Upgrading from sabre/vobject 2.x to 3.x</a>.</li>
-</ul>
-
-<h2 id="some-stats">Some stats</h2>
-
-<ul>
-<li>sabre/dav 1.8 was first released November 8th, 2012.</li>
-<li>The biggest change was the switch to PHP namespaces from the old prefix-format.</li>
-<li>There were a total of 12 releases, averaging 0.63 releases per month.</li>
-</ul>
 ]]></content>
         </entry>
     </feed>

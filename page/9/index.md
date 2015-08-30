@@ -139,25 +139,25 @@
             <h1>News</h1>
                             <article class="blog-entry">
                     <time>Jul. 14th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-http-2.0.4-release/">sabre/http 2.0.4 release</a></h1>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.3-release">sabre/dav 2.0.3 release</a></h1>
+                    <p>We just released sabre/dav 2.0.3.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Jul. 14th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-http-2.0.4-release">sabre/http 2.0.4 release</a></h1>
                     <p>We just released sabre/http 2.0.4.</article>
                 <hr />                            <article class="blog-entry">
                     <time>Jul. 14th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.4-release/">sabre/vobject 3.2.4 release</a></h1>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.4-release">sabre/vobject 3.2.4 release</a></h1>
                     <p>We just released sabre/vobject 3.2.4.</article>
                 <hr />                            <article class="blog-entry">
                     <time>Jun. 24th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0/">sabre/event 2.0 release</a></h1>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0">sabre/event 2.0 release</a></h1>
                     <p>We just released sabre/event 2.0.0. This releases adds a few features, and
 also slightly alters the API.</article>
                 <hr />                            <article class="blog-entry">
                     <time>Jun. 12th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.2-release/">sabre/dav 2.0.2 release</a></h1>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.2-release">sabre/dav 2.0.2 release</a></h1>
                     <p>We just released sabre/dav 2.0.2.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jun. 12th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.3-release/">sabre/vobject 3.2.3 release</a></h1>
-                    <p>We just released sabre/vobject 3.2.3.</article>
                                     </section>
     </div>
 </div>
@@ -184,9 +184,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/page/9/';
+    var disqus_identifier = '/page/9';
     var disqus_title = '';
-    var disqus_url = 'http://sabre.io/page/9/';
+    var disqus_url = 'http://sabre.io/page/9';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

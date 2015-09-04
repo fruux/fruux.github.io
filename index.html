@@ -139,6 +139,10 @@
             <h1>News</h1>
                             <article class="blog-entry">
                     <time>Sep. 4th, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-dav-3.0.4-released">sabre/dav 3.0.4 released</a></h1>
+                    <p>We just released sabre/dav 3.0.4</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Sep. 4th, 2015</time>
                     <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.1.7-released">sabre/dav 2.1.7 released</a></h1>
                     <p>We just released sabre/dav 2.1.7</article>
                 <hr />                            <article class="blog-entry">
@@ -153,10 +157,6 @@
                     <time>Sep. 4th, 2015</time>
                     <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.0.9-released">sabre/dav 2.0.9 released</a></h1>
                     <p>We just released sabre/dav 2.0.9</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Aug. 30th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-xml-1.2.0-release">sabre/xml 1.2.0 released</a></h1>
-                    <p>We just released sabre/xml 1.2.0</article>
                                     </section>
     </div>
 </div>

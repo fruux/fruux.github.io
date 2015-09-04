@@ -3,9 +3,38 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-09-04T22:29:02+00:00</updated>
+    <updated>2015-09-04T22:50:33+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 3.0.4 released]]></title>
+            <link href="http://sabre.io/blog/2015/sabre-dav-3.0.4-released"/>
+            <updated>2015-09-04T22:27:57+00:00</updated>
+            <id>http://sabre.io/blog/2015/sabre-dav-3.0.4-released</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 3.0.4</p>
+
+<p>This releases contains the following fixes:</p>
+
+<ul>
+<li>This release fixes an issue related to <code>MOVE</code> requests. If a <code>MOVE</code> request
+was going to overwrite an existing resource, but that move request was stopped
+by access control (or other plugins), the target resource would still be
+deleted.</li>
+<li>It fixes incorrectly encoding <code>PROPPATCH</code> xml bodies in the client.</li>
+<li>It also fixes deserializing errors in the client when properties were not
+found on the server.</li>
+</ul>
+
+<p>Update sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.0.4/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.1.7 released]]></title>
             <link href="http://sabre.io/blog/2015/sabre-dav-2.1.7-released"/>
@@ -195,27 +224,6 @@ problem in the database migration script for pre-2.1 databases.</p>
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.6/ChangeLog.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 2.1.5 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-dav-2.1.5-released"/>
-            <updated>2015-07-11T21:40:41+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-dav-2.1.5-released</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.5.</p>
-
-<p>This releases fixes a bug related to PROPFIND requests with <code>Depth: infinity</code>.
-This feature is turned off by default, so updating is only needed if you
-manually enabled it.</p>
-
-<p>Update sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.5/ChangeLog.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

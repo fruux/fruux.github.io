@@ -44,6 +44,36 @@
                 <p></p>
 
 <article class="blog-entry">
+    <time>September 4th, 2015</time>
+    <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.0.9-released">sabre/dav 2.0.9 released</a></h1>
+    <p>We just released sabre/dav 2.0.9</p>
+
+<p>This release fixes an issue related to <code>MOVE</code> requests. If a <code>MOVE</code> request
+was going to overwrite an existing resource, but that move request was stopped
+by access control (or other plugins), the target resource would still be
+deleted.</p>
+
+<p>The zip release also updates sabre/vobject from version 3.3.5 to 3.4.6, which
+also fixes a number of bugs.</p>
+
+<p>Update sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.0.4/Changelog.md">Github</a></p>
+
+</article>
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>August 30th, 2015</time>
     <h1><a href="http://sabre.io/blog/2015/sabre-xml-1.2.0-release">sabre/xml 1.2.0 released</a></h1>
     <p>We just released sabre/xml 1.2.0</p>

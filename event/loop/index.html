@@ -222,20 +222,18 @@ you can write to the buffer.</p>
 
 <p>Two examples of this are:</p>
 
-<ul>
-<li>You are making a HTTP call and you're waiting for the server to respond.</li>
-<li><p>You have an open process stream (with <a href="http://php.net/manual/en/function.popen.php">popen</a>) and you want to get notified when the process added new output.</p>
+<p><li>You are making a HTTP call and you're waiting for the server to respond.</li>
+<li>You have an open process stream (with <a href="http://php.net/manual/en/function.popen.php">popen</a>) and you want to get notified when the process added new output.</li></p>
 
-<p>use Sabre\Event\Loop;</p>
+<pre><code>use Sabre\Event\Loop;
 
-<p>$tail = popen('tail -fn0 /var/log/apache/access_log', 'r');
-Loop\addReadStream($tail, function() use $tail) {</p>
+$tail = popen('tail -fn0 /var/log/apache/access_log', 'r');
+Loop\addReadStream($tail, function() use $tail) {
 
-<pre><code>echo fread($tail, 4096);
+    echo fread($tail, 4096);
+
+});
 </code></pre>
-
-<p>});</p></li>
-</ul>
 
 <p>In the background the eventloop uses [<code>stream_select()</code>].</p>
 

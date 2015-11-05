@@ -48,9 +48,12 @@
                             </li>
             <li><a href="http://sabre.io/event">sabre/event</a>
                                 <ul>
+                    <li><a href="http://sabre.io/event/">Introduction</a></li>
                     <li><a href="http://sabre.io/event/install">Installation</a></li>
                     <li><a href="http://sabre.io/event/eventemitter">EventEmitter</a></li>
-                    <li><a href="http://sabre.io/event/promise">Promise</a></li>
+                    <li><a href="http://sabre.io/event/promise">Promises</a></li>
+                    <li><a href="http://sabre.io/event/loop">Event Loop</a></li>
+                    <li><a href="http://sabre.io/event/coroutines">Coroutines</a></li>
                 </ul>
                             </li>
             <li><a href="http://sabre.io/http">sabre/http</a>
@@ -69,14 +72,12 @@
 </aside>
                 <article>
                             <h1>EventEmitter</h1>
-                <p>In an eventemitter there are emitters, and listeners. Emitters trigger an
-event. When an event is emitted, a listener is notified of this fact.</p>
+                <p>The EventEmitter is a simple pattern that allows you to create an object
+that emits events, and allow you to listen to those events.</p>
 
 <p>Example:</p>
 
 <pre><code>use Sabre\Event\EventEmitter;
-
-include 'vendor/autoload.php';
 
 $eventEmitter = new EventEmitter();
 
@@ -120,7 +121,7 @@ $eventEmitter-&gt;on('create', [$myInstance, 'myMethod']);
 
 <h3 id="canceling-the-event-handler">Canceling the event handler</h3>
 
-<p>If a callback returns <code>false</code> the event chain is stopped immediately.</p>
+<p>If any callback returns <code>false</code> the event chain is stopped immediately.</p>
 
 <p>A use case is to use a listener to check if a user has permission to perform
 a certain action, and stop execution if they don't.</p>
@@ -137,12 +138,9 @@ a certain action, and stop execution if they don't.</p>
 <p><code>EventEmitter::emit()</code> will return <code>false</code> if the event was cancelled, and
 <code>true</code> if it wasn't.</p>
 
-<p>SabreDAV uses this feature heavily as well. When a HTTP request is received
-various plugins see if they are capable of handling the request. If they
-do, they can return <code>false</code> so other plugins will not also attempt to handle
-the request.</p>
-
 <p>Throwing an exception will also stop the chain.</p>
+
+<p>This is similar to Javascript's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault">preventDefault()</a>.</p>
 
 <h2 id="passing-arguments">Passing arguments</h2>
 

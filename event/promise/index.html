@@ -48,9 +48,12 @@
                             </li>
             <li><a href="http://sabre.io/event">sabre/event</a>
                                 <ul>
+                    <li><a href="http://sabre.io/event/">Introduction</a></li>
                     <li><a href="http://sabre.io/event/install">Installation</a></li>
                     <li><a href="http://sabre.io/event/eventemitter">EventEmitter</a></li>
-                    <li><a href="http://sabre.io/event/promise">Promise</a></li>
+                    <li><a href="http://sabre.io/event/promise">Promises</a></li>
+                    <li><a href="http://sabre.io/event/loop">Event Loop</a></li>
+                    <li><a href="http://sabre.io/event/coroutines">Coroutines</a></li>
                 </ul>
                             </li>
             <li><a href="http://sabre.io/http">sabre/http</a>
@@ -71,8 +74,8 @@
                             <h1>Promise</h1>
                 <p>Since version 2.0, the sabre/event library has support for Promises.</p>
 
-<p>A Promise is a 'placeholder' for a value that has not yet been determined. An
-example of this, is a HTTP request that has not yet completed, or a database
+<p>A Promise is a 'placeholder' for the result of an asynchronous operation.
+An example of this, is a HTTP request that has not yet completed, or a database
 query that's taking a long time to complete.</p>
 
 <p>Promises have been popularized in Javascript, and are now actually becoming
@@ -91,7 +94,7 @@ available here.</p>
 <h2 id="an-example-through-a-use-case">An example through a use-case</h2>
 
 <p>We are integrated with a RESTful webservice. We have to make 1 <code>PUT</code> and
-1 <code>DELETE</code>, but we don't have to perform these in order.</p>
+1 <code>DELETE</code> request, but we don't have to perform these in order.</p>
 
 <p>Curl allows us to make multiple parallel, non-blocking requests using
 <a href="http://php.net/curl-multi-init"><code>curl_multi</code></a>. It's syntax is rather verbose, so we are using the
@@ -99,8 +102,7 @@ following fictional HTTP client:</p>
 
 <pre><code>class MultiHttp {
 
-    function addRequest($method, $url, $body);
-    function wait();
+    function addRequest($method, $url, $body): Promise;
 
 }
 </code></pre>
@@ -108,14 +110,11 @@ following fictional HTTP client:</p>
 <p>Conceptually this client works as follows:</p>
 
 <ol>
-<li>We perform new HTTP requests with the <code>addRequest</code> method,</li>
-<li>When we are completely done, we can call the <code>wait</code> method, which causes
-the client to simply wait until all the still outstanding requests have
-completed.</li>
+<li>We perform new HTTP requests with the <code>addRequest</code> method.</li>
+<li>This method returns a Promise object.</li>
+<li>The Promise object is initially pending, but later on it will have the
+result of the operation.</li>
 </ol>
-
-<p>The developer of the <code>MultiHttp</code> client can use Promises to handle asynchronous
-results.</p>
 
 <p>This is an example of how our example would work:</p>
 
@@ -143,7 +142,7 @@ $multiHttp-&gt;addRequest('DELETE', '/blogpost3.txt', '...')
         }
     );
 
-$multiHttp-&gt;wait();
+Sabre\Event\Loop\run();
 </code></pre>
 
 <p>This is on a high level how a Promise works. A function returns a Promise
@@ -188,7 +187,7 @@ $multiHttp-&gt;addRequest('DELETE', '/blogpost2.txt', '...')
         }
     );
 
-$multiHttp-&gt;wait();
+Sabre\Event\Loop\run();
 </code></pre>
 
 <p><strong>Note</strong>: If you did not specify an error handler, any errors and exceptions may
@@ -225,28 +224,12 @@ a Promise. It's pretty easy, just call the constructor:</p>
 <pre><code>$promise-&gt;reject( new Exception('Something went wrong'); );
 </code></pre>
 
-<p>Alernatively, it's possible to handle this entire process during construction,
-by passing a callback to the constructor:</p>
-
-<pre><code>$promise = new Sabre\Event\Promise(function($fulFill, $reject) {
-
-    if ($operationSuccessful) {
-        $fulFill( $result );
-    } else {
-        $reject( $reason );
-    }
-
-});
-</code></pre>
-
 <h2 id="api">API</h2>
 
 <h3 id="%60promise%3A%3A__constructcallable-%24executor-%3D-null%3B%60"><code>Promise::__construct(callable $executor = null);</code></h3>
 
 <p>Creates the Promise with an optional executor callback. The callback will
 receive a reference to the fulfill and reject functions.</p>
-
-<p>See 'Creating a Promise'.</p>
 
 <h3 id="%60promise%3A%3Athencallable-%24onfulfilled-%3D-null%2C-callable-%24onrejected-%3D-null%60"><code>Promise::then(callable $onFulfilled = null, callable $onRejected = null)</code></h3>
 
@@ -270,14 +253,12 @@ receive a reference to the fulfill and reject functions.</p>
 that <code>then</code> returns:</p>
 
 <pre><code>$promise-&gt;then( function($result) {
-    return new Promise(
-        function($fulFill, $reject) {
-            $fulFill('Foo!');
-        }
-    );
+
+    $newPromise = anotherAsyncOperation();
+    return $newPromise;
+
 })-&gt;then( function($result ) {
 
-    // Will echo "Foo!\n";
     echo $result;
 
 });
@@ -367,18 +348,29 @@ following syntax:</p>
 <h3 id="%60promise%3A%3Await%60"><code>Promise::wait()</code></h3>
 
 <p>Turns your asynchronous code into blocking code again. Calling this function
-will cause PHP to block until the promise is resolved.</p>
+will cause PHP to block until the promise is resolved. While it's 'blocking'
+other events might be handled by the <a href="/event/loop/">Event Loop</a>.</p>
 
 <p>This is useful if you're mixing asynchronous code in an otherwise normal
 synchronous PHP application.</p>
-
-<p>Usually, when you're dealing with a chain of promises, you'll just want to
-call this all the way at the end of the chain.</p>
 
 <p>The wait function returns the value of the last promise if it was fulfilled.
 If the last promise rejected, the wait function will convert the <code>$reason</code>
 into an exception, making your promise truly behave as a synchronous block
 of code.</p>
+
+<pre><code>$promise = someAsyncOp();
+$promise-&gt;wait();
+</code></pre>
+
+<p>You might combine this will all to block PHP until a group of async operations
+have all completed:</p>
+
+<pre><code>$promise1 = someAsyncOp();
+$promsie2 = anotherAsyncOp();
+
+Promise\all([$promise1, $promise2])-&gt;wait();
+</code></pre>
 
 <h3 id="%60promise%5Callpromise-%24promises%60"><code>Promise\all(Promise[] $promises)</code></h3>
 

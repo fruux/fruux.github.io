@@ -44,6 +44,94 @@
                 <p></p>
 
 <article class="blog-entry">
+    <time>November 5th, 2015</time>
+    <h1><a href="http://sabre.io/blog/2015/sabre-event-3.0-released">sabre/event 3 released</a></h1>
+    <p>We just released sabre/event 3. This is a new major version, and comes with a
+number of new features and also BC breaking changes.</p>
+
+<h2 id="changes">Changes</h2>
+
+<h3 id="php-version">PHP version</h3>
+
+<p>This package now requires PHP 5.5. The 2.0 version of this package will
+continue to be maintained though if you need PHP 5.4 support.</p>
+
+<h3 id="changes-to-promises">Changes to Promises</h3>
+
+<p>We've overhauled the promise significantly to closely match the standard
+Ecmascript promise as close as possible.</p>
+
+<p>To do this, we added the following functions:</p>
+
+<pre><code>Sabre\Event\Promise\all
+Sabre\Event\Promise\race
+Sabre\Event\Promise\resolve
+Sabre\Event\Promise\reject
+</code></pre>
+
+<p>These are now straight up functions, and not static methods on the Promise
+object.</p>
+
+<p>The following methods were added:</p>
+
+<pre><code>Sabre\Event\Promise::otherwise
+Sabre\Event\Promise::wait
+</code></pre>
+
+<p>Wait makes a lot of sense for PHP so it was added as a core feature.</p>
+
+<p>The following methods were deprecated:</p>
+
+<pre><code>Sabre\Event\Promise::all
+Sabre\Event\Promise::error
+</code></pre>
+
+<p>Both will still work but will be removed in version 4.0.</p>
+
+<p><code>error</code> was renamed to <code>otherwise</code>. In javascript this function is actually
+called <code>catch</code>, but we can't use that name in PHP because it's a reserved
+keyword. Other projects such as ReactPHP and Guzzle have settled on the name
+<code>otherwise</code>, so we're following their example.</p>
+
+<p>Another change is that promise now uses the Event Loop to trigger events. This
+means that events are now predictably asynchronously triggered, whereas before
+events might have triggered synchronously.</p>
+
+<p>What generally means is that you might need to explictly call the <code>wait()</code>
+function on your promise to wait for it to resolve. Or you can call:</p>
+
+<pre><code>Sabre\Event\Loop\run();
+</code></pre>
+
+<p>See the <a href="/event/promise/">Promise documentation</a> for more information.</p>
+
+<h3 id="coroutines">Coroutines</h3>
+
+<p>We've added support for coroutines using PHP 5.5 generators. For a great
+example check out the <a href="/event/coroutines/">documentation</a>.</p>
+
+<h3 id="event-loop">Event loop</h3>
+
+<p>We added an implementation of an Event Loop, also sometimes known as the
+reactor pattern. This new system behaves similar to Javascript or
+<a href="http://reactphp.org/">ReactPHP</a>'s loop. The event loop can handle 'timed events' a.k.a.
+<code>setTimeout()</code> and <code>setInterval()</code> and support for events on IO streams
+strictly using <code>stream_select()</code> as the underlying engine. See the
+<a href="/event/loop/">Loop documentation</a> for more information.</p>
+
+<h2 id="changelog">Changelog</h2>
+
+<p>A full changelog can be found on <a href="https://github.com/fruux/sabre-event/blob/3.0.0/CHANGELOG.md">Github</a></p>
+
+</article>
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>September 15th, 2015</time>
     <h1><a href="http://sabre.io/blog/2015/sabre-dav-3.0.5-released">sabre/dav 3.0.5 released</a></h1>
     <p>We just released sabre/dav 3.0.5.</p>

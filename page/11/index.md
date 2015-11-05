@@ -139,24 +139,24 @@
             <h1>News</h1>
                             <article class="blog-entry">
                     <time>Jun. 12th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.2-release/">sabre/dav 2.0.2 release</a></h1>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.2-release">sabre/dav 2.0.2 release</a></h1>
                     <p>We just released sabre/dav 2.0.2.</article>
                 <hr />                            <article class="blog-entry">
                     <time>Jun. 12th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.3-release/">sabre/vobject 3.2.3 release</a></h1>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.3-release">sabre/vobject 3.2.3 release</a></h1>
                     <p>We just released sabre/vobject 3.2.3.</article>
                 <hr />                            <article class="blog-entry">
                     <time>Jun. 12th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-event-1.0.1-release/">sabre/event 1.0.1 release</a></h1>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-event-1.0.1-release">sabre/event 1.0.1 release</a></h1>
                     <p>We just released sabre/event 1.0.1. A bug prevented the <code>EventEmitter</code> trait
 to work on PHP versions older than 5.4.14.</article>
                 <hr />                            <article class="blog-entry">
                     <time>Jun. 2nd, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/jcal-rfc/">jCal released as rfc7265</a></h1>
+                    <h1><a href="http://sabre.io/blog/2014/jcal-rfc">jCal released as rfc7265</a></h1>
                     <p>The IETF just made <a href="http://tools.ietf.org/html/rfc7265">jCal</a> available as <a href="http://tools.ietf.org/html/rfc7265">rfc7265</a></article>
                 <hr />                            <article class="blog-entry">
                     <time>May. 28th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabredav-2.0.1-release/">sabre/dav 2.0.1 released</a></h1>
+                    <h1><a href="http://sabre.io/blog/2014/sabredav-2.0.1-release">sabre/dav 2.0.1 released</a></h1>
                     <p>We just released sabre/dav 2.0.1. Two regressions have been found related
 to PROPFIND requests.</article>
                                     </section>
@@ -185,9 +185,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/page/11/';
+    var disqus_identifier = '/page/11';
     var disqus_title = '';
-    var disqus_url = 'http://sabre.io/page/11/';
+    var disqus_url = 'http://sabre.io/page/11';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

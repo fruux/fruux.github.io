@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>sabre/event - sabre/event</title>
+            <title>Coroutines - sabre/event</title>
     
     <meta charset="utf-8">
 
@@ -68,23 +68,96 @@
     </nav>
 </aside>
                 <article>
-                            <h1>sabre/event</h1>
-                <p>A lightweight library for event-based development in PHP.</p>
+                            <h1>Coroutines</h1>
+                <p>Coroutines in sabre/event is a feature that can improve your <a href="/event/promise/">Promise</a>-based
+code.</p>
 
-<p>This library brings several popular event-based patterns from Javascript to
-the PHP world. They are simple, 0-dependency and written to be very legible.</p>
+<p>It comes in the form of a single function, that takes a <a href="http://php.net/manual/en/language.generators.overview.php">generator</a> as an
+argument. The generator can then <em>yield</em> promises. The coroutine function will
+automatically resume the function when the promise has resolved.</p>
 
-<p>The goal is to be as close as their Javascript equivelant as possible, in a way
-that's also sane for PHP.</p>
+<p>If the promise rejected, an exception will be thrown in the generator.</p>
 
-<ol>
-<li><a href="/event/eventemitter/">EventEmitter</a>, which is a very lightweight "Publish and Subscribe"
-pattern,</li>
-<li><a href="/event/promise/">Promises</a>, which is a design pattern to improve chained asynchronous
-callbacks.</li>
-<li><a href="/event/loop/">An event loop</a>, aiding you in writing asynchronous PHP code.</li>
-<li><a href="/event/coroutines/">Coroutines</a>, to make Promise-heavy code even better.</li>
-</ol>
+<p>To illustrate this, an example will work better.</p>
+
+<h2 id="before">Before</h2>
+
+<pre><code>$promise = someAsyncOperation();
+$promise-&gt;then(function($result)) {
+
+    return anotherAsyncOperation();
+
+})
+-&gt;then( function($result) {
+
+    return lastAsyncOperation();
+
+})
+-&gt;then (function($result)) {
+
+    echo $result, "\n";
+
+})
+-&gt;otherwise(function($reason) {
+
+    echo $reason, "\n";
+
+});
+</code></pre>
+
+<h2 id="after">After</h2>
+
+<p>The following code is equivalent:</p>
+
+<pre><code>use Sabre\Event;
+
+Event\coroutine(function() {
+
+    try {
+
+        $result = yield someAsyncOperation();
+        $result = yield anotherAsyncOperation();
+        $result = yield lastAsyncOperation();
+        echo $result;
+
+    } catch (\Exception $reason) {
+
+        echo $reason;
+
+    }
+
+});
+</code></pre>
+
+<h2 id="tips-and-tricks">Tips and tricks</h2>
+
+<p>The coroutines itself also returns a promise. This promise will resolve with
+the last yielded value or promise. It will reject if there was an uncaught
+exception.</p>
+
+<p>This allows you to for example call <code>wait()</code> to turn a large asynchronous
+process into a blocking one:</p>
+
+<pre><code>use Sabre\Event;
+
+Event\coroutine(function() {
+
+    /* ... */
+
+})-&gt;wait();
+</code></pre>
+
+<p>It's possible to call different coroutines from within your own coroutine
+easily as well:</p>
+
+<pre><code>use Sabre\Event;
+
+Event\coroutine(function() {
+
+    /* ... */
+
+})-&gt;wait();
+</code></pre>
             
             
                             <hr />
@@ -110,9 +183,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/event';
-    var disqus_title = 'sabre/event';
-    var disqus_url = 'http://sabre.io/event';
+    var disqus_identifier = '/event/coroutines';
+    var disqus_title = 'Coroutines';
+    var disqus_url = 'http://sabre.io/event/coroutines';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

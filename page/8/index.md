@@ -170,7 +170,10 @@ after the last major release, so that's nicely on track!</article>
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 
     <script src="http://sabre.io/components/highlightjs/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
 
     <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

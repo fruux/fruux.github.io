@@ -587,8 +587,18 @@ $reader-&gt;elementMap = [
 $reader-&gt;xml($xml);
 print_r($reader-&gt;parse());
 </code></pre>
-            
-            
+
+<h2 id="validate-xsd">Validate XML against a XSD</h2>
+
+<p>To validate the XML content before parsing, use <code>XMLReader::setSchema()</code>:</p>
+
+<pre><code>$reader = new Sabre\Xml\Reader();
+$validXml = $reader-&gt;setSchema('myschema.xsd')
+if ($validXml) {
+    $reader-&gt;xml($xml);
+    print_r($reader-&gt;parse());
+}
+</code></pre>
                             <hr />
                 <h2>Comments</h2>
                 <div id="disqus_thread"></div>

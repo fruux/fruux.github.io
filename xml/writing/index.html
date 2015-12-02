@@ -240,9 +240,8 @@ $writer-&gt;write([
     public $updated;
     public $summary;
 
-    $ns = '{http://www.w3.org/2005/Atom}';
-
     function xmlSerialize(Sabre\Xml\Writer $writer) {
+        $ns = '{http://www.w3.org/2005/Atom}';
 
         $writer-&gt;write([
             $ns . 'title' =&gt; $this-&gt;title,
@@ -319,9 +318,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/xml/writing/';
+    var disqus_identifier = '/xml/writing';
     var disqus_title = 'Writing XML';
-    var disqus_url = 'http://sabre.io/xml/writing/';
+    var disqus_url = 'http://sabre.io/xml/writing';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

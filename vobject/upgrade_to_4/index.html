@@ -57,10 +57,13 @@
                     <li><a href="http://sabre.io/vobject/install/">Installation</a></li>
                     <li><a href="http://sabre.io/vobject/upgrade_to_3/">Upgrading from vObject 2 to 3</a></li>
                     <li><a href="http://sabre.io/vobject/upgrade_to_4/">Upgrading from vObject 3 to 4</a></li>
-                    <li><a href="http://sabre.io/vobject/usage/">Usage</a></li>
-                    <li><a href="http://sabre.io/vobject/json">jCal and jCard</a></li>
-                    <li><a href="http://sabre.io/vobject/recurrence">Recurring events</a></li>
-                    <li><a href="http://sabre.io/vobject/itip">iTip</a></li>
+                    <li><a href="http://sabre.io/vobject/vcard/">Working with vCards</a></li>
+                    <li><a href="http://sabre.io/vobject/icalendar/">Working with iCalendar</a></li>
+                    <li><a href="http://sabre.io/vobject/json/">jCal and jCard</a></li>
+                    <li><a href="http://sabre.io/vobject/xcal_xcard/">xCal and xCard</a></li>
+                    <li><a href="http://sabre.io/vobject/recurrence/">Recurring events</a></li>
+                    <li><a href="http://sabre.io/vobject/cli/">Command-line tools</a></li>
+                    <li><a href="http://sabre.io/vobject/itip/">iTip</a></li>
                     <li><a href="http://sabre.io/vobject/usage_2/">Usage (vobject 2.x)</a></li>
                 </ul>
                             </li>
@@ -95,7 +98,7 @@ maintain vObject 3.x. But really, you should upgrade!</p>
 <h3 id="support-for-different-input-encodings">Support for different input encodings</h3>
 
 <p>By default VObject always assumed everything is UTF-8. This is a fair
-assumption for object sent via CalDAV and CardDAV and is also the only valid
+assumption for objects sent via CalDAV and CardDAV and is also the only valid
 encoding for vCard 4, jCard and jCal.</p>
 
 <p>However, iCalendar 2.0, vCard 3.0 and vCard 2.1 might also be encoded using
@@ -165,7 +168,7 @@ particular are doing less looping and better indexing of objects.</p>
 
 <p>Especially manipulating objects can be up to 40% faster than before.</p>
 
-<h3 id="added-a-%60destroy%28%29%60-method">Added a <code>destroy()</code> method</h3>
+<h3 id="added-a-%60destroy%60-method">Added a <code>destroy()</code> method</h3>
 
 <p>sabre/vobject components are a fairly complicated data-structure, and they also
 contain circular references. This unfortunately means that they are often not
@@ -186,7 +189,7 @@ $vcalendar-&gt;destroy();
 <h3 id="full-support-for-vavailability">Full support for VAVAILABILITY</h3>
 
 <p><a href="https://tools.ietf.org/html/draft-daboo-calendar-availability" title="Calendar Availability">VAVAILABILITY</a> is an upcoming standard that allows people to specify when they
-are available. It provides more features that VFREEBUSY, as it allows people
+are available. It complements VFREEBUSY, as it allows people
 to specify rules such as "I'm available for meetings every weekday between 9
 and 5".</p>
 
@@ -218,7 +221,7 @@ interface, so you can just drop them in <code>json_encode()</code>!</li>
 This was done to work around bugs in OS X Addressbook (discovered in OS X
 10.8) and OS X calendar (discovered in OS X 10.11).</li>
 <li>Recurrence iterators now stop recurring after 3500 iterations by default.</li>
-<li><code>isInTimeRange()</code> now behaves better for floating dates/times. </li>
+<li><code>isInTimeRange()</code> now behaves better for floating dates/times.</li>
 <li>Parser is a bit more robust.</li>
 <li>Everywhere a <code>DateTime</code> was previously accepted, we now also accept
 <code>DateTimeImmutable</code>.</li>
@@ -257,6 +260,20 @@ Sabre\VObject\Recur\EventIterator::current()
 Sabre\VObject\Recur\EventIterator::getDtStart()
 Sabre\VObject\Recur\EventIterator::getDtEnd()
 </code></pre>
+
+<p>To illustrate how this can be a problem, consider the following:</p>
+
+<pre><code>$dtStart = $vcalendar-&gt;VEVENT-&gt;DTSTART-&gt;getDateTime();
+$dtStart-&gt;modify('+1 day');
+</code></pre>
+
+<p>In vObject 3, <code>$dtStart</code> was a <code>DateTime</code> object. Calling <code>modify</code> on it would
+mean that the <code>$dtStart</code> would be changed to be a day later (just in the
+variable, not the original <code>DTSTART</code>).</p>
+
+<p>From vObject 4 onwards, <code>$dtStart</code> is a <code>DateTimeImmutable</code>. Calling <code>modify</code>
+on that object does not alter it's value, but it returns a new
+<code>DateTimeImmutable</code> with this new value.</p>
 
 <h3 id="%60component%3A%3A%24children%60-is-gone"><code>Component::$children</code> is gone</h3>
 
@@ -305,14 +322,14 @@ against some denial of service attacks.</p>
 
 <p>To change this number, change the following static property:</p>
 
-<pre><code>Sabre\VObject\Recur\EventIterator::$maxInstances = 1000; 
+<pre><code>Sabre\VObject\Settings::$maxRecurrences = 1000;
 </code></pre>
 
-<p>Set it to -1 to completely disable this check.</p>
+<p>Set it to <code>-1</code> to completely disable this check.</p>
 
 <h3 id="changes-to-expanding-events">Changes to expanding events</h3>
 
-<p>If you ever expanded a recurring events in a calendar, this API has now
+<p>If you ever expanded a recurring event in a calendar, this API has now
 changed. The <code>expand</code> method no longer updates the calendar in-place, but
 rather returns a new copy of the calendar with the events expanded.</p>
 
@@ -380,9 +397,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/vobject/upgrade_to_4/';
+    var disqus_identifier = '/vobject/upgrade_to_4';
     var disqus_title = 'Upgrading from vobject 3.x to 4.x';
-    var disqus_url = 'http://sabre.io/vobject/upgrade_to_4/';
+    var disqus_url = 'http://sabre.io/vobject/upgrade_to_4';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

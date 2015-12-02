@@ -88,7 +88,7 @@ compatibility breaks". We're starting with the fun stuff.</p>
 
 <h3 id="php-7-support">PHP 7 support</h3>
 
-<p>This version of vobject support PHP 7. We also dropped support for PHP versions
+<p>This version of vobject supports PHP 7. We also dropped support for PHP versions
 before 5.5. If you are running an older PHP version, we will continue to
 maintain vObject 3.x. But really, you should upgrade!</p>
 
@@ -146,9 +146,15 @@ representation of iCalendar and vCard.</p>
 <p>This new component can take a list of VCARD objects, and automatically
 generate a VCALENDAR with all the birthdays.</p>
 
-<p>For usage information, check out the source:</p>
+<p>Example usage:</p>
 
-<p><a href="https://github.com/fruux/sabre-vobject/blob/master/lib/BirthdayCalendarGenerator.php">https://github.com/fruux/sabre-vobject/blob/master/lib/BirthdayCalendarGenerator.php</a></p>
+<pre><code>$vcards = []; // Imagine we have a list of vcard objects.
+
+$generator = new Sabre\VObject\BirthdayCalendarGenerator();
+$generator-&gt;setObjects($vcards);
+
+$vcalendar = $generator-&gt;getResult();
+</code></pre>
 
 <p>This feature was contributed by <a href="http://tobschall.de/" title="Dominik Tobschall">Dominik Tobschall</a>.</p>
 
@@ -170,8 +176,12 @@ garbage collected by PHP.</p>
 references, and enough so that PHP can can easily clean up the object.</p>
 
 <p>Especially if you are doing processing on large or many objects, these memory
-leaks can quickly grow out of control. Calling <code>destroy(0</code> should result in
+leaks can quickly grow out of control. Calling <code>destroy()</code> should result in
 massive drops in memory usage.</p>
+
+<pre><code>// Destroys many references and makes the object unusable
+$vcalendar-&gt;destroy();
+</code></pre>
 
 <h3 id="full-support-for-vavailability">Full support for VAVAILABILITY</h3>
 

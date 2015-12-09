@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>sabre/xml - sabre/xml</title>
+            <title>Clark-notation - sabre/xml</title>
     
     <meta charset="utf-8">
 
@@ -71,116 +71,41 @@
     </nav>
 </aside>
                 <article>
-                            <h1>sabre/xml</h1>
-                <p><em>An XML library for PHP you may not hate.</em></p>
+                            <h1>Clark-notation</h1>
+                <p>sabre/xml heavily relies on clark-notation for xml elements. This means that in a lot
+of places, you need to specify both the xml namespace and 'localname'.</p>
 
-<p>If you are writing or consuming API's in PHP, chances are that you need to
-work with XML. In some cases you may even prefer it.</p>
+<p>A few examples:</p>
 
-<p>You may have started with <a href="http://php.net/manual/en/book.simplexml.php">SimpleXML</a> and after a while switched to using
-<a href="http://ca2.php.net/manual/en/book.dom.php">the DOM</a> after realizing SimpleXML is really not that simple if you
-strictly use xml namespaces everywhere.</p>
-
-<p>For writing XML, you may have found that using the DOM requires far too much
-code, or you may simply generate your XML by <code>echo</code>ing strings, knowing that
-it may not be the best idea.</p>
-
-<p>sabre/xml hopes to solve your issues, by wrapping <a href="http://php.net/manual/en/book.xmlreader.php"><code>XMLReader</code></a> and
-<a href="http://php.net/manual/en/book.xmlwriter.php"><code>XMLWriter</code></a>, and providing standard design patterns around:</p>
-
-<ol>
-<li>Quickly generating XML based on simple array structures,</li>
-<li>Providing a super simple XML-to-object mapping,</li>
-<li>Re-usability of parsers.</li>
-</ol>
-
-<h2 id="writing-xml">Writing XML</h2>
-
-<p>Generating XML largely follows the <a href="http://php.net/manual/en/book.xmlwriter.php"><code>XMLWriter</code></a> API, but a lot of useful
-features have been tacked on.</p>
-
-<pre><code>$xmlWriter = new Sabre\Xml\Writer();
-$xmlWriter-&gt;openMemory();
-$xmlWriter-&gt;startDocument();
-$xmlWriter-&gt;setIndent(true);
-$xmlWriter-&gt;namespaceMap = ['http://example.org' =&gt; 'b'];
-
-$xmlWriter-&gt;write(['{http://example.org}book' =&gt; [
-    '{http://example.org}title' =&gt; 'Cryptonomicon',
-    '{http://example.org}author' =&gt; 'Neil Stephenson',
-]]);
+<pre><code>{http://www.w3.org/2005/Atom}entry
+{http://www.w3.org/1999/xhtml}h1
+{DAV:}multistatus
 </code></pre>
 
-<p>This will create the following document:</p>
+<p>This basically means that these element names are composed of:</p>
 
-<pre><code>&lt;?xml version="1.0"?&gt;
-&lt;b:book xmlns:b="http://example.org"&gt;
- &lt;b:title&gt;Cryptonomicon&lt;/b:title&gt;
- &lt;b:author&gt;Neil Stephenson&lt;/b:author&gt;
-&lt;/b:book&gt;
+<pre><code>{uri}localname
 </code></pre>
 
-<p>You can serialize objects by implementing <code>Sabre\Xml\XmlSerializable</code>. This
-interface is designed to work identical to PHP 5.5's <a href="http://php.net/manual/en/class.jsonserializable.php"><code>JsonSerializable</code></a>.</p>
+<p>sabre/xml makes sure this gets transformed into:</p>
 
-<p><a href="/xml/writing/">Read all the details here</a>.</p>
-
-<h2 id="reading-xml">Reading XML</h2>
-
-<pre><code>&lt;?php
-
-$input = &lt;&lt;&lt;XML
-&lt;article xmlns="http://example.org/"&gt;
-    &lt;title&gt;Hello world&lt;/title&gt;
-    &lt;content&gt;Fuzzy Pickles&lt;/content&gt;
-&lt;/article&gt;
-XML;
-
-$reader = new Sabre\Xml\Reader();
-$reader-&gt;elementMap = [
-    '{http://example.org/}article' =&gt; 'Sabre\Xml\Element\KeyValue',
-];
-$reader-&gt;xml($input);
-
-print_r($reader-&gt;parse());
+<pre><code>&lt;localname xmlns="uri" /&gt;
 </code></pre>
 
-<p>This will output something like:</p>
+<p>The reason for this is that we don't want people to rely on prefixes such as the 'atom'
+keyword in the following sample:</p>
 
-<pre><code>Array
-(
-    [name] =&gt; {http://example.org/}article
-    [value] =&gt; Array
-        (
-            [{http://example.org/}title] =&gt; Hello world
-            [{http://example.org/}content] =&gt; Fuzzy Pickles
-        )
-
-    [attributes] =&gt; Array
-        (
-        )
-
-)
+<pre><code>&lt;atom:entry xmlns:atom="http://www.w3.org/2005/Atom" /&gt;
 </code></pre>
 
-<p>The key in the last example, is that we tell the parser to treat the contents
-of the <code>article</code> XML node as a key-value structure.</p>
+<p>We noticed that a lot of people assume that the 'atom' part (in this example) is standard,
+and then expect other people generating xml to use the same prefixes. This is incorrect,
+because the prefix is only intended to make it more easily for humans to read.</p>
 
-<p>This is optional, but by adding this hint the resulting output becomes a lot
-simpler.</p>
+<p>The real, canonical xml element name is composed out of the namespace uri and local name,
+so we needed a format that combined both in one string.</p>
 
-<p>The parser comes with a few parsing strategies for common needs, and you can
-easily create your own by writing deserializer classes, or just by providing a
-callback:</p>
-
-<pre><code>$reader-&gt;elementMap = [
-    '{http://example.org/}article' =&gt; function(Sabre\Xml\Reader $reader) {
-        // Read the element's contents, and return the result here.
-    }
-];
-</code></pre>
-
-<p><a href="/xml/reading/">Read all the details here</a>.</p>
+<p>Other people already used the so-called clark-notiation, so we decided to do the same.</p>
             
             
                             <hr />
@@ -209,9 +134,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/xml';
-    var disqus_title = 'sabre/xml';
-    var disqus_url = 'http://sabre.io/xml';
+    var disqus_identifier = '/xml/clark-notation';
+    var disqus_title = 'Clark-notation';
+    var disqus_url = 'http://sabre.io/xml/clark-notation';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

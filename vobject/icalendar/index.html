@@ -121,7 +121,7 @@ the structure you want.</p>
         'SUMMARY' =&gt; 'Birthday party!',
         'DTSTART' =&gt; new \DateTime('2016-07-04 21:00:00'),
         'DTEND'   =&gt; new \DateTime('2016-07-05 03:00:00')
-    ] 
+    ]
 ]);
 
 echo $vcalendar-&gt;serialize();
@@ -209,8 +209,9 @@ attempt to mend the broken data.</p>
 <pre><code>$vcalendar = VObject\Reader::read($data, VObject\Reader::OPTION_FORGIVING);
 </code></pre>
 
-<p>Many vCards these days are encoded as UTF-8. If however you are running into a
-vCard with a different encoding, you can specify this as the third option:</p>
+<p>Many iCalendar objects these days are encoded as UTF-8. If however you are
+running into an object  with a different encoding, you can specify this as the
+third option:</p>
 
 <pre><code>$vcard = VObject\Reader::read($data, 0, 'ISO-8859-1');
 </code></pre>
@@ -346,6 +347,54 @@ FREEBUSY;FBTYPE=BUSY:20121210T140000Z/20121210T140000Z
 END:VFREEBUSY
 END:VCALENDAR
 </code></pre>
+
+<h3 id="validating-icalendar">Validating iCalendar</h3>
+
+<p>When you parse an iCalendar document, the parser grabs all the values and does
+basic syntax checking. It does not however, validate every value.</p>
+
+<p>You can ask the parser to validate the entire document by calling the <code>validate</code>
+function though:</p>
+
+<pre><code>$result = $vcalendar-&gt;validate();
+</code></pre>
+
+<p>The returned value is an array of messages and might look like this:</p>
+
+<pre><code>[
+    [
+        'level' =&gt; 2,
+        'message' =&gt; '...',
+        'node' =&gt; ...A VObject component or property...
+    ]
+]
+</code></pre>
+
+<p>Each item constitutes a problem with the document. Every item contains a level
+containing a number between 1 and 3. 3 Means that the document is invalid, 2
+means a warning. A warning means it's valid but it could cause interopability
+issues, and 1 means that there was a problem earlier, but the problem was
+automatically repaired.</p>
+
+<p>The message is a human-readable string with more information about the problem,
+and lastly the node refers to the actual VObject Component or Property object
+that had the issue.</p>
+
+<p>You can also pass several options. The options have to be passed as a bitfield:</p>
+
+<pre><code>$vcalendar-&gt;validate(Sabre\VObject\Node::REPAIR);
+$vcalendar-&gt;validate(Sabre\VObject\Node::PROFILE_CALDAV);
+</code></pre>
+
+<p>The <code>REPAIR</code> option automatically repeairs the object, if possible. Without
+<code>REPAIR</code> the validator does not change the object.</p>
+
+<p>The <code>PROFILE_CALDAV</code> validates the object specifically for within the use of
+CalDAV. iCalendar objects on CalDAV servers have a few additional special
+restrictions (no <code>METHOD</code> may appear, only one component per document, etc..).</p>
+
+<p>The validator is not perfect, and we improve it when we come across new issues,
+so any suggestions are welcome.</p>
 
 <h2 id="support">Support</h2>
 

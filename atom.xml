@@ -3,9 +3,50 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-12-11T18:58:48+00:00</updated>
+    <updated>2015-12-12T05:11:29+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 4 released]]></title>
+            <link href="http://sabre.io/blog/2015/sabre-vobject-4.0-released"/>
+            <updated>2015-12-12T05:10:01+00:00</updated>
+            <id>http://sabre.io/blog/2015/sabre-vobject-4.0-released</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 4. This is a new major version, and comes with a
+number of new features and also BC breaking changes. The API is largely the
+same, but there's a few subtle differences.</p>
+
+<h3 id="new-feature-highlights">New feature highlights</h3>
+
+<ul>
+<li>Support for PHP 7</li>
+<li>Requires PHP 5.5</li>
+<li>Support for <a href="/vobject/xcal_xcard/">xCal and xCard</a>, which are XML representations of iCalendar
+and vCard.  </li>
+<li>Added a 'BirthdayCalendarGenerator'. Give it a list of vCards, and it will
+create an iCalendar object with birthdays.</li>
+<li>Lots of speed and memory improvements.  </li>
+<li>Support for the new <code>VAVAVAILABILITY</code> iCalendar component.</li>
+<li>Added a command-line utility to merge duplicate vcards.</li>
+<li>Using <code>DateTimeImmutable</code> everywhere we used <code>DateTime</code>.</li>
+<li>Denial of service-protection in the RecurrenceIterator.</li>
+<li>Better <code>RDATE</code> support.</li>
+</ul>
+
+<p>The full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.0.0/CHANGELOG.md">Github</a></p>
+
+<h3 id="installing">Installing</h3>
+
+<p>Simply run:</p>
+
+<pre><code>composer require sabre/vobject ^4.0
+</code></pre>
+
+<h3 id="updating">Updating</h3>
+
+<p>For more details about these changes and a detailed list of all backwards-
+compatbility breaking changes, read the <a href="/vobject/uprade_to_4/">upgrade</a> document.</p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/event 3 released]]></title>
             <link href="http://sabre.io/blog/2015/sabre-event-3.0-released"/>
@@ -267,29 +308,6 @@ strongly recommended.</p>
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.0.3/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 3.4.6 release]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-vobject-3.4.6-release"/>
-            <updated>2015-08-06T20:30:38+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-vobject-3.4.6-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.4.6.</p>
-
-<p>This version contains a small bugfix related to recurrence rules and querying.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.4.6, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~3.4"
-</code></pre>
-
-<p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.4.6/ChangeLog.md">Github</a>.</p>
 ]]></content>
         </entry>
     </feed>

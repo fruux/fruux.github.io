@@ -44,6 +44,52 @@
                 <p></p>
 
 <article class="blog-entry">
+    <time>December 12th, 2015</time>
+    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-4.0-released">sabre/vobject 4 released</a></h1>
+    <p>We just released sabre/vobject 4. This is a new major version, and comes with a
+number of new features and also BC breaking changes. The API is largely the
+same, but there's a few subtle differences.</p>
+
+<h3 id="new-feature-highlights">New feature highlights</h3>
+
+<ul>
+<li>Support for PHP 7</li>
+<li>Requires PHP 5.5</li>
+<li>Support for <a href="/vobject/xcal_xcard/">xCal and xCard</a>, which are XML representations of iCalendar
+and vCard.  </li>
+<li>Added a 'BirthdayCalendarGenerator'. Give it a list of vCards, and it will
+create an iCalendar object with birthdays.</li>
+<li>Lots of speed and memory improvements.  </li>
+<li>Support for the new <code>VAVAVAILABILITY</code> iCalendar component.</li>
+<li>Added a command-line utility to merge duplicate vcards.</li>
+<li>Using <code>DateTimeImmutable</code> everywhere we used <code>DateTime</code>.</li>
+<li>Denial of service-protection in the RecurrenceIterator.</li>
+<li>Better <code>RDATE</code> support.</li>
+</ul>
+
+<p>The full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.0.0/CHANGELOG.md">Github</a></p>
+
+<h3 id="installing">Installing</h3>
+
+<p>Simply run:</p>
+
+<pre><code>composer require sabre/vobject ^4.0
+</code></pre>
+
+<h3 id="updating">Updating</h3>
+
+<p>For more details about these changes and a detailed list of all backwards-
+compatbility breaking changes, read the <a href="/vobject/uprade_to_4/">upgrade</a> document.</p>
+
+</article>
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>November 5th, 2015</time>
     <h1><a href="http://sabre.io/blog/2015/sabre-event-3.0-released">sabre/event 3 released</a></h1>
     <p>We just released sabre/event 3. This is a new major version, and comes with a

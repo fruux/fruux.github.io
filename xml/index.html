@@ -96,19 +96,13 @@ it may not be the best idea.</p>
 
 <h2 id="writing-xml">Writing XML</h2>
 
-<p>Generating XML largely follows the <a href="http://php.net/manual/en/book.xmlwriter.php"><code>XMLWriter</code></a> API, but a lot of useful
-features have been tacked on.</p>
+<pre><code>$xmlService = new Sabre\Xml\Service();
+$xmlService-&gt;namespaceMap = ['http://example.org' =&gt; 'b'];
 
-<pre><code>$xmlWriter = new Sabre\Xml\Writer();
-$xmlWriter-&gt;openMemory();
-$xmlWriter-&gt;startDocument();
-$xmlWriter-&gt;setIndent(true);
-$xmlWriter-&gt;namespaceMap = ['http://example.org' =&gt; 'b'];
-
-$xmlWriter-&gt;write(['{http://example.org}book' =&gt; [
+$xmlService-&gt;write('{http://example.org}book', [
     '{http://example.org}title' =&gt; 'Cryptonomicon',
     '{http://example.org}author' =&gt; 'Neil Stephenson',
-]]);
+]);
 </code></pre>
 
 <p>This will create the following document:</p>
@@ -136,30 +130,20 @@ $input = &lt;&lt;&lt;XML
 &lt;/article&gt;
 XML;
 
-$reader = new Sabre\Xml\Reader();
-$reader-&gt;elementMap = [
+$service = new Sabre\Xml\Service();
+$service-&gt;elementMap = [
     '{http://example.org/}article' =&gt; 'Sabre\Xml\Element\KeyValue',
 ];
-$reader-&gt;xml($input);
 
-print_r($reader-&gt;parse());
+print_r($service-&gt;parse($input));
 </code></pre>
 
 <p>This will output something like:</p>
 
 <pre><code>Array
 (
-    [name] =&gt; {http://example.org/}article
-    [value] =&gt; Array
-        (
-            [{http://example.org/}title] =&gt; Hello world
-            [{http://example.org/}content] =&gt; Fuzzy Pickles
-        )
-
-    [attributes] =&gt; Array
-        (
-        )
-
+    [{http://example.org/}title] =&gt; Hello world
+    [{http://example.org/}content] =&gt; Fuzzy Pickles
 )
 </code></pre>
 
@@ -173,7 +157,7 @@ simpler.</p>
 easily create your own by writing deserializer classes, or just by providing a
 callback:</p>
 
-<pre><code>$reader-&gt;elementMap = [
+<pre><code>$service-&gt;elementMap = [
     '{http://example.org/}article' =&gt; function(Sabre\Xml\Reader $reader) {
         // Read the element's contents, and return the result here.
     }

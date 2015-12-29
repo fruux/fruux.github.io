@@ -3,9 +3,49 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2015-12-24T04:15:10+00:00</updated>
+    <updated>2015-12-29T20:52:36+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/xml 1.3 released]]></title>
+            <link href="http://sabre.io/blog/2015/sabre-xml-1.3-released"/>
+            <updated>2015-12-29T05:10:01+00:00</updated>
+            <id>http://sabre.io/blog/2015/sabre-xml-1.3-released</id>
+            <content type="html"><![CDATA[<p>We just released sabre/xml 1.3. This release is a fairly big update from the
+1.2 series. It's 100% backwards compatible, but adds a number of exciting
+features:</p>
+
+<p>The biggest is support for a new <a href="/xml/valueobjects/">Value Objects</a> feature. This new feature
+makes it extremely easy to map between Simple PHP classes and XML elements.</p>
+
+<p>Read more on the <a href="/xml/valueobjects/">documentation</a> page, or check out our
+<a href="https://github.com/fruux/sabre-xml-atom">Atom sample parser</a> for a working example.</p>
+
+<p>In addition to that:</p>
+
+<ul>
+<li>It's now possible to specify custom serializers for specific PHP classes.
+This would allow you to for instance specify how a PHP <code>DateTime</code> object
+might be serialized, or in general separate your serializers from the
+classes they are serializing.</li>
+<li>Added new deserializer functions for common XML patterns: <code>keyValue</code>,
+<code>elements</code>, <code>repeatingElements</code>, <code>valueObject</code>.</li>
+<li>It's now possible to tell <code>Sabre\Xml\Service::expect</code> a list of possible
+expected XML root elements.</li>
+<li>Lots of small bugfixes.</li>
+<li>Major documentation updates.</li>
+</ul>
+
+<p>The full changelog can be found on <a href="https://github.com/fruux/sabre-xml/blob/1.3.0/CHANGELOG.md">Github</a></p>
+
+<h3 id="installing">Installing</h3>
+
+<p>Simply run:</p>
+
+<pre><code>composer require sabre/xml ^1.3.0
+</code></pre>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/vobject 4 released]]></title>
             <link href="http://sabre.io/blog/2015/sabre-vobject-4.0-released"/>
@@ -287,27 +327,6 @@ deserializers.</p>
 </code></pre>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-xml/blob/1.2.0/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 3.0.3 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-dav-3.0.3-released"/>
-            <updated>2015-08-06T20:41:38+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-dav-3.0.3-released</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 3.0.3</p>
-
-<p>This release fixes an issue that prevented HTTP Digest authentication to work
-with HEAD requests. If you use HTTP Digest authentication, updating is
-strongly recommended.</p>
-
-<p>Update sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.0.3/CHANGELOG.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

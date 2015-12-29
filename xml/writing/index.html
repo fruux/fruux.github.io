@@ -60,6 +60,7 @@
                     <li><a href="http://sabre.io/xml/install/">Installation</a></li>
                     <li><a href="http://sabre.io/xml/reading/">Reading XML</a></li>
                     <li><a href="http://sabre.io/xml/writing/">Writing XML</a></li>
+                    <li><a href="http://sabre.io/xml/valueobjects/">Value Object mapping</a></li>
                     <li><a href="http://sabre.io/xml/service/">XML service</a></li>
                     <li><a href="http://sabre.io/xml/clark-notation/">Clark-notation</a></li>
                 </ul>
@@ -78,34 +79,26 @@ PHP's built-in <a href="http://php.net/manual/en/book.xmlwriter.php"><code>XMLWr
 <p>The writer has several additions to the standard API that make it more easy
 to use.</p>
 
-<h2 id="automatically-apply-namespaces">Automatically apply namespaces</h2>
+<p>You can easily instantiate and start using the Writer like this:</p>
 
-<p>The <code>startElement</code>, <code>writeElement</code> and <code>writeAttribute</code> methods have been
-changed a bit, so they can accept <a href="/xml/clark-notation/">Clark notation</a> for their node names.</p>
-
-<p>What this means, is that you can call:</p>
-
-<pre><code>$writer-&gt;namespaceMap = [
-    '{http://example.org/}foo' =&gt; 'foo',
-];
-$writer-&gt;writeElement('{http://example.org/}foo','bar');
+<pre><code>$writer = new Sabre\Xml\Writer();
+$writer-&gt;openMemory();
+$writer-&gt;setIndent(true);
+$writer-&gt;startDocument();
+$writer-&gt;write('...');
+echo $writer-&gt;outputMemory();
 </code></pre>
 
-<p>This would result in the following xml:</p>
+<p>Those functions follow the PHP API exactly, but it's a lot of typing.
+sabre/xml provides a <code>Service</code> class that eases this a bit. This is the
+same example using the <code>Service</code>:</p>
 
-<pre><code>&lt;?xml version="1.0"?&gt;
-&lt;foo:bar xmlns:foo="http://example.org/"&gt;bar&lt;/foo:bar&gt;
+<pre><code>$service = new Sabre\Xml\Service();
+echo $service-&gt;write('...');
 </code></pre>
 
-<p>This means you can fully ignore <code>startElementNS</code>, <code>writeElementNS</code> and
-<code>writeAttributeNS</code>, which all often behave in unexpected ways and have
-been broken in several PHP versions.</p>
-
-<p>By always specifying the fully qualified namespace and element name, you
-disconnect the 'real xml element name' with the 'human readable prefix'.</p>
-
-<p>Your code should ideally never be aware of the prefix. It's strictly for
-beautifaction of XML.</p>
+<p>So while you can use either API, all the following examples use the
+<code>Service</code> class.</p>
 
 <h2 id="the-%60write%60-method">The <code>write</code> method</h2>
 
@@ -113,18 +106,12 @@ beautifaction of XML.</p>
 
 <p>We're explaining this method by example.</p>
 
-<pre><code>$writer = new Sabre\Xml\Writer();
-$writer-&gt;openMemory();
-$writer-&gt;namespaceMap = [
+<pre><code>$service = new Sabre\Xml\Service();
+$service-&gt;namespaceMap = [
     'http://example.org/' =&gt; 'e',
 ];
 
-$writer-&gt;startElement('{http://example.org/}root');
-
-$writer-&gt;write('hello');
-
-$writer-&gt;endElement();
-echo $writer-&gt;outputMemory();
+echo $service-&gt;write('{http://example.org/}root', 'hello');
 </code></pre>
 
 <p>This results in the following xml:</p>
@@ -133,9 +120,9 @@ echo $writer-&gt;outputMemory();
 &lt;e:root&gt;hello&lt;/e:root&gt;
 </code></pre>
 
-<p>If instead of the string <code>hello</code>, we wrote this:</p>
+<p>Instead of <code>hello</code>, we could also have written this:</p>
 
-<pre><code>$writer-&gt;write([
+<pre><code>$service-&gt;write('{http://example.org/}root', [
     '{http://example.org/ns}title' =&gt; 'Foundation',
     '{http://example.org/ns}author' =&gt; 'Isaac Asimov',
 ]);
@@ -154,7 +141,7 @@ echo $writer-&gt;outputMemory();
 
 <pre><code>$ns = '{http://example.org/}';
 
-$writer-&gt;write([
+$service-&gt;write('{http://example.org/}root',[
     $ns . 'title' =&gt; 'Foundation',
     $ns . 'author' =&gt; [
         $ns . 'firstname' =&gt; 'Isaac',
@@ -177,7 +164,7 @@ $writer-&gt;write([
 
 <p>Need attributes? Use the extended syntax:</p>
 
-<pre><code>$writer-&gt;write([
+<pre><code>$service-&gt;write('{http://www.w3.org/1999/xhtml}p',
     [
         'name' =&gt; '{http://www.w3.org/1999/xhtml}a',
         'attributes' =&gt; [
@@ -190,28 +177,27 @@ $writer-&gt;write([
 
 <p>This could output:</p>
 
-<pre><code>&lt;a href="http://sabre.io/"&gt;Sabre website&lt;/a&gt;
+<pre><code>&lt;p&gt;
+    &lt;a href="http://sabre.io/"&gt;Sabre website&lt;/a&gt;
+&lt;/p&gt;
 </code></pre>
 
 <p>You can even mix these syntaxes:</p>
 
 <pre><code>$ns = '{http://www.w3.org/2005/Atom}';
-$writer-&gt;namespaceMap['http://www.w3.org/2005/Atom'] = '';
+$service-&gt;namespaceMap['http://www.w3.org/2005/Atom'] = '';
 
-$writer-&gt;write([
-    $ns . 'feed' =&gt; [
-        $ns . 'title' =&gt; 'Example Feed',
-        [
-            'name' =&gt; $ns . 'link',
-            'attributes' =&gt; ['href' =&gt; 'http://example.org/']
-        ],
-        $ns . 'updated' =&gt; '2003-12-13T18:30:02Z',
-        $ns . 'author' =&gt; [
-            $ns . 'name' =&gt; 'John Doe',
-        ],
-        $ns . 'id' =&gt; 'urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6',
-
-    ]
+$service-&gt;write($ns . 'feed', [
+    $ns . 'title' =&gt; 'Example Feed',
+    [
+        'name' =&gt; $ns . 'link',
+        'attributes' =&gt; ['href' =&gt; 'http://example.org/']
+    ],
+    $ns . 'updated' =&gt; '2003-12-13T18:30:02Z',
+    $ns . 'author' =&gt; [
+        $ns . 'name' =&gt; 'John Doe',
+    ],
+    $ns . 'id' =&gt; 'urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6',
 ]);
 </code></pre>
 
@@ -272,7 +258,7 @@ $entry-&gt;summary = 'Some text.';
 
 <p>Now to serialize it:</p>
 
-<pre><code>$writer-&gt;write([
+<pre><code>$service-&gt;write([
     '{http://www.w3.org/2005/Atom}entry' =&gt; $entry,
 ]);
 </code></pre>
@@ -288,9 +274,60 @@ $entry-&gt;summary = 'Some text.';
 &lt;/entry&gt;
 </code></pre>
 
-<p>One thing to note from the last example, is that the <code>AtomEntry</code> class does not actually encode it's own 'parent element'. This is a design choice. We feel that it's a best practice for every serializable object to only ever represent a <em>value</em> but not its <em>identity</em>.</p>
+<p>One thing to note from the last example, is that the <code>AtomEntry</code> class does
+not actually encode it's own 'parent element'. Element classes <em>should never</em>
+encode their own element, only the element's value.</p>
 
-<p>This allows serializers to be re-used for different element names, but this starts to make even more sense when you re-use the exact same classes for serialization and deserialization. Deserialization is covered on the <a href="/xml/reading/">reading XML</a> page in the documentation.</p>
+<p>This allows serializers to be re-used for different element names, but this
+starts to make even more sense when you re-use the exact same classes for
+serialization and deserialization. Deserialization is covered on the
+<a href="/xml/reading/">reading XML</a> page in the documentation.</p>
+
+<h2 id="separating-serializers-from-objects">Separating serializers from objects</h2>
+
+<p>In the last example, the <code>AtomEntry</code> class had to get a <code>xmlSerialize</code> method
+in order to be able to serialize itself. There's cases where that's not
+desirable. The last example could be rewritten to use the <code>$classMap</code> to avoid
+having to use the <code>XmlSerializable</code> interface.</p>
+
+<p>The <code>$classMap</code> is a simple array that allows a user to specify a callback that
+is responsible for serializing specific PHP classes.</p>
+
+<p>Here's another version of the last example that takes advantage of this:</p>
+
+<pre><code>class AtomEntry {
+
+    public $title;
+    public $link;
+    public $id;
+    public $updated;
+    public $summary;
+
+}
+
+// Registering a custom serializer:
+$service-&gt;classMap['AtomEntry'] = function(Sabre\Xml\Writer $writer, $entry) {
+
+    $ns = '{http://www.w3.org/2005/Atom}';
+
+    $writer-&gt;write([
+        $ns . 'title' =&gt; $entry-&gt;title,
+        [
+           'name' =&gt; $ns . 'link',
+           'attributes' =&gt; ['href' =&gt; $entry-&gt;link]
+        ],
+        $ns . 'updated' =&gt; $entry-&gt;updated,
+        $ns . 'id' =&gt; 'urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a',
+        $ns . 'summary' =&gt; 'Some text.'
+    ]);
+
+};
+</code></pre>
+
+<h2 id="value-objects">Value objects</h2>
+
+<p>For very simple PHP classes and XML elements it might be possible to use the
+"value object" system instead. Read more on the <a href="/xml/valueobjects/">Value Objects</a> page.</p>
             
             
                             <hr />

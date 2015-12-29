@@ -44,6 +44,51 @@
                 <p></p>
 
 <article class="blog-entry">
+    <time>December 29th, 2015</time>
+    <h1><a href="http://sabre.io/blog/2015/sabre-xml-1.3-released">sabre/xml 1.3 released</a></h1>
+    <p>We just released sabre/xml 1.3. This release is a fairly big update from the
+1.2 series. It's 100% backwards compatible, but adds a number of exciting
+features:</p>
+
+<p>The biggest is support for a new <a href="/xml/valueobjects/">Value Objects</a> feature. This new feature
+makes it extremely easy to map between Simple PHP classes and XML elements.</p>
+
+<p>Read more on the <a href="/xml/valueobjects/">documentation</a> page, or check out our
+<a href="https://github.com/fruux/sabre-xml-atom">Atom sample parser</a> for a working example.</p>
+
+<p>In addition to that:</p>
+
+<ul>
+<li>It's now possible to specify custom serializers for specific PHP classes.
+This would allow you to for instance specify how a PHP <code>DateTime</code> object
+might be serialized, or in general separate your serializers from the
+classes they are serializing.</li>
+<li>Added new deserializer functions for common XML patterns: <code>keyValue</code>,
+<code>elements</code>, <code>repeatingElements</code>, <code>valueObject</code>.</li>
+<li>It's now possible to tell <code>Sabre\Xml\Service::expect</code> a list of possible
+expected XML root elements.</li>
+<li>Lots of small bugfixes.</li>
+<li>Major documentation updates.</li>
+</ul>
+
+<p>The full changelog can be found on <a href="https://github.com/fruux/sabre-xml/blob/1.3.0/CHANGELOG.md">Github</a></p>
+
+<h3 id="installing">Installing</h3>
+
+<p>Simply run:</p>
+
+<pre><code>composer require sabre/xml ^1.3.0
+</code></pre>
+
+</article>
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>December 12th, 2015</time>
     <h1><a href="http://sabre.io/blog/2015/sabre-vobject-4.0-released">sabre/vobject 4 released</a></h1>
     <p>We just released sabre/vobject 4. This is a new major version, and comes with a

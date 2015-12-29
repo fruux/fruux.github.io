@@ -328,6 +328,31 @@ $service-&gt;classMap['AtomEntry'] = function(Sabre\Xml\Writer $writer, $entry) 
 
 <p>For very simple PHP classes and XML elements it might be possible to use the
 "value object" system instead. Read more on the <a href="/xml/valueobjects/">Value Objects</a> page.</p>
+
+<h2 id="things-the-%60write%60-function-can-write">Things the <code>write()</code> function can write</h2>
+
+<p>This is the full list of things that the <code>write()</code> function understands and
+can turn into an xml document:</p>
+
+<ol>
+<li>A <code>string</code>, which gets turned into a XML text.</li>
+<li>An <code>integer</code> or <code>float</code>, which also gets turned into XML text.</li>
+<li><code>null</code>, which causes the writer to write nothing at all.</li>
+<li>An array with at least a <code>name</code> key, will cause the writer to write an
+an element with that <code>name</code>. If it also contains <code>attributes</code> it will write
+those as well, and if it also has a <code>value</code> key it will just throw whatever
+value it is back into the <code>write()</code> function.</li>
+<li>An array with keys that are in <a href="/xml/clark-notation/">clark-notation</a>. It will write elements
+with that name and it supports any type of value again.</li>
+<li>A PHP callback, in which case the writer will just call that callback with
+the <code>Sabre\Xml\Writer</code> class as an argument.</li>
+<li>A PHP object, if it has a registered serializer in <code>classMap</code>.</li>
+<li>A PHP object that implements the <code>XmlSerializable</code> interface, in which case
+it will call it's <code>xmlSerialize</code> function.</li>
+</ol>
+
+<p>And for most of these, anywhere you can nest values, the writer will traverse
+the tree and keep on writing!</p>
             
             
                             <hr />

@@ -3,9 +3,27 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-01-04T21:43:06+00:00</updated>
+    <updated>2016-01-04T21:59:17+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/http 4.2.0 released]]></title>
+            <link href="http://sabre.io/blog/2016/sabre-http-4.2.0-released"/>
+            <updated>2016-01-04T21:58:09+00:00</updated>
+            <id>http://sabre.io/blog/2016/sabre-http-4.2.0-released</id>
+            <content type="html"><![CDATA[<p>We just released sabre/http 4.2.0.</p>
+
+<p>This release is extremely minor. It just tells composer that it supports
+either <a href="/event/">sabre/event</a> 2.0 or 3.0.</p>
+
+<p>Update sabre/http by running:</p>
+
+<pre><code>composer update sabre/http
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/4.2.0/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/vobject 4.0.1 release]]></title>
             <link href="http://sabre.io/blog/2016/sabre-vobject-4.0.1-release"/>
@@ -312,28 +330,6 @@ found on the server.</li>
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.0.4/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 2.1.7 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-dav-2.1.7-released"/>
-            <updated>2015-09-04T22:27:57+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-dav-2.1.7-released</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.7</p>
-
-<p>This release fixes an issue related to <code>MOVE</code> requests. If a <code>MOVE</code> request
-was going to overwrite an existing resource, but that move request was stopped
-by access control (or other plugins), the target resource would still be
-deleted.</p>
-
-<p>Update sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.7/Changelog.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

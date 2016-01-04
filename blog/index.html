@@ -45,6 +45,35 @@
 
 <article class="blog-entry">
     <time>January 4th, 2016</time>
+    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.0.1-release">sabre/vobject 4.0.1 release</a></h1>
+    <p>We just released sabre/vobject 4.0.1.</p>
+
+<p>This version contains a small change related to ITIP messages. When we generate
+a <code>CANCEL</code>, message the object now contains a <code>DTEND</code>.</p>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>If this didn't upgrade you to 4.0.1, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/vobject" : "~4.0.1"
+</code></pre>
+
+<p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.0.1/CHANGELOG.md">Github</a>.</p>
+
+</article>
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
+    <time>January 4th, 2016</time>
     <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.6-released">sabre/dav 3.0.6 released</a></h1>
     <p>We just released sabre/dav 3.0.6.</p>
 

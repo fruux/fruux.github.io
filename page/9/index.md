@@ -138,25 +138,26 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Nov. 20th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1-release/">sabre/dav 2.1 released</a></h1>
+                    <p>We just released sabre/dav version 2.1. This release comes about 6 months
+after the last major release, so that's nicely on track!</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Nov. 19th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.4-release/">sabre/vobject 3.3.4 release</a></h1>
+                    <p>We just released sabre/vobject 3.3.4.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Oct. 14th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.5-release">sabre/dav 2.0.5 release</a></h1>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.5-release/">sabre/dav 2.0.5 release</a></h1>
                     <p>We just released sabre/dav 2.0.5. Upgrading is highly recommended.</article>
                 <hr />                            <article class="blog-entry">
                     <time>Oct. 9th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0.1-release">sabre/event 2.0.1 release</a></h1>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0.1-release/">sabre/event 2.0.1 release</a></h1>
                     <p>We just released sabre/event 2.0.1.</article>
                 <hr />                            <article class="blog-entry">
                     <time>Oct. 9th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.3-release">sabre/vobject 3.3.3 release</a></h1>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.3-release/">sabre/vobject 3.3.3 release</a></h1>
                     <p>We just released sabre/vobject 3.3.3.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Sep. 23rd, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-http-3.0.0-release">sabre/http 3.0.0 release</a></h1>
-                    <p>We just released sabre/http 3.0.0.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Sep. 19th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.2-release">sabre/vobject 3.3.2 release</a></h1>
-                    <p>We just released sabre/vobject 3.3.2.</article>
                                     </section>
     </div>
 </div>
@@ -186,9 +187,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/page/9';
+    var disqus_identifier = '/page/9/';
     var disqus_title = '';
-    var disqus_url = 'http://sabre.io/page/9';
+    var disqus_url = 'http://sabre.io/page/9/';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
@@ -202,7 +203,7 @@ ga('send', 'pageview');
 
     <nav>
         <ul>
-            <li>© 2015 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li>© 2016 <a href="https://fruux.com">fruux GmbH</a> · </li>
             <li><a href="http://sabre.io/support">Contact</a> · </li>
             <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>

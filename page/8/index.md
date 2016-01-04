@@ -139,24 +139,24 @@
             <h1>News</h1>
                             <article class="blog-entry">
                     <time>Dec. 10th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.6-released/">sabre/dav 2.0.6 released</a></h1>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1.2-released">sabre/dav 2.1.2 released</a></h1>
+                    <p>We just released sabre/dav 2.1.2.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Dec. 10th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.6-released">sabre/dav 2.0.6 released</a></h1>
                     <p>We just released sabre/dav 2.0.6.</article>
                 <hr />                            <article class="blog-entry">
                     <time>Dec. 10th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-1.8.11-release/">sabre/dav 1.8.11 release</a></h1>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-1.8.11-release">sabre/dav 1.8.11 release</a></h1>
                     <p>We just released sabre/dav 1.8.11.</article>
                 <hr />                            <article class="blog-entry">
                     <time>Dec. 10th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-http-3.0.4-release/">sabre/http 3.0.4 release</a></h1>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-http-3.0.4-release">sabre/http 3.0.4 release</a></h1>
                     <p>We just released sabre/http 3.0.4.</article>
                 <hr />                            <article class="blog-entry">
                     <time>Dec. 2nd, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/per-user-directories-tutorial/">New tutorial: Per-user directories</a></h1>
+                    <h1><a href="http://sabre.io/blog/2014/per-user-directories-tutorial">New tutorial: Per-user directories</a></h1>
                     <p>A commonly asked question on the mailing list, is:</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Nov. 22nd, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1.1-release/">sabre/dav 2.1.1 release</a></h1>
-                    <p>We just released sabre/dav 2.1.1. Upgrading is highly recommended.</article>
                                     </section>
     </div>
 </div>
@@ -186,9 +186,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/page/8/';
+    var disqus_identifier = '/page/8';
     var disqus_title = '';
-    var disqus_url = 'http://sabre.io/page/8/';
+    var disqus_url = 'http://sabre.io/page/8';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

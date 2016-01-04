@@ -3,14 +3,38 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-01-04T20:15:58+00:00</updated>
+    <updated>2016-01-04T21:35:59+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
+            <title type="html"><![CDATA[sabre/dav 3.0.6 released]]></title>
+            <link href="http://sabre.io/blog/2016/sabre-dav-3.0.6-released"/>
+            <updated>2016-01-04T21:29:32+00:00</updated>
+            <id>http://sabre.io/blog/2016/sabre-dav-3.0.6-released</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 3.0.6.</p>
+
+<p>This release fixes a number of issues.</p>
+
+<p>There were issues in the <code>migrateto20.php</code> upgrade script, and caching
+problems in the tree.</p>
+
+<p>Updating is recommended.</p>
+
+<p>Update sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.0.6/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
+            <entry>
             <title type="html"><![CDATA[sabre/dav 2.1.8 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-dav-2.1.8-released/"/>
+            <link href="http://sabre.io/blog/2016/sabre-dav-2.1.8-released"/>
             <updated>2016-01-04T20:03:06+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-dav-2.1.8-released/</id>
+            <id>http://sabre.io/blog/2016/sabre-dav-2.1.8-released</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.8</p>
 
 <p>This release fixes several small problems related to caching and migrating
@@ -28,9 +52,9 @@ from sabre/dav 2.0.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/vobject 3.4.8 release]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-vobject-3.4.8-release/"/>
+            <link href="http://sabre.io/blog/2016/sabre-vobject-3.4.8-release"/>
             <updated>2016-01-04T19:47:59+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-vobject-3.4.8-release/</id>
+            <id>http://sabre.io/blog/2016/sabre-vobject-3.4.8-release</id>
             <content type="html"><![CDATA[<p>We just released sabre/vobject 3.4.8.</p>
 
 <p>This version contains a small change related to ITIP messages. When we generate
@@ -52,9 +76,9 @@ has a line that looks like this:</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/xml 1.3 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-xml-1.3-released/"/>
+            <link href="http://sabre.io/blog/2015/sabre-xml-1.3-released"/>
             <updated>2015-12-29T20:53:00+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-xml-1.3-released/</id>
+            <id>http://sabre.io/blog/2015/sabre-xml-1.3-released</id>
             <content type="html"><![CDATA[<p>We just released sabre/xml 1.3. This release is a fairly big update from the
 1.2 series. It's 100% backwards compatible, but adds a number of exciting
 features:</p>
@@ -92,9 +116,9 @@ expected XML root elements.</li>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/vobject 4 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-vobject-4.0-released/"/>
+            <link href="http://sabre.io/blog/2015/sabre-vobject-4.0-released"/>
             <updated>2015-12-12T05:10:01+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-vobject-4.0-released/</id>
+            <id>http://sabre.io/blog/2015/sabre-vobject-4.0-released</id>
             <content type="html"><![CDATA[<p>We just released sabre/vobject 4. This is a new major version, and comes with a
 number of new features and also BC breaking changes. The API is largely the
 same, but there are a few subtle differences.</p>
@@ -133,9 +157,9 @@ compatbility breaking changes, read the <a href="/vobject/upgrade_to_4/">upgrade
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/event 3 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-event-3.0-released/"/>
+            <link href="http://sabre.io/blog/2015/sabre-event-3.0-released"/>
             <updated>2015-11-05T20:43:29+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-event-3.0-released/</id>
+            <id>http://sabre.io/blog/2015/sabre-event-3.0-released</id>
             <content type="html"><![CDATA[<p>We just released sabre/event 3. This is a new major version, and comes with a
 number of new features and also BC breaking changes.</p>
 
@@ -216,9 +240,9 @@ strictly using <code>stream_select()</code> as the underlying engine. See the
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 3.0.5 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-dav-3.0.5-released/"/>
+            <link href="http://sabre.io/blog/2015/sabre-dav-3.0.5-released"/>
             <updated>2015-09-15T19:28:19+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-dav-3.0.5-released/</id>
+            <id>http://sabre.io/blog/2015/sabre-dav-3.0.5-released</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 3.0.5.</p>
 
 <p>This release fixes an issue related to encoding URIs in responses to
@@ -239,9 +263,9 @@ but we suspect that there might be others.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 3.0.4 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-dav-3.0.4-released/"/>
+            <link href="http://sabre.io/blog/2015/sabre-dav-3.0.4-released"/>
             <updated>2015-09-04T22:27:57+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-dav-3.0.4-released/</id>
+            <id>http://sabre.io/blog/2015/sabre-dav-3.0.4-released</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 3.0.4</p>
 
 <p>This releases contains the following fixes:</p>
@@ -268,9 +292,9 @@ found on the server.</li>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.1.7 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-dav-2.1.7-released/"/>
+            <link href="http://sabre.io/blog/2015/sabre-dav-2.1.7-released"/>
             <updated>2015-09-04T22:27:57+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-dav-2.1.7-released/</id>
+            <id>http://sabre.io/blog/2015/sabre-dav-2.1.7-released</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.7</p>
 
 <p>This release fixes an issue related to <code>MOVE</code> requests. If a <code>MOVE</code> request
@@ -290,9 +314,9 @@ deleted.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/vobject 3.4.7 release]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-vobject-3.4.7-release/"/>
+            <link href="http://sabre.io/blog/2015/sabre-vobject-3.4.7-release"/>
             <updated>2015-09-04T22:06:09+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-vobject-3.4.7-release/</id>
+            <id>http://sabre.io/blog/2015/sabre-vobject-3.4.7-release</id>
             <content type="html"><![CDATA[<p>We just released sabre/vobject 3.4.7.</p>
 
 <p>This version contains a small bugfix related to recurrence rules and querying.</p>
@@ -309,24 +333,6 @@ has a line that looks like this:</p>
 </code></pre>
 
 <p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.4.7/ChangeLog.md">Github</a>.</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/http 4.1.0 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-http-4.1.0/"/>
-            <updated>2015-09-04T21:59:22+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-http-4.1.0/</id>
-            <content type="html"><![CDATA[<p>We just released sabre/http 4.1.0</p>
-
-<p>This release fixes an issue with concurrent asychnronous requests, and adds
-<code>Sabre\HTTP\Auth\BearerAuth</code>.</p>
-
-<p>Update sabre/http by running:</p>
-
-<pre><code>composer update sabre/http
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/4.1.0/CHANGELOG.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

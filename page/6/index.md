@@ -138,27 +138,27 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>May. 26th, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.0.7-released">sabre/dav 2.0.7 released</a></h1>
+                    <p>We just released sabre/dav 2.0.7.</article>
+                <hr />                            <article class="blog-entry">
                     <time>May. 21st, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-xml-1.0.0.release/">sabre/xml 1.0.0 release</a></h1>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-xml-1.0.0.release">sabre/xml 1.0.0 release</a></h1>
                     <p>We just released sabre/xml 1.0.0</article>
                 <hr />                            <article class="blog-entry">
                     <time>May. 20th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-http-4.0.0-release/">sabre/http 4.0.0 release</a></h1>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-http-4.0.0-release">sabre/http 4.0.0 release</a></h1>
                     <p>We just released sabre/http 4.0.0</article>
                 <hr />                            <article class="blog-entry">
                     <time>May. 19th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.4.3-release/">sabre/vobject 3.4.3 release</a></h1>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.4.3-release">sabre/vobject 3.4.3 release</a></h1>
                     <p>We just released sabre/vobject 3.4.3.</article>
                 <hr />                            <article class="blog-entry">
                     <time>Apr. 1st, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/launching-an-xml-library-for-php/">A new XML library for PHP</a></h1>
+                    <h1><a href="http://sabre.io/blog/2015/launching-an-xml-library-for-php">A new XML library for PHP</a></h1>
                     <p>Dealing with XML is annoying to many, and certainly us. We've tried many
 different approaches to make working with XML less frustrating, and we've
 finally landed on an approach that we're happy with.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Feb. 25th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.1.3-released/">sabre/dav 2.1.3 released</a></h1>
-                    <p>We just released sabre/dav 2.1.3.</article>
                                     </section>
     </div>
 </div>
@@ -188,9 +188,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/page/6/';
+    var disqus_identifier = '/page/6';
     var disqus_title = '';
-    var disqus_url = 'http://sabre.io/page/6/';
+    var disqus_url = 'http://sabre.io/page/6';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

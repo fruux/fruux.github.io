@@ -226,12 +226,12 @@ a Promise. It's pretty easy, just call the constructor:</p>
 
 <h2 id="api">API</h2>
 
-<h3 id="%60promise%3A%3A__construct%28callable-%24executor-%3D-null%29%3B%60"><code>Promise::__construct(callable $executor = null);</code></h3>
+<h3 id="%60promise%3A%3A__constructcallable-%24executor-%3D-null%3B%60"><code>Promise::__construct(callable $executor = null);</code></h3>
 
 <p>Creates the Promise with an optional executor callback. The callback will
 receive a reference to the fulfill and reject functions.</p>
 
-<h3 id="%60promise%3A%3Athen%28callable-%24onfulfilled-%3D-null%2C-callable-%24onrejected-%3D-null%29%60"><code>Promise::then(callable $onFulfilled = null, callable $onRejected = null)</code></h3>
+<h3 id="%60promise%3A%3Athencallable-%24onfulfilled-%3D-null%2C-callable-%24onrejected-%3D-null%60"><code>Promise::then(callable $onFulfilled = null, callable $onRejected = null)</code></h3>
 
 <p>Sets up a callback for when the Promise is fulfilled or rejected.</p>
 
@@ -310,7 +310,7 @@ caught, and the returned Promise will fail with the exception as the reason:</p>
 any exceptions may be silently suppressed without it. Alternatively, you
 could also end your chain of promises with <code>wait()</code>.</p>
 
-<h3 id="%60promise%3A%3Aotherwise%28%24onrejected%29%60"><code>Promise::otherwise($onRejected)</code></h3>
+<h3 id="%60promise%3A%3Aotherwise%24onrejected%60"><code>Promise::otherwise($onRejected)</code></h3>
 
 <p>This method can be used to just specify an error handler. This allows the
 following syntax:</p>
@@ -327,7 +327,7 @@ following syntax:</p>
 });
 </code></pre>
 
-<h3 id="%60promise%3A%3Afulfill%28mixed-%24value-%3D-null%29%60"><code>Promise::fulfill(mixed $value = null)</code></h3>
+<h3 id="%60promise%3A%3Afulfillmixed-%24value-%3D-null%60"><code>Promise::fulfill(mixed $value = null)</code></h3>
 
 <p>Fulfills a Promise that didn't have a result yet.</p>
 
@@ -336,7 +336,7 @@ following syntax:</p>
 
 <p>The value may be any type at all.</p>
 
-<h3 id="%60promise%3A%3Areject%28mixed-%24reason-%3D-null%29%60"><code>Promise::reject(mixed $reason = null)</code></h3>
+<h3 id="%60promise%3A%3Arejectmixed-%24reason-%3D-null%60"><code>Promise::reject(mixed $reason = null)</code></h3>
 
 <p>Reject (fails) a Promise that didn't have a result yet.</p>
 
@@ -345,7 +345,7 @@ following syntax:</p>
 
 <p>The reason may also be any PHP type, but it's recommended to use exceptions.</p>
 
-<h3 id="%60promise%3A%3Await%28%29%60"><code>Promise::wait()</code></h3>
+<h3 id="%60promise%3A%3Await%60"><code>Promise::wait()</code></h3>
 
 <p>Turns your asynchronous code into blocking code again. Calling this function
 will cause PHP to block until the promise is resolved. While it's 'blocking'
@@ -372,7 +372,7 @@ $promsie2 = anotherAsyncOp();
 Promise\all([$promise1, $promise2])-&gt;wait();
 </code></pre>
 
-<h3 id="%60promise%5Call%28promise%5B%5D-%24promises%29%60"><code>Promise\all(Promise[] $promises)</code></h3>
+<h3 id="%60promise%5Callpromise-%24promises%60"><code>Promise\all(Promise[] $promises)</code></h3>
 
 <p>The <code>Promise\all()</code> function returns a Promise, that will fulfill when all
 of the passed promises have been fulfilled themselves.</p>
@@ -396,7 +396,7 @@ $all = Promise\all([$promise1, $promise2])-&gt;then(
 );
 </code></pre>
 
-<h3 id="%60promise%5Crace%28promise%5B%5D-%24promises%29%60"><code>Promise\race(Promise[] $promises)</code></h3>
+<h3 id="%60promise%5Cracepromise-%24promises%60"><code>Promise\race(Promise[] $promises)</code></h3>
 
 <p>The <code>Promise\race()</code> function returns a Promise, that will immediately fulfill
 as soon as one of the passed promises have fulfilled..</p>
@@ -420,7 +420,7 @@ $all = Promise\race([$promise1, $promise2])-&gt;then(
 );
 </code></pre>
 
-<h3 id="%60promise%5Cresolve%28mixed-%24value%29%60"><code>Promise\resolve(mixed $value)</code></h3>
+<h3 id="%60promise%5Cresolvemixed-%24value%60"><code>Promise\resolve(mixed $value)</code></h3>
 
 <p>The <code>Promise\resolve()</code> function returns a Promise that immediately fulfills
 with the value you specified in its argument. It's a quick way to create a
@@ -438,7 +438,7 @@ $promise-&gt;then(function($value) {
 });
 </code></pre>
 
-<h3 id="%60promise%5Creject%28mixed-%24reason%29%60"><code>Promise\reject(mixed $reason)</code></h3>
+<h3 id="%60promise%5Crejectmixed-%24reason%60"><code>Promise\reject(mixed $reason)</code></h3>
 
 <p>The <code>Promise\reject()</code> function returns a Promise that automatically rejects
 with the reason specified in <code>$reason</code>.</p>
@@ -480,9 +480,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/event/promise/';
+    var disqus_identifier = '/event/promise';
     var disqus_title = 'Promise';
-    var disqus_url = 'http://sabre.io/event/promise/';
+    var disqus_url = 'http://sabre.io/event/promise';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

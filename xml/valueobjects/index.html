@@ -212,7 +212,7 @@ an instance of that class when it comes across the element name you specified.</
 
 <p>In this example all the child elements (<code>title</code>, <code>link</code>, <code>id</code>) are also all in
 the same XML namespace. If this is the case, we will see if the class
-<code>My\Atom\Entry</code> has a <code>public</code> property with the same name, and set it's value.</p>
+<code>My\Atom\Entry</code> has a <code>public</code> property with the same name, and set its value.</p>
 
 <p>If entry had sub-elements in a different XML namespace, they would be discarded.</p>
 
@@ -236,7 +236,7 @@ that the atom feed contained this element:</p>
 <pre><code>   &lt;link href="http://example.org/2003/12/13/atom03"/&gt;
 </code></pre>
 
-<p>The parser in fact discarded the <code>href</code> atttribute and it's value. The only
+<p>The parser in fact discarded the <code>href</code> atttribute and its value. The only
 way around that is to write a custom deserializer.</p>
 
 <p>The following example demonstrates how you would parse <code>&lt;link&gt;</code>. First, we
@@ -291,7 +291,7 @@ mapping to both the <code>$elementMap</code> and <code>$classMap</code>.</p>
 <h2 id="a-more-complete-atom-example">A more complete atom example</h2>
 
 <p>We've built a full atom parser for demonstrational purposes. You can find it
-on <a href="https://packagist.org/packages/sabre/xml-atom" title="Atom XML parser for PHP">GitHub</a> and <a href="https://github.com/fruux/sabre-xml-atom" title="Atom XML parser for PHP">Packagist</a>.</p>
+on <a href="https://github.com/fruux/sabre-xml-atom" title="Atom XML parser for PHP">GitHub</a> and <a href="https://packagist.org/packages/sabre/xml-atom" title="Atom XML parser for PHP">Packagist</a>.</p>
             
             
                             <hr />

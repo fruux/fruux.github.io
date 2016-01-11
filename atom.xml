@@ -3,9 +3,37 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-01-06T23:37:54+00:00</updated>
+    <updated>2016-01-11T18:04:08+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 4.0.2 release]]></title>
+            <link href="http://sabre.io/blog/2016/sabre-vobject-4.0.2-release"/>
+            <updated>2016-01-11T17:43:58+00:00</updated>
+            <id>http://sabre.io/blog/2016/sabre-vobject-4.0.2-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 4.0.2.</p>
+
+<p>This version fixes a regression introduced in 4.0.0. When parsing objects with
+a <code>CHARSET</code> parameter, in documents that do not support <code>CHARSET</code>, which is
+everything except vCard 2.1, the parser would throw an error for unrecognized
+values.</p>
+
+<p>If you are parsing iCalendar or vCards, upgrading is highly recommended.</p>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>If this didn't upgrade you to 4.0.2, make sure that your composer.json file
+has a line that looks like this:</p>
+
+<pre><code>"sabre/vobject" : "~4.0.2"
+</code></pre>
+
+<p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.0.2/CHANGELOG.md">Github</a>.</p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 3.1 released]]></title>
             <link href="http://sabre.io/blog/2016/sabre-dav-3.1-release"/>
@@ -257,89 +285,6 @@ create an iCalendar object with birthdays.</li>
 
 <p>For more details about these changes and a detailed list of all backwards-
 compatbility breaking changes, read the <a href="/vobject/upgrade_to_4/">upgrade</a> document.</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/event 3 released]]></title>
-            <link href="http://sabre.io/blog/2015/sabre-event-3.0-released"/>
-            <updated>2015-11-05T20:43:29+00:00</updated>
-            <id>http://sabre.io/blog/2015/sabre-event-3.0-released</id>
-            <content type="html"><![CDATA[<p>We just released sabre/event 3. This is a new major version, and comes with a
-number of new features and also BC breaking changes.</p>
-
-<h2 id="changes">Changes</h2>
-
-<h3 id="php-version">PHP version</h3>
-
-<p>This package now requires PHP 5.5. The 2.0 version of this package will
-continue to be maintained though if you need PHP 5.4 support.</p>
-
-<h3 id="changes-to-promises">Changes to Promises</h3>
-
-<p>We've overhauled the promise significantly to closely match the standard
-Ecmascript promise as close as possible.</p>
-
-<p>To do this, we added the following functions:</p>
-
-<pre><code>Sabre\Event\Promise\all
-Sabre\Event\Promise\race
-Sabre\Event\Promise\resolve
-Sabre\Event\Promise\reject
-</code></pre>
-
-<p>These are now straight up functions, and not static methods on the Promise
-object.</p>
-
-<p>The following methods were added:</p>
-
-<pre><code>Sabre\Event\Promise::otherwise
-Sabre\Event\Promise::wait
-</code></pre>
-
-<p>Wait makes a lot of sense for PHP so it was added as a core feature.</p>
-
-<p>The following methods were deprecated:</p>
-
-<pre><code>Sabre\Event\Promise::all
-Sabre\Event\Promise::error
-</code></pre>
-
-<p>Both will still work but will be removed in version 4.0.</p>
-
-<p><code>error</code> was renamed to <code>otherwise</code>. In javascript this function is actually
-called <code>catch</code>, but we can't use that name in PHP because it's a reserved
-keyword. Other projects such as ReactPHP and Guzzle have settled on the name
-<code>otherwise</code>, so we're following their example.</p>
-
-<p>Another change is that promise now uses the Event Loop to trigger events. This
-means that events are now predictably asynchronously triggered, whereas before
-events might have triggered synchronously.</p>
-
-<p>What generally means is that you might need to explictly call the <code>wait()</code>
-function on your promise to wait for it to resolve. Or you can call:</p>
-
-<pre><code>Sabre\Event\Loop\run();
-</code></pre>
-
-<p>See the <a href="/event/promise/">Promise documentation</a> for more information.</p>
-
-<h3 id="coroutines">Coroutines</h3>
-
-<p>We've added support for coroutines using PHP 5.5 generators. For a great
-example check out the <a href="/event/coroutines/">documentation</a>.</p>
-
-<h3 id="event-loop">Event loop</h3>
-
-<p>We added an implementation of an Event Loop, also sometimes known as the
-reactor pattern. This new system behaves similar to Javascript or
-<a href="http://reactphp.org/">ReactPHP</a>'s loop. The event loop can handle 'timed events' a.k.a.
-<code>setTimeout()</code> and <code>setInterval()</code> and support for events on IO streams
-strictly using <code>stream_select()</code> as the underlying engine. See the
-<a href="/event/loop/">Loop documentation</a> for more information.</p>
-
-<h2 id="changelog">Changelog</h2>
-
-<p>A full changelog can be found on <a href="https://github.com/fruux/sabre-event/blob/3.0.0/CHANGELOG.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

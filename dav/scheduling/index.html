@@ -192,6 +192,19 @@ customize their email templates to subclass the IMipPlugin. It's a solid
 example and hopefully provides enough information to customize your emails
 further.</p>
 
+<h2 id="availability">Availability</h2>
+
+<p>Since sabre/dav 3.1 <a href="https://tools.ietf.org/html/draft-daboo-calendar-availability-05">availability</a> is supported. This feature allows
+users to specify for example when their working hours are, such as 9am to
+5pm on a daily basis.</p>
+
+<p>After specifying this, the server will then use this information to generate
+freebusy reports, making them a lot more accurate and useful, especially
+with teams distributed in multiple timezones.</p>
+
+<p>This feature is enabled automatically, but it will only work if the
+<a href="/dav/property-storage/">PropertyStorage</a> plugin is enabled.</p>
+
 <h2 id="limitations">Limitations</h2>
 
 <p>We don't support the full specification yet. Non-exhaustive list of known

@@ -2,7 +2,7 @@
 <head>
 
   
-            <title>sabre/vobject 4.0.2 release - sabre/vobject</title>
+            <title>sabre/vobject 3.4.9 and 3.5.0 release - sabre/vobject</title>
     
     <meta charset="utf-8">
 
@@ -42,29 +42,53 @@
                 <article>
                 <article class="blog-entry">
         <time>January 11th, 2016</time>
-        <h1>sabre/vobject 4.0.2 release</h1>
+        <h1>sabre/vobject 3.4.9 and 3.5.0 release</h1>
         <div>
-            <p>We just released sabre/vobject 4.0.2.</p>
+            <p>In a reversal of an earlier statement, we're releasing a sabre/vobject 3.x
+version with PHP 7 support.</p>
 
-<p>This version fixes a regression introduced in 4.0.0. When parsing objects with
-a <code>CHARSET</code> parameter, in documents that do not support <code>CHARSET</code>, which is
-everything except vCard 2.1, the parser would throw an error for unrecognized
-values.</p>
+<p>We just release two new versions of the sabre/vobject package; <code>3.4.9</code> and
+<code>3.5.0</code>.  <code>3.4.9</code> is identical to <code>3.4.8</code> but now explictly forbids being
+installed on PHP 7, via composer.json.</p>
 
-<p>If you are parsing iCalendar or vCards, upgrading is highly recommended.</p>
+<p><code>3.5.0</code> introduces two differences:</p>
+
+<ol>
+<li>PHP 7 <em>is</em> supported.</li>
+<li>Two classes have been renamed. <code>Sabre\VObject\Property\Float</code> is now
+<code>Sabre\VObject\Property\FloatValue</code> and <code>Sabre\VObject\Property\Integer</code>
+is now called <code>Sabre\VObject\Property\IntegerValue</code>.</li>
+</ol>
+
+<p>For most people the new class names will have 0 effect on your code. Almost
+everyone should just be able to upgrade from 3.4.x to 3.5.0 without any
+modifications.</p>
+
+<p>The reason we've done this is due to some external pressure of sabre/* users,
+who argued that it's not good that there's not a single sabre/vobject or sabre/dav
+package that supports <em>both</em> PHP 5.4 and PHP 7. Thankfully this change is small
+enough that it's relatively low impact.</p>
 
 <p>Upgrade sabre/vobject by running:</p>
 
 <pre><code>composer update sabre/vobject
 </code></pre>
 
-<p>If this didn't upgrade you to 4.0.2, make sure that your composer.json file
+<p>If this didn't upgrade you to 3.5.0, make sure that your composer.json file
 has a line that looks like this:</p>
 
-<pre><code>"sabre/vobject" : "~4.0.2"
+<pre><code>"sabre/vobject" : "^3.5.0"
 </code></pre>
 
-<p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.0.2/CHANGELOG.md">Github</a>.</p>
+<p>Because the difference is so minor, in the future we'll only maintain the 3.5
+(and 4.0) branch of vobject, and effectively drop support for 3.4. If this
+concerns you, drop me a line as maybe we can help.</p>
+
+<p>The <code>3.4.9</code> tag therefore mainly exist as an indicator to people who have a
+composer dependency targetting <code>3.4.*</code> with composer and are attempting to
+use PHP7, or people who have a rather complex dependency tree.</p>
+
+<p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.5.0/CHANGELOG.md">Github</a>.</p>
 
         </div>
                     <p class="tags">
@@ -73,8 +97,7 @@ has a line that looks like this:</p>
         
                     <nav class="article">
                 <ul>
-                                            <li>Next: <a class="next" href="http://sabre.io/blog/2016/sabre-vobject-3.4.9-and-3.5.0-release" title="sabre/vobject 3.4.9 and 3.5.0 release"><span class="title">sabre/vobject 3.4.9 and 3.5.0 release</span></a></li>
-                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2016/sabre-dav-3.1-release" title="sabre/dav 3.1 released"><span class="title">sabre/dav 3.1 released</span></a></li>
+                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2016/sabre-vobject-4.0.2-release" title="sabre/vobject 4.0.2 release"><span class="title">sabre/vobject 4.0.2 release</span></a></li>
                                     </ul>
             </nav>
             </article>
@@ -106,9 +129,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/blog/2016/sabre-vobject-4.0.2-release';
-    var disqus_title = 'sabre/vobject 4.0.2 release';
-    var disqus_url = 'http://sabre.io/blog/2016/sabre-vobject-4.0.2-release';
+    var disqus_identifier = '/blog/2016/sabre-vobject-3.4.9-and-3.5.0-release';
+    var disqus_title = 'sabre/vobject 3.4.9 and 3.5.0 release';
+    var disqus_url = 'http://sabre.io/blog/2016/sabre-vobject-3.4.9-and-3.5.0-release';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

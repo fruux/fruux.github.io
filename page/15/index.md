@@ -138,6 +138,11 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Apr. 2nd, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/vobject-3.2">sabre/vobject 3.2 released</a></h1>
+                    <p>We just released sabre/vobject 3.2.0. This release is backwards compatible
+with the 3.1.* series.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Mar. 31st, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/new-website">New website launched!</a></h1>
                     <p>You're looking at the brand-new website for sabre/dav. Up until now sabre/dav

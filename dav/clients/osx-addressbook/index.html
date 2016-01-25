@@ -132,9 +132,9 @@ clients, and it's shipped with OS X since version 10.6 (Snow Leopard). There
 are many bugs in the 10.6 client though, most of which have been solved in
 10.7.</p>
 
-<h2 id="technical-information">Technical information</h2>
+<h2>Technical information</h2>
 
-<h3 id="debugging">Debugging</h3>
+<h3>Debugging</h3>
 
 <p>To enable CardDAV traffic logging on 10.8 and above, run the following commands on the command line:</p>
 
@@ -144,7 +144,7 @@ defaults write com.apple.addressbook.carddavplugin LogConnectionDetails -bool YE
 
 <p>Logs will be written to ~/Library/Logs/CardDAVPlugin and may be viewed with 'Console.app'.</p>
 
-<h3 id="directory-support">Directory support</h3>
+<h3>Directory support</h3>
 
 <p>AddressBook.app has support for a global read-only directory. Addressbook.app
 does not allow simply browsing through the directory, it's used for searching
@@ -154,7 +154,7 @@ only (using the addressbook-query REPORT).</p>
 <a href="/dav/carddav-directory">CardDAVDirectory</a>, by providing a simple interface:
 <code>Sabre\CardDAV\IDirectory</code>.</p>
 
-<h3 id="%27me%27-card">'Me' card</h3>
+<h3>'Me' card</h3>
 
 <p>AddressBook.app has the ability to mark a specific vcard as the users' own
 vcard. Support for this is built-in since SabreDAV 1.6.</p>
@@ -185,9 +185,9 @@ Connection: keep-alive
 
 <p>More information can be found on the <a href="/dav/carddav-me-card/">me-card page</a>.</p>
 
-<h2 id="bugs">Bugs</h2>
+<h2>Bugs</h2>
 
-<h3 id="domain-root-10.6-issue">Domain root (10.6 issue)</h3>
+<h3>Domain root (10.6 issue)</h3>
 
 <p><strong>Affects: OS X 10.6</strong></p>
 
@@ -206,7 +206,7 @@ CalDAV server, but I've also had cases where:</p>
 <p>Even after trying this, it seems to randomly forget the correct TCP port and
 default back to 8008 (which is the standard port for Darwin Calendar Server).</p>
 
-<h3 id="single-addressbook">Single addressbook</h3>
+<h3>Single addressbook</h3>
 
 <p><strong>Affects: OS X 10.6 until OS X 10.10</strong></p>
 
@@ -221,7 +221,7 @@ are completely hidden to the user.</p>
 <p>This can cause for a lot of confusion, and there is no obvious solution other
 than simply <em>enforce</em> a 1 address book limit for users.</p>
 
-<h3 id="%40-in-username">@ in username</h3>
+<h3>@ in username</h3>
 
 <p><strong>Affects: OS X 10.6</strong></p>
 
@@ -239,7 +239,7 @@ email addresses for usernames if you plan to support (10.6) Addressbook.app.</p>
 <p>This client can only use 1 addressbook. It will most likely use the first
 addressbook in a users' collection of addressbooks.</p>
 
-<h3 id="ctag-is-required">ctag is required</h3>
+<h3>ctag is required</h3>
 
 <p><strong>Affects: at least OSX 10.6 and OSX 10.7</strong></p>
 

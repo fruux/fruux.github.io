@@ -72,12 +72,12 @@
                 <p>sabre/uri is a super lightweight package that helps working with URIs. It
 provides the following functions, all in the <code>Sabre\Uri</code> namespace:</p>
 
-<h2 id="resolve">Resolve</h2>
+<h2>Resolve</h2>
 
 <p>The <code>resolve</code> function allows you to expand a relative URI in a full one,
 in a similar way a browser would.</p>
 
-<h3 id="example">Example</h3>
+<h3>Example</h3>
 
 <pre><code>namespace Sabre\Uri;
 
@@ -88,7 +88,7 @@ echo Uri\resolve($base, $new);
 // Output: http://example.org/foo/hello
 </code></pre>
 
-<h3 id="a-few-more-inputs-and-outputs%3A">A few more inputs and outputs:</h3>
+<h3>A few more inputs and outputs:</h3>
 
 <table>
 <thead>
@@ -127,7 +127,7 @@ echo Uri\resolve($base, $new);
 </tbody>
 </table>
 
-<h2 id="normalize">Normalize</h2>
+<h2>Normalize</h2>
 
 <p>There are many ways to specify URIs that all point to the same thing. The
 normalize function helps you make these URIs consistent with each other, which
@@ -144,7 +144,7 @@ in turn allows you to make better comparisons.</p>
 <li><code>http://example.org/bar/./../foo/</code> Badly expanded relative urls.</li>
 </ul>
 
-<h3 id="example">Example</h3>
+<h3>Example</h3>
 
 <pre><code>namespace Sabre\Uri;
 
@@ -154,14 +154,14 @@ echo Uri\normalize($output);
 // Output: http://example.org/~foo/bar/
 </code></pre>
 
-<h2 id="parse">Parse</h2>
+<h2>Parse</h2>
 
 <p>The <code>parse</code> function is a slightly modified version of PHP's <a href="http://php.net/manual/en/function.parse-url.php">parse_url</a>.</p>
 
 <p>The difference is that this function returns the entire array of url parts,
 even if those parts are not set.</p>
 
-<h3 id="example">Example</h3>
+<h3>Example</h3>
 
 <pre><code>namespace Sabre\Uri;
 
@@ -188,19 +188,19 @@ print_r(
 <p>Undefined parts are returned as <code>null</code>. This has the benefit that it makes it
 a lot easier to deal with these arrays in <code>if</code> and ternary statements.</p>
 
-<h2 id="build">Build</h2>
+<h2>Build</h2>
 
 <p>The <code>build</code> function takes the output of <code>parse</code> or <a href="http://php.net/manual/en/function.parse-url.php"><code>parse_url()</code></a> and
 creates a new url.</p>
 
 <p>It's basically the reverse operation of <code>parse</code>.</p>
 
-<h2 id="split">Split</h2>
+<h2>Split</h2>
 
 <p>The <code>split</code> function takes a path and returns the <a href="http://php.net/manual/en/function.dirname.php"><code>basename()</code></a> and
 <a href="http://php.net/manual/en/function.basename.php"><code>dirname()</code></a> components.</p>
 
-<h3 id="example">Example</h3>
+<h3>Example</h3>
 
 <pre><code>namespace Sabre\Uri;
 
@@ -215,7 +215,7 @@ echo $parent; // output : /path/to/
 echo $basename; // output : file
 </code></pre>
 
-<h3 id="why-not-basename-and-dirname%3F">Why not basename() and dirname()?</h3>
+<h3>Why not basename() and dirname()?</h3>
 
 <ol>
 <li>The PHP functions are locale-aware and will start behaving differently

@@ -65,7 +65,6 @@
         </ul>
     </div>
 </section>
-
 <section class="box box--trusted">
     <div class="box-wrapper">
         <h1 class="box-headline">Trusted by</h1>
@@ -83,7 +82,6 @@
         </a>
     </div>
 </section>
-
 <section class="box box--lineup">
     <div class="box-wrapper">
         <h1 class="box-headline">The full sabre.io lineup</h1>
@@ -113,7 +111,6 @@
         </a>
     </div>
 </section>
-
 <div class="box box--turquoise">
     <div class="box-wrapper">
         <section class="box box--enterprise">
@@ -138,6 +135,11 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>May. 16th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabredav-1.8.10">sabre/dav 1.7.12 and 1.8.10 released</a></h1>
+                    <p>We just released sabre/dav 1.7.12 and 1.8.10. These two releases are mainly
+bugfix releases centering around two things:</article>
+                <hr />                            <article class="blog-entry">
                     <time>Apr. 2nd, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/vobject-3.2">sabre/vobject 3.2 released</a></h1>
                     <p>We just released sabre/vobject 3.2.0. This release is backwards compatible
@@ -150,11 +152,9 @@ never had a proper website, and we've always just hosted from Google Code.</arti
                                     </section>
     </div>
 </div>
-
 <figure class="bg--cloudy">
     <img src="http://sabre.io/img/home_background.jpg">
 </figure>
-
 
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 

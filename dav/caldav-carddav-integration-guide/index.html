@@ -131,7 +131,7 @@
 existing application, you'll need to roll your own Backend classes. This guide
 explains how and where to do this.</p>
 
-<h2 id="a-simple-caldav-server">A simple CalDAV server</h2>
+<h2>A simple CalDAV server</h2>
 
 <p>The following example illustrates how you can setup a CalDAV server. This is
 also how you'd want to build up your own server.</p>
@@ -202,7 +202,7 @@ instructions on the <a href="/dav/caldav">CalDAV</a> page.</p>
 head over to the <a href="/dav/carddav">CardDAV</a> page or check the examples/ directory
 in the standard SabreDAV distribution.</p>
 
-<h2 id="backends">Backends</h2>
+<h2>Backends</h2>
 
 <p>If you want to integrate CalDAV into your existing infrastructure, you can do
 so by creating your own Authentication, Principal and Calendar backends.
@@ -224,7 +224,7 @@ Principals are in the context of WebDAV either users or groups (or both).</p>
 <p>For CardDAV, you may also want to extend <code>Sabre\CardDAV\Backend\AbstractBackend</code>,
 check <code>Sabre\CardDAV\Backend\PDO</code> for an example.</p>
 
-<h2 id="datamodel-in-a-nutshell">Datamodel in a nutshell</h2>
+<h2>Datamodel in a nutshell</h2>
 
 <p>Users are called 'principals' in WebDAV terminology. Principals are associated
 to a url. If your username is homer, the url could be /principals/homer or
@@ -265,7 +265,7 @@ url:</p>
 <pre><code>/addressbooks/homer@example.org/book1/marge.vcf
 </code></pre>
 
-<h2 id="uids%2C-id%27s-and-urls">UIDS, id's and urls</h2>
+<h2>UIDS, id's and urls</h2>
 
 <p>There's a bunch of id's you will need to keep track off.</p>
 
@@ -285,7 +285,7 @@ not a true uuid field.</p>
 field. This id is never sent to the client. It can hold any content, but it's
 specifically added to allow you to store for example a database id.</p>
 
-<h2 id="calendar-objects">Calendar objects</h2>
+<h2>Calendar objects</h2>
 
 <p>Calendar objects are 'iCalendar' formatted files. They can hold events, todo's
 or journals (although the latter is extremely uncommon).
@@ -306,7 +306,7 @@ still recommend keeping the actual full object around in a BLOB. This will
 ensure that you can easily parse out the data you need, while ensuring all
 the users' data is kept intact.</p>
 
-<h2 id="vcards">VCards</h2>
+<h2>VCards</h2>
 
 <p>VCards' structure are very similarly structured as iCalendars. You can also
 use the VObject library to work with them.</p>

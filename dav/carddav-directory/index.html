@@ -136,7 +136,7 @@ searching interface.</p>
 
 <p>The user experience is very similar to browsing an LDAP directory.</p>
 
-<h2 id="what%27s-provided">What's provided</h2>
+<h2>What's provided</h2>
 
 <p>SabreDAV does not provide default backends to create your directories,
 it provides just a simple interface which you must implement to make this work.</p>
@@ -153,9 +153,9 @@ directories on the principal, so it must be globally known where these are.</p>
 <p>To make sure the directory works everywhere, your node implementing
 <code>Sabre\CardDAV\IDirectory</code> must also implement <code>Sabre\DAVACL\IACL</code>.</p>
 
-<h2 id="client-info">Client info</h2>
+<h2>Client info</h2>
 
-<h3 id="os%2Fx-10.6-addressbook">OS/X 10.6 Addressbook</h3>
+<h3>OS/X 10.6 Addressbook</h3>
 
 <p>The OS/X 10.6 client will not request the list of directories, but it rather
 assumes that there's one located at the /directory path on the root of the
@@ -165,12 +165,12 @@ server.</p>
 location of the global addressbook. Because of this, this client will also not
 be able to support more than 1 directory.</p>
 
-<h3 id="os%2Fx-10.7-and-10.8">OS/X 10.7 and 10.8</h3>
+<h3>OS/X 10.7 and 10.8</h3>
 
 <p>These clients do pick up on the directories property, but they will only
 support 1 directory at most still.</p>
 
-<h3 id="ios-4%2C-5-and-6.">iOS 4, 5 and 6.</h3>
+<h3>iOS 4, 5 and 6.</h3>
 
 <p>The CardDAV spec dictates that clients should not do things like a
 <code>Depth: 1</code> PROPFIND on the directory. iOS 4 &amp; 5 do this though. When this

@@ -47,9 +47,9 @@
             <p>We just released sabre/dav version 2.1. This release comes about 6 months
 after the last major release, so that's nicely on track!</p>
 
-<h2 id="new-features">New features</h2>
+<h2>New features</h2>
 
-<h3 id="scheduling">Scheduling</h3>
+<h3>Scheduling</h3>
 
 <p>We finally have support for CalDAV Scheduling (<a href="http://tools.ietf.org/html/rfc6638">rfc6638</a>). Adding
 scheduling to your server means that you can invite attendees to your events,
@@ -66,7 +66,7 @@ server to send invitation emails on behalf of the user.</p>
 
 <p>For more information, read the <a href="/dav/scheduling/">scheduling</a> documentation.</p>
 
-<h3 id="vcard-4-support">vCard 4 support</h3>
+<h3>vCard 4 support</h3>
 
 <p>In the past, the CardDAV plugin only supported vCard 3.0, which is the vCard
 version that's required for CardDAV and also what most clients use.</p>
@@ -80,7 +80,7 @@ as-is, but if a client requests either a vCard 3 or 4 (using
 content-negotation), we will automatically convert the vcard before sending
 it back to the client.</p>
 
-<h3 id="jcard-support">jCard support</h3>
+<h3>jCard support</h3>
 
 <p>It's now also possible for clients to request jCard (<a href="http://tools.ietf.org/html/rfc7095">rfc7095</a>).
 jCard is a JSON representation of vCard 4.0.</p>
@@ -88,13 +88,13 @@ jCard is a JSON representation of vCard 4.0.</p>
 <p>jCard is much easier to parse than vCard 4.0, so we also highly recommend
 client developers to start supporting this.</p>
 
-<h3 id="changelog">ChangeLog</h3>
+<h3>ChangeLog</h3>
 
 <p>A lot of smaller changes have been made since version 2.0. You can find more
 details in the <a href="https://github.com/fruux/sabre-dav/blob/2.1.0/ChangeLog.md">ChangeLog</a>. Read from 2.1.0-alpha1 onwards, as most changes
 have been made in the alpha versions.</p>
 
-<h2 id="installation">Installation</h2>
+<h2>Installation</h2>
 
 <p>As always, the zip can be found on the <a href="https://github.com/fruux/sabre-dav/releases">github releases page</a>, but the
 recommended installation method is using composer:</p>
@@ -102,7 +102,7 @@ recommended installation method is using composer:</p>
 <pre><code>composer require sabre/dav ~2.1.0
 </code></pre>
 
-<h2 id="upgrading">Upgrading</h2>
+<h2>Upgrading</h2>
 
 <p>A few backwards compatibility breaks have been made in this release. Overall
 they should be pretty minor and easy to deal with.</p>
@@ -116,7 +116,7 @@ chances are that you need to make changes in your code to keep stuff running.</p
 <p>Drop a line on the <a href="http://groups.google.com/group/sabredav-discuss">mailing list</a> if you run into any issues, or
 <a href="http://sabre.io/support/">get in touch with us</a> for our commercial support options.</p>
 
-<h2 id="support-status">Support status</h2>
+<h2>Support status</h2>
 
 <p>Due to the 2.1 release, 2.0 now enters maintenance mode. This means that
 version 2.0 of sabre/dav will be actively maintained for the next 12 months.</p>

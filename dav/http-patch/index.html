@@ -138,7 +138,7 @@ request.</p>
 <p><em>Note:</em> This feature was added in SabreDAV 1.7.0 and 1.8.0, but has been
 broken until 1.7.12 and 1.8.10.</p>
 
-<h2 id="a-sample-request">A sample request</h2>
+<h2>A sample request</h2>
 
 <pre><code>PATCH /file.txt
 Content-Length: 4
@@ -163,7 +163,7 @@ X-Update-Range: append
 
 <p>The last request adds 4 bytes to the bottom of the file.</p>
 
-<h2 id="the-rules">The rules</h2>
+<h2>The rules</h2>
 
 <ul>
 <li>The <code>Content-Length</code> header is required.</li>
@@ -186,7 +186,7 @@ will be filled with NULL bytes (<code>0x00</code>).</li>
 the end offset must be greater or equal to the start offset.</li>
 </ul>
 
-<h2 id="more-examples">More examples</h2>
+<h2>More examples</h2>
 
 <p>The following table illustrates most types of requests and what the end-result
 of them will be.</p>
@@ -240,7 +240,7 @@ always contains 4 dashes (<code>----</code>).</p>
 <p>Please note that in the <code>bytes=12-</code> example, we used dots (<code>.</code>) to represent
 what are actually <code>NULL</code> bytes (so <code>0x00</code>). The null byte is not printable.</p>
 
-<h2 id="status-codes">Status codes</h2>
+<h2>Status codes</h2>
 
 <p>The following status codes should be used:</p>
 
@@ -275,7 +275,7 @@ what are actually <code>NULL</code> bytes (so <code>0x00</code>). The null byte 
 </tbody>
 </table>
 
-<h2 id="options">OPTIONS</h2>
+<h2>OPTIONS</h2>
 
 <p>If you want to be compliant with SabreDAV's implementation of PATCH, you must
 also return 'sabredav-partialupdate' in the 'DAV:' header:</p>
@@ -287,7 +287,7 @@ DAV: 1, 2, 3, sabredav-partialupdate, extended-mkcol
 <p>This is only required if you are adding this feature to a DAV server. For
 non-webdav implementations such as REST services this is optional.</p>
 
-<h2 id="using-this-feature-in-sabre%2Fdav">Using this feature in sabre/dav</h2>
+<h2>Using this feature in sabre/dav</h2>
 
 <p>To use partial updates, your file-nodes must implement the
 <code>Sabre\DAV\PartialUpdate\IFile</code> interface. This adds a new <code>putRange()</code> method

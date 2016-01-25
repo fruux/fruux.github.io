@@ -131,7 +131,7 @@
 unfortunately this breaks backwards compatibility. The changes are minimal
 though.</p>
 
-<h2 id="etags-must-be-surrounded-by-double-quotes">Etags must be surrounded by double-quotes</h2>
+<h2>Etags must be surrounded by double-quotes</h2>
 
 <p>This was a bug in SabreDAV since the start. All Etags must be surrounded by
 double-quotes everywhere.  The best way to implement this was to enforce all
@@ -155,7 +155,7 @@ getETag methods to include the quotes.</p>
 }
 </code></pre>
 
-<h2 id="sabre_dav_permissiondenied-and-sabre_dav_idirectory-are-removed">Sabre_DAV_PermissionDenied and Sabre_DAV_IDirectory are removed</h2>
+<h2>Sabre_DAV_PermissionDenied and Sabre_DAV_IDirectory are removed</h2>
 
 <p>The <code>Sabre_DAV_PermissionDenied</code> class is replaced by the
 <code>Sabre_DAV_Forbidden</code> class.</p>
@@ -166,7 +166,7 @@ getETag methods to include the quotes.</p>
 <p>If you use either of these, this affects you. These classes were already 
 deprecated in 1.1.1, but now finally removed.</p>
 
-<h2 id="sabre_dav_icollection-interface-has-nodeexists-method">Sabre_DAV_ICollection interface has nodeExists method</h2>
+<h2>Sabre_DAV_ICollection interface has nodeExists method</h2>
 
 <p>If you rolled your custom Collections, and you directly 'implemented'
 <code>Sabre_DAV_ICollection</code>, without using one of the helper classes, you must now
@@ -174,7 +174,7 @@ implement <code>nodeExists($path)</code>.</p>
 
 <p>This method takes a path-part, and must return true or false.</p>
 
-<h2 id="beforemethod-and-unknownmethod-now-receive-new-arguments">beforeMethod and unknownMethod now receive new arguments</h2>
+<h2>beforeMethod and unknownMethod now receive new arguments</h2>
 
 <p>If you are a plugin developer, and rely on either of these events, this is
 relevant to you.</p>
@@ -189,7 +189,7 @@ relevant to you.</p>
 re-route requests to new uri's, the getRequestUri() method will return the 
 original uri, and not the uri it was rerouted to.</p>
 
-<h2 id="objecttree-now-cached">ObjectTree now cached</h2>
+<h2>ObjectTree now cached</h2>
 
 <p>If you are a plugin developer, this might be relevant.</p>
 

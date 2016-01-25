@@ -83,7 +83,7 @@ automatically resume the function when the promise has resolved.</p>
 
 <p>To illustrate this, an example will work better.</p>
 
-<h2 id="before">Before</h2>
+<h2>Before</h2>
 
 <pre><code>$promise = someAsyncOperation();
 $promise-&gt;then(function($result)) {
@@ -108,7 +108,7 @@ $promise-&gt;then(function($result)) {
 });
 </code></pre>
 
-<h2 id="after">After</h2>
+<h2>After</h2>
 
 <p>The following code is equivalent:</p>
 
@@ -132,7 +132,7 @@ Event\coroutine(function() {
 });
 </code></pre>
 
-<h2 id="tips-and-tricks">Tips and tricks</h2>
+<h2>Tips and tricks</h2>
 
 <p>The coroutines itself also returns a promise. This promise will resolve with
 the last yielded value or promise. It will reject if there was an uncaught

@@ -135,6 +135,10 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>May. 21st, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-xml-1.0.0.release">sabre/xml 1.0.0 release</a></h1>
+                    <p>We just released sabre/xml 1.0.0</article>
+                <hr />                            <article class="blog-entry">
                     <time>May. 20th, 2015</time>
                     <h1><a href="http://sabre.io/blog/2015/sabre-http-4.0.0-release">sabre/http 4.0.0 release</a></h1>
                     <p>We just released sabre/http 4.0.0</article>
@@ -152,10 +156,6 @@ finally landed on an approach that we're happy with.</article>
                     <time>Feb. 25th, 2015</time>
                     <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.1.3-released">sabre/dav 2.1.3 released</a></h1>
                     <p>We just released sabre/dav 2.1.3.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Feb. 25th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.4.2-release">sabre/vobject 3.4.2 release</a></h1>
-                    <p>We just released sabre/vobject 3.4.2.</article>
                                     </section>
     </div>
 </div>

@@ -3,9 +3,28 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-01-25T21:16:44+00:00</updated>
+    <updated>2016-01-25T21:26:03+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 3.1.1 released]]></title>
+            <link href="http://sabre.io/blog/2016/sabre-dav-3.1.1-release"/>
+            <updated>2016-01-25T21:25:23+00:00</updated>
+            <id>http://sabre.io/blog/2016/sabre-dav-3.1.1-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 3.1.1. This release fixes a regression
+that prevented the browser plugin from working for people using both
+CalDAV scheduling and delegation.</p>
+
+<p>Update sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.1.1/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.1.9 released]]></title>
             <link href="http://sabre.io/blog/2016/sabre-dav-2.1.9-release"/>
@@ -255,26 +274,6 @@ problems in the tree.</p>
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.0.6/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 2.1.8 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-dav-2.1.8-released"/>
-            <updated>2016-01-04T20:03:06+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-dav-2.1.8-released</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.8</p>
-
-<p>This release fixes several small problems related to caching and migrating
-from sabre/dav 2.0.</p>
-
-<p>Update sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.8/Changelog.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

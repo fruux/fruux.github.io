@@ -94,7 +94,7 @@ $eventEmitter-&gt;emit('create');
 
 <p>The name of the event (<code>create</code>) can be any free-form string.</p>
 
-<h2>Priorities</h2>
+<h2 id="priorities">Priorities</h2>
 
 <p>By supplying a priority, you are ensured that subscribers are handled in a
 specific order. The default priority is 100. Anything below that will be
@@ -110,7 +110,7 @@ undefined, but deterministic order.</p>
 }, 50);
 </code></pre>
 
-<h2>Callbacks</h2>
+<h2 id="callbacks">Callbacks</h2>
 
 <p>All default PHP callbacks are supported, so closures are not required.</p>
 
@@ -119,7 +119,7 @@ $eventEmitter-&gt;on('create', ['myClass', 'myMethod']);
 $eventEmitter-&gt;on('create', [$myInstance, 'myMethod']);
 </code></pre>
 
-<h3>Canceling the event handler</h3>
+<h3 id="canceling-the-event-handler">Canceling the event handler</h3>
 
 <p>If any callback returns <code>false</code> the event chain is stopped immediately.</p>
 
@@ -142,7 +142,7 @@ a certain action, and stop execution if they don't.</p>
 
 <p>This is similar to Javascript's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault">preventDefault()</a>.</p>
 
-<h2>Passing arguments</h2>
+<h2 id="passing-arguments">Passing arguments</h2>
 
 <p>Arguments can be passed as an array.</p>
 
@@ -175,7 +175,7 @@ $eventEmitter-&gt;emit('create', [$entityId, &amp;$warnings]);
 print_r($warnings);
 </code></pre>
 
-<h2>Integration into other objects</h2>
+<h2 id="integration-into-other-objects">Integration into other objects</h2>
 
 <p>To add <code>EventEmitter</code> capabilities to any class, you can simply extend it.</p>
 

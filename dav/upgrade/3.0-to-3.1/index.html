@@ -133,7 +133,7 @@ a few backwards compability breaks.</p>
 <p>Unlike other major releases, 3.1 is a smaller update and upgrading to it
 should be relatively painless for most people.</p>
 
-<h2>New features</h2>
+<h2 id="new-features">New features</h2>
 
 <ul>
 <li>This is the first sabre/dav release to support PHP 7. Previous versions had
@@ -159,14 +159,14 @@ improvements that hopefully result in an (even) more stable product.</p>
 
 <p>For a full list of changes, consult the <a href="https://github.com/fruux/sabre-dav/blob/3.1.0/CHANGELOG.md">changelog</a>.</p>
 
-<h2>API Changes and BC breaks</h2>
+<h2 id="api-changes-and-bc-breaks">API Changes and BC breaks</h2>
 
 <p>The following few chapters detail all the BC breaking changes that have been
 made. We've ordered them loosely in order of likelyhood that the changes are
 relevant to you. Chances are that if you have never done any custom sabre/dav
 development, only the first item might be relevant to you.</p>
 
-<h3>Dropped PHP 5.4 support</h3>
+<h3 id="dropped-php-5.4-support">Dropped PHP 5.4 support</h3>
 
 <p>PHP 5.4 is officially no longer supported by the PHP group, and we've also
 dropped support for it. We're taking advantage of several PHP 5.5 features,
@@ -175,7 +175,7 @@ and as a result PHP 5.4 will no longer work.</p>
 <p>If you are still running PHP 5.4, be sure to update. We'll keep supporting
 sabre/dav 3.0 for 12 months though and fix any bugs that crop up.</p>
 
-<h3>We're using sabre/vobject 4</h3>
+<h3 id="we%27re-using-sabre%2Fvobject-4">We're using sabre/vobject 4</h3>
 
 <p>Previous sabre/dav versions used sabre/vobject 3. Version 4 of this library
 has several BC breaking changes itself, which can affect you if you use
@@ -184,7 +184,7 @@ sabre/dav and do things with the sabre/vobject library yourself.</p>
 <p>To help you upgrade your code to sabre/vobject 4, there is a <a href="/vobject/upgrade_to_4/">separate
 documentation page</a> describing the exact changes.</p>
 
-<h3>Exception changes in <code>Sabre\DAV\Client</code>.</h3>
+<h3 id="exception-changes-in-%60sabre%5Cdav%5Cclient%60.">Exception changes in <code>Sabre\DAV\Client</code>.</h3>
 
 <p>The Client class will now throw <code>Sabre\HTTP\ClientHttpException</code> in both
 the <code>propFind()</code> and <code>propPatch()</code> methods in case a HTTP error was returned.</p>

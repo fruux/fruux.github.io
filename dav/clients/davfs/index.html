@@ -132,14 +132,14 @@ up new webdav mounts that directly integrate into your filesystem.</p>
 
 <p>It's also one of the most solid clients out there.</p>
 
-<h2>Connecting</h2>
+<h2 id="connecting">Connecting</h2>
 
 <p>Simply type in:</p>
 
 <pre><code>Enter : mount -t davfs http://urltoyourwebdavserver mymountpoint 
 </code></pre>
 
-<h2>Technical notes</h2>
+<h2 id="technical-notes">Technical notes</h2>
 
 <p>DavFS requires A Class 2 server, otherwise it will go into read-only mode. It
 is possible to go into a read-write mode without a Class 2 server, by
@@ -150,13 +150,13 @@ though a user has written to a file locally, it can take a while before the
 changes actually show up on the server. This can be quite confusing when
 working in teams.</p>
 
-<h3>Sample user agent</h3>
+<h3 id="sample-user-agent">Sample user agent</h3>
 
 <pre><code>davfs2/1.1.2 neon/0.26.2
 davfs2/1.4.7 neon/0.30.0
 </code></pre>
 
-<h3>Properties</h3>
+<h3 id="properties">Properties</h3>
 
 <p>DavFSv2 asks for the following properties from the <code>DAV:</code> namespace</p>
 

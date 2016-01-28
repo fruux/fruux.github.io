@@ -77,12 +77,12 @@
 </aside>
                 <article>
                             <h1>Usage instructions</h1>
-                <h2>Getting started</h2>
+                <h2 id="getting-started">Getting started</h2>
 
 <p>Make sure you followed all the steps in the <a href="/vobject/install">installation instructions</a>,
 and you've included the autoloader in your code.</p>
 
-<h2>A basic parsing example</h2>
+<h2 id="a-basic-parsing-example">A basic parsing example</h2>
 
 <p>Assuming there is a vCard in your local directory, named <code>cowboyhenk.vcf</code>,
 the following complete example will parse it and display the <code>FN</code> property:</p>
@@ -107,9 +107,9 @@ the autoloader, and also that you've called</p>
 
 <p>at the top of your script. This is just to avoid repetition.</p>
 
-<h2>The actual manual</h2>
+<h2 id="the-actual-manual">The actual manual</h2>
 
-<h3>Creating vCards</h3>
+<h3 id="creating-vcards">Creating vCards</h3>
 
 <p>To create a vCard, you can simply instantiate the <code>VCard</code> component, and pass
 the properties you need:</p>
@@ -134,7 +134,7 @@ N:Henk;Cowboy;;Dr.;MD
 END:VCARD
 </code></pre>
 
-<h3>Manipulating properties</h3>
+<h3 id="manipulating-properties">Manipulating properties</h3>
 
 <p>The vCard also allows object-access to manipulate properties:</p>
 
@@ -158,7 +158,7 @@ To add any additional properties, use the <code>add()</code> method on the vCard
 <p>The third argument of the <code>add()</code> method allows you to specify a list of
 parameters.</p>
 
-<h3>Working with parameters</h3>
+<h3 id="working-with-parameters">Working with parameters</h3>
 
 <p>To get access to a parameter, you can simply use array-access:</p>
 
@@ -198,7 +198,7 @@ through them:</p>
 );
 </code></pre>
 
-<h3>Parsing vCard</h3>
+<h3 id="parsing-vcard">Parsing vCard</h3>
 
 <p>To parse a vCard or iCalendar object, simply call:</p>
 
@@ -222,7 +222,7 @@ vCard with a different encoding, you can specify this as the third option:</p>
 <p>Currently ISO-8859-1 and Windows-1252 are supported. This feature appeared in
 vObject 4.</p>
 
-<h3>Reading property values</h3>
+<h3 id="reading-property-values">Reading property values</h3>
 
 <p>For properties that are stored as a string, you can simply call:</p>
 
@@ -237,7 +237,7 @@ can call <code>getParts()</code>.</p>
 );
 </code></pre>
 
-<h3>Looping through properties.</h3>
+<h3 id="looping-through-properties.">Looping through properties.</h3>
 
 <p>Properties such as <code>ADR</code>, <code>EMAIL</code> and <code>TEL</code> may appear more than once in a
 vCard. To loop through them, you can simply throw them in a <code>foreach()</code>
@@ -252,7 +252,7 @@ foreach($vcard-&gt;ADR as $adr) {
 }
 </code></pre>
 
-<h3>vCard property grouping</h3>
+<h3 id="vcard-property-grouping">vCard property grouping</h3>
 
 <p>It's allowed in vCards to group multiple properties together with an arbitrary
 string.</p>
@@ -294,7 +294,7 @@ numbers and display their custom labels, you'd do something like this:</p>
 }
 </code></pre>
 
-<h3>Converting between different vCard versions</h3>
+<h3 id="converting-between-different-vcard-versions">Converting between different vCard versions</h3>
 
 <p>Since sabre/vobject 3.1, there's also a feature to convert between various
 vCard versions. Currently it's possible to convert from vCard 2.1, 3.0 and
@@ -331,7 +331,7 @@ small bits of information going back and forward. For instance, vCard 2.1
 is the only vCard version that supports the <code>AGENT</code> property, so it's
 dropped when going to vCard 3 or higher.</p>
 
-<h3>Validating vCard</h3>
+<h3 id="validating-vcard">Validating vCard</h3>
 
 <p>When you parse a vCard, the parser grabs all the values and does
 basic syntax checking. It does not however, validate every value.</p>
@@ -379,7 +379,7 @@ restrictions (must have a <code>UID</code> property for instance).</p>
 <p>The validator is not perfect, and we improve it when we come across new issues,
 so any suggestions are welcome.</p>
 
-<h2>Support</h2>
+<h2 id="support">Support</h2>
 
 <p>Head over to the <a href="http://groups.google.com/group/sabredav-discuss">SabreDAV mailing list</a> for any questions.</p>
             

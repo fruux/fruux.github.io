@@ -65,6 +65,7 @@
         </ul>
     </div>
 </section>
+
 <section class="box box--trusted">
     <div class="box-wrapper">
         <h1 class="box-headline">Trusted by</h1>
@@ -82,6 +83,7 @@
         </a>
     </div>
 </section>
+
 <section class="box box--lineup">
     <div class="box-wrapper">
         <h1 class="box-headline">The full sabre.io lineup</h1>
@@ -111,6 +113,7 @@
         </a>
     </div>
 </section>
+
 <div class="box box--turquoise">
     <div class="box-wrapper">
         <section class="box box--enterprise">
@@ -159,9 +162,11 @@ version of a package, 12 months after the next major version was released.</arti
                                     </section>
     </div>
 </div>
+
 <figure class="bg--cloudy">
     <img src="http://sabre.io/img/home_background.jpg">
 </figure>
+
 
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 

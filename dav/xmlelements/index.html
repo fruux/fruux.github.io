@@ -133,15 +133,15 @@ using PROPFIND) and some others, which can appear in various responses.</p>
 
 <p>All SabreDAV properties appear in the <code>http://sabredav.org/ns</code> namespace.</p>
 
-<h2>Properties</h2>
+<h2 id="properties">Properties</h2>
 
-<h3>s:email-address</h3>
+<h3 id="s%3Aemail-address">s:email-address</h3>
 
 <p>This property is defined on Principals. If you are making use of
 <code>Sabre\DAVACL\AbstractPrincipalCollection</code> / <code>Sabre\DAVACL\Principal</code> this
 property may be defined. It contains the email address of a principal.</p>
 
-<h3>s:tempFile</h3>
+<h3 id="s%3Atempfile">s:tempFile</h3>
 
 <p>This property is added by the <a href="/dav/temporary-files">TemporaryFileFilterPlugin</a>.
 If a PROPFIND is done on a file that's matched by the TemporaryFileFilter, this
@@ -149,7 +149,7 @@ property will contain 'true'.</p>
 
 <p>This property also appears in 'allprops' responses.</p>
 
-<h3>s:vcard-url</h3>
+<h3 id="s%3Avcard-url">s:vcard-url</h3>
 
 <p>THis property is defined on principals. It contains a relative url, pointing
 to the users' own vcard. This property maps to Addressbook's
@@ -157,44 +157,44 @@ to the users' own vcard. This property maps to Addressbook's
 into a separate property, is because this me-card property is defined on the
 addressbook-home, which doesn't make a ton of sense.</p>
 
-<h2>Non-property xml elements</h2>
+<h2 id="non-property-xml-elements">Non-property xml elements</h2>
 
-<h3>s:code</h3>
+<h3 id="s%3Acode">s:code</h3>
 
 <p>The code element appears in error responses. It will contain an errorcode. In
 most cases the errorcode will be 0, only if an external exception defined an
 errorcode it will show up here.</p>
 
-<h3>s:exception</h3>
+<h3 id="s%3Aexception">s:exception</h3>
 
 <p>The exception element appears in error responses. It will contain the classname
 of the exception that was thrown.</p>
 
-<h3>s:file</h3>
+<h3 id="s%3Afile">s:file</h3>
 
 <p>The file element appears in error responses. It contains the php filename where
 the error originated.</p>
 
-<h3>s:line</h3>
+<h3 id="s%3Aline">s:line</h3>
 
 <p>The line element appears in error responses. It contains the line number where
 the error occured.</p>
 
-<h3>s:message</h3>
+<h3 id="s%3Amessage">s:message</h3>
 
 <p>The message element appears in error responses. It will contain a
 human-readable error description.</p>
 
-<h3>s:sabredav-version</h3>
+<h3 id="s%3Asabredav-version">s:sabredav-version</h3>
 
 <p>The sabredav-version element appears in error responses. It contains the
 sabredav version number.</p>
 
-<h3>s:header</h3>
+<h3 id="s%3Aheader">s:header</h3>
 
 <p>The header can show up in error responses. It will contain the name of the HTTP header that triggered the error. Currently only implemented for the PreconditionFailed error,</p>
 
-<h3>s:stacktrace</h3>
+<h3 id="s%3Astacktrace">s:stacktrace</h3>
 
 <p>The stacktrace element appears in error responses. It will contain the full
 stacktrace for the the error.</p>

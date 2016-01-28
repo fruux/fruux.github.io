@@ -127,7 +127,7 @@
 </aside>
                 <article>
                             <h1>Principals</h1>
-                <h2>What are they?</h2>
+                <h2 id="what-are-they%3F">What are they?</h2>
 
 <p>Principals are, in the most general sense:</p>
 
@@ -159,7 +159,7 @@ assigns this information to the <code>{DAV:}current-user-principal</code> proper
 and caches this information as well, as the groups the current user belongs
 to influences what a user is allowed to see and do on the server.</p>
 
-<h2>Do I need principals?</h2>
+<h2 id="do-i-need-principals%3F">Do I need principals?</h2>
 
 <p>Both <a href="/dav/caldav/">CalDAV</a> and <a href="/dav/carddav/">CardDAV</a> <em>require</em> principals to work and exists.
 If you are not building a CalDAV or CardDAV server, you may not need it.</p>
@@ -167,7 +167,7 @@ If you are not building a CalDAV or CardDAV server, you may not need it.</p>
 <p>You also <em>must</em> use principals to take advantage of the <a href="/dav/acl/">ACL</a> system. But for
 some usecases implementing a fully-fledged ACL system <em>may</em> be overkill.</p>
 
-<h2>What's the quickest way to deal with principals?</h2>
+<h2 id="what%27s-the-quickest-way-to-deal-with-principals%3F">What's the quickest way to deal with principals?</h2>
 
 <p>sabre/dav ships with a 'backend class' that adds principals to your tree.
 Principal information is stored in sqlite or mysql.</p>
@@ -229,7 +229,7 @@ with certain names. It's recommended to just fill in a full name here.</p>
 <p><code>vcardurl</code> is used and managed by the CardDAV plugin to implement the
 so-called "me card" functionality.</p>
 
-<h2>Custom principal backends</h2>
+<h2 id="custom-principal-backends">Custom principal backends</h2>
 
 <p>Many users have a custom authentication system, and also want to integrate
 their principals system with this.</p>
@@ -267,7 +267,7 @@ ignored if you don't care about grouping yet.</li>
 
 <p>As there's much more detail in the actual source files.</p>
 
-<h3>Provisioning</h3>
+<h3 id="provisioning">Provisioning</h3>
 
 <p>Lots of people add automatic provisioning of principals to their servers.
 If you are interested in this, make sure that you add the 'hook' for
@@ -277,7 +277,7 @@ provisioning to your authentication backend, not the principals backend.</p>
 authenticate. The principals system, and in particular getPrincipalsByPath()
 <em>may</em> return false positives.</p>
 
-<h2>Custom principal URL schemes</h2>
+<h2 id="custom-principal-url-schemes">Custom principal URL schemes</h2>
 
 <p>By default sabre/dav assumes the following url structure:</p>
 
@@ -301,7 +301,7 @@ related bits from those steps.</p>
 <p>We also assume in all examples that your company is named <code>Acme</code> and you
 created all your custom classes in the <code>Acme</code> namespace.</p>
 
-<h3>PrincipalBackend</h3>
+<h3 id="principalbackend">PrincipalBackend</h3>
 
 <p>This is the most obvious: you need to alter your principals backend to
 support multiple prefixes.</p>
@@ -315,7 +315,7 @@ principals/groups
 
 <p>And the same thing applies to <code>getPrincipalsByPath</code>.</p>
 
-<h3>Root nodes</h3>
+<h3 id="root-nodes">Root nodes</h3>
 
 <p>Your <code>$nodes</code>, or root nodes that you pass to the server, first had an
 entry like this:</p>
@@ -337,7 +337,7 @@ $nodes = [
 ];
 </code></pre>
 
-<h3>Doing the same for Cal- and CardDAV.</h3>
+<h3 id="doing-the-same-for-cal--and-carddav.">Doing the same for Cal- and CardDAV.</h3>
 
 <p>This is unfortunately a bit worse. It's not possible to correctly override the
 paths for Cal- and CardDAV.</p>

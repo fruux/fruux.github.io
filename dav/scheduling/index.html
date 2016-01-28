@@ -153,7 +153,7 @@ notifications to anyone affected.</p>
 will also automatically update the organizer's event with this information and
 notify him that this has happened.</p>
 
-<h2>Enabling scheduling</h2>
+<h2 id="enabling-scheduling">Enabling scheduling</h2>
 
 <p>To enable the base system, just add the plugin to your server:</p>
 
@@ -162,7 +162,7 @@ notify him that this has happened.</p>
 );
 </code></pre>
 
-<h2>Backend support</h2>
+<h2 id="backend-support">Backend support</h2>
 
 <p>The <code>PDO</code> CalDAV backend has built-in support for local delivery. If you
 created your own CalDAV backend, you must implement the methods from the
@@ -170,7 +170,7 @@ created your own CalDAV backend, you must implement the methods from the
 
 <p>This interface adds 4 new methods for managing objects in a user's inbox.</p>
 
-<h2>Email delivery</h2>
+<h2 id="email-delivery">Email delivery</h2>
 
 <p>If it's not possible to do a local delivery, or your backend does not support
 local delivery yet, it's possible to deliver messages via email. This is
@@ -192,7 +192,7 @@ customize their email templates to subclass the IMipPlugin. It's a solid
 example and hopefully provides enough information to customize your emails
 further.</p>
 
-<h2>Availability</h2>
+<h2 id="availability">Availability</h2>
 
 <p>Since sabre/dav 3.1 <a href="https://tools.ietf.org/html/draft-daboo-calendar-availability-05">availability</a> is supported. This feature allows
 users to specify for example when their working hours are, such as 9am to
@@ -205,7 +205,7 @@ with teams distributed in multiple timezones.</p>
 <p>This feature is enabled automatically, but it will only work if the
 <a href="/dav/property-storage/">PropertyStorage</a> plugin is enabled.</p>
 
-<h2>Limitations</h2>
+<h2 id="limitations">Limitations</h2>
 
 <p>We don't support the full specification yet. Non-exhaustive list of known
 issues:</p>

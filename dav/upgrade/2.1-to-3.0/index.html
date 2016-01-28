@@ -131,7 +131,7 @@
 of incremental improvements that improve the code-base and improve
 compatibility with various clients.</p>
 
-<h2>New features</h2>
+<h2 id="new-features">New features</h2>
 
 <ul>
 <li>All XML parsing code has been completely rewritten to use <a href="/xml/">sabre/xml</a>.
@@ -156,14 +156,14 @@ for every user. See <code>Sabre\DAVACL\FS\HomeCollection</code>.</li>
 plugin if your backend supports it and if you have admin rights.</li>
 </ul>
 
-<h2>API Changes and BC breaks</h2>
+<h2 id="api-changes-and-bc-breaks">API Changes and BC breaks</h2>
 
 <p>The following few chapters detail all the BC breaking changes that have been
 made. We've ordered them loosely in order of likelyhood that the changes are
 relevant to you. Chances are that if you have never done any custom sabre/dav
 development, only the first item might be relevant to you.</p>
 
-<h3>Updated database structure</h3>
+<h3 id="updated-database-structure">Updated database structure</h3>
 
 <p>This only matters if you used the <a href="/dav/property-storage/">property storage</a> PDO backend and
 plugin.</p>
@@ -180,7 +180,7 @@ database changes have to be made as well. If you take advantage of the
 <p>in your terminal. Doing so will display help information on how to do the
 update. You should really make a backup first.</p>
 
-<h3>Changed Authentication backend API.</h3>
+<h3 id="changed-authentication-backend-api.">Changed Authentication backend API.</h3>
 
 <p>This affects you if you created a custom authentication backend.</p>
 
@@ -199,13 +199,13 @@ backends, where each backend can make an attempt to authenticate the user.</p>
 <p>The authentication backends can now also control the <em>exact</em> principal that
 the user will be, allowing for much more complex principal systems.</p>
 
-<h3>Changed browser plugin</h3>
+<h3 id="changed-browser-plugin">Changed browser plugin</h3>
 
 <p>The browser plugin got a lot of new features, but its source also got
 reorganized. If you extended the browser plugin because you wanted to add your
 own branding, it will probably break.</p>
 
-<h3>Removed <code>Sabre\DAV\Client</code> methods.</h3>
+<h3 id="removed-%60sabre%5Cdav%5Cclient%60-methods.">Removed <code>Sabre\DAV\Client</code> methods.</h3>
 
 <p>The following two methods were removed from <code>Sabre\DAV\Client</code>:</p>
 
@@ -218,7 +218,7 @@ own branding, it will probably break.</p>
 finally gone. To achieve the same results, it's possible to call the
 <code>addCurlSetting</code> method.</p>
 
-<h3>Deprecated <code>Sabre\DAV\Client::$propertyMap</code></h3>
+<h3 id="deprecated-%60sabre%5Cdav%5Cclient%3A%3A%24propertymap%60">Deprecated <code>Sabre\DAV\Client::$propertyMap</code></h3>
 
 <p>The <code>Sabre\DAV\Client::$propertyMap</code> property has been deprecated. It still
 works and exists, but will be removed in a future version.</p>
@@ -226,7 +226,7 @@ works and exists, but will be removed in a future version.</p>
 <p>The property is now simply a reference to <code>$client-&gt;xml-&gt;elementMap</code>, which is
 the correct way to use this feature now.</p>
 
-<h3>Changed all constructors for all PDO backends</h3>
+<h3 id="changed-all-constructors-for-all-pdo-backends">Changed all constructors for all PDO backends</h3>
 
 <p>In versions before this one, it was possible to specify database table names
 right in the PDO backend. This allowed you to override the default table
@@ -248,14 +248,14 @@ something like this:</p>
 $backend-&gt;calendarTableName = 'my_calendar_table';
 </code></pre>
 
-<h3>Introducing sabre/uri</h3>
+<h3 id="introducing-sabre%2Furi">Introducing sabre/uri</h3>
 
 <p>sabre/dav now makes use of the new <a href="/uri/">sabre/uri</a> library. Because of this
 occasion we removed the <code>Sabre\DAV\URIUtil</code> class, as all its functions were
 already solved in the new library. If you used this class, take a look at the
 <code>sabre/uri</code> docs to find out how to migrate.</p>
 
-<h3>Renamed <code>UserAddressBooks</code>.</h3>
+<h3 id="renamed-%60useraddressbooks%60.">Renamed <code>UserAddressBooks</code>.</h3>
 
 <p>To improve clarity and consistency, <code>Sabre\CardDAV\UserAddressBooks</code> has been
 renamed to <code>Sabre\CardDAV\AddressBookHome</code>.</p>
@@ -263,7 +263,7 @@ renamed to <code>Sabre\CardDAV\AddressBookHome</code>.</p>
 <p>If you ever needed to instantiate this class manually, make sure you change
 the name.</p>
 
-<h3>Changed class and interface names</h3>
+<h3 id="changed-class-and-interface-names">Changed class and interface names</h3>
 
 <p>Because of the introduction of <a href="/xml/">sabre/xml</a> into sabre/dav, we had to
 rewrite almost every class dealing with xml code. We also took this
@@ -401,7 +401,7 @@ change this to the new class name.</p>
 </tbody>
 </table>
 
-<h3>Deleted deprecated classes</h3>
+<h3 id="deleted-deprecated-classes">Deleted deprecated classes</h3>
 
 <p>Because of the changed XML functionality, and because we wanted to remove code
 that has been deprecated in previous versions, the following classes have been
@@ -441,7 +441,7 @@ removed from the source:</p>
 </tbody>
 </table>
 
-<h3>XML Api changes</h3>
+<h3 id="xml-api-changes">XML Api changes</h3>
 
 <p>If you ever manually wrote or parsed xml or made your own custom properties,
 this might be relevant to you.</p>
@@ -471,7 +471,7 @@ property on the server class. This has now changed.</p>
 <pre><code>$server-&gt;xml-&gt;elementMap['{http://example.org/ns}element'] = 'MyElement';
 </code></pre>
 
-<h3>Support for the <code>Prefer</code> header changed.</h3>
+<h3 id="support-for-the-%60prefer%60-header-changed.">Support for the <code>Prefer</code> header changed.</h3>
 
 <p>sabre/dav supported <a href="http://tools.ietf.org/html/rfc7240">rfc7240</a> before it was an official rfc. Unfortunately
 when it became an rfc, the syntax slightly changed.</p>
@@ -514,7 +514,7 @@ key.</li>
 <li><code>strict</code> and <code>lenient</code> folded into a single <code>handling</code> key.</li>
 </ul>
 
-<h3><code>FSExt</code> no longer stores custom properties.</h3>
+<h3 id="%60fsext%60-no-longer-stores-custom-properties."><code>FSExt</code> no longer stores custom properties.</h3>
 
 <p>Because a few versions ago, the <a href="/dav/property-storage/">property storage</a> plugin was introduced,
 it was no longer deemed needed to also store custom properties in these
@@ -529,7 +529,7 @@ classes:</p>
 way has been provided to migrate this data though, if you do really need this,
 we'll be happy to help you do it. Contact us on the mailing list.</p>
 
-<h3>Creating custom collections</h3>
+<h3 id="creating-custom-collections">Creating custom collections</h3>
 
 <p>If you call <code>$server-&gt;createCollection()</code>, or if you have a custom class
 implementing <code>Sabre\DAV\IExtendedCollection</code>, be aware that instead of a list
@@ -542,7 +542,7 @@ made.</p>
 <p>This was critical for ensuring that the property storage plugin could behave
 as expected for <code>MKCOL</code>.</p>
 
-<h3>The <code>report</code> event changed.</h3>
+<h3 id="the-%60report%60-event-changed.">The <code>report</code> event changed.</h3>
 
 <p>Before 3.0, the <code>report</code> event handlers would get an instance of the
 <code>DOMDocument</code> representing the report. Now they receive the parsed output

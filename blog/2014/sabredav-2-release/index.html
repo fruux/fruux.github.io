@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
 
+    
   
             <title>sabre/dav 2.0 released - sabre/dav</title>
     
@@ -18,9 +19,9 @@
 
     <div class="pagehead-inner">
         <a class="logo" href="http://sabre.io/">
-            <img src="http://sabre.io/img/logo.png" alt="sabre/dav">
-            sabre<span>/dav</span>
-        </a>
+                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
 
         <nav class="nav nav--page">
             <ul>
@@ -47,9 +48,9 @@
             <p>We just released sabre/dav 2.0. The last major release (1.8) was in <a href="http://evertpot.com/sabredav-18-released-with-namespaces/">2012</a>,
 so it's been a long time coming.</p>
 
-<h2 id="new-features">New features</h2>
+<h2>New features</h2>
 
-<h3 id="new-browser">New browser</h3>
+<h3>New browser</h3>
 
 <p><a href="/img/posts/new-browser.png" style="float: right; padding-left: 10px;">
     <img src="/img/posts/new-browser.png" alt="new browser!" class="zoomAbleImage" width="300px" style="box-shadow: 5px 5px 10px #000"/>
@@ -61,7 +62,7 @@ introduced in 2009, so a visual refresh was long due.</p>
 <p>The new browser plugin shows you a lot more information about webdav
 properties as well, making it a more useful debugging tool.</p>
 
-<h3 id="performance">Performance</h3>
+<h3>Performance</h3>
 
 <p>A lot of focus has gone into performance, specifically in relation to Cal- and
 CardDAV. We've been running the bleeding edge sabredav, and we've seen several
@@ -72,7 +73,7 @@ backends to do optimizations that were not possible before.</p>
 
 <p>Lastly, we added WebDAV-Sync support.</p>
 
-<h3 id="webdav-sync">WebDAV-Sync</h3>
+<h3>WebDAV-Sync</h3>
 
 <p>Support for WebDAV-Sync (<a href="http://tools.ietf.org/html/rfc6578">rfc6578</a>) has been added. WebDAV-Sync is used by
 an increasing number of popular Cal- and CardDAV clients. It allows clients to
@@ -86,13 +87,13 @@ add support for WebDAV-Sync to the collections where you want to support it.</p>
 <p>Furthermore, both the default Cal- and CardDAV PDO backends have out of the
 box support.</p>
 
-<h3 id="new-packages">New packages</h3>
+<h3>New packages</h3>
 
 <p>This is the first sabredav release that ships with <a href="/vobject">sabre/vobject</a> 3.0, and
 is also the first release that has part of it's functionality split out into
 two new packages: <a href="/event">sabre/event</a> and <a href="/http">sabre/http</a>.</p>
 
-<h3 id="calendar-subscription-syncing">Calendar subscription syncing</h3>
+<h3>Calendar subscription syncing</h3>
 
 <p>There's a proprietary protocol that allows calendar clients to sync
 subscriptions with a server. Support for this has been added to the CalDAV
@@ -101,7 +102,7 @@ plugin, and is also available in the default PDO backend.</p>
 <p>This protocol is at least supported by <a href="http://www.busymac.com/busycal/">BusyCal</a> and Apple's iOS and OS X
 clients.</p>
 
-<h3 id="jcal-support">jCal support</h3>
+<h3>jCal support</h3>
 
 <p><a href="http://tools.ietf.org/html/draft-ietf-jcardcal-jcal-10">jCal</a> is an upcoming standard for representing iCalendar objects in json.
 sabre/dav now live converts back and forward between iCalendar and jCal, and
@@ -110,7 +111,7 @@ can return jCal everywhere it returns iCalendar.</p>
 <p>We highly recommend using jCal over iCalendar. It's a much better format,
 easier to parse, and likely to use less memory and cpu while parsing.</p>
 
-<h3 id="new-property-system">New property system</h3>
+<h3>New property system</h3>
 
 <p>A big part of DAV protocols is related to storing and retrieving properties
 on resources such as files and calendars.</p>
@@ -119,12 +120,12 @@ on resources such as files and calendars.</p>
 for a great reduction in property-related code and allows for a new feature:
 <a href="/dav/properties">storage of arbitrary properties</a>.</p>
 
-<h3 id="php-5.4">PHP 5.4</h3>
+<h3>PHP 5.4</h3>
 
 <p>The minimum php version of sabre/dav has been increased to PHP 5.4. This was
 needed for a number of reasons, such as better closure support and traits.</p>
 
-<h3 id="and...">And...</h3>
+<h3>And...</h3>
 
 <p>The list of changes is rather massive. Read up on them in the <a href="https://github.com/fruux/sabre-dav/blob/master/ChangeLog.md">ChangeLog</a>
 from <code>1.9.0alpha1</code> onwards.</p>
@@ -133,7 +134,7 @@ from <code>1.9.0alpha1</code> onwards.</p>
 <a href="https://github.com/fruux/sabre-http/blob/master/ChangeLog">changes from sabre/http</a> from 2.0.0 onwards and everything from
 sabre/event.</p>
 
-<h2 id="installation">Installation</h2>
+<h2>Installation</h2>
 
 <p>As always, the zip can be found on the <a href="https://github.com/fruux/sabre-dav/releases/">github releases page</a>, but the
 recommended installation method is using composer:</p>
@@ -141,7 +142,7 @@ recommended installation method is using composer:</p>
 <pre><code>composer install sabre/dav ~2.0.0
 </code></pre>
 
-<h2 id="upgrading">Upgrading</h2>
+<h2>Upgrading</h2>
 
 <p>A lot of things have changed in this release. If you are running a standard
 server, it's likely that you only have to run the database upgrade script,
@@ -152,12 +153,12 @@ changes in your code to keep stuff running.</p>
 
 <p>Drop a line on the <a href="http://groups.google.com/group/sabredav-discuss">mailing list</a> if you run into any issues at all.</p>
 
-<h2 id="support-status">Support status</h2>
+<h2>Support status</h2>
 
 <p>As of right now version <strong>1.7</strong> is no longer supported. <strong>1.8</strong> will be
 supported for an entire year, until May 2015.</p>
 
-<h2 id="thank-you">Thank you</h2>
+<h2>Thank you</h2>
 
 <p>This was literally the largest release we've ever done, seeing the biggest
 diff, most new features, most contributors and longest development time.</p>

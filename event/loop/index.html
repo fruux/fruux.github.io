@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
 
+    
   
             <title>The Event Loop - sabre/event</title>
     
@@ -18,9 +19,9 @@
 
     <div class="pagehead-inner">
         <a class="logo" href="http://sabre.io/">
-            <img src="http://sabre.io/img/logo.png" alt="sabre/event">
-            sabre<span>/event</span>
-        </a>
+                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/event">
+                sabre<span>/event</span>
+                    </a>
 
         <nav class="nav nav--page">
             <ul>
@@ -66,6 +67,8 @@
                             </li>
             <li><a href="http://sabre.io/uri">sabre/uri</a>
                             </li>
+            <li><a href="http://sabre.io/baikal/">Baïkal</a>
+                            </li>
             <li><a href="http://sabre.io/license">License</a></li>
         </ul>
     </nav>
@@ -96,14 +99,14 @@ to happen and trigger events when they do.</p>
 <p>This system also ensures that no CPU is used when there's nothing happening
 for a while, while triggering events as soon as possible.</p>
 
-<h2 id="user-api">User API</h2>
+<h2>User API</h2>
 
 <p>The way the User API is designed, is that there's generally only one instance
 of an event loop.</p>
 
 <p>The event loop is accessed with a set of functions.</p>
 
-<h3 id="running-the-loop">Running the loop</h3>
+<h3>Running the loop</h3>
 
 <p>To start running the loop, simply call:</p>
 
@@ -116,7 +119,7 @@ no more pending events, this function will return.</p>
 <p>If <code>run()</code> is the first thing you call, the function will exit immediately, as
 there is nothing to do.</p>
 
-<h3 id="stopping-the-loop">Stopping the loop</h3>
+<h3>Stopping the loop</h3>
 
 <p>To prevent the loop from continuing, just run:</p>
 
@@ -127,7 +130,7 @@ there is nothing to do.</p>
 <code>stop()</code> on the event loop is a bit similar to calling <code>die()</code> in a whole PHP
 script.</p>
 
-<h3 id="timed-events">Timed events</h3>
+<h3>Timed events</h3>
 
 <p>This event loop has a mechanism similar to javascript's
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setTimeout">window.setTimeout()</a>. The following example executes a function after
@@ -149,7 +152,7 @@ sub-second precision, use a <code>float</code>.</p>
 after 1 second. It's possible that the event gets triggered later, if there was
 different code currently running.</p>
 
-<h3 id="repeated-timed-events">Repeated timed events</h3>
+<h3>Repeated timed events</h3>
 
 <p>Like <code>setTimeout</code>, sabre/event also has a <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval"><code>setInterval</code></a> function.
 <code>setInterval</code> triggers an event repeatedly every x seconds.</p>
@@ -174,7 +177,7 @@ Loop\clearInterval($intervalId);
 <p>Note that the previous example would never stop running, as <code>clearInterval</code> is
 never reached there.</p>
 
-<h3 id="execute-a-function-as-soon-as-possible">Execute a function as soon as possible</h3>
+<h3>Execute a function as soon as possible</h3>
 
 <p>sabre/event also implements an equivalent to Node's <a href="https://nodejs.org/api/process.html#process_process_nexttick_callback_arg">process.nextTick</a>.
 nextTick makes the event loop execute a function as soon as possible.</p>
@@ -188,7 +191,7 @@ Loop\nextTick(function() {
 Loop\run();
 </code></pre>
 
-<h3 id="process-any-pending-events">Process any pending events</h3>
+<h3>Process any pending events</h3>
 
 <p>Sometimes you might want to tell the loop to just execute any events that have
 not been handled yet.</p>
@@ -214,7 +217,7 @@ Loop\tick(true);
 <p>In the last call, the tick function will block right up until there's an event
 that needs to be triggered.</p>
 
-<h3 id="add-io-streams-to-the-loop">Add IO streams to the loop</h3>
+<h3>Add IO streams to the loop</h3>
 
 <p>If you are dealing with streams, you can get the event loop to give you a
 callback as soon as the stream has data in it's buffer (for reading) or when

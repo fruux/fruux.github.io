@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
 
+    
   
             <title>Coroutines - sabre/event</title>
     
@@ -18,9 +19,9 @@
 
     <div class="pagehead-inner">
         <a class="logo" href="http://sabre.io/">
-            <img src="http://sabre.io/img/logo.png" alt="sabre/event">
-            sabre<span>/event</span>
-        </a>
+                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/event">
+                sabre<span>/event</span>
+                    </a>
 
         <nav class="nav nav--page">
             <ul>
@@ -66,6 +67,8 @@
                             </li>
             <li><a href="http://sabre.io/uri">sabre/uri</a>
                             </li>
+            <li><a href="http://sabre.io/baikal/">Baïkal</a>
+                            </li>
             <li><a href="http://sabre.io/license">License</a></li>
         </ul>
     </nav>
@@ -83,7 +86,7 @@ automatically resume the function when the promise has resolved.</p>
 
 <p>To illustrate this, an example will work better.</p>
 
-<h2 id="before">Before</h2>
+<h2>Before</h2>
 
 <pre><code>$promise = someAsyncOperation();
 $promise-&gt;then(function($result)) {
@@ -108,7 +111,7 @@ $promise-&gt;then(function($result)) {
 });
 </code></pre>
 
-<h2 id="after">After</h2>
+<h2>After</h2>
 
 <p>The following code is equivalent:</p>
 
@@ -132,7 +135,7 @@ Event\coroutine(function() {
 });
 </code></pre>
 
-<h2 id="tips-and-tricks">Tips and tricks</h2>
+<h2>Tips and tricks</h2>
 
 <p>The coroutines itself also returns a promise. This promise will resolve with
 the last yielded value or promise. It will reject if there was an uncaught

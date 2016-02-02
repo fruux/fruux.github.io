@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
 
+    
   
             <title>sabre/dav 3.0 released - sabre/dav</title>
     
@@ -18,9 +19,9 @@
 
     <div class="pagehead-inner">
         <a class="logo" href="http://sabre.io/">
-            <img src="http://sabre.io/img/logo.png" alt="sabre/dav">
-            sabre<span>/dav</span>
-        </a>
+                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
 
         <nav class="nav nav--page">
             <ul>
@@ -56,15 +57,15 @@ old rather quickly.</p>
 
 <p>Anyway, back to the subject at hand:</p>
 
-<h2 id="new-features">New Features</h2>
+<h2>New Features</h2>
 
-<h3 id="browser-upgrades">Browser upgrades</h3>
+<h3>Browser upgrades</h3>
 
 <p>The <a href="/dav/browser-plugin/">browser plugin</a> has received a lot of subtle upgrades that should make
 it easier to use. We've removed some of the information that was not useful 99%
 of the time, and added the ability to create new principals in the browser.</p>
 
-<h3 id="authentication-system-overhaul">Authentication system overhaul</h3>
+<h3>Authentication system overhaul</h3>
 
 <p>The authentication system and backends got a new API, which allows for cleaner
 implementation in many cases, and also adds the ability to run multiple
@@ -73,7 +74,7 @@ authentication backends cooperatively.</p>
 <p>This allows the implementor to support HTTP Auth, as well as for example
 OAuth2, or any custom schemes.</p>
 
-<h3 id="nearly-all-xml-code-got-rewritten">Nearly all XML code got rewritten</h3>
+<h3>Nearly all XML code got rewritten</h3>
 
 <p>Back in 2009 I first started experimenting with the idea of replacing all
 <a href="http://ca2.php.net/manual/en/book.dom.php">DOM</a> code with code with PHP's <a href="http://ca2.php.net/manual/en/book.xmlreader.php">XMLReader</a>/<a href="http://ca2.php.net/manual/en/book.xmlreader.php">XMLWriter</a>.</p>
@@ -91,29 +92,29 @@ were not possible before, due to the fact that this new system can read and
 write XML from and to streams, whereas the DOM had no other option but to keep
 objects in memory (which would become in some instances absolutely massive).</p>
 
-<h3 id="%60mkcol%60-can-now-create-new-principals"><code>MKCOL</code> can now create new principals</h3>
+<h3><code>MKCOL</code> can now create new principals</h3>
 
 <p>If your backend has support for it, new principals can now be programmatically
 created.</p>
 
-<h3 id="support-for-a-%22home%22-like-collection">Support for a "home"-like collection</h3>
+<h3>Support for a "home"-like collection</h3>
 
 <p>We added a new collection type that can automatically create a "home"
 directory for every principal, protected by ACL rules.</p>
 
-<h3 id="property-storage-can-now-store-any-complex-xml-property">Property storage can now store any complex XML property</h3>
+<h3>Property storage can now store any complex XML property</h3>
 
 <p>Before, the <a href="/dav/property-storage/">property storage</a> plugin was only able to store simple string
 values for custom XML properties. This has now been changed to allow <em>any</em>
 complex XML value to be stored, thanks to <a href="/xml/">sabre/xml</a>.</p>
 
-<h3 id="changelog">ChangeLog</h3>
+<h3>ChangeLog</h3>
 
 <p>A lot of smaller changes have been made since version 2.1. You can find more
 details in the <a href="https://github.com/fruux/sabre-dav/blob/3.0.0/CHANGELOG.md">ChangeLog</a>. Read from 2.2.0-alpha1 onwards, as most changes
 have been made in the alpha versions.</p>
 
-<h2 id="installation">Installation</h2>
+<h2>Installation</h2>
 
 <p>As always, the zip can be found on the <a href="https://github.com/fruux/sabre-dav/releases">github releases page</a>, but the
 recommended installation method is using composer:</p>
@@ -121,7 +122,7 @@ recommended installation method is using composer:</p>
 <pre><code>composer require sabre/dav ~3.0.0
 </code></pre>
 
-<h2 id="upgrading">Upgrading</h2>
+<h2>Upgrading</h2>
 
 <p>A few backwards compatibility breaks have been made in this release.</p>
 
@@ -134,7 +135,7 @@ chances are that you need to make changes in your code to keep stuff running.</p
 <p>Drop a line on the <a href="http://groups.google.com/group/sabredav-discuss">mailing list</a> if you run into any issues, or
 <a href="/support/">get in touch with us</a> for our commercial support options.</p>
 
-<h2 id="support-status">Support status</h2>
+<h2>Support status</h2>
 
 <p>Due to the 3.0 release, 2.1 now enters maintenance mode. This means that
 version 2.1 of sabre/dav will be actively maintained for the next 12 months.</p>

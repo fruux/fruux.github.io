@@ -71,7 +71,7 @@
 supported events. Every <a href="/dav/plugins">plugin</a> uses just these events to add
 all the advanced functionality.</p>
 
-<h2>Handling an event</h2>
+<h2 id="handling-an-event">Handling an event</h2>
 
 <p>Say we want to implement support for a new HTTP method, called <code>BREW</code>. We can
 use the <code>unknownMethod</code> to handle any HTTP methods SabreDAV does not already
@@ -111,7 +111,7 @@ the server, "we handled the event, you can stop looking for a handler of
 this event".</li>
 </ol>
 
-<h2>Wrapping this in a plugin</h2>
+<h2 id="wrapping-this-in-a-plugin">Wrapping this in a plugin</h2>
 
 <p>If you have a few event handlers, and you would like to combine them into a
 single class, you can turn this into a plugin class.</p>
@@ -162,11 +162,11 @@ coffeepot plugin:</p>
 $server-&gt;addPlugin($coffeePlugin);
 </code></pre>
 
-<h2>Events</h2>
+<h2 id="events">Events</h2>
 
 <p>The following events are supported in the server</p>
 
-<h3><code>report</code></h3>
+<h3 id="%60report%60"><code>report</code></h3>
 
 <p>If an HTTP <code>REPORT</code> method is invoked, all subscribers to this event get the
 opportunity to handle a <code>REPORT</code> request.</p>
@@ -187,7 +187,7 @@ opportunity to handle a <code>REPORT</code> request.</p>
 $server-&gt;subscribeEvent('report','myReport');
 </code></pre>
 
-<h3><code>beforeMethod</code></h3>
+<h3 id="%60beforemethod%60"><code>beforeMethod</code></h3>
 
 <p>beforeMethod is called whenever any http method handler is called.
 this allows the event to override standard behaviour or block requests.</p>
@@ -206,12 +206,12 @@ $server-&gt;subscribeEvent('beforeMethod','blockDELETE');
 
 <p>Note that the <code>$uri</code> argument was added in version 1.3.0</p>
 
-<h3><code>unknownMethod</code></h3>
+<h3 id="%60unknownmethod%60"><code>unknownMethod</code></h3>
 
 <p>unknownMethod can be used to add support for new HTTP verbs (e.g.: <code>POST</code>).
 An example can be seen higher up int the page.</p>
 
-<h3><code>beforeCreateFile</code></h3>
+<h3 id="%60beforecreatefile%60"><code>beforeCreateFile</code></h3>
 
 <p>This event is trigged before new files are created. Using this event it is
 possible to intercept these actions and store them in a different spot.</p>
@@ -234,7 +234,7 @@ possible to intercept these actions and store them in a different spot.</p>
 $server-&gt;subscribeEvent('beforeCreateFile','beforeCreateFile');
 </code></pre>
 
-<h3><code>afterCreateFile</code></h3>
+<h3 id="%60aftercreatefile%60"><code>afterCreateFile</code></h3>
 
 <p>This event is triggered, only if the creation of the file succeeded.</p>
 
@@ -251,7 +251,7 @@ $server-&gt;subscribeEvent('beforeCreateFile','beforeCreateFile');
 $server-&gt;subscribeEvent('afterCreateFile','afterCreateFile');
 </code></pre>
 
-<h3><code>beforeWriteContent</code></h3>
+<h3 id="%60beforewritecontent%60"><code>beforeWriteContent</code></h3>
 
 <p>This event is trigged before files are updated. Using this event it is
 possible to intercept these actions, validate content or block them.</p>
@@ -269,7 +269,7 @@ possible to intercept these actions, validate content or block them.</p>
 $server-&gt;subscribeEvent('beforeWriteContent','beforeWriteContent');
 </code></pre>
 
-<h3><code>afterWriteContent</code></h3>
+<h3 id="%60afterwritecontent%60"><code>afterWriteContent</code></h3>
 
 <p>This event is triggered, only if updating of an existing file succeeded.</p>
 
@@ -286,7 +286,7 @@ $server-&gt;subscribeEvent('beforeWriteContent','beforeWriteContent');
 $server-&gt;subscribeEvent('afterWriteContent','afterWriteContent');
 </code></pre>
 
-<h3><code>beforeBind</code></h3>
+<h3 id="%60beforebind%60"><code>beforeBind</code></h3>
 
 <p>This event is triggered whenever a new node is about to be created in the tree.
 This is for example triggered by <code>PUT</code>, <code>MKCOL</code>, <code>COPY</code> and <code>MOVE</code>.</p>
@@ -303,7 +303,7 @@ This is for example triggered by <code>PUT</code>, <code>MKCOL</code>, <code>COP
 $server-&gt;subscribeEvent('beforeBind','beforeBind');
 </code></pre>
 
-<h3><code>beforeUnbind</code></h3>
+<h3 id="%60beforeunbind%60"><code>beforeUnbind</code></h3>
 
 <p>This event is triggered whenever a node is about to be deleted. If an entire
 tree of nodes is deleted, the event will only trigger once, for the top-level
@@ -322,7 +322,7 @@ case the target resource was being overwritten.</p>
 $server-&gt;subscribeEvent('beforeUnbind','beforeUnbind');
 </code></pre>
 
-<h3><code>afterUnbind</code></h3>
+<h3 id="%60afterunbind%60"><code>afterUnbind</code></h3>
 
 <p>This event is triggered after a node is deleted. If an entire tree of nodes is
 deleted, the event will only trigger once, for the top-level node. The event is
@@ -342,7 +342,7 @@ resource was being overwritten.</p>
 $server-&gt;subscribeEvent('afterUnbind','afterUnbind');
 </code></pre>
 
-<h3><code>beforeLock</code></h3>
+<h3 id="%60beforelock%60"><code>beforeLock</code></h3>
 
 <p>The beforeLock event is triggered right before a resource is locked.
 Intercepting this event allows you to block a users' lock, or change information
@@ -359,7 +359,7 @@ regarding the lock, such as the lock owner or lock timeout.</p>
 $server-&gt;subscribeEvent('beforeLock','beforeLock');
 </code></pre>
 
-<h3><code>beforeUnlock</code></h3>
+<h3 id="%60beforeunlock%60"><code>beforeUnlock</code></h3>
 
 <p>The beforeUnlock event is triggered right before a resource is unlocked.
 Intercepting this event allows you to block the unlock.</p>
@@ -375,7 +375,7 @@ Intercepting this event allows you to block the unlock.</p>
 $server-&gt;subscribeEvent('beforeUnlock','beforeUnlock');
 </code></pre>
 
-<h3><code>beforeGetProperties</code></h3>
+<h3 id="%60beforegetproperties%60"><code>beforeGetProperties</code></h3>
 
 <p><em>Added in version 1.4</em></p>
 
@@ -425,7 +425,7 @@ properties with their values.</p>
 <p>Note that if false is returned from this method, the node will be hidden from
 directory listings and any further processing for properties is cancelled.</p>
 
-<h3><code>beforeGetPropertiesForPath</code></h3>
+<h3 id="%60beforegetpropertiesforpath%60"><code>beforeGetPropertiesForPath</code></h3>
 
 <p><em>Added in version 1.7.8 and 1.8.6</em></p>
 
@@ -444,7 +444,7 @@ properties that are expensive to fetch one-by-one.</p>
 $server-&gt;subscribeEvent('beforeGetPropertiesForPath', 'beforeGetPropertiesForPath');
 </code></pre>
 
-<h3><code>afterGetProperties</code></h3>
+<h3 id="%60aftergetproperties%60"><code>afterGetProperties</code></h3>
 
 <p>This event is fired after all properties for a resource have been collected.
 This allows you to rewrite, add or remove properties. The event receives 3
@@ -489,7 +489,7 @@ arguments:</p>
 $server-&gt;subscribeEvent('afterGetProperties','afterGetProperties');
 </code></pre>
 
-<h3><code>updateProperties</code></h3>
+<h3 id="%60updateproperties%60"><code>updateProperties</code></h3>
 
 <p>This event is fired when properties are about to be updated, using for example
 <code>PROPPATCH</code>. This allows plugins to handle updating certain properties, before
@@ -534,7 +534,7 @@ function updateProperties(&amp;$properties, &amp;$result, \Sabre\DAV\INode $node
 $server-&gt;subscribeEvent('updateProperties','updateProperties');
 </code></pre>
 
-<h3>exception</h3>
+<h3 id="exception">exception</h3>
 
 <p><em>Added in version 1.7</em></p>
 
@@ -542,13 +542,13 @@ $server-&gt;subscribeEvent('updateProperties','updateProperties');
 
 <p>The actual exception is passed as the first argument.</p>
 
-<h2>Other examples</h2>
+<h2 id="other-examples">Other examples</h2>
 
 <p>Check out <code>Sabre\DAV\Browser\Plugin</code>. This plugin generates HTML directory indexes
 for GET requests to collections. This is useful if you want the contents of the
 directory to be viewable by a browser.</p>
 
-<h2>Priority</h2>
+<h2 id="priority">Priority</h2>
 
 <p>Sometimes it's needed to ensure your event handler is the first in the list to
 be fired off. This can be achieved by adding a priority number to the argument

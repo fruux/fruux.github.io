@@ -98,7 +98,7 @@ this boilerplate instead to parse XML:</p>
 $result = $service-&gt;parse($xml);
 </code></pre>
 
-<h2>Converting XML to a PHP array</h2>
+<h2 id="converting-xml-to-a-php-array">Converting XML to a PHP array</h2>
 
 <p>Let's take the following XML as our primary example.</p>
 
@@ -194,7 +194,7 @@ print_r($service-&gt;parse($xml));
     )
 </code></pre>
 
-<h2>Key-Value XML structures</h2>
+<h2 id="key-value-xml-structures">Key-Value XML structures</h2>
 
 <p>However, we can simplify this quite a bit. Our <code>book</code> element pretty much
 looks like a key-value structure, so we can tell the parser to treat it as
@@ -245,7 +245,7 @@ print_r($service-&gt;parse($xml));
 )
 </code></pre>
 
-<h3>Stripping the XML namespaces</h3>
+<h3 id="stripping-the-xml-namespaces">Stripping the XML namespaces</h3>
 
 <p>We added <code>keyValue</code> in our last example. <code>keyValue</code> really is simply a
 function that gets automatically called. We can give that function a default
@@ -302,7 +302,7 @@ print_r($service-&gt;parse($xml));
 )
 </code></pre>
 
-<h3>Parsing the <code>books</code> element as a collection of <code>book</code> items.</h3>
+<h3 id="parsing-the-%60books%60-element-as-a-collection-of-%60book%60-items.">Parsing the <code>books</code> element as a collection of <code>book</code> items.</h3>
 
 <p>Lastly, in our XML object we have a root element <code>books</code> and a repeating child
 element <code>book</code>. This too is a very common pattern in XML structures. We can
@@ -340,18 +340,18 @@ print_r($service-&gt;parse($xml));
 )
 </code></pre>
 
-<h2>Other standard XML parsers</h2>
+<h2 id="other-standard-xml-parsers">Other standard XML parsers</h2>
 
 <p>There's a number of standard XML parsers included. Here's the list:</p>
 
-<h3>keyValue</h3>
+<h3 id="keyvalue">keyValue</h3>
 
 <pre><code>Sabre\Xml\Deserializers\keyValue(Reader $reader, $namespace = null);
 </code></pre>
 
 <p>Example further up in this document.</p>
 
-<h3>enum</h3>
+<h3 id="enum">enum</h3>
 
 <pre><code>Sabre\Xml\Deserializers\enum(Reader $reader, $namespace = null);
 </code></pre>
@@ -407,7 +407,7 @@ print_r($result);
 )
 </code></pre>
 
-<h3>repeatingElements</h3>
+<h3 id="repeatingelements">repeatingElements</h3>
 
 <pre><code>Sabre\Xml\Deserializers\repeatingElements(Reader $reader, $childElementName);
 </code></pre>
@@ -425,7 +425,7 @@ print_r($result);
 <p>It allows to specifically say, <code>collection</code> always has a list of <code>item</code> elements
 and please return those <code>item</code> element's values as an array.</p>
 
-<h3>valueObject</h3>
+<h3 id="valueobject">valueObject</h3>
 
 <pre><code>Sabre\Xml\Deserializers\valueObject(Reader $reader, $className, $namespace);
 </code></pre>
@@ -436,7 +436,7 @@ class.</p>
 
 <p>It's used internally by <code>Sabre\Xml\Service::mapValueObject</code>. Read more <a href="/xml/valueobject/">here</a>.</p>
 
-<h3>XmlFragment</h3>
+<h3 id="xmlfragment">XmlFragment</h3>
 
 <p>In some cases you might want to allow 'free form XML' to be specified in for
 example an API. Atom for instance allows XHTML to be embedded, and WebDAV
@@ -466,7 +466,7 @@ print_r($reader-&gt;parse($xml));
 )
 </code></pre>
 
-<h2>Custom element parsers</h2>
+<h2 id="custom-element-parsers">Custom element parsers</h2>
 
 <p>Lets take this one step further… We have a simple class that represents the
 books document:</p>
@@ -549,7 +549,7 @@ print_r($service-&gt;parse($xml));
 )
 </code></pre>
 
-<h2>Using the XmlDeserializable interface</h2>
+<h2 id="using-the-xmldeserializable-interface">Using the XmlDeserializable interface</h2>
 
 <p>The last example had 2 custom deserializers. We can also integrate straight
 into the classes they are supposed to deserialize.</p>
@@ -614,7 +614,7 @@ $service-&gt;elementMap = [
 print_r($service-&gt;parse($xml));
 </code></pre>
 
-<h2>Using ValueObjects for this instead</h2>
+<h2 id="using-valueobjects-for-this-instead">Using ValueObjects for this instead</h2>
 
 <p>While the former classmapping example is a good way to learn how to write custom
 deserializers, using the 'value objects' feature this could have been simplified
@@ -635,7 +635,7 @@ are a great way to map very simple XML structures to simple PHP classes. As soon
 as either the XML or PHP classes are no longer 'simple', you will likely still
 need to write your own (de-)serializers.</p>
 
-<h2>Summary of parsing XML objects</h2>
+<h2 id="summary-of-parsing-xml-objects">Summary of parsing XML objects</h2>
 
 <ol>
 <li>By default sabre/xml will always parse an XML document into an array.</li>
@@ -651,7 +651,7 @@ implements <code>Sabre\Xml\XmlDeserializable</code>, then that function will be
 called to deserialize the element.</li>
 </ol>
 
-<h2>Tips for custom deserializing functions</h2>
+<h2 id="tips-for-custom-deserializing-functions">Tips for custom deserializing functions</h2>
 
 <p>If you either specify custom callbacks in <code>$elementMap</code>, or you are using
 <code>Sabre\Xml\XmlDeserializable</code>, you will end up with a function that receives
@@ -744,7 +744,7 @@ own, but <em>only</em> during parsing of the subtree.</p>
 }
 </code></pre>
 
-<h2>Validate XML against a XSD</h2>
+<h2 id="validate-xml-against-a-xsd">Validate XML against a XSD</h2>
 
 <p>To validate XML content before parsing, use <code>setSchema()</code> inherited from <code>XMLReader</code></p>
 

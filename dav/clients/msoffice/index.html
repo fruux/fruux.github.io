@@ -77,30 +77,30 @@ you may find useful this page:</p>
 <p>The following observations of the Microsoft WebDAV client in Office was taken
 using Word. Other applications of the suite may behave the same way.</p>
 
-<h2>Technical details</h2>
+<h2 id="technical-details">Technical details</h2>
 
 <p>Microsoft Office (at least Office 2k) uses the user agent:</p>
 
 <pre><code>Microsoft Data Access Internet Publishing Provider DAV
 </code></pre>
 
-<h3>HEAD on collections</h3>
+<h3 id="head-on-collections">HEAD on collections</h3>
 
 <p>MS Office uses HEAD to find out if collections exist if it wants to create a
 new collection. Before SabreDAV 1.1.0 alpha, we returned
 <code>501 Not Implemented</code>, but this has since then been fixed. See <a href="https://github.com/fruux/sabre-dav/issues/100">Issue 100</a>
 for details.</p>
 
-<h3>Authentication</h3>
+<h3 id="authentication">Authentication</h3>
 
 <p>Office understands both HTTP Basic and Digest authentication.</p>
 
-<h3>Reading files</h3>
+<h3 id="reading-files">Reading files</h3>
 
 <p>No problems found downloading and showing a document. Office will always
 attempt to lock a file when opening, using <code>LOCK</code>.</p>
 
-<h3>Writing files</h3>
+<h3 id="writing-files">Writing files</h3>
 
 <p>Locks are required for saving, otherless MS Word will open the file as read
 only.</p>
@@ -119,7 +119,7 @@ the lock anymore, so if another client checks the lock after the timeout, the
 lock will be released. This behaviour was observed in the Beta, so it may be
 corrected by the final product version.</p>
 
-<h3>Lockroot</h3>
+<h3 id="lockroot">Lockroot</h3>
 
 <p>It was discovered that certain versions of Office break if the
 <code>{DAV:}lockdiscovery</code> property contains a <code>{DAV:}lockroot</code> element.</p>
@@ -132,7 +132,7 @@ corrected by the final product version.</p>
 <p>Hiding it hasn't caused any issues for other clients, so it should be safe to call this.
 This issue has so far been reported for both Office 2000, and office 2003 clients.</p>
 
-<h3>Properties</h3>
+<h3 id="properties">Properties</h3>
 
 <p>Microsoft office may perform the following request to update a file's properties:</p>
 
@@ -151,7 +151,7 @@ This issue has so far been reported for both Office 2000, and office 2003 client
 <p>However, it appears to disregard any existing locks on the resource, and
 attempt to perform this request without any supplied lock tokens.</p>
 
-<h3>Office 2011 for mac notes</h3>
+<h3 id="office-2011-for-mac-notes">Office 2011 for mac notes</h3>
 
 <p>When using the "Open URL" feature from Office 2011, it makes the following PROPFIND request:</p>
 
@@ -171,12 +171,12 @@ Host: localhost:80
 &lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;D:propfind xmlns:D="DAV:"&gt;&lt;D:prop&gt;&lt;D:resourcetype/&gt;&lt;D:getetag/&gt;&lt;D:getcontentlength/&gt;&lt;D:getmodifiedby/&gt;&lt;D:creationdate/&gt;&lt;D:getlastmodified/&gt;&lt;D:lockdiscovery/&gt;&lt;D:supportedlock/&gt;&lt;/D:prop&gt;&lt;/D:propfind&gt;
 </code></pre>
 
-<h4>{DAV:}supportedlock</h4>
+<h4 id="%7Bdav%3A%7Dsupportedlock">{DAV:}supportedlock</h4>
 
 <p>This client had issues with how we encoded the <code>{DAV:}supportedlock</code>
 property. This was fixed in SabreDAV version 1.7.4 and 1.8.2.</p>
 
-<h4>{DAV:}getlastmodified</h4>
+<h4 id="%7Bdav%3A%7Dgetlastmodified">{DAV:}getlastmodified</h4>
 
 <p>This client also has issues with our encoding for 'getlastmodified', which
 used to look something like this:</p>
@@ -188,7 +188,7 @@ used to look something like this:</p>
 compatible with a different, older microsoft product. This is also fixed in
 version 1.7.4 / 1.8.2.</p>
 
-<h4>Base url</h4>
+<h4 id="base-url">Base url</h4>
 
 <p>It was reported that read-write access could not be achieved when running
 SabreDAV on a url like <code>/server.php/file.docx</code>. After switching to the root

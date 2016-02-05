@@ -74,7 +74,7 @@ server that has a personal space for files for each user.</p>
 to write the logic. This tutorial assumes that you've followed and understood
 the <a href="/dav/gettingstarted/">Getting Started</a> and <a href="/dav/virtual-filesystems/">Virtual Filesystems</a> documentation.</p>
 
-<h2>The Problem</h2>
+<h2 id="the-problem">The Problem</h2>
 
 <p>It's not very hard to create a collection that has a directory for each user.</p>
 
@@ -171,7 +171,7 @@ $server-&gt;exec();
 you the info, but there's a problem: <code>getUserName()</code> always returns <code>null</code>
 at that point in time.</p>
 
-<h2>The simple solution</h2>
+<h2 id="the-simple-solution">The simple solution</h2>
 
 <p>The authentication plugin only starts doing work <em>after</em> the server has been
 started with <code>$server-&gt;exec()</code>. The easiest way to work around this, is by
@@ -208,7 +208,7 @@ a user is allowed to have access to a specific collection.</p>
 <p>Just call <code>$this-&gt;authPlugin-&gt;getCurrentUser()</code> and return the nodes that are
 appropriate for each user.</p>
 
-<h2>The better solution</h2>
+<h2 id="the-better-solution">The better solution</h2>
 
 <p>While the previous solution may be good enough for many, it's not our
 preferred solution.</p>
@@ -522,7 +522,7 @@ $server-&gt;addPlugin($aclPlugin);
 $server-&gt;exec();
 </code></pre>
 
-<h2>The sabre/dav 3.0 solution</h2>
+<h2 id="the-sabre%2Fdav-3.0-solution">The sabre/dav 3.0 solution</h2>
 
 <p>Since sabre/dav 3.0 the last few classes are now actually built in. Simply add
 <code>Sabre\DAVACL\FS\HomeCollection</code> to your tree.</p>

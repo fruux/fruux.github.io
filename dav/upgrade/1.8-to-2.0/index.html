@@ -69,7 +69,7 @@
                             <h1>Upgrading from SabreDAV 1.8 to 2.0</h1>
                 <p>SabreDAV 2.0 has <a href="/blog/2014/sabredav-2-release/">finally been released</a> after almost 2 years of work.</p>
 
-<h2>New stuff</h2>
+<h2 id="new-stuff">New stuff</h2>
 
 <ul>
 <li>Support for <a href="http://tools.ietf.org/html/rfc6578">WebDAV-Sync (rfc6578)</a>.</li>
@@ -107,16 +107,16 @@ looks much better.</li>
 <li><a href="https://github.com/fruux/sabre-http/blob/2.0.3/ChangeLog">sabre/http</a></li>
 </ul>
 
-<h2>API Changes and BC breaks</h2>
+<h2 id="api-changes-and-bc-breaks">API Changes and BC breaks</h2>
 
-<h3>Now requires PHP 5.4</h3>
+<h3 id="now-requires-php-5.4">Now requires PHP 5.4</h3>
 
 <p>If you are still running PHP 5.3, you must not upgrade SabreDAV. SabreDAV 1.8
 will be maintained for bugfixes for some time, but you should consider upgrading
 your PHP version to PHP 5.4, to take advantage of the latest and greatest, and
 get a big speed-up in the process.</p>
 
-<h3>Database changes for PDO backends</h3>
+<h3 id="database-changes-for-pdo-backends">Database changes for PDO backends</h3>
 
 <p>The PDO backends got a number of changes, mainly to speed things up, but also
 to provide support for new features.</p>
@@ -130,7 +130,7 @@ warranty is given for lost data.</p>
 <p>To run the database upgrade, simply start <code>./bin/migrate20.php</code> from the SabreDAV
 project. This script will give you more information about it's arguments.</p>
 
-<h3>Taking advantage of WebDAV-sync</h3>
+<h3 id="taking-advantage-of-webdav-sync">Taking advantage of WebDAV-sync</h3>
 
 <p>This affects you if you were running a Cal or CardDAV server with the default
 PDO backend.</p>
@@ -145,7 +145,7 @@ add the following line to your server file to turn on WebDAV-sync:</p>
 For high-load systems, you should see significant improvements in CPU, Memory
 and bandwidth usage.</p>
 
-<h3>Upgraded to sabre/vobject 3</h3>
+<h3 id="upgraded-to-sabre%2Fvobject-3">Upgraded to sabre/vobject 3</h3>
 
 <p>If you've done any work with sabre/vobject, and you should also read the
 <a href="https://github.com/fruux/sabre-vobject/blob/master/doc/MigratingFrom2to3.md">migration instructions</a> from the vobject project page.</p>
@@ -154,7 +154,7 @@ and bandwidth usage.</p>
 large amount of improvements over sabre/vobject 2, but also breaks a few
 things.</p>
 
-<h3>Event / Plugin system got a massive overhaul</h3>
+<h3 id="event-%2F-plugin-system-got-a-massive-overhaul">Event / Plugin system got a massive overhaul</h3>
 
 <p>This affects you if you wrote your own plugins, or if you used
 <code>subscribeEvent</code>  or <code>broadcastEvent</code> manually.</p>
@@ -201,7 +201,7 @@ bodies for the event handlers have been changed to use new arguments.</p>
 
 <p>More on the method-handling process in the next chapter.</p>
 
-<h3>Switched to PSR-4</h3>
+<h3 id="switched-to-psr-4">Switched to PSR-4</h3>
 
 <p>We changed out autoloading mechanism to switch from <a href="http://www.php-fig.org/psr/psr-0/">psr-0</a> to <a href="http://www.php-fig.org/psr/psr-4/">psr-4</a>.
 If you used <code>vendor/autoload.php</code> this makes absolutely no difference, but if
@@ -224,12 +224,12 @@ lib/Sabre/CalDAV
 lib/Sabre/CardDAV
 </code></pre>
 
-<h3>Removed deprectated autoloader script</h3>
+<h3 id="removed-deprectated-autoloader-script">Removed deprectated autoloader script</h3>
 
 <p><code>lib/Sabre/autoload.php</code> was already deprectated in versin 1.7.0, but now it
 got removed. If you were still using this, switch to <code>vendor/autoload.php</code>.</p>
 
-<h3>Events related to HTTP method handling</h3>
+<h3 id="events-related-to-http-method-handling">Events related to HTTP method handling</h3>
 
 <p>The beforeMethod event has changed quite a bit, and the unknownMethod event
 had been completely removed.</p>
@@ -301,7 +301,7 @@ that the method is handled, and no other system has to do any handling.</p>
 that the method has been executed, or re-write the responsebody after it has
 been generated.</p>
 
-<h3>CalDAV BackendInterface adds a new method</h3>
+<h3 id="caldav-backendinterface-adds-a-new-method">CalDAV BackendInterface adds a new method</h3>
 
 <p>This affects you, if you wrote your own CalDAV backend.</p>
 
@@ -311,7 +311,7 @@ Implementing this can result in significant speed-ups.</p>
 <p>If you extended <code>AbstractBackend</code>, there already is a default implementation,
 that lazily falls back on calling <code>getCalendarObject</code>.</p>
 
-<h3>CardDAV BackendInterface adds a new method</h3>
+<h3 id="carddav-backendinterface-adds-a-new-method">CardDAV BackendInterface adds a new method</h3>
 
 <p>This affects you, if you wrote your own CardDAV backend.</p>
 
@@ -321,7 +321,7 @@ Implementing this can result in significant speed-ups.</p>
 <p>If you extended <code>AbstractBackend</code>, there already is a default implementation,
 that lazily falls back on calling <code>getCard</code>.</p>
 
-<h3>CalDAV and CardDAV PDO backends now have support for WebDAV-Sync</h3>
+<h3 id="caldav-and-carddav-pdo-backends-now-have-support-for-webdav-sync">CalDAV and CardDAV PDO backends now have support for WebDAV-Sync</h3>
 
 <p>Support for WebDAV-Sync means that every change that's happening in any
 calendar or addressbook is now recorded.</p>
@@ -338,7 +338,7 @@ don't register a change in the database, a client may never see this change.</p>
 be 'lost changes'. The best recommendation I can give is to have a good look
 at the new PDO backends and see what's going on there.</p>
 
-<h3>Property updating has changed.</h3>
+<h3 id="property-updating-has-changed.">Property updating has changed.</h3>
 
 <p>This is relevant to you if you:</p>
 
@@ -439,7 +439,7 @@ the calendar description:</p>
 <p>As you can see in the previous example, the <code>handle()</code> method can be used to
 do multiple properties at once by supplying the list of properties as an array.</p>
 
-<h3>The <code>updateProperties</code> event is no more</h3>
+<h3 id="the-%60updateproperties%60-event-is-no-more">The <code>updateProperties</code> event is no more</h3>
 
 <p>The <code>updateProperties</code> event on the server is now called <code>propPatch</code>, and
 looks like this:</p>
@@ -450,7 +450,7 @@ looks like this:</p>
 });
 </code></pre>
 
-<h3><code>beforeGetProperties</code> and <code>afterGetProperties</code> and <code>updateProperties</code> events have been removed.</h3>
+<h3 id="%60beforegetproperties%60-and-%60aftergetproperties%60-and-%60updateproperties%60-events-have-been-removed."><code>beforeGetProperties</code> and <code>afterGetProperties</code> and <code>updateProperties</code> events have been removed.</h3>
 
 <p>These three events are now replaced by two new events:</p>
 
@@ -462,7 +462,7 @@ looks like this:</p>
 <p>Usage instructions can be found on the <a href="/dav/writing-plugins">writing plugins</a>
 documentation.</p>
 
-<h3><code>Sabre\DAV\IProperties</code> has a new API</h3>
+<h3 id="%60sabre%5Cdav%5Ciproperties%60-has-a-new-api"><code>Sabre\DAV\IProperties</code> has a new API</h3>
 
 <p>If you implement <code>Sabre\DAV\IProperties</code> or ever created a tree node that
 implemented an <code>updateProperties()</code> method, pay attention.</p>
@@ -518,13 +518,13 @@ this is how that method may look like:</p>
 }
 </code></pre>
 
-<h3>Updated <code>updateCalendar</code> and <code>updateAddressBook</code> in CalDAV and CardDAV backends.</h3>
+<h3 id="updated-%60updatecalendar%60-and-%60updateaddressbook%60-in-caldav-and-carddav-backends.">Updated <code>updateCalendar</code> and <code>updateAddressBook</code> in CalDAV and CardDAV backends.</h3>
 
 <p>Due to the upgraded property system, both updateCalendar and updateAddressBook
 got similar changes. Each now receive a <code>propPatch</code> object instead of an array
 with mutations.</p>
 
-<h3>Updates in the sabre/http API</h3>
+<h3 id="updates-in-the-sabre%2Fhttp-api">Updates in the sabre/http API</h3>
 
 <p>The lib/Sabre/HTTP portion of the library moved to it's own package, and got an
 almost 100% rewrite.</p>
@@ -534,7 +534,7 @@ changed. This is most likely true if you ever created an instance of a class in
 the <code>Sabre\HTTP</code> namespace, you did something with Authentication or something
 with the <code>Request</code> and <code>Response</code> objects.</p>
 
-<h4>The Request object</h4>
+<h4 id="the-request-object">The Request object</h4>
 
 <p>Old syntax:</p>
 
@@ -575,7 +575,7 @@ the cgi variables from <code>$_SERVER</code>. The new, improved syntax looks lik
 );
 </code></pre>
 
-<h4>The Response object</h4>
+<h4 id="the-response-object">The Response object</h4>
 
 <p>Before, the response object would automatically call <code>header()</code> and send the
 response body as soon as possible.</p>
@@ -602,7 +602,7 @@ $response-&gt;setBody('&lt;?xml version="1.0"?&gt;...etc');
 \Sabre\HTTP\Sapi::sendResponse($response);
 </code></pre>
 
-<h4>Authentication</h4>
+<h4 id="authentication">Authentication</h4>
 
 <p>The authentication-related classes have moved into their own namespace.
 The new class names are:</p>
@@ -626,7 +626,7 @@ following 3 arguments are now required:</p>
 <p><code>$realm</code> is just a single string. <code>$request</code> must be a Request object, and
 <code>$response</code> and instance of Response.</p>
 
-<h3>Custom WebDAV serialization slightly changed</h3>
+<h3 id="custom-webdav-serialization-slightly-changed">Custom WebDAV serialization slightly changed</h3>
 
 <p>If you implemented your own custom, complex WebDAV properties, using
 <code>Sabre\DAV\Property</code> as a base-class, this affects you.</p>
@@ -640,7 +640,7 @@ they should be mapped to.</p>
 <p>All you likely have to do, is to just add that new argument to the method
 declaration, to ensure PHP doesn't emit any warnings.</p>
 
-<h3>Functionality moved from the Server class to CorePlugin</h3>
+<h3 id="functionality-moved-from-the-server-class-to-coreplugin">Functionality moved from the Server class to CorePlugin</h3>
 
 <p>This version of SabreDAV adds a 'CorePlugin', which uses the plugin system to
 provide basic functionality. The plugin is automatically added.</p>
@@ -667,7 +667,7 @@ for some reason, your code will break.</p>
 <li><code>httpReport</code></li>
 </ul>
 
-<h3>Removed Version-related constants</h3>
+<h3 id="removed-version-related-constants">Removed Version-related constants</h3>
 
 <p><code>Sabre\DAV\Version::STABILITY</code> no longer exists. The stability is now
 incorporated in the VERSION constant.</p>
@@ -681,19 +681,19 @@ contained redundant information:</p>
 <li><code>Sabre\DAVACL\Version</code></li>
 </ul>
 
-<h3>Changed Sabre\DAV\Server::getCopyMoveInfo</h3>
+<h3 id="changed-sabre%5Cdav%5Cserver%3A%3Agetcopymoveinfo">Changed Sabre\DAV\Server::getCopyMoveInfo</h3>
 
 <p>This method now requires a <code>RequestInterface</code> object as its first argument.
 This object will be used to figure out all the relevant information, rather
 than the global SabreDAV state.</p>
 
-<h3>Sabre\DAV\URLUtil has moved</h3>
+<h3 id="sabre%5Cdav%5Curlutil-has-moved">Sabre\DAV\URLUtil has moved</h3>
 
 <p>The new classname for this utility is Sabre\HTTP\URLUtil.</p>
 
 <p>The old class still exists, but will be removed in a future version.</p>
 
-<h3>Sabre\DAV\Server::NODE constants are removed.</h3>
+<h3 id="sabre%5Cdav%5Cserver%3A%3Anode-constants-are-removed.">Sabre\DAV\Server::NODE constants are removed.</h3>
 
 <p>The <code>Sabre\DAV\Server::NODE_FILE</code> and <code>Sabre\DAV\Server::NODE_COLLECTION</code> no
 longer exist.</p>

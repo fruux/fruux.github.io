@@ -50,9 +50,9 @@
 <p>This release has a few new features, but also changes a few things. For most
 people the upgrade should be seamless though.</p>
 
-<h2>Changes</h2>
+<h2 id="changes">Changes</h2>
 
-<h3>Better RRULE parser</h3>
+<h3 id="better-rrule-parser">Better RRULE parser</h3>
 
 <p>We now have much better support for <code>RRULE</code>, and especially exceptions to
 recurrences. This solved several bugs that have been outstanding for quite
@@ -66,7 +66,7 @@ be removed in a future version.</p>
 
 <p>Some more info about this feature <a href="/vobject/recurrence/">here</a>.</p>
 
-<h3>iTip support</h3>
+<h3 id="itip-support">iTip support</h3>
 
 <p>VObject now supports generating and parsing <a href="/vobject/itip/">iTip</a> messages. iTip messages
 are a type of iCalendar object that are used for things like invites, replies
@@ -74,7 +74,7 @@ and cancellations.</p>
 
 <p>More info about this feature on the <a href="/vobject/itip/">iTip page</a>.</p>
 
-<h3>Switched to PSR-4</h3>
+<h3 id="switched-to-psr-4">Switched to PSR-4</h3>
 
 <p>The directory structure of the VObject library changed. Everything that was
 previously in <code>lib/Sabre/VObject</code> is now moved to <code>lib/</code>.</p>
@@ -85,11 +85,11 @@ this.</p>
 
 <p>We also removed <code>lib/Sabre/VObject/includes.php</code>.</p>
 
-<h3>Changelog</h3>
+<h3 id="changelog">Changelog</h3>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.3.0/ChangeLog.md">Github</a></p>
 
-<h2>Upgrading</h2>
+<h2 id="upgrading">Upgrading</h2>
 
 <p>To update your sabre/vobject, edit composer.json to make sure that it includes
 a line like this:</p>

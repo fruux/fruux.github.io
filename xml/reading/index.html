@@ -202,7 +202,7 @@ such:</p>
 
 <pre><code>$service = new Sabre\Xml\Service();
 $service-&gt;elementMap = [
-    '{http://example.org/books}book' =&gt; 'Sabre\Xml\Deserializers\keyValue',
+    '{http://example.org/books}book' =&gt; 'Sabre\Xml\Deserializer\keyValue',
 ];
 
 print_r($service-&gt;parse($xml));
@@ -257,7 +257,7 @@ matches that specific namespace.</p>
 <pre><code>$service = new Sabre\Xml\Service();
 $service-&gt;elementMap = [
     '{http://example.org/books}book' =&gt; function(Reader $reader) {
-        return Sabre\Xml\Deserializers\keyValue($reader, 'http://example.org/books');
+        return Sabre\Xml\Deserializer\keyValue($reader, 'http://example.org/books');
     }
 ];
 
@@ -312,10 +312,10 @@ an even simpler array:</p>
 <pre><code>$service = new Sabre\Xml\Service();
 $service-&gt;elementMap = [
     '{http://example.org/books}book' =&gt; function(Reader $reader) {
-        return Sabre\Xml\Deserializers\keyValue($reader, 'http://example.org/books');
+        return Sabre\Xml\Deserializer\keyValue($reader, 'http://example.org/books');
     },
     '{http://example.org/books}books' =&gt; function(Reader $reader) {
-        return Sabre\Xml\Deserializers\repeatingElements($reader, '{http://example.org/books}book');
+        return Sabre\Xml\Deserializer\repeatingElements($reader, '{http://example.org/books}book');
     },
 ];
 
@@ -346,14 +346,14 @@ print_r($service-&gt;parse($xml));
 
 <h3 id="keyvalue">keyValue</h3>
 
-<pre><code>Sabre\Xml\Deserializers\keyValue(Reader $reader, $namespace = null);
+<pre><code>Sabre\Xml\Deserializer\keyValue(Reader $reader, $namespace = null);
 </code></pre>
 
 <p>Example further up in this document.</p>
 
 <h3 id="enum">enum</h3>
 
-<pre><code>Sabre\Xml\Deserializers\enum(Reader $reader, $namespace = null);
+<pre><code>Sabre\Xml\Deserializer\enum(Reader $reader, $namespace = null);
 </code></pre>
 
 <p>This deserializer turns a bunch of xml elements into a flat PHP array.
@@ -369,7 +369,7 @@ Specifically it's intended for structures such as this:</p>
 <p>Parsing this:</p>
 
 <pre><code>$service = new Sabre\Xml\Service();
-$service-&gt;elementMap['{urn:fruit}fruit'] = 'Sabre\Xml\Deserializers\enum';
+$service-&gt;elementMap['{urn:fruit}fruit'] = 'Sabre\Xml\Deserializer\enum';
 $result = $service-&gt;parse($xml);
 
 print_r($result);
@@ -390,7 +390,7 @@ stripped out. Example:</p>
 
 <pre><code>$service = new Sabre\Xml\Service();
 $service-&gt;elementMap['{urn:fruit}fruit'] = function($reader) {
-    return Sabre\Xml\Deserializers\enum($reader, 'urn:fruit');
+    return Sabre\Xml\Deserializer\enum($reader, 'urn:fruit');
 };
 $result = $service-&gt;parse($xml);
 
@@ -409,7 +409,7 @@ print_r($result);
 
 <h3 id="repeatingelements">repeatingElements</h3>
 
-<pre><code>Sabre\Xml\Deserializers\repeatingElements(Reader $reader, $childElementName);
+<pre><code>Sabre\Xml\Deserializer\repeatingElements(Reader $reader, $childElementName);
 </code></pre>
 
 <p>repeatingElements is specifically tailored for XML structures that look like this:</p>
@@ -427,7 +427,7 @@ and please return those <code>item</code> element's values as an array.</p>
 
 <h3 id="valueobject">valueObject</h3>
 
-<pre><code>Sabre\Xml\Deserializers\valueObject(Reader $reader, $className, $namespace);
+<pre><code>Sabre\Xml\Deserializer\valueObject(Reader $reader, $className, $namespace);
 </code></pre>
 
 <p>The valueObject deserializer function allows you to turn an XML element into
@@ -509,7 +509,7 @@ $service-&gt;elementMap = [
     '{http://example.org/books}book' =&gt; function($reader) {
         $book = new Book();
         // Borrowing a parser from the KeyValue class.
-        $keyValue = Sabre\Xml\Deserializers\keyValue($reader, 'http://example.org/books');
+        $keyValue = Sabre\Xml\Deserializer\keyValue($reader, 'http://example.org/books');
 
         if (isset($keyValue['title'])) {
             $book-&gt;title = $keyValue['title'];
@@ -683,7 +683,7 @@ deserializer functions to do the parsing for you:</p>
 
 <pre><code>function myDeserializer(Sabre\Xml\Reader $reader) {
 
-    $keyValue = Sabre\Xml\Deserializers\keyValue($reader);
+    $keyValue = Sabre\Xml\Deserializer\keyValue($reader);
     return 'foo';
 
 }

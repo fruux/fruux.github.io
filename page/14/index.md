@@ -139,6 +139,11 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Jun. 24th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0">sabre/event 2.0 release</a></h1>
+                    <p>We just released sabre/event 2.0.0. This releases adds a few features, and
+also slightly alters the API.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Jun. 12th, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.2-release">sabre/dav 2.0.2 release</a></h1>
                     <p>We just released sabre/dav 2.0.2.</article>
@@ -155,11 +160,6 @@ to work on PHP versions older than 5.4.14.</article>
                     <time>Jun. 2nd, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/jcal-rfc">jCal released as rfc7265</a></h1>
                     <p>The IETF just made <a href="http://tools.ietf.org/html/rfc7265">jCal</a> available as <a href="http://tools.ietf.org/html/rfc7265">rfc7265</a></article>
-                <hr />                            <article class="blog-entry">
-                    <time>May. 28th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabredav-2.0.1-release">sabre/dav 2.0.1 released</a></h1>
-                    <p>We just released sabre/dav 2.0.1. Two regressions have been found related
-to PROPFIND requests.</article>
                                     </section>
     </div>
 </div>

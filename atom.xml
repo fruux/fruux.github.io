@@ -3,9 +3,33 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-02-09T20:38:50+00:00</updated>
+    <updated>2016-02-14T23:48:34+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/xml 1.4.0 released]]></title>
+            <link href="http://sabre.io/blog/2016/sabre-xml-1.4.0-release"/>
+            <updated>2016-02-14T23:47:24+00:00</updated>
+            <id>http://sabre.io/blog/2016/sabre-xml-1.4.0-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/xml 1.4.0. This release fixes a number of problems
+related to serializing value objects, and in particular array properties.</p>
+
+<p>We also introduced a BC break. Value objects with properties that are set
+to null or empty arrays are now skipped, as we feel that this is a more
+sane default. It could influence your xml output though, so if you use
+value objects, keep a close eye on if this affects you.</p>
+
+<p>Update sabre/xml by running:</p>
+
+<pre><code>composer update sabre/xml
+</code></pre>
+
+<p>If that didn't update your sabre/xml, make sure you are requiring <code>^1.4.0</code> in
+your <code>composer.json</code>.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-xml/blob/1.4.0/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 3.1.1 released]]></title>
             <link href="http://sabre.io/blog/2016/sabre-dav-3.1.1-release"/>
@@ -250,30 +274,6 @@ has a line that looks like this:</p>
 </code></pre>
 
 <p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.0.1/CHANGELOG.md">Github</a>.</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 3.0.6 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-dav-3.0.6-released"/>
-            <updated>2016-01-04T21:29:32+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-dav-3.0.6-released</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 3.0.6.</p>
-
-<p>This release fixes a number of issues.</p>
-
-<p>There were issues in the <code>migrateto20.php</code> upgrade script, and caching
-problems in the tree.</p>
-
-<p>Updating is recommended.</p>
-
-<p>Update sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.0.6/CHANGELOG.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

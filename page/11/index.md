@@ -139,6 +139,10 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Nov. 22nd, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1.1-release">sabre/dav 2.1.1 release</a></h1>
+                    <p>We just released sabre/dav 2.1.1. Upgrading is highly recommended.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Nov. 20th, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1-release">sabre/dav 2.1 released</a></h1>
                     <p>We just released sabre/dav version 2.1. This release comes about 6 months
@@ -155,10 +159,6 @@ after the last major release, so that's nicely on track!</article>
                     <time>Oct. 9th, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0.1-release">sabre/event 2.0.1 release</a></h1>
                     <p>We just released sabre/event 2.0.1.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Oct. 9th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.3-release">sabre/vobject 3.3.3 release</a></h1>
-                    <p>We just released sabre/vobject 3.3.3.</article>
                                     </section>
     </div>
 </div>

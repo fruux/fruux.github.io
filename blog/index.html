@@ -45,6 +45,35 @@
                 <p></p>
 
 <article class="blog-entry">
+    <time>February 14th, 2016</time>
+    <h1><a href="http://sabre.io/blog/2016/sabre-xml-1.4.0-release">sabre/xml 1.4.0 released</a></h1>
+    <p>We just released sabre/xml 1.4.0. This release fixes a number of problems
+related to serializing value objects, and in particular array properties.</p>
+
+<p>We also introduced a BC break. Value objects with properties that are set
+to null or empty arrays are now skipped, as we feel that this is a more
+sane default. It could influence your xml output though, so if you use
+value objects, keep a close eye on if this affects you.</p>
+
+<p>Update sabre/xml by running:</p>
+
+<pre><code>composer update sabre/xml
+</code></pre>
+
+<p>If that didn't update your sabre/xml, make sure you are requiring <code>^1.4.0</code> in
+your <code>composer.json</code>.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-xml/blob/1.4.0/CHANGELOG.md">Github</a></p>
+
+</article>
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>January 25th, 2016</time>
     <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.1-release">sabre/dav 3.1.1 released</a></h1>
     <p>We just released sabre/dav 3.1.1. This release fixes a regression

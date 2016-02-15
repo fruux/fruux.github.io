@@ -3,7 +3,7 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-02-15T21:31:45+00:00</updated>
+    <updated>2016-02-15T21:37:25+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -11,7 +11,9 @@
             <link href="http://sabre.io/blog/2016/baikal-joins-sabre-io"/>
             <updated>2016-02-15T21:28:57+00:00</updated>
             <id>http://sabre.io/blog/2016/baikal-joins-sabre-io</id>
-            <content type="html"><![CDATA[<p>For a long time Baïkal has been one of the most popular implementations of
+            <content type="html"><![CDATA[<p><img src="/img/baikal.png" style="width: 100%; max-width: 300px; float: right; padding: 10px" /></p>
+
+<p>For a long time Baïkal has been one of the most popular implementations of
 sabre/dav. Baïkal fills one of the biggest gaps that out-of-the-box sabre/dav
 has: an easy to use installer and admin interface. It's the best choice if
 you're looking for a light-weight caldav/carddav server.</p>

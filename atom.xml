@@ -3,9 +3,98 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-02-14T23:48:34+00:00</updated>
+    <updated>2016-02-15T21:31:45+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[Baïkal joins sabre.io]]></title>
+            <link href="http://sabre.io/blog/2016/baikal-joins-sabre-io"/>
+            <updated>2016-02-15T21:28:57+00:00</updated>
+            <id>http://sabre.io/blog/2016/baikal-joins-sabre-io</id>
+            <content type="html"><![CDATA[<p>For a long time Baïkal has been one of the most popular implementations of
+sabre/dav. Baïkal fills one of the biggest gaps that out-of-the-box sabre/dav
+has: an easy to use installer and admin interface. It's the best choice if
+you're looking for a light-weight caldav/carddav server.</p>
+
+<p>However, since a while development for this project has stagnated a little bit.
+The last release (0.2.7) was from January 2014. The result of this was that
+many users of Baïkal were on an older version of sabre/dav and there were quite
+a bit of open support tickets on Github.</p>
+
+<p>A lot of this had to do with the development of Baïkal 2. This version was
+going to be a complete rewrite based on Symfony components and React. While
+much of the development focus had been on that new version, users of the
+existing system did not get all the attention they needed.</p>
+
+<p>So we've had a talk with the lead maintainer for Baïkal (Jérôme Schneider from
+<a href="http://netgusto.com/">Netgusto</a>), and proposed to bring Baïkal under the 'sabre.io' umbrella of
+projects. What this means in practice is that:</p>
+
+<ul>
+<li>We're moving the existing website and documentation over from
+baikal-server.com to sabre.io.</li>
+<li>We're now helping with support, and closed over a hundred tickets already.</li>
+<li>We're taking over maintenance of Baikal 0.x, and today we're releasing 0.3.1.</li>
+<li>Eventually we will release a 1.0 version of Baikal, unless Baikal 2 is ready
+first.</li>
+</ul>
+
+<h2 id="ba%E3%AFkal-0.3.1">Baïkal 0.3.1</h2>
+
+<p>Baïkal 0.3.1 is now the recommended version of Baïkal. This release fixes the
+most reported issues with Baikal, and also:</p>
+
+<ul>
+<li>Upgrades sabre/dav from version 1.8 to 3.1.</li>
+<li>Supports PHP 7.</li>
+<li>Makes the minimum PHP version 5.5.</li>
+<li>Adds support for calendar/addressbook export.</li>
+<li>Adds support for WebDAV-Sync.</li>
+</ul>
+
+<p>Effective immediately, this is the only supported Baïkal version.</p>
+
+<p>We will also continue to make fixes and improvements in this branch of
+development, as they come up.</p>
+
+<p>Downloads are now distributed via <a href="https://github.com/fruux/Baikal/releases">Github</a>. If you are upgrading from
+version 0.2.7, you can find the upgrade instructions <a href="/baikal/upgrade/">here</a>.</p>
+
+<h2 id="relationship-between-ba%E3%AFkal%2C-ba%E3%AFkal-2-%26-sabre%2Fkatana">Relationship between Baïkal, Baïkal 2 &amp; sabre/katana</h2>
+
+<p>For those following this project, you might also be aware that we've already
+had a project with very similar goals on sabre.io called <a href="/katana/">katana</a>.
+So with Baïkal, Baïkal 2 and sabre/katana combined, there are effectively
+three active projects that all overlap in the use-case they address.</p>
+
+<p>We haven't fully decided yet what route to take with these. Eventually we would
+like to end up with a single active project that addresses this main use-case.
+So down the road we'll try to find some way to merge these projects and combine
+the best parts of all of them. Baïkal 2 in particular has a beautiful
+interface, and sabre/katana had strong benefits because its goal was to make it
+fully run as a javascript fat client, allowing it to be used for other
+sabre/dav implementations such as Owncloud, and even non-sabre/dav
+installations.</p>
+
+<p>The biggest factor in development of the katana project is simply lack of
+funding, which means that we can't afford to spend time on it to bring it to a
+1.0. This is not unlike Baïkal and Baïkal 2, which has for a large part been a
+"labor of love" by it's author Jérôme Schneider.</p>
+
+<p>So what we at sabre.io and fruux commit to is:</p>
+
+<ul>
+<li>Continuous maintenance and support for Baikal 0.x.</li>
+<li>Eventually release this as Baikal 1.0.</li>
+</ul>
+
+<p>As for sabre/katana and Baïkal 2... It's hard to make promises. They are done
+when they are done, and we'll keep a look at for companies interested in
+funding or sponsoring development of these. Also, we're looking for more
+maintainers / developers for these. If you're interested, drop us a line! Any
+level of experience welcome.</p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/xml 1.4.0 released]]></title>
             <link href="http://sabre.io/blog/2016/sabre-xml-1.4.0-release"/>
@@ -250,30 +339,6 @@ either <a href="/event/">sabre/event</a> 2.0 or 3.0.</p>
 </code></pre>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/4.2.0/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 4.0.1 release]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-vobject-4.0.1-release"/>
-            <updated>2016-01-04T21:40:55+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-vobject-4.0.1-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 4.0.1.</p>
-
-<p>This version contains a small change related to iTIP messages. When we generate
-a <code>CANCEL</code>, message the object now contains a <code>DTEND</code>.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 4.0.1, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~4.0.1"
-</code></pre>
-
-<p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.0.1/CHANGELOG.md">Github</a>.</p>
 ]]></content>
         </entry>
     </feed>

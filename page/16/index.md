@@ -139,34 +139,10 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
-                    <time>Feb. 15th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/baikal-joins-sabre-io">Baïkal joins sabre.io</a></h1>
-                    <p>For a long time Baïkal has been one of the most popular implementations of
-sabre/dav. Baïkal fills one of the biggest gaps that out-of-the-box sabre/dav
-has: an easy to use installer and admin interface. It's the best choice if
-you're looking for a light-weight caldav/carddav server.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Feb. 14th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-xml-1.4.0-release">sabre/xml 1.4.0 released</a></h1>
-                    <p>We just released sabre/xml 1.4.0. This release fixes a number of problems
-related to serializing value objects, and in particular array properties.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jan. 25th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.1-release">sabre/dav 3.1.1 released</a></h1>
-                    <p>We just released sabre/dav 3.1.1. This release fixes a regression
-that prevented the browser plugin from working for people using both
-CalDAV scheduling and delegation.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jan. 25th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-2.1.9-release">sabre/dav 2.1.9 released</a></h1>
-                    <p>We just released sabre/dav 2.1.9, which contains a fix to enable PHP 7
-support. This release includes sabre/vobject 3.5.0 which was also fixed
-to support PHP 7.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jan. 12th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.7-release">sabre/dav 3.0.7 released</a></h1>
-                    <p>If you've been following this blog, you might have seen it coming. We just
-released sabre/dav 3.0.7. This release supports PHP 7.</article>
+                    <time>Mar. 31st, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/new-website">New website launched!</a></h1>
+                    <p>You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
+never had a proper website, and we've always just hosted from Google Code.</article>
                                     </section>
     </div>
 </div>
@@ -196,9 +172,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/';
+    var disqus_identifier = '/page/16';
     var disqus_title = '';
-    var disqus_url = 'http://sabre.io/';
+    var disqus_url = 'http://sabre.io/page/16';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

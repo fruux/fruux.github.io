@@ -82,7 +82,7 @@ attempt to create these types of files, and basically set these files aside.</p>
 created earlier, the temporary file filter will respond by returning the
 actual uploaded file, without poluting your 'real' data.</p>
 
-<h2 id="supported-temporary-files">Supported temporary files</h2>
+<h2>Supported temporary files</h2>
 
 <ul>
 <li>OS/X Resource forks (<code>._files</code>)</li>
@@ -95,7 +95,7 @@ actual uploaded file, without poluting your 'real' data.</p>
 <p>Requests for more types of files is appreciated. We want to make this thing as
 effective as possible.</p>
 
-<h2 id="usage">Usage</h2>
+<h2>Usage</h2>
 
 <p>To use this plugin, just add it to the server.</p>
 
@@ -108,7 +108,7 @@ $tffp = new DAV\TemporaryFileFilterPlugin('/path/to/temporary/directory');
 $server-&gt;addPlugin($tffp);
 </code></pre>
 
-<h2 id="a-warning">A warning</h2>
+<h2>A warning</h2>
 
 <p>It is <em>not</em> recommended to use this for standard file shares, where data
 integrity is the most imporant. Other files may match these patterns, or
@@ -117,7 +117,7 @@ applications may store important data in these files.</p>
 <p>The single intended use-case is situations such as the earlier example.
 Places where the data you're receiving is strictly controlled.</p>
 
-<h2 id="cleaning-up">Cleaning up</h2>
+<h2>Cleaning up</h2>
 
 <p>Currently the TemporaryFileFilter doesn't clean up temporary files. It is
 recommended currently to create a cron-job to clean up files older than say, 24

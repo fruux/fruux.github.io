@@ -72,7 +72,7 @@ compatibility breaks.</p>
 
 <p>This page lists them all.</p>
 
-<h2 id="new-features">New features</h2>
+<h2>New features</h2>
 
 <ul>
 <li>We finally have support for CalDAV scheduling, as defined in
@@ -109,9 +109,9 @@ hook into this system and gain tremendous speed.</li>
 <li><a href="https://github.com/fruux/sabre-http/blob/3.0.0/ChangeLog.md">sabre/http</a></li>
 </ul>
 
-<h2 id="api-changes-and-bc-breaks">API Changes and BC breaks</h2>
+<h2>API Changes and BC breaks</h2>
 
-<h3 id="database-structure-changes">Database structure changes</h3>
+<h3>Database structure changes</h3>
 
 <p>If you use the default <code>PDO</code> backend for CalDAV, you need to migrate to the
 lastest database structure.</p>
@@ -122,7 +122,7 @@ warranty is given for lost data.</p>
 <p>To run the database upgrade, simply start <code>./bin/migrate21.php</code> from the SabreDAV
 project. This script will give you more information about it's arguments.</p>
 
-<h3 id="caldav-backends-have-a-new-method">CalDAV backends have a new method</h3>
+<h3>CalDAV backends have a new method</h3>
 
 <p>Every CalDAV backend must now implement a new method:
 <code>getCalendarObjectByUID</code>. If you are not using the default PDO backend, but
@@ -134,7 +134,7 @@ possible to optimize this quite a bit.</p>
 
 <p>Note that this is mainly used for <a href="/dav/scheduling/">Scheduling</a> support.</p>
 
-<h3 id="renamed-classes">Renamed classes</h3>
+<h3>Renamed classes</h3>
 
 <p>We have renamed a few classes:</p>
 
@@ -147,7 +147,7 @@ possible to optimize this quite a bit.</p>
 in sabre/dav 3.0. If you instantiated any of these classes, make sure you
 use the new names.</p>
 
-<h3 id="the-imiphandler-has-been-removed">The iMipHandler has been removed</h3>
+<h3>The iMipHandler has been removed</h3>
 
 <p>The <a href="/dav/imiphandler/">imipHandler</a> has been removed entirely. This class was used
 in the past to work around an iCal bug.</p>
@@ -159,7 +159,7 @@ in the past to work around an iCal bug.</p>
 has been replaced by a new <a href="/dav/scheduling/">iMip plugin</a>. The benefit of this plugin, is
 that it works for every caldav client, and not just broken iCal versions.</p>
 
-<h3 id="support-for-free-busy-reports-has-moved-to-a-new-plugin">Support for free-busy reports has moved to a new plugin</h3>
+<h3>Support for free-busy reports has moved to a new plugin</h3>
 
 <p>sabre/dav supported a 'freebusy' report for a long time. This report was
 used by several clients, but was actually part of the <a href="/dav/scheduling/">scheduling</a>
@@ -174,7 +174,7 @@ server:</p>
 <pre><code>$server-&gt;addPlugin(new Sabre\CalDAV\Schedule\Plugin());
 </code></pre>
 
-<h3 id="support-for-notifications-has-moved-to-a-new-plugin">Support for notifications has moved to a new plugin</h3>
+<h3>Support for notifications has moved to a new plugin</h3>
 
 <p>If you wrote a CalDAV backend that supports notifications (for share invites
 and replies), you need to now explictly turn on a plugin for this to work.</p>
@@ -188,7 +188,7 @@ server:</p>
 <pre><code>$server-&gt;addPlugin(new Sabre\CalDAV\Notifications\Plugin());
 </code></pre>
 
-<h3 id="vcards-now-return-a-different-content-type.">vCards now return a different content-type.</h3>
+<h3>vCards now return a different content-type.</h3>
 
 <p>When doing a <code>GET</code> request on a vCard, we always returned the following header:</p>
 
@@ -202,7 +202,7 @@ server:</p>
 
 <p>If you relied on the old behavior, make sure you update this.</p>
 
-<h3 id="updating-table-names-in-pdo-backends-now-work-differently">Updating table names in PDO backends now work differently</h3>
+<h3>Updating table names in PDO backends now work differently</h3>
 
 <p>A few people always found it important to use their own table names for the
 various PDO backends, one major reason is that this would allow people to
@@ -227,7 +227,7 @@ using arguments still works, but will be removed in version 3.0.</p>
 <li><code>Sabre\CardDAV\Backend\PDO</code></li>
 </ul>
 
-<h3 id="propertystorage-classes-now-have-a-%60move%60-method.">PropertyStorage classes now have a <code>move</code> method.</h3>
+<h3>PropertyStorage classes now have a <code>move</code> method.</h3>
 
 <p>If you implemented your own <code>Sabre\DAV\PropertyStorage\Backend</code> class, you must
 now implement the new <code>move</code> method.</p>
@@ -242,7 +242,7 @@ also be moved with it.</p>
 <p>The new <code>move</code> method will be called when a HTTP <code>MOVE</code> is done, and allows
 you to re-assign all the properties to the new location.</p>
 
-<h3 id="principal-backends-now-have-a-%60findbyuri%60-method">Principal backends now have a <code>findByUri</code> method</h3>
+<h3>Principal backends now have a <code>findByUri</code> method</h3>
 
 <p>If you implemented your own <code>PrincipalBackend</code> class, you must now implement
 the <code>findByUri</code> method as well.</p>
@@ -256,7 +256,7 @@ user inbox.</p>
 <p>It's possible to just return <code>null</code> from this method, but this will prevent
 local invite delivery.</p>
 
-<h3 id="objecttree-and-tree%5Cfilesystem-classes-have-been-removed">ObjectTree and Tree\FileSystem classes have been removed</h3>
+<h3>ObjectTree and Tree\FileSystem classes have been removed</h3>
 
 <p>The <code>Sabre\DAV\ObjectTree</code> and <code>Sabre\DAV\Tree\FileSystem</code> classes both
 extended <code>Sabre\DAV\Tree</code>.</p>
@@ -272,7 +272,7 @@ created by <code>Sabre\DAV\Server</code>, but if you did use this extension poin
 optimizing moves, we now recommend to implement <code>Sabre\DAV\IMoveTarget</code> in
 your Collection classes instead.</p>
 
-<h3 id="sabre%2Fhttp-changes">sabre/http changes</h3>
+<h3>sabre/http changes</h3>
 
 <p>The <a href="/http/">sabre/http</a> package has been upgraded to version 3.0. Several
 BC breaking changes have been made, specifically in how methods related
@@ -283,7 +283,7 @@ you should make sure that it still works with the new behavior.</p>
 
 <p>For more details, <a href="/blog/2014/sabre-http-3.0.0-release/">read the blogpost</a>.</p>
 
-<h3 id="new-zip-structure">New ZIP structure</h3>
+<h3>New ZIP structure</h3>
 
 <p>The zip distribution now has a new directory structure. Before a part of the
 source was in the <code>lib/</code> directory, and another part in the <code>vendor/</code>

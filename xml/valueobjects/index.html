@@ -79,7 +79,7 @@
                 <p>Since version 1.3, sabre/xml comes with a new facility to map XML elements to
 PHP classes, in two directions: Value Objects.</p>
 
-<h2 id="setup">Setup</h2>
+<h2>Setup</h2>
 
 <p>To demonstrate, lets take the following (partial) atom feed:</p>
 
@@ -161,7 +161,7 @@ $service-&gt;mapValueObject('{http://www.w3.org/2005/Atom}entry', Entry::class);
 <p>The <code>::class</code> construct basically returns a full class name. Because it's no
 longer specified as a string, you can import classes into the current scope.</p>
 
-<h2 id="parsing">Parsing</h2>
+<h2>Parsing</h2>
 
 <p>After that, all it takes to parse the atom feed is:</p>
 
@@ -176,7 +176,7 @@ you can also use the <code>expect</code> method instead of <code>parse</code>.</
 // Feed is an instance of My\Atom\Feed;
 </code></pre>
 
-<h2 id="writing">Writing</h2>
+<h2>Writing</h2>
 
 <p>Writing is similarly easy. Given that you have a <code>$feed</code> variable which refers
 to a fully setup <code>My\Atom\Feed</code> object, all you have to do is call the following:</p>
@@ -184,7 +184,7 @@ to a fully setup <code>My\Atom\Feed</code> object, all you have to do is call th
 <pre><code>$xml = $service-&gt;writeValueObject($feed);
 </code></pre>
 
-<h2 id="how-it-works">How it works</h2>
+<h2>How it works</h2>
 
 <p>When you pass a classname to <code>mapValueObject</code>, sabre/xml automatically creates
 an instance of that class when it comes across the element name you specified.</p>
@@ -226,7 +226,7 @@ was defaulted to an empty array. This signals <code>sabre/xml</code> that multip
 <code>&lt;author&gt;</code> and <code>&lt;entry&gt;</code> elements may appear as children and it will append
 those to the array.</p>
 
-<h2 id="under-the-hood">Under the hood</h2>
+<h2>Under the hood</h2>
 
 <p>Ultimately this only works for simple mappings. As soon as your objects have
 multiple namespaces, or if you need to parse out attributes, ValueObjects are
@@ -291,7 +291,7 @@ class Link {
 <p>Under the hood, that's also how the <code>mapValueObject</code> operates. It adds a
 mapping to both the <code>$elementMap</code> and <code>$classMap</code>.</p>
 
-<h2 id="a-more-complete-atom-example">A more complete atom example</h2>
+<h2>A more complete atom example</h2>
 
 <p>We've built a full atom parser for demonstrational purposes. You can find it
 on <a href="https://github.com/fruux/sabre-xml-atom" title="Atom XML parser for PHP">GitHub</a> and <a href="https://packagist.org/packages/sabre/xml-atom" title="Atom XML parser for PHP">Packagist</a>.</p>

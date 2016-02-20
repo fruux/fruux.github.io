@@ -3,7 +3,7 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-02-16T21:25:22+00:00</updated>
+    <updated>2016-02-20T21:23:01+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -41,7 +41,7 @@ baikal-server.com to sabre.io.</li>
 first.</li>
 </ul>
 
-<h2 id="ba%E3%AFkal-0.3.1">Baïkal 0.3.1</h2>
+<h2>Baïkal 0.3.1</h2>
 
 <p>Baïkal 0.3.1 is now the recommended version of Baïkal. This release fixes the
 most reported issues with Baikal, and also:</p>
@@ -62,7 +62,7 @@ development, as they come up.</p>
 <p>Downloads are now distributed via <a href="https://github.com/fruux/Baikal/releases">Github</a>. If you are upgrading from
 version 0.2.7, you can find the upgrade instructions <a href="/baikal/upgrade/">here</a>.</p>
 
-<h2 id="relationship-between-ba%E3%AFkal%2C-ba%E3%AFkal-2-%26-sabre%2Fkatana">Relationship between Baïkal, Baïkal 2 &amp; sabre/katana</h2>
+<h2>Relationship between Baïkal, Baïkal 2 &amp; sabre/katana</h2>
 
 <p>For those following this project, you might also be aware that we've already
 had a project with very similar goals on sabre.io called <a href="/katana/">katana</a>.

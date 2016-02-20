@@ -67,7 +67,7 @@
 </aside>
                 <article>
                             <h1>Building a CardDAV client</h1>
-                <h2 id="what-is-this-document%3F">What is this document?</h2>
+                <h2>What is this document?</h2>
 
 <p>As server developers, we get a lot of questions on how to interact with a
 CardDAV server. This document explains how to integrate correctly with a
@@ -75,7 +75,7 @@ CardDAV server.</p>
 
 <p>This document (should) apply for <em>any</em> CardDAV server, not just SabreDAV.</p>
 
-<h2 id="clients">Clients</h2>
+<h2>Clients</h2>
 
 <p>Before you build your own client, there's a chance there's already a client
 avaible for your programming language.</p>
@@ -86,7 +86,7 @@ a tad easier. More information can be found <a href="/dav/davclient">on this wik
 <p>We'd love to have a list here for CardDAV clients. So know one?
 <a href="/support">Let us know</a>.</p>
 
-<h2 id="high-level-protocol">High-level protocol</h2>
+<h2>High-level protocol</h2>
 
 <p>CardDAV is defined by <a href="https://tools.ietf.org/html/rfc6352">rfc6352</a>. CardDAV is heavily inspired by it's
 counterpart CalDAV, and is mostly regarded as simpler.</p>
@@ -102,7 +102,7 @@ added to this list (<code>PROPFIND</code>, <code>PROPPATCH</code>, <code>REPORT<
 smart to simply use a stock HTTP client for your platform, if your platform
 does not already have a specialized CardDAV client.</p>
 
-<h2 id="vcards">vCards</h2>
+<h2>vCards</h2>
 
 <p>Every contact is submitted as a vCard. Every compliant CardDAV client or
 Server <em>must</em> support vCard 3.0 (<a href="https://tools.ietf.org/html/rfc2425">rfc2425</a> and <a href="https://tools.ietf.org/html/rfc2426">rfc2426</a>).
@@ -161,7 +161,7 @@ vCards, you should either:</p>
 <li>Use a parser that somebody already wrote for your programming language.</li>
 </ul>
 
-<h3 id="vcard-parsers%2C-per-language">vCard parsers, per language</h3>
+<h3>vCard parsers, per language</h3>
 
 <table>
 <thead>
@@ -188,7 +188,7 @@ vCards, you should either:</p>
 
 <p>Know of any other good vCard parsers? Let me know so I can list them.</p>
 
-<h2 id="xml">XML</h2>
+<h2>XML</h2>
 
 <p>CardDAV servers also use XML for various things:</p>
 
@@ -198,7 +198,7 @@ vCards, you should either:</p>
 <li>Finding out if vCards or addressbooks have changed.</li>
 </ul>
 
-<h2 id="retain-full-vcards%21">Retain full vCards!</h2>
+<h2>Retain full vCards!</h2>
 
 <p>In most cases, when integrating with foreign API's, you will figure out the
 remote data model, and write code to map that to the data model in your
@@ -255,7 +255,7 @@ are stitched back in.</p>
 relevant to the user.</li>
 </ul>
 
-<h3 id="our-recommendation">Our recommendation</h3>
+<h3>Our recommendation</h3>
 
 <ol>
 <li>Download the vCard</li>
@@ -285,7 +285,7 @@ would love to hear it), <em>not</em> ensuring that original vCard is kept as clo
 to the original as possible is guaranteed to trigger bugs and edge-cases for
 all sorts of CardDAV clients.</p>
 
-<h2 id="typical-urls">Typical urls</h2>
+<h2>Typical urls</h2>
 
 <p>Note that the following url structure is typical for SabreDAV, but may be
 different for other servers. All these urls should be discovered by a client,
@@ -322,14 +322,14 @@ but listing these here helps with illustrating the examples that follow:</p>
 </tbody>
 </table>
 
-<h2 id="authentication">Authentication</h2>
+<h2>Authentication</h2>
 
 <p>Servers typically use HTTP Digest or HTTP Basic authentication. Your client
 should already support these. The Google CardDAV API uses OAuth2.</p>
 
-<h2 id="operations">Operations</h2>
+<h2>Operations</h2>
 
-<h3 id="retrieving-addressbook-information">Retrieving addressbook information</h3>
+<h3>Retrieving addressbook information</h3>
 
 <p>To receive information about a URL, we use the <code>PROPFIND</code> method.
 In this case we're going to ask for the addressbooks display name and a
@@ -412,7 +412,7 @@ as the <code>404</code> and the <code>200</code> are <em>not</em> related to the
 (<code>/addressbooks/johndoe/contacts</code>). The statuscodes are re-used to return
 infromation about the individual properties.</p>
 
-<h3 id="downloading-objects">Downloading objects</h3>
+<h3>Downloading objects</h3>
 
 <p>Now we download every single object in this addressbook. To do this, we use a
 <code>REPORT</code> method.</p>
@@ -489,7 +489,7 @@ rely on, so don't make any assumptions.</p>
 <p>The url and the UID have no meaningful relationship, so treat both those items
 as separate unique identifiers.</p>
 
-<h3 id="finding-out-if-anything-changed">Finding out if anything changed</h3>
+<h3>Finding out if anything changed</h3>
 
 <p>To see if anything in an addressbook changed, we simply request the ctag again
 on the addressbook. If the ctag did not change, you still have the latest copy.</p>
@@ -580,7 +580,7 @@ Content-Type: application/xml; charset=utf-8
 <p>This request will simply return a multi-status again with the addressbook-data and
 etag.</p>
 
-<h3 id="a-small-note-about-writing-code-for-this.">A small note about writing code for this.</h3>
+<h3>A small note about writing code for this.</h3>
 
 <p>If you read this far and understood what's been said, you may have realized that
 it's a bit cumbersome to have a separate step for the initial sync, and
@@ -589,7 +589,7 @@ subsequent updates.</p>
 <p>It would totally be possible to skip the 'initial sync', and just use
 addressbook-query and addressbook-multiget REPORTS for the initial sync as well.</p>
 
-<h2 id="updating-a-contact">Updating a contact</h2>
+<h2>Updating a contact</h2>
 
 <p>Updating a vCard is rather simple:</p>
 
@@ -620,13 +620,13 @@ after to figure out how the server changed the contact.</p>
 
 <p>A few notes:</p>
 
-<h3 id="don%27t-change-the-uid">Don't change the UID</h3>
+<h3>Don't change the UID</h3>
 
 <p>The <code>UID</code> and the url of the object are important to not change. Changing
 either will highly confuse other clients and the server <em>should</em> reject those
 changes (although they don't always).</p>
 
-<h2 id="creating-a-contact">Creating a contact</h2>
+<h2>Creating a contact</h2>
 
 <p>Creating a contact is almost identical, except that you (as a client) are
 responsible for determining the url of the object, and UID.</p>
@@ -650,7 +650,7 @@ ETag: "21345-324"
 <p>Similar to updating, an ETag is often returned, but there are cases where this
 is not true.</p>
 
-<h2 id="deleting-a-contact">Deleting a contact</h2>
+<h2>Deleting a contact</h2>
 
 <p>Deleting is simple enough:</p>
 
@@ -658,7 +658,7 @@ is not true.</p>
 If-Match: "2134-314"
 </code></pre>
 
-<h2 id="speeding-up-sync-with-webdav-sync">Speeding up Sync with WebDAV-Sync</h2>
+<h2>Speeding up Sync with WebDAV-Sync</h2>
 
 <p>WebDAV-Sync is a protocol extension that is defined in <a href="https://tools.ietf.org/html/rfc6578">rfc6578</a>.
 Because this extension was defined later, some servers may not support this
@@ -691,7 +691,7 @@ request <code>{DAV}sync-token</code> on the addressbook you wish to sync.</p>
 <p>Technically, a server may support 'sync' on one addressbook, and it may not
 support it on another, although this is probably rare.</p>
 
-<h3 id="getting-the-first-sync-token">Getting the first sync-token</h3>
+<h3>Getting the first sync-token</h3>
 
 <p>Initially, we just request a sync token when asking for address book
 information:</p>
@@ -731,7 +731,7 @@ Even though a number appears in the url, you are not allowed to attach any
 meaning to that url. Some servers may have use an increasing number,
 another server may use a completely random string.</p>
 
-<h3 id="receiving-changes">Receiving changes</h3>
+<h3>Receiving changes</h3>
 
 <p>After a sync token has been obtained, and the client already has the initial
 copy of the addressbook, the client is able to request all changes since the
@@ -802,7 +802,7 @@ all previous examples it has been a child of <code>d:propstat</code>.</p>
 <p>The other difference with the other multi-status examples, is that this one
 has a <code>sync-token</code> element with the latest sync-token.</p>
 
-<h3 id="caveats">Caveats</h3>
+<h3>Caveats</h3>
 
 <p>Note that a server is free to 'forget' any sync-tokens that have been
 previously issued. In this case it may be needed to do a full-sync again.</p>
@@ -810,7 +810,7 @@ previously issued. In this case it may be needed to do a full-sync again.</p>
 <p>In case the supplied sync-token is not recognized by the server, a HTTP error
 is emitted. SabreDAV emits a <code>403</code>.</p>
 
-<h2 id="discovery">Discovery</h2>
+<h2>Discovery</h2>
 
 <p>Ideally you will want to make sure that all the addressbooks in an account are
 automatically discovered. The best user interface would be to just have to
@@ -926,7 +926,7 @@ read out the <code>resourcetype</code> and ensure that it contains at least an
 <code>addressbook</code> element in the CardDAV namespace. Other items <em>may</em> be returned,
 including non-addressbooks, which your application should ignore.</p>
 
-<h3 id="advanced-discovery-topics">Advanced discovery topics</h3>
+<h3>Advanced discovery topics</h3>
 
 <p>Read the <a href="/dav/service-discovery">Service Discovery documentation</a></p>
             

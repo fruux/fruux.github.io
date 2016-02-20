@@ -103,7 +103,7 @@ echo $service-&gt;write('...');
 <p>So while you can use either API, all the following examples use the
 <code>Service</code> class.</p>
 
-<h2 id="the-%60write%60-method">The <code>write</code> method</h2>
+<h2>The <code>write</code> method</h2>
 
 <p>The <code>write</code> method allows you to quickly write complex XML structures.</p>
 
@@ -218,7 +218,7 @@ $service-&gt;write($ns . 'feed', [
 &lt;/feed&gt;
 </code></pre>
 
-<h2 id="serializing-objects">Serializing objects</h2>
+<h2>Serializing objects</h2>
 
 <p>All of this becomes more useful when you start mapping objects to XML elements. As an example, we'll create a simple object that represents an Atom Entry (a.k.a. a blogpost).</p>
 
@@ -286,7 +286,7 @@ starts to make even more sense when you re-use the exact same classes for
 serialization and deserialization. Deserialization is covered on the
 <a href="/xml/reading/">reading XML</a> page in the documentation.</p>
 
-<h2 id="separating-serializers-from-objects">Separating serializers from objects</h2>
+<h2>Separating serializers from objects</h2>
 
 <p>In the last example, the <code>AtomEntry</code> class had to get a <code>xmlSerialize</code> method
 in order to be able to serialize itself. There's cases where that's not
@@ -327,12 +327,12 @@ $service-&gt;classMap['AtomEntry'] = function(Sabre\Xml\Writer $writer, $entry) 
 };
 </code></pre>
 
-<h2 id="value-objects">Value objects</h2>
+<h2>Value objects</h2>
 
 <p>For very simple PHP classes and XML elements it might be possible to use the
 "value object" system instead. Read more on the <a href="/xml/valueobjects/">Value Objects</a> page.</p>
 
-<h2 id="things-the-%60write%60-function-can-write">Things the <code>write()</code> function can write</h2>
+<h2>Things the <code>write()</code> function can write</h2>
 
 <p>This is the full list of things that the <code>write()</code> function understands and
 can turn into an xml document:</p>

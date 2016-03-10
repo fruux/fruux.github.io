@@ -74,7 +74,7 @@ compatibility in a number of places.</p>
 are to be affected by it. Every section starts with a paragraph explaining why
 it would be relevant to you.</p>
 
-<h2>Changed handing of 'guessing the base uri'</h2>
+<h2 id="changed-handing-of-%27guessing-the-base-uri%27">Changed handing of 'guessing the base uri'</h2>
 
 <p>Every SabreDAV version before 1.4.2 had a bug where in some circumstances it
 would be possible for users to delete an entire directory tree, if no fixed
@@ -87,7 +87,7 @@ through a server.php (or similar named file) and no <code>/</code> is set at the
 <p>You are strongly encouraged to simply set the base uri manually by calling
 <code>setBaseUri</code> on the <code>Sabre_DAV_Server</code> object.</p>
 
-<h2>Sabre_DAV_Auth_Backend* API changed</h2>
+<h2 id="sabre_dav_auth_backend%2A-api-changed">Sabre_DAV_Auth_Backend* API changed</h2>
 
 <p>This is important if you created a custom authentication backend.</p>
 
@@ -109,7 +109,7 @@ slightly changed. The <code>getUserInfo()</code> method has been removed, and a
 <code>getUserInfo</code> as part of the array, but this method must only return this
 string.</p>
 
-<h2>New security model for CalDAV</h2>
+<h2 id="new-security-model-for-caldav">New security model for CalDAV</h2>
 
 <p>This section is relevant to you if you're a CalDAV user and you're not using
 <code>Sabre_CalDAV_Server</code>, but a customized setup instead.</p>
@@ -126,7 +126,7 @@ server:</p>
 <p>Note again: <code>Sabre_CalDAV_Server</code> adds this plugin by default, so you won't
 have to worry about it.</p>
 
-<h2>Locks backends API changes</h2>
+<h2 id="locks-backends-api-changes">Locks backends API changes</h2>
 
 <p>This is relevant to you if you built your own locks backend class.</p>
 
@@ -143,7 +143,7 @@ that's deep within the tree.</p>
 <code>getLocks('directory',true)</code> is called, your backend should also return the
 child's lock.</p>
 
-<h2>Sabre_DAV_Locks_Backend_FS now deprecated</h2>
+<h2 id="sabre_dav_locks_backend_fs-now-deprecated">Sabre_DAV_Locks_Backend_FS now deprecated</h2>
 
 <p>This is relevant to you, if you use <code>Sabre_DAV_Locks_Backend_FS</code>.</p>
 
@@ -169,7 +169,7 @@ locking information in a single file. For performance and stability reasons
 you are highly encouraged to use PDO instead. PDO stores locks in a MySQL
 or SQLite database, and is therefore much more robust.</p>
 
-<h2>Office 2000 &amp; 2003 compatibility</h2>
+<h2 id="office-2000-%26-2003-compatibility">Office 2000 &amp; 2003 compatibility</h2>
 
 <p>This is relevant to you if you use Office as a WebDAV client.</p>
 
@@ -184,7 +184,7 @@ so with the following line of code:</p>
 <pre><code>Sabre_DAV_Property_LockDiscovery::$hideLockRoot = true;
 </code></pre>
 
-<h2>Principal system and Authentication system are decoupled (part 1)</h2>
+<h2 id="principal-system-and-authentication-system-are-decoupled-part-1">Principal system and Authentication system are decoupled (part 1)</h2>
 
 <p>This is important to you, if you're using the CalDAV system, and you're using
 the standard PDO backends, or <code>Sabre_CalDAV_Server</code>.</p>
@@ -246,7 +246,7 @@ a query like this (mysql example):</p>
 an entry must be added to the users table for your user to log in, and an 
 entry must be added for the principals table for the user to show up in the tree.</p>
 
-<h2>Principal and Authentication systems are decoupled (part 2)</h2>
+<h2 id="principal-and-authentication-systems-are-decoupled-part-2">Principal and Authentication systems are decoupled (part 2)</h2>
 
 <p>If you either constructed a custom authentication backend, or if you
 instantiated Sabre_DAV_Auth_Backend yourself <em>and</em> you are a CalDAV user,
@@ -265,7 +265,7 @@ own Principal backend. Implement <code>Sabre_DAVACL_IPrincipalBackend</code> for
 Implementing this is optional, but required if you'd like calendar delegation
 support.</p>
 
-<h2>Principal and Authentication systems are decoupled (part 3)</h2>
+<h2 id="principal-and-authentication-systems-are-decoupled-part-3">Principal and Authentication systems are decoupled (part 3)</h2>
 
 <p>If you used any of the following classes, this is relevant to you.</p>
 
@@ -303,7 +303,7 @@ Sabre_DAVACL:</p>
 </tbody>
 </table>
 
-<h2>Principal and Authentication systems are decoupled (part 4)</h2>
+<h2 id="principal-and-authentication-systems-are-decoupled-part-4">Principal and Authentication systems are decoupled (part 4)</h2>
 
 <p>This section is relevant to you, if you're instantiating either of the
 following classes yourself:</p>

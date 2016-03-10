@@ -66,6 +66,7 @@
         </ul>
     </div>
 </section>
+
 <section class="box box--trusted">
     <div class="box-wrapper">
         <h1 class="box-headline">Trusted by</h1>
@@ -83,6 +84,7 @@
         </a>
     </div>
 </section>
+
 <section class="box box--lineup">
     <div class="box-wrapper">
         <h1 class="box-headline">The full sabre.io lineup</h1>
@@ -112,6 +114,7 @@
         </a>
     </div>
 </section>
+
 <div class="box box--turquoise">
     <div class="box-wrapper">
         <section class="box box--enterprise">
@@ -136,6 +139,10 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Aug. 27th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.4-release">sabre/dav 2.0.4 release</a></h1>
+                    <p>We just released sabre/dav 2.0.4.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Aug. 18th, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.1-release">sabre/vobject 3.3.1 release</a></h1>
                     <p>We just released sabre/vobject 3.3.1.</article>
@@ -151,16 +158,14 @@
                     <time>Jul. 14th, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.3-release">sabre/dav 2.0.3 release</a></h1>
                     <p>We just released sabre/dav 2.0.3.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jul. 14th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-http-2.0.4-release">sabre/http 2.0.4 release</a></h1>
-                    <p>We just released sabre/http 2.0.4.</article>
                                     </section>
     </div>
 </div>
+
 <figure class="bg--cloudy">
     <img src="http://sabre.io/img/home_background.jpg">
 </figure>
+
 
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 

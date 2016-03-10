@@ -70,7 +70,7 @@
                 <p>iOS contains both a CalDAV and a CardDAV client for quite a few versions.
 It is one of the best clients out there.</p>
 
-<h2>Supported features</h2>
+<h2 id="supported-features">Supported features</h2>
 
 <ul>
 <li><a href="/dav/caldav">CalDAV</a>.</li>
@@ -87,7 +87,7 @@ It is one of the best clients out there.</p>
 <li><a href="/dav/caldav-proxy">Calendar delegation</a>.</li>
 </ul>
 
-<h2>Technical details</h2>
+<h2 id="technical-details">Technical details</h2>
 
 <p>Very incomplete list of user agent's we've come across:</p>
 
@@ -95,7 +95,7 @@ It is one of the best clients out there.</p>
   iOS/6.0 (10A403) dataaccessd/1.0
   DAVKit/4.0 (728.4); iCalendar/1 (42.1); iPhone/3.1.3 7E18</p>
 
-<h3>Properties</h3>
+<h3 id="properties">Properties</h3>
 
 <p>The client will ask for the following additional properties on principals when
 setting up carddav.</p>
@@ -201,7 +201,7 @@ calendar-multiget report is used to download the actual changes:</p>
 &lt;/x0:calendar-multiget&gt;
 </code></pre>
 
-<h2>Base urls in iOS6</h2>
+<h2 id="base-urls-in-ios6">Base urls in iOS6</h2>
 
 <p>It was reported that iOS switches to extremely buggy behavior if the CardDAV
 server is not running on the root of the server, more specifically.. when the
@@ -212,7 +212,7 @@ domainname, iOS breaks severely.</p>
 workaround this by setting up a 'well-known' endpoint for CardDAV, as
 described in <a href="/dav/service-discovery">ServiceDiscovery</a>.</p>
 
-<h2>Base urls in iOS7</h2>
+<h2 id="base-urls-in-ios7">Base urls in iOS7</h2>
 
 <p>iOS7 also has issues with servers not running on a root domain, although the
 problem appears to have changed a bit in nature (need more details).</p>
@@ -222,7 +222,7 @@ almost always fix these problems.</p>
 
 <p>This issue also appeared in very old iOS versions (iOS 3).</p>
 
-<h2>Directory support</h2>
+<h2 id="directory-support">Directory support</h2>
 
 <p>iOS has support for a global read-only directory. iOS does not allow simply
 browsing through the directory, it's used for searching only (using the
@@ -231,7 +231,7 @@ addressbook-query REPORT).</p>
 <p>SabreDAV does have (very minimal) support for
 <a href="/dav/carddav-directory">CardDAV directory</a>.</p>
 
-<h2>Encoding of HTTP/1.1 200 Ok</h2>
+<h2 id="encoding-of-http%2F1.1-200-ok">Encoding of HTTP/1.1 200 Ok</h2>
 
 <p>Apparently older iOS versions (1.4.2) require HTTP/1.1 200 Ok to be encoded in
 uppercase (OK rather than Ok). This is fixed in SabreDAV version 1.5.3.</p>

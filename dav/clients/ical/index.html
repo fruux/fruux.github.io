@@ -82,9 +82,9 @@ to be the most correct implementation.</p>
 <li><a href="/dav/subscriptions">Subscriptions</a></li>
 </ul>
 
-<h2>Technical information</h2>
+<h2 id="technical-information">Technical information</h2>
 
-<h3>Debugging</h3>
+<h3 id="debugging">Debugging</h3>
 
 <p>To enable the debug menu within ical, run the following on the command line:</p>
 
@@ -103,7 +103,7 @@ to be the most correct implementation.</p>
 
 <p>Logging goes to 'Console.app'.</p>
 
-<h3>Subscriptions</h3>
+<h3 id="subscriptions">Subscriptions</h3>
 
 <p>iCal allows server-side management of calendar subscriptions. This allows a
 user to store their iCal feeds on a server, and have them stay in sync accross
@@ -116,7 +116,7 @@ body contains a <code>{DAV:}resourcetype</code> with values <code>{DAV:}collecti
 <p>In OS X 10.9.2 they changed to using <code>MKCALENDAR</code> instead. We suspect that this
 is a bug, but we're adding support for it in sabre/dav nonetheless.</p>
 
-<h3>User agent</h3>
+<h3 id="user-agent">User agent</h3>
 
 <p>Some user agents we've seen:</p>
 
@@ -125,7 +125,7 @@ DAVKit/4.0.1 (730); CalendarStore/4.0.1 (973); iCal/4.0.1 (1374); Mac OS X/10.6.
 Mac_OS_X/10.9.2 (13C64) CalendarAgent/176
 </code></pre>
 
-<h3>10.5 iCal</h3>
+<h3 id="10.5-ical">10.5 iCal</h3>
 
 <p>To setup 10.5 iCal a full principal url must be provided. On this principal url, iCal will request the following:</p>
 
@@ -161,7 +161,7 @@ Mac_OS_X/10.9.2 (13C64) CalendarAgent/176
 &lt;/x0:propfind&gt;
 </code></pre>
 
-<h3>10.6 iCal</h3>
+<h3 id="10.6-ical">10.6 iCal</h3>
 
 <p>10.6 iCal does not require a full principal url, as it can automatically
 discover these. See <a href="/dav/service-discovery">Service Discovery</a> for a bit
@@ -207,13 +207,13 @@ more detail.</p>
 &lt;/x0:propfind&gt;
 </code></pre>
 
-<h3>10.7 and up</h3>
+<h3 id="10.7-and-up">10.7 and up</h3>
 
 <p>More details to follow</p>
 
-<h3>Bugs</h3>
+<h3 id="bugs">Bugs</h3>
 
-<h4>Assuming scheduling support</h4>
+<h4 id="assuming-scheduling-support">Assuming scheduling support</h4>
 
 <p>iCal versions before Mavericks (10.9) appear to assume that any CalDAV server
 also supports some CalDAV-scheduling features out of the box. iCal will use
@@ -231,7 +231,7 @@ which can be enabled to fix this issue.</p>
 
 <p>This issue has been discovered on at least 10.7 and 10.8 iCal, not yet sure about older versions.</p>
 
-<h4>Trailing slash (iCal 10.5 and iCal 10.6)</h4>
+<h4 id="trailing-slash-ical-10.5-and-ical-10.6">Trailing slash (iCal 10.5 and iCal 10.6)</h4>
 
 <p>It was reported on several wiki's iCal needs a trailing slash for the url to
 connect to (the principal url). This is not enough however, the <code>{DAV:}href</code>
@@ -248,7 +248,7 @@ account at .."</li>
 
 <p>A workaround is in place in SabreDAV.</p>
 
-<h4>iCal depends on a DAV: header to be set in all PROPFIND responses</h4>
+<h4 id="ical-depends-on-a-dav%3A-header-to-be-set-in-all-propfind-responses">iCal depends on a DAV: header to be set in all PROPFIND responses</h4>
 
 <p>Traditionally the DAV: header is only needed in the OPTIONS request. If
 calendar-proxy support is required, this header must also be set in other
@@ -258,15 +258,15 @@ PROPFIND response.</p>
 <p>Since SabreDAV 1.5 we always send along the DAV: header for every PROPFIND
 responses.</p>
 
-<h4>No percetage sign in usernames allowed</h4>
+<h4 id="no-percetage-sign-in-usernames-allowed">No percetage sign in usernames allowed</h4>
 
 <p>At least in OS X 10.11, iCal does not allow a <code>%</code> in usernames. Attempting this
 will cause iCal to simply not send any username or password and fail with an
 error.</p>
 
-<h3>Random samples of HTTP requests iCal generates.</h3>
+<h3 id="random-samples-of-http-requests-ical-generates.">Random samples of HTTP requests iCal generates.</h3>
 
-<h4>Creating a subscription in 10.7</h4>
+<h4 id="creating-a-subscription-in-10.7">Creating a subscription in 10.7</h4>
 
 <pre><code>&lt;A:mkcol xmlns:A="DAV:"&gt;
     &lt;A:set&gt;
@@ -291,7 +291,7 @@ error.</p>
 &lt;/A:mkcol&gt;
 </code></pre>
 
-<h4>Creating a new subscription in 10.9.2</h4>
+<h4 id="creating-a-new-subscription-in-10.9.2">Creating a new subscription in 10.9.2</h4>
 
 <pre><code>&lt;B:mkcalendar xmlns:B="urn:ietf:params:xml:ns:caldav"&gt;
     &lt;A:set xmlns:A="DAV:"&gt;
@@ -319,7 +319,7 @@ error.</p>
 &lt;/B:mkcalendar&gt;
 </code></pre>
 
-<h4>Requesting a list of calendars in 10.9.2</h4>
+<h4 id="requesting-a-list-of-calendars-in-10.9.2">Requesting a list of calendars in 10.9.2</h4>
 
 <pre><code>&lt;?xml version='1.0' encoding='UTF-8'?&gt;
 &lt;A:propfind xmlns:A="DAV:"&gt;

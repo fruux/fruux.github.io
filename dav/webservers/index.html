@@ -67,7 +67,7 @@
 </aside>
                 <article>
                             <h1>Webservers</h1>
-                <h2>Apache</h2>
+                <h2 id="apache">Apache</h2>
 
 <p>SabreDAV is known to work well on Apache 2 with mod_php. SabreDAV runs best in
 a dedicated vhost.</p>
@@ -103,7 +103,7 @@ users:</p>
 &lt;/VirtualHost *:*&gt;
 </code></pre>
 
-<h3>Authentication over fastcgi</h3>
+<h3 id="authentication-over-fastcgi">Authentication over fastcgi</h3>
 
 <p>If you use PHP through CGI or FastCGI and Apache authentication headers are
 not passed through by default. You can enable this with the following
@@ -123,7 +123,7 @@ RewriteRule .* /server.php [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
 <p>Note the /server.php. Make sure this reflects the correct location of your
 server file.</p>
 
-<h3>mod_reqtimeout</h3>
+<h3 id="mod_reqtimeout">mod_reqtimeout</h3>
 
 <p>It was reported that Apache's <a href="http://httpd.apache.org/docs/2.2/mod/mod_reqtimeout.html">mod_reqtimeout</a> can stop large uploads from
 completing. This module is currently enabled by default on Ubuntu, and perhaps
@@ -131,7 +131,7 @@ others as well.</p>
 
 <p>To fix this, turn off this module.</p>
 
-<h2>Nginx</h2>
+<h2 id="nginx">Nginx</h2>
 
 <p>Older versions of nginx have had issues with so-called "Chunked Transfer
 Encoding", in particular when the <em>client</em> sumbits requests in this transfer
@@ -144,13 +144,13 @@ make sure you are running a recent version of nginx.</p>
 
 <p>Nginx versions 1.3.9 or higher should work.</p>
 
-<h2>Lighttpd</h2>
+<h2 id="lighttpd">Lighttpd</h2>
 
 <p>Using lighttpd is generally not recommended. Development has been incredibly
 slow in recent years, and lighttpd does not have support for many required
 HTTP methods, such as <code>MKCALENDAR</code>, <code>MKCOL</code>, <code>ACL</code>, etc.</p>
 
-<h2>IIS</h2>
+<h2 id="iis">IIS</h2>
 
 <p>Not a lot of testing has been done with IIS, but here's some tidbits:</p>
 

@@ -67,7 +67,7 @@
 </aside>
                 <article>
                             <h1>Character Encoding</h1>
-                <h2>Main recommendation</h2>
+                <h2 id="main-recommendation">Main recommendation</h2>
 
 <p>If you are either a client or a server developer, and you have to create
 paths for things I would highly recommend using characters from this list.</p>
@@ -88,7 +88,7 @@ include the tilde (<code>~</code>).</p>
 <p>These characters are pretty much guaranteed to work correctly across the
 board. Everything else may be <a href="http://en.wikipedia.org/wiki/Percent-encoding">percent encoded</a>, depending on the client.</p>
 
-<h2>Problems with percent encoding</h2>
+<h2 id="problems-with-percent-encoding">Problems with percent encoding</h2>
 
 <p>The following three urls are technically equivalent:</p>
 
@@ -120,11 +120,11 @@ they are all distinct urls.</p>
 <p>SabreDAV will accept either form and internally encode everything to UTF-8,
 but we cannot fix bad-behaving clients.</p>
 
-<h2>Clients</h2>
+<h2 id="clients">Clients</h2>
 
 <p>An imcomplete list of clients that have issues with this:</p>
 
-<h3>Windows</h3>
+<h3 id="windows">Windows</h3>
 
 <p>Windows encodes files as ISO-8859-1 in request-urls. Starting SabreDAV
 1.2.0alpha1 these will be automatically converted to their UTF-8 equivalents.</p>
@@ -134,18 +134,18 @@ still be UTF-8. Some of these are reported to work, while others are not.</p>
 
 <p>Read more on the <a href="/dav/clients/windows">Windows</a> documentation page.</p>
 
-<h3>OS/X Finder</h3>
+<h3 id="os%2Fx-finder">OS/X Finder</h3>
 
 <p>OS/X finder uses UTF-8. In most cases this works without any issues. More
 information can be found on the <a href="/dav/clients/finder">Finder</a> page.</p>
 
-<h3>Other clients</h3>
+<h3 id="other-clients">Other clients</h3>
 
 <ul>
 <li><a href="/dav/clients/bitkinex">BitKinex</a> is a known offender.</li>
 </ul>
 
-<h2>Internally</h2>
+<h2 id="internally">Internally</h2>
 
 <p>All urls passed within SabreDAV are UTF-8 characters. Before 1.2.0alpha1
 character sets were completely ignored, but now attempts are made to convert
@@ -154,7 +154,7 @@ to UTF-8 where possible.</p>
 <p>In general this is only done to urls, specifically when urls are converted to
 local paths and the reverse. This is all handled in <code>Sabre\DAV\URLUtil</code>.</p>
 
-<h2>Storage</h2>
+<h2 id="storage">Storage</h2>
 
 <p>If you are using a database or other datastore to store your data (and url's),
 you likely don't have to worry about this. Just make sure everything is UTF-8.</p>

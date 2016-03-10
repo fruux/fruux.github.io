@@ -74,7 +74,7 @@ needed. They are small and simple this time though.</p>
 are to be affected by it. Every section starts with a paragraph explaining why
 it would be relevant to you.</p>
 
-<h2>The old autoloader script is now deleted</h2>
+<h2 id="the-old-autoloader-script-is-now-deleted">The old autoloader script is now deleted</h2>
 
 <p>If you are still including <code>Sabre.autoload.php</code> in the lib/ directory, you must
 now change this to:</p>
@@ -98,7 +98,7 @@ compatibility purposes, but it will be removed in version 1.6.</p>
 <p>To fix this, simply change all occurences of <code>Sabre_DAV_Directory</code> in your
 codebase to <code>Sabre_DAV_Collection</code>.</p>
 
-<h2>Sabre_DAV_SimpleDirectory is deprecated in favor of Sabre_DAV_SimpleCollection</h2>
+<h2 id="sabre_dav_simpledirectory-is-deprecated-in-favor-of-sabre_dav_simplecollection">Sabre_DAV_SimpleDirectory is deprecated in favor of Sabre_DAV_SimpleCollection</h2>
 
 <p>To make naming conventions consistent, <code>Sabre_DAV_SimpleDirectory</code> has been
 renamed to <code>Sabre_DAV_SimpleCollection</code>. The old class still exists for
@@ -107,7 +107,7 @@ backwards compatibility purposes, but it will be removed in version 1.6.</p>
 <p>To fix this, simply change all occurences of <code>Sabre_DAV_SimpleDirectory</code> in
 your codebase to <code>Sabre_DAV_SimpleCollection</code>.</p>
 
-<h2>Sabre_VObject changes to 'parameter access'</h2>
+<h2 id="sabre_vobject-changes-to-%27parameter-access%27">Sabre_VObject changes to 'parameter access'</h2>
 
 <p>When adding new parameters to any property, the new parameter now
 overwrites the old one, rather than creating a new one. This makes it
@@ -127,7 +127,7 @@ $vcalendar-&gt;vevent-&gt;property['param'] = 'value2';
 $vcalendar-&gt;vevent-&gt;property-&gt;add('param', 'value2');
 </code></pre>
 
-<h2>Sabre_CalDAV_CalendarObject no longer implements Sabre_DAV_IProperties</h2>
+<h2 id="sabre_caldav_calendarobject-no-longer-implements-sabre_dav_iproperties">Sabre_CalDAV_CalendarObject no longer implements Sabre_DAV_IProperties</h2>
 
 <p>If you used <code>Sabre_CalDAV_CalendarObject</code> directly, or did anything with
 the setProperties or getProperties method on this object, this no longer

@@ -85,7 +85,7 @@ This version is now outdated. Check the sidebar for more up-to-date docs if you
 are starting a new project, or read the <a href="/vobject/upgrade_to_3/">migration document</a> if you're
 upgrading from 2.x to 3.x.</p>
 
-<h2>Introduction</h2>
+<h2 id="introduction">Introduction</h2>
 
 <p>The VObject library allows you to easily parse and manipulate <a href="https://tools.ietf.org/html/rfc5545">iCalendar</a>
 and <a href="https://tools.ietf.org/html/rfc6350">vCard</a> objects using PHP. The goal of the VObject library is to create
@@ -96,7 +96,7 @@ several years. The 1.0 version of this library was directly embedded in that
 project, and the 2.0 version was the first independant vobject release.
 The VObject library has 100% unittest coverage.</p>
 
-<h2>Installation</h2>
+<h2 id="installation">Installation</h2>
 
 <p>VObject requires PHP 5.3, and should be installed using composer.
 The general composer instructions can be found on the <a href="http://getcomposer.org/doc/00-intro.md">composer website</a>.</p>
@@ -110,9 +110,9 @@ The general composer instructions can be found on the <a href="http://getcompose
 
 <p>Then, run <code>composer.phar update</code> and you should be good.</p>
 
-<h2>Usage</h2>
+<h2 id="usage">Usage</h2>
 
-<h3>Parsing</h3>
+<h3 id="parsing">Parsing</h3>
 
 <p>For our example, we will be using the following vcard:</p>
 
@@ -137,7 +137,7 @@ $card = VObject\Reader::read($data);
 echo $card-&gt;FN;
 </code></pre>
 
-<h3>Changing properties</h3>
+<h3 id="changing-properties">Changing properties</h3>
 
 <p>Creating properties is pretty similar. If we like to add his birthday, we just
 set the property:</p>
@@ -152,7 +152,7 @@ we can do this with the <code>add</code> method.</p>
 <pre><code>$card-&gt;add('EMAIL','max@example.org');
 </code></pre>
 
-<h3>Parameters</h3>
+<h3 id="parameters">Parameters</h3>
 
 <p>If we want to also specify that this is max' home email addresses, we can do this with
 a third parameter:</p>
@@ -170,7 +170,7 @@ like this:</p>
 }
 </code></pre>
 
-<h3>Groups</h3>
+<h3 id="groups">Groups</h3>
 
 <p>In our example, you can see that the TEL properties are prefixed. These are 'groups' and
 allow you to group multiple related properties together. The group can be any user-defined
@@ -203,14 +203,14 @@ following syntax is used:</p>
 }
 </code></pre>
 
-<h3>Serializing / Saving</h3>
+<h3 id="serializing-%2F-saving">Serializing / Saving</h3>
 
 <p>If you want to generate your updated VObject, you can simply call the serialize() method.</p>
 
 <pre><code>echo $card-&gt;serialize();
 </code></pre>
 
-<h3>Components</h3>
+<h3 id="components">Components</h3>
 
 <p>iCalendar, unlike vCards always have sub-components. Where vCards are often just a flat
 list, iCalendar objects tend to have a tree-like structure. For the following paragraphs,
@@ -252,7 +252,7 @@ $event-&gt;LOCATION = 'Cape Carnival';
 $calendar-&gt;add($clonedEvent);
 </code></pre>
 
-<h3>Date and time handling</h3>
+<h3 id="date-and-time-handling">Date and time handling</h3>
 
 <p>If you ever had to deal with iCalendar timezones, you know it can be complicated.
 The way timezones are specified is flawed, which is something I may write an essay about some
@@ -290,7 +290,7 @@ options exist:</p>
 <li>As mentioned, the timezone-determination process may sometimes fail. Report any issues you find, and I'll be quick to add workarounds!</li>
 </ul>
 
-<h3>Recurrence rules</h3>
+<h3 id="recurrence-rules">Recurrence rules</h3>
 
 <p>Recurrence rules allow events to recur, for example for a weekly meeting, or an anniversary.
 This is done with the <code>RRULE</code> property. The <code>RRULE</code> property allows for a LOT of different
@@ -385,7 +385,7 @@ some recurrence rules can be 'never ending'.</p>
 <p>You should make sure you pick a sane date-range. Because if you pick a 50 year
 time-range, for a daily recurring event; this would result in over 18K objects.</p>
 
-<h2>Free-busy report generation</h2>
+<h2 id="free-busy-report-generation">Free-busy report generation</h2>
 
 <p>Some calendaring software can make use of FREEBUSY reports to show when people are
 available.</p>
@@ -437,7 +437,7 @@ END:VFREEBUSY
 END:VCALENDAR
 </code></pre>
 
-<h2>Support</h2>
+<h2 id="support">Support</h2>
 
 <p>Head over to the <a href="http://groups.google.com/group/sabredav-discuss">SabreDAV mailing list</a> for any questions.</p>
             

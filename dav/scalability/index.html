@@ -71,7 +71,7 @@
 
 <p>This manual aims to cover the most important bits.</p>
 
-<h2>ObjectTree</h2>
+<h2 id="objecttree">ObjectTree</h2>
 
 <p>All operations are done on Nodes managed by the ObjectTree. In order for the ObjectTree to find the nodes, it must traverse the entire tree.</p>
 
@@ -81,7 +81,7 @@
 
 <p>If this really helps you highly depends on your situation. Profile first, optimize after.</p>
 
-<h3>Move and Copy</h3>
+<h3 id="move-and-copy">Move and Copy</h3>
 
 <p>Move and Copy operations can be slow, especially when moving/copying bigger objects.</p>
 
@@ -100,11 +100,11 @@
 
 <p>You can override the copy and move functionality by subclassing the ObjectTree, if this makes sense for you. In addition, if you purely use SabreDAV to expose a filesystem, you can choose to use <code>Sabre\DAV\Tree\Filesystem</code> instead of <code>Sabre\DAV\ObjectTree</code>. This class is specifically optimized for plain filesystems.</p>
 
-<h3>Delete</h3>
+<h3 id="delete">Delete</h3>
 
 <p>Deleting files has similar problems, as it will also generally traverse the objecttree. If you have created your own File and Directory objects, you might be able to optimize access by overriding <code>delete()</code>, if your backends allow it.</p>
 
-<h2>CalDAV</h2>
+<h2 id="caldav">CalDAV</h2>
 
 <p>If you created your own CalDAV backend, it may make sense to try to optimize <code>calendarQuery</code>. The <code>Sabre\CalDAV\Backend\AbstractBackend</code> class provides a standard implementation, that fetches every object for a calendar and tries to see if the query filters out the object, or not.</p>
 
@@ -116,7 +116,7 @@
 
 <p>This allows the server to not have to fetch the objects at all for certain large operations, which can save a lot of memory.</p>
 
-<h2>Load Balanced SabreDAV</h2>
+<h2 id="load-balanced-sabredav">Load Balanced SabreDAV</h2>
 
 <p>SabreDAV has a few standard utilities for locking and catching 'temporary
 files'. These classes (<code>Sabre\DAV\TemporaryFileFilterPlugin</code> and
@@ -135,7 +135,7 @@ it was made really easy to extend these subsystems.</p>
 <p>Currently 'temporary files' don't get cleaned up, and a cron job should be
 made to delete older files (>1 hour).</p>
 
-<h2>Large Files</h2>
+<h2 id="large-files">Large Files</h2>
 
 <p>Read: <a href="/dav/large-files">Working with large files</a>.</p>
             

@@ -46,6 +46,33 @@
 
 <article class="blog-entry">
     <time>March 12th, 2016</time>
+    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.8-release">sabre/dav 3.0.8 released</a></h1>
+    <p>We just released sabre/dav 3.0.8. This release contains the following changes:</p>
+
+<ul>
+<li>A small issue with cleaning up sync logs after deleting addressbooks. This
+could potentially cause a carddav client to miss an update.</li>
+<li>A fix for supporting non-seekable streams, for those that have custom <code>IFile</code>
+implementations with non-seekable streams.</li>
+<li><p>Faster XML parsing and generating.</p>
+
+<p>composer update sabre/dav</p></li>
+</ul>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.0.8/CHANGELOG.md">Github</a></p>
+
+</article>
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
+    <time>March 12th, 2016</time>
     <h1><a href="http://sabre.io/blog/2016/sabre-xml-1.4.1-release">sabre/xml 1.4.1 released</a></h1>
     <p>We just released sabre/xml 1.4.1. This release contains an improvement in
 parsing clark-notation strings. We now cache the result of these, which can

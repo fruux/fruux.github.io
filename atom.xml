@@ -3,9 +3,31 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-03-12T22:33:39+00:00</updated>
+    <updated>2016-03-12T22:44:21+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 3.0.8 released]]></title>
+            <link href="http://sabre.io/blog/2016/sabre-dav-3.0.8-release"/>
+            <updated>2016-03-12T22:40:55+00:00</updated>
+            <id>http://sabre.io/blog/2016/sabre-dav-3.0.8-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 3.0.8. This release contains the following changes:</p>
+
+<ul>
+<li>A small issue with cleaning up sync logs after deleting addressbooks. This
+could potentially cause a carddav client to miss an update.</li>
+<li>A fix for supporting non-seekable streams, for those that have custom <code>IFile</code>
+implementations with non-seekable streams.</li>
+<li><p>Faster XML parsing and generating.</p>
+
+<p>composer update sabre/dav</p></li>
+</ul>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.0.8/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/xml 1.4.1 released]]></title>
             <link href="http://sabre.io/blog/2016/sabre-xml-1.4.1-release"/>
@@ -295,50 +317,6 @@ has a line that looks like this:</p>
 </code></pre>
 
 <p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.0.2/CHANGELOG.md">Github</a>.</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 3.1 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-dav-3.1-release"/>
-            <updated>2016-01-06T23:34:20+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-dav-3.1-release</id>
-            <content type="html"><![CDATA[<p>We're a bit late to the party, but we finally have a PHP 7 compatible release
-for sabre/dav.</p>
-
-<p>The master branch had PHP 7 support for a while. The original plan for 3.1 was
-to include CalDAV sharing support, but this has been taking longer than
-expected.</p>
-
-<p>The result was that we have not had a stable PHP 7-compatible release. So
-instead of waiting until all the 3.1 features were ready, we've figured it's
-better to get 3.1 out as soon as possible and move the new features over to
-a future 3.2 release. So here it is, 6 months after the last major release!</p>
-
-<p>Aside from PHP 7 support, there's a few other changes:</p>
-
-<ul>
-<li>The minimum PHP version is now PHP 5.5.</li>
-<li>We switched to <a href="/blog/2015/sabre-vobject-4.0-released/">vobject 4</a></li>
-<li>We have support for "Calendar availability" in CalDAV. This feature allows
-users to specify what their work hours are (using compatible clients). This
-information will then be taken into consideration when generating freebusy
-responses.</li>
-<li>Lots of memory improvements, stability fixes and better exception messaging.</li>
-</ul>
-
-<p>Contrary to past 'major' releases, this should be fairly easy for people to
-upgrade to. The BC changes will only affect a very small group.</p>
-
-<ul>
-<li>For a full list of changes and BC breaks, read <a href="/dav/upgrade/3.0-to-3.1/">the migration document</a>.</li>
-<li>Check out the <a href="https://github.com/fruux/sabre-dav/blob/3.1.0/CHANGELOG.md">Changelog</a> if you need even more detail.</li>
-<li>Use composer, or <a href="https://github.com/fruux/sabre-dav/releases">download the zip</a> to get started with this.</li>
-</ul>
-
-<p>This release also marks the beginning of the 'life support' period for
-sabre/dav 3.0.x. We'll continue to do bugfixes for another 12 months.</p>
-
-<p>Happy new year!</p>
 ]]></content>
         </entry>
     </feed>

@@ -3,9 +3,29 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-03-12T22:44:21+00:00</updated>
+    <updated>2016-03-13T00:10:41+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 4.0.3 released]]></title>
+            <link href="http://sabre.io/blog/2016/sabre-vobject-4.0.3-release"/>
+            <updated>2016-03-13T00:03:17+00:00</updated>
+            <id>http://sabre.io/blog/2016/sabre-vobject-4.0.3-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 4.0.3. This release contains the following
+changes:</p>
+
+<ol>
+<li>Added <code>VCard::getByType()</code>, to quickly get a vcard property with a specific
+value for <code>TYPE</code>.</li>
+<li><code>UNTIL</code> and <code>COUNT</code> where not correctly encoded in the jCal format.</li>
+<li><p><code>RRULE</code> now has more validation and repair rules.</p>
+
+<p>composer update sabre/vobject</p></li>
+</ol>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.0.3/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 3.0.8 released]]></title>
             <link href="http://sabre.io/blog/2016/sabre-dav-3.0.8-release"/>
@@ -289,34 +309,6 @@ composer dependency targetting <code>3.4.*</code> with composer and are attempti
 use PHP7, or people who have a rather complex dependency tree.</p>
 
 <p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.5.0/ChangeLog.md">Github</a>.</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 4.0.2 release]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-vobject-4.0.2-release"/>
-            <updated>2016-01-11T17:43:58+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-vobject-4.0.2-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 4.0.2.</p>
-
-<p>This version fixes a regression introduced in 4.0.0. When parsing objects with
-a <code>CHARSET</code> parameter, in documents that do not support <code>CHARSET</code>, which is
-everything except vCard 2.1, the parser would throw an error for unrecognized
-values.</p>
-
-<p>If you are parsing iCalendar or vCards, upgrading is highly recommended.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 4.0.2, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "~4.0.2"
-</code></pre>
-
-<p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.0.2/CHANGELOG.md">Github</a>.</p>
 ]]></content>
         </entry>
     </feed>

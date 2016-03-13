@@ -297,6 +297,25 @@ numbers and display their custom labels, you'd do something like this:</p>
 }
 </code></pre>
 
+<h3 id="getting-a-property-by-its-type-value">Getting a property by its TYPE value</h3>
+
+<p>Many vCard properties, such as <code>TEL</code>, <code>ADR</code> and <code>EMAIL</code> support a <code>TYPE</code> attribute.</p>
+
+<pre><code>BEGIN:VCARD
+TEL;TYPE=HOME,FAX:+15551234566
+EMAIL;TYPE=HOME;TYPE=WORK:foobar@example.org
+END:VCARD
+</code></pre>
+
+<p>If you quickly want to get all the properties that have a specific <code>TYPE</code>
+value, you can do this with:</p>
+
+<pre><code>$email = $vcard-&gt;getByType('EMAIL','WORK');
+</code></pre>
+
+<p>This function only returns the first property it finds, and will return <code>null</code>
+if no property with that <code>TYPE</code> could be found.</p>
+
 <h3 id="converting-between-different-vcard-versions">Converting between different vCard versions</h3>
 
 <p>Since sabre/vobject 3.1, there's also a feature to convert between various

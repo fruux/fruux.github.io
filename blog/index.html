@@ -46,6 +46,35 @@
 
 <article class="blog-entry">
     <time>March 13th, 2016</time>
+    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.2-release">sabre/dav 3.1.2 released</a></h1>
+    <p>We just released sabre/dav 3.1.2. This release contains the following changes:</p>
+
+<ul>
+<li>A small issue with cleaning up sync logs after deleting addressbooks. This
+could potentially cause a carddav client to miss an update.</li>
+<li>A fix for supporting non-seekable streams, for those that have custom <code>IFile</code>
+implementations with non-seekable streams.</li>
+<li>Faster XML parsing and generating due to an update to sabre/xml.</li>
+<li>Updates to the sqlite schema to make it more strict.</li>
+<li><p>Better parsing of some <code>RRULE</code> properties.</p>
+
+<p>composer update sabre/dav</p></li>
+</ul>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.1.2/CHANGELOG.md">Github</a></p>
+
+</article>
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
+    <time>March 13th, 2016</time>
     <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.0.3-release">sabre/vobject 4.0.3 released</a></h1>
     <p>We just released sabre/vobject 4.0.3. This release contains the following
 changes:</p>

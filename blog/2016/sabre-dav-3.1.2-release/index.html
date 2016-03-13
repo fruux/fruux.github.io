@@ -3,7 +3,7 @@
 
     
   
-            <title>sabre/vobject 4.0.3 released - sabre/vobject</title>
+            <title>sabre/dav 3.1.2 released - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -19,8 +19,8 @@
 
     <div class="pagehead-inner">
         <a class="logo" href="http://sabre.io/">
-                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/vobject">
-                sabre<span>/vobject</span>
+                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
                     </a>
 
         <nav class="nav nav--page">
@@ -43,31 +43,34 @@
                 <article>
                 <article class="blog-entry">
         <time>March 13th, 2016</time>
-        <h1>sabre/vobject 4.0.3 released</h1>
+        <h1>sabre/dav 3.1.2 released</h1>
         <div>
-            <p>We just released sabre/vobject 4.0.3. This release contains the following
-changes:</p>
+            <p>We just released sabre/dav 3.1.2. This release contains the following changes:</p>
 
-<ol>
-<li>Added <code>VCard::getByType()</code>, to quickly get a vcard property with a specific
-value for <code>TYPE</code>.</li>
-<li><code>UNTIL</code> and <code>COUNT</code> where not correctly encoded in the jCal format.</li>
-<li><p><code>RRULE</code> now has more validation and repair rules.</p>
+<ul>
+<li>A small issue with cleaning up sync logs after deleting addressbooks. This
+could potentially cause a carddav client to miss an update.</li>
+<li>A fix for supporting non-seekable streams, for those that have custom <code>IFile</code>
+implementations with non-seekable streams.</li>
+<li>Faster XML parsing and generating due to an update to sabre/xml.</li>
+<li>Updates to the sqlite schema to make it more strict.</li>
+<li><p>Better parsing of some <code>RRULE</code> properties.</p>
 
-<p>composer update sabre/vobject</p></li>
-</ol>
+<p>composer update sabre/dav</p></li>
+</ul>
 
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.0.3/CHANGELOG.md">Github</a></p>
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.1.2/CHANGELOG.md">Github</a></p>
 
         </div>
                     <p class="tags">
             Tags:
-                        <a href="http://sabre.io/blog/tags/vobject">vobject</a>,                         <a href="http://sabre.io/blog/tags/release">release</a>                        </p>
+                        <a href="http://sabre.io/blog/tags/dav">dav</a>,                         <a href="http://sabre.io/blog/tags/release">release</a>                        </p>
         
                     <nav class="article">
                 <ul>
-                                            <li>Next: <a class="next" href="http://sabre.io/blog/2016/sabre-dav-3.1.2-release" title="sabre/dav 3.1.2 released"><span class="title">sabre/dav 3.1.2 released</span></a></li>
-                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2016/sabre-dav-3.0.8-release" title="sabre/dav 3.0.8 released"><span class="title">sabre/dav 3.0.8 released</span></a></li>
+                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2016/sabre-vobject-4.0.3-release" title="sabre/vobject 4.0.3 released"><span class="title">sabre/vobject 4.0.3 released</span></a></li>
                                     </ul>
             </nav>
             </article>
@@ -99,9 +102,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/blog/2016/sabre-vobject-4.0.3-release';
-    var disqus_title = 'sabre/vobject 4.0.3 released';
-    var disqus_url = 'http://sabre.io/blog/2016/sabre-vobject-4.0.3-release';
+    var disqus_identifier = '/blog/2016/sabre-dav-3.1.2-release';
+    var disqus_title = 'sabre/dav 3.1.2 released';
+    var disqus_url = 'http://sabre.io/blog/2016/sabre-dav-3.1.2-release';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

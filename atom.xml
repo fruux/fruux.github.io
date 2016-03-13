@@ -3,9 +3,33 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-03-13T00:10:41+00:00</updated>
+    <updated>2016-03-13T03:40:14+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 3.1.2 released]]></title>
+            <link href="http://sabre.io/blog/2016/sabre-dav-3.1.2-release"/>
+            <updated>2016-03-13T03:37:00+00:00</updated>
+            <id>http://sabre.io/blog/2016/sabre-dav-3.1.2-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 3.1.2. This release contains the following changes:</p>
+
+<ul>
+<li>A small issue with cleaning up sync logs after deleting addressbooks. This
+could potentially cause a carddav client to miss an update.</li>
+<li>A fix for supporting non-seekable streams, for those that have custom <code>IFile</code>
+implementations with non-seekable streams.</li>
+<li>Faster XML parsing and generating due to an update to sabre/xml.</li>
+<li>Updates to the sqlite schema to make it more strict.</li>
+<li><p>Better parsing of some <code>RRULE</code> properties.</p>
+
+<p>composer update sabre/dav</p></li>
+</ul>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.1.2/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/vobject 4.0.3 released]]></title>
             <link href="http://sabre.io/blog/2016/sabre-vobject-4.0.3-release"/>
@@ -257,58 +281,6 @@ post from yesterday</a>.</p>
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.0.7/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 3.4.9 and 3.5.0 release]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-vobject-3.4.9-and-3.5.0-release"/>
-            <updated>2016-01-11T18:39:49+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-vobject-3.4.9-and-3.5.0-release</id>
-            <content type="html"><![CDATA[<p>In a reversal of an earlier statement, we're releasing a sabre/vobject 3.x
-version with PHP 7 support.</p>
-
-<p>We just release two new versions of the sabre/vobject package; <code>3.4.9</code> and
-<code>3.5.0</code>.  <code>3.4.9</code> is identical to <code>3.4.8</code> but now explictly forbids being
-installed on PHP 7, via composer.json.</p>
-
-<p><code>3.5.0</code> introduces two differences:</p>
-
-<ol>
-<li>PHP 7 <em>is</em> supported.</li>
-<li>Two classes have been renamed. <code>Sabre\VObject\Property\Float</code> is now
-<code>Sabre\VObject\Property\FloatValue</code> and <code>Sabre\VObject\Property\Integer</code>
-is now called <code>Sabre\VObject\Property\IntegerValue</code>.</li>
-</ol>
-
-<p>For most people the new class names will have 0 effect on your code. Almost
-everyone should just be able to upgrade from 3.4.x to 3.5.0 without any
-modifications.</p>
-
-<p>The reason we've done this is due to some external pressure of sabre/* users,
-who argued that it's not good that there's not a single sabre/vobject or sabre/dav
-package that supports <em>both</em> PHP 5.4 and PHP 7. Thankfully this change is small
-enough that it's relatively low impact.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>If this didn't upgrade you to 3.5.0, make sure that your composer.json file
-has a line that looks like this:</p>
-
-<pre><code>"sabre/vobject" : "^3.5.0"
-</code></pre>
-
-<p>Because the difference is so minor, in the future we'll only maintain the 3.5
-(and 4.0) branch of vobject, and effectively drop support for 3.4. If this
-concerns you, drop me a line as maybe we can help.</p>
-
-<p>The <code>3.4.9</code> tag therefore mainly exist as an indicator to people who have a
-composer dependency targetting <code>3.4.*</code> with composer and are attempting to
-use PHP7, or people who have a rather complex dependency tree.</p>
-
-<p>Full changelog of this release can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.5.0/ChangeLog.md">Github</a>.</p>
 ]]></content>
         </entry>
     </feed>

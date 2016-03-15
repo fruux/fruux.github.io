@@ -3,9 +3,44 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-03-15T21:13:46+00:00</updated>
+    <updated>2016-03-15T21:41:54+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[Baïkal 0.4.0 released]]></title>
+            <link href="http://sabre.io/blog/2016/baikal-0.4.0-release"/>
+            <updated>2016-03-15T21:40:12+00:00</updated>
+            <id>http://sabre.io/blog/2016/baikal-0.4.0-release</id>
+            <content type="html"><![CDATA[<p>We just released Baïkal 0.4.0. This release contains a number of changes that
+should improve the system for a number of users. The 0.3.x range of releases
+had seen a number of stability problems, due to a relatively big sabre/dav
+upgrade.</p>
+
+<p>I'm attributing the issues to growing pains. With the 0.4.0 release we hope
+that the most of the common issues are solved. This release contains the
+following changes:</p>
+
+<ul>
+<li>SQlite users had issues syncing. This was due to a newly added feature
+(sync reports). Upgrading to 0.4.0 will repair your database schema and
+should make existing setups sync again.</li>
+<li>The installation threw an error if you didn't have the Sqlite PDO PHP
+extension installed.</li>
+<li>We added the "Property storage" plugin. This enables a range of features
+for clients, such as availability, default alarms and "me card".</li>
+<li>We added the Scheduling plugin, which adds scheduling and free-busy.
+Enabling this should also solve a problem with iCal, which behaved badly
+without this plugin.</li>
+<li><p>We removed the "admin locking" features. In the past it was possible to
+disable the Baïkal admin by removing the <code>ENABLE_ADMIN</code> file from the
+<code>Specific/</code> folder. This feature is now no longer supported, and users
+should instead use their Webserver configuration to block access to
+the admin.</p></li>
+<li><p>Read the <a href="/baikal/upgrade/" title="Upgrade instructions">upgrade instructions here</a>.</p></li>
+<li>Full changelog can be found on <a href="https://github.com/fruux/Baikal/blob/0.4.0/CHANGELOG.md" title="Change log">Github</a></li>
+</ul>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 3.1.2 released]]></title>
             <link href="http://sabre.io/blog/2016/sabre-dav-3.1.2-release"/>
@@ -270,27 +305,6 @@ post</a>.</p>
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.9/ChangeLog.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 3.0.7 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-dav-3.0.7-release"/>
-            <updated>2016-01-12T23:00:35+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-dav-3.0.7-release</id>
-            <content type="html"><![CDATA[<p>If you've been following this blog, you might have seen it coming. We just
-released sabre/dav 3.0.7. This release supports PHP 7.</p>
-
-<p>For more information about this change and this decision read the <a href="/blog/2016/sabre-vobject-3.4.9-and-3.5.0-release/">vobject
-post from yesterday</a>.</p>
-
-<p>Update sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.0.7/CHANGELOG.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

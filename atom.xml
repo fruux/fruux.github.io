@@ -3,7 +3,7 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-03-13T03:40:14+00:00</updated>
+    <updated>2016-03-15T21:13:46+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -41,11 +41,14 @@ changes:</p>
 <ol>
 <li>Added <code>VCard::getByType()</code>, to quickly get a vcard property with a specific
 value for <code>TYPE</code>.</li>
-<li><code>UNTIL</code> and <code>COUNT</code> where not correctly encoded in the jCal format.</li>
-<li><p><code>RRULE</code> now has more validation and repair rules.</p>
-
-<p>composer update sabre/vobject</p></li>
+<li><code>UNTIL</code> and <code>COUNT</code> were not correctly encoded in the jCal format.</li>
+<li><code>RRULE</code> now has more validation and repair rules.</li>
 </ol>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.0.3/CHANGELOG.md">Github</a></p>
 ]]></content>
@@ -62,10 +65,13 @@ value for <code>TYPE</code>.</li>
 could potentially cause a carddav client to miss an update.</li>
 <li>A fix for supporting non-seekable streams, for those that have custom <code>IFile</code>
 implementations with non-seekable streams.</li>
-<li><p>Faster XML parsing and generating.</p>
-
-<p>composer update sabre/dav</p></li>
+<li>Faster XML parsing and generating.</li>
 </ul>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
 
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
@@ -82,6 +88,8 @@ parsing clark-notation strings. We now cache the result of these, which can
 result in significant speed-ups for large documents with lots of repeating
 xml element names.</p>
 
+<p>Upgrade sabre/xml by running:</p>
+
 <pre><code>composer update sabre/xml
 </code></pre>
 
@@ -97,6 +105,8 @@ xml element names.</p>
 cleaning up sync logs after deleting address books. This bug could in some
 rare circumstances cause clients to not see some changes for (unrelated)
 address books.</p>
+
+<p>Upgrade sabre/dav by running:</p>
 
 <pre><code>composer update sabre/dav
 </code></pre>

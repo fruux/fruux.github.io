@@ -51,11 +51,14 @@ changes:</p>
 <ol>
 <li>Added <code>VCard::getByType()</code>, to quickly get a vcard property with a specific
 value for <code>TYPE</code>.</li>
-<li><code>UNTIL</code> and <code>COUNT</code> where not correctly encoded in the jCal format.</li>
-<li><p><code>RRULE</code> now has more validation and repair rules.</p>
-
-<p>composer update sabre/vobject</p></li>
+<li><code>UNTIL</code> and <code>COUNT</code> were not correctly encoded in the jCal format.</li>
+<li><code>RRULE</code> now has more validation and repair rules.</li>
 </ol>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.0.3/CHANGELOG.md">Github</a></p>
 

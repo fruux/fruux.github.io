@@ -114,7 +114,7 @@ accessible directly, as this could contain your sql database.</p>
 <p>The following configuration file may be used as a standard template to configure
 an apache vhost as a dedicated Baïkal vhost:</p>
 
-<pre><code>&lt;VirtualHost *:80&gt;
+<pre><code class="apache">&lt;VirtualHost *:80&gt;
 
     DocumentRoot /var/www/baikal/html
     ServerName dav.example.org
@@ -127,6 +127,13 @@ an apache vhost as a dedicated Baïkal vhost:</p>
         Options None
         Options +FollowSymlinks
         AllowOverride All
+
+        # Confiugration for apache-2.2:
+        Order allow,deny
+        Allow from all
+
+        # Confiugration for apache-2.4:
+        Require all granted
     &lt;/Directory&gt;
 
 &lt;/VirtualHost&gt;
@@ -136,31 +143,31 @@ an apache vhost as a dedicated Baïkal vhost:</p>
 
 <p>The following configuration may be used for nginx:</p>
 
-<pre><code>server {
-    listen       80;
-    server_name  dav.example.org;
+<pre><code class="nginx">server {
+  listen       80;
+  server_name  dav.example.org;
 
-    root  /var/www/baikal/html;
-    index index.php;
+  root  /var/www/baikal/html;
+  index index.php;
 
-    rewrite ^/.well-known/caldav /dav.php redirect;
-    rewrite ^/.well-known/carddav /dav.php redirect;
+  rewrite ^/.well-known/caldav /dav.php redirect;
+  rewrite ^/.well-known/carddav /dav.php redirect;
 
-    charset utf-8;
+  charset utf-8;
 
-    location ~ /(\.ht|Core|Specific) {
-        deny all;
-        return 404;
-    }
+  location ~ /(\.ht|Core|Specific) {
+    deny all;
+    return 404;
+  }
 
-    location ~ ^(.+\.php)(.*)$ {
-        try_files $fastcgi_script_name =404;
-        fastcgi_split_path_info  ^(.+\.php)(.*)$;
-        fastcgi_pass   unix:/var/run/php-fpm/php-fpm.sock;
-        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-        fastcgi_param  PATH_INFO        $fastcgi_path_info;
-        include        /etc/nginx/fastcgi_params;
-    }
+  location ~ ^(.+\.php)(.*)$ {
+    try_files $fastcgi_script_name =404;
+    fastcgi_split_path_info  ^(.+\.php)(.*)$;
+    fastcgi_pass   unix:/var/run/php-fpm/php-fpm.sock;
+    fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+    fastcgi_param  PATH_INFO        $fastcgi_path_info;
+    include        /etc/nginx/fastcgi_params;
+  }
 }
 </code></pre>
             

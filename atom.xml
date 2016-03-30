@@ -3,7 +3,7 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-03-30T00:14:49+00:00</updated>
+    <updated>2016-03-30T00:16:17+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -26,7 +26,7 @@ we're also writing the standard.</p>
 <li><a href="https://tools.ietf.org/html/draft-pot-caldav-sharing">CalDAV sharing</a>.</li>
 </ul>
 
-<p>Today I wrote an article on my own blog about how it's working and the current
+<p>Today I wrote an article on my own blog about how it works and the current
 status. <a href="https://evertpot.com/webdav-caldav-carddav-sharing/">Read it here</a>.</p>
 
 <p>We'll be at CalConnect 36 in Hong Kong next month to discuss this more. If

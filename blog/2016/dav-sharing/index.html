@@ -3,7 +3,7 @@
 
     
   
-            <title>sabre/dav 3.1.2 released - sabre/dav</title>
+            <title>CalDAV, CardDAV and WebDAV sharing - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -42,39 +42,38 @@
         <main>
                 <article>
                 <article class="blog-entry">
-        <time>March 13th, 2016</time>
-        <h1>sabre/dav 3.1.2 released</h1>
+        <time>March 30th, 2016</time>
+        <h1>CalDAV, CardDAV and WebDAV sharing</h1>
         <div>
-            <p>We just released sabre/dav 3.1.2. This release contains the following changes:</p>
+            <p>CalDAV/CardDAV sharing is something <a href="https://github.com/fruux/sabre-dav/pull/696">we've worked on</a> for quite some time.
+Our goal is to have out of the box CalDAV sharing working in the next sabre/dav
+version</p>
+
+<p>It's taking a long time to implement, because we're not just writing the code,
+we're also writing the standard.</p>
+
+<p>These are the current drafts:</p>
 
 <ul>
-<li>A small issue with cleaning up sync logs after deleting addressbooks. This
-could potentially cause a CardDAV client to miss an update.</li>
-<li>A fix for supporting non-seekable streams, for those that have custom <code>IFile</code>
-implementations with non-seekable streams.</li>
-<li>Faster XML parsing and generating due to an update to sabre/xml.</li>
-<li>Updates to the sqlite schema to make it more strict.</li>
-<li>Better parsing of some <code>RRULE</code> properties.</li>
+<li><a href="https://tools.ietf.org/html/draft-pot-webdav-notifications">WebDAV notifications</a>.</li>
+<li><a href="https://tools.ietf.org/html/draft-pot-webdav-resource-sharing">WebDAV resource sharing</a>.</li>
+<li><a href="https://tools.ietf.org/html/draft-pot-caldav-sharing">CalDAV sharing</a>.</li>
 </ul>
 
-<p>Upgrade sabre/dav by running:</p>
+<p>Today I wrote an article on my own blog about how it's working and the current
+status. <a href="https://evertpot.com/webdav-caldav-carddav-sharing/">Read it here</a>.</p>
 
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.1.2/CHANGELOG.md">Github</a></p>
+<p>We'll be at CalConnect 36 in Hong Kong next month to discuss this more. If
+you're in the area and want to discuss calendaring or sabre/dav, drop us a line!</p>
 
         </div>
                     <p class="tags">
             Tags:
-                        <a href="http://sabre.io/blog/tags/dav">dav</a>,                         <a href="http://sabre.io/blog/tags/release">release</a>                        </p>
+                        <a href="http://sabre.io/blog/tags/dav">dav</a>,                         <a href="http://sabre.io/blog/tags/sharing">sharing</a>                        </p>
         
                     <nav class="article">
                 <ul>
-                                            <li>Next: <a class="next" href="http://sabre.io/blog/2016/baikal-0.4.0-release" title="Baïkal 0.4.0 released"><span class="title">Baïkal 0.4.0 released</span></a></li>
-                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2016/sabre-vobject-4.0.3-release" title="sabre/vobject 4.0.3 released"><span class="title">sabre/vobject 4.0.3 released</span></a></li>
+                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2016/baikal-0.4.0-release" title="Baïkal 0.4.0 released"><span class="title">Baïkal 0.4.0 released</span></a></li>
                                     </ul>
             </nav>
             </article>
@@ -106,9 +105,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/blog/2016/sabre-dav-3.1.2-release';
-    var disqus_title = 'sabre/dav 3.1.2 released';
-    var disqus_url = 'http://sabre.io/blog/2016/sabre-dav-3.1.2-release';
+    var disqus_identifier = '/blog/2016/dav-sharing';
+    var disqus_title = 'CalDAV, CardDAV and WebDAV sharing';
+    var disqus_url = 'http://sabre.io/blog/2016/dav-sharing';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

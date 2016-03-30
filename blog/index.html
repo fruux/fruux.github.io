@@ -45,6 +45,38 @@
                 <p></p>
 
 <article class="blog-entry">
+    <time>March 30th, 2016</time>
+    <h1><a href="http://sabre.io/blog/2016/dav-sharing">CalDAV, CardDAV and WebDAV sharing</a></h1>
+    <p>CalDAV/CardDAV sharing is something <a href="https://github.com/fruux/sabre-dav/pull/696">we've worked on</a> for quite some time.
+Our goal is to have out of the box CalDAV sharing working in the next sabre/dav
+version</p>
+
+<p>It's taking a long time to implement, because we're not just writing the code,
+we're also writing the standard.</p>
+
+<p>These are the current drafts:</p>
+
+<ul>
+<li><a href="https://tools.ietf.org/html/draft-pot-webdav-notifications">WebDAV notifications</a>.</li>
+<li><a href="https://tools.ietf.org/html/draft-pot-webdav-resource-sharing">WebDAV resource sharing</a>.</li>
+<li><a href="https://tools.ietf.org/html/draft-pot-caldav-sharing">CalDAV sharing</a>.</li>
+</ul>
+
+<p>Today I wrote an article on my own blog about how it's working and the current
+status. <a href="https://evertpot.com/webdav-caldav-carddav-sharing/">Read it here</a>.</p>
+
+<p>We'll be at CalConnect 36 in Hong Kong next month to discuss this more. If
+you're in the area and want to discuss calendaring or sabre/dav, drop us a line!</p>
+
+</article>
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>March 15th, 2016</time>
     <h1><a href="http://sabre.io/blog/2016/baikal-0.4.0-release">Baïkal 0.4.0 released</a></h1>
     <p>We just released Baïkal 0.4.0. This release contains a number of changes that
@@ -91,15 +123,18 @@ the admin.</li>
 
 <ul>
 <li>A small issue with cleaning up sync logs after deleting addressbooks. This
-could potentially cause a carddav client to miss an update.</li>
+could potentially cause a CardDAV client to miss an update.</li>
 <li>A fix for supporting non-seekable streams, for those that have custom <code>IFile</code>
 implementations with non-seekable streams.</li>
 <li>Faster XML parsing and generating due to an update to sabre/xml.</li>
 <li>Updates to the sqlite schema to make it more strict.</li>
-<li><p>Better parsing of some <code>RRULE</code> properties.</p>
-
-<p>composer update sabre/dav</p></li>
+<li>Better parsing of some <code>RRULE</code> properties.</li>
 </ul>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
 
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
@@ -196,7 +231,7 @@ xml element names.</p>
 
 <article class="blog-entry">
     <time>March 10th, 2016</time>
-    <h1><a href="http://sabre.io/blog/2016/sabre-dav-2.1.11-release">sabre/dav 2.1.10 released</a></h1>
+    <h1><a href="http://sabre.io/blog/2016/sabre-dav-2.1.10-release">sabre/dav 2.1.10 released</a></h1>
     <p>We just released sabre/dav 2.1.10. This release fixes a small issue with
 cleaning up sync logs after deleting address books. This bug could in some
 rare circumstances cause clients to not see some changes for (unrelated)
@@ -209,7 +244,7 @@ address books.</p>
 
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.11/ChangeLog.md">Github</a></p>
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.10/ChangeLog.md">Github</a></p>
 
 </article>
 

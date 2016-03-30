@@ -3,9 +3,36 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-03-15T21:46:10+00:00</updated>
+    <updated>2016-03-30T00:14:49+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[CalDAV, CardDAV and WebDAV sharing]]></title>
+            <link href="http://sabre.io/blog/2016/dav-sharing"/>
+            <updated>2016-03-30T00:13:07+00:00</updated>
+            <id>http://sabre.io/blog/2016/dav-sharing</id>
+            <content type="html"><![CDATA[<p>CalDAV/CardDAV sharing is something <a href="https://github.com/fruux/sabre-dav/pull/696">we've worked on</a> for quite some time.
+Our goal is to have out of the box CalDAV sharing working in the next sabre/dav
+version</p>
+
+<p>It's taking a long time to implement, because we're not just writing the code,
+we're also writing the standard.</p>
+
+<p>These are the current drafts:</p>
+
+<ul>
+<li><a href="https://tools.ietf.org/html/draft-pot-webdav-notifications">WebDAV notifications</a>.</li>
+<li><a href="https://tools.ietf.org/html/draft-pot-webdav-resource-sharing">WebDAV resource sharing</a>.</li>
+<li><a href="https://tools.ietf.org/html/draft-pot-caldav-sharing">CalDAV sharing</a>.</li>
+</ul>
+
+<p>Today I wrote an article on my own blog about how it's working and the current
+status. <a href="https://evertpot.com/webdav-caldav-carddav-sharing/">Read it here</a>.</p>
+
+<p>We'll be at CalConnect 36 in Hong Kong next month to discuss this more. If
+you're in the area and want to discuss calendaring or sabre/dav, drop us a line!</p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[Baïkal 0.4.0 released]]></title>
             <link href="http://sabre.io/blog/2016/baikal-0.4.0-release"/>
@@ -50,15 +77,18 @@ the admin.</li>
 
 <ul>
 <li>A small issue with cleaning up sync logs after deleting addressbooks. This
-could potentially cause a carddav client to miss an update.</li>
+could potentially cause a CardDAV client to miss an update.</li>
 <li>A fix for supporting non-seekable streams, for those that have custom <code>IFile</code>
 implementations with non-seekable streams.</li>
 <li>Faster XML parsing and generating due to an update to sabre/xml.</li>
 <li>Updates to the sqlite schema to make it more strict.</li>
-<li><p>Better parsing of some <code>RRULE</code> properties.</p>
-
-<p>composer update sabre/dav</p></li>
+<li>Better parsing of some <code>RRULE</code> properties.</li>
 </ul>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
 
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
@@ -133,9 +163,9 @@ xml element names.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.1.10 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-dav-2.1.11-release"/>
+            <link href="http://sabre.io/blog/2016/sabre-dav-2.1.10-release"/>
             <updated>2016-03-10T21:17:32+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-dav-2.1.11-release</id>
+            <id>http://sabre.io/blog/2016/sabre-dav-2.1.10-release</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.10. This release fixes a small issue with
 cleaning up sync logs after deleting address books. This bug could in some
 rare circumstances cause clients to not see some changes for (unrelated)
@@ -148,7 +178,7 @@ address books.</p>
 
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.11/ChangeLog.md">Github</a></p>
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.10/ChangeLog.md">Github</a></p>
 ]]></content>
         </entry>
             <entry>
@@ -283,28 +313,6 @@ CalDAV scheduling and delegation.</p>
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.1.1/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 2.1.9 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-dav-2.1.9-release"/>
-            <updated>2016-01-25T21:04:33+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-dav-2.1.9-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.9, which contains a fix to enable PHP 7
-support. This release includes sabre/vobject 3.5.0 which was also fixed
-to support PHP 7.</p>
-
-<p>For more information about this change and this decision read the <a href="/blog/2016/sabre-vobject-3.4.9-and-3.5.0-release/">vobject
-post</a>.</p>
-
-<p>Update sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.9/ChangeLog.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

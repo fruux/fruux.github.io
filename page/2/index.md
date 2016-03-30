@@ -139,8 +139,15 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Mar. 12th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-xml-1.4.1-release">sabre/xml 1.4.1 released</a></h1>
+                    <p>We just released sabre/xml 1.4.1. This release contains an improvement in
+parsing clark-notation strings. We now cache the result of these, which can
+result in significant speed-ups for large documents with lots of repeating
+xml element names.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Mar. 10th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-2.1.11-release">sabre/dav 2.1.10 released</a></h1>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-2.1.10-release">sabre/dav 2.1.10 released</a></h1>
                     <p>We just released sabre/dav 2.1.10. This release fixes a small issue with
 cleaning up sync logs after deleting address books. This bug could in some
 rare circumstances cause clients to not see some changes for (unrelated)
@@ -160,12 +167,6 @@ related to serializing value objects, and in particular array properties.</artic
                     <p>We just released sabre/dav 3.1.1. This release fixes a regression
 that prevented the browser plugin from working for people using both
 CalDAV scheduling and delegation.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jan. 25th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-2.1.9-release">sabre/dav 2.1.9 released</a></h1>
-                    <p>We just released sabre/dav 2.1.9, which contains a fix to enable PHP 7
-support. This release includes sabre/vobject 3.5.0 which was also fixed
-to support PHP 7.</article>
                                     </section>
     </div>
 </div>

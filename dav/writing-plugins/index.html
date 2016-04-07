@@ -71,7 +71,7 @@
 supported events. Every single <a href="/dav/plugins">plugin</a> uses these events to
 add their new features and functionality.</p>
 
-<h2 id="an-example%3A-adding-support-for-a-new-http-method">An example: adding support for a new HTTP method</h2>
+<h2>An example: adding support for a new HTTP method</h2>
 
 <p>Say if we wanted to implement a new HTTP method, named <code>BREW</code>, we'd use the
 following syntax:</p>
@@ -99,7 +99,7 @@ $server-&gt;on('method:BREW', function(RequestInterface $request, ResponseInterf
 <li>Returning true will allow another plugin to handle the method.</li>
 </ol>
 
-<h2 id="wrapping-this-in-a-plugin">Wrapping this in a plugin</h2>
+<h2>Wrapping this in a plugin</h2>
 
 <p>If you have a few event handlers, and you would like to combine them into a
 single class, you can turn this into a plugin class.</p>
@@ -152,11 +152,11 @@ class CoffeePlugin extends ServerPlugin {
 $server-&gt;addPlugin($coffeePlugin);
 </code></pre>
 
-<h2 id="events">Events</h2>
+<h2>Events</h2>
 
 <p>The following events are supported in the server</p>
 
-<h3 id="%60method%60"><code>method</code></h3>
+<h3><code>method</code></h3>
 
 <p>The <code>method</code> event is typically used to implement new methods.
 An example can be seen above.</p>
@@ -197,7 +197,7 @@ $server-&gt;on('method', function(RequestInterface $request, ResponseInterface $
 });
 </code></pre>
 
-<h3 id="%60beforemethod%60"><code>beforeMethod</code></h3>
+<h3><code>beforeMethod</code></h3>
 
 <p>The <code>beforeMethod</code> handler is identical to the <code>method</code> handler. Using the
 <code>beforeMethod</code> handler you could do some pre-processing to the request.</p>
@@ -210,7 +210,7 @@ authenticated.</p>
 
 <p>If you return false from your event handler the process is completely cancelled.</p>
 
-<h3 id="%60aftermethod%60"><code>afterMethod</code></h3>
+<h3><code>afterMethod</code></h3>
 
 <p>After a method is completely handled, it's possible to do post-processing with
 <code>afterMethod</code>.</p>
@@ -224,7 +224,7 @@ this was requested by the client.</p>
 <p>If you return false from <code>afterMethod</code>, you prevent other <code>afterMethod</code> events
 from processing. Generally this is a bad idea.</p>
 
-<h3 id="%60beforecreatefile%60"><code>beforeCreateFile</code></h3>
+<h3><code>beforeCreateFile</code></h3>
 
 <p>This event is trigged before new files are created. Using this event it is for
 example possible to modify the new file before storage.</p>
@@ -265,7 +265,7 @@ and the process is effectively cancelled.</li>
 This is also used by the TemporaryFileFilter plugin to intercept creation of
 garbage files.</p>
 
-<h3 id="%60aftercreatefile%60"><code>afterCreateFile</code></h3>
+<h3><code>afterCreateFile</code></h3>
 
 <p>This event is triggered, only if the creation of the file succeeded.</p>
 
@@ -280,7 +280,7 @@ garbage files.</p>
 $server-&gt;on('afterCreateFile','afterCreateFile');
 </code></pre>
 
-<h3 id="%60beforewritecontent%60"><code>beforeWriteContent</code></h3>
+<h3><code>beforeWriteContent</code></h3>
 
 <p>This event is trigged before files are updated. Using this event it is
 possible to intercept these actions, validate content or block them.</p>
@@ -302,7 +302,7 @@ $server-&gt;on('beforeWriteContent','beforeWriteContent');
 <p>All the caveats from <code>beforeCreateFile</code> apply here too. Note that the arguments
 are slightly different for historical reasons.</p>
 
-<h3 id="%60afterwritecontent%60"><code>afterWriteContent</code></h3>
+<h3><code>afterWriteContent</code></h3>
 
 <p>This event is triggered, only if updating of an existing file succeeded.</p>
 
@@ -317,7 +317,7 @@ are slightly different for historical reasons.</p>
 $server-&gt;on('afterWriteContent','afterWriteContent');
 </code></pre>
 
-<h3 id="%60beforebind%60"><code>beforeBind</code></h3>
+<h3><code>beforeBind</code></h3>
 
 <p>This event is triggered whenever a new node is about to be created in the tree.
 This is for example triggered by <code>PUT</code>, <code>MKCOL</code>, <code>COPY</code> and <code>MOVE</code>.</p>
@@ -334,7 +334,7 @@ This is for example triggered by <code>PUT</code>, <code>MKCOL</code>, <code>COP
 $server-&gt;on('beforeBind','beforeBind');
 </code></pre>
 
-<h3 id="%60beforeunbind%60"><code>beforeUnbind</code></h3>
+<h3><code>beforeUnbind</code></h3>
 
 <p>This event is triggered whenever a node is about to be deleted. If an entire
 tree of nodes is deleted, the event will only trigger once, for the top-level
@@ -353,7 +353,7 @@ case the target resource was being overwritten.</p>
 $server-&gt;on('beforeUnbind','beforeUnbind');
 </code></pre>
 
-<h3 id="%60afterunbind%60"><code>afterUnbind</code></h3>
+<h3><code>afterUnbind</code></h3>
 
 <p>This event is triggered after a node is deleted. If an entire tree of nodes is
 deleted, the event will only trigger once, for the top-level node. The event is
@@ -371,7 +371,7 @@ resource was being overwritten.</p>
 $server-&gt;on('afterUnbind','afterUnbind');
 </code></pre>
 
-<h3 id="%60beforelock%60"><code>beforeLock</code></h3>
+<h3><code>beforeLock</code></h3>
 
 <p>The beforeLock event is triggered right before a resource is locked.
 Intercepting this event allows you to block a users' lock, or change information
@@ -388,7 +388,7 @@ regarding the lock, such as the lock owner or lock timeout.</p>
 $server-&gt;on('beforeLock','beforeLock');
 </code></pre>
 
-<h3 id="%60beforeunlock%60"><code>beforeUnlock</code></h3>
+<h3><code>beforeUnlock</code></h3>
 
 <p>The beforeUnlock event is triggered right before a resource is unlocked.
 Intercepting this event allows you to block the unlock.</p>
@@ -404,7 +404,7 @@ Intercepting this event allows you to block the unlock.</p>
 $server-&gt;on('beforeUnlock','beforeUnlock');
 </code></pre>
 
-<h3 id="%60propfind%60"><code>propFind</code></h3>
+<h3><code>propFind</code></h3>
 
 <p>The <code>propFind</code> event is called during updating of properties. The event is
 very versatile and used for a <em>lot</em> of property-related operations.</p>
@@ -472,7 +472,7 @@ $server-&gt;on('propFind', 'blockProperty');
 <p>Note that the PropFind object will automatically ignore any <code>handle</code> or set
 that modifies properties that were never requested.</p>
 
-<h3 id="%60proppatch%60"><code>propPatch</code></h3>
+<h3><code>propPatch</code></h3>
 
 <p>The <code>propPatch</code> event is called when updating properties on a node.</p>
 
@@ -503,13 +503,13 @@ $server-&gt;on('propPatch', 'saveDisplayName');
 <p>Take a look at the source for <code>Sabre\DAV\PropPatch</code> to learn more about its
 features.</p>
 
-<h3 id="%60exception%60"><code>exception</code></h3>
+<h3><code>exception</code></h3>
 
 <p>The server will trigger an 'exception' event whenever it's about to return an XML error document.</p>
 
 <p>The actual exception is passed as the first argument.</p>
 
-<h3 id="%60validatetokens%60"><code>validateTokens</code></h3>
+<h3><code>validateTokens</code></h3>
 
 <p>The <code>validateTokens</code> event is used internally by both the
 <a href="/dav/sync">WebDAV Sync</a> and the <a href="/dav/locks">Locking</a> systems to work with
@@ -521,7 +521,7 @@ requests.</p>
 <p>By implementing this event you could potentially add new types of conditions
 to any http request.</p>
 
-<h3 id="%60report%60"><code>report</code></h3>
+<h3><code>report</code></h3>
 
 <p>If an HTTP <code>REPORT</code> method is invoked, all subscribers to this event get the
 opportunity to handle a <code>REPORT</code> request.</p>
@@ -553,7 +553,7 @@ You can do so by adding it to the elementMap:</p>
 The documentation is extremely sparse here and we'd be happy to expand on
 this.</p>
 
-<h3 id="%60calendarobjectchange%60"><code>calendarObjectChange</code></h3>
+<h3><code>calendarObjectChange</code></h3>
 
 <p>This event is triggered by the CalDAV plugin, whenever a calendar object got
 changed or created.</p>
@@ -586,7 +586,7 @@ will not be sent back.</li>
 update.</li>
 </ul>
 
-<h3 id="%60schedule%60"><code>schedule</code></h3>
+<h3><code>schedule</code></h3>
 
 <p>This event is triggered for scheduling operations. A scheduling operation is
 for example a invite to an event, a cancellation of an event or an
@@ -612,7 +612,7 @@ $server-&gt;on('schedule', 'schedule');
 
 <p>Consult the source for <code>Sabre\VObject\ITip\Message</code> for more information.</p>
 
-<h3 id="%60aftermove%60"><code>afterMove</code></h3>
+<h3><code>afterMove</code></h3>
 
 <p>This event is triggered after a successful <code>MOVE</code> request. This is used by
 the system to copy WebDAV properties from the old to the new path, but could
@@ -627,7 +627,7 @@ be used for other purposes as well.</p>
 $server-&gt;on('afterMove', 'afterMove');
 </code></pre>
 
-<h3 id="%60afterresponse%60"><code>afterResponse</code></h3>
+<h3><code>afterResponse</code></h3>
 
 <p>This event is triggered after a HTTP response is sent back to the DAV client.
 At this point it's no longer possible to influence the HTTP response, but it
@@ -649,12 +649,12 @@ function afterResponse(RequestInterface $request, ResponseInterface $response) {
 $server-&gt;on('afterResponse', 'afterResponse');
 </code></pre>
 
-<h2 id="other-examples">Other examples</h2>
+<h2>Other examples</h2>
 
 <p>Check out <code>Sabre\DAV\CorePlugin</code>. This plugin is actually responsible for
 <em>all</em> core HTTP methods and most default features.</p>
 
-<h2 id="priorities">Priorities</h2>
+<h2>Priorities</h2>
 
 <p>It may be needed to ensure that your event gets triggered early or late in the
 process. This can be achieved by specifying the priority argument to the <code>on</code>
@@ -823,7 +823,7 @@ happens after authentication, but before the acl system kicks in. In that case
 </tbody>
 </table>
 
-<h2 id="other-event-system-features">Other event-system features</h2>
+<h2>Other event-system features</h2>
 
 <p>sabre/dav's event system is based on <a href="/event/">sabre/event</a>. Read the
 documentation on that page for additional event-related features. You can

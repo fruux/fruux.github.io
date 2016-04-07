@@ -77,9 +77,9 @@
 
 <p>This document helps explaining the differences, and how to upgrade.</p>
 
-<h2 id="api-breaks">API breaks</h2>
+<h2>API breaks</h2>
 
-<h3 id="we%27re-now-using-php-5.3-namespaces">We're now using PHP 5.3 namespaces</h3>
+<h3>We're now using PHP 5.3 namespaces</h3>
 
 <p>What does this mean? Simple: wherever you wrote <code>Sabre_DAV_Server</code> before, you
 now write <code>Sabre\DAV\Server</code>. This applies to every class in the SabreDAV
@@ -128,7 +128,7 @@ classes have gotten new names.</p>
 <p>As you can see we also improved consistency. Every 'backend package' now has a
 <code>BackendInterface</code> as well as an <code>AbstractBackend</code>.</p>
 
-<h3 id="changed-a-few-constructor-signatures">Changed a few constructor signatures</h3>
+<h3>Changed a few constructor signatures</h3>
 
 <p>This is only relevant to you if you instantiated one of the following classes
 directly:</p>
@@ -145,7 +145,7 @@ the constructor.</p>
 
 <p>Make sure you read the updated API documentation and fix this.</p>
 
-<h3 id="sabre%5Ccaldav%5Cisharedcalendar-now-has-a-getshares-method">Sabre\CalDAV\ISharedCalendar now has a getShares() method</h3>
+<h3>Sabre\CalDAV\ISharedCalendar now has a getShares() method</h3>
 
 <p>Just like <code>Sabre\CalDAV\IShareableCalendar</code>, the <code>ISharedCalendar</code> now also
 has a getShares() method.</p>

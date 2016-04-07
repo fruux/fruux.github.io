@@ -78,7 +78,7 @@ recommended to use this plugin, and it is required to use for both
 <p>The plugin can work with different backends. SabreDAV ships with a number of
 backends, but it's also easy to create your own.</p>
 
-<h2 id="backends">Backends</h2>
+<h2>Backends</h2>
 
 <p>SabreDAV comes with the following backends:</p>
 
@@ -114,7 +114,7 @@ backends, but it's also easy to create your own.</p>
 </tbody>
 </table>
 
-<h2 id="using-the-pdo-backend">Using the PDO backend</h2>
+<h2>Using the PDO backend</h2>
 
 <p>The PDO backend can either use MySQL or SQLite databases. An example for the
 table creation can be found in the <a href="https://github.com/fruux/sabre-dav/tree/master/examples/sql">source</a> in the <code>examples/sql</code> directory.</p>
@@ -144,7 +144,7 @@ $authPlugin = new Auth\Plugin($authBackend);
 $server-&gt;addPlugin($authPlugin);
 </code></pre>
 
-<h3 id="the-sql-table">The SQL table</h3>
+<h3>The SQL table</h3>
 
 <p>The example scripts for the SQL tables automatically creates a user with the
 username <code>admin</code> and password <code>admin</code>. Change this!</p>
@@ -162,7 +162,7 @@ when creating the <code>Sabre\DAV\Auth\Plugin</code>.</p>
 <p>If you choose to change the realm in the plugin, existing passwords will be
 invalidated, because the hash changed for all of them.</p>
 
-<h2 id="using-the-file-backend">Using the File backend</h2>
+<h2>Using the File backend</h2>
 
 <p>The <code>Sabre\DAV\Auth\Backend\File</code> backend uses a simple file to store
 usernames and passwords. The format of the file is identical to Apache's
@@ -209,7 +209,7 @@ $authPlugin = new Auth\Plugin($authBackend);
 $server-&gt;addPlugin($authPlugin);
 </code></pre>
 
-<h2 id="creating-your-own-authentication-backend">Creating your own authentication backend</h2>
+<h2>Creating your own authentication backend</h2>
 
 <p>If you're going to add Digest authenticaton, use
 <code>Sabre\DAV\Auth\Backend\AbstractDigest</code> as your parent class, and the
@@ -220,12 +220,12 @@ classes as examples.</p>
 <code>Sabre\DAV\Auth\Backend\AbstractBasic</code> as your parent class and implement the
 <code>validateUserPass</code> method.</p>
 
-<h2 id="webserver-configuration">Webserver configuration</h2>
+<h2>Webserver configuration</h2>
 
 <p>Some webservers may require special configuration for authentication to work.
 Take a look at <a href="/dav/webservers">Webservers</a> for more information.</p>
 
-<h3 id="problems-with-safe-mode">Problems with safe mode</h3>
+<h3>Problems with safe mode</h3>
 
 <p>If 'safe mode' is enabled, PHP will automatically append a process ID to
 authentication realms. This is problematic for Digest authentication, as it used
@@ -236,7 +236,7 @@ authentication instead of Digest.</p>
 
 <p>See <a href="http://php.net/manual/en/features.http-auth.php">the PHP manual</a> for more information.</p>
 
-<h3 id="encoding-issues">Encoding issues</h3>
+<h3>Encoding issues</h3>
 
 <p>Avoid non-ASCII characters for passwords. We've noticed that different clients
 may use different encodings for passwords (windows may use CP-1252 and others
@@ -249,7 +249,7 @@ encoding.</p>
 
 <p>SabreDAV does not do any of this, so stick to ASCII passwords.</p>
 
-<h2 id="letting-the-webserver-handle-authentication">Letting the webserver handle authentication</h2>
+<h2>Letting the webserver handle authentication</h2>
 
 <p>Authentication can be directly handled by webservers as well. This approach
 can be useful if you want to use advanced authentication methods provided by

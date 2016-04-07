@@ -80,12 +80,12 @@
 </aside>
                 <article>
                             <h1>Parsing iCalendar</h1>
-                <h2 id="getting-started">Getting started</h2>
+                <h2>Getting started</h2>
 
 <p>Make sure you followed all the steps in the <a href="/vobject/install">installation instructions</a>,
 and you've included the autoloader in your code.</p>
 
-<h2 id="a-basic-parsing-example">A basic parsing example</h2>
+<h2>A basic parsing example</h2>
 
 <p>Assuming there is an iCalendar file in your lcoal directory, named <code>party.ics</code>,
 the following complete example will parse it and display the <code>SUMMARY</code> property:</p>
@@ -110,9 +110,9 @@ the autoloader, and also that you've called</p>
 
 <p>at the top of your script. This is just to avoid repetition.</p>
 
-<h2 id="the-actual-manual">The actual manual</h2>
+<h2>The actual manual</h2>
 
-<h3 id="creating-a-new-icalendar-object">Creating a new iCalendar object</h3>
+<h3>Creating a new iCalendar object</h3>
 
 <p>To create a new iCalendar object, you can construct a <code>VCalendar</code> component, and pass it
 the structure you want.</p>
@@ -146,7 +146,7 @@ END:VEVENT
 END:VCALENDAR
 </code></pre>
 
-<h3 id="manipulating-properties">Manipulating properties</h3>
+<h3>Manipulating properties</h3>
 
 <p>It's very easy to modify properties on objects:</p>
 
@@ -164,7 +164,7 @@ $vcalendar-&gt;VEVENT-&gt;add('ATTENDEE', 'mailto:foo@example.com');
 $vcalendar-&gt;VEVENT-&gt;add('ATTENDEE', 'mailto:evert@example.com');
 </code></pre>
 
-<h3 id="working-with-parameters">Working with parameters</h3>
+<h3>Working with parameters</h3>
 
 <p>iCalendar also has a concept of parameters on properties. This is a bit like
 an "attribute" in xml or html.</p>
@@ -197,7 +197,7 @@ do so:</p>
 );
 </code></pre>
 
-<h3 id="parsing-icalendar">Parsing iCalendar</h3>
+<h3>Parsing iCalendar</h3>
 
 <p>To parse a vCard or iCalendar object, simply call:</p>
 
@@ -222,7 +222,7 @@ third option:</p>
 <p>Currently ISO-8859-1 and Windows-1252 are supported. This feature appeared in
 vObject 4.</p>
 
-<h3 id="looping-through-properties.">Looping through properties.</h3>
+<h3>Looping through properties.</h3>
 
 <p>Properties such as <code>ATTENDEE</code> may appear more than once in a
 vCard. To loop through them, you can simply throw them in a <code>foreach()</code>
@@ -233,7 +233,7 @@ statement:</p>
 }
 </code></pre>
 
-<h3 id="working-with-components">Working with Components</h3>
+<h3>Working with Components</h3>
 
 <p>In iCalendar, <code>VTODO</code>, <code>VEVENT</code>, <code>VJOURNAL</code>, <code>VALARM</code> and several others
 are all considered 'components'.</p>
@@ -281,7 +281,7 @@ components in a calendar.</p>
 }
 </code></pre>
 
-<h3 id="date-and-time-handling">Date and time handling</h3>
+<h3>Date and time handling</h3>
 
 <p>Parsing Dates and Times from iCalendar and vCard can be difficult.
 Most of this is abstracted by the VObject library.</p>
@@ -299,7 +299,7 @@ echo $start-&gt;format(\DateTime::W3C);
 $event-&gt;DTSTART = $dateTime;
 </code></pre>
 
-<h3 id="free-busy-report-generation">Free-busy report generation</h3>
+<h3>Free-busy report generation</h3>
 
 <p>Some calendaring software can make use of FREEBUSY reports to show when people are
 available.</p>
@@ -351,7 +351,7 @@ END:VFREEBUSY
 END:VCALENDAR
 </code></pre>
 
-<h3 id="validating-icalendar">Validating iCalendar</h3>
+<h3>Validating iCalendar</h3>
 
 <p>When you parse an iCalendar document, the parser grabs all the values and does
 basic syntax checking. It does not however, validate every value.</p>
@@ -399,7 +399,7 @@ restrictions (no <code>METHOD</code> may appear, only one component per document
 <p>The validator is not perfect, and we improve it when we come across new issues,
 so any suggestions are welcome.</p>
 
-<h2 id="support">Support</h2>
+<h2>Support</h2>
 
 <p>Head over to the <a href="http://groups.google.com/group/sabredav-discuss">SabreDAV mailing list</a> for any questions.</p>
             

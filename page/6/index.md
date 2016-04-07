@@ -66,7 +66,6 @@
         </ul>
     </div>
 </section>
-
 <section class="box box--trusted">
     <div class="box-wrapper">
         <h1 class="box-headline">Trusted by</h1>
@@ -84,7 +83,6 @@
         </a>
     </div>
 </section>
-
 <section class="box box--lineup">
     <div class="box-wrapper">
         <h1 class="box-headline">The full sabre.io lineup</h1>
@@ -114,7 +112,6 @@
         </a>
     </div>
 </section>
-
 <div class="box box--turquoise">
     <div class="box-wrapper">
         <section class="box box--enterprise">
@@ -139,6 +136,10 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Sep. 15th, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-dav-3.0.5-released">sabre/dav 3.0.5 released</a></h1>
+                    <p>We just released sabre/dav 3.0.5.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Sep. 4th, 2015</time>
                     <h1><a href="http://sabre.io/blog/2015/sabre-dav-3.0.4-released">sabre/dav 3.0.4 released</a></h1>
                     <p>We just released sabre/dav 3.0.4</article>
@@ -154,18 +155,12 @@
                     <time>Sep. 4th, 2015</time>
                     <h1><a href="http://sabre.io/blog/2015/sabre-http-4.1.0">sabre/http 4.1.0 released</a></h1>
                     <p>We just released sabre/http 4.1.0</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Sep. 4th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.0.9-released">sabre/dav 2.0.9 released</a></h1>
-                    <p>We just released sabre/dav 2.0.9</article>
                                     </section>
     </div>
 </div>
-
 <figure class="bg--cloudy">
     <img src="http://sabre.io/img/home_background.jpg">
 </figure>
-
 
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 

@@ -94,7 +94,7 @@ Promises can be useful in PHP as well.</p>
 EcmaScript implementation as possible. Everything that's available there is
 available here.</p>
 
-<h2 id="an-example-through-a-use-case">An example through a use-case</h2>
+<h2>An example through a use-case</h2>
 
 <p>We are integrated with a RESTful webservice. We have to make 1 <code>PUT</code> and
 1 <code>DELETE</code> request, but we don't have to perform these in order.</p>
@@ -154,7 +154,7 @@ when the operation is completed.</p>
 
 <p>To catch errors, use the <code>otherwise</code> fucntion.</p>
 
-<h2 id="the-innovation%3A-chaining">The innovation: chaining</h2>
+<h2>The innovation: chaining</h2>
 
 <p>The innovation lies in the fact that it's possible to chain promises.</p>
 
@@ -196,7 +196,7 @@ Sabre\Event\Loop\run();
 <p><strong>Note</strong>: If you did not specify an error handler, any errors and exceptions may
 be suppressed. Always make sure you end the chain with at least 1 error handler.</p>
 
-<h2 id="promise-state">Promise state</h2>
+<h2>Promise state</h2>
 
 <p>A Promise can only have one of three states:</p>
 
@@ -209,7 +209,7 @@ be suppressed. Always make sure you end the chain with at least 1 error handler
 <p>After a Promise is in state 2 or 3, its state and the value/reason are
 immutable.</p>
 
-<h2 id="creating-a-promise">Creating a Promise</h2>
+<h2>Creating a Promise</h2>
 
 <p>If you are the implementor of <code>MultiHttp</code>, you will want to know how to create
 a Promise. It's pretty easy, just call the constructor:</p>
@@ -227,14 +227,14 @@ a Promise. It's pretty easy, just call the constructor:</p>
 <pre><code>$promise-&gt;reject( new Exception('Something went wrong'); );
 </code></pre>
 
-<h2 id="api">API</h2>
+<h2>API</h2>
 
-<h3 id="%60promise%3A%3A__constructcallable-%24executor-%3D-null%3B%60"><code>Promise::__construct(callable $executor = null);</code></h3>
+<h3><code>Promise::__construct(callable $executor = null);</code></h3>
 
 <p>Creates the Promise with an optional executor callback. The callback will
 receive a reference to the fulfill and reject functions.</p>
 
-<h3 id="%60promise%3A%3Athencallable-%24onfulfilled-%3D-null%2C-callable-%24onrejected-%3D-null%60"><code>Promise::then(callable $onFulfilled = null, callable $onRejected = null)</code></h3>
+<h3><code>Promise::then(callable $onFulfilled = null, callable $onRejected = null)</code></h3>
 
 <p>Sets up a callback for when the Promise is fulfilled or rejected.</p>
 
@@ -313,7 +313,7 @@ caught, and the returned Promise will fail with the exception as the reason:</p>
 any exceptions may be silently suppressed without it. Alternatively, you
 could also end your chain of promises with <code>wait()</code>.</p>
 
-<h3 id="%60promise%3A%3Aotherwise%24onrejected%60"><code>Promise::otherwise($onRejected)</code></h3>
+<h3><code>Promise::otherwise($onRejected)</code></h3>
 
 <p>This method can be used to just specify an error handler. This allows the
 following syntax:</p>
@@ -330,7 +330,7 @@ following syntax:</p>
 });
 </code></pre>
 
-<h3 id="%60promise%3A%3Afulfillmixed-%24value-%3D-null%60"><code>Promise::fulfill(mixed $value = null)</code></h3>
+<h3><code>Promise::fulfill(mixed $value = null)</code></h3>
 
 <p>Fulfills a Promise that didn't have a result yet.</p>
 
@@ -339,7 +339,7 @@ following syntax:</p>
 
 <p>The value may be any type at all.</p>
 
-<h3 id="%60promise%3A%3Arejectmixed-%24reason-%3D-null%60"><code>Promise::reject(mixed $reason = null)</code></h3>
+<h3><code>Promise::reject(mixed $reason = null)</code></h3>
 
 <p>Reject (fails) a Promise that didn't have a result yet.</p>
 
@@ -348,7 +348,7 @@ following syntax:</p>
 
 <p>The reason may also be any PHP type, but it's recommended to use exceptions.</p>
 
-<h3 id="%60promise%3A%3Await%60"><code>Promise::wait()</code></h3>
+<h3><code>Promise::wait()</code></h3>
 
 <p>Turns your asynchronous code into blocking code again. Calling this function
 will cause PHP to block until the promise is resolved. While it's 'blocking'
@@ -375,7 +375,7 @@ $promsie2 = anotherAsyncOp();
 Promise\all([$promise1, $promise2])-&gt;wait();
 </code></pre>
 
-<h3 id="%60promise%5Callpromise-%24promises%60"><code>Promise\all(Promise[] $promises)</code></h3>
+<h3><code>Promise\all(Promise[] $promises)</code></h3>
 
 <p>The <code>Promise\all()</code> function returns a Promise, that will fulfill when all
 of the passed promises have been fulfilled themselves.</p>
@@ -399,7 +399,7 @@ $all = Promise\all([$promise1, $promise2])-&gt;then(
 );
 </code></pre>
 
-<h3 id="%60promise%5Cracepromise-%24promises%60"><code>Promise\race(Promise[] $promises)</code></h3>
+<h3><code>Promise\race(Promise[] $promises)</code></h3>
 
 <p>The <code>Promise\race()</code> function returns a Promise, that will immediately fulfill
 as soon as one of the passed promises have fulfilled..</p>
@@ -423,7 +423,7 @@ $all = Promise\race([$promise1, $promise2])-&gt;then(
 );
 </code></pre>
 
-<h3 id="%60promise%5Cresolvemixed-%24value%60"><code>Promise\resolve(mixed $value)</code></h3>
+<h3><code>Promise\resolve(mixed $value)</code></h3>
 
 <p>The <code>Promise\resolve()</code> function returns a Promise that immediately fulfills
 with the value you specified in its argument. It's a quick way to create a
@@ -441,7 +441,7 @@ $promise-&gt;then(function($value) {
 });
 </code></pre>
 
-<h3 id="%60promise%5Crejectmixed-%24reason%60"><code>Promise\reject(mixed $reason)</code></h3>
+<h3><code>Promise\reject(mixed $reason)</code></h3>
 
 <p>The <code>Promise\reject()</code> function returns a Promise that automatically rejects
 with the reason specified in <code>$reason</code>.</p>
@@ -449,7 +449,7 @@ with the reason specified in <code>$reason</code>.</p>
 <p>It's a quick way for people writing Promise based code that just want to
 return a rejected promise.</p>
 
-<h2 id="see-also">See also</h2>
+<h2>See also</h2>
 
 <ul>
 <li><a href="/event/coroutines/">Coroutines</a>.</li>

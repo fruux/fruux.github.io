@@ -66,7 +66,6 @@
         </ul>
     </div>
 </section>
-
 <section class="box box--trusted">
     <div class="box-wrapper">
         <h1 class="box-headline">Trusted by</h1>
@@ -84,7 +83,6 @@
         </a>
     </div>
 </section>
-
 <section class="box box--lineup">
     <div class="box-wrapper">
         <h1 class="box-headline">The full sabre.io lineup</h1>
@@ -114,7 +112,6 @@
         </a>
     </div>
 </section>
-
 <div class="box box--turquoise">
     <div class="box-wrapper">
         <section class="box box--enterprise">
@@ -140,6 +137,10 @@
             <h1>News</h1>
                             <article class="blog-entry">
                     <time>Dec. 10th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.6-released">sabre/dav 2.0.6 released</a></h1>
+                    <p>We just released sabre/dav 2.0.6.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Dec. 10th, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/sabre-dav-1.8.11-release">sabre/dav 1.8.11 release</a></h1>
                     <p>We just released sabre/dav 1.8.11.</article>
                 <hr />                            <article class="blog-entry">
@@ -154,19 +155,12 @@
                     <time>Nov. 22nd, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1.1-release">sabre/dav 2.1.1 release</a></h1>
                     <p>We just released sabre/dav 2.1.1. Upgrading is highly recommended.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Nov. 20th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1-release">sabre/dav 2.1 released</a></h1>
-                    <p>We just released sabre/dav version 2.1. This release comes about 6 months
-after the last major release, so that's nicely on track!</article>
                                     </section>
     </div>
 </div>
-
 <figure class="bg--cloudy">
     <img src="http://sabre.io/img/home_background.jpg">
 </figure>
-
 
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 

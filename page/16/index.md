@@ -66,7 +66,6 @@
         </ul>
     </div>
 </section>
-
 <section class="box box--trusted">
     <div class="box-wrapper">
         <h1 class="box-headline">Trusted by</h1>
@@ -84,7 +83,6 @@
         </a>
     </div>
 </section>
-
 <section class="box box--lineup">
     <div class="box-wrapper">
         <h1 class="box-headline">The full sabre.io lineup</h1>
@@ -114,7 +112,6 @@
         </a>
     </div>
 </section>
-
 <div class="box box--turquoise">
     <div class="box-wrapper">
         <section class="box box--enterprise">
@@ -140,6 +137,10 @@
             <h1>News</h1>
                             <article class="blog-entry">
                     <time>Jun. 12th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.2-release">sabre/dav 2.0.2 release</a></h1>
+                    <p>We just released sabre/dav 2.0.2.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Jun. 12th, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.3-release">sabre/vobject 3.2.3 release</a></h1>
                     <p>We just released sabre/vobject 3.2.3.</article>
                 <hr />                            <article class="blog-entry">
@@ -156,19 +157,12 @@ to work on PHP versions older than 5.4.14.</article>
                     <h1><a href="http://sabre.io/blog/2014/sabredav-2.0.1-release">sabre/dav 2.0.1 released</a></h1>
                     <p>We just released sabre/dav 2.0.1. Two regressions have been found related
 to PROPFIND requests.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>May. 22nd, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabredav-2-release">sabre/dav 2.0 released</a></h1>
-                    <p>We just released sabre/dav 2.0. The last major release (1.8) was in <a href="http://evertpot.com/sabredav-18-released-with-namespaces/">2012</a>,
-so it's been a long time coming.</article>
                                     </section>
     </div>
 </div>
-
 <figure class="bg--cloudy">
     <img src="http://sabre.io/img/home_background.jpg">
 </figure>
-
 
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 

@@ -74,7 +74,7 @@ capable of mounting WebDAV drives using <a href="http://code.google.com/p/macfus
 <p>If you are ok with shelving out a few dollars, this is a <em>much</em> better client
 than <a href="/dav/clients/finder">Finder</a>, and is well worth it.</p>
 
-<h2 id="implementor-notes">Implementor notes</h2>
+<h2>Implementor notes</h2>
 
 <p>Transmit 4 had issues with multiple namespace declarations (DAV: appeared
 twice). This bug was promised to be fixed in a next version of Transmit,
@@ -84,7 +84,7 @@ but it's also fixed in SabreDAV since 1.2.0beta1.</p>
 request, as it seems to buffer all modifications for a while. Because of this
 it's much more responsive uses far less HTTP requests / bandwidth.</p>
 
-<h2 id="chunked-request-body-problem">Chunked Request Body problem</h2>
+<h2>Chunked Request Body problem</h2>
 
 <p>Transmit suffers from the same issue as the OS/X client, where it sends all
 HTTP PUT requests as 'Chunked' transfer encoding. This is not supported by
@@ -96,7 +96,7 @@ apache + mod_php.</p>
 <p><strong>Note</strong> The previous issue may well have been fixed since the last time we
 looked.</p>
 
-<h2 id="protocol-details">Protocol details</h2>
+<h2>Protocol details</h2>
 
 <p>Transmit uses the following user agent:</p>
 

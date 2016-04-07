@@ -136,6 +136,13 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Mar. 15th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/baikal-0.4.0-release">Baïkal 0.4.0 released</a></h1>
+                    <p>We just released Baïkal 0.4.0. This release contains a number of changes that
+should improve the system for a number of users. The 0.3.x range of releases
+had seen a number of stability problems, due to a relatively big sabre/dav
+upgrade.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Mar. 13th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.2-release">sabre/dav 3.1.2 released</a></h1>
                     <p>We just released sabre/dav 3.1.2. This release contains the following changes:</article>
@@ -155,13 +162,6 @@ changes:</article>
 parsing clark-notation strings. We now cache the result of these, which can
 result in significant speed-ups for large documents with lots of repeating
 xml element names.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Mar. 10th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-2.1.10-release">sabre/dav 2.1.10 released</a></h1>
-                    <p>We just released sabre/dav 2.1.10. This release fixes a small issue with
-cleaning up sync logs after deleting address books. This bug could in some
-rare circumstances cause clients to not see some changes for (unrelated)
-address books.</article>
                                     </section>
     </div>
 </div>

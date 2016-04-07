@@ -136,6 +136,10 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Jul. 11th, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.0.8-released">sabre/dav 2.0.8 released</a></h1>
+                    <p>We just released sabre/dav 2.0.8.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Jul. 2nd, 2015</time>
                     <h1><a href="http://sabre.io/blog/2015/sabre-dav-3.0.1-released">sabre/dav 3.0.1 released</a></h1>
                     <p>We just released sabre/dav 3.0.1.</article>
@@ -153,10 +157,6 @@ the 2.0 release, but 6 years after the 1.0 release.</article>
                     <h1><a href="http://sabre.io/blog/2015/deprecating-packages">Deprecating sabre/dav 1.8</a></h1>
                     <p>Our versioning scheme from sabre/dav dictates that we stop support for a
 version of a package, 12 months after the next major version was released.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>May. 27th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.4.4-release">sabre/vobject 3.4.4 release</a></h1>
-                    <p>We just released sabre/vobject 3.4.4.</article>
                                     </section>
     </div>
 </div>

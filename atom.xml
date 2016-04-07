@@ -3,9 +3,35 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-04-07T00:56:57+00:00</updated>
+    <updated>2016-04-07T01:11:03+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 3.1.3 released]]></title>
+            <link href="http://sabre.io/blog/2016/sabre-dav-3.1.3-release"/>
+            <updated>2016-04-07T01:10:02+00:00</updated>
+            <id>http://sabre.io/blog/2016/sabre-dav-3.1.3-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 3.1.3. This release contains the following changes:</p>
+
+<ul>
+<li>We now require libxml 2.7.0 in composer. We always needed this as a minumum
+version, but this was not correctly marked.</li>
+<li>Fixed an issue in the MySQL table structure for calendars. There was not
+enough space to make a calendar to be able to hold events, todos and
+journals all at once.</li>
+<li>Upgraded sabre/vobject, this will fix a number of scheduling-related bugs.</li>
+</ul>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.1.3/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/vobject 4.1.0 released]]></title>
             <link href="http://sabre.io/blog/2016/sabre-vobject-4.1.0-release"/>
@@ -239,26 +265,6 @@ xml element names.</p>
 </code></pre>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-xml/blob/1.4.1/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 2.1.10 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-dav-2.1.10-release"/>
-            <updated>2016-03-10T21:17:32+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-dav-2.1.10-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 2.1.10. This release fixes a small issue with
-cleaning up sync logs after deleting address books. This bug could in some
-rare circumstances cause clients to not see some changes for (unrelated)
-address books.</p>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/2.1.10/ChangeLog.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

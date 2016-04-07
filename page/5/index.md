@@ -137,6 +137,10 @@
             <h1>News</h1>
                             <article class="blog-entry">
                     <time>Jan. 4th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-http-4.2.0-released">sabre/http 4.2.0 released</a></h1>
+                    <p>We just released sabre/http 4.2.0.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Jan. 4th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.0.1-release">sabre/vobject 4.0.1 release</a></h1>
                     <p>We just released sabre/vobject 4.0.1.</article>
                 <hr />                            <article class="blog-entry">
@@ -151,12 +155,6 @@
                     <time>Jan. 4th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-vobject-3.4.8-release">sabre/vobject 3.4.8 release</a></h1>
                     <p>We just released sabre/vobject 3.4.8.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Dec. 29th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-xml-1.3-released">sabre/xml 1.3 released</a></h1>
-                    <p>We just released sabre/xml 1.3. This release is a fairly big update from the
-1.2 series. It's 100% backwards compatible, but adds a number of exciting
-features:</article>
                                     </section>
     </div>
 </div>

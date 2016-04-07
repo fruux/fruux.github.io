@@ -3,31 +3,9 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-04-07T00:42:21+00:00</updated>
+    <updated>2016-04-07T00:43:21+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 3.5.1 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-vobject-3.5.1-release"/>
-            <updated>2016-04-17T00:16:13+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-vobject-3.5.1-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.5.1. This release contains a few small
-improvements:</p>
-
-<ol>
-<li>When expanding recurring events, <code>RECURRENCE-ID</code> is now correctly added,
-even for the first event.</li>
-<li>Several fixes in the iTip broker related to recurring events.</li>
-</ol>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.5.1/ChangeLog.md">Github</a></p>
-]]></content>
-        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 3.0.9 released]]></title>
             <link href="http://sabre.io/blog/2016/sabre-dav-3.0.9-release"/>
@@ -53,6 +31,28 @@ journals all at once.</li>
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.0.9/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 3.5.1 released]]></title>
+            <link href="http://sabre.io/blog/2016/sabre-vobject-3.5.1-release"/>
+            <updated>2016-04-07T00:16:13+00:00</updated>
+            <id>http://sabre.io/blog/2016/sabre-vobject-3.5.1-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.5.1. This release contains a few small
+improvements:</p>
+
+<ol>
+<li>When expanding recurring events, <code>RECURRENCE-ID</code> is now correctly added,
+even for the first event.</li>
+<li>Several fixes in the iTip broker related to recurring events.</li>
+</ol>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.5.1/ChangeLog.md">Github</a></p>
 ]]></content>
         </entry>
             <entry>

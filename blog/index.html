@@ -44,6 +44,35 @@
                             <h1>Blog</h1>
                 <article class="blog-entry">
     <time>April 7th, 2016</time>
+    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.1.0-release">sabre/vobject 4.1.0 released</a></h1>
+    <p>We just released sabre/vobject 4.1.0. This release is fully compatible with
+the 4.0.x series.</p>
+
+<p>This release adds a <code>Sabre\VObject\PHPUnitAssertions</code> trait that, for now,
+contains a <code>assertVObjectEqualsVObject()</code> function. This functions works
+similar to PHPUnit's built-in <code>assertXmlStringEqualsXmlString()</code>, and can be
+used by implementors to check if two iCalendar objects or vCards are identical
+semantically.</p>
+
+<p>It also contains a number of other fixes:</p>
+
+<ul>
+<li>When doing recurrence expansion, the first event now also have a
+<code>RECURRENCE-ID</code> property.</li>
+<li>Fixes a bug in processing iTip REPLYs to recurring events.</li>
+<li>Better error messages and improved validation in a number of areas.</li>
+</ul>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.1.0/CHANGELOG.md">Github</a></p>
+
+</article>
+<hr /><article class="blog-entry">
+    <time>April 7th, 2016</time>
     <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.9-release">sabre/dav 3.0.9 released</a></h1>
     <p>We just released sabre/dav 3.0.9. This release contains the following changes:</p>
 

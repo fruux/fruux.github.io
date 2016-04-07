@@ -137,6 +137,11 @@
             <h1>News</h1>
                             <article class="blog-entry">
                     <time>Jan. 11th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-3.4.9-and-3.5.0-release">sabre/vobject 3.4.9 and 3.5.0 release</a></h1>
+                    <p>In a reversal of an earlier statement, we're releasing a sabre/vobject 3.x
+version with PHP 7 support.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Jan. 11th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.0.2-release">sabre/vobject 4.0.2 release</a></h1>
                     <p>We just released sabre/vobject 4.0.2.</article>
                 <hr />                            <article class="blog-entry">
@@ -152,10 +157,6 @@ for sabre/dav.</article>
                     <time>Jan. 4th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-http-4.2.0-released">sabre/http 4.2.0 released</a></h1>
                     <p>We just released sabre/http 4.2.0.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jan. 4th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.0.1-release">sabre/vobject 4.0.1 release</a></h1>
-                    <p>We just released sabre/vobject 4.0.1.</article>
                                     </section>
     </div>
 </div>

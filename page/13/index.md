@@ -136,6 +136,10 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Dec. 2nd, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/per-user-directories-tutorial">New tutorial: Per-user directories</a></h1>
+                    <p>A commonly asked question on the mailing list, is:</article>
+                <hr />                            <article class="blog-entry">
                     <time>Nov. 22nd, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1.1-release">sabre/dav 2.1.1 release</a></h1>
                     <p>We just released sabre/dav 2.1.1. Upgrading is highly recommended.</article>
@@ -152,10 +156,6 @@ after the last major release, so that's nicely on track!</article>
                     <time>Oct. 14th, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.5-release">sabre/dav 2.0.5 release</a></h1>
                     <p>We just released sabre/dav 2.0.5. Upgrading is highly recommended.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Oct. 9th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0.1-release">sabre/event 2.0.1 release</a></h1>
-                    <p>We just released sabre/event 2.0.1.</article>
                                     </section>
     </div>
 </div>

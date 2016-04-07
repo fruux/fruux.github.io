@@ -136,6 +136,11 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Mar. 13th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.0.3-release">sabre/vobject 4.0.3 released</a></h1>
+                    <p>We just released sabre/vobject 4.0.3. This release contains the following
+changes:</article>
+                <hr />                            <article class="blog-entry">
                     <time>Mar. 12th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.8-release">sabre/dav 3.0.8 released</a></h1>
                     <p>We just released sabre/dav 3.0.8. This release contains the following changes:</article>
@@ -157,11 +162,6 @@ address books.</article>
                     <time>Feb. 15th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/baikal-joins-sabre-io">Baïkal joins sabre.io</a></h1>
                     <p><img src="/img/baikal.png" style="width: 100%; max-width: 300px; float: right; padding: 10px" /></article>
-                <hr />                            <article class="blog-entry">
-                    <time>Feb. 14th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-xml-1.4.0-release">sabre/xml 1.4.0 released</a></h1>
-                    <p>We just released sabre/xml 1.4.0. This release fixes a number of problems
-related to serializing value objects, and in particular array properties.</article>
                                     </section>
     </div>
 </div>

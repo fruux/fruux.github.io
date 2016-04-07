@@ -136,6 +136,10 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Jun. 29th, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-xml-1.1.0-release">sabre/xml 1.1.0 release</a></h1>
+                    <p>We just released sabre/xml 1.1.0.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Jun. 2nd, 2015</time>
                     <h1><a href="http://sabre.io/blog/2015/sabredav-3-release">sabre/dav 3.0 released</a></h1>
                     <p>We just tagged and zipped the sabre/dav 3.0 release. This is only a year after
@@ -153,10 +157,6 @@ version of a package, 12 months after the next major version was released.</arti
                     <time>May. 26th, 2015</time>
                     <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.1.4-released">sabre/dav 2.1.4 released</a></h1>
                     <p>We just released sabre/dav 2.1.4.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>May. 26th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.0.7-released">sabre/dav 2.0.7 released</a></h1>
-                    <p>We just released sabre/dav 2.0.7.</article>
                                     </section>
     </div>
 </div>

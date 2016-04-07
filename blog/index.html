@@ -63,6 +63,31 @@ even for the first event.</li>
 
 </article>
 <hr /><article class="blog-entry">
+    <time>April 7th, 2016</time>
+    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.9-release">sabre/dav 3.0.9 released</a></h1>
+    <p>We just released sabre/dav 3.0.9. This release contains the following changes:</p>
+
+<ul>
+<li>We now require libxml 2.7.0 in composer. We always needed this as a minumum
+version, but this was not correctly marked.</li>
+<li>Fixed an issue in the MySQL table structure for calendars. There was not
+enough space to make a calendar to be able to hold events, todos and
+journals all at once.</li>
+<li>Backported a workaround from 3.1 to make Windows 10 clients work.</li>
+<li>Upgraded sabre/vobject.</li>
+</ul>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.0.9/CHANGELOG.md">Github</a></p>
+
+</article>
+<hr /><article class="blog-entry">
     <time>March 30th, 2016</time>
     <h1><a href="http://sabre.io/blog/2016/dav-sharing">CalDAV, CardDAV and WebDAV sharing</a></h1>
     <p>CalDAV/CardDAV sharing is something <a href="https://github.com/fruux/sabre-dav/pull/696">we've worked on</a> for quite some time.

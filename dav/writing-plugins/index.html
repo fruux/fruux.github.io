@@ -135,7 +135,7 @@ class CoffeePlugin extends ServerPlugin {
 
     }
 
-    function brewHandler(RequestInterface $request, ResponseInteface $response) {
+    function brewHandler(RequestInterface $request, ResponseInterface $response) {
 
         $response-&gt;setStatus(200);
         $response-&gt;setBody('Coffee is under way!');

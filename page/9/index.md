@@ -3,34 +3,34 @@
 
     
   
-            <title>sabre/</title>
+            <title>sabre/dav</title>
     
     <meta charset="utf-8">
 
-    <link rel="alternate" type="application/atom+xml" href="http://sabre.io/atom.xml" title="sabre.io blog" />
-    <link rel="shortcut icon" href="http://sabre.io/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="sabre.io blog" />
+    <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-            <link rel="stylesheet" type="text/css" href="http://sabre.io/css/sabre.css" />
+            <link rel="stylesheet" type="text/css" href="/css/sabre.css" />
     
 </head>
 <body >
     <header class="pagehead">
 
     <div class="pagehead-inner">
-        <a class="logo" href="http://sabre.io/">
-                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/">
+        <a class="logo" href="/">
+                            <img src="/img/logo.png" alt="sabre/sabre/dav">
                 sabre<span>/dav</span>
                     </a>
 
         <nav class="nav nav--page">
             <ul>
                 <li class="size-auto"></li>
-                <li><a href="http://sabre.io/dav">Docs</a></li>
-                <li><a href="http://sabre.io/blog">Blog</a></li>
-                <li><a href="http://sabre.io/support">Support</a></li>
+                <li><a href="/dav">Docs</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/support">Support</a></li>
                 <li class="size-auto text--right"><a href="https://github.com/fruux?query=sabre"><i class="fa fa-github"></i></a></li>
-                <!-- <li><a href="http://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+                <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
             </ul>
         </nav>
 
@@ -50,19 +50,19 @@
                 <a href="https://en.wikipedia.org/wiki/CalDAV">CalDAV</a> and
                 <a href="https://en.wikipedia.org/wiki/WebDAV">WebDAV</a> server.
             </p>
-            <a class="install" href="http://sabre.io/dav/install">
+            <a class="install" href="/dav/install">
                 <i class="fa fa-download"></i>
                 Install
             </a>
             <br>
-            <a href="http://sabre.io/dav">Or learn more...</a>
+            <a href="/dav">Or learn more...</a>
         </div>
         <ul class="list-features">
-            <li><i class="fa fa-fw fa-rocket"></i><a href="http://sabre.io/dav/scalability">Scalable</a> design.</li>
-            <li><i class="fa fa-fw fa-share-alt"></i>Extensive <a href="http://sabre.io/dav/caldav-sharing">sharing</a> and <a href="http://sabre.io/dav/caldav-proxy">delegation</a> features.</li>
-            <li><i class="fa fa-fw fa-clock-o"></i>Powerful <a href="http://sabre.io/dav/scheduling">scheduling and free/busy</a> capabilities.</li>
-            <li><i class="fa fa-fw fa-lock"></i>Flexible <a href="http://sabre.io/dav/acl">ACL</a> and <a href="http://sabre.io/dav/authentication">authentication</a> system.</li>
-            <li><i class="fa fa-fw fa-coffee"></i>Supported on <a href="http://sabre.io/dav/clients">all major platforms</a>.</li>
+            <li><i class="fa fa-fw fa-rocket"></i><a href="/dav/scalability">Scalable</a> design.</li>
+            <li><i class="fa fa-fw fa-share-alt"></i>Extensive <a href="/dav/caldav-sharing">sharing</a> and <a href="/dav/caldav-proxy">delegation</a> features.</li>
+            <li><i class="fa fa-fw fa-clock-o"></i>Powerful <a href="/dav/scheduling">scheduling and free/busy</a> capabilities.</li>
+            <li><i class="fa fa-fw fa-lock"></i>Flexible <a href="/dav/acl">ACL</a> and <a href="/dav/authentication">authentication</a> system.</li>
+            <li><i class="fa fa-fw fa-coffee"></i>Supported on <a href="/dav/clients">all major platforms</a>.</li>
         </ul>
     </div>
 </section>
@@ -70,43 +70,43 @@
     <div class="box-wrapper">
         <h1 class="box-headline">Trusted by</h1>
         <a href="https://www.atmail.com" title="sabre/dav is trusted by atmail.">
-            <img src="http://sabre.io/img/trusted/atmail.png" alt="atmail works with sabre/dav">
+            <img src="/img/trusted/atmail.png" alt="atmail works with sabre/dav">
         </a>
         <a href="http://tech.blog.box.com/2014/10/in-search-of-an-open-source-webdav-solution/" title="sabre/dav is trusted by Box.">
-            <img src="http://sabre.io/img/trusted/box.png" alt="Box works with sabre/dav">
+            <img src="/img/trusted/box.png" alt="Box works with sabre/dav">
         </a>
         <a href="https://fruux.com" title="sabre/dav is developed by fruux.">
-            <img src="http://sabre.io/img/trusted/fruux.png" alt="Our consumer product fruux is powered by sabre/dav">
+            <img src="/img/trusted/fruux.png" alt="Our consumer product fruux is powered by sabre/dav">
         </a>
         <a href="http://owncloud.org" title="sabre/dav is trusted by ownCloud.">
-            <img src="http://sabre.io/img/trusted/owncloud.png" alt="ownCloud works with sabre/dav">
+            <img src="/img/trusted/owncloud.png" alt="ownCloud works with sabre/dav">
         </a>
     </div>
 </section>
 <section class="box box--lineup">
     <div class="box-wrapper">
         <h1 class="box-headline">The full sabre.io lineup</h1>
-        <a href="http://sabre.io/dav">
+        <a href="/dav">
             <h3>sabre/dav</h3>
             The leading open-source CalDAV, CardDAV and WebDAV server
         </a>
-        <a href="http://sabre.io/http">
+        <a href="/http">
             <h3>sabre/http</h3>
             An OOP abstraction layer for the PHP server api.
         </a>
-        <a href="http://sabre.io/vobject">
+        <a href="/vobject">
             <h3>sabre/vobject</h3>
             A library for parsing and manipulating vCard, iCalendar, jCard and jCal.
         </a>
-        <a href="http://sabre.io/event">
+        <a href="/event">
             <h3>sabre/event</h3>
             Utilities for lightweight event-based programming in PHP.
         </a>
-        <a href="http://sabre.io/xml">
+        <a href="/xml">
             <h3>sabre/xml</h3>
             The only XML library that you may not hate.
         </a>
-        <a href="http://sabre.io/uri">
+        <a href="/uri">
             <h3>sabre/uri</h3>
             Functions for making sense out of URIs.
         </a>
@@ -115,7 +115,7 @@
 <div class="box box--turquoise">
     <div class="box-wrapper">
         <section class="box box--enterprise">
-            <a href="https://fruux.com"><img src="http://sabre.io/img/fruux_logo.png"></a>
+            <a href="https://fruux.com"><img src="/img/fruux_logo.png"></a>
             <h1>Enterprise support</h1>
             <h2>sabre/dav and the other sabre.io projects are developed by <a href="https://fruux.com/">fruux</a>.</h2>
             <div class="promo">
@@ -137,36 +137,36 @@
             <h1>News</h1>
                             <article class="blog-entry">
                     <time>Jul. 11th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.0.8-released">sabre/dav 2.0.8 released</a></h1>
+                    <h1><a href="/blog/2015/sabre-dav-2.0.8-released">sabre/dav 2.0.8 released</a></h1>
                     <p>We just released sabre/dav 2.0.8.</article>
                 <hr />                            <article class="blog-entry">
                     <time>Jul. 2nd, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-dav-3.0.1-released">sabre/dav 3.0.1 released</a></h1>
+                    <h1><a href="/blog/2015/sabre-dav-3.0.1-released">sabre/dav 3.0.1 released</a></h1>
                     <p>We just released sabre/dav 3.0.1.</article>
                 <hr />                            <article class="blog-entry">
                     <time>Jun. 29th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-xml-1.1.0-release">sabre/xml 1.1.0 release</a></h1>
+                    <h1><a href="/blog/2015/sabre-xml-1.1.0-release">sabre/xml 1.1.0 release</a></h1>
                     <p>We just released sabre/xml 1.1.0.</article>
                 <hr />                            <article class="blog-entry">
                     <time>Jun. 2nd, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabredav-3-release">sabre/dav 3.0 released</a></h1>
+                    <h1><a href="/blog/2015/sabredav-3-release">sabre/dav 3.0 released</a></h1>
                     <p>We just tagged and zipped the sabre/dav 3.0 release. This is only a year after
 the 2.0 release, but 6 years after the 1.0 release.</article>
                 <hr />                            <article class="blog-entry">
                     <time>Jun. 1st, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/deprecating-packages">Deprecating sabre/dav 1.8</a></h1>
+                    <h1><a href="/blog/2015/deprecating-packages">Deprecating sabre/dav 1.8</a></h1>
                     <p>Our versioning scheme from sabre/dav dictates that we stop support for a
 version of a package, 12 months after the next major version was released.</article>
                                     </section>
     </div>
 </div>
 <figure class="bg--cloudy">
-    <img src="http://sabre.io/img/home_background.jpg">
+    <img src="/img/home_background.jpg">
 </figure>
 
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 
-    <script src="http://sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script src="/components/highlightjs/highlight.pack.js"></script>
     <script>
         hljs.configure({languages: ['php']});
         hljs.initHighlightingOnLoad();
@@ -201,8 +201,8 @@ ga('send', 'pageview');
     <nav>
         <ul>
             <li>© 2016 <a href="https://fruux.com">fruux GmbH</a> · </li>
-            <li><a href="http://sabre.io/support">Contact</a> · </li>
-            <li><a href="http://sabre.io/legal">Legal Info</a></li>
+            <li><a href="/support">Contact</a> · </li>
+            <li><a href="/legal">Legal Info</a></li>
         </ul>
         <ul>
             <li><i class="fa fa-twitter"></i> <a href="http://twitter.com/sabredav">@sabredav</a> · </li>

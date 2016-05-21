@@ -7,30 +7,30 @@
     
     <meta charset="utf-8">
 
-    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="sabre.io blog" />
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" href="http://sabre.io/atom.xml" title="sabre.io blog" />
+    <link rel="shortcut icon" href="http://sabre.io/favicon.ico" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-            <link rel="stylesheet" type="text/css" href="/css/sabre.css" />
+            <link rel="stylesheet" type="text/css" href="http://sabre.io/css/sabre.css" />
     
 </head>
 <body >
     <header class="pagehead">
 
     <div class="pagehead-inner">
-        <a class="logo" href="/">
-                            <img src="/img/logo.png" alt="sabre/sabre/event">
+        <a class="logo" href="http://sabre.io/">
+                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/event">
                 sabre<span>/event</span>
                     </a>
 
         <nav class="nav nav--page">
             <ul>
                 <li class="size-auto"></li>
-                <li><a href="/dav">Docs</a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/support">Support</a></li>
+                <li><a href="http://sabre.io/dav">Docs</a></li>
+                <li><a href="http://sabre.io/blog">Blog</a></li>
+                <li><a href="http://sabre.io/support">Support</a></li>
                 <li class="size-auto text--right"><a href="https://github.com/fruux?query=sabre"><i class="fa fa-github"></i></a></li>
-                <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+                <!-- <li><a href="http://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
             </ul>
         </nav>
 
@@ -45,31 +45,31 @@
                     <aside class="sidebar">
     <nav class="nav nav--sidebar">
         <ul class="list list--nav">
-            <li><a href="/dav">sabre/dav</a>
+            <li><a href="http://sabre.io/dav">sabre/dav</a>
                             </li>
-            <li><a href="/event">sabre/event</a>
+            <li><a href="http://sabre.io/event">sabre/event</a>
                                 <ul>
-                    <li><a href="/event/">Introduction</a></li>
-                    <li><a href="/event/install">Installation</a></li>
-                    <li><a href="/event/eventemitter">EventEmitter</a></li>
-                    <li><a href="/event/promise">Promises</a></li>
-                    <li><a href="/event/loop">Event Loop</a></li>
-                    <li><a href="/event/coroutines">Coroutines</a></li>
+                    <li><a href="http://sabre.io/event/">Introduction</a></li>
+                    <li><a href="http://sabre.io/event/install">Installation</a></li>
+                    <li><a href="http://sabre.io/event/eventemitter">EventEmitter</a></li>
+                    <li><a href="http://sabre.io/event/promise">Promises</a></li>
+                    <li><a href="http://sabre.io/event/loop">Event Loop</a></li>
+                    <li><a href="http://sabre.io/event/coroutines">Coroutines</a></li>
                 </ul>
                             </li>
-            <li><a href="/http">sabre/http</a>
+            <li><a href="http://sabre.io/http">sabre/http</a>
                             </li>
-            <li><a href="/katana">sabre/katana</a>
+            <li><a href="http://sabre.io/katana">sabre/katana</a>
                             </li>
-            <li><a href="/vobject">sabre/vobject</a>
+            <li><a href="http://sabre.io/vobject">sabre/vobject</a>
                             </li>
-            <li><a href="/xml">sabre/xml</a>
+            <li><a href="http://sabre.io/xml">sabre/xml</a>
                             </li>
-            <li><a href="/uri">sabre/uri</a>
+            <li><a href="http://sabre.io/uri">sabre/uri</a>
                             </li>
-            <li><a href="/baikal/">Baïkal</a>
+            <li><a href="http://sabre.io/baikal/">Baïkal</a>
                             </li>
-            <li><a href="/license">License</a></li>
+            <li><a href="http://sabre.io/license">License</a></li>
         </ul>
     </nav>
 </aside>
@@ -86,7 +86,7 @@ automatically resume the function when the promise has resolved.</p>
 
 <p>To illustrate this, an example will work better.</p>
 
-<h2>Before</h2>
+<h2 id="before">Before</h2>
 
 <pre><code>$promise = someAsyncOperation();
 $promise-&gt;then(function($result)) {
@@ -111,7 +111,7 @@ $promise-&gt;then(function($result)) {
 });
 </code></pre>
 
-<h2>After</h2>
+<h2 id="after">After</h2>
 
 <p>The following code is equivalent:</p>
 
@@ -135,7 +135,7 @@ Event\coroutine(function() {
 });
 </code></pre>
 
-<h2>Tips and tricks</h2>
+<h2 id="tips-and-tricks">Tips and tricks</h2>
 
 <p>The coroutines itself also returns a promise. This promise will resolve with
 the last yielded value or promise. It will reject if there was an uncaught
@@ -185,7 +185,7 @@ Event\coroutine(function() {
     
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 
-    <script src="/components/highlightjs/highlight.pack.js"></script>
+    <script src="http://sabre.io/components/highlightjs/highlight.pack.js"></script>
     <script>
         hljs.configure({languages: ['php']});
         hljs.initHighlightingOnLoad();
@@ -220,8 +220,8 @@ ga('send', 'pageview');
     <nav>
         <ul>
             <li>© 2016 <a href="https://fruux.com">fruux GmbH</a> · </li>
-            <li><a href="/support">Contact</a> · </li>
-            <li><a href="/legal">Legal Info</a></li>
+            <li><a href="http://sabre.io/support">Contact</a> · </li>
+            <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>
         <ul>
             <li><i class="fa fa-twitter"></i> <a href="http://twitter.com/sabredav">@sabredav</a> · </li>

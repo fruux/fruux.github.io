@@ -3,34 +3,34 @@
 
     
   
-            <title>Upgrading from SabreDAV 2.0 to 2.1 - sabre/dav</title>
+            <title>Upgrading from SabreDAV 2.0 to 2.1 - sabre/</title>
     
     <meta charset="utf-8">
 
-    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="sabre.io blog" />
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" href="http://sabre.io/atom.xml" title="sabre.io blog" />
+    <link rel="shortcut icon" href="http://sabre.io/favicon.ico" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-            <link rel="stylesheet" type="text/css" href="/css/sabre.css" />
+            <link rel="stylesheet" type="text/css" href="http://sabre.io/css/sabre.css" />
     
 </head>
 <body >
     <header class="pagehead">
 
     <div class="pagehead-inner">
-        <a class="logo" href="/">
-                            <img src="/img/logo.png" alt="sabre/sabre/dav">
+        <a class="logo" href="http://sabre.io/">
+                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/">
                 sabre<span>/dav</span>
                     </a>
 
         <nav class="nav nav--page">
             <ul>
                 <li class="size-auto"></li>
-                <li><a href="/dav">Docs</a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/support">Support</a></li>
+                <li><a href="http://sabre.io/dav">Docs</a></li>
+                <li><a href="http://sabre.io/blog">Blog</a></li>
+                <li><a href="http://sabre.io/support">Support</a></li>
                 <li class="size-auto text--right"><a href="https://github.com/fruux?query=sabre"><i class="fa fa-github"></i></a></li>
-                <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+                <!-- <li><a href="http://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
             </ul>
         </nav>
 
@@ -45,86 +45,23 @@
                     <aside class="sidebar">
     <nav class="nav nav--sidebar">
         <ul class="list list--nav">
-            <li><a href="/dav">sabre/dav</a>
-                                <ul>
-                    <li><a href="/dav/install">Installation</a></li>
-                    <li><a href="/dav/upgrading">Upgrading</a></li>
-                    <li><a href="/dav/gettingstarted">Getting Started</a></li>
-                    <li>Troubleshooting
-                        <ul>
-                            <li><a href="/dav/faq">FAQ</a></li>
-                            <li><a href="/dav/clients">Clients</a></li>
-                            <li><a href="/dav/webservers">Webservers</a></li>
-                        </ul>
-                    </li>
-                    <li>CalDAV
-                        <ul>
-                            <li><a href="/dav/caldav">Getting started</a></li>
-                            <li><a href="/dav/building-a-caldav-client">Building a CalDAV client</a></li>
-                            <li><a href="/dav/caldav-carddav-integration-guide">Integration guide</a></li>
-                            <li><a href="/dav/caldav-proxy">Delegation</a></li>
-                            <li><a href="/dav/caldav-sharing">Calendar sharing</a></li>
-                            <li><a href="/dav/ics-export-plugin">iCalendar export</a></li>
-                            <li><a href="/dav/scheduling">Scheduling</a></li>
-                            <li><a href="/dav/service-discovery">Service Discovery</a></li>
-                        </ul>
-                    </li>
-                    <li>CardDAV
-                        <ul>
-                            <li><a href="/dav/carddav/">Getting started</a></li>
-                            <li><a href="/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
-                            <li><a href="/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
-                            <li><a href="/dav/carddav-directory/">CardDAV Directory</a></li>
-                            <li><a href="/dav/vcf-export-plugin/">vCard export</a></li>
-                            <li><a href="/dav/carddav-me-card/">Me-card</a></li>
-                            <li><a href="/dav/service-discovery/">Service Discovery</a></li>
-                        </ul>
-                    </li>
-                    <li>Other topics
-                        <ul>
-                            <li><a href="/dav/acl">Acl</a></li>
-                            <li><a href="/dav/authentication">Authentication</a></li>
-                            <li><a href="/dav/character-encoding">Character encoding</a></li>
-                            <li><a href="/dav/browser-plugin">Directory indexes</a></li>
-                            <li><a href="/dav/davmount">DavMount</a></li>
-                            <li><a href="/dav/guesscontenttype">Content Types</a></li>
-                            <li><a href="/dav/http-patch">PATCH support</a></li>
-                            <li><a href="/dav/large-files">Large files</a></li>
-                            <li><a href="/dav/litmus">Litmus</a></li>
-                            <li><a href="/dav/locks">Locks</a></li>
-                            <li><a href="/dav/plugins">Plugins</a></li>
-                            <li><a href="/dav/per-user-directories/">Per-user directories</a></li>
-                            <li><a href="/dav/properties">Properties</a></li>
-                            <li><a href="/dav/property-storage">Property storage</a></li>
-                            <li><a href="/dav/scalability">Scalability</a></li>
-                            <li><a href="/dav/simplecollection">SimpleCollection</a></li>
-                            <li><a href="/dav/standards-support">Standards Support</a></li>
-                            <li><a href="/dav/temporary-files">Temporary Files</a></li>
-                            <li><a href="/dav/versioning">Versioning</a></li>
-                            <li><a href="/dav/virtual-filesystems">Virtual filesystems</a></li>
-                            <li><a href="/dav/davclient">WebDAV client</a></li>
-                            <li><a href="/dav/sync">WebDAV sync</a></li>
-                            <li><a href="/dav/writing-plugins">Writing Plugins</a></li>
-                            <li><a href="/dav/xmlelements">XML Elements</a></li>
-                        </ul>
-                    </li>
-                </ul>
+            <li><a href="http://sabre.io/dav">sabre/dav</a>
                             </li>
-            <li><a href="/event">sabre/event</a>
+            <li><a href="http://sabre.io/event">sabre/event</a>
                             </li>
-            <li><a href="/http">sabre/http</a>
+            <li><a href="http://sabre.io/http">sabre/http</a>
                             </li>
-            <li><a href="/katana">sabre/katana</a>
+            <li><a href="http://sabre.io/katana">sabre/katana</a>
                             </li>
-            <li><a href="/vobject">sabre/vobject</a>
+            <li><a href="http://sabre.io/vobject">sabre/vobject</a>
                             </li>
-            <li><a href="/xml">sabre/xml</a>
+            <li><a href="http://sabre.io/xml">sabre/xml</a>
                             </li>
-            <li><a href="/uri">sabre/uri</a>
+            <li><a href="http://sabre.io/uri">sabre/uri</a>
                             </li>
-            <li><a href="/baikal/">Baïkal</a>
+            <li><a href="http://sabre.io/baikal/">Baïkal</a>
                             </li>
-            <li><a href="/license">License</a></li>
+            <li><a href="http://sabre.io/license">License</a></li>
         </ul>
     </nav>
 </aside>
@@ -135,7 +72,7 @@ compatibility breaks.</p>
 
 <p>This page lists them all.</p>
 
-<h2>New features</h2>
+<h2 id="new-features">New features</h2>
 
 <ul>
 <li>We finally have support for CalDAV scheduling, as defined in
@@ -172,9 +109,9 @@ hook into this system and gain tremendous speed.</li>
 <li><a href="https://github.com/fruux/sabre-http/blob/3.0.0/ChangeLog.md">sabre/http</a></li>
 </ul>
 
-<h2>API Changes and BC breaks</h2>
+<h2 id="api-changes-and-bc-breaks">API Changes and BC breaks</h2>
 
-<h3>Database structure changes</h3>
+<h3 id="database-structure-changes">Database structure changes</h3>
 
 <p>If you use the default <code>PDO</code> backend for CalDAV, you need to migrate to the
 lastest database structure.</p>
@@ -185,7 +122,7 @@ warranty is given for lost data.</p>
 <p>To run the database upgrade, simply start <code>./bin/migrate21.php</code> from the SabreDAV
 project. This script will give you more information about it's arguments.</p>
 
-<h3>CalDAV backends have a new method</h3>
+<h3 id="caldav-backends-have-a-new-method">CalDAV backends have a new method</h3>
 
 <p>Every CalDAV backend must now implement a new method:
 <code>getCalendarObjectByUID</code>. If you are not using the default PDO backend, but
@@ -197,7 +134,7 @@ possible to optimize this quite a bit.</p>
 
 <p>Note that this is mainly used for <a href="/dav/scheduling/">Scheduling</a> support.</p>
 
-<h3>Renamed classes</h3>
+<h3 id="renamed-classes">Renamed classes</h3>
 
 <p>We have renamed a few classes:</p>
 
@@ -210,7 +147,7 @@ possible to optimize this quite a bit.</p>
 in sabre/dav 3.0. If you instantiated any of these classes, make sure you
 use the new names.</p>
 
-<h3>The iMipHandler has been removed</h3>
+<h3 id="the-imiphandler-has-been-removed">The iMipHandler has been removed</h3>
 
 <p>The <a href="/dav/imiphandler/">imipHandler</a> has been removed entirely. This class was used
 in the past to work around an iCal bug.</p>
@@ -222,7 +159,7 @@ in the past to work around an iCal bug.</p>
 has been replaced by a new <a href="/dav/scheduling/">iMip plugin</a>. The benefit of this plugin, is
 that it works for every caldav client, and not just broken iCal versions.</p>
 
-<h3>Support for free-busy reports has moved to a new plugin</h3>
+<h3 id="support-for-free-busy-reports-has-moved-to-a-new-plugin">Support for free-busy reports has moved to a new plugin</h3>
 
 <p>sabre/dav supported a 'freebusy' report for a long time. This report was
 used by several clients, but was actually part of the <a href="/dav/scheduling/">scheduling</a>
@@ -237,7 +174,7 @@ server:</p>
 <pre><code>$server-&gt;addPlugin(new Sabre\CalDAV\Schedule\Plugin());
 </code></pre>
 
-<h3>Support for notifications has moved to a new plugin</h3>
+<h3 id="support-for-notifications-has-moved-to-a-new-plugin">Support for notifications has moved to a new plugin</h3>
 
 <p>If you wrote a CalDAV backend that supports notifications (for share invites
 and replies), you need to now explictly turn on a plugin for this to work.</p>
@@ -251,7 +188,7 @@ server:</p>
 <pre><code>$server-&gt;addPlugin(new Sabre\CalDAV\Notifications\Plugin());
 </code></pre>
 
-<h3>vCards now return a different content-type.</h3>
+<h3 id="vcards-now-return-a-different-content-type.">vCards now return a different content-type.</h3>
 
 <p>When doing a <code>GET</code> request on a vCard, we always returned the following header:</p>
 
@@ -265,7 +202,7 @@ server:</p>
 
 <p>If you relied on the old behavior, make sure you update this.</p>
 
-<h3>Updating table names in PDO backends now work differently</h3>
+<h3 id="updating-table-names-in-pdo-backends-now-work-differently">Updating table names in PDO backends now work differently</h3>
 
 <p>A few people always found it important to use their own table names for the
 various PDO backends, one major reason is that this would allow people to
@@ -290,7 +227,7 @@ using arguments still works, but will be removed in version 3.0.</p>
 <li><code>Sabre\CardDAV\Backend\PDO</code></li>
 </ul>
 
-<h3>PropertyStorage classes now have a <code>move</code> method.</h3>
+<h3 id="propertystorage-classes-now-have-a-%60move%60-method.">PropertyStorage classes now have a <code>move</code> method.</h3>
 
 <p>If you implemented your own <code>Sabre\DAV\PropertyStorage\Backend</code> class, you must
 now implement the new <code>move</code> method.</p>
@@ -305,7 +242,7 @@ also be moved with it.</p>
 <p>The new <code>move</code> method will be called when a HTTP <code>MOVE</code> is done, and allows
 you to re-assign all the properties to the new location.</p>
 
-<h3>Principal backends now have a <code>findByUri</code> method</h3>
+<h3 id="principal-backends-now-have-a-%60findbyuri%60-method">Principal backends now have a <code>findByUri</code> method</h3>
 
 <p>If you implemented your own <code>PrincipalBackend</code> class, you must now implement
 the <code>findByUri</code> method as well.</p>
@@ -319,7 +256,7 @@ user inbox.</p>
 <p>It's possible to just return <code>null</code> from this method, but this will prevent
 local invite delivery.</p>
 
-<h3>ObjectTree and Tree\FileSystem classes have been removed</h3>
+<h3 id="objecttree-and-tree%5Cfilesystem-classes-have-been-removed">ObjectTree and Tree\FileSystem classes have been removed</h3>
 
 <p>The <code>Sabre\DAV\ObjectTree</code> and <code>Sabre\DAV\Tree\FileSystem</code> classes both
 extended <code>Sabre\DAV\Tree</code>.</p>
@@ -335,7 +272,7 @@ created by <code>Sabre\DAV\Server</code>, but if you did use this extension poin
 optimizing moves, we now recommend to implement <code>Sabre\DAV\IMoveTarget</code> in
 your Collection classes instead.</p>
 
-<h3>sabre/http changes</h3>
+<h3 id="sabre%2Fhttp-changes">sabre/http changes</h3>
 
 <p>The <a href="/http/">sabre/http</a> package has been upgraded to version 3.0. Several
 BC breaking changes have been made, specifically in how methods related
@@ -346,7 +283,7 @@ you should make sure that it still works with the new behavior.</p>
 
 <p>For more details, <a href="/blog/2014/sabre-http-3.0.0-release/">read the blogpost</a>.</p>
 
-<h3>New ZIP structure</h3>
+<h3 id="new-zip-structure">New ZIP structure</h3>
 
 <p>The zip distribution now has a new directory structure. Before a part of the
 source was in the <code>lib/</code> directory, and another part in the <code>vendor/</code>
@@ -366,7 +303,7 @@ revise this.</p>
     
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 
-    <script src="/components/highlightjs/highlight.pack.js"></script>
+    <script src="http://sabre.io/components/highlightjs/highlight.pack.js"></script>
     <script>
         hljs.configure({languages: ['php']});
         hljs.initHighlightingOnLoad();
@@ -401,8 +338,8 @@ ga('send', 'pageview');
     <nav>
         <ul>
             <li>© 2016 <a href="https://fruux.com">fruux GmbH</a> · </li>
-            <li><a href="/support">Contact</a> · </li>
-            <li><a href="/legal">Legal Info</a></li>
+            <li><a href="http://sabre.io/support">Contact</a> · </li>
+            <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>
         <ul>
             <li><i class="fa fa-twitter"></i> <a href="http://twitter.com/sabredav">@sabredav</a> · </li>

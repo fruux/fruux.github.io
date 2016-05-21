@@ -7,30 +7,30 @@
     
     <meta charset="utf-8">
 
-    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="sabre.io blog" />
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" href="http://sabre.io/atom.xml" title="sabre.io blog" />
+    <link rel="shortcut icon" href="http://sabre.io/favicon.ico" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-            <link rel="stylesheet" type="text/css" href="/css/sabre.css" />
+            <link rel="stylesheet" type="text/css" href="http://sabre.io/css/sabre.css" />
     
 </head>
 <body >
     <header class="pagehead">
 
     <div class="pagehead-inner">
-        <a class="logo" href="/">
-                            <img src="/img/logo.png" alt="sabre/sabre/uri">
+        <a class="logo" href="http://sabre.io/">
+                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/uri">
                 sabre<span>/uri</span>
                     </a>
 
         <nav class="nav nav--page">
             <ul>
                 <li class="size-auto"></li>
-                <li><a href="/dav">Docs</a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/support">Support</a></li>
+                <li><a href="http://sabre.io/dav">Docs</a></li>
+                <li><a href="http://sabre.io/blog">Blog</a></li>
+                <li><a href="http://sabre.io/support">Support</a></li>
                 <li class="size-auto text--right"><a href="https://github.com/fruux?query=sabre"><i class="fa fa-github"></i></a></li>
-                <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+                <!-- <li><a href="http://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
             </ul>
         </nav>
 
@@ -45,28 +45,28 @@
                     <aside class="sidebar">
     <nav class="nav nav--sidebar">
         <ul class="list list--nav">
-            <li><a href="/dav">sabre/dav</a>
+            <li><a href="http://sabre.io/dav">sabre/dav</a>
                             </li>
-            <li><a href="/event">sabre/event</a>
+            <li><a href="http://sabre.io/event">sabre/event</a>
                             </li>
-            <li><a href="/http">sabre/http</a>
+            <li><a href="http://sabre.io/http">sabre/http</a>
                             </li>
-            <li><a href="/katana">sabre/katana</a>
+            <li><a href="http://sabre.io/katana">sabre/katana</a>
                             </li>
-            <li><a href="/vobject">sabre/vobject</a>
+            <li><a href="http://sabre.io/vobject">sabre/vobject</a>
                             </li>
-            <li><a href="/xml">sabre/xml</a>
+            <li><a href="http://sabre.io/xml">sabre/xml</a>
                             </li>
-            <li><a href="/uri">sabre/uri</a>
+            <li><a href="http://sabre.io/uri">sabre/uri</a>
                                 <ul>
-                    <li><a href="/uri/">Introduction</a></li>
-                    <li><a href="/uri/install/">Installation</a></li>
-                    <li><a href="/uri/usage/">Usage</a></li>
+                    <li><a href="http://sabre.io/uri/">Introduction</a></li>
+                    <li><a href="http://sabre.io/uri/install/">Installation</a></li>
+                    <li><a href="http://sabre.io/uri/usage/">Usage</a></li>
                 </ul>
                             </li>
-            <li><a href="/baikal/">Baïkal</a>
+            <li><a href="http://sabre.io/baikal/">Baïkal</a>
                             </li>
-            <li><a href="/license">License</a></li>
+            <li><a href="http://sabre.io/license">License</a></li>
         </ul>
     </nav>
 </aside>
@@ -75,12 +75,12 @@
                 <p>sabre/uri is a super lightweight package that helps working with URIs. It
 provides the following functions, all in the <code>Sabre\Uri</code> namespace:</p>
 
-<h2>Resolve</h2>
+<h2 id="resolve">Resolve</h2>
 
 <p>The <code>resolve</code> function allows you to expand a relative URI in a full one,
 in a similar way a browser would.</p>
 
-<h3>Example</h3>
+<h3 id="example">Example</h3>
 
 <pre><code>namespace Sabre\Uri;
 
@@ -91,7 +91,7 @@ echo Uri\resolve($base, $new);
 // Output: http://example.org/foo/hello
 </code></pre>
 
-<h3>A few more inputs and outputs:</h3>
+<h3 id="a-few-more-inputs-and-outputs%3A">A few more inputs and outputs:</h3>
 
 <table>
 <thead>
@@ -130,7 +130,7 @@ echo Uri\resolve($base, $new);
 </tbody>
 </table>
 
-<h2>Normalize</h2>
+<h2 id="normalize">Normalize</h2>
 
 <p>There are many ways to specify URIs that all point to the same thing. The
 normalize function helps you make these URIs consistent with each other, which
@@ -147,7 +147,7 @@ in turn allows you to make better comparisons.</p>
 <li><code>http://example.org/bar/./../foo/</code> Badly expanded relative urls.</li>
 </ul>
 
-<h3>Example</h3>
+<h3 id="example">Example</h3>
 
 <pre><code>namespace Sabre\Uri;
 
@@ -157,14 +157,14 @@ echo Uri\normalize($output);
 // Output: http://example.org/~foo/bar/
 </code></pre>
 
-<h2>Parse</h2>
+<h2 id="parse">Parse</h2>
 
 <p>The <code>parse</code> function is a slightly modified version of PHP's <a href="http://php.net/manual/en/function.parse-url.php">parse_url</a>.</p>
 
 <p>The difference is that this function returns the entire array of url parts,
 even if those parts are not set.</p>
 
-<h3>Example</h3>
+<h3 id="example">Example</h3>
 
 <pre><code>namespace Sabre\Uri;
 
@@ -191,19 +191,19 @@ print_r(
 <p>Undefined parts are returned as <code>null</code>. This has the benefit that it makes it
 a lot easier to deal with these arrays in <code>if</code> and ternary statements.</p>
 
-<h2>Build</h2>
+<h2 id="build">Build</h2>
 
 <p>The <code>build</code> function takes the output of <code>parse</code> or <a href="http://php.net/manual/en/function.parse-url.php"><code>parse_url()</code></a> and
 creates a new url.</p>
 
 <p>It's basically the reverse operation of <code>parse</code>.</p>
 
-<h2>Split</h2>
+<h2 id="split">Split</h2>
 
 <p>The <code>split</code> function takes a path and returns the <a href="http://php.net/manual/en/function.dirname.php"><code>basename()</code></a> and
 <a href="http://php.net/manual/en/function.basename.php"><code>dirname()</code></a> components.</p>
 
-<h3>Example</h3>
+<h3 id="example">Example</h3>
 
 <pre><code>namespace Sabre\Uri;
 
@@ -218,7 +218,7 @@ echo $parent; // output : /path/to/
 echo $basename; // output : file
 </code></pre>
 
-<h3>Why not basename() and dirname()?</h3>
+<h3 id="why-not-basename-and-dirname%3F">Why not basename() and dirname()?</h3>
 
 <ol>
 <li>The PHP functions are locale-aware and will start behaving differently
@@ -237,7 +237,7 @@ which require special casing.</li>
     
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 
-    <script src="/components/highlightjs/highlight.pack.js"></script>
+    <script src="http://sabre.io/components/highlightjs/highlight.pack.js"></script>
     <script>
         hljs.configure({languages: ['php']});
         hljs.initHighlightingOnLoad();
@@ -272,8 +272,8 @@ ga('send', 'pageview');
     <nav>
         <ul>
             <li>© 2016 <a href="https://fruux.com">fruux GmbH</a> · </li>
-            <li><a href="/support">Contact</a> · </li>
-            <li><a href="/legal">Legal Info</a></li>
+            <li><a href="http://sabre.io/support">Contact</a> · </li>
+            <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>
         <ul>
             <li><i class="fa fa-twitter"></i> <a href="http://twitter.com/sabredav">@sabredav</a> · </li>

@@ -3,34 +3,34 @@
 
     
   
-            <title>Upgrading from SabreDAV 1.6 to 1.7 - sabre/dav</title>
+            <title>Upgrading from SabreDAV 1.6 to 1.7 - sabre/</title>
     
     <meta charset="utf-8">
 
-    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="sabre.io blog" />
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" href="http://sabre.io/atom.xml" title="sabre.io blog" />
+    <link rel="shortcut icon" href="http://sabre.io/favicon.ico" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-            <link rel="stylesheet" type="text/css" href="/css/sabre.css" />
+            <link rel="stylesheet" type="text/css" href="http://sabre.io/css/sabre.css" />
     
 </head>
 <body >
     <header class="pagehead">
 
     <div class="pagehead-inner">
-        <a class="logo" href="/">
-                            <img src="/img/logo.png" alt="sabre/sabre/dav">
+        <a class="logo" href="http://sabre.io/">
+                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/">
                 sabre<span>/dav</span>
                     </a>
 
         <nav class="nav nav--page">
             <ul>
                 <li class="size-auto"></li>
-                <li><a href="/dav">Docs</a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/support">Support</a></li>
+                <li><a href="http://sabre.io/dav">Docs</a></li>
+                <li><a href="http://sabre.io/blog">Blog</a></li>
+                <li><a href="http://sabre.io/support">Support</a></li>
                 <li class="size-auto text--right"><a href="https://github.com/fruux?query=sabre"><i class="fa fa-github"></i></a></li>
-                <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+                <!-- <li><a href="http://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
             </ul>
         </nav>
 
@@ -45,86 +45,23 @@
                     <aside class="sidebar">
     <nav class="nav nav--sidebar">
         <ul class="list list--nav">
-            <li><a href="/dav">sabre/dav</a>
-                                <ul>
-                    <li><a href="/dav/install">Installation</a></li>
-                    <li><a href="/dav/upgrading">Upgrading</a></li>
-                    <li><a href="/dav/gettingstarted">Getting Started</a></li>
-                    <li>Troubleshooting
-                        <ul>
-                            <li><a href="/dav/faq">FAQ</a></li>
-                            <li><a href="/dav/clients">Clients</a></li>
-                            <li><a href="/dav/webservers">Webservers</a></li>
-                        </ul>
-                    </li>
-                    <li>CalDAV
-                        <ul>
-                            <li><a href="/dav/caldav">Getting started</a></li>
-                            <li><a href="/dav/building-a-caldav-client">Building a CalDAV client</a></li>
-                            <li><a href="/dav/caldav-carddav-integration-guide">Integration guide</a></li>
-                            <li><a href="/dav/caldav-proxy">Delegation</a></li>
-                            <li><a href="/dav/caldav-sharing">Calendar sharing</a></li>
-                            <li><a href="/dav/ics-export-plugin">iCalendar export</a></li>
-                            <li><a href="/dav/scheduling">Scheduling</a></li>
-                            <li><a href="/dav/service-discovery">Service Discovery</a></li>
-                        </ul>
-                    </li>
-                    <li>CardDAV
-                        <ul>
-                            <li><a href="/dav/carddav/">Getting started</a></li>
-                            <li><a href="/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
-                            <li><a href="/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
-                            <li><a href="/dav/carddav-directory/">CardDAV Directory</a></li>
-                            <li><a href="/dav/vcf-export-plugin/">vCard export</a></li>
-                            <li><a href="/dav/carddav-me-card/">Me-card</a></li>
-                            <li><a href="/dav/service-discovery/">Service Discovery</a></li>
-                        </ul>
-                    </li>
-                    <li>Other topics
-                        <ul>
-                            <li><a href="/dav/acl">Acl</a></li>
-                            <li><a href="/dav/authentication">Authentication</a></li>
-                            <li><a href="/dav/character-encoding">Character encoding</a></li>
-                            <li><a href="/dav/browser-plugin">Directory indexes</a></li>
-                            <li><a href="/dav/davmount">DavMount</a></li>
-                            <li><a href="/dav/guesscontenttype">Content Types</a></li>
-                            <li><a href="/dav/http-patch">PATCH support</a></li>
-                            <li><a href="/dav/large-files">Large files</a></li>
-                            <li><a href="/dav/litmus">Litmus</a></li>
-                            <li><a href="/dav/locks">Locks</a></li>
-                            <li><a href="/dav/plugins">Plugins</a></li>
-                            <li><a href="/dav/per-user-directories/">Per-user directories</a></li>
-                            <li><a href="/dav/properties">Properties</a></li>
-                            <li><a href="/dav/property-storage">Property storage</a></li>
-                            <li><a href="/dav/scalability">Scalability</a></li>
-                            <li><a href="/dav/simplecollection">SimpleCollection</a></li>
-                            <li><a href="/dav/standards-support">Standards Support</a></li>
-                            <li><a href="/dav/temporary-files">Temporary Files</a></li>
-                            <li><a href="/dav/versioning">Versioning</a></li>
-                            <li><a href="/dav/virtual-filesystems">Virtual filesystems</a></li>
-                            <li><a href="/dav/davclient">WebDAV client</a></li>
-                            <li><a href="/dav/sync">WebDAV sync</a></li>
-                            <li><a href="/dav/writing-plugins">Writing Plugins</a></li>
-                            <li><a href="/dav/xmlelements">XML Elements</a></li>
-                        </ul>
-                    </li>
-                </ul>
+            <li><a href="http://sabre.io/dav">sabre/dav</a>
                             </li>
-            <li><a href="/event">sabre/event</a>
+            <li><a href="http://sabre.io/event">sabre/event</a>
                             </li>
-            <li><a href="/http">sabre/http</a>
+            <li><a href="http://sabre.io/http">sabre/http</a>
                             </li>
-            <li><a href="/katana">sabre/katana</a>
+            <li><a href="http://sabre.io/katana">sabre/katana</a>
                             </li>
-            <li><a href="/vobject">sabre/vobject</a>
+            <li><a href="http://sabre.io/vobject">sabre/vobject</a>
                             </li>
-            <li><a href="/xml">sabre/xml</a>
+            <li><a href="http://sabre.io/xml">sabre/xml</a>
                             </li>
-            <li><a href="/uri">sabre/uri</a>
+            <li><a href="http://sabre.io/uri">sabre/uri</a>
                             </li>
-            <li><a href="/baikal/">Baïkal</a>
+            <li><a href="http://sabre.io/baikal/">Baïkal</a>
                             </li>
-            <li><a href="/license">License</a></li>
+            <li><a href="http://sabre.io/license">License</a></li>
         </ul>
     </nav>
 </aside>
@@ -142,7 +79,7 @@ below are ordered by how likely you will come across an issue.</p>
 <p>If upgrading from 1.6 makes you uncomfortable, we will keep maintaining the 1.6
 branch for 12 months.</p>
 
-<h2>New features</h2>
+<h2 id="new-features">New features</h2>
 
 <p>First the good news:</p>
 
@@ -163,9 +100,9 @@ them.</li>
 <li>Support for <code>Brief</code> and <code>Prefer: return-minimal</code> headers.</li>
 </ul>
 
-<h2>API breaks</h2>
+<h2 id="api-breaks">API breaks</h2>
 
-<h3>Default CalDAV MySQL/SqLite backend needs upgrade</h3>
+<h3 id="default-caldav-mysql%2Fsqlite-backend-needs-upgrade">Default CalDAV MySQL/SqLite backend needs upgrade</h3>
 
 <p>In order to make the CalDAV backend faster, it was needed to add a few more
 database fields. These fields ensure that the heavier CalDAV queries are
@@ -188,7 +125,7 @@ tested.</p>
 
 <p>This will display a help screen.</p>
 
-<h3>Composer package name changed</h3>
+<h3 id="composer-package-name-changed">Composer package name changed</h3>
 
 <p>This only applies to you, if you installed sabredav using 'composer'.</p>
 
@@ -196,14 +133,14 @@ tested.</p>
 'sabre/dav'. The best way to migrate, is to remove the old package completely,
 and then re-install 'sabre/dav'.</p>
 
-<h3>Now using composer for autoloading</h3>
+<h3 id="now-using-composer-for-autoloading">Now using composer for autoloading</h3>
 
 <p>The autoloader in <code>lib/Sabre/autoload.php</code> is now deprecated, and will be
 removed in a future version of sabredav.</p>
 
 <p>Instead, you should include <code>vendor/autoload.php</code>.</p>
 
-<h3>VObject library moved to a separate package and now uses namespaces</h3>
+<h3 id="vobject-library-moved-to-a-separate-package-and-now-uses-namespaces">VObject library moved to a separate package and now uses namespaces</h3>
 
 <p>The VObject library was useful enough to spawn into a separate project.
 One of the major things that changed in this library, is that PHP 5.3
@@ -242,12 +179,12 @@ The required composer files are included in the zip distribution.</p>
 SabreDAV itself as well. In a next version SabreDAV will fully switch to
 namespaces.</p>
 
-<h3>PEAR packages are now deprecated</h3>
+<h3 id="pear-packages-are-now-deprecated">PEAR packages are now deprecated</h3>
 
 <p>For those 3 people who still used this, from this point forward, the pear
 packages will no longer be created. They will be for the 1.6 range of packages.</p>
 
-<h3>Sabre_CalDAV_Server has been removed</h3>
+<h3 id="sabre_caldav_server-has-been-removed">Sabre_CalDAV_Server has been removed</h3>
 
 <p>This only applies to you if you used this class.</p>
 
@@ -261,7 +198,7 @@ best course of action was to simply remove it altogether.</p>
 <p>For an alternative way to setup your CalDAV server, have a look at the examples
 directory.</p>
 
-<h3>lib/Sabre.includes.php has been removed</h3>
+<h3 id="lib%2Fsabre.includes.php-has-been-removed">lib/Sabre.includes.php has been removed</h3>
 
 <p>The <code>lib/Sabre.includes.php</code> was deprecated earlier, and has now been removed
 from the SabreDAV distribution. Every individual package does still have
@@ -275,7 +212,7 @@ an includes file, so if you prefer this way of loading in PHP files, use:</p>
 <li><code>lib/Sabre/CardDAV/includes.php</code></li>
 </ul>
 
-<h3>CalDAV Backend API design</h3>
+<h3 id="caldav-backend-api-design">CalDAV Backend API design</h3>
 
 <p>This only applies to you if you created a custom CalDAV backend. If you use
 the default PDO class, you can skip this section.</p>
@@ -294,12 +231,12 @@ default implementation.</p>
 override the default calendarQuery method. The PDO backend does this to
 optimize common queries.</p>
 
-<h3>Removed Sabre_DAV_Directory and Sabre_DAV_SimpleDirectory</h3>
+<h3 id="removed-sabre_dav_directory-and-sabre_dav_simpledirectory">Removed Sabre_DAV_Directory and Sabre_DAV_SimpleDirectory</h3>
 
 <p>If you still used either of these classes, you should now use
 <code>Sabre_DAV_Collection</code> and <code>Sabre_DAV_SimpleCollection</code>.</p>
 
-<h3>urn:DAV is no longer used</h3>
+<h3 id="urn%3Adav-is-no-longer-used">urn:DAV is no longer used</h3>
 
 <p>This only applies to you, if you ever used 'urn:DAV' in your code as an xml
 namespace.</p>
@@ -315,7 +252,7 @@ version, so this workaround is now removed.</p>
 setups that had issues with this. The new decision is to wait till 2015 to
 try and take this out again.</p>
 
-<h3>Sabre_CalDAV_Schedule_IMip has been slightly modified</h3>
+<h3 id="sabre_caldav_schedule_imip-has-been-slightly-modified">Sabre_CalDAV_Schedule_IMip has been slightly modified</h3>
 
 <p>This only applies to you, if you subclassed <code>Sabre_CalDAV_Schedule_IMip</code>.</p>
 
@@ -323,7 +260,7 @@ try and take this out again.</p>
 argument. If you extended this class, be sure to add it to your
 implemenation too.</p>
 
-<h3>Sabre_CalDAV_ICalendar interface now has a new method</h3>
+<h3 id="sabre_caldav_icalendar-interface-now-has-a-new-method">Sabre_CalDAV_ICalendar interface now has a new method</h3>
 
 <p>This only applies to you, if you directly implemented <code>Sabre_CalDAV_ICalendar</code>.</p>
 
@@ -343,7 +280,7 @@ implementations on how to properly implement this method.</p>
     
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 
-    <script src="/components/highlightjs/highlight.pack.js"></script>
+    <script src="http://sabre.io/components/highlightjs/highlight.pack.js"></script>
     <script>
         hljs.configure({languages: ['php']});
         hljs.initHighlightingOnLoad();
@@ -378,8 +315,8 @@ ga('send', 'pageview');
     <nav>
         <ul>
             <li>© 2016 <a href="https://fruux.com">fruux GmbH</a> · </li>
-            <li><a href="/support">Contact</a> · </li>
-            <li><a href="/legal">Legal Info</a></li>
+            <li><a href="http://sabre.io/support">Contact</a> · </li>
+            <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>
         <ul>
             <li><i class="fa fa-twitter"></i> <a href="http://twitter.com/sabredav">@sabredav</a> · </li>

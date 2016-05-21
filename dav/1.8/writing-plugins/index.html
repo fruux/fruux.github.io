@@ -3,34 +3,34 @@
 
     
   
-            <title>Writing Plugins - sabre/dav</title>
+            <title>Writing Plugins - sabre/</title>
     
     <meta charset="utf-8">
 
-    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="sabre.io blog" />
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" href="http://sabre.io/atom.xml" title="sabre.io blog" />
+    <link rel="shortcut icon" href="http://sabre.io/favicon.ico" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-            <link rel="stylesheet" type="text/css" href="/css/sabre.css" />
+            <link rel="stylesheet" type="text/css" href="http://sabre.io/css/sabre.css" />
     
 </head>
 <body >
     <header class="pagehead">
 
     <div class="pagehead-inner">
-        <a class="logo" href="/">
-                            <img src="/img/logo.png" alt="sabre/sabre/dav">
+        <a class="logo" href="http://sabre.io/">
+                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/">
                 sabre<span>/dav</span>
                     </a>
 
         <nav class="nav nav--page">
             <ul>
                 <li class="size-auto"></li>
-                <li><a href="/dav">Docs</a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/support">Support</a></li>
+                <li><a href="http://sabre.io/dav">Docs</a></li>
+                <li><a href="http://sabre.io/blog">Blog</a></li>
+                <li><a href="http://sabre.io/support">Support</a></li>
                 <li class="size-auto text--right"><a href="https://github.com/fruux?query=sabre"><i class="fa fa-github"></i></a></li>
-                <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+                <!-- <li><a href="http://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
             </ul>
         </nav>
 
@@ -45,86 +45,23 @@
                     <aside class="sidebar">
     <nav class="nav nav--sidebar">
         <ul class="list list--nav">
-            <li><a href="/dav">sabre/dav</a>
-                                <ul>
-                    <li><a href="/dav/install">Installation</a></li>
-                    <li><a href="/dav/upgrading">Upgrading</a></li>
-                    <li><a href="/dav/gettingstarted">Getting Started</a></li>
-                    <li>Troubleshooting
-                        <ul>
-                            <li><a href="/dav/faq">FAQ</a></li>
-                            <li><a href="/dav/clients">Clients</a></li>
-                            <li><a href="/dav/webservers">Webservers</a></li>
-                        </ul>
-                    </li>
-                    <li>CalDAV
-                        <ul>
-                            <li><a href="/dav/caldav">Getting started</a></li>
-                            <li><a href="/dav/building-a-caldav-client">Building a CalDAV client</a></li>
-                            <li><a href="/dav/caldav-carddav-integration-guide">Integration guide</a></li>
-                            <li><a href="/dav/caldav-proxy">Delegation</a></li>
-                            <li><a href="/dav/caldav-sharing">Calendar sharing</a></li>
-                            <li><a href="/dav/ics-export-plugin">iCalendar export</a></li>
-                            <li><a href="/dav/scheduling">Scheduling</a></li>
-                            <li><a href="/dav/service-discovery">Service Discovery</a></li>
-                        </ul>
-                    </li>
-                    <li>CardDAV
-                        <ul>
-                            <li><a href="/dav/carddav/">Getting started</a></li>
-                            <li><a href="/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
-                            <li><a href="/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
-                            <li><a href="/dav/carddav-directory/">CardDAV Directory</a></li>
-                            <li><a href="/dav/vcf-export-plugin/">vCard export</a></li>
-                            <li><a href="/dav/carddav-me-card/">Me-card</a></li>
-                            <li><a href="/dav/service-discovery/">Service Discovery</a></li>
-                        </ul>
-                    </li>
-                    <li>Other topics
-                        <ul>
-                            <li><a href="/dav/acl">Acl</a></li>
-                            <li><a href="/dav/authentication">Authentication</a></li>
-                            <li><a href="/dav/character-encoding">Character encoding</a></li>
-                            <li><a href="/dav/browser-plugin">Directory indexes</a></li>
-                            <li><a href="/dav/davmount">DavMount</a></li>
-                            <li><a href="/dav/guesscontenttype">Content Types</a></li>
-                            <li><a href="/dav/http-patch">PATCH support</a></li>
-                            <li><a href="/dav/large-files">Large files</a></li>
-                            <li><a href="/dav/litmus">Litmus</a></li>
-                            <li><a href="/dav/locks">Locks</a></li>
-                            <li><a href="/dav/plugins">Plugins</a></li>
-                            <li><a href="/dav/per-user-directories/">Per-user directories</a></li>
-                            <li><a href="/dav/properties">Properties</a></li>
-                            <li><a href="/dav/property-storage">Property storage</a></li>
-                            <li><a href="/dav/scalability">Scalability</a></li>
-                            <li><a href="/dav/simplecollection">SimpleCollection</a></li>
-                            <li><a href="/dav/standards-support">Standards Support</a></li>
-                            <li><a href="/dav/temporary-files">Temporary Files</a></li>
-                            <li><a href="/dav/versioning">Versioning</a></li>
-                            <li><a href="/dav/virtual-filesystems">Virtual filesystems</a></li>
-                            <li><a href="/dav/davclient">WebDAV client</a></li>
-                            <li><a href="/dav/sync">WebDAV sync</a></li>
-                            <li><a href="/dav/writing-plugins">Writing Plugins</a></li>
-                            <li><a href="/dav/xmlelements">XML Elements</a></li>
-                        </ul>
-                    </li>
-                </ul>
+            <li><a href="http://sabre.io/dav">sabre/dav</a>
                             </li>
-            <li><a href="/event">sabre/event</a>
+            <li><a href="http://sabre.io/event">sabre/event</a>
                             </li>
-            <li><a href="/http">sabre/http</a>
+            <li><a href="http://sabre.io/http">sabre/http</a>
                             </li>
-            <li><a href="/katana">sabre/katana</a>
+            <li><a href="http://sabre.io/katana">sabre/katana</a>
                             </li>
-            <li><a href="/vobject">sabre/vobject</a>
+            <li><a href="http://sabre.io/vobject">sabre/vobject</a>
                             </li>
-            <li><a href="/xml">sabre/xml</a>
+            <li><a href="http://sabre.io/xml">sabre/xml</a>
                             </li>
-            <li><a href="/uri">sabre/uri</a>
+            <li><a href="http://sabre.io/uri">sabre/uri</a>
                             </li>
-            <li><a href="/baikal/">Baïkal</a>
+            <li><a href="http://sabre.io/baikal/">Baïkal</a>
                             </li>
-            <li><a href="/license">License</a></li>
+            <li><a href="http://sabre.io/license">License</a></li>
         </ul>
     </nav>
 </aside>
@@ -134,7 +71,7 @@
 supported events. Every <a href="/dav/plugins">plugin</a> uses just these events to add
 all the advanced functionality.</p>
 
-<h2>Handling an event</h2>
+<h2 id="handling-an-event">Handling an event</h2>
 
 <p>Say we want to implement support for a new HTTP method, called <code>BREW</code>. We can
 use the <code>unknownMethod</code> to handle any HTTP methods SabreDAV does not already
@@ -174,7 +111,7 @@ the server, "we handled the event, you can stop looking for a handler of
 this event".</li>
 </ol>
 
-<h2>Wrapping this in a plugin</h2>
+<h2 id="wrapping-this-in-a-plugin">Wrapping this in a plugin</h2>
 
 <p>If you have a few event handlers, and you would like to combine them into a
 single class, you can turn this into a plugin class.</p>
@@ -225,11 +162,11 @@ coffeepot plugin:</p>
 $server-&gt;addPlugin($coffeePlugin);
 </code></pre>
 
-<h2>Events</h2>
+<h2 id="events">Events</h2>
 
 <p>The following events are supported in the server</p>
 
-<h3><code>report</code></h3>
+<h3 id="%60report%60"><code>report</code></h3>
 
 <p>If an HTTP <code>REPORT</code> method is invoked, all subscribers to this event get the
 opportunity to handle a <code>REPORT</code> request.</p>
@@ -250,7 +187,7 @@ opportunity to handle a <code>REPORT</code> request.</p>
 $server-&gt;subscribeEvent('report','myReport');
 </code></pre>
 
-<h3><code>beforeMethod</code></h3>
+<h3 id="%60beforemethod%60"><code>beforeMethod</code></h3>
 
 <p>beforeMethod is called whenever any http method handler is called.
 this allows the event to override standard behaviour or block requests.</p>
@@ -269,12 +206,12 @@ $server-&gt;subscribeEvent('beforeMethod','blockDELETE');
 
 <p>Note that the <code>$uri</code> argument was added in version 1.3.0</p>
 
-<h3><code>unknownMethod</code></h3>
+<h3 id="%60unknownmethod%60"><code>unknownMethod</code></h3>
 
 <p>unknownMethod can be used to add support for new HTTP verbs (e.g.: <code>POST</code>).
 An example can be seen higher up int the page.</p>
 
-<h3><code>beforeCreateFile</code></h3>
+<h3 id="%60beforecreatefile%60"><code>beforeCreateFile</code></h3>
 
 <p>This event is trigged before new files are created. Using this event it is
 possible to intercept these actions and store them in a different spot.</p>
@@ -297,7 +234,7 @@ possible to intercept these actions and store them in a different spot.</p>
 $server-&gt;subscribeEvent('beforeCreateFile','beforeCreateFile');
 </code></pre>
 
-<h3><code>afterCreateFile</code></h3>
+<h3 id="%60aftercreatefile%60"><code>afterCreateFile</code></h3>
 
 <p>This event is triggered, only if the creation of the file succeeded.</p>
 
@@ -314,7 +251,7 @@ $server-&gt;subscribeEvent('beforeCreateFile','beforeCreateFile');
 $server-&gt;subscribeEvent('afterCreateFile','afterCreateFile');
 </code></pre>
 
-<h3><code>beforeWriteContent</code></h3>
+<h3 id="%60beforewritecontent%60"><code>beforeWriteContent</code></h3>
 
 <p>This event is trigged before files are updated. Using this event it is
 possible to intercept these actions, validate content or block them.</p>
@@ -332,7 +269,7 @@ possible to intercept these actions, validate content or block them.</p>
 $server-&gt;subscribeEvent('beforeWriteContent','beforeWriteContent');
 </code></pre>
 
-<h3><code>afterWriteContent</code></h3>
+<h3 id="%60afterwritecontent%60"><code>afterWriteContent</code></h3>
 
 <p>This event is triggered, only if updating of an existing file succeeded.</p>
 
@@ -349,7 +286,7 @@ $server-&gt;subscribeEvent('beforeWriteContent','beforeWriteContent');
 $server-&gt;subscribeEvent('afterWriteContent','afterWriteContent');
 </code></pre>
 
-<h3><code>beforeBind</code></h3>
+<h3 id="%60beforebind%60"><code>beforeBind</code></h3>
 
 <p>This event is triggered whenever a new node is about to be created in the tree.
 This is for example triggered by <code>PUT</code>, <code>MKCOL</code>, <code>COPY</code> and <code>MOVE</code>.</p>
@@ -366,7 +303,7 @@ This is for example triggered by <code>PUT</code>, <code>MKCOL</code>, <code>COP
 $server-&gt;subscribeEvent('beforeBind','beforeBind');
 </code></pre>
 
-<h3><code>beforeUnbind</code></h3>
+<h3 id="%60beforeunbind%60"><code>beforeUnbind</code></h3>
 
 <p>This event is triggered whenever a node is about to be deleted. If an entire
 tree of nodes is deleted, the event will only trigger once, for the top-level
@@ -385,7 +322,7 @@ case the target resource was being overwritten.</p>
 $server-&gt;subscribeEvent('beforeUnbind','beforeUnbind');
 </code></pre>
 
-<h3><code>afterUnbind</code></h3>
+<h3 id="%60afterunbind%60"><code>afterUnbind</code></h3>
 
 <p>This event is triggered after a node is deleted. If an entire tree of nodes is
 deleted, the event will only trigger once, for the top-level node. The event is
@@ -405,7 +342,7 @@ resource was being overwritten.</p>
 $server-&gt;subscribeEvent('afterUnbind','afterUnbind');
 </code></pre>
 
-<h3><code>beforeLock</code></h3>
+<h3 id="%60beforelock%60"><code>beforeLock</code></h3>
 
 <p>The beforeLock event is triggered right before a resource is locked.
 Intercepting this event allows you to block a users' lock, or change information
@@ -422,7 +359,7 @@ regarding the lock, such as the lock owner or lock timeout.</p>
 $server-&gt;subscribeEvent('beforeLock','beforeLock');
 </code></pre>
 
-<h3><code>beforeUnlock</code></h3>
+<h3 id="%60beforeunlock%60"><code>beforeUnlock</code></h3>
 
 <p>The beforeUnlock event is triggered right before a resource is unlocked.
 Intercepting this event allows you to block the unlock.</p>
@@ -438,7 +375,7 @@ Intercepting this event allows you to block the unlock.</p>
 $server-&gt;subscribeEvent('beforeUnlock','beforeUnlock');
 </code></pre>
 
-<h3><code>beforeGetProperties</code></h3>
+<h3 id="%60beforegetproperties%60"><code>beforeGetProperties</code></h3>
 
 <p><em>Added in version 1.4</em></p>
 
@@ -488,7 +425,7 @@ properties with their values.</p>
 <p>Note that if false is returned from this method, the node will be hidden from
 directory listings and any further processing for properties is cancelled.</p>
 
-<h3><code>beforeGetPropertiesForPath</code></h3>
+<h3 id="%60beforegetpropertiesforpath%60"><code>beforeGetPropertiesForPath</code></h3>
 
 <p><em>Added in version 1.7.8 and 1.8.6</em></p>
 
@@ -507,7 +444,7 @@ properties that are expensive to fetch one-by-one.</p>
 $server-&gt;subscribeEvent('beforeGetPropertiesForPath', 'beforeGetPropertiesForPath');
 </code></pre>
 
-<h3><code>afterGetProperties</code></h3>
+<h3 id="%60aftergetproperties%60"><code>afterGetProperties</code></h3>
 
 <p>This event is fired after all properties for a resource have been collected.
 This allows you to rewrite, add or remove properties. The event receives 3
@@ -552,7 +489,7 @@ arguments:</p>
 $server-&gt;subscribeEvent('afterGetProperties','afterGetProperties');
 </code></pre>
 
-<h3><code>updateProperties</code></h3>
+<h3 id="%60updateproperties%60"><code>updateProperties</code></h3>
 
 <p>This event is fired when properties are about to be updated, using for example
 <code>PROPPATCH</code>. This allows plugins to handle updating certain properties, before
@@ -597,7 +534,7 @@ function updateProperties(&amp;$properties, &amp;$result, \Sabre\DAV\INode $node
 $server-&gt;subscribeEvent('updateProperties','updateProperties');
 </code></pre>
 
-<h3>exception</h3>
+<h3 id="exception">exception</h3>
 
 <p><em>Added in version 1.7</em></p>
 
@@ -605,13 +542,13 @@ $server-&gt;subscribeEvent('updateProperties','updateProperties');
 
 <p>The actual exception is passed as the first argument.</p>
 
-<h2>Other examples</h2>
+<h2 id="other-examples">Other examples</h2>
 
 <p>Check out <code>Sabre\DAV\Browser\Plugin</code>. This plugin generates HTML directory indexes
 for GET requests to collections. This is useful if you want the contents of the
 directory to be viewable by a browser.</p>
 
-<h2>Priority</h2>
+<h2 id="priority">Priority</h2>
 
 <p>Sometimes it's needed to ensure your event handler is the first in the list to
 be fired off. This can be achieved by adding a priority number to the argument
@@ -652,7 +589,7 @@ priority number is 100. Lower numbers for priorities will be fired off earlier.<
     
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 
-    <script src="/components/highlightjs/highlight.pack.js"></script>
+    <script src="http://sabre.io/components/highlightjs/highlight.pack.js"></script>
     <script>
         hljs.configure({languages: ['php']});
         hljs.initHighlightingOnLoad();
@@ -687,8 +624,8 @@ ga('send', 'pageview');
     <nav>
         <ul>
             <li>© 2016 <a href="https://fruux.com">fruux GmbH</a> · </li>
-            <li><a href="/support">Contact</a> · </li>
-            <li><a href="/legal">Legal Info</a></li>
+            <li><a href="http://sabre.io/support">Contact</a> · </li>
+            <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>
         <ul>
             <li><i class="fa fa-twitter"></i> <a href="http://twitter.com/sabredav">@sabredav</a> · </li>

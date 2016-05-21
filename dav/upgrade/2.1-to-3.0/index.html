@@ -3,34 +3,34 @@
 
     
   
-            <title>Upgrading from SabreDAV 2.1 to 3.0 - sabre/dav</title>
+            <title>Upgrading from SabreDAV 2.1 to 3.0 - sabre/</title>
     
     <meta charset="utf-8">
 
-    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="sabre.io blog" />
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" href="http://sabre.io/atom.xml" title="sabre.io blog" />
+    <link rel="shortcut icon" href="http://sabre.io/favicon.ico" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-            <link rel="stylesheet" type="text/css" href="/css/sabre.css" />
+            <link rel="stylesheet" type="text/css" href="http://sabre.io/css/sabre.css" />
     
 </head>
 <body >
     <header class="pagehead">
 
     <div class="pagehead-inner">
-        <a class="logo" href="/">
-                            <img src="/img/logo.png" alt="sabre/sabre/dav">
+        <a class="logo" href="http://sabre.io/">
+                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/">
                 sabre<span>/dav</span>
                     </a>
 
         <nav class="nav nav--page">
             <ul>
                 <li class="size-auto"></li>
-                <li><a href="/dav">Docs</a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/support">Support</a></li>
+                <li><a href="http://sabre.io/dav">Docs</a></li>
+                <li><a href="http://sabre.io/blog">Blog</a></li>
+                <li><a href="http://sabre.io/support">Support</a></li>
                 <li class="size-auto text--right"><a href="https://github.com/fruux?query=sabre"><i class="fa fa-github"></i></a></li>
-                <!-- <li><a href="/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+                <!-- <li><a href="http://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
             </ul>
         </nav>
 
@@ -45,86 +45,23 @@
                     <aside class="sidebar">
     <nav class="nav nav--sidebar">
         <ul class="list list--nav">
-            <li><a href="/dav">sabre/dav</a>
-                                <ul>
-                    <li><a href="/dav/install">Installation</a></li>
-                    <li><a href="/dav/upgrading">Upgrading</a></li>
-                    <li><a href="/dav/gettingstarted">Getting Started</a></li>
-                    <li>Troubleshooting
-                        <ul>
-                            <li><a href="/dav/faq">FAQ</a></li>
-                            <li><a href="/dav/clients">Clients</a></li>
-                            <li><a href="/dav/webservers">Webservers</a></li>
-                        </ul>
-                    </li>
-                    <li>CalDAV
-                        <ul>
-                            <li><a href="/dav/caldav">Getting started</a></li>
-                            <li><a href="/dav/building-a-caldav-client">Building a CalDAV client</a></li>
-                            <li><a href="/dav/caldav-carddav-integration-guide">Integration guide</a></li>
-                            <li><a href="/dav/caldav-proxy">Delegation</a></li>
-                            <li><a href="/dav/caldav-sharing">Calendar sharing</a></li>
-                            <li><a href="/dav/ics-export-plugin">iCalendar export</a></li>
-                            <li><a href="/dav/scheduling">Scheduling</a></li>
-                            <li><a href="/dav/service-discovery">Service Discovery</a></li>
-                        </ul>
-                    </li>
-                    <li>CardDAV
-                        <ul>
-                            <li><a href="/dav/carddav/">Getting started</a></li>
-                            <li><a href="/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
-                            <li><a href="/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
-                            <li><a href="/dav/carddav-directory/">CardDAV Directory</a></li>
-                            <li><a href="/dav/vcf-export-plugin/">vCard export</a></li>
-                            <li><a href="/dav/carddav-me-card/">Me-card</a></li>
-                            <li><a href="/dav/service-discovery/">Service Discovery</a></li>
-                        </ul>
-                    </li>
-                    <li>Other topics
-                        <ul>
-                            <li><a href="/dav/acl">Acl</a></li>
-                            <li><a href="/dav/authentication">Authentication</a></li>
-                            <li><a href="/dav/character-encoding">Character encoding</a></li>
-                            <li><a href="/dav/browser-plugin">Directory indexes</a></li>
-                            <li><a href="/dav/davmount">DavMount</a></li>
-                            <li><a href="/dav/guesscontenttype">Content Types</a></li>
-                            <li><a href="/dav/http-patch">PATCH support</a></li>
-                            <li><a href="/dav/large-files">Large files</a></li>
-                            <li><a href="/dav/litmus">Litmus</a></li>
-                            <li><a href="/dav/locks">Locks</a></li>
-                            <li><a href="/dav/plugins">Plugins</a></li>
-                            <li><a href="/dav/per-user-directories/">Per-user directories</a></li>
-                            <li><a href="/dav/properties">Properties</a></li>
-                            <li><a href="/dav/property-storage">Property storage</a></li>
-                            <li><a href="/dav/scalability">Scalability</a></li>
-                            <li><a href="/dav/simplecollection">SimpleCollection</a></li>
-                            <li><a href="/dav/standards-support">Standards Support</a></li>
-                            <li><a href="/dav/temporary-files">Temporary Files</a></li>
-                            <li><a href="/dav/versioning">Versioning</a></li>
-                            <li><a href="/dav/virtual-filesystems">Virtual filesystems</a></li>
-                            <li><a href="/dav/davclient">WebDAV client</a></li>
-                            <li><a href="/dav/sync">WebDAV sync</a></li>
-                            <li><a href="/dav/writing-plugins">Writing Plugins</a></li>
-                            <li><a href="/dav/xmlelements">XML Elements</a></li>
-                        </ul>
-                    </li>
-                </ul>
+            <li><a href="http://sabre.io/dav">sabre/dav</a>
                             </li>
-            <li><a href="/event">sabre/event</a>
+            <li><a href="http://sabre.io/event">sabre/event</a>
                             </li>
-            <li><a href="/http">sabre/http</a>
+            <li><a href="http://sabre.io/http">sabre/http</a>
                             </li>
-            <li><a href="/katana">sabre/katana</a>
+            <li><a href="http://sabre.io/katana">sabre/katana</a>
                             </li>
-            <li><a href="/vobject">sabre/vobject</a>
+            <li><a href="http://sabre.io/vobject">sabre/vobject</a>
                             </li>
-            <li><a href="/xml">sabre/xml</a>
+            <li><a href="http://sabre.io/xml">sabre/xml</a>
                             </li>
-            <li><a href="/uri">sabre/uri</a>
+            <li><a href="http://sabre.io/uri">sabre/uri</a>
                             </li>
-            <li><a href="/baikal/">Baïkal</a>
+            <li><a href="http://sabre.io/baikal/">Baïkal</a>
                             </li>
-            <li><a href="/license">License</a></li>
+            <li><a href="http://sabre.io/license">License</a></li>
         </ul>
     </nav>
 </aside>
@@ -134,7 +71,7 @@
 of incremental improvements that improve the code-base and improve
 compatibility with various clients.</p>
 
-<h2>New features</h2>
+<h2 id="new-features">New features</h2>
 
 <ul>
 <li>All XML parsing code has been completely rewritten to use <a href="/xml/">sabre/xml</a>.
@@ -159,14 +96,14 @@ for every user. See <code>Sabre\DAVACL\FS\HomeCollection</code>.</li>
 plugin if your backend supports it and if you have admin rights.</li>
 </ul>
 
-<h2>API Changes and BC breaks</h2>
+<h2 id="api-changes-and-bc-breaks">API Changes and BC breaks</h2>
 
 <p>The following few chapters detail all the BC breaking changes that have been
 made. We've ordered them loosely in order of likelyhood that the changes are
 relevant to you. Chances are that if you have never done any custom sabre/dav
 development, only the first item might be relevant to you.</p>
 
-<h3>Updated database structure</h3>
+<h3 id="updated-database-structure">Updated database structure</h3>
 
 <p>This only matters if you used the <a href="/dav/property-storage/">property storage</a> PDO backend and
 plugin.</p>
@@ -183,7 +120,7 @@ database changes have to be made as well. If you take advantage of the
 <p>in your terminal. Doing so will display help information on how to do the
 update. You should really make a backup first.</p>
 
-<h3>Changed Authentication backend API.</h3>
+<h3 id="changed-authentication-backend-api.">Changed Authentication backend API.</h3>
 
 <p>This affects you if you created a custom authentication backend.</p>
 
@@ -202,13 +139,13 @@ backends, where each backend can make an attempt to authenticate the user.</p>
 <p>The authentication backends can now also control the <em>exact</em> principal that
 the user will be, allowing for much more complex principal systems.</p>
 
-<h3>Changed browser plugin</h3>
+<h3 id="changed-browser-plugin">Changed browser plugin</h3>
 
 <p>The browser plugin got a lot of new features, but its source also got
 reorganized. If you extended the browser plugin because you wanted to add your
 own branding, it will probably break.</p>
 
-<h3>Removed <code>Sabre\DAV\Client</code> methods.</h3>
+<h3 id="removed-%60sabre%5Cdav%5Cclient%60-methods.">Removed <code>Sabre\DAV\Client</code> methods.</h3>
 
 <p>The following two methods were removed from <code>Sabre\DAV\Client</code>:</p>
 
@@ -221,7 +158,7 @@ own branding, it will probably break.</p>
 finally gone. To achieve the same results, it's possible to call the
 <code>addCurlSetting</code> method.</p>
 
-<h3>Deprecated <code>Sabre\DAV\Client::$propertyMap</code></h3>
+<h3 id="deprecated-%60sabre%5Cdav%5Cclient%3A%3A%24propertymap%60">Deprecated <code>Sabre\DAV\Client::$propertyMap</code></h3>
 
 <p>The <code>Sabre\DAV\Client::$propertyMap</code> property has been deprecated. It still
 works and exists, but will be removed in a future version.</p>
@@ -229,7 +166,7 @@ works and exists, but will be removed in a future version.</p>
 <p>The property is now simply a reference to <code>$client-&gt;xml-&gt;elementMap</code>, which is
 the correct way to use this feature now.</p>
 
-<h3>Changed all constructors for all PDO backends</h3>
+<h3 id="changed-all-constructors-for-all-pdo-backends">Changed all constructors for all PDO backends</h3>
 
 <p>In versions before this one, it was possible to specify database table names
 right in the PDO backend. This allowed you to override the default table
@@ -251,14 +188,14 @@ something like this:</p>
 $backend-&gt;calendarTableName = 'my_calendar_table';
 </code></pre>
 
-<h3>Introducing sabre/uri</h3>
+<h3 id="introducing-sabre%2Furi">Introducing sabre/uri</h3>
 
 <p>sabre/dav now makes use of the new <a href="/uri/">sabre/uri</a> library. Because of this
 occasion we removed the <code>Sabre\DAV\URIUtil</code> class, as all its functions were
 already solved in the new library. If you used this class, take a look at the
 <code>sabre/uri</code> docs to find out how to migrate.</p>
 
-<h3>Renamed <code>UserAddressBooks</code>.</h3>
+<h3 id="renamed-%60useraddressbooks%60.">Renamed <code>UserAddressBooks</code>.</h3>
 
 <p>To improve clarity and consistency, <code>Sabre\CardDAV\UserAddressBooks</code> has been
 renamed to <code>Sabre\CardDAV\AddressBookHome</code>.</p>
@@ -266,7 +203,7 @@ renamed to <code>Sabre\CardDAV\AddressBookHome</code>.</p>
 <p>If you ever needed to instantiate this class manually, make sure you change
 the name.</p>
 
-<h3>Changed class and interface names</h3>
+<h3 id="changed-class-and-interface-names">Changed class and interface names</h3>
 
 <p>Because of the introduction of <a href="/xml/">sabre/xml</a> into sabre/dav, we had to
 rewrite almost every class dealing with xml code. We also took this
@@ -404,7 +341,7 @@ change this to the new class name.</p>
 </tbody>
 </table>
 
-<h3>Deleted deprecated classes</h3>
+<h3 id="deleted-deprecated-classes">Deleted deprecated classes</h3>
 
 <p>Because of the changed XML functionality, and because we wanted to remove code
 that has been deprecated in previous versions, the following classes have been
@@ -444,7 +381,7 @@ removed from the source:</p>
 </tbody>
 </table>
 
-<h3>XML Api changes</h3>
+<h3 id="xml-api-changes">XML Api changes</h3>
 
 <p>If you ever manually wrote or parsed xml or made your own custom properties,
 this might be relevant to you.</p>
@@ -474,7 +411,7 @@ property on the server class. This has now changed.</p>
 <pre><code>$server-&gt;xml-&gt;elementMap['{http://example.org/ns}element'] = 'MyElement';
 </code></pre>
 
-<h3>Support for the <code>Prefer</code> header changed.</h3>
+<h3 id="support-for-the-%60prefer%60-header-changed.">Support for the <code>Prefer</code> header changed.</h3>
 
 <p>sabre/dav supported <a href="http://tools.ietf.org/html/rfc7240">rfc7240</a> before it was an official rfc. Unfortunately
 when it became an rfc, the syntax slightly changed.</p>
@@ -517,7 +454,7 @@ key.</li>
 <li><code>strict</code> and <code>lenient</code> folded into a single <code>handling</code> key.</li>
 </ul>
 
-<h3><code>FSExt</code> no longer stores custom properties.</h3>
+<h3 id="%60fsext%60-no-longer-stores-custom-properties."><code>FSExt</code> no longer stores custom properties.</h3>
 
 <p>Because a few versions ago, the <a href="/dav/property-storage/">property storage</a> plugin was introduced,
 it was no longer deemed needed to also store custom properties in these
@@ -532,7 +469,7 @@ classes:</p>
 way has been provided to migrate this data though, if you do really need this,
 we'll be happy to help you do it. Contact us on the mailing list.</p>
 
-<h3>Creating custom collections</h3>
+<h3 id="creating-custom-collections">Creating custom collections</h3>
 
 <p>If you call <code>$server-&gt;createCollection()</code>, or if you have a custom class
 implementing <code>Sabre\DAV\IExtendedCollection</code>, be aware that instead of a list
@@ -545,7 +482,7 @@ made.</p>
 <p>This was critical for ensuring that the property storage plugin could behave
 as expected for <code>MKCOL</code>.</p>
 
-<h3>The <code>report</code> event changed.</h3>
+<h3 id="the-%60report%60-event-changed.">The <code>report</code> event changed.</h3>
 
 <p>Before 3.0, the <code>report</code> event handlers would get an instance of the
 <code>DOMDocument</code> representing the report. Now they receive the parsed output
@@ -564,7 +501,7 @@ make time for you and help you upgrade.</p>
     
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 
-    <script src="/components/highlightjs/highlight.pack.js"></script>
+    <script src="http://sabre.io/components/highlightjs/highlight.pack.js"></script>
     <script>
         hljs.configure({languages: ['php']});
         hljs.initHighlightingOnLoad();
@@ -599,8 +536,8 @@ ga('send', 'pageview');
     <nav>
         <ul>
             <li>© 2016 <a href="https://fruux.com">fruux GmbH</a> · </li>
-            <li><a href="/support">Contact</a> · </li>
-            <li><a href="/legal">Legal Info</a></li>
+            <li><a href="http://sabre.io/support">Contact</a> · </li>
+            <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>
         <ul>
             <li><i class="fa fa-twitter"></i> <a href="http://twitter.com/sabredav">@sabredav</a> · </li>

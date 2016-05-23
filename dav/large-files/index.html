@@ -3,7 +3,7 @@
 
     
   
-            <title>Working with large files - sabre/</title>
+            <title>Working with large files - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -19,7 +19,7 @@
 
     <div class="pagehead-inner">
         <a class="logo" href="http://sabre.io/">
-                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/">
+                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/dav">
                 sabre<span>/dav</span>
                     </a>
 
@@ -46,6 +46,69 @@
     <nav class="nav nav--sidebar">
         <ul class="list list--nav">
             <li><a href="http://sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="http://sabre.io/dav/install">Installation</a></li>
+                    <li><a href="http://sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="http://sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="http://sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="http://sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="http://sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="http://sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="http://sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="http://sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="http://sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="http://sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="http://sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="http://sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="http://sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="http://sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="http://sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="http://sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="http://sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="http://sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="http://sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="http://sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="http://sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="http://sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="http://sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="http://sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="http://sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="http://sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="http://sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="http://sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="http://sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="http://sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="http://sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="http://sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="http://sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="http://sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="http://sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="http://sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="http://sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="http://sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="http://sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="http://sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
                             </li>
             <li><a href="http://sabre.io/event">sabre/event</a>
                             </li>
@@ -67,7 +130,7 @@
 </aside>
                 <article>
                             <h1>Working with large files</h1>
-                <h2 id="using-streams">Using streams</h2>
+                <h2>Using streams</h2>
 
 <p>In order to allow transfers of big files, SabreDAV makes use of streams
 everywhere internally.</p>
@@ -75,7 +138,7 @@ everywhere internally.</p>
 <p>This allows you to deal with very large files (tried up to 15GB), without
 requiring a high number for memory_limit.</p>
 
-<h2 id="php-configuration">PHP Configuration</h2>
+<h2>PHP Configuration</h2>
 
 <p>For this to work, output buffering <em>must</em> be turned off. It appears to be
 on for some php installations. Not turning this off will make PHP return
@@ -93,13 +156,13 @@ memory-related errors.</p>
 
 <p>More information can be found on <a href="/dav/webservers">webservers</a>.</p>
 
-<h2 id="32bit-vs-64bit">32bit vs 64bit</h2>
+<h2>32bit vs 64bit</h2>
 
 <p>The maximum filesize we can currently represent on 32bit systems is 2 GB.
 To support files larger than 2GB, make sure that your PHP is compiled for
 64 bit.</p>
 
-<h2 id="php-bugs">PHP bugs</h2>
+<h2>PHP bugs</h2>
 
 <p>We recently <a href="http://evertpot.com/fpassthru-broken/">found out</a> that PHP's <a href="http://www.php.net/manual/en/function.fpassthru.php"><code>fpassthru()</code></a> method is <a href="https://bugs.php.net/bug.php?id=66736">broken</a>
 for large files, and does not allow files to be served over 2GB.</p>
@@ -107,7 +170,7 @@ for large files, and does not allow files to be served over 2GB.</p>
 <p>A fix has been made for SabreDAV 1.7.11 and 1.8.9. So make sure you are
 running at least one of those two versions.</p>
 
-<h2 id="mod_security-woes">mod_security woes</h2>
+<h2>mod_security woes</h2>
 
 <p>If you're running Apache, and particularly on a shared host, there's a
 reasonable chance <a href="http://www.modsecurity.org/">mod_security</a> is deployed, which can limit the total

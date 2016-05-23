@@ -3,7 +3,7 @@
 
     
   
-            <title>OS X addressbook - sabre/</title>
+            <title>OS X addressbook - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -19,7 +19,7 @@
 
     <div class="pagehead-inner">
         <a class="logo" href="http://sabre.io/">
-                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/">
+                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/dav">
                 sabre<span>/dav</span>
                     </a>
 
@@ -46,6 +46,69 @@
     <nav class="nav nav--sidebar">
         <ul class="list list--nav">
             <li><a href="http://sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="http://sabre.io/dav/install">Installation</a></li>
+                    <li><a href="http://sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="http://sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="http://sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="http://sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="http://sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="http://sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="http://sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="http://sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="http://sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="http://sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="http://sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="http://sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="http://sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="http://sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="http://sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="http://sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="http://sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="http://sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="http://sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="http://sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="http://sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="http://sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="http://sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="http://sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="http://sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="http://sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="http://sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="http://sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="http://sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="http://sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="http://sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="http://sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="http://sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="http://sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="http://sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="http://sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="http://sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="http://sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="http://sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="http://sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
                             </li>
             <li><a href="http://sabre.io/event">sabre/event</a>
                             </li>
@@ -72,9 +135,9 @@ clients, and it's shipped with OS X since version 10.6 (Snow Leopard). There
 are many bugs in the 10.6 client though, most of which have been solved in
 10.7.</p>
 
-<h2 id="technical-information">Technical information</h2>
+<h2>Technical information</h2>
 
-<h3 id="debugging">Debugging</h3>
+<h3>Debugging</h3>
 
 <p>To enable CardDAV traffic logging on 10.8 and above, run the following commands on the command line:</p>
 
@@ -84,7 +147,7 @@ defaults write com.apple.addressbook.carddavplugin LogConnectionDetails -bool YE
 
 <p>Logs will be written to ~/Library/Logs/CardDAVPlugin and may be viewed with 'Console.app'.</p>
 
-<h3 id="directory-support">Directory support</h3>
+<h3>Directory support</h3>
 
 <p>AddressBook.app has support for a global read-only directory. Addressbook.app
 does not allow simply browsing through the directory, it's used for searching
@@ -94,7 +157,7 @@ only (using the addressbook-query REPORT).</p>
 <a href="/dav/carddav-directory">CardDAVDirectory</a>, by providing a simple interface:
 <code>Sabre\CardDAV\IDirectory</code>.</p>
 
-<h3 id="%27me%27-card">'Me' card</h3>
+<h3>'Me' card</h3>
 
 <p>AddressBook.app has the ability to mark a specific vcard as the users' own
 vcard. Support for this is built-in since SabreDAV 1.6.</p>
@@ -125,9 +188,9 @@ Connection: keep-alive
 
 <p>More information can be found on the <a href="/dav/carddav-me-card/">me-card page</a>.</p>
 
-<h2 id="bugs">Bugs</h2>
+<h2>Bugs</h2>
 
-<h3 id="domain-root-10.6-issue">Domain root (10.6 issue)</h3>
+<h3>Domain root (10.6 issue)</h3>
 
 <p><strong>Affects: OS X 10.6</strong></p>
 
@@ -146,7 +209,7 @@ CalDAV server, but I've also had cases where:</p>
 <p>Even after trying this, it seems to randomly forget the correct TCP port and
 default back to 8008 (which is the standard port for Darwin Calendar Server).</p>
 
-<h3 id="single-addressbook">Single addressbook</h3>
+<h3>Single addressbook</h3>
 
 <p><strong>Affects: OS X 10.6 until OS X 10.10</strong></p>
 
@@ -161,7 +224,7 @@ are completely hidden to the user.</p>
 <p>This can cause for a lot of confusion, and there is no obvious solution other
 than simply <em>enforce</em> a 1 address book limit for users.</p>
 
-<h3 id="%40-in-username">@ in username</h3>
+<h3>@ in username</h3>
 
 <p><strong>Affects: OS X 10.6</strong></p>
 
@@ -179,7 +242,7 @@ email addresses for usernames if you plan to support (10.6) Addressbook.app.</p>
 <p>This client can only use 1 addressbook. It will most likely use the first
 addressbook in a users' collection of addressbooks.</p>
 
-<h3 id="ctag-is-required">ctag is required</h3>
+<h3>ctag is required</h3>
 
 <p><strong>Affects: at least OSX 10.6 and OSX 10.7</strong></p>
 

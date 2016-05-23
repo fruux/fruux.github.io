@@ -3,7 +3,7 @@
 
     
   
-            <title>Getting Started - sabre/</title>
+            <title>Getting Started - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -19,7 +19,7 @@
 
     <div class="pagehead-inner">
         <a class="logo" href="http://sabre.io/">
-                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/">
+                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/dav">
                 sabre<span>/dav</span>
                     </a>
 
@@ -46,6 +46,69 @@
     <nav class="nav nav--sidebar">
         <ul class="list list--nav">
             <li><a href="http://sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="http://sabre.io/dav/install">Installation</a></li>
+                    <li><a href="http://sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="http://sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="http://sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="http://sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="http://sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="http://sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="http://sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="http://sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="http://sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="http://sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="http://sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="http://sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="http://sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="http://sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="http://sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="http://sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="http://sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="http://sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="http://sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="http://sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="http://sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="http://sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="http://sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="http://sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="http://sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="http://sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="http://sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="http://sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="http://sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="http://sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="http://sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="http://sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="http://sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="http://sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="http://sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="http://sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="http://sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="http://sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="http://sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="http://sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
                             </li>
             <li><a href="http://sabre.io/event">sabre/event</a>
                             </li>
@@ -83,7 +146,7 @@ the zip, it will be where ever you unpacked the zip.</p>
 
 <p>So if that's not the exact path to that file, make sure you change it.</p>
 
-<h2 id="a-simple-server">A simple server</h2>
+<h2>A simple server</h2>
 
 <p>First, create a <code>data</code> and a <code>public</code> directory:</p>
 
@@ -137,7 +200,7 @@ $server-&gt;exec();
 ?&gt;
 </code></pre>
 
-<h2 id="the-base-url">The base url</h2>
+<h2>The base url</h2>
 
 <p>One line in the last code block has been a cause for a lot of confusion,
 so it's important to get it right.</p>
@@ -164,7 +227,7 @@ protocol and domainname.</p>
 <p>If you want a prettier url, you <em>must</em> use mod_rewrite or some other rewriting
 system.</p>
 
-<h2 id="testing">Testing</h2>
+<h2>Testing</h2>
 
 <p>After you got the base url correctly, you will want to see if it's working.
 An easy first step is to just open the server in the browser.</p>
@@ -174,12 +237,12 @@ following:</p>
 
 <p><img src="/img/gettingstarted_1.png" alt="Successful setup" /></p>
 
-<h2 id="client-setup">Client setup</h2>
+<h2>Client setup</h2>
 
 <p>Next, you will want to start testing with a WebDAV client, to see if things
 are working as expected.</p>
 
-<h2 id="troubleshooting">Troubleshooting</h2>
+<h2>Troubleshooting</h2>
 
 <p>Unlike with regular PHP web applications, it can sometimes be hard to figure
 out what's wrong. Error messages are often not displayed by webdav clients,
@@ -202,7 +265,7 @@ not as user-friendly, so we recommend only getting started with this after
 you're already a bit more comfortable with the rest of the toolset.</li>
 </ul>
 
-<h2 id="next-steps">Next steps</h2>
+<h2>Next steps</h2>
 
 <ul>
 <li>Add <a href="/dav/authentication">authentication</a> to your server.</li>

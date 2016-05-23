@@ -3,7 +3,7 @@
 
     
   
-            <title>Windows - sabre/</title>
+            <title>Windows - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -19,7 +19,7 @@
 
     <div class="pagehead-inner">
         <a class="logo" href="http://sabre.io/">
-                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/">
+                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/dav">
                 sabre<span>/dav</span>
                     </a>
 
@@ -46,6 +46,69 @@
     <nav class="nav nav--sidebar">
         <ul class="list list--nav">
             <li><a href="http://sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="http://sabre.io/dav/install">Installation</a></li>
+                    <li><a href="http://sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="http://sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="http://sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="http://sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="http://sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="http://sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="http://sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="http://sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="http://sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="http://sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="http://sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="http://sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="http://sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="http://sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="http://sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="http://sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="http://sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="http://sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="http://sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="http://sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="http://sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="http://sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="http://sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="http://sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="http://sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="http://sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="http://sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="http://sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="http://sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="http://sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="http://sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="http://sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="http://sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="http://sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="http://sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="http://sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="http://sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="http://sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="http://sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="http://sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
                             </li>
             <li><a href="http://sabre.io/event">sabre/event</a>
                             </li>
@@ -67,7 +130,7 @@
 </aside>
                 <article>
                             <h1>Windows</h1>
-                <h2 id="setting-up-a-webdav-connection">Setting up a WebDAV connection</h2>
+                <h2>Setting up a WebDAV connection</h2>
 
 <ol>
 <li>Open 'Computer' from your start menu or desktop</li>
@@ -84,7 +147,7 @@ Additional some optimisation instructions lead to it being disabled.</p>
 <pre><code>net use * http://example.org/dav/
 </code></pre>
 
-<h3 id="using-basic-auth">Using Basic Auth</h3>
+<h3>Using Basic Auth</h3>
 
 <p>Basic Authentication is not supported on Windows by default, but you can turn
 it on using the registry:</p>
@@ -115,7 +178,7 @@ registry:</p>
 <p>Make sure you restart the 'WebClient' service afterwards. You can do this via
 <code>Control Panel -&gt; Performance And Maintanance -&gt; Administrative Tools -&gt; Services</code>.</p>
 
-<h2 id="issues">Issues</h2>
+<h2>Issues</h2>
 
 <p>Windows clients have a wide range of technical issues, varying between
 versions. This page aims to categorize them all and show a list of windows
@@ -280,7 +343,7 @@ versions where these issues have been confirmed.</p>
 </tbody>
 </table>
 
-<h3 id="performance">performance</h3>
+<h3>performance</h3>
 
 <p>Windows 7 has a serious performance issue with WebDAV volumes. By default,
 accessing WebDAV volumes on Windows 7 is very slow.</p>
@@ -290,13 +353,13 @@ Tools / Internet Options / Connections / LAN Settings.</p>
 
 <p>See <a href="http://oddballupdate.com/2009/12/18/fix-slow-webdav-performance-in-windows-7/">this article with further information</a>.</p>
 
-<h3 id="vistabug">vistabug</h3>
+<h3>vistabug</h3>
 
 <p>On Windows Vista, if you use the Web Folders client, you may need to install
 <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=17C36612-632E-4C04-9382-987622ED1D64&amp;displaylang=en">Software Update for Web Folders (KB907306)</a> to avoid the following error:
 "The folder you entered does not appear to be valid".</p>
 
-<h3 id="root1">root1</h3>
+<h3>root1</h3>
 
 <p>These older implementations require the WebDAV service to sit at the root of a
 domainname. There's no way you can connect to a url deeper in the WebDAV
@@ -309,7 +372,7 @@ request to your WebDAV server, for example:</p>
 RewriteRule ^/(.*)$ /server.php [L]
 </code></pre>
 
-<h3 id="root2">root2</h3>
+<h3>root2</h3>
 
 <p>Windows XP has even more quirks, and will treat the root of your WebDAV server
 as if it was connecting to an SMB server. You'll notice that when you're
@@ -324,20 +387,20 @@ operations happen within sub-directories of your share.
 The easiest way to do this is by simply creating a single top-level <code>/dav/</code>
 directory.</p>
 
-<h3 id="ms-author">ms-author</h3>
+<h3>ms-author</h3>
 
 <p>Windows XP <em>requires</em> the following HTTP header when making OPTIONS requests:</p>
 
 <pre><code>MS-Author-Via: DAV
 </code></pre>
 
-<h3 id="whitespace">whitespace</h3>
+<h3>whitespace</h3>
 
 <p>Windows XP does not like whitespace in xml body responses for <code>PROPPATCH</code>
 and <code>PROPFIND</code>. Make sure you send back the xml response with no whitespace
 at all. It took the author a very long time to figure this out.</p>
 
-<h3 id="getlastmodified">getlastmodified</h3>
+<h3>getlastmodified</h3>
 
 <p>Windows XP requires a special format for the getlastmodified dav property in
 the propfind response. An example is:</p>
@@ -349,7 +412,7 @@ the propfind response. An example is:</p>
 actually causes an incompatibility with MS Office, this is removed as per
 SabreDAV 1.7.4 and 1.8.2.</p>
 
-<h3 id="charactersets">charactersets</h3>
+<h3>charactersets</h3>
 
 <p>Windows XP sends encoded characters in HTTP requests as ISO-8859-1. Possibly
 even CP-1252, but this has yet to be verified.</p>
@@ -365,7 +428,7 @@ ISO-8859-1. A workaround for this will probably not happen in the short-term.</p
 <p>These issues are verified on Windows XP SP3, but no testing has been done on
 Windows Vista or Windows 7.</p>
 
-<h3 id="locking">locking</h3>
+<h3>locking</h3>
 
 <p>Normally windows unlocks files with the following header in the UNLOCK request:</p>
 
@@ -379,7 +442,7 @@ Windows Vista or Windows 7.</p>
 
 <p>Starting SabreDAV 1.4.3 there's a workaround for this behaviour.</p>
 
-<h3 id="filesize">filesize</h3>
+<h3>filesize</h3>
 
 <p>Windows has introduced a file size limitation of 50000000 bytes in a security
 update.</p>
@@ -401,7 +464,7 @@ this problem." (Windows 7)</li>
 See <a href="http://support.microsoft.com/kb/900900/en-us">this article</a> for detailed instructions. Additional information is
 also available in <a href="https://support.microsoft.com/en-us/kb/2668751">this kb article</a>.</p>
 
-<h3 id="displayname">displayname</h3>
+<h3>displayname</h3>
 
 <p>It was reported in earlier clients (XP at least, and perhaps Vista too) that
 sending back a displayname can cause the client to use the displayname instead
@@ -411,7 +474,7 @@ of a url to access resources.</p>
 entirely. It was was reported that this bug was 'fixed' in Windows 7 by taking
 out support for <code>{DAV:}displayname</code> entirely.</p>
 
-<h3 id="auth">auth</h3>
+<h3>auth</h3>
 
 <p>HTTP Digest is support across the board. HTTP Basic auth can be used directly
 from within IE, but will not work by default if you're using Web Client, unless
@@ -453,12 +516,12 @@ with two backslashes. Example:</p>
 possible to automatically detect and strip out these usernames but that could
 be problematic in relation to HTTP digest authentication.</p>
 
-<h3 id="port">port</h3>
+<h3>port</h3>
 
 <p>It appears that Windows does not support ports other than the default (80).
 Make sure your server is not running on a non-default http port.</p>
 
-<h3 id="sni">sni</h3>
+<h3>sni</h3>
 
 <p>It was reported that the Windows 7 and 8 (and likely older clients as well) do
 not support 'SNI' (server name identification), which is a technology that
@@ -476,14 +539,14 @@ config to only provide TLSv1.1 and above the connection to your server will fail
 
 <p>See <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa382925%28v=vs.85%29.aspx">this article with further information</a>.</p>
 
-<h3 id="caching">caching</h3>
+<h3>caching</h3>
 
 <p>It was reported that Windows 7 has a 60 second cache, which may be frustrating
 if you expect an immediate update.</p>
 
 <p>This can be disabled using a registry key. See <a href="http://technet.microsoft.com/en-us/library/ee683963%28v=ws.10%29.aspx">http://technet.microsoft.com/en-us/library/ee683963%28v=ws.10%29.aspx</a> for more info.</p>
 
-<h3 id="upload-timeouts">upload timeouts</h3>
+<h3>upload timeouts</h3>
 
 <p>An upload of large files taking longer than 30 minutes using Web Client in
 Windows 7 can cause the following error:</p>
@@ -494,7 +557,7 @@ Windows 7 can cause the following error:</p>
 
 <p>See <a href="https://support.microsoft.com/en-us/kb/2668751">this kb article</a> for detailed instructions how to raise the timeout.</p>
 
-<h2 id="technical-details">Technical details</h2>
+<h2>Technical details</h2>
 
 <p>User agents:</p>
 
@@ -507,7 +570,7 @@ Microsoft Data Access Internet Publishing Provider DAV 1.1
 Microsoft Data Access Internet Publishing Provider Cache Manager
 </code></pre>
 
-<h3 id="properties">Properties</h3>
+<h3>Properties</h3>
 
 <p>Windows XP requests the following webdav properties when making requests:</p>
 
@@ -544,7 +607,7 @@ Microsoft Data Access Internet Publishing Provider Cache Manager
 
 <p>To easily take advantage of these properties, enable the <a href="/dav/property-storage/">propertystorage plugin</a>.</p>
 
-<h2 id="using-web-folders">Using Web Folders</h2>
+<h2>Using Web Folders</h2>
 
 <p>Before Windows 7, Windows had a feature called 'Web folders'. This is a
 different WebDAV client with less features. This feature is removed in

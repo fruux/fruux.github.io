@@ -90,15 +90,15 @@ the changes we made are smaller and more localized.</p>
 <p>This document is split up in two major segments: "New features" and "Backwards
 compatibility breaks". We're starting with the fun stuff.</p>
 
-<h2 id="new-features">New features</h2>
+<h2>New features</h2>
 
-<h3 id="php-7-support">PHP 7 support</h3>
+<h3>PHP 7 support</h3>
 
 <p>This version of VObject supports PHP 7. We also dropped support for PHP versions
 before 5.5. If you are running an older PHP version, we will continue to
 maintain vObject 3.x. But really, you should upgrade!</p>
 
-<h3 id="support-for-different-input-encodings">Support for different input encodings</h3>
+<h3>Support for different input encodings</h3>
 
 <p>By default VObject always assumed everything is UTF-8. This is a fair
 assumption for objects sent via CalDAV and CardDAV and is also the only valid
@@ -129,7 +129,7 @@ decoding.</p>
 but if you have a different encoding you need support for, just
 <a href="https://github.com/fruux/sabre-vobject/issues" title="sabre/vobject issues">open a ticket</a> with a sample file.</p>
 
-<h3 id="support-for-xcal-%2F-xcard">Support for xCal / xCard</h3>
+<h3>Support for xCal / xCard</h3>
 
 <p>After adding support for jCal and jCard, we now also have support for
 <a href="https://tools.ietf.org/html/rfc6321" title="xCal: The XML Format for iCalendar">xCal</a> and <a href="https://tools.ietf.org/html/rfc6351" title="xCard: vCard XML Representation">xCard</a>. These two formats are the XML
@@ -147,7 +147,7 @@ representation of iCalendar and vCard.</p>
 
 <p>This feature was contributed by <a href="http://mnt.io/" title="Ivan Enderlin">Ivan Enderlin</a>.</p>
 
-<h3 id="added-a-%60birthdaycalendargenerator%60">Added a <code>BirthdayCalendarGenerator</code></h3>
+<h3>Added a <code>BirthdayCalendarGenerator</code></h3>
 
 <p>This new component can take a list of VCARD objects, and automatically
 generate a VCALENDAR with all the birthdays.</p>
@@ -164,14 +164,14 @@ $vcalendar = $generator-&gt;getResult();
 
 <p>This feature was contributed by <a href="http://tobschall.de/" title="Dominik Tobschall">Dominik Tobschall</a>.</p>
 
-<h3 id="speed-improvements">Speed improvements</h3>
+<h3>Speed improvements</h3>
 
 <p>We optimized a number of common access patterns in sabre/vobject, and in
 particular are doing less looping and better indexing of objects.</p>
 
 <p>Especially manipulating objects can be up to 40% faster than before.</p>
 
-<h3 id="added-a-%60destroy%60-method">Added a <code>destroy()</code> method</h3>
+<h3>Added a <code>destroy()</code> method</h3>
 
 <p>sabre/vobject components are a fairly complicated data-structure, and they also
 contain circular references. This unfortunately means that they are often not
@@ -189,7 +189,7 @@ massive drops in memory usage.</p>
 $vcalendar-&gt;destroy();
 </code></pre>
 
-<h3 id="full-support-for-vavailability">Full support for VAVAILABILITY</h3>
+<h3>Full support for VAVAILABILITY</h3>
 
 <p><a href="https://tools.ietf.org/html/draft-daboo-calendar-availability" title="Calendar Availability">VAVAILABILITY</a> is an upcoming standard that allows people to specify when they
 are available. It complements VFREEBUSY, as it allows people
@@ -201,7 +201,7 @@ generate a VFREEBUSY object based on existing calendar events + a
 VAVAILABILITY specification. VAVAILABILITY is already supported by a number
 of calendar applications.</p>
 
-<h3 id="added-a-utility-for-merging-duplicate-vcards-on-the-command-line.">Added a utility for merging duplicate vCards on the command line.</h3>
+<h3>Added a utility for merging duplicate vCards on the command line.</h3>
 
 <p>If you have a large file with lots of vCard objects, you can use this tool to
 find duplicates and merge them together.</p>
@@ -213,7 +213,7 @@ have multiple contacts with the exact same name, they will be merged.</p>
 
 <p><code>./bin/mergeduplicates.php</code></p>
 
-<h3 id="smaller-stuff-%2F-bugfixes.">Smaller stuff / bugfixes.</h3>
+<h3>Smaller stuff / bugfixes.</h3>
 
 <ul>
 <li>All components and properties now implement PHP 5.5's <code>JsonSerializable</code>
@@ -233,15 +233,15 @@ in vCards.</li>
 <li>Added a <code>Settings</code> object where some global VObject behavior may be changed.</li>
 </ul>
 
-<h2 id="backwards-compatibility-breaks">Backwards compatibility breaks</h2>
+<h2>Backwards compatibility breaks</h2>
 
-<h3 id="php-5.5-is-the-minimum-version">PHP 5.5 is the minimum version</h3>
+<h3>PHP 5.5 is the minimum version</h3>
 
 <p>As mentioned before, the minimum PHP version has been changed from 5.3 to 5.4.
 If you are running unsupported PHP versions, you can still use sabre/vobject 3,
 which we still support.</p>
 
-<h3 id="using-%60datetimeimmutable%60-instead-of-%60datetime%60.">Using <code>DateTimeImmutable</code> instead of <code>DateTime</code>.</h3>
+<h3>Using <code>DateTimeImmutable</code> instead of <code>DateTime</code>.</h3>
 
 <p>PHP added a new object for dealing with dates and times: <code>DateTimeImmutable</code>.
 Starting from sabre/vobject 4, we now return <code>DateTimeImmutable</code> <em>everywhere</em>
@@ -278,7 +278,7 @@ variable, not the original <code>DTSTART</code>).</p>
 on that object does not alter it's value, but it returns a new
 <code>DateTimeImmutable</code> with this new value.</p>
 
-<h3 id="%60component%3A%3A%24children%60-is-gone"><code>Component::$children</code> is gone</h3>
+<h3><code>Component::$children</code> is gone</h3>
 
 <p>In sabre/vobject 3 every (vcard/vcalendar/vevent/etc..) component had a public
 <code>$children</code> property that contained a simple array with all the
@@ -300,7 +300,7 @@ call the <code>children()</code> method instead.</p>
 <pre><code>$children = $vevent-&gt;children();
 </code></pre>
 
-<h3 id="more-specific-exceptions">More specific exceptions</h3>
+<h3>More specific exceptions</h3>
 
 <p>A lot of the VObject functions work in two stages. There's an initial parse
 stage, in which we only validate the correctness of the overall syntax of the
@@ -316,7 +316,7 @@ throw <code>Sabre\VObject\InvalidDataException</code>.</p>
 <p>Note that any errors during the parsing phase will still throw
 <code>Sabre\VObject\ParseException</code>.</p>
 
-<h3 id="recurrenceiterator-now-stops-automatically-at-3500-iterations">RecurrenceIterator now stops automatically at 3500 iterations</h3>
+<h3>RecurrenceIterator now stops automatically at 3500 iterations</h3>
 
 <p>In case a user created a recurring event, and traversing that event results
 in more than 3500 instances, we'll now automatically throw
@@ -330,7 +330,7 @@ against some denial of service attacks.</p>
 
 <p>Set it to <code>-1</code> to completely disable this check.</p>
 
-<h3 id="changes-to-expanding-events">Changes to expanding events</h3>
+<h3>Changes to expanding events</h3>
 
 <p>If you ever expanded a recurring event in a calendar, this API has now
 changed. The <code>expand</code> method no longer updates the calendar in-place, but
@@ -349,7 +349,7 @@ called on.</p>
 <pre><code>$vcalendar = $vcalendar-&gt;expand(new DateTime('...'), new DateTime('...'));
 </code></pre>
 
-<h3 id="renamed-two-classes-for-php-7-support.">Renamed two classes for PHP 7 support.</h3>
+<h3>Renamed two classes for PHP 7 support.</h3>
 
 <p>vObject 3 had the following two classes:</p>
 
@@ -363,12 +363,12 @@ Sabre\VObject\Property\Integer
 Sabre\VObject\Property\IntegerValue
 </code></pre>
 
-<h3 id="%60sabre%5Cvobject%5Crecurrenceiterator%60-is-removed"><code>Sabre\VObject\RecurrenceIterator</code> is removed</h3>
+<h3><code>Sabre\VObject\RecurrenceIterator</code> is removed</h3>
 
 <p>This object was already deprecated, but in version 4 it's removed. Simply use
 <code>Sabre\VObject\Recur\EventIterator</code> instead. It has an identical interface.</p>
 
-<h3 id="%60sabre%5Cvobject%5Ccomponent%3A%3Aremove%60-no-longer-returns-the-removed-item."><code>Sabre\VObject\Component::remove</code> no longer returns the removed item.</h3>
+<h3><code>Sabre\VObject\Component::remove</code> no longer returns the removed item.</h3>
 
 <p>The <code>remove()</code> function, which exists on every component used to return the
 removed item. In version 4 this is no longer the case.</p>

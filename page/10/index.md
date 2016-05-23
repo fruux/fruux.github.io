@@ -3,7 +3,7 @@
 
     
   
-            <title>sabre/</title>
+            <title>sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -19,7 +19,7 @@
 
     <div class="pagehead-inner">
         <a class="logo" href="http://sabre.io/">
-                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/">
+                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/dav">
                 sabre<span>/dav</span>
                     </a>
 
@@ -66,7 +66,6 @@
         </ul>
     </div>
 </section>
-
 <section class="box box--trusted">
     <div class="box-wrapper">
         <h1 class="box-headline">Trusted by</h1>
@@ -84,7 +83,6 @@
         </a>
     </div>
 </section>
-
 <section class="box box--lineup">
     <div class="box-wrapper">
         <h1 class="box-headline">The full sabre.io lineup</h1>
@@ -114,7 +112,6 @@
         </a>
     </div>
 </section>
-
 <div class="box box--turquoise">
     <div class="box-wrapper">
         <section class="box box--enterprise">
@@ -139,6 +136,11 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Jun. 1st, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/deprecating-packages">Deprecating sabre/dav 1.8</a></h1>
+                    <p>Our versioning scheme from sabre/dav dictates that we stop support for a
+version of a package, 12 months after the next major version was released.</article>
+                <hr />                            <article class="blog-entry">
                     <time>May. 27th, 2015</time>
                     <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.4.4-release">sabre/vobject 3.4.4 release</a></h1>
                     <p>We just released sabre/vobject 3.4.4.</article>
@@ -154,18 +156,12 @@
                     <time>May. 21st, 2015</time>
                     <h1><a href="http://sabre.io/blog/2015/sabre-xml-1.0.0.release">sabre/xml 1.0.0 release</a></h1>
                     <p>We just released sabre/xml 1.0.0</article>
-                <hr />                            <article class="blog-entry">
-                    <time>May. 20th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-http-4.0.0-release">sabre/http 4.0.0 release</a></h1>
-                    <p>We just released sabre/http 4.0.0</article>
                                     </section>
     </div>
 </div>
-
 <figure class="bg--cloudy">
     <img src="http://sabre.io/img/home_background.jpg">
 </figure>
-
 
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 

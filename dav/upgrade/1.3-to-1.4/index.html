@@ -3,7 +3,7 @@
 
     
   
-            <title>Upgrading from SabreDAV 1.3 to 1.4 - sabre/</title>
+            <title>Upgrading from SabreDAV 1.3 to 1.4 - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -19,7 +19,7 @@
 
     <div class="pagehead-inner">
         <a class="logo" href="http://sabre.io/">
-                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/">
+                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/dav">
                 sabre<span>/dav</span>
                     </a>
 
@@ -46,6 +46,69 @@
     <nav class="nav nav--sidebar">
         <ul class="list list--nav">
             <li><a href="http://sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="http://sabre.io/dav/install">Installation</a></li>
+                    <li><a href="http://sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="http://sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="http://sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="http://sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="http://sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="http://sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="http://sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="http://sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="http://sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="http://sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="http://sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="http://sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="http://sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="http://sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="http://sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="http://sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="http://sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="http://sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="http://sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="http://sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="http://sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="http://sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="http://sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="http://sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="http://sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="http://sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="http://sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="http://sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="http://sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="http://sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="http://sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="http://sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="http://sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="http://sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="http://sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="http://sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="http://sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="http://sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="http://sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="http://sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="http://sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
                             </li>
             <li><a href="http://sabre.io/event">sabre/event</a>
                             </li>
@@ -74,7 +137,7 @@ compatibility in a number of places.</p>
 are to be affected by it. Every section starts with a paragraph explaining why
 it would be relevant to you.</p>
 
-<h2 id="changed-handing-of-%27guessing-the-base-uri%27">Changed handing of 'guessing the base uri'</h2>
+<h2>Changed handing of 'guessing the base uri'</h2>
 
 <p>Every SabreDAV version before 1.4.2 had a bug where in some circumstances it
 would be possible for users to delete an entire directory tree, if no fixed
@@ -87,7 +150,7 @@ through a server.php (or similar named file) and no <code>/</code> is set at the
 <p>You are strongly encouraged to simply set the base uri manually by calling
 <code>setBaseUri</code> on the <code>Sabre_DAV_Server</code> object.</p>
 
-<h2 id="sabre_dav_auth_backend%2A-api-changed">Sabre_DAV_Auth_Backend* API changed</h2>
+<h2>Sabre_DAV_Auth_Backend* API changed</h2>
 
 <p>This is important if you created a custom authentication backend.</p>
 
@@ -109,7 +172,7 @@ slightly changed. The <code>getUserInfo()</code> method has been removed, and a
 <code>getUserInfo</code> as part of the array, but this method must only return this
 string.</p>
 
-<h2 id="new-security-model-for-caldav">New security model for CalDAV</h2>
+<h2>New security model for CalDAV</h2>
 
 <p>This section is relevant to you if you're a CalDAV user and you're not using
 <code>Sabre_CalDAV_Server</code>, but a customized setup instead.</p>
@@ -126,7 +189,7 @@ server:</p>
 <p>Note again: <code>Sabre_CalDAV_Server</code> adds this plugin by default, so you won't
 have to worry about it.</p>
 
-<h2 id="locks-backends-api-changes">Locks backends API changes</h2>
+<h2>Locks backends API changes</h2>
 
 <p>This is relevant to you if you built your own locks backend class.</p>
 
@@ -143,7 +206,7 @@ that's deep within the tree.</p>
 <code>getLocks('directory',true)</code> is called, your backend should also return the
 child's lock.</p>
 
-<h2 id="sabre_dav_locks_backend_fs-now-deprecated">Sabre_DAV_Locks_Backend_FS now deprecated</h2>
+<h2>Sabre_DAV_Locks_Backend_FS now deprecated</h2>
 
 <p>This is relevant to you, if you use <code>Sabre_DAV_Locks_Backend_FS</code>.</p>
 
@@ -169,7 +232,7 @@ locking information in a single file. For performance and stability reasons
 you are highly encouraged to use PDO instead. PDO stores locks in a MySQL
 or SQLite database, and is therefore much more robust.</p>
 
-<h2 id="office-2000-%26-2003-compatibility">Office 2000 &amp; 2003 compatibility</h2>
+<h2>Office 2000 &amp; 2003 compatibility</h2>
 
 <p>This is relevant to you if you use Office as a WebDAV client.</p>
 
@@ -184,7 +247,7 @@ so with the following line of code:</p>
 <pre><code>Sabre_DAV_Property_LockDiscovery::$hideLockRoot = true;
 </code></pre>
 
-<h2 id="principal-system-and-authentication-system-are-decoupled-part-1">Principal system and Authentication system are decoupled (part 1)</h2>
+<h2>Principal system and Authentication system are decoupled (part 1)</h2>
 
 <p>This is important to you, if you're using the CalDAV system, and you're using
 the standard PDO backends, or <code>Sabre_CalDAV_Server</code>.</p>
@@ -246,7 +309,7 @@ a query like this (mysql example):</p>
 an entry must be added to the users table for your user to log in, and an 
 entry must be added for the principals table for the user to show up in the tree.</p>
 
-<h2 id="principal-and-authentication-systems-are-decoupled-part-2">Principal and Authentication systems are decoupled (part 2)</h2>
+<h2>Principal and Authentication systems are decoupled (part 2)</h2>
 
 <p>If you either constructed a custom authentication backend, or if you
 instantiated Sabre_DAV_Auth_Backend yourself <em>and</em> you are a CalDAV user,
@@ -265,7 +328,7 @@ own Principal backend. Implement <code>Sabre_DAVACL_IPrincipalBackend</code> for
 Implementing this is optional, but required if you'd like calendar delegation
 support.</p>
 
-<h2 id="principal-and-authentication-systems-are-decoupled-part-3">Principal and Authentication systems are decoupled (part 3)</h2>
+<h2>Principal and Authentication systems are decoupled (part 3)</h2>
 
 <p>If you used any of the following classes, this is relevant to you.</p>
 
@@ -303,7 +366,7 @@ Sabre_DAVACL:</p>
 </tbody>
 </table>
 
-<h2 id="principal-and-authentication-systems-are-decoupled-part-4">Principal and Authentication systems are decoupled (part 4)</h2>
+<h2>Principal and Authentication systems are decoupled (part 4)</h2>
 
 <p>This section is relevant to you, if you're instantiating either of the
 following classes yourself:</p>

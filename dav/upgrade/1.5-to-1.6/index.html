@@ -145,7 +145,7 @@ explaining why it would be relevant to you.</p>
 
 <p>But we'll start with the good news.</p>
 
-<h2>New features</h2>
+<h2 id="new-features">New features</h2>
 
 <p>We just released SabreDAV 1.6.0. This version contains a bunch of new
 features, and a ton of "under the hood" changes. It is fair to say that this
@@ -185,7 +185,7 @@ breaks, which may especially affect you if you customized your SabreDAV setup.</
 
 <p>Read the full <a href="https://github.com/fruux/sabre-dav/blob/1.6.0/ChangeLog">Changelog</a> for more details.</p>
 
-<h2>SabreDAV now requires PHP 5.3</h2>
+<h2 id="sabredav-now-requires-php-5.3">SabreDAV now requires PHP 5.3</h2>
 
 <p>There are a number of features that depend on functionality that has been
 introduced with PHP 5.3. Among these items are the DateTime-related additions
@@ -195,7 +195,7 @@ and closures.</p>
 1.5.* versions. 1.5.* will still be actively maintained, but will not receive 
 any new features.</p>
 
-<h2>Database changes</h2>
+<h2 id="database-changes">Database changes</h2>
 
 <p>If you use <code>Sabre_DAVACL_PrincipalBackend_PDO</code> or have a 'principals' table,
 you must run the following script to keep it compatible:</p>
@@ -210,7 +210,7 @@ ALTER TABLE principals ADD vcardurl TEXT;
 <p>This new field stores a url to a vcard associated with a specific principal.
 This enables the "Make this My Card" feature in OS/X's Addressbook.</p>
 
-<h2>If you're authenticated, you can read other people\'s FREE-BUSY information</h2>
+<h2 id="if-you%27re-authenticated%2C-you-can-read-other-people%5C%27s-free-busy-information">If you're authenticated, you can read other people\'s FREE-BUSY information</h2>
 
 <p>Since 1.6 support for the 'freebusy' report is added. The default that was
 added was to give any use who's authenticated, access to these reports.</p>
@@ -218,7 +218,7 @@ added was to give any use who's authenticated, access to these reports.</p>
 <p>So although no calendars are shared, it is shared when people have events
 scheduled at certain times.</p>
 
-<h2>lib/Sabre.includes.php is deprecated</h2>
+<h2 id="lib%2Fsabre.includes.php-is-deprecated">lib/Sabre.includes.php is deprecated</h2>
 
 <p>Every package now has a specific includes file:</p>
 
@@ -234,7 +234,7 @@ scheduled at certain times.</p>
 <p>The 'old' includes file only includes the first two items. In 1.7 this includes
 file will be removed.</p>
 
-<h2>Sabre_DAV_Exception_FileNotFound is now Sabre_DAV_Exception_NotFound</h2>
+<h2 id="sabre_dav_exception_filenotfound-is-now-sabre_dav_exception_notfound">Sabre_DAV_Exception_FileNotFound is now Sabre_DAV_Exception_NotFound</h2>
 
 <p>We renamed this exception because it makes more sense.
 The <code>Sabre_DAV_Exception_FileNotFound</code> exception still exists, but
@@ -242,7 +242,7 @@ it extends <code>Sabre_DAV_Exception_NotFound</code>.</p>
 
 <p>The old exception will be removed in version 1.7.</p>
 
-<h2>Sabre_CalDAV_Server is deprecated</h2>
+<h2 id="sabre_caldav_server-is-deprecated">Sabre_CalDAV_Server is deprecated</h2>
 
 <p>This class always kind of served as an example class to implement custom server
 classes, and was intentionally inflexible. In 1.6 this is is marked as
@@ -253,7 +253,7 @@ class name. If you don't want to do this, take a look at the
 "calendarserver.php" file in the examples/ directory. This file contains a
 full explanation of how to setup a calendar server.</p>
 
-<h2>Sabre_DAVACL_IPrincipalBackend has new methods</h2>
+<h2 id="sabre_davacl_iprincipalbackend-has-new-methods">Sabre_DAVACL_IPrincipalBackend has new methods</h2>
 
 <p>The <code>Sabre_DAVACL_IPrincipalBackend</code> interface now has two new methods:</p>
 
@@ -265,7 +265,7 @@ full explanation of how to setup a calendar server.</p>
 <p>Refer to the interface for documentation about these two new methods. This may
 also apply to you if you extend <code>Sabre_DAVACL_PrincipalBackend_PDO</code>.</p>
 
-<h2>Removed Sabre_DAV_ILockable</h2>
+<h2 id="removed-sabre_dav_ilockable">Removed Sabre_DAV_ILockable</h2>
 
 <p>Before 1.6 it was possible to implement locking-functionality directly in
 nodes, by implementing Sabre_DAV_ILockable. This was found to be problematic
@@ -277,7 +277,7 @@ custom implementation to a <code>Sabre_DAV_Locks_Backend_Abstract</code>-based c
 <p>If you have trouble with this, head over to the <a href="http://groups.google.com/group/sabredav-discuss">mailing list</a>, we're we'll
 gladly figure out a solution for your use-case.</p>
 
-<h2>Validation of iCalendar objects no longer happens in Sabre_CalDAV_Calendar</h2>
+<h2 id="validation-of-icalendar-objects-no-longer-happens-in-sabre_caldav_calendar">Validation of iCalendar objects no longer happens in Sabre_CalDAV_Calendar</h2>
 
 <p>A syntax check of iCalendar objects used to be done in:</p>
 
@@ -289,7 +289,7 @@ gladly figure out a solution for your use-case.</p>
 <p>This functionality has been moved to <code>Sabre_CalDAV_Plugin</code>. The new check is a
 bit more strict, so this should be very helpful to reduce corruption of data.</p>
 
-<h2>Added method to Sabre_DAVACL_IACL interface</h2>
+<h2 id="added-method-to-sabre_davacl_iacl-interface">Added method to Sabre_DAVACL_IACL interface</h2>
 
 <p>If you implemented <code>Sabre_DAVACL_IACL</code> directly, you must now also implement a
 getSupportedPrivilegeSet method. This method allows you to specify a custom set
@@ -298,7 +298,7 @@ of priviliges per node.</p>
 <p>To simply retain the old behaviour, you can simply return null. This will cause
 the default permission set to kick in.</p>
 
-<h2>Removed classes in CalDAV plugin</h2>
+<h2 id="removed-classes-in-caldav-plugin">Removed classes in CalDAV plugin</h2>
 
 <ul>
 <li><code>Sabre_CalDAV_ICalendarUtil</code> contained functions to validate iCalendar
@@ -313,7 +313,7 @@ take a look at <code>Sabre_VObject_DateTimeParser</code>.</li>
 <li><code>Sabre_CalDAV_Exception_InvalidICalendarObject</code> was removed as well.</li>
 </ul>
 
-<h2>Renamed some VObject classes</h2>
+<h2 id="renamed-some-vobject-classes">Renamed some VObject classes</h2>
 
 <ul>
 <li><code>Sabre_VObject_Element_MultiDateTime</code> is now <code>Sabre_VObject_Property_MultiDateTime</code></li>
@@ -322,7 +322,7 @@ take a look at <code>Sabre_VObject_DateTimeParser</code>.</li>
 
 <p>The old classes still exist, and still work but will be removed in a future version.</p>
 
-<h2>calendars/username now contains an outbox node</h2>
+<h2 id="calendars%2Fusername-now-contains-an-outbox-node">calendars/username now contains an outbox node</h2>
 
 <p>The <code>calendars/[username]</code> collection always listed just the users' calendars.
 Now it also contains an 'outbox', which is currently used by iCal to send event

@@ -3,9 +3,207 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-05-23T22:34:52+00:00</updated>
+    <updated>2016-05-29T23:34:06+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[Changes to sharing in sabre/dav 3.2]]></title>
+            <link href="http://sabre.io/blog/2016/sharing-changes"/>
+            <updated>2016-05-29T23:32:29+00:00</updated>
+            <id>http://sabre.io/blog/2016/sharing-changes</id>
+            <content type="html"><![CDATA[<p>We are currently working on sabre/dav 3.2. <a href="http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt">A first beta has been released</a>.
+This release includes major changes to the sharing system.</p>
+
+<p>If you are a user of sabre/dav and have never done any deep modifications to
+the sharing system, this simply means that from that version onward, there's
+a new calendar sharing feature.</p>
+
+<p>To take advantage of that feature, you can just upgrade and then turn on the
+sharing plugin:</p>
+
+<pre><code>$server-&gt;addPlugin(new Sabre\DAV\Sharing\Plugin());
+</code></pre>
+
+<p>And to allow Apple clients and BusyCal to modify the list of who can access
+your calendar, add the following second plugin:</p>
+
+<pre><code>$server-&gt;addPlugin(new Sabre\CalDAV\SharingPlugin());
+</code></pre>
+
+<p>Now if you're completely new to this, you can stop reading this article right
+here. However, if you did stuff with sharing before, read on.</p>
+
+<h2 id="the-old-situation">The old situation</h2>
+
+<p>Preliminary support for sharing to sabre/dav was added in version 1.7, which
+was released back in 2012. However, this release only ever shipped with the
+interfaces to allow an implementor to write a custom backend for this.</p>
+
+<p>There were only a few people that have actually done that. This guide is for
+you.</p>
+
+<p>The specification we used back then were 2 apple proprietary specifications:</p>
+
+<ol>
+<li><a href="http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt">caldav-sharing</a>.</li>
+<li><a href="http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-notifications.txt">caldav-notifications</a>.</li>
+</ol>
+
+<p>The internal sabre/dav API's match the terminology from those specifications.
+The API's allowed someone to write an implementation that allows a user to
+invite another user to their calendar. The others get the invitation and can
+accept or decline the invite.</p>
+
+<h2 id="new-standardization-effort">New standardization effort</h2>
+
+<p>In 2014 the sabre/dav project and a couple of other vendors started on a new
+effort, with the following primary goals:</p>
+
+<ol>
+<li>Standardize the proprietary spec.</li>
+<li>Extend the specification to also allow CardDAV (addressbook) sharing to be
+implemented.</li>
+</ol>
+
+<p>To do this, we've split the standard into 4 separate specifications:</p>
+
+<ol>
+<li><a href="https://tools.ietf.org/html/draft-pot-webdav-notifications">draft-pot-webdav-notifications</a>.</li>
+<li><a href="https://tools.ietf.org/html/draft-pot-webdav-resource-sharing">draft-pot-webdav-resource-sharing</a>.</li>
+<li><a href="https://tools.ietf.org/html/draft-pot-caldav-sharing-00">draft-pot-caldav-sharing</a>.</li>
+<li>And a future carddav sharing spec.</li>
+</ol>
+
+<p>So in this process we're not only creating a separate CardDAV and CalDAV spec,
+but also adding a generic 'WebDAV sharing' spec that can be used by
+WebDAV file sharing systems, such as Owncloud.</p>
+
+<p>On a high level the data-model is similar, but almost everywhere new XML
+documents have been defined that are more descriptive, more generic or just
+better for aestetic reasons.</p>
+
+<h2 id="the-state-of-sharing-in-sabre%2Fdav-3.2">The state of sharing in sabre/dav 3.2</h2>
+
+<p>The first place where the new specifications will be integrated, is CalDAV.
+So 3.2 is also the first place where we actually ship a working implementation.</p>
+
+<p>However, to do this properly, some big changes were made:</p>
+
+<ol>
+<li>The internal API is 100% rewritten. All the properties and classes use
+terminology matching the <em>new</em> specs and not the old specs.</li>
+<li>A lot of the code has been moved from the <code>Sabre\CalDAV</code> to the
+<code>Sabre\DAV\Sharing</code> namespace.</li>
+</ol>
+
+<p>But, another thing is really important. The new sharing specification allows
+two workflows for sharing:</p>
+
+<ol>
+<li>Sharing with a notification system. In this approach you can invite someone
+to a share, and that person then gets an opportunity to accept, decline or
+ignore the invite.</li>
+<li>Instant sharing. In this workflow you invite someone, and then that person
+immediately has access to the share.</li>
+</ol>
+
+<p>The old spec only has support for the first model, and this is true as well
+for the sabre/dav implementation.</p>
+
+<p>However, in sabre/dav 3.2 we initially only support model #2. So if you
+require the notifation system, you can't yet do an upgrade.</p>
+
+<p>We think model #1 is probably more appropriate for public consumer systems,
+and #2 works better for systems supporting small teams.</p>
+
+<h2 id="getting-support-for-the-old-specifications">Getting support for the old specifications</h2>
+
+<p>One drawback of using the new specs, is that old clients don't yet undertand
+them. So we've added a plugin to handle this.</p>
+
+<p>If you add the <code>Sabre\CalDAV\SharingPlugin</code> plugin, this plugin supports the
+old apple spec and automatically maps all incoming request to the new model.</p>
+
+<p>This plugin can therefore only work if <code>Sabre\DAV\Sharing\Plugin</code> is <em>also</em>
+up and running.</p>
+
+<h2 id="the-old-and-the-new-classes">The old and the new classes</h2>
+
+<p>This table gives you an idea of the old classes and interfaces, and which
+classes and interfaces you now need to look at for similar functionality.</p>
+
+<h3 id="%60sabre%5Ccaldav%5Csharingplugin%60"><code>Sabre\CalDAV\SharingPlugin</code></h3>
+
+<p>This class split in two:</p>
+
+<ul>
+<li><code>Sabre\DAV\Sharing\Plugin</code></li>
+<li><code>Sabre\CalDAV\SharingPlugin</code></li>
+</ul>
+
+<h3 id="%60sabre%5Ccaldav%5Cisharablecalendar%60-and-%60sabre%5Ccaldav%5Cisharedcalendar"><code>Sabre\CalDAV\ISharableCalendar</code> and `Sabre\CalDAV\ISharedCalendar</h3>
+
+<p>The old sabre/dav had two node types for shared calendars, one for the
+original and one for the shared instances.</p>
+
+<p>The new sabre/dav combines this into a single <code>Sabre\DAV\Sharing\ISharedNode</code>.
+Which is used for 'all instances'.</p>
+
+<p>However, there is still <code>Sabre\CalDAV\ISharedCalendar</code> which extends both
+<code>Sabre\DAV\Sharing\ISharedNode</code> and <code>Sabre\CalDAV\ICalendar</code>.</p>
+
+<h3 id="%60sabre%5Ccaldav%5Csharedcalendar%60-and-%60sabre%5Ccaldav%5Cshareablecalendar%60"><code>Sabre\CalDAV\SharedCalendar</code> and <code>Sabre\CalDAV\ShareableCalendar</code></h3>
+
+<p>Like the interfaces, the concrete classes also had two distinct nodes. In
+the new system, there is just <code>Sabre\CalDAV\SharedCalendar</code>.</p>
+
+<h3 id="%60sabre%5Ccaldav%5Cnotifications%60"><code>Sabre\CalDAV\Notifications</code></h3>
+
+<p>This entire namespace must not be used in sabre/dav 3.2. It doesn't work and
+it will go away.</p>
+
+<h3 id="%60sabre%5Ccaldav%5Cbackend%5Csharingsupport%60"><code>Sabre\CalDAV\Backend\SharingSupport</code></h3>
+
+<p>This interface still exists and still has the same goal, but it went through
+a number of structual changes. It also no longer <em>requires</em>
+<code>Sabre\CalDAV\Backend\NotificationSupport</code> as well.</p>
+
+<h2 id="the-future">The future</h2>
+
+<p>The plan is to implement the notifications engine again, but take a different
+approach than we originally did in old sabre/dav versions. The new system
+should be better separated from CalDAV and support notifications for different
+subsystems (CardDAV, CalDAV, etc).</p>
+
+<p>We will also add support for CardDAV (addressbook) sharing soon.</p>
+
+<p>Hopefully these releases will all be rolled out in 3.3 and 3.4 releases.</p>
+
+<p>My advice for people that <em>require</em> the notification subsystem for now is to
+stick to 3.1 until we have a complete replacement. Some shifts will likely
+happen until we land on a design we're actually happy with.</p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 3.1.4 released]]></title>
+            <link href="http://sabre.io/blog/2016/sabre-dav-3.1.4-release"/>
+            <updated>2016-05-29T01:05:59+00:00</updated>
+            <id>http://sabre.io/blog/2016/sabre-dav-3.1.4-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 3.1.4.</p>
+
+<p>This release improves CardDAV sync performance. For large addressbooks, the
+initial sync can be up to 50% faster.</p>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.1.4/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[Upcoming changes to iCalendar and vCard validation in sabre/dav 3.2.]]></title>
             <link href="http://sabre.io/blog/2016/validation-changes"/>
@@ -35,7 +233,7 @@ a new iCalendar object or vCard.</p>
 invalid object, but over time we will make this more strict by adding new
 validation rules.</p>
 
-<h2>How it works</h2>
+<h2 id="how-it-works">How it works</h2>
 
 <p>One of the biggest areas in validation is that we're now checking for
 properties that are required, and how many instances of properties may
@@ -81,7 +279,7 @@ correctly.</p>
 <p>It also works well as a small punishment to a client. They are forced to do an
 extra HTTP request, so there is an incentive to fix the bug.</p>
 
-<h2>When we can't do a repair</h2>
+<h2 id="when-we-can%27t-do-a-repair">When we can't do a repair</h2>
 
 <p>There are many cases where we can't guess what the developer's intent was. For
 example: every <code>VEVENT</code> must have a <code>DTSTART</code>. If it didn't appear, we can't
@@ -90,7 +288,7 @@ really just make one up.</p>
 <p>For situations like that, we now always emit HTTP error
 <code>415 Unsupported Media Type</code>, along with our <code>X-Sabre-Ew-Gross</code> header.</p>
 
-<h2>Requesting strict handling</h2>
+<h2 id="requesting-strict-handling">Requesting strict handling</h2>
 
 <p>There are also cases where a client developer does not want the server to
 automatically repair the object, and instead always do a hard failure when
@@ -100,7 +298,7 @@ development.</p>
 <p>To tell the server to always do hard failures, you can simply include the
 standard <code>Prefer: handling=strict</code> HTTP header in your PUT requests.</p>
 
-<h2>There are likely going to be compatibility problems</h2>
+<h2 id="there-are-likely-going-to-be-compatibility-problems">There are likely going to be compatibility problems</h2>
 
 <p>Because we are becoming more strict, it is likely that there are CalDAV and
 CardDAV clients that stop working, because they were sending us invalid data.</p>
@@ -132,7 +330,7 @@ and we also completely assume that not every client will be tested when the
 CalDAV/CardDAV clients they support before upgrading, or waiting a few point
 releases so the dust can settle.</p>
 
-<h2>Contact us</h2>
+<h2 id="contact-us">Contact us</h2>
 
 <p>Are you running into a compatibility issue? <a href="https://github.com/fruux/sabre-dav/issues/new">Contact us via our Github
 issue tracker</a>.</p>
@@ -331,54 +529,6 @@ implementations with non-seekable streams.</li>
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.1.2/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 4.0.3 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-vobject-4.0.3-release"/>
-            <updated>2016-03-13T00:03:17+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-vobject-4.0.3-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 4.0.3. This release contains the following
-changes:</p>
-
-<ol>
-<li>Added <code>VCard::getByType()</code>, to quickly get a vcard property with a specific
-value for <code>TYPE</code>.</li>
-<li><code>UNTIL</code> and <code>COUNT</code> were not correctly encoded in the jCal format.</li>
-<li><code>RRULE</code> now has more validation and repair rules.</li>
-</ol>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.0.3/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 3.0.8 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-dav-3.0.8-release"/>
-            <updated>2016-03-12T22:40:55+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-dav-3.0.8-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 3.0.8. This release contains the following changes:</p>
-
-<ul>
-<li>A small issue with cleaning up sync logs after deleting addressbooks. This
-could potentially cause a carddav client to miss an update.</li>
-<li>A fix for supporting non-seekable streams, for those that have custom <code>IFile</code>
-implementations with non-seekable streams.</li>
-<li>Faster XML parsing and generating.</li>
-</ul>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.0.8/CHANGELOG.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

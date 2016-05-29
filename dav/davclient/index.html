@@ -137,9 +137,9 @@ issues, but because it's API is very likely to change in newer versions.</p>
 <p>It's really only a simple wrapper around Curl, along with some methods
 specifically for parsing and creating certain XML-based requests.</p>
 
-<h2>Usage</h2>
+<h2 id="usage">Usage</h2>
 
-<h3>Creating the object</h3>
+<h3 id="creating-the-object">Creating the object</h3>
 
 <p>This is simply done with the following code:</p>
 
@@ -161,7 +161,7 @@ $client = new Client($settings);
 paths. Proxy may be handy for debugging, but most people will likely not use
 it.</p>
 
-<h3>Simple requests</h3>
+<h3 id="simple-requests">Simple requests</h3>
 
 <p>Any request can be done with the 'request' method. This method takes 4
 arguments, but only the first is required.</p>
@@ -193,7 +193,7 @@ $response = $client-&gt;request('DELETE', 'file.txt', null, array('If-Match' =&g
 
 <p>Any request will also automatically follow redirects.</p>
 
-<h3>Doing a PROPFIND request</h3>
+<h3 id="doing-a-propfind-request">Doing a PROPFIND request</h3>
 
 <p>To make it easier to do 'PROPFIND' requests, a seperate method is available.</p>
 
@@ -212,7 +212,7 @@ Any property the server responded with an error to will simply be excluded.</p>
 requests, the response will be a multi-level array. The first level will have
 keys for urls, and lists of properties for values.</p>
 
-<h3>Doing a PROPPATCH request</h3>
+<h3 id="doing-a-proppatch-request">Doing a PROPPATCH request</h3>
 
 <p>Doing a proppatch request is very similar.</p>
 
@@ -229,7 +229,7 @@ if there was an error.</p>
 <p>If you want to delete any property, simply specify 'null' for the property-
 value.</p>
 
-<h3>Discovering WebDAV features</h3>
+<h3 id="discovering-webdav-features">Discovering WebDAV features</h3>
 
 <p>There's a simple convenience method to receive all the items from the 'Dav:'
 response header.</p>

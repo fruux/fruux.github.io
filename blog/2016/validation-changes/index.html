@@ -69,7 +69,7 @@ a new iCalendar object or vCard.</p>
 invalid object, but over time we will make this more strict by adding new
 validation rules.</p>
 
-<h2>How it works</h2>
+<h2 id="how-it-works">How it works</h2>
 
 <p>One of the biggest areas in validation is that we're now checking for
 properties that are required, and how many instances of properties may
@@ -115,7 +115,7 @@ correctly.</p>
 <p>It also works well as a small punishment to a client. They are forced to do an
 extra HTTP request, so there is an incentive to fix the bug.</p>
 
-<h2>When we can't do a repair</h2>
+<h2 id="when-we-can%27t-do-a-repair">When we can't do a repair</h2>
 
 <p>There are many cases where we can't guess what the developer's intent was. For
 example: every <code>VEVENT</code> must have a <code>DTSTART</code>. If it didn't appear, we can't
@@ -124,7 +124,7 @@ really just make one up.</p>
 <p>For situations like that, we now always emit HTTP error
 <code>415 Unsupported Media Type</code>, along with our <code>X-Sabre-Ew-Gross</code> header.</p>
 
-<h2>Requesting strict handling</h2>
+<h2 id="requesting-strict-handling">Requesting strict handling</h2>
 
 <p>There are also cases where a client developer does not want the server to
 automatically repair the object, and instead always do a hard failure when
@@ -134,7 +134,7 @@ development.</p>
 <p>To tell the server to always do hard failures, you can simply include the
 standard <code>Prefer: handling=strict</code> HTTP header in your PUT requests.</p>
 
-<h2>There are likely going to be compatibility problems</h2>
+<h2 id="there-are-likely-going-to-be-compatibility-problems">There are likely going to be compatibility problems</h2>
 
 <p>Because we are becoming more strict, it is likely that there are CalDAV and
 CardDAV clients that stop working, because they were sending us invalid data.</p>
@@ -166,7 +166,7 @@ and we also completely assume that not every client will be tested when the
 CalDAV/CardDAV clients they support before upgrading, or waiting a few point
 releases so the dust can settle.</p>
 
-<h2>Contact us</h2>
+<h2 id="contact-us">Contact us</h2>
 
 <p>Are you running into a compatibility issue? <a href="https://github.com/fruux/sabre-dav/issues/new">Contact us via our Github
 issue tracker</a>.</p>
@@ -178,6 +178,7 @@ issue tracker</a>.</p>
         
                     <nav class="article">
                 <ul>
+                                            <li>Next: <a class="next" href="http://sabre.io/blog/2016/sabre-dav-3.1.4-release" title="sabre/dav 3.1.4 released"><span class="title">sabre/dav 3.1.4 released</span></a></li>
                                                                 <li>Previous: <a class="previous" href="http://sabre.io/blog/2016/sabre-dav-3.1.3-release" title="sabre/dav 3.1.3 released"><span class="title">sabre/dav 3.1.3 released</span></a></li>
                                     </ul>
             </nav>

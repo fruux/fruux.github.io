@@ -140,11 +140,11 @@ network filesystem. This document explores how this can be setup.</p>
 loaded in through an include.</li>
 </ul>
 
-<h2>High-level API</h2>
+<h2 id="high-level-api">High-level API</h2>
 
 <p>SabreDAV is shipped with an API that should ease creating directory-tree structures.</p>
 
-<h2>Files and Directories</h2>
+<h2 id="files-and-directories">Files and Directories</h2>
 
 <p>Files and Directories both implement the <code>Sabre\DAV\INode</code> interface, this interface dictates the following methods should be implemented:</p>
 
@@ -175,7 +175,7 @@ loaded in through an include.</li>
 <li><code>childExists($name)</code> - Returns true if a child node exists.</li>
 </ul>
 
-<h2>Inheritance tree</h2>
+<h2 id="inheritance-tree">Inheritance tree</h2>
 
 <pre><code>Sabre\DAV\INode (base interface for all nodes in a tree)
  +-Sabre\DAV\IFile (base interface for all files)
@@ -190,11 +190,11 @@ loaded in through an include.</li>
 starting point, as they will lock down most operations by default (by
 reporting 'permission denied'), so we can start with a read-only filesystem.</p>
 
-<h2>Implementation</h2>
+<h2 id="implementation">Implementation</h2>
 
 <p>Our read-only filesystem is going to be based off the standard server filesystem.</p>
 
-<h3>Getting the classes ready</h3>
+<h3 id="getting-the-classes-ready">Getting the classes ready</h3>
 
 <p>For this demonstration we need to create 2 classes, one for a directory and one for a file. We'll start out with the Directory class:</p>
 
@@ -316,7 +316,7 @@ larger files it's recommended to use streams (as shown with fopen). The
 <code>put()</code> and <code>createFile()</code> methods will always get a readable stream resource
 as arguments.</p>
 
-<h3>Setting up</h3>
+<h3 id="setting-up">Setting up</h3>
 
 <p>I'm explaining the usage of your newly created server through code comments</p>
 
@@ -335,14 +335,14 @@ $server-&gt;setBaseUri('/');
 $server-&gt;exec();
 </code></pre>
 
-<h3>This is not virtual</h3>
+<h3 id="this-is-not-virtual">This is not virtual</h3>
 
 <p>Thats right! This is where you come in. You can make your MyFile and
 MyDirectory classes completely independent from the actual underlying
 filesystem. The list of items returned from <code>getChildren</code> could be a list of
 blogposts, and the <code>get</code> method could return html data.</p>
 
-<h2>Write support</h2>
+<h2 id="write-support">Write support</h2>
 
 <p>In order to get writing/modification support you should implement all the
 remaining methods. A good example of a completely built-out system like this
@@ -355,7 +355,7 @@ simple.</p>
 <a href="/dav/clients/davfs">DavFS</a> will demand you add locking support to your
 filesystem.</p>
 
-<h2>Further reading</h2>
+<h2 id="further-reading">Further reading</h2>
 
 <ul>
 <li><a href="/dav/authentication/">Authentication</a></li>

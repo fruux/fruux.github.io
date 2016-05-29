@@ -133,7 +133,7 @@
                 <p>BitKinex is a freeware WebDAV client for Windows. BitKinex is a simple
 application that allows browsing WebDAV servers.</p>
 
-<h2>Technical details</h2>
+<h2 id="technical-details">Technical details</h2>
 
 <p>BitKinex will request the following properties:</p>
 
@@ -146,7 +146,7 @@ application that allows browsing WebDAV servers.</p>
 <li><code>{DAV:}lockdiscovery</code></li>
 </ul>
 
-<h2>UTF-16</h2>
+<h2 id="utf-16">UTF-16</h2>
 
 <p>As of version 3.2.1, BitKinex sends all PROPFIND request encoded as UTF-16.
 This was problematic for SabreDAV, because PHP's DOMDocument class did not seem
@@ -154,7 +154,7 @@ to support this.</p>
 
 <p>A workaround has been implemented, which is released with SabreDAV 1.2.2.</p>
 
-<h2>Bugs</h2>
+<h2 id="bugs">Bugs</h2>
 
 <p>BitKinex seems to be very bad at any non-latin characters, or anything that
 needs to be percent encoded.</p>
@@ -170,7 +170,7 @@ upload and checking until a certain number of errors has been reached.</p>
 
 <p>Therefore we don't recommend BitKinex unless it's for very simple usage and these concerns are not an issue.</p>
 
-<h2>User agent</h2>
+<h2 id="user-agent">User agent</h2>
 
 <p>BitKinex sends the following user agent:</p>
 

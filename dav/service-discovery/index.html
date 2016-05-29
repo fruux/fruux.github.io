@@ -133,7 +133,7 @@
                 <p>Many clients are becoming better in discovering the location of CalDAV and
 CardDAV service. This document describes a few pointers on how to improve this.</p>
 
-<h2>Basics</h2>
+<h2 id="basics">Basics</h2>
 
 <p>It's wise to make sure that a Cal/CardDAV server runs on the root of a server.
 This allows a user with for example <a href="/dav/clients/ical">iCal</a> to just fill in
@@ -149,7 +149,7 @@ encouraged to use HTTPS.</p>
 <p>Apple products will also check port 8443 (https) and 8080 (http). First both
 https ports will be checked, and then both http ports.</p>
 
-<h2>Well-known</h2>
+<h2 id="well-known">Well-known</h2>
 
 <p><a href="http://tools.ietf.org/html/rfc5785">RFC5785</a> describes a way to create 'discovery urls' for services.</p>
 
@@ -181,7 +181,7 @@ different domain) then it will be easily able to setup the account.</p>
 <p>Note that these all must be real redirects, triggering a 301, 303 or 307 HTTP
 response.</p>
 
-<h2>DNS SRV records</h2>
+<h2 id="dns-srv-records">DNS SRV records</h2>
 
 <p>It is also possible to use DNS to achieve the same thing. This requires the
 use of a <a href="http://en.wikipedia.org/wiki/SRV_record">SRV record</a>.</p>
@@ -264,7 +264,7 @@ the purpose of this is.</p>
 
 <p>To enable that, add the following:</p>
 
-<h2>TXT records</h2>
+<h2 id="txt-records">TXT records</h2>
 
 <p>The TXT records can be used to give the client information about the path of
 the hosted dav server, in the case it's not running on the server root.</p>

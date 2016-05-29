@@ -66,6 +66,7 @@
         </ul>
     </div>
 </section>
+
 <section class="box box--trusted">
     <div class="box-wrapper">
         <h1 class="box-headline">Trusted by</h1>
@@ -83,6 +84,7 @@
         </a>
     </div>
 </section>
+
 <section class="box box--lineup">
     <div class="box-wrapper">
         <h1 class="box-headline">The full sabre.io lineup</h1>
@@ -112,6 +114,7 @@
         </a>
     </div>
 </section>
+
 <div class="box box--turquoise">
     <div class="box-wrapper">
         <section class="box box--enterprise">
@@ -136,6 +139,14 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>May. 26th, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.0.7-released">sabre/dav 2.0.7 released</a></h1>
+                    <p>We just released sabre/dav 2.0.7.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>May. 21st, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-xml-1.0.0.release">sabre/xml 1.0.0 release</a></h1>
+                    <p>We just released sabre/xml 1.0.0</article>
+                <hr />                            <article class="blog-entry">
                     <time>May. 20th, 2015</time>
                     <h1><a href="http://sabre.io/blog/2015/sabre-http-4.0.0-release">sabre/http 4.0.0 release</a></h1>
                     <p>We just released sabre/http 4.0.0</article>
@@ -149,20 +160,14 @@
                     <p>Dealing with XML is annoying to many, and certainly us. We've tried many
 different approaches to make working with XML less frustrating, and we've
 finally landed on an approach that we're happy with.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Feb. 25th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.1.3-released">sabre/dav 2.1.3 released</a></h1>
-                    <p>We just released sabre/dav 2.1.3.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Feb. 25th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.4.2-release">sabre/vobject 3.4.2 release</a></h1>
-                    <p>We just released sabre/vobject 3.4.2.</article>
                                     </section>
     </div>
 </div>
+
 <figure class="bg--cloudy">
     <img src="http://sabre.io/img/home_background.jpg">
 </figure>
+
 
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 

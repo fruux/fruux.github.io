@@ -66,6 +66,7 @@
         </ul>
     </div>
 </section>
+
 <section class="box box--trusted">
     <div class="box-wrapper">
         <h1 class="box-headline">Trusted by</h1>
@@ -83,6 +84,7 @@
         </a>
     </div>
 </section>
+
 <section class="box box--lineup">
     <div class="box-wrapper">
         <h1 class="box-headline">The full sabre.io lineup</h1>
@@ -112,6 +114,7 @@
         </a>
     </div>
 </section>
+
 <div class="box box--turquoise">
     <div class="box-wrapper">
         <section class="box box--enterprise">
@@ -136,6 +139,14 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Oct. 9th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.3-release">sabre/vobject 3.3.3 release</a></h1>
+                    <p>We just released sabre/vobject 3.3.3.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Sep. 23rd, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-http-3.0.0-release">sabre/http 3.0.0 release</a></h1>
+                    <p>We just released sabre/http 3.0.0.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Sep. 19th, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.2-release">sabre/vobject 3.3.2 release</a></h1>
                     <p>We just released sabre/vobject 3.3.2.</article>
@@ -147,20 +158,14 @@
                     <time>Aug. 18th, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.1-release">sabre/vobject 3.3.1 release</a></h1>
                     <p>We just released sabre/vobject 3.3.1.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Aug. 7th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.0-release">sabre/vobject 3.3.0 release</a></h1>
-                    <p>We just released sabre/vobject 3.3.0!</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jul. 28th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-1.7-eol">sabre/dav 1.7 end of support</a></h1>
-                    <p>As of right now, sabre/dav 1.7 has reached end of life status.</article>
                                     </section>
     </div>
 </div>
+
 <figure class="bg--cloudy">
     <img src="http://sabre.io/img/home_background.jpg">
 </figure>
+
 
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 

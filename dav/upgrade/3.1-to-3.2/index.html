@@ -141,7 +141,7 @@ of changes as they relate to CalDAV and CardDAV clients, and lastly a list of
 changes for users who deployed sabre/dav themselves (so server admins or
 developers using sabre/dav as a dependency).</p>
 
-<h2>New features</h2>
+<h2 id="new-features">New features</h2>
 
 <ul>
 <li>Calendar sharing. You can now share a calendar read-only or read-write to
@@ -176,7 +176,7 @@ requests from RFC3744.</li>
 
 <p>For a full list of changes, consult the <a href="https://github.com/fruux/sabre-dav/blob/3.2.0/CHANGELOG.md" title="The change log">changelog</a>.</p>
 
-<h2>Changes for CalDAV and CardDAV clients</h2>
+<h2 id="changes-for-caldav-and-carddav-clients">Changes for CalDAV and CardDAV clients</h2>
 
 <p>We've made some pretty big changes to the iCalendar and vCard validation
 systems. We've detailed these changes in a separate blogpost. Read the
@@ -184,9 +184,9 @@ whole thing here:</p>
 
 <p><a href="http://sabre.io/blog/2016/validation-changes/">http://sabre.io/blog/2016/validation-changes/</a></p>
 
-<h2>API Changes and other BC breaks</h2>
+<h2 id="api-changes-and-other-bc-breaks">API Changes and other BC breaks</h2>
 
-<h3>Database changes</h3>
+<h3 id="database-changes">Database changes</h3>
 
 <p>The database model changes to accomodate calendar sharing. If you use the
 standard <code>Sabre\CalDAV\Backend\PDO</code> you must run the database migration script.</p>
@@ -201,7 +201,7 @@ information on how to run it, just run:</p>
 <p>This will give you a help message with more information on how to invoke the
 script.</p>
 
-<h3>The <code>Href</code> class has changed</h3>
+<h3 id="the-%60href%60-class-has-changed">The <code>Href</code> class has changed</h3>
 
 <p>If you were using custom properties, and in particular if you made use of the
 <code>Sabre\DAV\Xml\Property\Href</code> class, this class has now changed a bit.</p>
@@ -245,7 +245,7 @@ and add the base url to. The <code>Href</code> class is now strictly for URIs th
 something outside of the sabre/dav system and we will not touch the string at
 all.</p>
 
-<h3>Corrected several ACL privileges related to calendaring scheduling</h3>
+<h3 id="corrected-several-acl-privileges-related-to-calendaring-scheduling">Corrected several ACL privileges related to calendaring scheduling</h3>
 
 <p>We were not using all the correct ACL privileges when doing scheduling. This
 has been corrected in 3.2. If you had custom ACL rules that affected CalDAV
@@ -270,7 +270,7 @@ scheduling, be aware that the exact privilege definitions may have changed a bit
 </ul></li>
 </ul>
 
-<h3>Many other ACL rules have been simplified</h3>
+<h3 id="many-other-acl-rules-have-been-simplified">Many other ACL rules have been simplified</h3>
 
 <p>Many places now have the <code>{DAV:}all</code> privilege instead of separate
 <code>{DAV:}read</code> and <code>{DAV:}write</code> privileges.</p>
@@ -278,7 +278,7 @@ scheduling, be aware that the exact privilege definitions may have changed a bit
 <p>If you request <code>{DAV:}current-user-privilege-set</code> you should still see a
 similar list of privileges though.</p>
 
-<h3>Support for unauthenticated access</h3>
+<h3 id="support-for-unauthenticated-access">Support for unauthenticated access</h3>
 
 <p>By default it's now possible to specify ACL rules that allow someone who is
 not authenticated to perform actions on the server.</p>
@@ -335,7 +335,7 @@ it to false means you go back to the 3.1 ACL / Auth behavior, but you lose
 the public access ability.</li>
 </ol>
 
-<h3>Removed <code>$allowAccessToNodesWithoutACL</code></h3>
+<h3 id="removed-%60%24allowaccesstonodeswithoutacl%60">Removed <code>$allowAccessToNodesWithoutACL</code></h3>
 
 <p>This setting allowed you to control in the ACL plugin how it should behave
 for nodes in the tree that did not support ACL. By default it was set to
@@ -357,17 +357,17 @@ specify much more fine-grained permissions for these situations. You might
 for example choose to only give read access to these nodes, which makes
 a lot of sense for a lot of standard caldav/carddav servers.</p>
 
-<h3>No longer a direct database upgrade path from version 1.6</h3>
+<h3 id="no-longer-a-direct-database-upgrade-path-from-version-1.6">No longer a direct database upgrade path from version 1.6</h3>
 
 <p>We're no longer maintaining the migration script from sabre/dav version 1.6
 and older. People running that sabre/dav version had 3.5 years to upgrade, so
 this seems like enough time.</p>
 
-<h3>Calendar sharing has gone under heavy modifications</h3>
+<h3 id="calendar-sharing-has-gone-under-heavy-modifications">Calendar sharing has gone under heavy modifications</h3>
 
 <p>TODO : blogpost</p>
 
-<h3>PDO CalDAV backend has changed the structure of calendar ids.</h3>
+<h3 id="pdo-caldav-backend-has-changed-the-structure-of-calendar-ids.">PDO CalDAV backend has changed the structure of calendar ids.</h3>
 
 <p>Note that if this affects you, your code was already broken to begin with.
 From this point onwards the PDO backend will now return multiple numbers as

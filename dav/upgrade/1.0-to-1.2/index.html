@@ -133,7 +133,7 @@
                 <p>To keep the SabreDAV simple to use and to extend, I wanted to make a few
 changes.</p>
 
-<h2>Distribution</h2>
+<h2 id="distribution">Distribution</h2>
 
 <p>Before SabreDAV was distributed as a single .tgz. This is now a zip file.
 The pear installation is separate and comes as 4 separate packages.</p>
@@ -157,7 +157,7 @@ pear channel-discover pear.sabredav.org
 pear install Sabre Sabre_HTTP Sabre_DAV Sabre_CalDAV
 </code></pre>
 
-<h2><code>Sabre_DAV_Auth_*</code> Backends structure changed</h2>
+<h2 id="%60sabre_dav_auth_%2A%60-backends-structure-changed"><code>Sabre_DAV_Auth_*</code> Backends structure changed</h2>
 
 <p>If you had your own Authentication backend defined, based on
 <code>Sabre_DAV_Auth_Backend_Abstract</code> you need to change that declaration to 
@@ -226,7 +226,7 @@ backend, instead of just HTTP Digest.</p>
 <p>Sabre_DAV comes with both a <code>File</code> and a <code>PDO</code> authentication backend, which
 can be used as an easy reference.</p>
 
-<h2>PermissionDenied exception is now called Forbidden</h2>
+<h2 id="permissiondenied-exception-is-now-called-forbidden">PermissionDenied exception is now called Forbidden</h2>
 
 <p>Old code:</p>
 
@@ -241,7 +241,7 @@ can be used as an easy reference.</p>
 <p>Full backwards compatibility is provided, but 'PermissionDenied' will be
 removed at some point in the future.</p>
 
-<h2>IDirectory is now called ICollection</h2>
+<h2 id="idirectory-is-now-called-icollection">IDirectory is now called ICollection</h2>
 
 <p>The IDirectory interface has gotten renamed to ICollection. The signature has
 not changed.</p>
@@ -260,7 +260,7 @@ not changed.</p>
 }
 </code></pre>
 
-<h2>Property updating has changed quite a bit</h2>
+<h2 id="property-updating-has-changed-quite-a-bit">Property updating has changed quite a bit</h2>
 
 <p>If you implemented custom properties, and specifically updating custom
 properties in your plugins or Nodes, take note.</p>
@@ -329,7 +329,7 @@ quite a bit.</p>
 }
 </code></pre>
 
-<h2>Locks_File backend now requires a constructor argument</h2>
+<h2 id="locks_file-backend-now-requires-a-constructor-argument">Locks_File backend now requires a constructor argument</h2>
 
 <p>The <code>Sabre_DAV_Locks_Backend_FS</code> class now requires an argument. The argument
 specifies where lock information is stored:</p>
@@ -341,7 +341,7 @@ specifies where lock information is stored:</p>
 session files, but this was considered a poor choice. So it seems better to 
 make the user choose this one.</p>
 
-<h2>XML namespace change</h2>
+<h2 id="xml-namespace-change">XML namespace change</h2>
 
 <p>All custom SabreDAV properties used to fall under the following namespace:</p>
 
@@ -355,7 +355,7 @@ make the user choose this one.</p>
 <li>http://sabredav.org/ns</li>
 </ul>
 
-<h2>"Sabre.autoload.php" and "Sabre.includes.php"</h2>
+<h2 id="%22sabre.autoload.php%22-and-%22sabre.includes.php%22">"Sabre.autoload.php" and "Sabre.includes.php"</h2>
 
 <p>The <code>lib/Sabre.includes.php</code> file is now deprecated and should no longer be
 used.  Because Sabre_DAV is split up over multiple packages, this no longer

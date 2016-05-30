@@ -130,9 +130,7 @@
 </aside>
                 <article>
                             <h1>Upgrading from SabreDAV 3.1 to 3.2</h1>
-                <p><strong>THIS PAGE IS A DRAFT</strong></p>
-
-<p>sabre/dav 3.2 will be released soon. sabre/dav 3.2 is a new major version,
+                <p>sabre/dav 3.2 will be released soon. sabre/dav 3.2 is a new major version,
 and has several new features. To accomodate those features, a number of
 backwards-compability breaks were needed.</p>
 
@@ -343,7 +341,7 @@ true, but if it were set to false then the default would be to not allow
 access system-wide to nodes that did not implement <code>Sabre\DAVACL\IACL</code>.</p>
 
 <p>This feature has now been replaced by a 'Default ACL' rule. By default,
-similar to the old behavior, we assign the <code>{DAV:}all</code> privilege to 
+similar to the old behavior, we assign the <code>{DAV:}all</code> privilege to
 <code>{DAV:}authenticated</code>.</p>
 
 <p>To mimic setting <code>$allowAccessToNodesWithoutACL</code> to false, as it was possible
@@ -365,7 +363,11 @@ this seems like enough time.</p>
 
 <h3 id="calendar-sharing-has-gone-under-heavy-modifications">Calendar sharing has gone under heavy modifications</h3>
 
-<p>TODO : blogpost</p>
+<p>The internal API for calendar sharing has changed. This is important if you
+wrote your own CalDAV backend and added sharing support for it.</p>
+
+<p>The changes for this have been detailed in a <a href="/blog/2016/sharing-changes/" title="Changes to CalDAV Sharing in sabre/dav 3.2">separate blog post</a>, as they
+were a bit too big to be included in this document.</p>
 
 <h3 id="pdo-caldav-backend-has-changed-the-structure-of-calendar-ids.">PDO CalDAV backend has changed the structure of calendar ids.</h3>
 

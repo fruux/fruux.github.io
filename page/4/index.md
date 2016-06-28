@@ -139,13 +139,6 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
-                    <time>Mar. 10th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-2.1.10-release">sabre/dav 2.1.10 released</a></h1>
-                    <p>We just released sabre/dav 2.1.10. This release fixes a small issue with
-cleaning up sync logs after deleting address books. This bug could in some
-rare circumstances cause clients to not see some changes for (unrelated)
-address books.</article>
-                <hr />                            <article class="blog-entry">
                     <time>Feb. 15th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/baikal-joins-sabre-io">Baïkal joins sabre.io</a></h1>
                     <p><img src="/img/baikal.png" style="width: 100%; max-width: 300px; float: right; padding: 10px" /></article>
@@ -166,6 +159,11 @@ CalDAV scheduling and delegation.</article>
                     <p>We just released sabre/dav 2.1.9, which contains a fix to enable PHP 7
 support. This release includes sabre/vobject 3.5.0 which was also fixed
 to support PHP 7.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Jan. 12th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.7-release">sabre/dav 3.0.7 released</a></h1>
+                    <p>If you've been following this blog, you might have seen it coming. We just
+released sabre/dav 3.0.7. This release supports PHP 7.</article>
                                     </section>
     </div>
 </div>

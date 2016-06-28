@@ -3,7 +3,7 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-05-30T20:17:59+00:00</updated>
+    <updated>2016-06-28T01:30:22+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -35,7 +35,7 @@ here. However, if you did stuff with sharing before, read on.</p>
 
 <h2 id="the-old-situation">The old situation</h2>
 
-<p>Preliminary support for sharing to sabre/dav was added in version 1.7, which
+<p>Preliminary support for sharing was added to sabre/dav in version 1.7, which
 was released back in 2012. However, this release only ever shipped with the
 interfaces to allow an implementor to write a custom backend for this.</p>
 
@@ -76,11 +76,11 @@ implemented.</li>
 
 <p>So in this process we're not only creating a separate CardDAV and CalDAV spec,
 but also adding a generic 'WebDAV sharing' spec that can be used by
-WebDAV file sharing systems, such as Owncloud.</p>
+WebDAV file sharing systems, such as ownCloud.</p>
 
 <p>On a high level the data-model is similar, but almost everywhere new XML
 documents have been defined that are more descriptive, more generic or just
-better for aestetic reasons.</p>
+better for aesthetic reasons.</p>
 
 <h2 id="the-state-of-sharing-in-sabre%2Fdav-3.2">The state of sharing in sabre/dav 3.2</h2>
 
@@ -111,7 +111,7 @@ immediately has access to the share.</li>
 for the sabre/dav implementation.</p>
 
 <p>However, in sabre/dav 3.2 we initially only support model #2. So if you
-require the notifation system, you can't yet do an upgrade.</p>
+require the notification system, you can't yet do an upgrade.</p>
 
 <p>We think model #1 is probably more appropriate for public consumer systems,
 and #2 works better for systems supporting small teams.</p>

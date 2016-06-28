@@ -216,13 +216,13 @@ you might have specified <code>principals/userA</code>.</li>
 <p>To differentiate between the two, you had to specify a second boolean argument
 to the property to specify that it was to be treated as a absolute path, so:</p>
 
-<pre><code>new Href('principals/userA')
+<pre><code>new Href('principals/userA');
 new Href('http://example.org/', true);
 new Href('mailto:foo@example.org', true);
 </code></pre>
 
 <p>This was quite confusing in a number of ways. The biggest one was that the
-first example actually has different encoding rules that the second and
+first example actually has different encoding rules than the second and
 third.</p>
 
 <p>In the case of the first we automatically prepend a base url, but we also
@@ -232,7 +232,7 @@ everything.</p>
 <p>So to bring some sanity into all this, there are now two classes. To specify
 the same three hrefs, you now use:</p>
 
-<pre><code>new LocalHref('principals/userA')
+<pre><code>new LocalHref('principals/userA');
 new Href('http://example.org/');
 new Href('mailto:foo@example.org');
 </code></pre>
@@ -338,7 +338,7 @@ the public access ability.</li>
 <p>This setting allowed you to control in the ACL plugin how it should behave
 for nodes in the tree that did not support ACL. By default it was set to
 true, but if it were set to false then the default would be to not allow
-access system-wide to nodes that did not implement <code>Sabre\DAVACL\IACL</code>.</p>
+access to system-wide nodes that did not implement <code>Sabre\DAVACL\IACL</code>.</p>
 
 <p>This feature has now been replaced by a 'Default ACL' rule. By default,
 similar to the old behavior, we assign the <code>{DAV:}all</code> privilege to

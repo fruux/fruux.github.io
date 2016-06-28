@@ -3,7 +3,7 @@
 
     
   
-            <title>List of plugins - sabre/dav</title>
+            <title>Sharing - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -129,86 +129,57 @@
     </nav>
 </aside>
                 <article>
-                            <h1>List of plugins</h1>
-                <table>
-        <tr>
-        <td></td>
-        <td></td>
-    </tr>
-        <tr>
-        <td>carddav</td>
-        <td>1.5.0</td>
-    </tr>
-        <tr>
-        <td>acl</td>
-        <td>1.4.0</td>
-    </tr>
-        <tr>
-        <td>auth</td>
-        <td>0.9.0</td>
-    </tr>
-        <tr>
-        <td>browser</td>
-        <td>0.7.0</td>
-    </tr>
-        <tr>
-        <td>caldav-proxy</td>
-        <td>1.4.0</td>
-    </tr>
-        <tr>
-        <td>caldav-sharing</td>
-        <td>1.7.0</td>
-    </tr>
-        <tr>
-        <td>caldav</td>
-        <td>1.1.0</td>
-    </tr>
-        <tr>
-        <td>carddav</td>
-        <td>1.5.0</td>
-    </tr>
-        <tr>
-        <td>davmount</td>
-        <td>1.0.2</td>
-    </tr>
-        <tr>
-        <td>guesscontenttype</td>
-        <td>1.1.0</td>
-    </tr>
-        <tr>
-        <td>partialupdate</td>
-        <td>1.7.0</td>
-    </tr>
-        <tr>
-        <td>icsexportplugin</td>
-        <td>1.4.0</td>
-    </tr>
-        <tr>
-        <td>locks</td>
-        <td>0.1</td>
-    </tr>
-        <tr>
-        <td>propertystorage</td>
-        <td>2.0.0</td>
-    </tr>
-        <tr>
-        <td>calendar-auto-schedule</td>
-        <td>2.1.0</td>
-    </tr>
-        <tr>
-        <td>sharing</td>
-        <td>3.2.0</td>
-    </tr>
-        <tr>
-        <td>temporaryfilefilter</td>
-        <td>0.9.0</td>
-    </tr>
-        <tr>
-        <td>vcfexportplugin</td>
-        <td>1.7.0</td>
-    </tr>
-    </table>
+                            <h1>Sharing</h1>
+                <p>Since version 1.7 SabreDAV comes with experimental support for CalDAV-sharing.</p>
+
+<p><strong>Early warning:</strong> Currently SabreDAV provides no implementation for this. This
+is, because in it's current state there is no elegant way to do this.
+The problem lies in the fact that a real CalDAV server with sharing support
+would first need email support (with invite notifications), and really also
+a browser-frontend that allows people to accept or reject these shares.</p>
+
+<p>In addition, the CalDAV backends are currently kept as independent as
+possible, and should not be aware of principals, email addresses or
+accounts.</p>
+
+<p>Adding an implementation for Sharing to standard-sabredav would contradict
+these goals, so for this reason this is currently not implemented, although
+it may very well in the future.</p>
+
+<p>The interface works however, so if you implement all this, and do it
+correctly sharing <em>will</em> work. It's not particularly easy, and I <em>urge you</em>
+to make yourself acquainted with the following documents first:</p>
+
+<ul>
+<li><a href="https://trac.calendarserver.org/browser/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt">https://trac.calendarserver.org/browser/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt</a></li>
+<li><a href="https://trac.calendarserver.org/browser/CalendarServer/trunk/doc/Extensions/caldav-notifications.txt">https://trac.calendarserver.org/browser/CalendarServer/trunk/doc/Extensions/caldav-notifications.txt</a></li>
+</ul>
+
+<h2 id="an-overview">An overview</h2>
+
+<p>Implementing this interface will allow a user to share his or her calendars
+to other users. Effectively, when a calendar is shared the calendar will
+show up in both the Sharer's and Sharee's calendar-home root.</p>
+
+<p>Inviting people is not instant. There should be a notification system
+that clients use to either accept or reject this.</p>
+
+<p>A lot of the documentation can be found in the actual interfaces:
+<code>Sabre\CalDAV\Backend\SharingSupport</code> and <code>Sabre\CalDAV\Backend\NotificationSupport</code>.</p>
             
+                        <div class="version-note">
+                <p>
+                <i class="fa fa-warning"></i>
+                Please note: you are reading the <strong>1.7-3.1 version</strong>
+                of this page. The following versions are also available:
+                </p>
+
+            <ul>
+                                    <li><a href="/dav/3.1/caldav-sharing/">Version 1.7-3.1</a></li>
+                                    <li><a href="/dav/caldav-sharing/">Version 3.2</a></li>
+                            </ul>
+
+            </div>
             
                             <hr />
                 <h2>Comments</h2>
@@ -236,9 +207,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/dav/plugins';
-    var disqus_title = 'List of plugins';
-    var disqus_url = 'http://sabre.io/dav/plugins';
+    var disqus_identifier = '/dav/3.1/caldav-sharing';
+    var disqus_title = 'Sharing';
+    var disqus_url = 'http://sabre.io/dav/3.1/caldav-sharing';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

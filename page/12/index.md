@@ -139,6 +139,16 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>May. 19th, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.4.3-release">sabre/vobject 3.4.3 release</a></h1>
+                    <p>We just released sabre/vobject 3.4.3.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Apr. 1st, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/launching-an-xml-library-for-php">A new XML library for PHP</a></h1>
+                    <p>Dealing with XML is annoying to many, and certainly us. We've tried many
+different approaches to make working with XML less frustrating, and we've
+finally landed on an approach that we're happy with.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Feb. 25th, 2015</time>
                     <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.1.3-released">sabre/dav 2.1.3 released</a></h1>
                     <p>We just released sabre/dav 2.1.3.</article>
@@ -151,16 +161,6 @@
                     <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.4.0-release">sabre/vobject 3.4.0 release</a></h1>
                     <p>We just released sabre/vobject 3.4.0. This release has a number of
 improvements and bugfixes.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jan. 27th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/a-new-uri-handling-library">A new URI handling library</a></h1>
-                    <p>We just released version 1.0.0 of a new URI library. This library solves a
-few common problems we've been having, or simply did not do well enough in
-the past.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jan. 9th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.3.5-release">sabre/vobject 3.3.5 release</a></h1>
-                    <p>We just released sabre/vobject 3.3.5.</article>
                                     </section>
     </div>
 </div>

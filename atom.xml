@@ -3,9 +3,42 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-06-28T01:30:22+00:00</updated>
+    <updated>2016-06-28T02:43:02+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[]]></title>
+            <link href="http://sabre.io/_posts/.2016-06-27-sabre-dav-3.2.0-release.html.md.swp"/>
+            <updated>2016-06-27T00:00:00+00:00</updated>
+            <id>http://sabre.io/_posts/.2016-06-27-sabre-dav-3.2.0-release.html.md.swp</id>
+            <content type="html"><![CDATA[]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 3.2.0 released]]></title>
+            <link href="http://sabre.io/blog/2016/sabre-dav-3.2.0-release"/>
+            <updated>2016-06-28T02:41:55+00:00</updated>
+            <id>http://sabre.io/blog/2016/sabre-dav-3.2.0-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 3.2.0.
+This is a major new version, and we're very excited to bring you features
+we've been working on since last winter.</p>
+
+<p>Highlights from this release:</p>
+
+<ul>
+<li>Support for <a href="http://www.php-fig.org/psr/psr-3/">PSR-3</a> for logging.</li>
+<li>Full support for <a href="https://www.postgresql.org/">PostgreSQL</a>. We require version 9.5.</li>
+<li>We're now supporting WebDAV resource sharing.</li>
+<li>Calendar sharing now works out of the box!</li>
+</ul>
+
+<p>If you're curious, there's a much larger list of features on the
+<a href="https://github.com/fruux/sabre-dav/blob/3.2.0/CHANGELOG.md">ChangeLog</a>. If you are upgrading from an older version, be sure to take
+a look at the <a href="/dav/upgrade/3.1-to-3.2/">upgrade instructions</a>, as we've made a few backwards
+compatibility breaks in order to support the new features.</p>
+
+<p>To get started right away, you can find a zip on the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[Changes to sharing in sabre/dav 3.2]]></title>
             <link href="http://sabre.io/blog/2016/sharing-changes"/>
@@ -467,68 +500,6 @@ status. <a href="https://evertpot.com/webdav-caldav-carddav-sharing/">Read it he
 
 <p>We'll be at CalConnect 36 in Hong Kong next month to discuss this more. If
 you're in the area and want to discuss calendaring or sabre/dav, drop us a line!</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[Baïkal 0.4.0 released]]></title>
-            <link href="http://sabre.io/blog/2016/baikal-0.4.0-release"/>
-            <updated>2016-03-15T21:40:12+00:00</updated>
-            <id>http://sabre.io/blog/2016/baikal-0.4.0-release</id>
-            <content type="html"><![CDATA[<p>We just released Baïkal 0.4.0. This release contains a number of changes that
-should improve the system for a number of users. The 0.3.x range of releases
-had seen a number of stability problems, due to a relatively big sabre/dav
-upgrade.</p>
-
-<p>I'm attributing the issues to growing pains. With the 0.4.0 release we hope
-that the most of the common issues are solved. This release contains the
-following changes:</p>
-
-<ul>
-<li>SQlite users had issues syncing. This was due to a newly added feature
-(sync reports). Upgrading to 0.4.0 will repair your database schema and
-should make existing setups sync again.</li>
-<li>The installation threw an error if you didn't have the Sqlite PDO PHP
-extension installed.</li>
-<li>We added the "Property storage" plugin. This enables a range of features
-for clients, such as availability, default alarms and "me card".</li>
-<li>We added the Scheduling plugin, which adds scheduling and free-busy.
-Enabling this should also solve a problem with iCal, which behaved badly
-without this plugin.</li>
-<li>We removed the "admin locking" features. In the past it was possible to
-disable the Baïkal admin by removing the <code>ENABLE_ADMIN</code> file from the
-<code>Specific/</code> folder. This feature is now no longer supported, and users
-should instead use their Webserver configuration to block access to
-the admin.</li>
-</ul>
-
-<p>Read the <a href="/baikal/upgrade/" title="Upgrade instructions">upgrade instructions here</a>. Full changelog can be found on <a href="https://github.com/fruux/Baikal/blob/0.4.0/CHANGELOG.md" title="Change log">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 3.1.2 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-dav-3.1.2-release"/>
-            <updated>2016-03-13T03:37:00+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-dav-3.1.2-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 3.1.2. This release contains the following changes:</p>
-
-<ul>
-<li>A small issue with cleaning up sync logs after deleting addressbooks. This
-could potentially cause a CardDAV client to miss an update.</li>
-<li>A fix for supporting non-seekable streams, for those that have custom <code>IFile</code>
-implementations with non-seekable streams.</li>
-<li>Faster XML parsing and generating due to an update to sabre/xml.</li>
-<li>Updates to the sqlite schema to make it more strict.</li>
-<li>Better parsing of some <code>RRULE</code> properties.</li>
-</ul>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.1.2/CHANGELOG.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

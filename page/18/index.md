@@ -139,6 +139,15 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Jun. 12th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-event-1.0.1-release">sabre/event 1.0.1 release</a></h1>
+                    <p>We just released sabre/event 1.0.1. A bug prevented the <code>EventEmitter</code> trait
+to work on PHP versions older than 5.4.14.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Jun. 2nd, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/jcal-rfc">jCal released as rfc7265</a></h1>
+                    <p>The IETF just made <a href="http://tools.ietf.org/html/rfc7265">jCal</a> available as <a href="http://tools.ietf.org/html/rfc7265">rfc7265</a></article>
+                <hr />                            <article class="blog-entry">
                     <time>May. 28th, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/sabredav-2.0.1-release">sabre/dav 2.0.1 released</a></h1>
                     <p>We just released sabre/dav 2.0.1. Two regressions have been found related
@@ -153,16 +162,6 @@ so it's been a long time coming.</article>
                     <h1><a href="http://sabre.io/blog/2014/sabredav-1.8.10">sabre/dav 1.7.12 and 1.8.10 released</a></h1>
                     <p>We just released sabre/dav 1.7.12 and 1.8.10. These two releases are mainly
 bugfix releases centering around two things:</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Apr. 2nd, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/vobject-3.2">sabre/vobject 3.2 released</a></h1>
-                    <p>We just released sabre/vobject 3.2.0. This release is backwards compatible
-with the 3.1.* series.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Mar. 31st, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/new-website">New website launched!</a></h1>
-                    <p>You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
-never had a proper website, and we've always just hosted from Google Code.</article>
                                     </section>
     </div>
 </div>

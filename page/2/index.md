@@ -140,6 +140,15 @@
             <h1>News</h1>
                             <article class="blog-entry">
                     <time>Apr. 7th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.3-release">sabre/dav 3.1.3 released</a></h1>
+                    <p>We just released sabre/dav 3.1.3. This release contains the following changes:</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Apr. 7th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.1.0-release">sabre/vobject 4.1.0 released</a></h1>
+                    <p>We just released sabre/vobject 4.1.0. This release is fully compatible with
+the 4.0.x series.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Apr. 7th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.9-release">sabre/dav 3.0.9 released</a></h1>
                     <p>We just released sabre/dav 3.0.9. This release contains the following changes:</article>
                 <hr />                            <article class="blog-entry">
@@ -153,17 +162,6 @@ improvements:</article>
                     <p>CalDAV/CardDAV sharing is something <a href="https://github.com/fruux/sabre-dav/pull/696">we've worked on</a> for quite some time.
 Our goal is to have out of the box CalDAV sharing working in the next sabre/dav
 version</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Mar. 15th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/baikal-0.4.0-release">Baïkal 0.4.0 released</a></h1>
-                    <p>We just released Baïkal 0.4.0. This release contains a number of changes that
-should improve the system for a number of users. The 0.3.x range of releases
-had seen a number of stability problems, due to a relatively big sabre/dav
-upgrade.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Mar. 13th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.2-release">sabre/dav 3.1.2 released</a></h1>
-                    <p>We just released sabre/dav 3.1.2. This release contains the following changes:</article>
                                     </section>
     </div>
 </div>

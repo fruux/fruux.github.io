@@ -3,9 +3,22 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-07-15T20:00:33+00:00</updated>
+    <updated>2016-08-19T13:14:19+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[Baïkal 0.4.6 released]]></title>
+            <link href="http://sabre.io/blog/2016/baikal-0.4.6-release"/>
+            <updated>2016-08-19T13:12:50+00:00</updated>
+            <id>http://sabre.io/blog/2016/baikal-0.4.6-release</id>
+            <content type="html"><![CDATA[<p>We just released Baïkal 0.4.6. This release contains a fix that prevented
+some users froms syncing contacts, if they were using the SQLite backend.</p>
+
+<p>Upgrading is recommended.</p>
+
+<p>Read the <a href="/baikal/upgrade/" title="Upgrade instructions">upgrade instructions here</a>. Full changelog can be found on <a href="https://github.com/fruux/Baikal/blob/0.4.6/CHANGELOG.md" title="Change log">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 3.2.0 released]]></title>
             <link href="http://sabre.io/blog/2016/sabre-dav-3.2.0-release"/>
@@ -485,33 +498,6 @@ even for the first event.</li>
 </code></pre>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.5.1/ChangeLog.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[CalDAV, CardDAV and WebDAV sharing]]></title>
-            <link href="http://sabre.io/blog/2016/dav-sharing"/>
-            <updated>2016-03-30T00:13:07+00:00</updated>
-            <id>http://sabre.io/blog/2016/dav-sharing</id>
-            <content type="html"><![CDATA[<p>CalDAV/CardDAV sharing is something <a href="https://github.com/fruux/sabre-dav/pull/696">we've worked on</a> for quite some time.
-Our goal is to have out of the box CalDAV sharing working in the next sabre/dav
-version</p>
-
-<p>It's taking a long time to implement, because we're not just writing the code,
-we're also writing the standard.</p>
-
-<p>These are the current drafts:</p>
-
-<ul>
-<li><a href="https://tools.ietf.org/html/draft-pot-webdav-notifications">WebDAV notifications</a>.</li>
-<li><a href="https://tools.ietf.org/html/draft-pot-webdav-resource-sharing">WebDAV resource sharing</a>.</li>
-<li><a href="https://tools.ietf.org/html/draft-pot-caldav-sharing">CalDAV sharing</a>.</li>
-</ul>
-
-<p>Today I wrote an article on my own blog about how it works and the current
-status. <a href="https://evertpot.com/webdav-caldav-carddav-sharing/">Read it here</a>.</p>
-
-<p>We'll be at CalConnect 36 in Hong Kong next month to discuss this more. If
-you're in the area and want to discuss calendaring or sabre/dav, drop us a line!</p>
 ]]></content>
         </entry>
     </feed>

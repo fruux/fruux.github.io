@@ -140,6 +140,10 @@
             <h1>News</h1>
                             <article class="blog-entry">
                     <time>Apr. 7th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.3-release">sabre/dav 3.1.3 released</a></h1>
+                    <p>We just released sabre/dav 3.1.3. This release contains the following changes:</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Apr. 7th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.1.1-release">sabre/vobject 4.1.1 released</a></h1>
                     <p>We just released sabre/vobject 4.1.1.</article>
                 <hr />                            <article class="blog-entry">
@@ -156,12 +160,6 @@ the 4.0.x series.</article>
                     <h1><a href="http://sabre.io/blog/2016/sabre-vobject-3.5.1-release">sabre/vobject 3.5.1 released</a></h1>
                     <p>We just released sabre/vobject 3.5.1. This release contains a few small
 improvements:</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Mar. 30th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/dav-sharing">CalDAV, CardDAV and WebDAV sharing</a></h1>
-                    <p>CalDAV/CardDAV sharing is something <a href="https://github.com/fruux/sabre-dav/pull/696">we've worked on</a> for quite some time.
-Our goal is to have out of the box CalDAV sharing working in the next sabre/dav
-version</article>
                                     </section>
     </div>
 </div>

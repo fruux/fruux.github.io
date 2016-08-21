@@ -3,7 +3,7 @@
 
     
   
-            <title>Installation - sabre/dav</title>
+            <title>Extending sabre/dav - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -130,96 +130,145 @@
     </nav>
 </aside>
                 <article>
-                            <h1>Installation</h1>
-                <p>SabreDAV can either by installed using <a href="http://getcomposer.org/">composer</a>, or manually, using a zip file.
-it is highly recommended to use the former.</p>
+                            <h1>Extending sabre/dav</h1>
+                <p>If you are writing your own classes to extend sabre/dav, either because you
+are creating your own nodes, backend classes or plugins, you're extending
+sabre/dav.</p>
 
-<h2 id="requirements">Requirements</h2>
+<p>We've noticed a fair amount of people doing this incorrectly. If you already
+know how to define your own classes in your own namespace and actively use
+composer, you can skip this guide.</p>
 
-<p>You will need a recent version of PHP. SabreDAV currently requires PHP 5.4</p>
+<h2 id="pick-a-namespace">Pick a namespace</h2>
 
-<p>SabreDAV runs on any PHP-capable webserver. For maximum compatibility,
-apache 2 with mod_php is recommended. This is especially true if you plan to
-a file server. Card- and CalDAV servers run fine through FastCGI as well.</p>
+<p>All sabre/dav classes start with <code>Sabre\</code>. You are not allowed to use this
+namespace. Instead, pick a different namespace that matches your product or
+company.</p>
 
-<p>It's recommended to avoid Lighttpd altogether. See <a href="/dav/webservers">Webservers</a>
-for more information.</p>
+<p>For example, the <a href="/baikal/">Baikal</a> project extends sabre/dav in a few places, and
+puts all its classes in a <code>Baikal\</code> namespace. If your product is named <code>Foo</code>,
+you might want to put everything in a <code>Foo</code> namespace, or maybe <code>Foo\DAV</code>.</p>
 
-<p>PHP Version requirements:</p>
+<h2 id="use-composer-for-installation">Use composer for installation</h2>
 
-<table>
-<thead>
-<tr>
-  <th>SabreDAV version</th>
-  <th>PHP Version</th>
-  <th>First stable release</th>
-  <th>End of support</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>2.1</td>
-  <td>5.4</td>
-  <td>November 2014</td>
-  <td>June 2016</td>
-</tr>
-<tr>
-  <td>3.0</td>
-  <td>5.4</td>
-  <td>June 2015</td>
-  <td>January 2017</td>
-</tr>
-<tr>
-  <td>3.1</td>
-  <td>5.5</td>
-  <td>January 2016</td>
-  <td>June 2017</td>
-</tr>
-<tr>
-  <td>3.2</td>
-  <td>5.5</td>
-  <td>June 2016</td>
-  <td></td>
-</tr>
-</tbody>
-</table>
+<p>You should no longer use the <code>.zip</code> file install sabre/dav. Instead, you
+must use composer.</p>
 
-<h2 id="installing-with-composer">Installing with composer</h2>
+<p>To do this, start with an empty directory and create a <code>composer.json</code> file
+that contains something like this:</p>
 
-<p>If composer is not yet on your system, <a href="https://getcomposer.org/doc/00-intro.md#installation-nix">follow the instructions on getcomposer.org</a>
-to do so.</p>
-
-<p>To add the sabre/dav dependency to your project, simply run the following
-command from the root of your project:</p>
-
-<pre><code>composer require sabre/dav ~3.2.0
+<pre><code>{ 
+    "name" : "foo/dav",
+    "description" : "This is the FOO WebDAV server",
+    "require" : {
+        "sabre/dav" : "~3.2.0"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "Foo\\" : "src/"
+        }
+    }
+}
 </code></pre>
 
-<p>This rule ensures that you install the latest stable sabre/dav.</p>
+<p>A few things in this file are important:</p>
 
-<p>After you've done this, you later on upgrade sabredav with the following
-command:</p>
+<ul>
+<li>Both <code>name</code> and <code>description</code> are something you should determine.</li>
+<li>The <code>name</code> is usually in the format <code>vendor/product</code>, so if your company
+is called <code>foo</code> and the product is called <code>dav</code>, <code>foo/dav</code> is a good name.</li>
+<li>The <code>require</code> part tells composer that your product <em>requires</em> sabre/dav at
+the given version, or a higher, compatible version.</li>
+<li>Lastly, the <code>autoload</code> section tells composer that all the files in the PHP
+namespace <code>Foo</code> can be found in the <code>src</code> directory.</li>
+</ul>
 
-<pre><code>composer update sabre/dav
+<p>After you've done this, run <code>composer install</code> on the command line to have it
+automatically download sabre/dav in the <code>vendor</code> directory.</p>
+
+<p>Later on you can run <code>composer update</code> to update sabre/dav to the latest
+version.</p>
+
+<h2 id="get-your-server.php-in-order">Get your server.php in order</h2>
+
+<p>Usually the next step is to get your own <code>server.php</code> written. You can just
+copy example files from <code>vendor/sabre/dav/examples</code>, and they should mostly
+just work.</p>
+
+<h2 id="add-your-own-classes">Add your own classes</h2>
+
+<p>Say if you are defining your own auth backend, this might look something like:</p>
+
+<pre><code>&lt;?php
+
+namespace Foo\Auth;
+
+class Backend extends \Sabre\DAV\Auth\Backend\AbstractBasic {
+
+    ...
+
+}
+
+?&gt;
 </code></pre>
 
-<p>The autoloader is in <code>vendor/autoload.php</code>.</p>
+<p>Since this file defines <code>Foo\Auth\Backend</code>, it must live in the following
+filename:</p>
 
-<h2 id="manual-installation">Manual installation</h2>
+<pre><code>src/Auth/Backend
+</code></pre>
 
-<p>You can also <a href="https://github.com/fruux/sabre-dav/releases">download</a> the latest package manually. This package is
-distributed as a zip file.</p>
+<p>Why <code>src</code>? Because that's what we've picked in <code>composer.json</code>.</p>
 
-<p>To use it, just unzip it and include the <code>autoload.php</code> file in the <code>vendor/</code>
-directory.</p>
+<p>If you've set it up correctly, your <code>server.php</code> will now automatically be
+able to autoload the php files in your namespace.</p>
 
-<h2 id="source">Source</h2>
+<h2 id="the-full-directory-structure">The full directory structure</h2>
 
-<p>The sabre/dav source can be found on <a href="https://github.com/fruux/sabre-dav">GitHub</a>.</p>
+<p>If you've completed all the earlier steps, the directory structure in your
+project should now look like this:</p>
 
-<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li><code>composer.json</code></li>
+<li><code>composer.lock</code></li>
+<li><code>server.php</code></li>
+<li><code>src/</code>
 
-<p>Head over to <a href="/dav/gettingstarted">Getting Started</a> to see what's next.</p>
+<ul>
+<li><code>Auth/</code></li>
+<li><code>Backend.php</code></li>
+</ul></li>
+<li><code>vendor/</code>
+
+<ul>
+<li><code>sabre/</code></li>
+<li><code>dav/</code></li>
+<li><code>event/</code></li>
+<li><code>http/</code></li>
+<li><code>vobject/</code></li>
+<li><code>xml/</code></li>
+</ul></li>
+</ul>
+
+<h2 id="why-can%27t-i-write-my-classes-in-the-%60sabre%2F%60-namespace%3F">Why can't I write my classes in the <code>Sabre/</code> namespace?</h2>
+
+<p>The main reason in that from a philosophical point of view, you don't own
+or the sabre/dav project. The main reason people tend to make changes in the
+<code>Sabre/</code> namespace, is because they think it's the only way they can extend
+sabre/dav.</p>
+
+<p>The biggest issue is that you are now effectivelty making 'changes' to the
+sabre/dav project by adding files, or maybe even changing existing ones.</p>
+
+<p>This makes it incredibly hard to figure out what you've changed, and to do
+updates in the future.</p>
+
+<p>In contrast, if you did things the correct way, upgrading sabre/dav might be
+a matter of <code>composer update</code>.</p>
+
+<p>In general this is also a fairly big 'offense' for any PHP development. This
+is not at all unique to sabre/dav, but the issue was common enough to warrant
+a guide on this website.</p>
             
             
                             <hr />
@@ -248,9 +297,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/dav/install';
-    var disqus_title = 'Installation';
-    var disqus_url = 'http://sabre.io/dav/install';
+    var disqus_identifier = '/dav/extending-sabredav';
+    var disqus_title = 'Extending sabre/dav';
+    var disqus_url = 'http://sabre.io/dav/extending-sabredav';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

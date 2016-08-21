@@ -50,6 +50,7 @@
                     <li><a href="http://sabre.io/dav/install">Installation</a></li>
                     <li><a href="http://sabre.io/dav/upgrading">Upgrading</a></li>
                     <li><a href="http://sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li><a href="http://sabre.io/dav/extending-sabredav">Extending sabre/dav</a></li>
                     <li>Troubleshooting
                         <ul>
                             <li><a href="http://sabre.io/dav/faq">FAQ</a></li>
@@ -141,29 +142,29 @@ also works often through corporate firewalls.</p>
 
 <p>See <a href="http://en.wikipedia.org/wiki/Webdav">Wikipedia</a> or <a href="http://webdav.org/">webdav.org</a> for more information.</p>
 
-<h2 id="what-is-sabredav%3F">What is SabreDAV?</h2>
+<h2 id="what-is-sabre%2Fdav%3F">What is sabre/dav?</h2>
 
-<p>SabreDAV is a WebDAV server completely built in PHP. This means all you need
+<p>sabre/dav is a WebDAV server completely built in PHP. This means all you need
 to enable WebDAV access to your Web server is PHP.</p>
 
-<p>SabreDAV supports CalDAV, CardDAV and WebDAV as well as many other related
+<p>sabre/dav supports CalDAV, CardDAV and WebDAV as well as many other related
 specifications. See <a href="/dav/standards-support">Standards Support</a> for the full
 list.</p>
 
-<h2 id="is-sabredav-stable%3F">Is SabreDAV stable?</h2>
+<h2 id="is-sabre%2Fdav-stable%3F">Is sabre/dav stable?</h2>
 
-<p>SabreDAV has been deployed by live applications since 2007, and more than 98%
+<p>sabre/dav has been deployed by live applications since 2007, and more than 98%
 of the code is covered by unittests. It is currently in use by multiple
 corporations. The largest installations manage addressbooks and calendars for
 millions of users.</p>
 
-<p>No software is bugfree though, but SabreDAV is actively maintained, so if
+<p>No software is bugfree though, but sabre/dav is actively maintained, so if
 anything pops up we're usually quick to respond.</p>
 
-<h2 id="why-would-i-use-sabredav-instead-of-apache%27s-mod_dav%3F">Why would I use SabreDAV instead of Apache's mod_dav?</h2>
+<h2 id="why-would-i-use-sabre%2Fdav-instead-of-apache%27s-mod_dav%3F">Why would I use sabre/dav instead of Apache's mod_dav?</h2>
 
-<p>If <a href="http://httpd.apache.org/docs/2.2/mod/mod_dav.html">mod_dav</a> does what you need, you probably don't need SabreDAV. SabreDAV
-is intended as an easily programmable webdav server. SabreDAV supports more
+<p>If <a href="http://httpd.apache.org/docs/2.2/mod/mod_dav.html">mod_dav</a> does what you need, you probably don't need sabre/dav. sabre/dav
+is intended as an easily programmable webdav server. sabre/dav supports more
 clients and also does Cal- and CardDAV, whereas mod_dav does not</p>
 
 <p>If you don't have a need for those features, mod_dav is likely a better choice
@@ -209,28 +210,28 @@ specific client. If you're running into issues with a specific client, we
 would <a href="http://groups.google.com/group/sabredav-discuss">love to hear it</a> so we can see if we can devise a workaround, or
 at least document the behavior.</p>
 
-<h2 id="does-sabredav-pass-the-litmus-test%3F">Does SabreDAV pass the litmus test?</h2>
+<h2 id="does-sabre%2Fdav-pass-the-litmus-test%3F">Does sabre/dav pass the litmus test?</h2>
 
 <p><a href="/dav/litmus">Litmus</a> is a handy tool that helps you test your WebDAV server
 for all standard features. The current status of the litmus test can be found
 on the <a href="/dav/litmus">Litmus</a> page.</p>
 
-<h2 id="can-sabredav-work-with-large-files%3F">Can SabreDAV work with large files?</h2>
+<h2 id="can-sabre%2Fdav-work-with-large-files%3F">Can sabre/dav work with large files?</h2>
 
 <p>Yes, read <a href="/dav/large-files">Working with large files</a>.</p>
 
-<h2 id="does-sabredav-work-with-microsoft-outlook%3F">Does SabreDAV work with Microsoft Outlook?</h2>
+<h2 id="does-sabre%2Fdav-work-with-microsoft-outlook%3F">Does sabre/dav work with Microsoft Outlook?</h2>
 
 <p>Outlook does not support CalDAV, and therefore it is also not possible to sync
-with SabreDAV (or any other CalDAV implementation).</p>
+with sabre/dav (or any other CalDAV implementation).</p>
 
 <p>There's a few plugins though that add this functionality to outlook:</p>
 
 <p><a href="http://www.bynari.net/products-page/product-category/bynari-webdav-collaborator/">Bynari WebDAV collaborator</a> is a very active, non-free plugin for outlook.
-It works well with SabreDAV and syncs contacts, calendars and tasks.</p>
+It works well with sabre/dav and syncs contacts, calendars and tasks.</p>
 
 <p><a href="http://ical.gutentag.ch/">iCal4OL</a> is another (non-free, but it has a trial). I have personally not
-tested it so if it worked with SabreDAV, but we have had good reports.</p>
+tested it so if it worked with sabre/dav, but we have had good reports.</p>
 
 <p><a href="http://openconnector.org/">Open Connector</a> is a free plugin for Outlook that is supposed to provide
 support for this, but the project appears unmaintained since 2008, and I
@@ -239,6 +240,10 @@ personally haven't gotten it to work. If you did, let me know how.</p>
 <h2 id="i%27m-getting-0-byte-files-on-the-server">I'm getting 0-byte files on the server</h2>
 
 <p>Read <a href="/dav/0bytes">0 bytes</a>.</p>
+
+<h2 id="how-can-i-extend-sabre%2Fdav-functionality-with-my-own-classes%3F">How can I extend sabre/dav functionality with my own classes?</h2>
+
+<p>Read <a href="/dav/extending-sabredav/">extending-sabredav</a>.</p>
 
 <h2 id="how-can-i-help%3F">How can I help?</h2>
 
@@ -254,7 +259,7 @@ sparse.</li>
 <li>Hire maintainers of this project to integrate WebDAV in your application.</li>
 </ul>
 
-<p>SabreDAV is now developed at <a href="https://fruux.com/">fruux</a>, for the last two items in this list
+<p>sabre/dav is now developed at <a href="https://fruux.com/">fruux</a>, for the last two items in this list
 it would be best to <a href="/support">contact us</a> to help you further.</p>
 
 <h2 id="i-have-a-different-question">I have a different question</h2>
@@ -263,7 +268,7 @@ it would be best to <a href="/support">contact us</a> to help you further.</p>
 
 <h2 id="i%27d-like-to-get-commercial-support">I'd like to get commercial support</h2>
 
-<p>SabreDAV is developed by <a href="https://fruux.com/">fruux</a>. If you're looking for enterprise-level
+<p>sabre/dav is developed by <a href="https://fruux.com/">fruux</a>. If you're looking for enterprise-level
 support, we'd love to <a href="/support">hear from you</a>!</p>
             
             

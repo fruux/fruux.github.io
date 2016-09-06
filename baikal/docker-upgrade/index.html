@@ -3,7 +3,7 @@
 
     
 
-            <title>Upgrading - baikal</title>
+            <title>Dockerized Upgrade - baikal</title>
     
     <meta charset="utf-8">
 
@@ -80,50 +80,140 @@
     </nav>
 </aside>
                 <article>
-                            <h1>Upgrading</h1>
-                <h2 id="upgrading-ba%C3%AFkal-to-0.4.x">Upgrading Baïkal to 0.4.X</h2>
+                            <h1>Dockerized Upgrade</h1>
+                <h2 id="requirements">Requirements</h2>
 
-<p>To upgrade from Baïkal to 0.4.X, follow the following steps:</p>
+<ul>
+<li>Docker 1.9 or later</li>
+<li>An existing Docker Hub account to push the images</li>
+<li>An existing <a href="/baikal/docker-install/">dockerized installation</a>, already in production, that needs to be upgraded</li>
+</ul>
 
-<ol>
-<li>Make a backup of your MySQL or SQLite database. This step is really important!</li>
-<li>Make a backup of the <code>baikal</code> directory on your server, by creating a copy.</li>
-<li>Grab the latest Baikal 0.4.X zip file from <a href="https://github.com/fruux/Baikal/releases">github</a>.</li>
-<li>Upload the contents of the zip file to the server, but make sure you <em>do not</em>
-overwrite the <code>Specific</code> directory. Everything else may be overwritten.</li>
-<li>Open the administration panel on the server. Usually this is something like <code>http://dav.example.org/baikal/html/admin/</code>.</li>
-<li>Follow the steps in the administration panel.</li>
-</ol>
+<h2 id="deployment">Deployment</h2>
 
-<p>If you're having any problems with these steps at all, just <a href="https://github.com/fruux/Baikal/issues/new">contact us</a>.
-We are happy to help you get throug this, and even do the upgrade for you in
-case something went wrong along the way.</p>
+<h3 id="on-the-production-calendar-server">On the production calendar server</h3>
 
-<p><strong>Please note:</strong> If you used the <code>flat</code> package in the past, this no longer
-exists. You can upgrade to this version no problem, however, the end-points for
-syncing changed so you might need to update these.</p>
+<ul>
+<li>Copy the existing configuration files from running container to the service
+account on the production server</li>
+</ul>
 
-<p>If it was before something like:</p>
-
-<pre><code>http://example.org/baikal/cal.php
+<pre><code class="bash">whoami &amp;&amp; pwd
+calendar
+/home/calendar
+docker exec calendar.service /bin/cat /var/www/calendar_server/Specific/config.php &gt; ./config.php
+docker exec calendar.service /bin/cat /var/www/calendar_server/Specific/config.system.php &gt; ./config.system.php
 </code></pre>
 
-<p>Then it's now:</p>
+<h3 id="on-the-build-server">On the build server</h3>
 
-<pre><code>http://example.org/baikal/html/dav.php
+<ul>
+<li>Copy the configuration files from the service account <code>$HOME</code> to the build
+server's <code>./resources</code> directory</li>
+</ul>
+
+<pre><code class="bash">scp calendar@your.calendar.server.example.org:config.php ./resources
+scp calendar@your.calendar.server.example.org:config.system.php ./resources
 </code></pre>
 
-<p>So two things changed:</p>
+<ul>
+<li>Open the Dockerfile</li>
+<li>Specify the new Baïkal version (<strong>0.4.6</strong> in this example)</li>
+</ul>
 
-<ol>
-<li><code>cal.php</code>, <code>card.php</code> moved into the <code>html/</code> directory.</li>
-<li>We added <code>dav.php</code>. <code>cal.php</code> and <code>card.php</code> still exist in the <code>html/</code>
-directory but will be removed in a future version. <code>dav.php</code> is an
-endpoint for <em>both</em> caldav and carddav combined.</li>
-</ol>
+<pre><code class="bash">RUN curl -LO https://github.com/fruux/Baikal/releases/download/0.4.6/baikal-0.4.6.zip &amp;&amp; unzip baikal-0.4.6.zip &amp;&amp; \
+    rm -f baikal-0.4.6.zip
+</code></pre>
 
-<p>So if you have access to your webserver/vhost configuration, you actually only
-need to expose <code>html/</code> to the world. Everything else is best kept hidden.</p>
+<ul>
+<li>Uncomment the <code>COPY</code> instructions to use the existing, previous version
+<code>config.php</code> and <code>config.system.php</code> files from the <code>./resources/</code> directory</li>
+</ul>
+
+<pre><code class="bash"># The Baïkal administration wizard creates these two config files when first run.  Preserve them
+# and save them to the resources/ directory.  These files must be preserved for upgrades.
+# Both files are already in the .gitignore file.
+#
+# To use them:  uncomment these two lines and copy them to the Specific/ directory, per the
+# Baïkal upgrade instructions at:  http://sabre.io/baikal/upgrade/
+COPY resources/config.php /var/www/calendar_server/Specific/
+COPY resources/config.system.php /var/www/calendar_server/Specific/
+</code></pre>
+
+<ul>
+<li>Build the new image and push it to Docker Hub</li>
+</ul>
+
+<pre><code class="bash">imageName="yourdockerhubname/calendar"; \
+docker build -t "$imageName" --rm=true . &amp;&amp; \
+docker push "$imageName"
+</code></pre>
+
+<h3 id="on-the-production-calendar-server">On the production calendar server</h3>
+
+<ul>
+<li>Kill the running Baïkal instance</li>
+</ul>
+
+<pre><code class="bash">docker stop calendar.service
+docker rm calendar.service
+</code></pre>
+
+<ul>
+<li>Pull the latest Baïkal image</li>
+</ul>
+
+<pre><code class="bash">docker pull "yourdockerhubname/calendar"
+</code></pre>
+
+<ul>
+<li>Start an instance of the upgraded service in the <code>/home/calendar</code> directory:</li>
+</ul>
+
+<pre><code>docker run --name "calendar.service" \
+    --privileged=true \
+    -h "calendar" \
+    -e "CONTAINER_DOMAIN_NAME=yourdomain.name" \
+    -v "$(pwd)/db":"/var/www/calendar_server/" \
+    -p "8800:80" \
+    -d "yourdockerhubname/calendar"
+</code></pre>
+
+<ul>
+<li>List the current instances and check if the service is running on the server</li>
+</ul>
+
+<pre><code class="bash">docker ps -a
+</code></pre>
+
+<pre><code>CONTAINER ID        IMAGE                        COMMAND             CREATED             STATUS              PORTS                  NAMES
+83d209fefa91        yourdockerhubname/calendar   "/runapache2"       2 minutes ago       Up 2 minutes        0.0.0.0:8800-&gt;80/tcp   calendar.service
+</code></pre>
+
+<ul>
+<li>Log on to the Baïkal admin page and confirm the new version; logging on to the
+admin page forces Baïkal to run its upgrade code, update the endpoints,
+update the database, and so on &mdash; <strong>do not skip this step</strong>.</li>
+</ul>
+
+<h2 id="implementation-notes">Implementation notes</h2>
+
+<h3 id="the-config.sys-and-config.system.php-files">The config.sys and config.system.php files</h3>
+
+<p>These files are updated on every new installation.  They contain important,
+site-specific data.  The most important datum is the <code>BAIKAL_ADMIN_PASSWORDHASH</code>
+used for authentication.  Keep the configuration files in a safe place or
+delete them after building the image.</p>
+
+<h3 id="help%21--i-deployed-the-upgrade-without-preserving-the-configuration-files%21">Help!  I deployed the upgrade without preserving the configuration files!</h3>
+
+<p>First:  <em>don't panic</em>.</p>
+
+<p>Log on to the admin console as soon as the Baïkal instance is running and follow
+the configuration wizard.  Only the <code>BAIKAL_ADMIN_PASSWORDHASH</code>
+configuration files are changed.  The users, calendars, and address books 
+database is intact, and will become available as soon as the configuration is
+complete.</p>
             
             
                             <hr />
@@ -152,9 +242,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/baikal/upgrade';
-    var disqus_title = 'Upgrading';
-    var disqus_url = 'http://sabre.io/baikal/upgrade';
+    var disqus_identifier = '/baikal/docker-upgrade';
+    var disqus_title = 'Dockerized Upgrade';
+    var disqus_url = 'http://sabre.io/baikal/docker-upgrade';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

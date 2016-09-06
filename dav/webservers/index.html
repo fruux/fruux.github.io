@@ -195,6 +195,14 @@ others as well.</p>
 
 <p>To fix this, turn off this module.</p>
 
+<h3 id="405-errors">405 Errors</h3>
+
+<p>If you're getting 405 errors on apache, it's typically because your distro
+ships with apache configuration that disables WebDAV HTTP methods.</p>
+
+<p>To resolve this, usually in your webserver configuration there should be
+<code>Limit</code> or <code>LimitExcept</code> directives that should be removed.</p>
+
 <h2 id="nginx">Nginx</h2>
 
 <p>Older versions of nginx have had issues with so-called "Chunked Transfer

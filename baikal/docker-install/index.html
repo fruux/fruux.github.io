@@ -3,7 +3,7 @@
 
     
 
-            <title>Upgrading - baikal</title>
+            <title>Dockerized Installation - baikal</title>
     
     <meta charset="utf-8">
 
@@ -80,50 +80,104 @@
     </nav>
 </aside>
                 <article>
-                            <h1>Upgrading</h1>
-                <h2 id="upgrading-ba%C3%AFkal-to-0.4.x">Upgrading Baïkal to 0.4.X</h2>
+                            <h1>Dockerized Installation</h1>
+                <h2 id="requirements">Requirements</h2>
 
-<p>To upgrade from Baïkal to 0.4.X, follow the following steps:</p>
+<ul>
+<li>Docker 1.9 or later</li>
+<li>A Docker Hub account where to push the images</li>
+</ul>
 
-<ol>
-<li>Make a backup of your MySQL or SQLite database. This step is really important!</li>
-<li>Make a backup of the <code>baikal</code> directory on your server, by creating a copy.</li>
-<li>Grab the latest Baikal 0.4.X zip file from <a href="https://github.com/fruux/Baikal/releases">github</a>.</li>
-<li>Upload the contents of the zip file to the server, but make sure you <em>do not</em>
-overwrite the <code>Specific</code> directory. Everything else may be overwritten.</li>
-<li>Open the administration panel on the server. Usually this is something like <code>http://dav.example.org/baikal/html/admin/</code>.</li>
-<li>Follow the steps in the administration panel.</li>
-</ol>
+<h2 id="deployment">Deployment</h2>
 
-<p>If you're having any problems with these steps at all, just <a href="https://github.com/fruux/Baikal/issues/new">contact us</a>.
-We are happy to help you get throug this, and even do the upgrade for you in
-case something went wrong along the way.</p>
+<ul>
+<li>Clone the <strong><a href="https://github.com/pr3d4t0r/calendar">pr3d4t0r/calendar</a></strong> repository from GitHub</li>
+<li>Change the instances of "example.org" to your domain name
 
-<p><strong>Please note:</strong> If you used the <code>flat</code> package in the past, this no longer
-exists. You can upgrade to this version no problem, however, the end-points for
-syncing changed so you might need to update these.</p>
+<ul>
+<li><code>bin/runapache2</code></li>
+<li><code>resources/baikal.apache2</code></li>
+<li><code>resources/Server.php</code>
 
-<p>If it was before something like:</p>
+<ul>
+<li>Find out your relay's host name &mdash; this guide uses <em>smtp.example.org</em></li>
+</ul></li>
+<li><code>Dockerfile</code>
 
-<pre><code>http://example.org/baikal/cal.php
+<ul>
+<li>Check your relay host name &mdash; this guide assumes
+<em>smtp.example.org</em></li>
+</ul></li>
+</ul></li>
+<li>Build the image and push it to Docker Hub</li>
+</ul>
+
+<pre><code>imageName="yourdockerhubname/calendar"; \
+docker build -t "$imageName" --rm=true . &amp;&amp; \
+docker push "$imageName"
 </code></pre>
 
-<p>Then it's now:</p>
+<p>On the target server:</p>
 
-<pre><code>http://example.org/baikal/html/dav.php
+<ul>
+<li>Create a service account to run the calendar (e.g. <code>/home/calendar</code> or 
+<code>/var/calendar</code> or whatever); these examples assume <code>/home/calendar</code></li>
+<li>Create a data directory and an empty database:</li>
+</ul>
+
+<pre><code># This is the simplest mechanism to get around the permissions mismatch between
+# Docker instances and the local file system
+# This could've been resolved with a data volume; that's beyond the scope of 
+# this setup
+
+mkdir -p /home/calendar/db &amp;&amp; \
+chmod 777 /home/calendar/db &amp;&amp; \
+touch /home/calendar/db/db.sqlite &amp;&amp; \
+chmod 666 /home/calendar/db/db.sqlite
 </code></pre>
 
-<p>So two things changed:</p>
+<ul>
+<li>Start a new instance of the service in the <code>/home/calendar</code> directory:</li>
+</ul>
 
-<ol>
-<li><code>cal.php</code>, <code>card.php</code> moved into the <code>html/</code> directory.</li>
-<li>We added <code>dav.php</code>. <code>cal.php</code> and <code>card.php</code> still exist in the <code>html/</code>
-directory but will be removed in a future version. <code>dav.php</code> is an
-endpoint for <em>both</em> caldav and carddav combined.</li>
-</ol>
+<pre><code>docker run --name "calendar.service" \
+    --privileged=true \
+    -h "calendar" \
+    -e "CONTAINER_DOMAIN_NAME=yourdomain.name" \
+    -v "$(pwd)/db":"/var/www/calendar_server/" \
+    -p "8800:80" \
+    -d "yourdockerhubname/calendar"
+</code></pre>
 
-<p>So if you have access to your webserver/vhost configuration, you actually only
-need to expose <code>html/</code> to the world. Everything else is best kept hidden.</p>
+<ul>
+<li>List the current instances and check if the service is running on the server</li>
+</ul>
+
+<pre><code>docker ps -a
+</code></pre>
+
+<pre><code>CONTAINER ID        IMAGE                        COMMAND             CREATED             STATUS              PORTS                  NAMES
+83d209fefa91        yourdockerhubname/calendar   "/runapache2"       2 minutes ago       Up 2 minutes        0.0.0.0:8800-&gt;80/tcp   calendar.service
+</code></pre>
+
+<ul>
+<li>Configure the Baïkal server by connecting to the instance on port 8800</li>
+</ul>
+
+<p><img src='/img/baikal-admin-wizard.png' style="width: 100%; max-width: 640px;" />
+<img src='/img/baikal-db-wizard.png' style="width: 100%; max-width: 640px;" />
+<img src='/img/baikal-installed.png' style="width: 100%; max-width: 640px;" /></p>
+
+<p>The installation is complete.  Users, calendars, address books, etc. can all be
+managed now, like in this production instance.</p>
+
+<p><img src='/img/baikal-in-use.png' style="width: 100%; max-width: 640px;" /></p>
+
+<h2 id="implementation-notes">Implementation notes</h2>
+
+<p>A full discussion of the implementation details is available from
+<a href="https://eugeneciurana.com/entry/robust-calendar-service-deployment-howto">Robust Calendar Service Deployment with Baïkal / SabreDAV Calendar in 10 Minutes</a>
+and the <a href="https://eugeneciurana.com/entry/improved-baikal-sabredav-calendar-in-less-than-10-minutes">update/upgrade in less than 10 minutes</a> follow up.</p>
             
             
                             <hr />
@@ -152,9 +206,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/baikal/upgrade';
-    var disqus_title = 'Upgrading';
-    var disqus_url = 'http://sabre.io/baikal/upgrade';
+    var disqus_identifier = '/baikal/docker-install';
+    var disqus_title = 'Dockerized Installation';
+    var disqus_url = 'http://sabre.io/baikal/docker-install';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

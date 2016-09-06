@@ -3,7 +3,7 @@
 
     
 
-            <title>Upgrading - baikal</title>
+            <title>Docker Image Ready to Run - baikal</title>
     
     <meta charset="utf-8">
 
@@ -80,50 +80,53 @@
     </nav>
 </aside>
                 <article>
-                            <h1>Upgrading</h1>
-                <h2 id="upgrading-ba%C3%AFkal-to-0.4.x">Upgrading Baïkal to 0.4.X</h2>
-
-<p>To upgrade from Baïkal to 0.4.X, follow the following steps:</p>
-
-<ol>
-<li>Make a backup of your MySQL or SQLite database. This step is really important!</li>
-<li>Make a backup of the <code>baikal</code> directory on your server, by creating a copy.</li>
-<li>Grab the latest Baikal 0.4.X zip file from <a href="https://github.com/fruux/Baikal/releases">github</a>.</li>
-<li>Upload the contents of the zip file to the server, but make sure you <em>do not</em>
-overwrite the <code>Specific</code> directory. Everything else may be overwritten.</li>
-<li>Open the administration panel on the server. Usually this is something like <code>http://dav.example.org/baikal/html/admin/</code>.</li>
-<li>Follow the steps in the administration panel.</li>
-</ol>
-
-<p>If you're having any problems with these steps at all, just <a href="https://github.com/fruux/Baikal/issues/new">contact us</a>.
-We are happy to help you get throug this, and even do the upgrade for you in
-case something went wrong along the way.</p>
-
-<p><strong>Please note:</strong> If you used the <code>flat</code> package in the past, this no longer
-exists. You can upgrade to this version no problem, however, the end-points for
-syncing changed so you might need to update these.</p>
-
-<p>If it was before something like:</p>
-
-<pre><code>http://example.org/baikal/cal.php
-</code></pre>
-
-<p>Then it's now:</p>
-
-<pre><code>http://example.org/baikal/html/dav.php
-</code></pre>
-
-<p>So two things changed:</p>
+                            <h1>Docker Image Ready to Run</h1>
+                <p>There is no ready-to-run Baïkal Docker image in Docker Hub yet because a few
+issues must be addressed before making it available for public use:</p>
 
 <ol>
-<li><code>cal.php</code>, <code>card.php</code> moved into the <code>html/</code> directory.</li>
-<li>We added <code>dav.php</code>. <code>cal.php</code> and <code>card.php</code> still exist in the <code>html/</code>
-directory but will be removed in a future version. <code>dav.php</code> is an
-endpoint for <em>both</em> caldav and carddav combined.</li>
+<li><p>The host and domain names should be passed to the calendar container when it
+starts; they are indispensable for the correct Postfix and web server
+configuration and right now they're coded in the Dockerfile.</p></li>
+<li><p>A public Baïkal image would work best with a Docker volume container for data
+storage, including disaster recovery, backup procedures, and data management;
+for now it uses a directory in the host mapped to a virtual volume.</p></li>
+<li><p>Optional support for <a href="https://letsencrypt.org/">Let's Encrypt</a> in the image so that the Baïkal
+server does its own SSL termination; the current image assumes a data center
+approach of separating the application (Baïkal) from SSL termination
+(firewall, reverse proxy, gateway, etc.).  Best SysOp practices suggest
+keeping them separate, but practicality of deploying the Baïkal server in a
+single image would offer tremendous value for small shops and start ups.</p></li>
+<li><p>Remove Postfix from the Docker image; this requires code changes
+in Baïkal to use <a href="http://swiftmailer.org/">Swift Mailer</a> instead of the PHP <a href="https://secure.php.net/manual/en/function.mail.php"><code>mail()</code> function</a>,
+plus a mechanism for passing the MX server or relay configuration to the 
+container over environment variables (similar to 1).</p></li>
 </ol>
 
-<p>So if you have access to your webserver/vhost configuration, you actually only
-need to expose <code>html/</code> to the world. Everything else is best kept hidden.</p>
+<p>The sabre/dav team is working toward sorting out the best solutions to these
+issues.</p>
+
+<p>A 100% stand alone, ready-to-run Baïkal image will be available at the end of
+Q3 2016 via Docker Hub.</p>
+
+<h2 id="why-is-the-image-based-on-ubuntu-server-instead-of-alpine%3F">Why is the image based on Ubuntu Server instead of Alpine?</h2>
+
+<p>Using the smallest container possible is considered a Docker best practice. 
+Alpine is the smallest distribution basic Docker image; it weighs 2 MB against
+180 MB of the basic Ubuntu image.  So, why use the Ubuntu image?</p>
+
+<p>The main reasons:  familiarity and availability.</p>
+
+<ul>
+<li>The Advanced Package Tool (apt) and dpkg are more pervasive than Alpine's apk
+package tools.  More sysadmins and developers are familiar with apt and dpkg.</li>
+<li>Not all Baïkal users will have access to a dockerized system, but most will
+have access to a stand alone machine.  The Dockerfile acts as a step-by-step
+Baïkal deployment HOWTO, or the Dockerfile can be converted into a one-pass 
+shell script that performs all the installation steps.</li>
+</ul>
+
+<p>The ready-to-run Baïkal image may be based on Alpine at that point.</p>
             
             
                             <hr />
@@ -152,9 +155,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/baikal/upgrade';
-    var disqus_title = 'Upgrading';
-    var disqus_url = 'http://sabre.io/baikal/upgrade';
+    var disqus_identifier = '/baikal/docker-ready';
+    var disqus_title = 'Docker Image Ready to Run';
+    var disqus_url = 'http://sabre.io/baikal/docker-ready';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

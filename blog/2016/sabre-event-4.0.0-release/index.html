@@ -2,8 +2,8 @@
 <head>
 
     
-
-            <title>Baïkal 0.4.6 released - baikal</title>
+  
+            <title>sabre/event 4 released - sabre/event</title>
     
     <meta charset="utf-8">
 
@@ -19,8 +19,8 @@
 
     <div class="pagehead-inner">
         <a class="logo" href="http://sabre.io/">
-                            <img src="http://sabre.io/img/logo.png" alt="baikal">
-                <span>baikal</span>
+                            <img src="http://sabre.io/img/logo.png" alt="sabre/sabre/event">
+                sabre<span>/event</span>
                     </a>
 
         <nav class="nav nav--page">
@@ -42,25 +42,44 @@
         <main>
                 <article>
                 <article class="blog-entry">
-        <time>August 19th, 2016</time>
-        <h1>Baïkal 0.4.6 released</h1>
+        <time>September 20th, 2016</time>
+        <h1>sabre/event 4 released</h1>
         <div>
-            <p>We just released Baïkal 0.4.6. This release contains a fix that prevented
-some users froms syncing contacts, if they were using the SQLite backend.</p>
+            <p>We just released sabre/event 4.0.0.</p>
 
-<p>Upgrading is recommended.</p>
+<p>This release requires PHP 7, and has the following new features:</p>
 
-<p>Read the <a href="/baikal/upgrade/" title="Upgrade instructions">upgrade instructions here</a>. Full changelog can be found on <a href="https://github.com/fruux/Baikal/blob/0.4.6/CHANGELOG.md" title="Change log">Github</a></p>
+<ul>
+<li>PHP 7 typehints where they make sense, <code>strict_types</code> used everywhere.</li>
+<li>Support for a new <code>WildcardEmitter</code> this Emitter has the same interface as
+the regular <code>Emitter</code>, but it allows you to listen for events such as
+<code>updated:*</code>, which would get triggered for any event that starts with
+<code>updated:</code>.</li>
+<li><code>EventEmitter</code>, <code>EventEmitterTrait</code> and <code>EventEmitterInterface</code> are renamed
+to <code>Emitter</code>, <code>EmitterTrait</code> and <code>EmitterInterface</code>.</li>
+<li>Promises now correctly handle PHP 7 <code>Trowable</code>.</li>
+<li>Promises <em>must</em> now be rejected by an object implementing <code>Trowable</code>. In the
+past it was possible to reject a Promise with any value (like Javascript),
+but unlike Javascript, you can't throw a string in PHP. I felt that this
+made the Promise a bit more predictable.</li>
+</ul>
+
+<h3 id="php-5.5">PHP 5.5</h3>
+
+<p>sabre/event 3 will continue to be supported. I don't suspect new bugs will
+appear there though, as it's a fairly simple package.</p>
+
+<p>To upgrade sabre/event, make sure your <code>composer.json</code> requires "^4.0" for
+sabre/event.</p>
 
         </div>
                     <p class="tags">
             Tags:
-                        <a href="http://sabre.io/blog/tags/baikal">baikal</a>,                         <a href="http://sabre.io/blog/tags/release">release</a>                        </p>
+                        <a href="http://sabre.io/blog/tags/event">event</a>,                         <a href="http://sabre.io/blog/tags/release">release</a>                        </p>
         
                     <nav class="article">
                 <ul>
-                                            <li>Next: <a class="next" href="http://sabre.io/blog/2016/sabre-event-4.0.0-release" title="sabre/event 4 released"><span class="title">sabre/event 4 released</span></a></li>
-                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2016/sabre-dav-3.2.0-release" title="sabre/dav 3.2.0 released"><span class="title">sabre/dav 3.2.0 released</span></a></li>
+                                                                <li>Previous: <a class="previous" href="http://sabre.io/blog/2016/baikal-0.4.6-release" title="Baïkal 0.4.6 released"><span class="title">Baïkal 0.4.6 released</span></a></li>
                                     </ul>
             </nav>
             </article>
@@ -92,9 +111,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/blog/2016/baikal-0.4.6-release';
-    var disqus_title = 'Baïkal 0.4.6 released';
-    var disqus_url = 'http://sabre.io/blog/2016/baikal-0.4.6-release';
+    var disqus_identifier = '/blog/2016/sabre-event-4.0.0-release';
+    var disqus_title = 'sabre/event 4 released';
+    var disqus_url = 'http://sabre.io/blog/2016/sabre-event-4.0.0-release';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

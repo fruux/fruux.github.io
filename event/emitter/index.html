@@ -3,7 +3,7 @@
 
     
   
-            <title>Coroutines - sabre/event</title>
+            <title>Emitter - sabre/event</title>
     
     <meta charset="utf-8">
 
@@ -74,107 +74,160 @@
     </nav>
 </aside>
                 <article>
-                            <h1>Coroutines</h1>
-                <p>Coroutines in sabre/event is a feature that can improve your <a href="/event/promise/">Promise</a>-based
-code.</p>
+                            <h1>Emitter</h1>
+                <p>The Emitter is a simple pattern that allows you to create an object
+that emits events, and allow you to listen to those events.</p>
 
-<p>It comes in the form of a single function, that takes a <a href="http://php.net/manual/en/language.generators.overview.php">generator</a> as an
-argument. The generator can then <em>yield</em> promises. The coroutine function will
-automatically resume the function when the promise has resolved.</p>
+<p>Example:</p>
 
-<p>If the promise rejected, an exception will be thrown in the generator.</p>
+<pre><code>use Sabre\Event\Emitter;
 
-<p>To illustrate this, an example will work better.</p>
+$emitter = new Emitter();
 
-<h2 id="before">Before</h2>
+// Subscribing
+$emitter-&gt;on('create', function() {
 
-<pre><code>$promise = someAsyncOperation();
-$promise-&gt;then(function($result)) {
-
-    return anotherAsyncOperation();
-
-})
--&gt;then( function($result) {
-
-    return lastAsyncOperation();
-
-})
--&gt;then (function($result)) {
-
-    echo $result, "\n";
-
-})
--&gt;otherwise(function($reason) {
-
-    echo $reason, "\n";
+    echo "Something got created, apparently\n"
 
 });
+
+// Publishing
+$emitter-&gt;emit('create');
 </code></pre>
 
-<h2 id="after">After</h2>
+<p>The name of the event (<code>create</code>) can be any free-form string.</p>
 
-<p>The following code is equivalent:</p>
+<h2 id="priorities">Priorities</h2>
 
-<pre><code>use Sabre\Event;
+<p>By supplying a priority, you are ensured that subscribers are handled in a
+specific order. The default priority is 100. Anything below that will be
+triggered earlier, anything higher later.</p>
 
-Event\coroutine(function() {
+<p>If there's two subscribers with the same priority, they will execute in an
+undefined, but deterministic order.</p>
 
-    try {
+<pre><code>$emitter-&gt;on('create', function() {
 
-        $result = yield someAsyncOperation();
-        $result = yield anotherAsyncOperation();
-        $result = yield lastAsyncOperation();
-        echo $result;
+    // This event will be handled first.
 
-    } catch (\Exception $reason) {
+}, 50);
+</code></pre>
 
-        echo $reason;
+<h2 id="callbacks">Callbacks</h2>
 
+<p>All default PHP callbacks are supported, so closures are not required.</p>
+
+<pre><code>$emitter-&gt;on('create', 'myFunction');
+$emitter-&gt;on('create', ['myClass', 'myMethod']);
+$emitter-&gt;on('create', [$myInstance, 'myMethod']);
+</code></pre>
+
+<h3 id="canceling-the-event-handler">Canceling the event handler</h3>
+
+<p>If any callback returns <code>false</code> the event chain is stopped immediately.</p>
+
+<p>A use case is to use a listener to check if a user has permission to perform
+a certain action, and stop execution if they don't.</p>
+
+<pre><code>$emitter-&gt;on('create', function() {
+
+    if (!checkPermission()) {
+        return false;
     }
 
-});
+}, 10);
 </code></pre>
 
-<h2 id="tips-and-tricks">Tips and tricks</h2>
+<p><code>Emitter::emit()</code> will return <code>false</code> if the event was cancelled, and
+<code>true</code> if it wasn't.</p>
 
-<p>The coroutines itself also returns a promise. This promise will resolve with
-the last yielded value or promise. It will reject if there was an uncaught
-exception.</p>
+<p>Throwing an exception will also stop the chain.</p>
 
-<p>This allows you to for example call <code>wait()</code> to turn a large asynchronous
-process into a blocking one:</p>
+<p>This is similar to Javascript's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault">preventDefault()</a>.</p>
+
+<h2 id="passing-arguments">Passing arguments</h2>
+
+<p>Arguments can be passed as an array.</p>
+
+<pre><code>$emitter-&gt;on('create', function($entityId) {
+
+    echo "An entity with id ", $entityId, " just got created.\n";
+
+});
+
+$entityId = 5;
+$emitter-&gt;emit('create', [$entityId]);
+</code></pre>
+
+<p>Because you cannot really do anything with the return value of a listener,
+you can pass arguments by reference to communicate between listeners and
+back to the emitter.</p>
+
+<pre><code>$emitter-&gt;on('create', function($entityId, &amp;$warnings) {
+
+    echo "An entity with id ", $entityId, " just got created.\n";
+
+    $warnings[] = "Something bad may or may not have happened.\n";
+
+});
+
+
+$warnings = [];
+$emitter-&gt;emit('create', [$entityId, &amp;$warnings]);
+
+print_r($warnings);
+</code></pre>
+
+<h2 id="wildcards">Wildcards</h2>
+
+<p>Since sabre/event 4.0.0, there is also a <code>WildcardEmitter</code> that supports
+listening for wildcard events.</p>
+
+<p>Example:</p>
+
+<pre><code>use Sabre\Event\WildcardEmitter;
+
+$emitter = new WildcardEmitter();
+$emitter-&gt;on('create:*', function() {
+
+});
+
+$emitter-&gt;emit('create:bicycle');
+</code></pre>
+
+<p>The reason that the <code>WildcardEmitter</code> is a separate object, is because it's
+slightly slower. This is only important for applications that need extremely
+high performance from their event system.</p>
+
+<p>The <code>WildcardEmitter</code> is still really fast, and that's partially because it
+only supports having the wildcard as the last character. Events such as:
+<code>foo:*:bar</code> are not supported.</p>
+
+<p>In the past two examples the colon (<code>:</code>) is used as a separator. In reality
+this is completely up to you, and you may even omit it entirely.</p>
+
+<h2 id="integration-into-other-objects">Integration into other objects</h2>
+
+<p>To add <code>Emitter</code> capabilities to any class, you can simply extend it.</p>
+
+<p>If you cannot extend, because the class is already part of an existing class
+hierarchy you can use the supplied trait.</p>
 
 <pre><code>use Sabre\Event;
 
-Event\coroutine(function() {
 
-    /* ... */
+class MyNotUneventfulApplication
+    extends AppController
+    implements Event\EmitterInterface
+{
 
-})-&gt;wait();
+    use Event\EmitterTrait;
+
+}
 </code></pre>
 
-<p>It's possible to call different coroutines from within your own coroutine
-easily as well:</p>
-
-<pre><code>use Sabre\Event;
-
-Event\coroutine(function() {
-
-    yield Event\coroutine($anotherGenerator);
-
-});
-</code></pre>
-
-<p>In PHP7 this becomes even easier:</p>
-
-<pre><code>use Sabre\Event;
-
-Event\coroutine(function() {
-
-    yield from $anotherGenerator;
-
-});
-</code></pre>
+<p>In the preceeding example, <code>MyNotUneventfulApplication</code> has all the
+capabilities of <code>Emitter</code>.</p>
             
             
                             <hr />
@@ -203,9 +256,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/event/coroutines';
-    var disqus_title = 'Coroutines';
-    var disqus_url = 'http://sabre.io/event/coroutines';
+    var disqus_identifier = '/event/emitter';
+    var disqus_title = 'Emitter';
+    var disqus_url = 'http://sabre.io/event/emitter';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

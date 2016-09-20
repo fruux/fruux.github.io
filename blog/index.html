@@ -45,6 +45,44 @@
                 <p></p>
 
 <article class="blog-entry">
+    <time>September 20th, 2016</time>
+    <h1><a href="http://sabre.io/blog/2016/sabre-event-4.0.0-release">sabre/event 4 released</a></h1>
+    <p>We just released sabre/event 4.0.0.</p>
+
+<p>This release requires PHP 7, and has the following new features:</p>
+
+<ul>
+<li>PHP 7 typehints where they make sense, <code>strict_types</code> used everywhere.</li>
+<li>Support for a new <code>WildcardEmitter</code> this Emitter has the same interface as
+the regular <code>Emitter</code>, but it allows you to listen for events such as
+<code>updated:*</code>, which would get triggered for any event that starts with
+<code>updated:</code>.</li>
+<li><code>EventEmitter</code>, <code>EventEmitterTrait</code> and <code>EventEmitterInterface</code> are renamed
+to <code>Emitter</code>, <code>EmitterTrait</code> and <code>EmitterInterface</code>.</li>
+<li>Promises now correctly handle PHP 7 <code>Trowable</code>.</li>
+<li>Promises <em>must</em> now be rejected by an object implementing <code>Trowable</code>. In the
+past it was possible to reject a Promise with any value (like Javascript),
+but unlike Javascript, you can't throw a string in PHP. I felt that this
+made the Promise a bit more predictable.</li>
+</ul>
+
+<h3 id="php-5.5">PHP 5.5</h3>
+
+<p>sabre/event 3 will continue to be supported. I don't suspect new bugs will
+appear there though, as it's a fairly simple package.</p>
+
+<p>To upgrade sabre/event, make sure your <code>composer.json</code> requires "^4.0" for
+sabre/event.</p>
+
+</article>
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>August 19th, 2016</time>
     <h1><a href="http://sabre.io/blog/2016/baikal-0.4.6-release">Baïkal 0.4.6 released</a></h1>
     <p>We just released Baïkal 0.4.6. This release contains a fix that prevented

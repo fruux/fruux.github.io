@@ -3,9 +3,42 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-09-06T21:27:04+00:00</updated>
+    <updated>2016-09-20T02:56:21+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/event 4 released]]></title>
+            <link href="http://sabre.io/blog/2016/sabre-event-4.0.0-release"/>
+            <updated>2016-09-20T02:42:15+00:00</updated>
+            <id>http://sabre.io/blog/2016/sabre-event-4.0.0-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/event 4.0.0.</p>
+
+<p>This release requires PHP 7, and has the following new features:</p>
+
+<ul>
+<li>PHP 7 typehints where they make sense, <code>strict_types</code> used everywhere.</li>
+<li>Support for a new <code>WildcardEmitter</code> this Emitter has the same interface as
+the regular <code>Emitter</code>, but it allows you to listen for events such as
+<code>updated:*</code>, which would get triggered for any event that starts with
+<code>updated:</code>.</li>
+<li><code>EventEmitter</code>, <code>EventEmitterTrait</code> and <code>EventEmitterInterface</code> are renamed
+to <code>Emitter</code>, <code>EmitterTrait</code> and <code>EmitterInterface</code>.</li>
+<li>Promises now correctly handle PHP 7 <code>Trowable</code>.</li>
+<li>Promises <em>must</em> now be rejected by an object implementing <code>Trowable</code>. In the
+past it was possible to reject a Promise with any value (like Javascript),
+but unlike Javascript, you can't throw a string in PHP. I felt that this
+made the Promise a bit more predictable.</li>
+</ul>
+
+<h3 id="php-5.5">PHP 5.5</h3>
+
+<p>sabre/event 3 will continue to be supported. I don't suspect new bugs will
+appear there though, as it's a fairly simple package.</p>
+
+<p>To upgrade sabre/event, make sure your <code>composer.json</code> requires "^4.0" for
+sabre/event.</p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[Baïkal 0.4.6 released]]></title>
             <link href="http://sabre.io/blog/2016/baikal-0.4.6-release"/>
@@ -476,28 +509,6 @@ journals all at once.</li>
 <p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.0.9/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 3.5.1 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-vobject-3.5.1-release"/>
-            <updated>2016-04-07T00:16:13+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-vobject-3.5.1-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 3.5.1. This release contains a few small
-improvements:</p>
-
-<ol>
-<li>When expanding recurring events, <code>RECURRENCE-ID</code> is now correctly added,
-even for the first event.</li>
-<li>Several fixes in the iTip broker related to recurring events.</li>
-</ol>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.5.1/ChangeLog.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

@@ -139,6 +139,13 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>May. 23rd, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/validation-changes">Upcoming changes to iCalendar and vCard validation in sabre/dav 3.2.</a></h1>
+                    <p>We are currently working on sabre/dav 3.2. <a href="https://github.com/fruux/sabre-dav/releases">A first beta has been released</a>.
+This release will include some changes to validating iCalendar and vCard.
+These changes might impact you if you use the Card- and CalDAV systems, or if
+you are a developer for a Cal/CardDAV client.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Apr. 7th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.3-release">sabre/dav 3.1.3 released</a></h1>
                     <p>We just released sabre/dav 3.1.3. This release contains the following changes:</article>
@@ -155,11 +162,6 @@ the 4.0.x series.</article>
                     <time>Apr. 7th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.9-release">sabre/dav 3.0.9 released</a></h1>
                     <p>We just released sabre/dav 3.0.9. This release contains the following changes:</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Apr. 7th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-3.5.1-release">sabre/vobject 3.5.1 released</a></h1>
-                    <p>We just released sabre/vobject 3.5.1. This release contains a few small
-improvements:</article>
                                     </section>
     </div>
 </div>

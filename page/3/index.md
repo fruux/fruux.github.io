@@ -139,6 +139,11 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Apr. 7th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-3.5.1-release">sabre/vobject 3.5.1 released</a></h1>
+                    <p>We just released sabre/vobject 3.5.1. This release contains a few small
+improvements:</article>
+                <hr />                            <article class="blog-entry">
                     <time>Mar. 30th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/dav-sharing">CalDAV, CardDAV and WebDAV sharing</a></h1>
                     <p>CalDAV/CardDAV sharing is something <a href="https://github.com/fruux/sabre-dav/pull/696">we've worked on</a> for quite some time.
@@ -160,10 +165,6 @@ upgrade.</article>
                     <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.0.3-release">sabre/vobject 4.0.3 released</a></h1>
                     <p>We just released sabre/vobject 4.0.3. This release contains the following
 changes:</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Mar. 12th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.8-release">sabre/dav 3.0.8 released</a></h1>
-                    <p>We just released sabre/dav 3.0.8. This release contains the following changes:</article>
                                     </section>
     </div>
 </div>

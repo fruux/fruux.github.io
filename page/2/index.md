@@ -140,6 +140,11 @@
             <h1>News</h1>
                             <article class="blog-entry">
                     <time>May. 29th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sharing-changes">Changes to sharing in sabre/dav 3.2</a></h1>
+                    <p>We are currently working on sabre/dav 3.2. <a href="http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt">A first beta has been released</a>.
+This release includes major changes to the sharing system.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>May. 29th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.4-release">sabre/dav 3.1.4 released</a></h1>
                     <p>We just released sabre/dav 3.1.4.</article>
                 <hr />                            <article class="blog-entry">
@@ -157,11 +162,6 @@ you are a developer for a Cal/CardDAV client.</article>
                     <time>Apr. 7th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.1.1-release">sabre/vobject 4.1.1 released</a></h1>
                     <p>We just released sabre/vobject 4.1.1.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Apr. 7th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.1.0-release">sabre/vobject 4.1.0 released</a></h1>
-                    <p>We just released sabre/vobject 4.1.0. This release is fully compatible with
-the 4.0.x series.</article>
                                     </section>
     </div>
 </div>

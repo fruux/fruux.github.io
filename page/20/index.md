@@ -139,32 +139,10 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
-                    <time>Mar. 13th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.2-release">sabre/dav 3.1.2 released</a></h1>
-                    <p>We just released sabre/dav 3.1.2. This release contains the following changes:</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Mar. 13th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.0.3-release">sabre/vobject 4.0.3 released</a></h1>
-                    <p>We just released sabre/vobject 4.0.3. This release contains the following
-changes:</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Mar. 12th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.8-release">sabre/dav 3.0.8 released</a></h1>
-                    <p>We just released sabre/dav 3.0.8. This release contains the following changes:</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Mar. 12th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-xml-1.4.1-release">sabre/xml 1.4.1 released</a></h1>
-                    <p>We just released sabre/xml 1.4.1. This release contains an improvement in
-parsing clark-notation strings. We now cache the result of these, which can
-result in significant speed-ups for large documents with lots of repeating
-xml element names.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Mar. 10th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-2.1.10-release">sabre/dav 2.1.10 released</a></h1>
-                    <p>We just released sabre/dav 2.1.10. This release fixes a small issue with
-cleaning up sync logs after deleting address books. This bug could in some
-rare circumstances cause clients to not see some changes for (unrelated)
-address books.</article>
+                    <time>Mar. 31st, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/new-website">New website launched!</a></h1>
+                    <p>You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
+never had a proper website, and we've always just hosted from Google Code.</article>
                                     </section>
     </div>
 </div>
@@ -194,9 +172,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/page/4';
+    var disqus_identifier = '/page/20';
     var disqus_title = '';
-    var disqus_url = 'http://sabre.io/page/4';
+    var disqus_url = 'http://sabre.io/page/20';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

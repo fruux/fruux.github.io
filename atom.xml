@@ -3,9 +3,27 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-10-07T03:08:10+00:00</updated>
+    <updated>2016-10-07T03:54:18+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 2.1 End of life]]></title>
+            <link href="http://sabre.io/blog/2016/sabre-dav-2.1-eol"/>
+            <updated>2016-10-07T03:48:20+00:00</updated>
+            <id>http://sabre.io/blog/2016/sabre-dav-2.1-eol</id>
+            <content type="html"><![CDATA[<p>sabre/dav 2.1 is now "end of life". This means that no more bugs will be
+fixed, including security bugs.</p>
+
+<p>We've released one final release (<a href="https://github.com/fruux/sabre-dav/releases/tag/2.1.11">2.1.11</a>) with some last final tweaks,
+but you're strongly urged to upgrade to at least 3.0, and preferably 3.2.</p>
+
+<p>For more information about the support schedule, and for upgrade instructions,
+check out the <a href="/dav/upgrading/">upgrading</a> page.</p>
+
+<p>Because this is the last release to use the (relatively unpopular) sabre/http
+3.x package, this also marks sabre/http 3.x as EOL.</p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/uri 2 released]]></title>
             <link href="http://sabre.io/blog/2016/sabre-uri-2.0.0-release"/>
@@ -466,37 +484,6 @@ system for stricter checking input data.</p>
 </code></pre>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.1.1/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 4.1.0 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-vobject-4.1.0-release"/>
-            <updated>2016-04-07T00:56:03+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-vobject-4.1.0-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 4.1.0. This release is fully compatible with
-the 4.0.x series.</p>
-
-<p>This release adds a <code>Sabre\VObject\PHPUnitAssertions</code> trait that, for now,
-contains a <code>assertVObjectEqualsVObject()</code> function. This functions works
-similar to PHPUnit's built-in <code>assertXmlStringEqualsXmlString()</code>, and can be
-used by implementors to check if two iCalendar objects or vCards are identical
-semantically.</p>
-
-<p>It also contains a number of other fixes:</p>
-
-<ul>
-<li>When doing recurrence expansion, the first event now also have a
-<code>RECURRENCE-ID</code> property.</li>
-<li>Fixes a bug in processing iTip REPLYs to recurring events.</li>
-<li>Better error messages and improved validation in a number of areas.</li>
-</ul>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.1.0/CHANGELOG.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

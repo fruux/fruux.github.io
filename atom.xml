@@ -3,9 +3,29 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-10-07T04:46:17+00:00</updated>
+    <updated>2016-10-09T23:05:38+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/xml 1.5.0 released]]></title>
+            <link href="http://sabre.io/blog/2016/sabre-xml-1.5.0-release"/>
+            <updated>2016-10-09T23:04:39+00:00</updated>
+            <id>http://sabre.io/blog/2016/sabre-xml-1.5.0-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/xml 1.5.0. This release puts the minimim PHP version at
+PHP 5.5.</p>
+
+<p>This release fixes an infinite loop bug during parsing of some invalid XML
+documents, and contains an improvement in how we're dealing with the "context
+stack", thanks to the PHP 5.5 <code>finally</code> keyword. Upgrading is recommended.</p>
+
+<p>Upgrade sabre/xml by running:</p>
+
+<pre><code>composer update sabre/xml
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-xml/blob/1.5.0/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 2.1 End of life]]></title>
             <link href="http://sabre.io/blog/2016/sabre-dav-2.1-eol"/>
@@ -457,32 +477,6 @@ instances falling on the same day.</p>
 </code></pre>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/3.5.3/Changelog.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 3.1.3 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-dav-3.1.3-release"/>
-            <updated>2016-04-07T01:10:02+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-dav-3.1.3-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 3.1.3. This release contains the following changes:</p>
-
-<ul>
-<li>We now require libxml 2.7.0 in composer. We always needed this as a minumum
-version, but this was not correctly marked.</li>
-<li>Fixed an issue in the MySQL table structure for calendars. There was not
-enough space to make a calendar to be able to hold events, todos and
-journals all at once.</li>
-<li>Upgraded sabre/vobject, this will fix a number of scheduling-related bugs.</li>
-</ul>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.1.3/CHANGELOG.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

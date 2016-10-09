@@ -139,6 +139,10 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Jan. 6th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-http-4.2.1-release">sabre/http 4.2.1 released</a></h1>
+                    <p>We just released sabre/http 4.2.1.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Jan. 4th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-http-4.2.0-released">sabre/http 4.2.0 released</a></h1>
                     <p>We just released sabre/http 4.2.0.</article>
@@ -154,10 +158,6 @@
                     <time>Jan. 4th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-dav-2.1.8-released">sabre/dav 2.1.8 released</a></h1>
                     <p>We just released sabre/dav 2.1.8</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jan. 4th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-3.4.8-release">sabre/vobject 3.4.8 release</a></h1>
-                    <p>We just released sabre/vobject 3.4.8.</article>
                                     </section>
     </div>
 </div>

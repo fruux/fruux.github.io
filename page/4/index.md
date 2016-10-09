@@ -139,6 +139,12 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Mar. 30th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/dav-sharing">CalDAV, CardDAV and WebDAV sharing</a></h1>
+                    <p>CalDAV/CardDAV sharing is something <a href="https://github.com/fruux/sabre-dav/pull/696">we've worked on</a> for quite some time.
+Our goal is to have out of the box CalDAV sharing working in the next sabre/dav
+version</article>
+                <hr />                            <article class="blog-entry">
                     <time>Mar. 15th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/baikal-0.4.0-release">Baïkal 0.4.0 released</a></h1>
                     <p>We just released Baïkal 0.4.0. This release contains a number of changes that
@@ -158,13 +164,6 @@ changes:</article>
                     <time>Mar. 12th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.8-release">sabre/dav 3.0.8 released</a></h1>
                     <p>We just released sabre/dav 3.0.8. This release contains the following changes:</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Mar. 12th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-xml-1.4.1-release">sabre/xml 1.4.1 released</a></h1>
-                    <p>We just released sabre/xml 1.4.1. This release contains an improvement in
-parsing clark-notation strings. We now cache the result of these, which can
-result in significant speed-ups for large documents with lots of repeating
-xml element names.</article>
                                     </section>
     </div>
 </div>

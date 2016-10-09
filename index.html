@@ -139,6 +139,11 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Oct. 9th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-xml-1.5.0-release">sabre/xml 1.5.0 released</a></h1>
+                    <p>We just released sabre/xml 1.5.0. This release puts the minimim PHP version at
+PHP 5.5.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Oct. 7th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-dav-2.1-eol">sabre/dav 2.1 End of life</a></h1>
                     <p>sabre/dav 2.1 is now "end of life". This means that no more bugs will be
@@ -158,12 +163,6 @@ seamless.</article>
                     <h1><a href="http://sabre.io/blog/2016/baikal-0.4.6-release">Baïkal 0.4.6 released</a></h1>
                     <p>We just released Baïkal 0.4.6. This release contains a fix that prevented
 some users froms syncing contacts, if they were using the SQLite backend.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jun. 28th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.2.0-release">sabre/dav 3.2.0 released</a></h1>
-                    <p>We just released sabre/dav 3.2.0.
-This is a major new version, and we're very excited to bring you features
-we've been working on since last winter.</article>
                                     </section>
     </div>
 </div>

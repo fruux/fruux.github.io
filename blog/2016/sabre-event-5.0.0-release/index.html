@@ -42,7 +42,7 @@
         <main>
                 <article>
                 <article class="blog-entry">
-        <time>October 24th, 2016</time>
+        <time>October 23rd, 2016</time>
         <h1>sabre/event 5 released</h1>
         <div>
             <p>We just released sabre/event 5.0.0. This is only a month after the last major
@@ -63,13 +63,13 @@ anything like this:</p>
 <p>To work with this limitation in coroutines, we treated the last value that
 was passed with <code>yield</code> as the "returned value".</p>
 
-<p>Since PHP 7 it is possible to use return and the PHP Generator object has a
+<p>Since PHP 7 it is possible to use <code>return</code> and the PHP Generator object has a
 <code>getReturn()</code> method to access it.</p>
 
 <p>We missed this in sabre/event 4, but it was quickly pointed out by Felix
 Becker.</p>
 
-<p>Using return makes so much sense now we can, it was worth making a BC break
+<p>Using <code>return</code> makes so much sense now we can, it was worth making a BC break
 for and releasing sabre/event 5 with the more sane behavior for PHP 7.</p>
 
 <p>So today there's a sabre/event 5, and the only change is that if the previous

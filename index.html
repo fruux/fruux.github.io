@@ -139,6 +139,12 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Nov. 16th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-xml-2.0.0-release">sabre/xml 2 released</a></h1>
+                    <p>We just released sabre/xml 2.0.0.  Just like the major sabre/uri and
+sabre/event releases earlier, the main change is that we now require PHP 7
+and use strict typing across the board.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Oct. 23rd, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-event-5.0.0-release">sabre/event 5 released</a></h1>
                     <p>We just released sabre/event 5.0.0. This is only a month after the last major
@@ -159,10 +165,6 @@ fixed, including security bugs.</article>
                     <p>We just released sabre/uri 2.0. The sole change in this package is that it now
 requires PHP 7 and has typehints where appropriate. Upgrading should be
 seamless.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Sep. 20th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-event-4.0.0-release">sabre/event 4 released</a></h1>
-                    <p>We just released sabre/event 4.0.0.</article>
                                     </section>
     </div>
 </div>

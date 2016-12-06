@@ -3,9 +3,32 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2016-11-16T06:06:14+00:00</updated>
+    <updated>2016-12-06T04:21:42+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 4.1.2 released]]></title>
+            <link href="http://sabre.io/blog/2016/sabre-vobject-4.1.2-release"/>
+            <updated>2016-12-13T04:19:17+00:00</updated>
+            <id>http://sabre.io/blog/2016/sabre-vobject-4.1.2-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 4.1.2.</p>
+
+<p>This release adds a few new features, and fixes several issues:</p>
+
+<ol>
+<li>Support for <code>BYWEEKDAY</code> and <code>BYWEEKNO</code> recurrences when <code>FREQ=YEARLY</code>.</li>
+<li>Support for more Windows and Outlook 365 timezone ID's.</li>
+<li>Fixing a problem with all-day events in the recurrence iterator.</li>
+</ol>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.1.2/Changelog.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/xml 2 released]]></title>
             <link href="http://sabre.io/blog/2016/sabre-xml-2.0.0-release"/>
@@ -368,26 +391,6 @@ subsystems (CardDAV, CalDAV, etc).</p>
 <p>My advice for people that <em>require</em> the notification subsystem for now is to
 stick to 3.1 until we have a complete replacement. Some shifts will likely
 happen until we land on a design we're actually happy with.</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 3.1.4 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-dav-3.1.4-release"/>
-            <updated>2016-05-29T01:05:59+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-dav-3.1.4-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 3.1.4.</p>
-
-<p>This release improves CardDAV sync performance. For large addressbooks, the
-initial sync can be up to 50% faster.</p>
-
-<p>Upgrade sabre/dav by running:</p>
-
-<pre><code>composer update sabre/dav
-</code></pre>
-
-<p>Or download the zip from the <a href="https://github.com/fruux/sabre-dav/releases">releases</a> page.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.1.4/CHANGELOG.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

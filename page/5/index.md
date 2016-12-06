@@ -140,6 +140,10 @@
             <h1>News</h1>
                             <article class="blog-entry">
                     <time>Mar. 13th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.2-release">sabre/dav 3.1.2 released</a></h1>
+                    <p>We just released sabre/dav 3.1.2. This release contains the following changes:</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Mar. 13th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.0.3-release">sabre/vobject 4.0.3 released</a></h1>
                     <p>We just released sabre/vobject 4.0.3. This release contains the following
 changes:</article>
@@ -161,10 +165,6 @@ xml element names.</article>
 cleaning up sync logs after deleting address books. This bug could in some
 rare circumstances cause clients to not see some changes for (unrelated)
 address books.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Feb. 15th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/baikal-joins-sabre-io">Baïkal joins sabre.io</a></h1>
-                    <p><img src="/img/baikal.png" style="width: 100%; max-width: 300px; float: right; padding: 10px" /></article>
                                     </section>
     </div>
 </div>

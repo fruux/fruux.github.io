@@ -139,27 +139,10 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
-                    <time>Jan. 4th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.0.1-release">sabre/vobject 4.0.1 release</a></h1>
-                    <p>We just released sabre/vobject 4.0.1.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jan. 4th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.6-released">sabre/dav 3.0.6 released</a></h1>
-                    <p>We just released sabre/dav 3.0.6.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jan. 4th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-2.1.8-released">sabre/dav 2.1.8 released</a></h1>
-                    <p>We just released sabre/dav 2.1.8</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jan. 4th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-3.4.8-release">sabre/vobject 3.4.8 release</a></h1>
-                    <p>We just released sabre/vobject 3.4.8.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Dec. 29th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-xml-1.3-released">sabre/xml 1.3 released</a></h1>
-                    <p>We just released sabre/xml 1.3. This release is a fairly big update from the
-1.2 series. It's 100% backwards compatible, but adds a number of exciting
-features:</article>
+                    <time>Mar. 31st, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/new-website">New website launched!</a></h1>
+                    <p>You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
+never had a proper website, and we've always just hosted from Google Code.</article>
                                     </section>
     </div>
 </div>
@@ -189,9 +172,9 @@ ga('send', 'pageview');
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/page/8';
+    var disqus_identifier = '/page/21';
     var disqus_title = '';
-    var disqus_url = 'http://sabre.io/page/8';
+    var disqus_url = 'http://sabre.io/page/21';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

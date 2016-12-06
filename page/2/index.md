@@ -139,6 +139,12 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Oct. 7th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-uri-2.0.0-release">sabre/uri 2 released</a></h1>
+                    <p>We just released sabre/uri 2.0. The sole change in this package is that it now
+requires PHP 7 and has typehints where appropriate. Upgrading should be
+seamless.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Sep. 20th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-event-4.0.0-release">sabre/event 4 released</a></h1>
                     <p>We just released sabre/event 4.0.0.</article>
@@ -158,10 +164,6 @@ we've been working on since last winter.</article>
                     <h1><a href="http://sabre.io/blog/2016/sharing-changes">Changes to sharing in sabre/dav 3.2</a></h1>
                     <p>We are currently working on sabre/dav 3.2. <a href="http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt">A first beta has been released</a>.
 This release includes major changes to the sharing system.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>May. 29th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.4-release">sabre/dav 3.1.4 released</a></h1>
-                    <p>We just released sabre/dav 3.1.4.</article>
                                     </section>
     </div>
 </div>

@@ -45,6 +45,30 @@
                 <p></p>
 
 <article class="blog-entry">
+    <time>December 7th, 2016</time>
+    <h1><a href="http://sabre.io/blog/2016/sabre-uri-2.1.0-1.2.0-release">sabre/uri 2.1.0 and 1.2.0 released</a></h1>
+    <p>We just released sabre/uri 2.1.0 and 1.2.0. This release adds a new pure-php
+fallback parser for uris to work around two problems with PHP's <code>parse_url()</code>,
+which had trouble with uris that start with a <code>scheme:///</code> (triple-slash) and
+relative uri containing an unencoded colon.</p>
+
+<p>2.1.0 and 1.2.0 have an identical API, the only difference is that 2.1.0 uses
+strict PHP 7 typehints and 1.2.0 supports older PHP versions.</p>
+
+<p>To upgrade sabre/uri, make sure your <code>composer.json</code> requires "^2.1" for
+sabre/uri and run <code>composer update</code>.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-uri/blob/2.1.0/CHANGELOG.md">Github</a></p>
+
+</article>
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
     <time>December 6th, 2016</time>
     <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.1.2-release">sabre/vobject 4.1.2 released</a></h1>
     <p>We just released sabre/vobject 4.1.2.</p>

@@ -140,6 +140,11 @@
             <h1>News</h1>
                             <article class="blog-entry">
                     <time>Oct. 7th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-2.1-eol">sabre/dav 2.1 End of life</a></h1>
+                    <p>sabre/dav 2.1 is now "end of life". This means that no more bugs will be
+fixed, including security bugs.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Oct. 7th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-uri-2.0.0-release">sabre/uri 2 released</a></h1>
                     <p>We just released sabre/uri 2.0. The sole change in this package is that it now
 requires PHP 7 and has typehints where appropriate. Upgrading should be
@@ -159,11 +164,6 @@ some users froms syncing contacts, if they were using the SQLite backend.</artic
                     <p>We just released sabre/dav 3.2.0.
 This is a major new version, and we're very excited to bring you features
 we've been working on since last winter.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>May. 29th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sharing-changes">Changes to sharing in sabre/dav 3.2</a></h1>
-                    <p>We are currently working on sabre/dav 3.2. <a href="http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt">A first beta has been released</a>.
-This release includes major changes to the sharing system.</article>
                                     </section>
     </div>
 </div>

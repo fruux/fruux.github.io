@@ -3,7 +3,7 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2017-01-02T19:45:37+00:00</updated>
+    <updated>2017-01-02T19:47:17+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -11,7 +11,9 @@
             <link href="http://sabre.io/blog/2016/sabre-http-4.2.2-release"/>
             <updated>2016-12-07T18:43:40+00:00</updated>
             <id>http://sabre.io/blog/2016/sabre-http-4.2.2-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/http 4.2.2. This release adds a workaround for several
+            <content type="html"><![CDATA[<p>Happy 2017!</p>
+
+<p>We just released sabre/http 4.2.2. This release adds a workaround for several
 broken HTTP client implementations, that send invalid <code>Content-Length</code> headers.</p>
 
 <p>This should improve general compatibility with no further side-effects.</p>

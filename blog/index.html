@@ -46,6 +46,27 @@
 
 <article class="blog-entry">
     <time>December 7th, 2016</time>
+    <h1><a href="http://sabre.io/blog/2016/sabre-http-4.2.2-release">sabre/http 4.2.2 released</a></h1>
+    <p>We just released sabre/http 4.2.2. This release adds a workaround for several
+broken HTTP client implementations, that send invalid <code>Content-Length</code> headers.</p>
+
+<p>This should improve general compatibility with no further side-effects.</p>
+
+<p>To upgrade sabre/http, make sure your <code>composer.json</code> requires "^4.2" for
+sabre/http and run <code>composer update</code>.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/4.2.2/CHANGELOG.md">Github</a></p>
+
+</article>
+
+<p></p>
+
+<hr />
+
+<p></p>
+
+<article class="blog-entry">
+    <time>December 7th, 2016</time>
     <h1><a href="http://sabre.io/blog/2016/sabre-uri-2.1.0-1.2.0-release">sabre/uri 2.1.0 and 1.2.0 released</a></h1>
     <p>We just released sabre/uri 2.1.0 and 1.2.0. This release adds a new pure-php
 fallback parser for uris to work around two problems with PHP's <code>parse_url()</code>,

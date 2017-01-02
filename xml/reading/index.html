@@ -256,7 +256,7 @@ matches that specific namespace.</p>
 
 <pre><code>$service = new Sabre\Xml\Service();
 $service-&gt;elementMap = [
-    '{http://example.org/books}book' =&gt; function(Reader $reader) {
+    '{http://example.org/books}book' =&gt; function(Sabre\Xml\Reader $reader) {
         return Sabre\Xml\Deserializer\keyValue($reader, 'http://example.org/books');
     }
 ];
@@ -311,10 +311,10 @@ an even simpler array:</p>
 
 <pre><code>$service = new Sabre\Xml\Service();
 $service-&gt;elementMap = [
-    '{http://example.org/books}book' =&gt; function(Reader $reader) {
+    '{http://example.org/books}book' =&gt; function(Sabre\Xml\Reader $reader) {
         return Sabre\Xml\Deserializer\keyValue($reader, 'http://example.org/books');
     },
-    '{http://example.org/books}books' =&gt; function(Reader $reader) {
+    '{http://example.org/books}books' =&gt; function(Sabre\Xml\Reader $reader) {
         return Sabre\Xml\Deserializer\repeatingElements($reader, '{http://example.org/books}book');
     },
 ];
@@ -389,7 +389,7 @@ print_r($result);
 stripped out. Example:</p>
 
 <pre><code>$service = new Sabre\Xml\Service();
-$service-&gt;elementMap['{urn:fruit}fruit'] = function($reader) {
+$service-&gt;elementMap['{urn:fruit}fruit'] = function(Sabre\Xml\Reader $reader) {
     return Sabre\Xml\Deserializer\enum($reader, 'urn:fruit');
 };
 $result = $service-&gt;parse($xml);
@@ -409,7 +409,7 @@ print_r($result);
 
 <h3 id="repeatingelements">repeatingElements</h3>
 
-<pre><code>Sabre\Xml\Deserializer\repeatingElements(Reader $reader, $childElementName);
+<pre><code>Sabre\Xml\Deserializer\repeatingElements(Sabre\Xml\Reader $reader, $childElementName);
 </code></pre>
 
 <p>repeatingElements is specifically tailored for XML structures that look like this:</p>
@@ -495,7 +495,7 @@ their respective XML elements:</p>
 <pre><code>$service = new Sabre\Xml\Service();
 $service-&gt;elementMap = [
     // handle a collection of books
-    '{http://example.org/books}books' =&gt; function($reader) {
+    '{http://example.org/books}books' =&gt; function(Sabre\Xml\Reader $reader) {
         $books = new Books();
         $children = $reader-&gt;parseInnerTree();
         foreach($children as $child) {
@@ -506,7 +506,7 @@ $service-&gt;elementMap = [
         return $books;
     },
     // handle a single book
-    '{http://example.org/books}book' =&gt; function($reader) {
+    '{http://example.org/books}book' =&gt; function(Sabre\Xml\Reader $reader) {
         $book = new Book();
         // Borrowing a parser from the KeyValue class.
         $keyValue = Sabre\Xml\Deserializer\keyValue($reader, 'http://example.org/books');
@@ -800,7 +800,7 @@ ga('send', 'pageview');
 
     <nav>
         <ul>
-            <li>© 2016 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li>© 2017 <a href="https://fruux.com">fruux GmbH</a> · </li>
             <li><a href="http://sabre.io/support">Contact</a> · </li>
             <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>

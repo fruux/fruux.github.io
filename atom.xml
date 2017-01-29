@@ -3,9 +3,28 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2017-01-03T23:35:30+00:00</updated>
+    <updated>2017-01-29T18:46:31+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 3.2.1 released]]></title>
+            <link href="http://sabre.io/blog/2017/sabre-dav-3.2.1-release"/>
+            <updated>2017-01-29T18:40:41+00:00</updated>
+            <id>http://sabre.io/blog/2017/sabre-dav-3.2.1-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 3.2.1. This release improves syncing large calendars
+when using SQLite and adds a new feature that allows CarDAV clients to use
+property-filters when requesting addressbooks (thanks @DeepDiver1975).</p>
+
+<p>If you're a user of the zip distribution, this release also updates all the
+dependencies so you get a number of bug fixes and performance improvements from
+those too.</p>
+
+<p>To upgrade sabre/http, make sure your <code>composer.json</code> requires "^3.2" for
+sabre/dav and run <code>composer update</code>.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.2.1/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/http 4.2.2 released]]></title>
             <link href="http://sabre.io/blog/2016/sabre-http-4.2.2-release"/>
@@ -211,19 +230,6 @@ appear there though, as it's a fairly simple package.</p>
 
 <p>To upgrade sabre/event, make sure your <code>composer.json</code> requires "^4.0" for
 sabre/event.</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[Baïkal 0.4.6 released]]></title>
-            <link href="http://sabre.io/blog/2016/baikal-0.4.6-release"/>
-            <updated>2016-08-19T13:12:50+00:00</updated>
-            <id>http://sabre.io/blog/2016/baikal-0.4.6-release</id>
-            <content type="html"><![CDATA[<p>We just released Baïkal 0.4.6. This release contains a fix that prevented
-some users froms syncing contacts, if they were using the SQLite backend.</p>
-
-<p>Upgrading is recommended.</p>
-
-<p>Read the <a href="/baikal/upgrade/" title="Upgrade instructions">upgrade instructions here</a>. Full changelog can be found on <a href="https://github.com/fruux/Baikal/blob/0.4.6/CHANGELOG.md" title="Change log">Github</a></p>
 ]]></content>
         </entry>
     </feed>

@@ -3,7 +3,7 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2017-01-29T18:46:31+00:00</updated>
+    <updated>2017-02-15T00:23:48+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -12,7 +12,7 @@
             <updated>2017-01-29T18:40:41+00:00</updated>
             <id>http://sabre.io/blog/2017/sabre-dav-3.2.1-release</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 3.2.1. This release improves syncing large calendars
-when using SQLite and adds a new feature that allows CarDAV clients to use
+when using SQLite and adds a new feature that allows CardDAV clients to use
 property-filters when requesting addressbooks (thanks @DeepDiver1975).</p>
 
 <p>If you're a user of the zip distribution, this release also updates all the

@@ -3,9 +3,25 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2017-02-15T00:55:30+00:00</updated>
+    <updated>2017-02-15T02:47:51+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 3.2.2 released]]></title>
+            <link href="http://sabre.io/blog/2017/sabre-dav-3.2.2-release"/>
+            <updated>2017-02-15T02:45:34+00:00</updated>
+            <id>http://sabre.io/blog/2017/sabre-dav-3.2.2-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 3.2.2. This release fixes a regression introduced
+with sabre/dav 3.2.1 related to CardDAV synchronization.</p>
+
+<p>At the very least Em Client was affected by this.</p>
+
+<p>To upgrade sabre/http, make sure your <code>composer.json</code> requires "^3.2" for
+sabre/dav and run <code>composer update</code>.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.2.2/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 3.2.1 released]]></title>
             <link href="http://sabre.io/blog/2017/sabre-dav-3.2.1-release"/>
@@ -197,39 +213,6 @@ seamless.</p>
 
 <p>To upgrade sabre/uri, make sure your <code>composer.json</code> requires "^2.0" for
 sabre/uri and run <code>composer update</code>.</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/event 4 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-event-4.0.0-release"/>
-            <updated>2016-09-20T02:42:15+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-event-4.0.0-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/event 4.0.0.</p>
-
-<p>This release requires PHP 7, and has the following new features:</p>
-
-<ul>
-<li>PHP 7 typehints where they make sense, <code>strict_types</code> used everywhere.</li>
-<li>Support for a new <code>WildcardEmitter</code> this Emitter has the same interface as
-the regular <code>Emitter</code>, but it allows you to listen for events such as
-<code>updated:*</code>, which would get triggered for any event that starts with
-<code>updated:</code>.</li>
-<li><code>EventEmitter</code>, <code>EventEmitterTrait</code> and <code>EventEmitterInterface</code> are renamed
-to <code>Emitter</code>, <code>EmitterTrait</code> and <code>EmitterInterface</code>.</li>
-<li>Promises now correctly handle PHP 7 <code>Trowable</code>.</li>
-<li>Promises <em>must</em> now be rejected by an object implementing <code>Trowable</code>. In the
-past it was possible to reject a Promise with any value (like Javascript),
-but unlike Javascript, you can't throw a string in PHP. I felt that this
-made the Promise a bit more predictable.</li>
-</ul>
-
-<h3 id="php-5.5">PHP 5.5</h3>
-
-<p>sabre/event 3 will continue to be supported. I don't suspect new bugs will
-appear there though, as it's a fairly simple package.</p>
-
-<p>To upgrade sabre/event, make sure your <code>composer.json</code> requires "^4.0" for
-sabre/event.</p>
 ]]></content>
         </entry>
     </feed>

@@ -139,6 +139,11 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Feb. 14th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-xml-1.4.0-release">sabre/xml 1.4.0 released</a></h1>
+                    <p>We just released sabre/xml 1.4.0. This release fixes a number of problems
+related to serializing value objects, and in particular array properties.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Jan. 25th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.1-release">sabre/dav 3.1.1 released</a></h1>
                     <p>We just released sabre/dav 3.1.1. This release fixes a regression
@@ -160,10 +165,6 @@ released sabre/dav 3.0.7. This release supports PHP 7.</article>
                     <h1><a href="http://sabre.io/blog/2016/sabre-vobject-3.4.9-and-3.5.0-release">sabre/vobject 3.4.9 and 3.5.0 release</a></h1>
                     <p>In a reversal of an earlier statement, we're releasing a sabre/vobject 3.x
 version with PHP 7 support.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jan. 11th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.0.2-release">sabre/vobject 4.0.2 release</a></h1>
-                    <p>We just released sabre/vobject 4.0.2.</article>
                                     </section>
     </div>
 </div>

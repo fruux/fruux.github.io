@@ -187,6 +187,10 @@ $server-&gt;addPlugin($authPlugin);
 $caldavPlugin = new CalDAV\Plugin();
 $server-&gt;addPlugin($caldavPlugin);
 
+// CardDAV plugin
+$carddavPlugin = new CardDAV\Plugin();
+$server-&gt;addPlugin($carddavPlugin);
+
 // ACL plugin
 $aclPlugin = new DAVACL\Plugin();
 $server-&gt;addPlugin($aclPlugin);

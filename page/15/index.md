@@ -139,6 +139,12 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Apr. 1st, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/launching-an-xml-library-for-php">A new XML library for PHP</a></h1>
+                    <p>Dealing with XML is annoying to many, and certainly us. We've tried many
+different approaches to make working with XML less frustrating, and we've
+finally landed on an approach that we're happy with.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Feb. 25th, 2015</time>
                     <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.1.3-released">sabre/dav 2.1.3 released</a></h1>
                     <p>We just released sabre/dav 2.1.3.</article>
@@ -157,10 +163,6 @@ improvements and bugfixes.</article>
                     <p>We just released version 1.0.0 of a new URI library. This library solves a
 few common problems we've been having, or simply did not do well enough in
 the past.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jan. 9th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.3.5-release">sabre/vobject 3.3.5 release</a></h1>
-                    <p>We just released sabre/vobject 3.3.5.</article>
                                     </section>
     </div>
 </div>
@@ -187,21 +189,7 @@ ga('create', 'UA-2848664-5', 'sabre.io');
 ga('send', 'pageview');
 </script>
 
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/page/15';
-    var disqus_title = '';
-    var disqus_url = 'http://sabre.io/page/15';
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-     })();
- </script>
-
+    
     <footer>
 
     <nav>

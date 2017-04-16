@@ -139,6 +139,10 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Jul. 14th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.4-release">sabre/vobject 3.2.4 release</a></h1>
+                    <p>We just released sabre/vobject 3.2.4.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Jun. 24th, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0">sabre/event 2.0 release</a></h1>
                     <p>We just released sabre/event 2.0.0. This releases adds a few features, and
@@ -156,10 +160,6 @@ also slightly alters the API.</article>
                     <h1><a href="http://sabre.io/blog/2014/sabre-event-1.0.1-release">sabre/event 1.0.1 release</a></h1>
                     <p>We just released sabre/event 1.0.1. A bug prevented the <code>EventEmitter</code> trait
 to work on PHP versions older than 5.4.14.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Jun. 2nd, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/jcal-rfc">jCal released as rfc7265</a></h1>
-                    <p>The IETF just made <a href="http://tools.ietf.org/html/rfc7265">jCal</a> available as <a href="http://tools.ietf.org/html/rfc7265">rfc7265</a></article>
                                     </section>
     </div>
 </div>
@@ -186,21 +186,7 @@ ga('create', 'UA-2848664-5', 'sabre.io');
 ga('send', 'pageview');
 </script>
 
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/page/20';
-    var disqus_title = '';
-    var disqus_url = 'http://sabre.io/page/20';
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-     })();
- </script>
-
+    
     <footer>
 
     <nav>

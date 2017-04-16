@@ -139,6 +139,10 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Jan. 9th, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.3.5-release">sabre/vobject 3.3.5 release</a></h1>
+                    <p>We just released sabre/vobject 3.3.5.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Dec. 10th, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1.2-released">sabre/dav 2.1.2 released</a></h1>
                     <p>We just released sabre/dav 2.1.2.</article>
@@ -154,10 +158,6 @@
                     <time>Dec. 10th, 2014</time>
                     <h1><a href="http://sabre.io/blog/2014/sabre-http-3.0.4-release">sabre/http 3.0.4 release</a></h1>
                     <p>We just released sabre/http 3.0.4.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Dec. 2nd, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/per-user-directories-tutorial">New tutorial: Per-user directories</a></h1>
-                    <p>A commonly asked question on the mailing list, is:</article>
                                     </section>
     </div>
 </div>
@@ -184,21 +184,7 @@ ga('create', 'UA-2848664-5', 'sabre.io');
 ga('send', 'pageview');
 </script>
 
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/page/16';
-    var disqus_title = '';
-    var disqus_url = 'http://sabre.io/page/16';
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-     })();
- </script>
-
+    
     <footer>
 
     <nav>

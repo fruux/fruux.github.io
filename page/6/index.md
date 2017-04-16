@@ -140,6 +140,10 @@
             <h1>News</h1>
                             <article class="blog-entry">
                     <time>Mar. 13th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.2-release">sabre/dav 3.1.2 released</a></h1>
+                    <p>We just released sabre/dav 3.1.2. This release contains the following changes:</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Mar. 13th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.0.3-release">sabre/vobject 4.0.3 released</a></h1>
                     <p>We just released sabre/vobject 4.0.3. This release contains the following
 changes:</article>
@@ -161,10 +165,6 @@ xml element names.</article>
 cleaning up sync logs after deleting address books. This bug could in some
 rare circumstances cause clients to not see some changes for (unrelated)
 address books.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Feb. 15th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/baikal-joins-sabre-io">Baïkal joins sabre.io</a></h1>
-                    <p><img src="/img/baikal.png" style="width: 100%; max-width: 300px; float: right; padding: 10px" /></article>
                                     </section>
     </div>
 </div>
@@ -191,21 +191,7 @@ ga('create', 'UA-2848664-5', 'sabre.io');
 ga('send', 'pageview');
 </script>
 
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/page/6';
-    var disqus_title = '';
-    var disqus_url = 'http://sabre.io/page/6';
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-     })();
- </script>
-
+    
     <footer>
 
     <nav>

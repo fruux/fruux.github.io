@@ -140,6 +140,11 @@
             <h1>News</h1>
                             <article class="blog-entry">
                     <time>Apr. 7th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.1.0-release">sabre/vobject 4.1.0 released</a></h1>
+                    <p>We just released sabre/vobject 4.1.0. This release is fully compatible with
+the 4.0.x series.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Apr. 7th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.9-release">sabre/dav 3.0.9 released</a></h1>
                     <p>We just released sabre/dav 3.0.9. This release contains the following changes:</article>
                 <hr />                            <article class="blog-entry">
@@ -160,10 +165,6 @@ version</article>
 should improve the system for a number of users. The 0.3.x range of releases
 had seen a number of stability problems, due to a relatively big sabre/dav
 upgrade.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Mar. 13th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.2-release">sabre/dav 3.1.2 released</a></h1>
-                    <p>We just released sabre/dav 3.1.2. This release contains the following changes:</article>
                                     </section>
     </div>
 </div>
@@ -190,21 +191,7 @@ ga('create', 'UA-2848664-5', 'sabre.io');
 ga('send', 'pageview');
 </script>
 
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/page/5';
-    var disqus_title = '';
-    var disqus_url = 'http://sabre.io/page/5';
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-     })();
- </script>
-
+    
     <footer>
 
     <nav>

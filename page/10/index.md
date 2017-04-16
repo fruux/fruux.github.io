@@ -139,6 +139,12 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Dec. 12th, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-4.0-released">sabre/vobject 4 released</a></h1>
+                    <p>We just released sabre/vobject 4. This is a new major version, and comes with a
+number of new features and also BC breaking changes. The API is largely the
+same, but there are a few subtle differences.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Nov. 5th, 2015</time>
                     <h1><a href="http://sabre.io/blog/2015/sabre-event-3.0-released">sabre/event 3 released</a></h1>
                     <p>We just released sabre/event 3. This is a new major version, and comes with a
@@ -155,10 +161,6 @@ number of new features and also BC breaking changes.</article>
                     <time>Sep. 4th, 2015</time>
                     <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.1.7-released">sabre/dav 2.1.7 released</a></h1>
                     <p>We just released sabre/dav 2.1.7</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Sep. 4th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.4.7-release">sabre/vobject 3.4.7 release</a></h1>
-                    <p>We just released sabre/vobject 3.4.7.</article>
                                     </section>
     </div>
 </div>
@@ -185,21 +187,7 @@ ga('create', 'UA-2848664-5', 'sabre.io');
 ga('send', 'pageview');
 </script>
 
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'sabredav'; // required: replace example with your forum shortname
-    var disqus_identifier = '/page/10';
-    var disqus_title = '';
-    var disqus_url = 'http://sabre.io/page/10';
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-     })();
- </script>
-
+    
     <footer>
 
     <nav>

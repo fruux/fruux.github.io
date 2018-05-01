@@ -29,7 +29,7 @@
                 <li><a href="http://sabre.io/dav">Docs</a></li>
                 <li><a href="http://sabre.io/blog">Blog</a></li>
                 <li><a href="http://sabre.io/support">Support</a></li>
-                <li class="size-auto text--right"><a href="https://github.com/fruux?query=sabre"><i class="fa fa-github"></i></a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
                 <!-- <li><a href="http://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
             </ul>
         </nav>
@@ -137,7 +137,7 @@ not complete.</p>
 
 <h2 id="general-synchronization-concerns">General synchronization concerns</h2>
 
-<p>The primary formats for transfering information is <a href="https://tools.ietf.org/html/rfc5545">iCalendar</a> for
+<p>The primary formats for transferring information is <a href="https://tools.ietf.org/html/rfc5545">iCalendar</a> for
 calendar objects (events and tasks) and xml for most other data.</p>
 
 <p><a href="https://tools.ietf.org/html/rfc4791">CalDAV</a> is based on <a href="https://tools.ietf.org/html/rfc4918">WebDAV</a>, which itself is an extension
@@ -394,7 +394,7 @@ Content-Type: application/xml; charset=utf-8
 </code></pre>
 
 <p>Note that this last request is extremely similar to a previous one, but we are
-only asking fo the etag, not the calendar-data.</p>
+only asking for the etag, not the calendar-data.</p>
 
 <p>The reason for this, is that calendars can be rather huge. It will save a TON of
 bandwidth to only check the etag first.</p>
@@ -552,7 +552,8 @@ The process on a high-level is as follows:</p>
 <li>Server reports token <code>15</code>.</li>
 <li>Some time passes.</li>
 <li>Client does a Sync REPORT on an calendar, and supplied token <code>15</code>.</li>
-<li>Server returns vcard urls that have changed or have been deleted and returns token <code>17</code>.</li>
+<li>Server returns calendar object urls that have changed or have been deleted
+and returns token <code>17</code>.</li>
 </ol>
 
 <p>As you can see, after the initial sync, only items that have been created,
@@ -668,9 +669,9 @@ Content-Type: application/xml; charset="utf-8"
 </code></pre>
 
 <p>The last response reported two changes: <code>newevent.ics</code> and <code>updatedevent.ics</code>.
-There's no way to tell from the response wether those cards got created or
-updated, you, as a client can only infer this based on the vcards you are
-already aware of.</p>
+There's no way to tell from the response wether those calendar objects got 
+created or updated, you, as a client can only infer this based on the objects 
+you are already aware of.</p>
 
 <p>The entry with name <code>deletedevent.ics</code> got deleted as indicated by the <code>404</code>
 status. Note that the status element is here a child of <code>d:response</code> when in
@@ -899,7 +900,7 @@ ga('send', 'pageview');
 
     <nav>
         <ul>
-            <li>© 2017 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li>© 2018 <a href="https://fruux.com">fruux GmbH</a> · </li>
             <li><a href="http://sabre.io/support">Contact</a> · </li>
             <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>

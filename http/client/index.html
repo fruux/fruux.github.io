@@ -94,7 +94,7 @@ $response = $client-&gt;send($request);
 echo $response-&gt;getBodyAsString();
 </code></pre>
 
-<p>The client emits 3 events using <a href="https://github.com/fruux/sabre-event"><code>sabre/event</code></a>. <code>beforeRequest</code>,
+<p>The client emits 3 events using <a href="https://github.com/sabre-io/event"><code>sabre/event</code></a>. <code>beforeRequest</code>,
 <code>afterRequest</code> and <code>error</code>.</p>
 
 <pre><code>$client = new HTTP\Client();

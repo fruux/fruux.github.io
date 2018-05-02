@@ -3,7 +3,7 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2018-05-02T06:37:00+00:00</updated>
+    <updated>2018-05-02T06:50:43+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -206,7 +206,7 @@ with sabre/dav 3.2.1 related to CardDAV synchronization.</p>
 <p>To upgrade sabre/http, make sure your <code>composer.json</code> requires "^3.2" for
 sabre/dav and run <code>composer update</code>.</p>
 
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.2.2/CHANGELOG.md">Github</a></p>
+<p>Full changelog can be found on <a href="https://github.com/sabre-io/dav/blob/3.2.2/CHANGELOG.md">Github</a></p>
 ]]></content>
         </entry>
             <entry>
@@ -225,7 +225,7 @@ those too.</p>
 <p>To upgrade sabre/http, make sure your <code>composer.json</code> requires "^3.2" for
 sabre/dav and run <code>composer update</code>.</p>
 
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-dav/blob/3.2.1/CHANGELOG.md">Github</a></p>
+<p>Full changelog can be found on <a href="https://github.com/sabre-io/dav/blob/3.2.1/CHANGELOG.md">Github</a></p>
 ]]></content>
         </entry>
             <entry>
@@ -243,7 +243,7 @@ broken HTTP client implementations, that send invalid <code>Content-Length</code
 <p>To upgrade sabre/http, make sure your <code>composer.json</code> requires "^4.2" for
 sabre/http and run <code>composer update</code>.</p>
 
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/4.2.2/CHANGELOG.md">Github</a></p>
+<p>Full changelog can be found on <a href="https://github.com/sabre-io/http/blob/4.2.2/CHANGELOG.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

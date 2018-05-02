@@ -159,7 +159,7 @@ improvements:</article>
                 <hr />                            <article class="blog-entry">
                     <time>Mar. 30th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/dav-sharing">CalDAV, CardDAV and WebDAV sharing</a></h1>
-                    <p>CalDAV/CardDAV sharing is something <a href="https://github.com/fruux/sabre-dav/pull/696">we've worked on</a> for quite some time.
+                    <p>CalDAV/CardDAV sharing is something <a href="https://github.com/sabre-io/dav/pull/696">we've worked on</a> for quite some time.
 Our goal is to have out of the box CalDAV sharing working in the next sabre/dav
 version</article>
                                     </section>

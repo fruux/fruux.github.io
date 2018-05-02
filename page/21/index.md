@@ -139,29 +139,26 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
-                    <time>Jun. 2nd, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/jcal-rfc">jCal released as rfc7265</a></h1>
-                    <p>The IETF just made <a href="http://tools.ietf.org/html/rfc7265">jCal</a> available as <a href="http://tools.ietf.org/html/rfc7265">rfc7265</a></article>
+                    <time>Jul. 14th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-http-2.0.4-release">sabre/http 2.0.4 release</a></h1>
+                    <p>We just released sabre/http 2.0.4.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>May. 28th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabredav-2.0.1-release">sabre/dav 2.0.1 released</a></h1>
-                    <p>We just released sabre/dav 2.0.1. Two regressions have been found related
-to PROPFIND requests.</article>
+                    <time>Jul. 14th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.4-release">sabre/vobject 3.2.4 release</a></h1>
+                    <p>We just released sabre/vobject 3.2.4.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>May. 22nd, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabredav-2-release">sabre/dav 2.0 released</a></h1>
-                    <p>We just released sabre/dav 2.0. The last major release (1.8) was in <a href="http://evertpot.com/sabredav-18-released-with-namespaces/">2012</a>,
-so it's been a long time coming.</article>
+                    <time>Jun. 24th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-event-2.0">sabre/event 2.0 release</a></h1>
+                    <p>We just released sabre/event 2.0.0. This releases adds a few features, and
+also slightly alters the API.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>May. 16th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabredav-1.8.10">sabre/dav 1.7.12 and 1.8.10 released</a></h1>
-                    <p>We just released sabre/dav 1.7.12 and 1.8.10. These two releases are mainly
-bugfix releases centering around two things:</article>
+                    <time>Jun. 12th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.2-release">sabre/dav 2.0.2 release</a></h1>
+                    <p>We just released sabre/dav 2.0.2.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Apr. 2nd, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/vobject-3.2">sabre/vobject 3.2 released</a></h1>
-                    <p>We just released sabre/vobject 3.2.0. This release is backwards compatible
-with the 3.1.* series.</article>
+                    <time>Jun. 12th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.2.3-release">sabre/vobject 3.2.3 release</a></h1>
+                    <p>We just released sabre/vobject 3.2.3.</article>
                                     </section>
     </div>
 </div>

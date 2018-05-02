@@ -139,26 +139,27 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
-                    <time>Dec. 2nd, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/per-user-directories-tutorial">New tutorial: Per-user directories</a></h1>
-                    <p>A commonly asked question on the mailing list, is:</article>
+                    <time>Jan. 27th, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/a-new-uri-handling-library">A new URI handling library</a></h1>
+                    <p>We just released version 1.0.0 of a new URI library. This library solves a
+few common problems we've been having, or simply did not do well enough in
+the past.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Nov. 22nd, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1.1-release">sabre/dav 2.1.1 release</a></h1>
-                    <p>We just released sabre/dav 2.1.1. Upgrading is highly recommended.</article>
+                    <time>Jan. 9th, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.3.5-release">sabre/vobject 3.3.5 release</a></h1>
+                    <p>We just released sabre/vobject 3.3.5.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Nov. 20th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1-release">sabre/dav 2.1 released</a></h1>
-                    <p>We just released sabre/dav version 2.1. This release comes about 6 months
-after the last major release, so that's nicely on track!</article>
+                    <time>Dec. 10th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1.2-released">sabre/dav 2.1.2 released</a></h1>
+                    <p>We just released sabre/dav 2.1.2.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Nov. 19th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.4-release">sabre/vobject 3.3.4 release</a></h1>
-                    <p>We just released sabre/vobject 3.3.4.</article>
+                    <time>Dec. 10th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.6-released">sabre/dav 2.0.6 released</a></h1>
+                    <p>We just released sabre/dav 2.0.6.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Oct. 14th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.5-release">sabre/dav 2.0.5 release</a></h1>
-                    <p>We just released sabre/dav 2.0.5. Upgrading is highly recommended.</article>
+                    <time>Dec. 10th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-1.8.11-release">sabre/dav 1.8.11 release</a></h1>
+                    <p>We just released sabre/dav 1.8.11.</article>
                                     </section>
     </div>
 </div>

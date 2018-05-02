@@ -139,31 +139,32 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
-                    <time>Feb. 15th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/baikal-joins-sabre-io">Baïkal joins sabre.io</a></h1>
-                    <p><img src="/img/baikal.png" style="width: 100%; max-width: 300px; float: right; padding: 10px" /></article>
+                    <time>Mar. 15th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/baikal-0.4.0-release">Baïkal 0.4.0 released</a></h1>
+                    <p>We just released Baïkal 0.4.0. This release contains a number of changes that
+should improve the system for a number of users. The 0.3.x range of releases
+had seen a number of stability problems, due to a relatively big sabre/dav
+upgrade.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Feb. 14th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-xml-1.4.0-release">sabre/xml 1.4.0 released</a></h1>
-                    <p>We just released sabre/xml 1.4.0. This release fixes a number of problems
-related to serializing value objects, and in particular array properties.</article>
+                    <time>Mar. 13th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.2-release">sabre/dav 3.1.2 released</a></h1>
+                    <p>We just released sabre/dav 3.1.2. This release contains the following changes:</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Jan. 25th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.1-release">sabre/dav 3.1.1 released</a></h1>
-                    <p>We just released sabre/dav 3.1.1. This release fixes a regression
-that prevented the browser plugin from working for people using both
-CalDAV scheduling and delegation.</article>
+                    <time>Mar. 13th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.0.3-release">sabre/vobject 4.0.3 released</a></h1>
+                    <p>We just released sabre/vobject 4.0.3. This release contains the following
+changes:</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Jan. 25th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-2.1.9-release">sabre/dav 2.1.9 released</a></h1>
-                    <p>We just released sabre/dav 2.1.9, which contains a fix to enable PHP 7
-support. This release includes sabre/vobject 3.5.0 which was also fixed
-to support PHP 7.</article>
+                    <time>Mar. 12th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.8-release">sabre/dav 3.0.8 released</a></h1>
+                    <p>We just released sabre/dav 3.0.8. This release contains the following changes:</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Jan. 12th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.7-release">sabre/dav 3.0.7 released</a></h1>
-                    <p>If you've been following this blog, you might have seen it coming. We just
-released sabre/dav 3.0.7. This release supports PHP 7.</article>
+                    <time>Mar. 12th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-xml-1.4.1-release">sabre/xml 1.4.1 released</a></h1>
+                    <p>We just released sabre/xml 1.4.1. This release contains an improvement in
+parsing clark-notation strings. We now cache the result of these, which can
+result in significant speed-ups for large documents with lots of repeating
+xml element names.</article>
                                     </section>
     </div>
 </div>

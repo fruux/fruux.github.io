@@ -3,9 +3,125 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2018-05-01T22:06:17+00:00</updated>
+    <updated>2018-05-02T06:37:00+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 4.1.6 released]]></title>
+            <link href="http://sabre.io/blog/2018/sabre-vobject-4.1.6-release"/>
+            <updated>2018-04-20T07:00:00+00:00</updated>
+            <id>http://sabre.io/blog/2018/sabre-vobject-4.1.6-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 4.1.6.</p>
+
+<p>This release adds a few new features, and fixes several issues:</p>
+
+<ol>
+<li>Serialization performance improvements.</li>
+<li>Fixes in iTip for handling <code>BYDAY=SA,SO</code>.</li>
+<li>Fixes in iTip handling of <code>SCHEDULE-FORCE-SEND</code>.</li>
+</ol>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/sabre-io/vobject/blob/4.1.6/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 4.1.5 released]]></title>
+            <link href="http://sabre.io/blog/2018/sabre-vobject-4.1.5-release"/>
+            <updated>2018-03-08T07:00:00+00:00</updated>
+            <id>http://sabre.io/blog/2018/sabre-vobject-4.1.5-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 4.1.5.</p>
+
+<p>This release improves serialization performance for long properties.</p>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/sabre-io/vobject/blob/4.1.5/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[sabre/xml 2.1.0 released]]></title>
+            <link href="http://sabre.io/blog/2018/sabre-xml-2.1.0-release"/>
+            <updated>2018-02-08T07:00:00+00:00</updated>
+            <id>http://sabre.io/blog/2018/sabre-xml-2.1.0-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/xml 2.1.0.</p>
+
+<p>This release adds a <code>mixedContent</code> deserializer function, which might be useful if you're parsing HTML-like documents with elements that contain both text and other elements as siblings.</p>
+
+<p>Upgrade sabre/xml by running:</p>
+
+<pre><code>composer update sabre/xml
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/sabre-io/xml/blob/2.1.0/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 4.1.4 released]]></title>
+            <link href="http://sabre.io/blog/2017/sabre-vobject-4.1.4-release"/>
+            <updated>2017-12-22T07:00:00+00:00</updated>
+            <id>http://sabre.io/blog/2017/sabre-vobject-4.1.4-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 4.1.4.</p>
+
+<p>This release adds a few new features, and fixes several issues:</p>
+
+<ol>
+<li>Fixed possible infinite loop in RRuleIterator.</li>
+<li>Improved significant change detection for CalDAV-Scheduling.</li>
+<li>Removed Canada/East-Saskatchewan timezone.</li>
+</ol>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/sabre-io/vobject/blob/4.1.4/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 4.1.3 released]]></title>
+            <link href="http://sabre.io/blog/2017/sabre-vobject-4.1.3-release"/>
+            <updated>2017-10-18T07:00:00+00:00</updated>
+            <id>http://sabre.io/blog/2017/sabre-vobject-4.1.3-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 4.1.3.</p>
+
+<p>This release adds a few new features, and fixes several issues:</p>
+
+<ol>
+<li>Support for fixing duplicate properties that are only allowed once.</li>
+<li>Added support for Pacific Time (US &amp; Canada) Exchange timezones.</li>
+<li>Added fallback for vCards without <code>FN</code> property.</li>
+</ol>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/sabre-io/vobject/blob/4.1.3/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[sabre/http 4.2.3 released]]></title>
+            <link href="http://sabre.io/blog/2017/sabre-http-4.2.3-release"/>
+            <updated>2017-06-12T07:00:00+00:00</updated>
+            <id>http://sabre.io/blog/2017/sabre-http-4.2.3-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/http 4.2.3. This release adds a workaround for the 4 GB filesize limitation on 32-bit systems.</p>
+
+<p>To upgrade sabre/http, make sure your <code>composer.json</code> requires "^4.2" for
+sabre/http and run <code>composer update</code>.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/sabre-io/http/blob/4.2.3/CHANGELOG.md">Github</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[Development of sabre/dav and related packages are indefinitely on hold]]></title>
             <link href="http://sabre.io/blog/2017/development-on-hold"/>
@@ -128,147 +244,6 @@ broken HTTP client implementations, that send invalid <code>Content-Length</code
 sabre/http and run <code>composer update</code>.</p>
 
 <p>Full changelog can be found on <a href="https://github.com/fruux/sabre-http/blob/4.2.2/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/uri 2.1.0 and 1.2.0 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-uri-2.1.0-1.2.0-release"/>
-            <updated>2016-12-07T00:59:19+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-uri-2.1.0-1.2.0-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/uri 2.1.0 and 1.2.0. This release adds a new pure-php
-fallback parser for uris to work around two problems with PHP's <code>parse_url()</code>,
-which had trouble with uris that start with a <code>scheme:///</code> (triple-slash) and
-relative uri containing an unencoded colon.</p>
-
-<p>2.1.0 and 1.2.0 have an identical API, the only difference is that 2.1.0 uses
-strict PHP 7 typehints and 1.2.0 supports older PHP versions.</p>
-
-<p>To upgrade sabre/uri, make sure your <code>composer.json</code> requires "^2.1" for
-sabre/uri and run <code>composer update</code>.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-uri/blob/2.1.0/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 4.1.2 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-vobject-4.1.2-release"/>
-            <updated>2016-12-06T04:19:17+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-vobject-4.1.2-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 4.1.2.</p>
-
-<p>This release adds a few new features, and fixes several issues:</p>
-
-<ol>
-<li>Support for <code>BYWEEKDAY</code> and <code>BYWEEKNO</code> recurrences when <code>FREQ=YEARLY</code>.</li>
-<li>Support for more Windows and Outlook 365 timezone ID's.</li>
-<li>Fixing a problem with all-day events in the recurrence iterator.</li>
-</ol>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-vobject/blob/4.1.2/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/xml 2 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-xml-2.0.0-release"/>
-            <updated>2016-11-16T05:58:46+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-xml-2.0.0-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/xml 2.0.0.  Just like the major sabre/uri and
-sabre/event releases earlier, the main change is that we now require PHP 7
-and use strict typing across the board.</p>
-
-<p>For most people this upgrade should be seamless. The exception is if your
-own code already opted-in to strict typing and you were sending incorrect
-types to sabre/xml.</p>
-
-<ul>
-<li><a href="https://github.com/fruux/sabre-xml/blob/2.0.0/CHANGELOG.md">Changelog</a>.</li>
-<li><a href="https://github.com/fruux/sabre-xml/releases">Release info</a>.</li>
-</ul>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/event 5 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-event-5.0.0-release"/>
-            <updated>2016-10-23T19:24:04+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-event-5.0.0-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/event 5.0.0. This is only a month after the last major
-release, but it's for a good reason.</p>
-
-<p>We've made a change in how coroutines work. Co-routines, which are based on
-generators were originally introduced in sabre/event for PHP 5.5.</p>
-
-<p>At the time it was not possible for a PHP generator function to return
-anything like this:</p>
-
-<pre><code>function foo() {
-    yield 1;
-    return 2;
-}
-</code></pre>
-
-<p>To work with this limitation in coroutines, we treated the last value that
-was passed with <code>yield</code> as the "returned value".</p>
-
-<p>Since PHP 7 it is possible to use <code>return</code> and the PHP Generator object has a
-<code>getReturn()</code> method to access it.</p>
-
-<p>We missed this in sabre/event 4, but it was quickly pointed out by Felix
-Becker.</p>
-
-<p>Using <code>return</code> makes so much sense now we can, it was worth making a BC break
-for and releasing sabre/event 5 with the more sane behavior for PHP 7.</p>
-
-<p>So today there's a sabre/event 5, and the only change is that if the previous
-example of the generator function is used in the coroutine system, it will now
-have <code>2</code> as its result instead of <code>1</code>.</p>
-
-<ul>
-<li><a href="https://github.com/fruux/sabre-event/blob/5.0.0/CHANGELOG.md">Changelog</a>.</li>
-<li><a href="https://github.com/fruux/sabre-event/releases">Release info</a>.</li>
-</ul>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/xml 1.5.0 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-xml-1.5.0-release"/>
-            <updated>2016-10-09T23:04:39+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-xml-1.5.0-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/xml 1.5.0. This release puts the minimim PHP version at
-PHP 5.5.</p>
-
-<p>This release fixes an infinite loop bug during parsing of some invalid XML
-documents, and contains an improvement in how we're dealing with the "context
-stack", thanks to the PHP 5.5 <code>finally</code> keyword. Upgrading is recommended.</p>
-
-<p>Upgrade sabre/xml by running:</p>
-
-<pre><code>composer update sabre/xml
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/fruux/sabre-xml/blob/1.5.0/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 2.1 End of life]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-dav-2.1-eol"/>
-            <updated>2016-10-07T03:48:20+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-dav-2.1-eol</id>
-            <content type="html"><![CDATA[<p>sabre/dav 2.1 is now "end of life". This means that no more bugs will be
-fixed, including security bugs.</p>
-
-<p>We've released one final release (<a href="https://github.com/fruux/sabre-dav/releases/tag/2.1.11">2.1.11</a>) with some last final tweaks,
-but you're strongly urged to upgrade to at least 3.0, and preferably 3.2.</p>
-
-<p>For more information about the support schedule, and for upgrade instructions,
-check out the <a href="/dav/upgrading/">upgrading</a> page.</p>
-
-<p>Because this is the last release to use the (relatively unpopular) sabre/http
-3.x package, this also marks sabre/http 3.x as EOL.</p>
 ]]></content>
         </entry>
     </feed>

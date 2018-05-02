@@ -139,32 +139,29 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
-                    <time>Apr. 7th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.1.0-release">sabre/vobject 4.1.0 released</a></h1>
-                    <p>We just released sabre/vobject 4.1.0. This release is fully compatible with
-the 4.0.x series.</article>
+                    <time>May. 29th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sharing-changes">Changes to sharing in sabre/dav 3.2</a></h1>
+                    <p>We are currently working on sabre/dav 3.2. <a href="http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt">A first beta has been released</a>.
+This release includes major changes to the sharing system.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>May. 29th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.4-release">sabre/dav 3.1.4 released</a></h1>
+                    <p>We just released sabre/dav 3.1.4.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>May. 23rd, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/validation-changes">Upcoming changes to iCalendar and vCard validation in sabre/dav 3.2.</a></h1>
+                    <p>We are currently working on sabre/dav 3.2. <a href="https://github.com/fruux/sabre-dav/releases">A first beta has been released</a>.
+This release will include some changes to validating iCalendar and vCard.
+These changes might impact you if you use the Card- and CalDAV systems, or if
+you are a developer for a Cal/CardDAV client.</article>
                 <hr />                            <article class="blog-entry">
                     <time>Apr. 7th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.9-release">sabre/dav 3.0.9 released</a></h1>
-                    <p>We just released sabre/dav 3.0.9. This release contains the following changes:</article>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-3.5.3-release">sabre/vobject 3.5.3 released</a></h1>
+                    <p>We just released sabre/vobject 3.5.3.</article>
                 <hr />                            <article class="blog-entry">
                     <time>Apr. 7th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-3.5.1-release">sabre/vobject 3.5.1 released</a></h1>
-                    <p>We just released sabre/vobject 3.5.1. This release contains a few small
-improvements:</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Mar. 30th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/dav-sharing">CalDAV, CardDAV and WebDAV sharing</a></h1>
-                    <p>CalDAV/CardDAV sharing is something <a href="https://github.com/fruux/sabre-dav/pull/696">we've worked on</a> for quite some time.
-Our goal is to have out of the box CalDAV sharing working in the next sabre/dav
-version</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Mar. 15th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/baikal-0.4.0-release">Baïkal 0.4.0 released</a></h1>
-                    <p>We just released Baïkal 0.4.0. This release contains a number of changes that
-should improve the system for a number of users. The 0.3.x range of releases
-had seen a number of stability problems, due to a relatively big sabre/dav
-upgrade.</article>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.3-release">sabre/dav 3.1.3 released</a></h1>
+                    <p>We just released sabre/dav 3.1.3. This release contains the following changes:</article>
                                     </section>
     </div>
 </div>

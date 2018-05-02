@@ -139,31 +139,32 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
-                    <time>Oct. 7th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-uri-2.0.0-release">sabre/uri 2 released</a></h1>
-                    <p>We just released sabre/uri 2.0. The sole change in this package is that it now
-requires PHP 7 and has typehints where appropriate. Upgrading should be
-seamless.</article>
+                    <time>Dec. 7th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-uri-2.1.0-1.2.0-release">sabre/uri 2.1.0 and 1.2.0 released</a></h1>
+                    <p>We just released sabre/uri 2.1.0 and 1.2.0. This release adds a new pure-php
+fallback parser for uris to work around two problems with PHP's <code>parse_url()</code>,
+which had trouble with uris that start with a <code>scheme:///</code> (triple-slash) and
+relative uri containing an unencoded colon.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Sep. 20th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-event-4.0.0-release">sabre/event 4 released</a></h1>
-                    <p>We just released sabre/event 4.0.0.</article>
+                    <time>Dec. 6th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.1.2-release">sabre/vobject 4.1.2 released</a></h1>
+                    <p>We just released sabre/vobject 4.1.2.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Aug. 19th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/baikal-0.4.6-release">Baïkal 0.4.6 released</a></h1>
-                    <p>We just released Baïkal 0.4.6. This release contains a fix that prevented
-some users froms syncing contacts, if they were using the SQLite backend.</article>
+                    <time>Nov. 16th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-xml-2.0.0-release">sabre/xml 2 released</a></h1>
+                    <p>We just released sabre/xml 2.0.0.  Just like the major sabre/uri and
+sabre/event releases earlier, the main change is that we now require PHP 7
+and use strict typing across the board.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Jun. 28th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.2.0-release">sabre/dav 3.2.0 released</a></h1>
-                    <p>We just released sabre/dav 3.2.0.
-This is a major new version, and we're very excited to bring you features
-we've been working on since last winter.</article>
+                    <time>Oct. 23rd, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-event-5.0.0-release">sabre/event 5 released</a></h1>
+                    <p>We just released sabre/event 5.0.0. This is only a month after the last major
+release, but it's for a good reason.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>May. 29th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sharing-changes">Changes to sharing in sabre/dav 3.2</a></h1>
-                    <p>We are currently working on sabre/dav 3.2. <a href="http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt">A first beta has been released</a>.
-This release includes major changes to the sharing system.</article>
+                    <time>Oct. 9th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-xml-1.5.0-release">sabre/xml 1.5.0 released</a></h1>
+                    <p>We just released sabre/xml 1.5.0. This release puts the minimim PHP version at
+PHP 5.5.</article>
                                     </section>
     </div>
 </div>

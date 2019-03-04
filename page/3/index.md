@@ -139,32 +139,25 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
-                    <time>Dec. 7th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-uri-2.1.0-1.2.0-release">sabre/uri 2.1.0 and 1.2.0 released</a></h1>
-                    <p>We just released sabre/uri 2.1.0 and 1.2.0. This release adds a new pure-php
-fallback parser for uris to work around two problems with PHP's <code>parse_url()</code>,
-which had trouble with uris that start with a <code>scheme:///</code> (triple-slash) and
-relative uri containing an unencoded colon.</article>
+                    <time>Mar. 8th, 2018</time>
+                    <h1><a href="http://sabre.io/blog/2018/sabre-vobject-4.1.5-release">sabre/vobject 4.1.5 released</a></h1>
+                    <p>We just released sabre/vobject 4.1.5.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Dec. 6th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.1.2-release">sabre/vobject 4.1.2 released</a></h1>
-                    <p>We just released sabre/vobject 4.1.2.</article>
+                    <time>Feb. 23rd, 2018</time>
+                    <h1><a href="http://sabre.io/blog/2018/sabre-http-4.2.4-release">sabre/http 4.2.4 released</a></h1>
+                    <p>We just released sabre/http 4.2.4. This release now sends <code>charset="UTF-8"</code> on Basic authentication challenges per RFC7617.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Nov. 16th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-xml-2.0.0-release">sabre/xml 2 released</a></h1>
-                    <p>We just released sabre/xml 2.0.0.  Just like the major sabre/uri and
-sabre/event releases earlier, the main change is that we now require PHP 7
-and use strict typing across the board.</article>
+                    <time>Feb. 8th, 2018</time>
+                    <h1><a href="http://sabre.io/blog/2018/sabre-xml-2.1.0-release">sabre/xml 2.1.0 released</a></h1>
+                    <p>We just released sabre/xml 2.1.0.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Oct. 23rd, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-event-5.0.0-release">sabre/event 5 released</a></h1>
-                    <p>We just released sabre/event 5.0.0. This is only a month after the last major
-release, but it's for a good reason.</article>
+                    <time>Dec. 22nd, 2017</time>
+                    <h1><a href="http://sabre.io/blog/2017/sabre-vobject-4.1.4-release">sabre/vobject 4.1.4 released</a></h1>
+                    <p>We just released sabre/vobject 4.1.4.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Oct. 9th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-xml-1.5.0-release">sabre/xml 1.5.0 released</a></h1>
-                    <p>We just released sabre/xml 1.5.0. This release puts the minimim PHP version at
-PHP 5.5.</article>
+                    <time>Oct. 18th, 2017</time>
+                    <h1><a href="http://sabre.io/blog/2017/sabre-vobject-4.1.3-release">sabre/vobject 4.1.3 released</a></h1>
+                    <p>We just released sabre/vobject 4.1.3.</article>
                                     </section>
     </div>
 </div>
@@ -196,7 +189,7 @@ ga('send', 'pageview');
 
     <nav>
         <ul>
-            <li>© 2018 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li>© 2019 <a href="https://fruux.com">fruux GmbH</a> · </li>
             <li><a href="http://sabre.io/support">Contact</a> · </li>
             <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>

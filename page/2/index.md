@@ -139,30 +139,25 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
-                    <time>Jun. 12th, 2017</time>
-                    <h1><a href="http://sabre.io/blog/2017/sabre-http-4.2.3-release">sabre/http 4.2.3 released</a></h1>
-                    <p>We just released sabre/http 4.2.3. This release adds a workaround for the 4 GB filesize limitation on 32-bit systems.</article>
+                    <time>Oct. 19th, 2018</time>
+                    <h1><a href="http://sabre.io/blog/2018/sabre-dav-3.1.5-release">sabre/dav 3.1.5 released</a></h1>
+                    <p>We just released sabre/dav 3.1.5.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Apr. 16th, 2017</time>
-                    <h1><a href="http://sabre.io/blog/2017/development-on-hold">Development of sabre/dav and related packages are indefinitely on hold</a></h1>
-                    <p>Hi there! My name is Evert, and for the past 10 years I've probably done
-around 90-95% of development for the <a href="http://sabre.io/">sabre/*</a> packages, and took over 
-<a href="http://sabre.io/baikal">Baikal</a> development last year.</article>
+                    <time>Oct. 9th, 2018</time>
+                    <h1><a href="http://sabre.io/blog/2018/sabre-xml-2.1.1-release">sabre/xml 2.1.1 released</a></h1>
+                    <p>We just released sabre/xml 2.1.1.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Feb. 15th, 2017</time>
-                    <h1><a href="http://sabre.io/blog/2017/sabre-dav-3.2.2-release">sabre/dav 3.2.2 released</a></h1>
-                    <p>We just released sabre/dav 3.2.2. This release fixes a regression introduced
-with sabre/dav 3.2.1 related to CardDAV synchronization.</article>
+                    <time>Oct. 9th, 2018</time>
+                    <h1><a href="http://sabre.io/blog/2018/sabre-xml-2.0.1-release">sabre/xml 2.0.1 released</a></h1>
+                    <p>We just released sabre/xml 2.0.1.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Jan. 29th, 2017</time>
-                    <h1><a href="http://sabre.io/blog/2017/sabre-dav-3.2.1-release">sabre/dav 3.2.1 released</a></h1>
-                    <p>We just released sabre/dav 3.2.1. This release improves syncing large calendars
-when using SQLite and adds a new feature that allows CardDAV clients to use
-property-filters when requesting addressbooks (thanks @DeepDiver1975).</article>
+                    <time>Jun. 4th, 2018</time>
+                    <h1><a href="http://sabre.io/blog/2018/sabre-http-5.0.0-release">sabre/http 5.0.0 release</a></h1>
+                    <p>We just released sabre/http 5.0.0</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Dec. 7th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-http-4.2.2-release">sabre/http 4.2.2 released</a></h1>
-                    <p>Happy 2017!</article>
+                    <time>Apr. 20th, 2018</time>
+                    <h1><a href="http://sabre.io/blog/2018/sabre-vobject-4.1.6-release">sabre/vobject 4.1.6 released</a></h1>
+                    <p>We just released sabre/vobject 4.1.6.</article>
                                     </section>
     </div>
 </div>
@@ -194,7 +189,7 @@ ga('send', 'pageview');
 
     <nav>
         <ul>
-            <li>© 2018 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li>© 2019 <a href="https://fruux.com">fruux GmbH</a> · </li>
             <li><a href="http://sabre.io/support">Contact</a> · </li>
             <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>

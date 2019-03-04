@@ -175,6 +175,11 @@ backends, but it's also easy to create your own.</p>
   <td>Digest</td>
   <td>Use a database, such as sqlite or mysql</td>
 </tr>
+<tr>
+  <td><code>Sabre\DAV\Auth\Backend\IMAP</code></td>
+  <td>Basic</td>
+  <td>Use an imap server</td>
+</tr>
 </tbody>
 </table>
 
@@ -273,6 +278,34 @@ $authPlugin = new Auth\Plugin($authBackend);
 $server-&gt;addPlugin($authPlugin);
 </code></pre>
 
+<h2 id="using-the-imap-backend">Using the IMAP backend</h2>
+
+<p>You can use the IMAP backend to authenticate against an IMAP server like
+dovecot, cyrus or any other.</p>
+
+<p>Assuming you already have a server up and running, add the plugin using the
+following code:</p>
+
+<pre><code>use Sabre\DAV\Auth;
+
+// Set IMAP flags according to your needs.
+// The connection will be opened read-only.
+// http://php.net/manual/de/function.imap-open.php
+$mailbox = '{localhost:993/notls}';
+
+// Creating the backend.
+$authBackend = new Auth\Backend\IMAP($mailbox);
+
+// We're assuming that the realm name is called 'SabreDAV'.
+$authBackend-&gt;setRealm('SabreDAV');
+
+// Creating the plugin.
+$authPlugin = new Auth\Plugin($authBackend);
+
+// Adding the plugin to the server.
+$server-&gt;addPlugin($authPlugin);
+</code></pre>
+
 <h2 id="creating-your-own-authentication-backend">Creating your own authentication backend</h2>
 
 <p>If you're going to add Digest authenticaton, use
@@ -360,7 +393,7 @@ ga('send', 'pageview');
 
     <nav>
         <ul>
-            <li>© 2018 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li>© 2019 <a href="https://fruux.com">fruux GmbH</a> · </li>
             <li><a href="http://sabre.io/support">Contact</a> · </li>
             <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>

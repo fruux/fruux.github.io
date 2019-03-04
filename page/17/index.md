@@ -139,27 +139,25 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
-                    <time>Jan. 27th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/a-new-uri-handling-library">A new URI handling library</a></h1>
-                    <p>We just released version 1.0.0 of a new URI library. This library solves a
-few common problems we've been having, or simply did not do well enough in
-the past.</article>
+                    <time>May. 27th, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.4.4-release">sabre/vobject 3.4.4 release</a></h1>
+                    <p>We just released sabre/vobject 3.4.4.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Jan. 9th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-3.3.5-release">sabre/vobject 3.3.5 release</a></h1>
-                    <p>We just released sabre/vobject 3.3.5.</article>
+                    <time>May. 26th, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.1.4-released">sabre/dav 2.1.4 released</a></h1>
+                    <p>We just released sabre/dav 2.1.4.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Dec. 10th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.1.2-released">sabre/dav 2.1.2 released</a></h1>
-                    <p>We just released sabre/dav 2.1.2.</article>
+                    <time>May. 26th, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-dav-2.0.7-released">sabre/dav 2.0.7 released</a></h1>
+                    <p>We just released sabre/dav 2.0.7.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Dec. 10th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.6-released">sabre/dav 2.0.6 released</a></h1>
-                    <p>We just released sabre/dav 2.0.6.</article>
+                    <time>May. 21st, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-xml-1.0.0.release">sabre/xml 1.0.0 release</a></h1>
+                    <p>We just released sabre/xml 1.0.0</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Dec. 10th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-1.8.11-release">sabre/dav 1.8.11 release</a></h1>
-                    <p>We just released sabre/dav 1.8.11.</article>
+                    <time>May. 20th, 2015</time>
+                    <h1><a href="http://sabre.io/blog/2015/sabre-http-4.0.0-release">sabre/http 4.0.0 release</a></h1>
+                    <p>We just released sabre/http 4.0.0</article>
                                     </section>
     </div>
 </div>
@@ -191,7 +189,7 @@ ga('send', 'pageview');
 
     <nav>
         <ul>
-            <li>© 2018 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li>© 2019 <a href="https://fruux.com">fruux GmbH</a> · </li>
             <li><a href="http://sabre.io/support">Contact</a> · </li>
             <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>

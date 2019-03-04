@@ -139,29 +139,31 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
-                    <time>Apr. 7th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.1.1-release">sabre/vobject 4.1.1 released</a></h1>
-                    <p>We just released sabre/vobject 4.1.1.</article>
+                    <time>Oct. 7th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-2.1-eol">sabre/dav 2.1 End of life</a></h1>
+                    <p>sabre/dav 2.1 is now "end of life". This means that no more bugs will be
+fixed, including security bugs.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Apr. 7th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.1.0-release">sabre/vobject 4.1.0 released</a></h1>
-                    <p>We just released sabre/vobject 4.1.0. This release is fully compatible with
-the 4.0.x series.</article>
+                    <time>Oct. 7th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-uri-2.0.0-release">sabre/uri 2 released</a></h1>
+                    <p>We just released sabre/uri 2.0. The sole change in this package is that it now
+requires PHP 7 and has typehints where appropriate. Upgrading should be
+seamless.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Apr. 7th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.9-release">sabre/dav 3.0.9 released</a></h1>
-                    <p>We just released sabre/dav 3.0.9. This release contains the following changes:</article>
+                    <time>Sep. 20th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-event-4.0.0-release">sabre/event 4 released</a></h1>
+                    <p>We just released sabre/event 4.0.0.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Apr. 7th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-3.5.1-release">sabre/vobject 3.5.1 released</a></h1>
-                    <p>We just released sabre/vobject 3.5.1. This release contains a few small
-improvements:</article>
+                    <time>Aug. 19th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/baikal-0.4.6-release">Baïkal 0.4.6 released</a></h1>
+                    <p>We just released Baïkal 0.4.6. This release contains a fix that prevented
+some users froms syncing contacts, if they were using the SQLite backend.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Mar. 30th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/dav-sharing">CalDAV, CardDAV and WebDAV sharing</a></h1>
-                    <p>CalDAV/CardDAV sharing is something <a href="https://github.com/sabre-io/dav/pull/696">we've worked on</a> for quite some time.
-Our goal is to have out of the box CalDAV sharing working in the next sabre/dav
-version</article>
+                    <time>Jun. 28th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.2.0-release">sabre/dav 3.2.0 released</a></h1>
+                    <p>We just released sabre/dav 3.2.0.
+This is a major new version, and we're very excited to bring you features
+we've been working on since last winter.</article>
                                     </section>
     </div>
 </div>
@@ -193,7 +195,7 @@ ga('send', 'pageview');
 
     <nav>
         <ul>
-            <li>© 2018 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li>© 2019 <a href="https://fruux.com">fruux GmbH</a> · </li>
             <li><a href="http://sabre.io/support">Contact</a> · </li>
             <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>

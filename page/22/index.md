@@ -139,29 +139,25 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
-                    <time>Jun. 12th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabre-event-1.0.1-release">sabre/event 1.0.1 release</a></h1>
-                    <p>We just released sabre/event 1.0.1. A bug prevented the <code>EventEmitter</code> trait
-to work on PHP versions older than 5.4.14.</article>
+                    <time>Aug. 27th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.4-release">sabre/dav 2.0.4 release</a></h1>
+                    <p>We just released sabre/dav 2.0.4.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Jun. 2nd, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/jcal-rfc">jCal released as rfc7265</a></h1>
-                    <p>The IETF just made <a href="http://tools.ietf.org/html/rfc7265">jCal</a> available as <a href="http://tools.ietf.org/html/rfc7265">rfc7265</a></article>
+                    <time>Aug. 18th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.1-release">sabre/vobject 3.3.1 release</a></h1>
+                    <p>We just released sabre/vobject 3.3.1.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>May. 28th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabredav-2.0.1-release">sabre/dav 2.0.1 released</a></h1>
-                    <p>We just released sabre/dav 2.0.1. Two regressions have been found related
-to PROPFIND requests.</article>
+                    <time>Aug. 7th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-vobject-3.3.0-release">sabre/vobject 3.3.0 release</a></h1>
+                    <p>We just released sabre/vobject 3.3.0!</article>
                 <hr />                            <article class="blog-entry">
-                    <time>May. 22nd, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabredav-2-release">sabre/dav 2.0 released</a></h1>
-                    <p>We just released sabre/dav 2.0. The last major release (1.8) was in <a href="http://evertpot.com/sabredav-18-released-with-namespaces/">2012</a>,
-so it's been a long time coming.</article>
+                    <time>Jul. 28th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-1.7-eol">sabre/dav 1.7 end of support</a></h1>
+                    <p>As of right now, sabre/dav 1.7 has reached end of life status.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>May. 16th, 2014</time>
-                    <h1><a href="http://sabre.io/blog/2014/sabredav-1.8.10">sabre/dav 1.7.12 and 1.8.10 released</a></h1>
-                    <p>We just released sabre/dav 1.7.12 and 1.8.10. These two releases are mainly
-bugfix releases centering around two things:</article>
+                    <time>Jul. 14th, 2014</time>
+                    <h1><a href="http://sabre.io/blog/2014/sabre-dav-2.0.3-release">sabre/dav 2.0.3 release</a></h1>
+                    <p>We just released sabre/dav 2.0.3.</article>
                                     </section>
     </div>
 </div>
@@ -193,7 +189,7 @@ ga('send', 'pageview');
 
     <nav>
         <ul>
-            <li>© 2018 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li>© 2019 <a href="https://fruux.com">fruux GmbH</a> · </li>
             <li><a href="http://sabre.io/support">Contact</a> · </li>
             <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>

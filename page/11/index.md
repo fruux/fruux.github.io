@@ -139,30 +139,28 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
-                    <time>Dec. 29th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-xml-1.3-released">sabre/xml 1.3 released</a></h1>
-                    <p>We just released sabre/xml 1.3. This release is a fairly big update from the
-1.2 series. It's 100% backwards compatible, but adds a number of exciting
-features:</article>
+                    <time>Jan. 12th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.0.7-release">sabre/dav 3.0.7 released</a></h1>
+                    <p>If you've been following this blog, you might have seen it coming. We just
+released sabre/dav 3.0.7. This release supports PHP 7.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Dec. 12th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-vobject-4.0-released">sabre/vobject 4 released</a></h1>
-                    <p>We just released sabre/vobject 4. This is a new major version, and comes with a
-number of new features and also BC breaking changes. The API is largely the
-same, but there are a few subtle differences.</article>
+                    <time>Jan. 11th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-3.4.9-and-3.5.0-release">sabre/vobject 3.4.9 and 3.5.0 release</a></h1>
+                    <p>In a reversal of an earlier statement, we're releasing a sabre/vobject 3.x
+version with PHP 7 support.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Nov. 5th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-event-3.0-released">sabre/event 3 released</a></h1>
-                    <p>We just released sabre/event 3. This is a new major version, and comes with a
-number of new features and also BC breaking changes.</article>
+                    <time>Jan. 11th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-4.0.2-release">sabre/vobject 4.0.2 release</a></h1>
+                    <p>We just released sabre/vobject 4.0.2.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Sep. 15th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-dav-3.0.5-released">sabre/dav 3.0.5 released</a></h1>
-                    <p>We just released sabre/dav 3.0.5.</article>
+                    <time>Jan. 6th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1-release">sabre/dav 3.1 released</a></h1>
+                    <p>We're a bit late to the party, but we finally have a PHP 7 compatible release
+for sabre/dav.</article>
                 <hr />                            <article class="blog-entry">
-                    <time>Sep. 4th, 2015</time>
-                    <h1><a href="http://sabre.io/blog/2015/sabre-dav-3.0.4-released">sabre/dav 3.0.4 released</a></h1>
-                    <p>We just released sabre/dav 3.0.4</article>
+                    <time>Jan. 6th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-http-4.2.1-release">sabre/http 4.2.1 released</a></h1>
+                    <p>We just released sabre/http 4.2.1.</article>
                                     </section>
     </div>
 </div>
@@ -194,7 +192,7 @@ ga('send', 'pageview');
 
     <nav>
         <ul>
-            <li>© 2018 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li>© 2019 <a href="https://fruux.com">fruux GmbH</a> · </li>
             <li><a href="http://sabre.io/support">Contact</a> · </li>
             <li><a href="http://sabre.io/legal">Legal Info</a></li>
         </ul>

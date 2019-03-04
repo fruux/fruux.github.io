@@ -3,9 +3,187 @@
     <title><![CDATA[sabre.io]]></title>
     <link href="http://sabre.io/atom.xml" rel="self"/>
     <link href="http://sabre.io/"/>
-    <updated>2018-05-02T06:50:43+00:00</updated>
+    <updated>2019-03-04T10:54:32+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[sabre/vobject 4.2.0 released]]></title>
+            <link href="http://sabre.io/blog/2019/sabre-vobject-4.2.0-release"/>
+            <updated>2019-02-19T07:00:00+00:00</updated>
+            <id>http://sabre.io/blog/2019/sabre-vobject-4.2.0-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/vobject 4.2.0.</p>
+
+<p>This release adds a few new features, and fixes several issues:</p>
+
+<ol>
+<li>DTSTAMP must be specified in UTC</li>
+<li>ORGANIZER e-mail addresses are case-insensitive</li>
+<li>Repairing BASE64 encoded v3.0 vCards</li>
+</ol>
+
+<p>Upgrade sabre/vobject by running:</p>
+
+<pre><code>composer update sabre/vobject
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/sabre-io/vobject/blob/4.2.0/CHANGELOG.md">GitHub</a></p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[sabre/xml 2.1.2 released]]></title>
+            <link href="http://sabre.io/blog/2019/sabre-xml-2.1.2-release"/>
+            <updated>2019-01-09T08:00:00+00:00</updated>
+            <id>http://sabre.io/blog/2019/sabre-xml-2.1.2-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/xml 2.1.2.</p>
+
+<p>This release now prevents infinite loops on empty xml elements.</p>
+
+<p>Upgrade sabre/xml by running:</p>
+
+<pre><code>composer update sabre/xml
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/sabre-io/xml/blob/2.1.2/CHANGELOG.md">GitHub</a></p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[sabre/xml 2.0.2 released]]></title>
+            <link href="http://sabre.io/blog/2019/sabre-xml-2.0.2-release"/>
+            <updated>2019-01-09T07:00:00+00:00</updated>
+            <id>http://sabre.io/blog/2019/sabre-xml-2.0.2-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/xml 2.0.2.</p>
+
+<p>This release now prevents infinite loops on empty xml elements.</p>
+
+<p>Upgrade sabre/xml by running:</p>
+
+<pre><code>composer update sabre/xml
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/sabre-io/xml/blob/2.0.2/CHANGELOG.md">GitHub</a></p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[sabre/xml 1.5.1 released]]></title>
+            <link href="http://sabre.io/blog/2019/sabre-xml-1.5.1-release"/>
+            <updated>2019-01-09T06:00:00+00:00</updated>
+            <id>http://sabre.io/blog/2019/sabre-xml-1.5.1-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/xml 1.5.1.</p>
+
+<p>This release now prevents infinite loops on empty xml elements.</p>
+
+<p>Upgrade sabre/xml by running:</p>
+
+<pre><code>composer update sabre/xml
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/sabre-io/xml/blob/1.5.1/CHANGELOG.md">GitHub</a></p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 3.2.3 released]]></title>
+            <link href="http://sabre.io/blog/2018/sabre-dav-3.2.3-release"/>
+            <updated>2018-10-19T07:00:00+00:00</updated>
+            <id>http://sabre.io/blog/2018/sabre-dav-3.2.3-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 3.2.3.</p>
+
+<p>This release now makes sure that files that are siblings of directories, are reported as files.</p>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/sabre-io/dav/blob/3.2.3/CHANGELOG.md">GitHub</a></p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[sabre/dav 3.1.5 released]]></title>
+            <link href="http://sabre.io/blog/2018/sabre-dav-3.1.5-release"/>
+            <updated>2018-10-19T06:00:00+00:00</updated>
+            <id>http://sabre.io/blog/2018/sabre-dav-3.1.5-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/dav 3.1.5.</p>
+
+<p>Changes:</p>
+
+<ol>
+<li>Creating a new calendar on some MySQL configurations caused an error.</li>
+<li>Added support for filtering vCard properties in the addressbook-query REPORT.</li>
+</ol>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/sabre-io/dav/blob/3.1.5/CHANGELOG.md">GitHub</a></p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[sabre/xml 2.1.1 released]]></title>
+            <link href="http://sabre.io/blog/2018/sabre-xml-2.1.1-release"/>
+            <updated>2018-10-09T06:00:00+00:00</updated>
+            <id>http://sabre.io/blog/2018/sabre-xml-2.1.1-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/xml 2.1.1.</p>
+
+<p>This release now properly detects xml parse errors in <code>parseCurrentElement()</code> edge-cases.</p>
+
+<p>Upgrade sabre/xml by running:</p>
+
+<pre><code>composer update sabre/xml
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/sabre-io/xml/blob/2.1.1/CHANGELOG.md">GitHub</a></p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[sabre/xml 2.0.1 released]]></title>
+            <link href="http://sabre.io/blog/2018/sabre-xml-2.0.1-release"/>
+            <updated>2018-10-09T06:00:00+00:00</updated>
+            <id>http://sabre.io/blog/2018/sabre-xml-2.0.1-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/xml 2.0.1.</p>
+
+<p>This release now properly detects xml parse errors in <code>parseCurrentElement()</code> edge-cases.</p>
+
+<p>Upgrade sabre/xml by running:</p>
+
+<pre><code>composer update sabre/xml
+</code></pre>
+
+<p>Full changelog can be found on <a href="https://github.com/sabre-io/xml/blob/2.0.1/CHANGELOG.md">GitHub</a></p>
+]]></content>
+        </entry>
+            <entry>
+            <title type="html"><![CDATA[sabre/http 5.0.0 release]]></title>
+            <link href="http://sabre.io/blog/2018/sabre-http-5.0.0-release"/>
+            <updated>2018-06-04T07:00:00+00:00</updated>
+            <id>http://sabre.io/blog/2018/sabre-http-5.0.0-release</id>
+            <content type="html"><![CDATA[<p>We just released sabre/http 5.0.0</p>
+
+<ul>
+<li>Now requires PHP 7.0+</li>
+<li>Supports sabre/event 4.x and 5.x</li>
+<li>Depends on sabre/uri 2.</li>
+<li>hhvm is no longer supported starting this release.</li>
+<li>It's now possible to supply request/response bodies using a callback function. This allows very high-speed/low-memory responses to be created.</li>
+<li>Strict typing is used everywhere this is applicable.</li>
+<li>Removed <code>URLUtil</code> class. It was deprecated a long time ago, and most of its functions moved to the <code>sabre/uri</code> package.</li>
+<li>Removed <code>Util</code> class. Most of its functions moved to the functions.php file.</li>
+<li>The <code>$method</code> and <code>$uri</code> arguments when constructing a Request object are now required.</li>
+<li>When <code>Sapi::getRequest()</code> is called, we default to setting the HTTP Method to CLI.</li>
+<li>The HTTP response is now initialized with HTTP code <code>500</code> instead of <code>null</code>, so if it's not changed, it will be emitted as 500.</li>
+<li>`Sending charset="UTF-8" on Basic authentication challenges per <a href="http://tools.ietf.org/html/rfc7617">RFC7617</a>.</li>
+<li>Added support for <code>SERVER_PROTOCOL HTTP/2.0</code></li>
+<li>Previous CURL opts are not persisted anymore</li>
+<li>Final release</li>
+</ul>
+
+<p>Upgrade sabre/http by making sure your <code>composer.json</code> has <code>~5.0</code> as a version
+requirement, and then just run <code>composer update</code>.</p>
+
+<p>Full changelog of this release can be found on <a href="https://github.com/sabre-io/http/blob/5.0.0/CHANGELOG.md">GitHub</a>.</p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[sabre/vobject 4.1.6 released]]></title>
             <link href="http://sabre.io/blog/2018/sabre-vobject-4.1.6-release"/>
@@ -27,223 +205,6 @@
 </code></pre>
 
 <p>Full changelog can be found on <a href="https://github.com/sabre-io/vobject/blob/4.1.6/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 4.1.5 released]]></title>
-            <link href="http://sabre.io/blog/2018/sabre-vobject-4.1.5-release"/>
-            <updated>2018-03-08T07:00:00+00:00</updated>
-            <id>http://sabre.io/blog/2018/sabre-vobject-4.1.5-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 4.1.5.</p>
-
-<p>This release improves serialization performance for long properties.</p>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/sabre-io/vobject/blob/4.1.5/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/xml 2.1.0 released]]></title>
-            <link href="http://sabre.io/blog/2018/sabre-xml-2.1.0-release"/>
-            <updated>2018-02-08T07:00:00+00:00</updated>
-            <id>http://sabre.io/blog/2018/sabre-xml-2.1.0-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/xml 2.1.0.</p>
-
-<p>This release adds a <code>mixedContent</code> deserializer function, which might be useful if you're parsing HTML-like documents with elements that contain both text and other elements as siblings.</p>
-
-<p>Upgrade sabre/xml by running:</p>
-
-<pre><code>composer update sabre/xml
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/sabre-io/xml/blob/2.1.0/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 4.1.4 released]]></title>
-            <link href="http://sabre.io/blog/2017/sabre-vobject-4.1.4-release"/>
-            <updated>2017-12-22T07:00:00+00:00</updated>
-            <id>http://sabre.io/blog/2017/sabre-vobject-4.1.4-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 4.1.4.</p>
-
-<p>This release adds a few new features, and fixes several issues:</p>
-
-<ol>
-<li>Fixed possible infinite loop in RRuleIterator.</li>
-<li>Improved significant change detection for CalDAV-Scheduling.</li>
-<li>Removed Canada/East-Saskatchewan timezone.</li>
-</ol>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/sabre-io/vobject/blob/4.1.4/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/vobject 4.1.3 released]]></title>
-            <link href="http://sabre.io/blog/2017/sabre-vobject-4.1.3-release"/>
-            <updated>2017-10-18T07:00:00+00:00</updated>
-            <id>http://sabre.io/blog/2017/sabre-vobject-4.1.3-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/vobject 4.1.3.</p>
-
-<p>This release adds a few new features, and fixes several issues:</p>
-
-<ol>
-<li>Support for fixing duplicate properties that are only allowed once.</li>
-<li>Added support for Pacific Time (US &amp; Canada) Exchange timezones.</li>
-<li>Added fallback for vCards without <code>FN</code> property.</li>
-</ol>
-
-<p>Upgrade sabre/vobject by running:</p>
-
-<pre><code>composer update sabre/vobject
-</code></pre>
-
-<p>Full changelog can be found on <a href="https://github.com/sabre-io/vobject/blob/4.1.3/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/http 4.2.3 released]]></title>
-            <link href="http://sabre.io/blog/2017/sabre-http-4.2.3-release"/>
-            <updated>2017-06-12T07:00:00+00:00</updated>
-            <id>http://sabre.io/blog/2017/sabre-http-4.2.3-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/http 4.2.3. This release adds a workaround for the 4 GB filesize limitation on 32-bit systems.</p>
-
-<p>To upgrade sabre/http, make sure your <code>composer.json</code> requires "^4.2" for
-sabre/http and run <code>composer update</code>.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/sabre-io/http/blob/4.2.3/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[Development of sabre/dav and related packages are indefinitely on hold]]></title>
-            <link href="http://sabre.io/blog/2017/development-on-hold"/>
-            <updated>2017-04-16T21:51:00+00:00</updated>
-            <id>http://sabre.io/blog/2017/development-on-hold</id>
-            <content type="html"><![CDATA[<p>Hi there! My name is Evert, and for the past 10 years I've probably done
-around 90-95% of development for the <a href="http://sabre.io/">sabre/*</a> packages, and took over 
-<a href="http://sabre.io/baikal">Baikal</a> development last year.</p>
-
-<p>After this time, it all became a little bit too much for me to maintain
-these. I <a href="https://evertpot.com/sabredav-eol/">wrote a blog post</a> about this. This post is a follow-up that I'm
-cross-posting on both my own blog and sabre.io.</p>
-
-<p>I want to start with a THANK YOU! So many people have written in with support
-and understanding, and told me about how these libraries have helped them out
-in the past. It was heartwarming and also bittersweet.</p>
-
-<h2 id="support-for-sabre%2F%2A-and-baikal">Support for sabre/* and Baikal</h2>
-
-<p>I was asked what's going to happen with future support for these projects. If
-you read my post, the only answer I can give you is: "I don't know".</p>
-
-<p>I'm no longer doing maintenance aside from an occasional bugfix when I feel
-like it, but I'm no longer giving any guarantees. It's really completely up to
-you.</p>
-
-<p>If you're a corporation and rely on the sabre/* projects, and you're also willing
-to invest in this, <a href="m&#97;&#105;&#108;&#116;&#111;&#x3a;&#x6d;&#x65;&#x40;&#x65;v&#101;&#114;&#116;&#112;&#111;&#x74;&#x2e;&#x63;&#x6f;&#x6d;">drop me a line</a>. If there's a few businesses like yours,
-it might just be enough to setup a small foundation and hire a person to
-continue working on this and I'm willing to help in setting this up.</p>
-
-<p>So far there's been no serious offers of this sort, so your best bet might be
-to understand the sabre/* source (it's not as hard as you think) and treat the
-same way as in-house developed code.</p>
-
-<p>A few have offered to just pay me to work on specific things. I appreciate
-this, but one-off projects don't make a lot of sense for me and one of my
-biggest issues has always been finding time, not money.</p>
-
-<p>For those of you that are developers and interested in taking over maintenance,
-I would just want to say: do it! You don't need my permission or blessing.</p>
-
-<p>The packages are on github, you can submit pull requests and there's also lots
-of open, unanswered support questions. If over time the quality of your
-contributions is high, I'm super open to just hand over control of the 
-repositories you're interested in.</p>
-
-<p>Someone also asked "is there going to be a fork?", which I found a hilarious
-question to receive because obviously I wouldn't be very interested in this
-idea. If you're thinking of forking though, consider the fact that you can also
-contribute to the main project and benefit from the positive reputation the
-project already has.</p>
-
-<h2 id="some-small-next-steps">Some small next steps</h2>
-
-<p>At this point I shut down the mailing list and the comments section on
-sabre.io. Support questions come in through both of these channels, and without
-anyone to monitor these, it seems better that they're gone. Go to github, there's
-more eyes there.</p>
-
-<p>I'm also turning off github notifications for all of these projects. If you
-really need to get a hold of me, email me or mention <code>@evert</code> on github.</p>
-
-<p>Perhaps in time someone else will post
-a happy update here announcing a new maintainer and renewed interest.</p>
-
-<p>Until then, I'm sorry I'm letting you down and thanks to the hundreds of people
-that have supported me! Keep an eye on <a href="https://evertpot.com/">evertpot.com</a> if you're curious
-what I'm up to next!</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 3.2.2 released]]></title>
-            <link href="http://sabre.io/blog/2017/sabre-dav-3.2.2-release"/>
-            <updated>2017-02-15T02:45:34+00:00</updated>
-            <id>http://sabre.io/blog/2017/sabre-dav-3.2.2-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 3.2.2. This release fixes a regression introduced
-with sabre/dav 3.2.1 related to CardDAV synchronization.</p>
-
-<p>At the very least Em Client was affected by this.</p>
-
-<p>To upgrade sabre/http, make sure your <code>composer.json</code> requires "^3.2" for
-sabre/dav and run <code>composer update</code>.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/sabre-io/dav/blob/3.2.2/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/dav 3.2.1 released]]></title>
-            <link href="http://sabre.io/blog/2017/sabre-dav-3.2.1-release"/>
-            <updated>2017-01-29T18:40:41+00:00</updated>
-            <id>http://sabre.io/blog/2017/sabre-dav-3.2.1-release</id>
-            <content type="html"><![CDATA[<p>We just released sabre/dav 3.2.1. This release improves syncing large calendars
-when using SQLite and adds a new feature that allows CardDAV clients to use
-property-filters when requesting addressbooks (thanks @DeepDiver1975).</p>
-
-<p>If you're a user of the zip distribution, this release also updates all the
-dependencies so you get a number of bug fixes and performance improvements from
-those too.</p>
-
-<p>To upgrade sabre/http, make sure your <code>composer.json</code> requires "^3.2" for
-sabre/dav and run <code>composer update</code>.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/sabre-io/dav/blob/3.2.1/CHANGELOG.md">Github</a></p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[sabre/http 4.2.2 released]]></title>
-            <link href="http://sabre.io/blog/2016/sabre-http-4.2.2-release"/>
-            <updated>2016-12-07T18:43:40+00:00</updated>
-            <id>http://sabre.io/blog/2016/sabre-http-4.2.2-release</id>
-            <content type="html"><![CDATA[<p>Happy 2017!</p>
-
-<p>We just released sabre/http 4.2.2. This release adds a workaround for several
-broken HTTP client implementations, that send invalid <code>Content-Length</code> headers.</p>
-
-<p>This should improve general compatibility with no further side-effects.</p>
-
-<p>To upgrade sabre/http, make sure your <code>composer.json</code> requires "^4.2" for
-sabre/http and run <code>composer update</code>.</p>
-
-<p>Full changelog can be found on <a href="https://github.com/sabre-io/http/blob/4.2.2/CHANGELOG.md">Github</a></p>
 ]]></content>
         </entry>
     </feed>

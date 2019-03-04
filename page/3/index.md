@@ -143,6 +143,10 @@
                     <h1><a href="http://sabre.io/blog/2018/sabre-vobject-4.1.5-release">sabre/vobject 4.1.5 released</a></h1>
                     <p>We just released sabre/vobject 4.1.5.</article>
                 <hr />                            <article class="blog-entry">
+                    <time>Mar. 5th, 2018</time>
+                    <h1><a href="http://sabre.io/blog/2018/sabre-event-5.0.3-release">sabre/event 5.0.3 released</a></h1>
+                    <p>We just released sabre/event 5.0.3.</article>
+                <hr />                            <article class="blog-entry">
                     <time>Feb. 23rd, 2018</time>
                     <h1><a href="http://sabre.io/blog/2018/sabre-http-4.2.4-release">sabre/http 4.2.4 released</a></h1>
                     <p>We just released sabre/http 4.2.4. This release now sends <code>charset="UTF-8"</code> on Basic authentication challenges per RFC7617.</article>
@@ -154,10 +158,6 @@
                     <time>Dec. 22nd, 2017</time>
                     <h1><a href="http://sabre.io/blog/2017/sabre-vobject-4.1.4-release">sabre/vobject 4.1.4 released</a></h1>
                     <p>We just released sabre/vobject 4.1.4.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Oct. 18th, 2017</time>
-                    <h1><a href="http://sabre.io/blog/2017/sabre-vobject-4.1.3-release">sabre/vobject 4.1.3 released</a></h1>
-                    <p>We just released sabre/vobject 4.1.3.</article>
                                     </section>
     </div>
 </div>

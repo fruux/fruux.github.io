@@ -139,6 +139,21 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Sep. 20th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-event-4.0.0-release">sabre/event 4 released</a></h1>
+                    <p>We just released sabre/event 4.0.0.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Aug. 19th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/baikal-0.4.6-release">Baïkal 0.4.6 released</a></h1>
+                    <p>We just released Baïkal 0.4.6. This release contains a fix that prevented
+some users froms syncing contacts, if they were using the SQLite backend.</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Jun. 28th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.2.0-release">sabre/dav 3.2.0 released</a></h1>
+                    <p>We just released sabre/dav 3.2.0.
+This is a major new version, and we're very excited to bring you features
+we've been working on since last winter.</article>
+                <hr />                            <article class="blog-entry">
                     <time>May. 29th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sharing-changes">Changes to sharing in sabre/dav 3.2</a></h1>
                     <p>We are currently working on sabre/dav 3.2. <a href="http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt">A first beta has been released</a>.
@@ -147,21 +162,6 @@ This release includes major changes to the sharing system.</article>
                     <time>May. 29th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.4-release">sabre/dav 3.1.4 released</a></h1>
                     <p>We just released sabre/dav 3.1.4.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>May. 23rd, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/validation-changes">Upcoming changes to iCalendar and vCard validation in sabre/dav 3.2.</a></h1>
-                    <p>We are currently working on sabre/dav 3.2. <a href="https://github.com/sabre-io/dav/releases">A first beta has been released</a>.
-This release will include some changes to validating iCalendar and vCard.
-These changes might impact you if you use the Card- and CalDAV systems, or if
-you are a developer for a Cal/CardDAV client.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Apr. 7th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-vobject-3.5.3-release">sabre/vobject 3.5.3 released</a></h1>
-                    <p>We just released sabre/vobject 3.5.3.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Apr. 7th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-dav-3.1.3-release">sabre/dav 3.1.3 released</a></h1>
-                    <p>We just released sabre/dav 3.1.3. This release contains the following changes:</article>
                                     </section>
     </div>
 </div>

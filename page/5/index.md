@@ -139,6 +139,16 @@
         <section class="box box--news">
             <h1>News</h1>
                             <article class="blog-entry">
+                    <time>Jan. 29th, 2017</time>
+                    <h1><a href="http://sabre.io/blog/2017/sabre-dav-3.2.1-release">sabre/dav 3.2.1 released</a></h1>
+                    <p>We just released sabre/dav 3.2.1. This release improves syncing large calendars
+when using SQLite and adds a new feature that allows CardDAV clients to use
+property-filters when requesting addressbooks (thanks @DeepDiver1975).</article>
+                <hr />                            <article class="blog-entry">
+                    <time>Dec. 7th, 2016</time>
+                    <h1><a href="http://sabre.io/blog/2016/sabre-http-4.2.2-release">sabre/http 4.2.2 released</a></h1>
+                    <p>Happy 2017!</article>
+                <hr />                            <article class="blog-entry">
                     <time>Dec. 7th, 2016</time>
                     <h1><a href="http://sabre.io/blog/2016/sabre-uri-2.1.0-1.2.0-release">sabre/uri 2.1.0 and 1.2.0 released</a></h1>
                     <p>We just released sabre/uri 2.1.0 and 1.2.0. This release adds a new pure-php
@@ -155,16 +165,6 @@ relative uri containing an unencoded colon.</article>
                     <p>We just released sabre/xml 2.0.0.  Just like the major sabre/uri and
 sabre/event releases earlier, the main change is that we now require PHP 7
 and use strict typing across the board.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Oct. 23rd, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-event-5.0.0-release">sabre/event 5 released</a></h1>
-                    <p>We just released sabre/event 5.0.0. This is only a month after the last major
-release, but it's for a good reason.</article>
-                <hr />                            <article class="blog-entry">
-                    <time>Oct. 9th, 2016</time>
-                    <h1><a href="http://sabre.io/blog/2016/sabre-xml-1.5.0-release">sabre/xml 1.5.0 released</a></h1>
-                    <p>We just released sabre/xml 1.5.0. This release puts the minimim PHP version at
-PHP 5.5.</article>
                                     </section>
     </div>
 </div>

@@ -332,8 +332,8 @@ TEL;PREF;HOME:+1 555 555 555
 END:VCARD
 VCARD;
 
-$vCard = VObject\Reader::read($input);
-$vCard-&gt;convert(VObject\Document::VCARD40);
+$vcard = VObject\Reader::read($input);
+$vcard = $vcard-&gt;convert(VObject\Document::VCARD40);
 
 echo $vcard-&gt;serialize();
 

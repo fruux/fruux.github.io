@@ -80,23 +80,24 @@
 </aside>
                 <article>
                             <h1>Upgrading</h1>
-                <h2 id="upgrading-ba%C3%AFkal-to-0.4.x">Upgrading Baïkal to 0.4.X</h2>
+                <h2 id="upgrading-ba%C3%AFkal">Upgrading Baïkal</h2>
 
-<p>To upgrade from Baïkal to 0.4.X, follow the following steps:</p>
+<p>To upgrade Baïkal, follow the following steps:</p>
 
 <ol>
 <li>Make a backup of your MySQL or SQLite database. This step is really important!</li>
 <li>Make a backup of the <code>baikal</code> directory on your server, by creating a copy.</li>
-<li>Grab the latest Baikal 0.4.X zip file from <a href="https://github.com/sabre-io/Baikal/releases">github</a>.</li>
+<li>Grab the latest Baïkal zip file from <a href="https://github.com/sabre-io/Baikal/releases">GitHub</a>.
+Make sure to use the release file with bundled dependencies, not the plain source code.</li>
 <li>Upload the contents of the zip file to the server, but make sure you <em>do not</em>
-overwrite the <code>Specific</code> directory. Everything else may be overwritten.</li>
+overwrite the <code>Specific</code> directory. Everything else may be overwritten.
+Keep the whole <code>Specific</code> directory intact. Baïkal needs all files, not just the database.</li>
 <li>Open the administration panel on the server. Usually this is something like <code>http://dav.example.org/baikal/html/admin/</code>.</li>
 <li>Follow the steps in the administration panel.</li>
 </ol>
 
-<p>If you're having any problems with these steps at all, just <a href="https://github.com/sabre-io/Baikal/issues/new">contact us</a>.
-We are happy to help you get throug this, and even do the upgrade for you in
-case something went wrong along the way.</p>
+<p>If you're having any problems with these steps at all, just <a href="https://github.com/sabre-io/Baikal/issues/new?template=upgrading.md">contact us</a>.
+We are happy to help you get through this.</p>
 
 <p><strong>Please note:</strong> If you used the <code>flat</code> package in the past, this no longer
 exists. You can upgrade to this version no problem, however, the end-points for

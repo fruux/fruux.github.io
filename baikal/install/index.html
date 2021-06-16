@@ -63,15 +63,9 @@
                                 <ul>
                     <li><a href="https://sabre.io/baikal/">Introduction</a></li>
                     <li><a href="https://sabre.io/baikal/install/">Installation</a></li>
+                    <li><a href="https://sabre.io/baikal/docker-install/">Installation using Docker</a></li>
                     <li><a href="https://sabre.io/baikal/troubleshooting/">Troubleshooting</a></li>
                     <li><a href="https://sabre.io/baikal/upgrade/">Upgrading</a></li>
-                    <li>Using Baikal with Docker</li>
-                    <ul>
-                        <li><a href="https://sabre.io/baikal/docker-install/">Dockerized installation</a></li>
-                        <li><a href="https://sabre.io/baikal/docker-ready/">Docker image ready to run</a></li>
-                        <li><a href="https://sabre.io/baikal/docker-secure-deployment/">Secure deployment</a></li>
-                        <li><a href="https://sabre.io/baikal/docker-upgrade/">Dockerized upgrade</a></li>
-                    </ul>
                 </ul>
                             </li>
             <li><a href="https://sabre.io/license">License</a></li>
@@ -95,10 +89,10 @@
 <p>To install Baïkal, download the latest zip file from the <a href="https://github.com/sabre-io/Baikal/releases">releases page on github</a>.
 After downloading the file, unpack it and upload it to your server.</p>
 
-<p>After uploading, you <em>must</em> make sure that the <code>Specific</code> directory is writeable by
-your webserver process. This might mean that you need to give 'world-write' access
-via your FTP client, or maybe that you run <code>chown www-data:www-data Specific</code> on
-a console.</p>
+<p>After uploading, you <em>must</em> make sure that the <code>Specific</code> and the <code>config</code> directories
+are writeable by your webserver process. This might mean that you need to give
+'world-write' access via your FTP client, or maybe that you run 
+<code>chown -R www-data:www-data Specific config</code> on a console.</p>
 
 <p>After that step has been completed, you can access the installer by browsing to</p>
 
@@ -173,7 +167,7 @@ an apache vhost as a dedicated Baïkal vhost:</p>
 
   charset utf-8;
 
-  location ~ /(\.ht|Core|Specific) {
+  location ~ /(\.ht|Core|Specific|config) {
     deny all;
     return 404;
   }
@@ -215,7 +209,7 @@ ga('send', 'pageview');
 
     <nav>
         <ul>
-            <li>© 2020 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li>© 2021 <a href="https://fruux.com">fruux GmbH</a> · </li>
             <li><a href="https://sabre.io/support">Contact</a> · </li>
             <li><a href="https://sabre.io/legal">Legal Info</a></li>
         </ul>

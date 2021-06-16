@@ -3,7 +3,7 @@
 
     
 
-            <title>Dockerized Installation - baikal</title>
+            <title>Installation using Docker - baikal</title>
     
     <meta charset="utf-8">
 
@@ -63,15 +63,9 @@
                                 <ul>
                     <li><a href="https://sabre.io/baikal/">Introduction</a></li>
                     <li><a href="https://sabre.io/baikal/install/">Installation</a></li>
+                    <li><a href="https://sabre.io/baikal/docker-install/">Installation using Docker</a></li>
                     <li><a href="https://sabre.io/baikal/troubleshooting/">Troubleshooting</a></li>
                     <li><a href="https://sabre.io/baikal/upgrade/">Upgrading</a></li>
-                    <li>Using Baikal with Docker</li>
-                    <ul>
-                        <li><a href="https://sabre.io/baikal/docker-install/">Dockerized installation</a></li>
-                        <li><a href="https://sabre.io/baikal/docker-ready/">Docker image ready to run</a></li>
-                        <li><a href="https://sabre.io/baikal/docker-secure-deployment/">Secure deployment</a></li>
-                        <li><a href="https://sabre.io/baikal/docker-upgrade/">Dockerized upgrade</a></li>
-                    </ul>
                 </ul>
                             </li>
             <li><a href="https://sabre.io/license">License</a></li>
@@ -79,104 +73,14 @@
     </nav>
 </aside>
                 <article>
-                            <h1>Dockerized Installation</h1>
-                <h2 id="requirements">Requirements</h2>
+                            <h1>Installation using Docker</h1>
+                <p>Although we do not provide an official Baikal Docker image there is a community
+maintained image <strong><a href="https://hub.docker.com/r/ckulka/baikal">ckulka/baikal</a></strong> available on DockerHub.</p>
 
-<ul>
-<li>Docker 1.9 or later</li>
-<li>A Docker Hub account where to push the images</li>
-</ul>
+<p>It works well with Let's Encrypt and Traefik to provide secure installations.</p>
 
-<h2 id="deployment">Deployment</h2>
-
-<ul>
-<li>Clone the <strong><a href="https://github.com/pr3d4t0r/calendar">pr3d4t0r/calendar</a></strong> repository from GitHub</li>
-<li>Change the instances of "example.org" to your domain name
-
-<ul>
-<li><code>bin/runapache2</code></li>
-<li><code>resources/baikal.apache2</code></li>
-<li><code>resources/Server.php</code>
-
-<ul>
-<li>Find out your relay's host name &mdash; this guide uses <em>smtp.example.org</em></li>
-</ul></li>
-<li><code>Dockerfile</code>
-
-<ul>
-<li>Check your relay host name &mdash; this guide assumes
-<em>smtp.example.org</em></li>
-</ul></li>
-</ul></li>
-<li>Build the image and push it to Docker Hub</li>
-</ul>
-
-<pre><code>imageName="yourdockerhubname/calendar"; \
-docker build -t "$imageName" --rm=true . &amp;&amp; \
-docker push "$imageName"
-</code></pre>
-
-<p>On the target server:</p>
-
-<ul>
-<li>Create a service account to run the calendar (e.g. <code>/home/calendar</code> or 
-<code>/var/calendar</code> or whatever); these examples assume <code>/home/calendar</code></li>
-<li>Create a data directory and an empty database:</li>
-</ul>
-
-<pre><code># This is the simplest mechanism to get around the permissions mismatch between
-# Docker instances and the local file system
-# This could've been resolved with a data volume; that's beyond the scope of 
-# this setup
-
-mkdir -p /home/calendar/db &amp;&amp; \
-chmod 777 /home/calendar/db &amp;&amp; \
-touch /home/calendar/db/db.sqlite &amp;&amp; \
-chmod 666 /home/calendar/db/db.sqlite
-</code></pre>
-
-<ul>
-<li>Start a new instance of the service in the <code>/home/calendar</code> directory:</li>
-</ul>
-
-<pre><code>docker run --name "calendar.service" \
-    --privileged=true \
-    -h "calendar" \
-    -e "CONTAINER_DOMAIN_NAME=yourdomain.name" \
-    -v "$(pwd)/db":"/var/www/calendar_server/" \
-    -p "8800:80" \
-    -d "yourdockerhubname/calendar"
-</code></pre>
-
-<ul>
-<li>List the current instances and check if the service is running on the server</li>
-</ul>
-
-<pre><code>docker ps -a
-</code></pre>
-
-<pre><code>CONTAINER ID        IMAGE                        COMMAND             CREATED             STATUS              PORTS                  NAMES
-83d209fefa91        yourdockerhubname/calendar   "/runapache2"       2 minutes ago       Up 2 minutes        0.0.0.0:8800-&gt;80/tcp   calendar.service
-</code></pre>
-
-<ul>
-<li>Configure the Baïkal server by connecting to the instance on port 8800</li>
-</ul>
-
-<p><img src='/img/baikal-admin-wizard.png' style="width: 100%; max-width: 640px;" />
-<img src='/img/baikal-db-wizard.png' style="width: 100%; max-width: 640px;" />
-<img src='/img/baikal-installed.png' style="width: 100%; max-width: 640px;" /></p>
-
-<p>The installation is complete.  Users, calendars, address books, etc. can all be
-managed now, like in this production instance.</p>
-
-<p><img src='/img/baikal-in-use.png' style="width: 100%; max-width: 640px;" /></p>
-
-<h2 id="implementation-notes">Implementation notes</h2>
-
-<p>A full discussion of the implementation details is available from
-<a href="https://eugeneciurana.com/entry/robust-calendar-service-deployment-howto">Robust Calendar Service Deployment with Baïkal / SabreDAV Calendar in 10 Minutes</a>
-and the <a href="https://eugeneciurana.com/entry/improved-baikal-sabredav-calendar-in-less-than-10-minutes">update/upgrade in less than 10 minutes</a> follow up.</p>
+<p>For details and installation instructions see <strong><a href="https://github.com/ckulka/baikal-docker">ckulka/baikal-docker</a></strong> on
+GitHub.</p>
             
             
                     </article>
@@ -204,7 +108,7 @@ ga('send', 'pageview');
 
     <nav>
         <ul>
-            <li>© 2020 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li>© 2021 <a href="https://fruux.com">fruux GmbH</a> · </li>
             <li><a href="https://sabre.io/support">Contact</a> · </li>
             <li><a href="https://sabre.io/legal">Legal Info</a></li>
         </ul>
